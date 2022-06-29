@@ -4,8 +4,6 @@
   </button>
 </template>
 <script lang="ts" setup>
-import { PropType } from "vue";
-
 export type ButtonVariant = 'default' | 'alternative' | 'dark' | 'light' | 'green' | 'red' | 'yellow' | 'purple'
 
 defineProps({
