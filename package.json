@@ -1,23 +1,20 @@
 {
   "name": "flowbite-vue",
-  "version": "0.4.1",
-  "description": "🌙 A lightweight Vue 3 component library",
-  "repository": "https://github.com/ulissesferreira/moon.git",
-  "author": "Ulisses Ferreira <ulisses@hey.com>",
+  "version": "1.0.0",
+  "repository": "https://github.com/themesberg/flowbite-vue.git",
+  "author": "Ralph Schuler <ralph@inhaus.ai>",
   "license": "MIT",
   "files": [
     "dist"
   ],
-  "main": "./dist/moon.umd.js",
-  "module": "./dist/moon.es.js",
+  "main": "./dist/flowbite-vue.umd.js",
+  "module": "./dist/flowbite-vue.es.js",
   "exports": {
     ".": {
-      "import": "./dist/moon.es.js",
-      "require": "./dist/moon.umd.js"
+      "import": "./dist/flowbite-vue.es.js",
+      "require": "./dist/flowbite-vue.umd.js"
     }
   },
-  "unpkg": "./dist/moon.umd.js",
-  "jsdelivr": "./dist/moon.umd.js",
   "scripts": {
     "dev": "vitepress dev docs",
     "serve": "vitepress serve docs",
