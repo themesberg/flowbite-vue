@@ -1,6 +1,6 @@
 <template>
   <Button variant="default">
-    Кнопка
+    button
   </Button>
 </template>
 <script setup>
