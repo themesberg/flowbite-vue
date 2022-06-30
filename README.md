@@ -35,8 +35,8 @@
 
 - [Documentation](#documentation)
 - [Getting started](#getting-started)
-  - [Require via `npm`](#require-via--npm-)
-  - [Include via CDN](#include-via-cdn)
+    - [Require via `npm`](#require-via--npm-)
+    - [Include via CDN](#include-via-cdn)
 - [Components](#components)
 - [Community](#community)
 - [Contributing](#contributing)
