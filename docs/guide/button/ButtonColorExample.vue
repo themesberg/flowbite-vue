@@ -9,9 +9,7 @@
     <Button color="yellow">Yellow</Button>
     <Button color="purple">Purple</Button>
   </div>
-
-
 </template>
 <script setup>
-import { Button } from "../../../src/index";
+import { Button } from '../../../src/index'
 </script>

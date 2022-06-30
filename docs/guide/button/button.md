@@ -8,9 +8,7 @@ import ButtonPillExample from './ButtonPillExample.vue';
 
 reference: [https://flowbite.com/docs/components/buttons/](https://flowbite.com/docs/components/buttons/)
 
-## Props
-
-### Color
+## Props -> Color
 
 ```typescript
 type ButtonVariant = 'default' | 'alternative' | 'dark' | 'light' | 'green' | 'red' | 'yellow' | 'purple'
@@ -42,7 +40,7 @@ import { Button } from 'flowbite-vue'
 ```
 
 
-### Size
+## Props -> Size
 
 ```typescript
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -70,7 +68,7 @@ import { Button } from 'flowbite-vue'
 </template>
 ```
 
-### Pill
+## Props -> Pill
 
 ```typescript
 defineProps({

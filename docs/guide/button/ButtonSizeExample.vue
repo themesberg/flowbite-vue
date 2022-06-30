@@ -6,9 +6,7 @@
     <Button size="lg">Large - lg</Button>
     <Button size="xl">Extra Large - xl</Button>
   </div>
-
-
 </template>
 <script setup>
-import { Button } from "../../../src/index";
+import { Button } from '../../../src/index'
 </script>
