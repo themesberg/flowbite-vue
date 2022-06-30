@@ -11,5 +11,5 @@
   </div>
 </template>
 <script setup>
-import { Button } from '../../../src/index'
+import { Button } from '../../../../src/index'
 </script>

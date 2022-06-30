@@ -1,0 +1,7 @@
+button,
+input,
+optgroup,
+select,
+textarea {
+    border: inherit; /* border: 0 by default in vitepress removes all border for border class */
+}

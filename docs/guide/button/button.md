@@ -1,14 +1,19 @@
 <script setup>
-import ButtonColorExample from './ButtonColorExample.vue';
-import ButtonSizeExample from './ButtonSizeExample.vue';
-import ButtonPillExample from './ButtonPillExample.vue';
+import ButtonColorExample from './examples/ButtonColorExample.vue';
+import ButtonSizeExample from './examples/ButtonSizeExample.vue';
+import ButtonPillExample from './examples/ButtonPillExample.vue';
+import ButtonGradientMonochromeExample from './examples/ButtonGradientMonochromeExample.vue';
+import ButtonGradientDuotoneExample from './examples/ButtonGradientDuotoneExample.vue';
+import ButtonOutlineColorExample from './examples/ButtonOutlineColorExample.vue';
+import ButtonPrefixExample from './examples/ButtonPrefixExample.vue';
+import ButtonSuffixExample from './examples/ButtonSuffixExample.vue';
 </script>
 
 # Button
 
 reference: [https://flowbite.com/docs/components/buttons/](https://flowbite.com/docs/components/buttons/)
 
-## Props -> Color
+## Prop - color
 
 ```typescript
 type ButtonVariant = 'default' | 'alternative' | 'dark' | 'light' | 'green' | 'red' | 'yellow' | 'purple'
@@ -40,7 +45,7 @@ import { Button } from 'flowbite-vue'
 ```
 
 
-## Props -> Size
+## Prop - size
 
 ```typescript
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -68,7 +73,7 @@ import { Button } from 'flowbite-vue'
 </template>
 ```
 
-## Props -> Pill
+## Prop - pill
 
 ```typescript
 defineProps({
@@ -98,4 +103,122 @@ import { Button } from 'flowbite-vue'
 </template>
 ```
 
+## Prop - gradient (monochrome)
 
+```typescript
+type ButtonMonochromeGradient = 'blue' | 'green' | 'cyan' | 'teal' | 'lime' | 'red' | 'pink' | 'purple'
+type ButtonDuotoneGradient = 'purple-blue' | 'cyan-blue' | 'green-blue' | 'purple-pink' | 'pink-orange' | 'teal-lime' | 'red-yellow'
+type ButtonGradient = ButtonDuotoneGradient | ButtonMonochromeGradient
+
+defineProps({
+    gradient: {
+        type: [String, null] as PropType<ButtonGradient | null>,
+        default: null,
+    },
+})
+```
+
+
+<ButtonGradientMonochromeExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button gradient="blue">Blue</Button>
+  <Button gradient="cyan">Cyan</Button>
+  <Button gradient="green">Green</Button>
+  <Button gradient="lime">Lime</Button>
+  <Button gradient="pink">Pink</Button>
+  <Button gradient="purple">Purple</Button>
+  <Button gradient="red">Red</Button>
+  <Button gradient="teal">Teal</Button>
+</template>
+```
+
+
+## Prop - gradient  (duotone)
+
+<ButtonGradientDuotoneExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button gradient="purple-blue">Purple to blue</Button>
+  <Button gradient="cyan-blue">Cyan to blue</Button>
+  <Button gradient="green-blue">Green to blue</Button>
+  <Button gradient="purple-pink">Purple to pink</Button>
+  <Button gradient="pink-orange">Pink to orange</Button>
+  <Button gradient="teal-lime">Teal to lime</Button>
+  <Button gradient="red-yellow">Red to yellow</Button>
+</template>
+```
+
+## Prop - outline (color)
+
+```typescript
+defineProps({
+    outline: {
+        type: Boolean,
+        default: false,
+    },
+})
+```
+
+
+<ButtonOutlineColorExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button gradient="purple-blue">Purple to blue</Button>
+  <Button gradient="cyan-blue">Cyan to blue</Button>
+  <Button gradient="green-blue">Green to blue</Button>
+  <Button gradient="purple-pink">Purple to pink</Button>
+  <Button gradient="pink-orange">Pink to orange</Button>
+  <Button gradient="teal-lime">Teal to lime</Button>
+  <Button gradient="red-yellow">Red to yellow</Button>
+</template>
+```
+
+
+## Slot - prefix
+
+<ButtonPrefixExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button color="default">
+    <template #prefix>
+      <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
+    </template>
+    Buy
+  </Button>
+</template>
+```
+
+## Slot - suffix
+
+<ButtonSuffixExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button color="default">
+    Choose plan
+    <template #suffix>
+      <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </template>
+  </Button>
+</template>
+```
