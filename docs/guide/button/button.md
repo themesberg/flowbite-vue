@@ -7,6 +7,8 @@ import ButtonGradientDuotoneExample from './examples/ButtonGradientDuotoneExampl
 import ButtonOutlineColorExample from './examples/ButtonOutlineColorExample.vue';
 import ButtonPrefixExample from './examples/ButtonPrefixExample.vue';
 import ButtonSuffixExample from './examples/ButtonSuffixExample.vue';
+import ButtonOutlineGradientExample from './examples/ButtonOutlineGradientExample.vue';
+import ButtonGradientShadowExample from './examples/ButtonGradientShadowExample.vue';
 </script>
 
 # Button
@@ -187,6 +189,46 @@ import { Button } from 'flowbite-vue'
 ```
 
 
+## Prop - outline (gradient)
+
+<ButtonOutlineGradientExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button gradient="purple-blue" outline>Purple to blue</Button>
+  <Button gradient="cyan-blue" outline>Cyan to blue</Button>
+  <Button gradient="green-blue" outline>Green to blue</Button>
+  <Button gradient="purple-pink" outline>Purple to pink</Button>
+  <Button gradient="pink-orange" outline>Pink to orange</Button>
+  <Button gradient="teal-lime" outline>Teal to lime</Button>
+  <Button gradient="red-yellow" outline>Red to yellow</Button>
+</template>
+```
+
+## Prop - shadow
+
+<ButtonGradientShadowExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button gradient="blue" shadow>Blue</Button>
+  <Button gradient="cyan" shadow>Cyan</Button>
+  <Button gradient="green" shadow>Green</Button>
+  <Button gradient="lime" shadow>Lime</Button>
+  <Button gradient="pink" shadow>Pink</Button>
+  <Button gradient="purple" shadow>Purple</Button>
+  <Button gradient="red" shadow>Red</Button>
+  <Button gradient="teal" shadow>Teal</Button>
+</template>
+```
+
+
 ## Slot - prefix
 
 <ButtonPrefixExample />
@@ -222,3 +264,5 @@ import { Button } from 'flowbite-vue'
   </Button>
 </template>
 ```
+
+

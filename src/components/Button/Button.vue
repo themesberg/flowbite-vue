@@ -1,7 +1,9 @@
 <template>
   <button type="button" :class="bindClasses">
     <slot name="prefix" />
-    <slot/>
+    <span :class="spanClasses">
+      <slot/>
+    </span>
     <slot name="suffix" />
   </button>
 </template>
@@ -39,32 +41,66 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  shadow: {
+    type: [String, null] as PropType<ButtonMonochromeGradient | '' | null>,
+    default: null,
+  },
 })
 
 const slots = useSlots()
 
 const bindClasses = computed(() => {
+  const isGradient = !!props.gradient
+  const isColor = !!props.color
+  const isOutline = props.outline
+
   let backgroundClass = ''
-  if(props.gradient) {
-    backgroundClass = buttonGradientClasses[props.gradient]
-  } else {
-    if(props.outline) { // if outline and no gradient
-      if(['alternative', 'light'].includes(props.color)) { // invalid colors for outline
-        backgroundClass = buttonColorClasses[props.color]
-      } else {
-        backgroundClass = buttonOutlineColorClasses[props.color as unknown as keyof typeof buttonOutlineColorClasses]
-      }
+
+  if(isGradient && isOutline) {
+    if(['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple'].includes(props.gradient)) { // invalid gradients for outline
+      backgroundClass = buttonGradientClasses[props.gradient]
     } else {
+      backgroundClass = buttonOutlineGradientClasses[props.gradient as unknown as keyof typeof buttonOutlineGradientClasses]
+    }
+  } else if(isGradient) {
+    backgroundClass = buttonGradientClasses[props.gradient]
+  } else if(isColor && isOutline) {
+    if(['alternative', 'light'].includes(props.color)) { // invalid colors for outline
       backgroundClass = buttonColorClasses[props.color]
+    } else {
+      backgroundClass = buttonOutlineColorClasses[props.color as unknown as keyof typeof buttonOutlineColorClasses]
+    }
+  } else {
+    backgroundClass = buttonColorClasses[props.color]
+  }
+
+  let shadowClass = ''
+  if(props.shadow === '') {
+    if(props.gradient && ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple'].includes(props.gradient)) {
+      shadowClass = buttonShadowClasses[props.gradient as unknown as keyof typeof buttonShadowClasses]
+    }
+  } else if(typeof props.shadow === 'string') {
+    if(['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple'].includes(props.shadow)) {
+      shadowClass = buttonShadowClasses[props.shadow as unknown as keyof typeof buttonShadowClasses]
     }
   }
+
   return classNames(
       backgroundClass,
-      buttonSizeClasses[props.size],
+      shadowClass,
+      (isGradient && isOutline) ? 'p-0.5' : buttonSizeClasses[props.size],
       props.pill ? '!rounded-full' : '',
       (slots.prefix || slots.suffix) ? 'inline-flex items-center' : '',
-
   )
+})
+
+const spanClasses = computed(() => {
+  if(!!props.gradient && props.outline)
+    return classNames(
+        'relative transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0',
+        buttonSizeClasses[props.size],
+    )
+  return ''
 })
 
 const buttonColorClasses: Record<ButtonVariant, string> = {
@@ -105,6 +141,16 @@ const buttonGradientClasses: Record<ButtonGradient, string> = {
   'teal': 'text-white bg-gradient-to-r from-teal-500 via-teal-600 to-teal-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 rounded-lg',
 }
 
+const buttonOutlineGradientClasses: Record<ButtonDuotoneGradient, string> = {
+  'cyan-blue': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800',
+  'green-blue': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800',
+  'pink-orange': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800',
+  'purple-blue': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800',
+  'purple-pink': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800',
+  'red-yellow': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400',
+  'teal-lime': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800',
+}
+
 const buttonSizeClasses: Record<ButtonSize, string> = {
   xs: 'text-xs px-2 py-1',
   sm: 'text-sm px-3 py-1.5',
@@ -113,4 +159,14 @@ const buttonSizeClasses: Record<ButtonSize, string> = {
   xl: 'text-base px-6 py-3',
 }
 
+const buttonShadowClasses: Record<ButtonMonochromeGradient, string> = {
+  'blue': 'shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80',
+  'cyan': 'shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80',
+  'green': 'shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80',
+  'lime': 'shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80',
+  'pink': 'shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80',
+  'purple': 'shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80',
+  'red': 'shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80',
+  'teal': 'shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80',
+}
 </script>
