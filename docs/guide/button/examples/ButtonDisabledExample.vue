@@ -1,13 +1,10 @@
 <template>
   <div class="inline-flex align-center gap-2 flex-wrap">
     <Button color="default" disabled>Default</Button>
-    <Button color="alternative" disabled>Alternative</Button>
-    <Button color="dark" disabled>Dark</Button>
-    <Button color="light" disabled>Light</Button>
-    <Button color="green" disabled>Green</Button>
-    <Button color="red" disabled>Red</Button>
-    <Button color="yellow" disabled>Yellow</Button>
-    <Button color="purple" disabled>Purple</Button>
+    <Button color="default" outline disabled>Default outline</Button>
+    <Button gradient="red" disabled>Red gradient</Button>
+    <Button gradient="red-yellow" disabled>Red to yellow gradient</Button>
+    <Button gradient="red-yellow" outline disabled>Red to yellow outline</Button>
   </div>
 </template>
 <script setup>
