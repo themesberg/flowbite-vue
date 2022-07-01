@@ -157,6 +157,7 @@ export type UseButtonClassesProps = {
 }
 
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
+const alternativeColors = ['alternative', 'light']
 
 export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses: Ref<string>, spanClasses: Ref<string> } {
   const slots = useSlots()
@@ -180,7 +181,9 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
 
         if(!props.disabled)
           hoverClass = buttonOutlineGradientClasses.hover[props.gradient as unknown as keyof typeof buttonOutlineGradientClasses.hover]
-      } // TODO: log for invalid props or fallback
+      } else {
+        console.warn(`cannot use outline prop with "${props.gradient}" gradient`) // TODO: prettify
+      }
 
 
     } else if (isGradient) { // JUST GRADIENT
@@ -191,12 +194,14 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
 
 
     } else if (isColor && isOutline) { // COLOR AND OUTLINE
-      if (!['alternative', 'light'].includes(props.color)) {
+      if (!alternativeColors.includes(props.color)) {
         backgroundClass = buttonOutlineColorClasses.default[props.color as unknown as keyof typeof buttonOutlineColorClasses.default]
 
         if(!props.disabled)
           hoverClass = buttonOutlineColorClasses.hover[props.color as unknown as keyof typeof buttonOutlineColorClasses.hover]
-      } // TODO: log for invalid props or fallback
+      } else {
+        console.warn(`cannot use outline prop with "${props.color}" color`) // TODO: prettify
+      }
 
 
     } else { // JUST COLOR
@@ -225,7 +230,7 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
       shadowClass,
       props.pill ? '!rounded-full' : '',
       props.disabled ? 'cursor-not-allowed opacity-50' : '',
-      isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
+      (isGradient && isOutline) ? 'p-0.5' : sizeClasses.value,
       (slots.prefix || slots.suffix || props.loading) ? 'inline-flex items-center' : '',
     )
   })
@@ -233,7 +238,7 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
   const spanClasses = computed(() => {
     if (!!props.gradient && props.outline) { // ONLY FOR GRADIENT OUTLINE BUTTON
         return classNames(
-            'relative bg-white dark:bg-gray-900 rounded-md',
+            'relative bg-white dark:bg-gray-900 rounded-md inline-flex items-center',
             sizeClasses.value,
             !props.disabled ? 'group-hover:bg-opacity-0 transition-all ease-in duration-75' : '',
         )

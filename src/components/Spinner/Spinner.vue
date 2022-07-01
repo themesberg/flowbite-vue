@@ -5,47 +5,22 @@
   </svg>
 </template>
 <script lang="ts" setup>
-import { computed } from 'vue'
 import type { PropType } from 'vue'
+import { useSpinnerClasses } from './useSpinnerClasses'
 
 export type SpinnerSize = '0' | 'px' | '0.5' | '1' | '1.5' | '2' | '2.5' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12'
+export type SpinnerColor = 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white'
 
 const props = defineProps({
   size: {
     type: String as PropType<SpinnerSize>, // any string for w-${size} and h-${size} tailwind classes, TODO: add all classes
     default: '4',
   },
+  color: {
+    type: String as PropType<SpinnerColor>, // any string for w-${size} and h-${size} tailwind classes, TODO: add all classes
+    default: 'blue',
+  },
 })
-const sizes: Record<SpinnerSize, string> = {
-  '0': 'w-0 h-0',
-  '0.5': 'w-0.5 h-0.5',
-  '1': 'w-1 h-1',
-  '1.5': 'w-1.5 h-1.5',
-  '10': 'w-10 h-10',
-  '11': 'w-11 h-11',
-  '12': 'w-12 h-12',
-  '2': 'w-2 h-2',
-  '2.5': 'w-2.5 h-2.5',
-  '3': 'w-3 h-3',
-  '4': 'w-4 h-4',
-  '5': 'w-5 h-5',
-  '6': 'w-6 h-6',
-  '7': 'w-7 h-7',
-  '8': 'w-8 h-8',
-  '9': 'w-9 h-9',
-  px: 'w-px h-px',
-}
-const sizeClasses = computed(() => {
-  return sizes[props.size]
-})
-const colorClasses = computed(() => 'text-gray-200 dark:text-gray-600 fill-blue-600')
-const animateClasses = computed(() => 'animate-spin')
 
-const spinnerClasses = computed(() => {
-  return [
-      sizeClasses.value,
-      colorClasses.value,
-      animateClasses.value,
-  ]
-})
+const { spinnerClasses } = useSpinnerClasses(props)
 </script>
