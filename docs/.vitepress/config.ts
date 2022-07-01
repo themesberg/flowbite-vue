@@ -17,6 +17,7 @@ function buildSidebar() {
 function getComponents() {
   return [
     { text: 'Button', link: '/guide/button/button.md' },
+    { text: 'Button Group', link: '/guide/buttonGroup/buttonGroup.md' },
     { text: 'Spinner', link: '/guide/spinner/spinner.md' },
   ]
 }
