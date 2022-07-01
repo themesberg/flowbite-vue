@@ -17,7 +17,7 @@ const props = defineProps({
     default: '4',
   },
   color: {
-    type: String as PropType<SpinnerColor>, // any string for w-${size} and h-${size} tailwind classes, TODO: add all classes
+    type: String as PropType<SpinnerColor>,
     default: 'blue',
   },
 })
