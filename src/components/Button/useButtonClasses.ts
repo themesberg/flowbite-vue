@@ -16,7 +16,7 @@ const buttonColorClasses:  { hover: Record<ButtonVariant, string>, default: Reco
     purple: 'focus:outline-none text-white bg-purple-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg dark:bg-purple-600 dark:focus:ring-purple-900',
   },
   hover: {
-    default: 'hover:bg-blue-800dark:hover:bg-blue-700',
+    default: 'hover:bg-blue-800 dark:hover:bg-blue-700',
     alternative: 'hover:bg-gray-100 hover:text-blue-700 dark:hover:text-white dark:hover:bg-gray-700',
     dark: 'hover:bg-gray-900 dark:hover:bg-gray-700',
     light: 'hover:bg-gray-100 dark:hover:border-gray-600',
