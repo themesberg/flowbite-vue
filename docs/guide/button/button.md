@@ -9,6 +9,10 @@ import ButtonPrefixExample from './examples/ButtonPrefixExample.vue';
 import ButtonSuffixExample from './examples/ButtonSuffixExample.vue';
 import ButtonOutlineGradientExample from './examples/ButtonOutlineGradientExample.vue';
 import ButtonGradientShadowExample from './examples/ButtonGradientShadowExample.vue';
+import ButtonIconExample from './examples/ButtonIconExample.vue';
+import ButtonSquareExample from './examples/ButtonSquareExample.vue';
+import ButtonDisabledExample from './examples/ButtonDisabledExample.vue';
+import ButtonLoadingExample from './examples/ButtonLoadingExample.vue';
 </script>
 
 # Button
@@ -210,6 +214,17 @@ import { Button } from 'flowbite-vue'
 
 ## Prop - shadow
 
+```typescript
+type ButtonMonochromeGradient = 'blue' | 'green' | 'cyan' | 'teal' | 'lime' | 'red' | 'pink' | 'purple'
+
+defineProps({
+    shadow: {
+        type: [String, null] as PropType<ButtonMonochromeGradient | '' | null>,
+        default: null,
+    },
+})
+```
+
 <ButtonGradientShadowExample />
 
 ```vue
@@ -228,6 +243,153 @@ import { Button } from 'flowbite-vue'
 </template>
 ```
 
+
+## Prop - square
+
+```typescript
+defineProps({
+    square: {
+        type: Boolean,
+        default: false,
+    },
+})
+```
+
+
+<ButtonSquareExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button gradient="red-yellow" square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </Button>
+  <Button color="default" pill square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </Button>
+  <Button color="dark" outline square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </Button>
+  <Button color="yellow" pill outline square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </Button>
+</template>
+```
+
+
+## Prop - loading
+
+```typescript
+defineProps({
+    loading: {
+        type: Boolean,
+        default: false,
+    },
+    loadingPosition: {
+        type: String as PropType<'suffix' | 'prefix'>,
+        default: 'prefix',
+    },
+})
+```
+
+
+<ButtonLoadingExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+const loading = ref(false)
+</script>
+<template>
+  <Button gradient="purple-blue" outline :disabled="loading" :loading="loading" @click="loading = !loading" size="xs">
+    Click me
+  </Button>
+  <Button gradient="red-yellow" :loading="loading" @click="loading = !loading" size="sm">
+    Click me
+  </Button>
+  <Button outline color="default" loading-position="suffix" :loading="loading" @click="loading = !loading">
+    Click me
+    <template #suffix>
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+      </svg>
+    </template>
+  </Button>
+  <Button gradient="green-blue" :loading="loading" @click="loading = !loading" size="lg">
+    Click me
+  </Button>
+  <Button gradient="pink" :loading="loading" @click="loading = !loading" size="xl">
+    Click me
+  </Button>
+</template>
+```
+
+
+## Prop - disabled
+
+```typescript
+defineProps({
+    disabled: {
+        type: Boolean,
+        default: false,
+    },
+})
+```
+
+
+<ButtonDisabledExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button gradient="red-yellow" square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </Button>
+  <Button color="default" pill square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </Button>
+  <Button color="dark" outline square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </Button>
+  <Button color="yellow" pill outline square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </Button>
+</template>
+```
+
+
+## Slot - default
+
+<ButtonIconExample />
+
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button gradient="purple-blue" square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </Button>
+  <Button color="default" pill square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </Button>
+  <Button gradient="green-blue" square>
+    Close something
+  </Button>
+  <Button color="default" pill outline square>
+    Open something
+    <template #suffix>
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </template>
+  </Button>
+</template>
+```
 
 ## Slot - prefix
 
@@ -264,5 +426,3 @@ import { Button } from 'flowbite-vue'
   </Button>
 </template>
 ```
-
-
