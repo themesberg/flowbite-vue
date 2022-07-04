@@ -4,7 +4,9 @@ import classNames from 'classnames'
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './Button.vue'
 
 
-const buttonColorClasses:  { hover: Record<ButtonVariant, string>, default: Record<ButtonVariant, string> } = {
+export type ButtonClassMap<T extends string> =  { hover: Record<T, string>, default: Record<T, string> }
+
+const buttonColorClasses: ButtonClassMap<ButtonVariant> = {
   default: {
     default: 'text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800',
     alternative: 'font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600',
@@ -28,10 +30,7 @@ const buttonColorClasses:  { hover: Record<ButtonVariant, string>, default: Reco
   },
 }
 
-const buttonOutlineColorClasses: {
-  hover: Record<Exclude<ButtonVariant, 'light' | 'alternative'>, string>,
-  default: Record<Exclude<ButtonVariant, 'light' | 'alternative'>, string>
-} = {
+const buttonOutlineColorClasses: ButtonClassMap<Exclude<ButtonVariant, 'light' | 'alternative'>> = {
   default: {
     dark: 'text-gray-900 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm text-center dark:border-gray-600 dark:text-gray-400 dark:focus:ring-gray-800',
     default: 'text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800',
@@ -51,7 +50,7 @@ const buttonOutlineColorClasses: {
 }
 
 
-const buttonGradientClasses: { hover: Record<ButtonGradient, string>, default: Record<ButtonGradient, string> } = {
+const buttonGradientClasses: ButtonClassMap<ButtonGradient> = {
   hover: {
     'cyan-blue': 'hover:bg-gradient-to-bl',
     'green-blue': 'hover:bg-gradient-to-bl',
@@ -88,7 +87,7 @@ const buttonGradientClasses: { hover: Record<ButtonGradient, string>, default: R
   },
 }
 
-const buttonOutlineGradientClasses: { hover: Record<ButtonDuotoneGradient, string>, default: Record<ButtonDuotoneGradient, string> } = {
+const buttonOutlineGradientClasses: ButtonClassMap<ButtonDuotoneGradient> = {
   default: {
     'cyan-blue':
         'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800',
