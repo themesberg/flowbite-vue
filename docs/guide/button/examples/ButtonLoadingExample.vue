@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-flex items-center gap-2 flex-wrap">
+  <div class="vp-raw inline-flex items-center gap-2 flex-wrap">
     <Button gradient="purple-blue" outline :disabled="loading" :loading="loading" @click="loading = !loading" size="xs">
       Click me
     </Button>

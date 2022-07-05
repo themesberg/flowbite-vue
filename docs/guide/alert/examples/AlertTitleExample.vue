@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div class="vp-raw flex flex-col">
     <Alert type="info" title="Some info title" class="mb-2">Info</Alert>
     <Alert type="warning" title="Some warning title" class="mb-2">Warning</Alert>
     <Alert type="danger" title="Some danger title" class="mb-2">Danger</Alert>

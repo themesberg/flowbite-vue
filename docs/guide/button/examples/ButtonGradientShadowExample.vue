@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-flex align-center gap-2 flex-wrap">
+  <div class="vp-raw inline-flex align-center gap-2 flex-wrap">
     <Button gradient="blue" shadow>Blue with blue</Button>
     <Button gradient="cyan" shadow>Cyan with cyan</Button>
     <Button gradient="green" shadow>Green with green</Button>

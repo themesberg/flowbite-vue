@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-flex align-center gap-2 flex-wrap">
+  <div class="vp-raw inline-flex align-center gap-2 flex-wrap">
     <spinner color="blue" size="6" />
     <spinner color="pink" size="8" />
     <spinner color="gray" size="10" />

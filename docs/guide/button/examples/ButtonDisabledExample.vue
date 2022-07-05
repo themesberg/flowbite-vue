@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-flex align-center gap-2 flex-wrap">
+  <div class="vp-raw inline-flex align-center gap-2 flex-wrap">
     <Button color="default" disabled>Default</Button>
     <Button color="default" outline disabled>Default outline</Button>
     <Button gradient="red" disabled>Red gradient</Button>

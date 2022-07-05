@@ -16,7 +16,7 @@
     <div :class="contentClasses">
       <slot />
     </div>
-    <div class="inline-flex items-center">
+    <div class="inline-flex items-center" v-if="$slots.actions">
       <slot name="actions" />
     </div>
     <button type="button" :class="closeClasses" aria-label="Close" @click="onCloseClick" v-if="inline && closable">

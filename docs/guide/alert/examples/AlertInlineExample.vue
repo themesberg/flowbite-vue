@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div class="vp-raw flex flex-col">
     <Alert type="info" title="Info title" :inline="false" class="mb-2">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae eaque error est eveniet, facere illo labore libero minima molestiae neque nisi non officia quod sed temporibus unde vitae voluptates.
     </Alert>
