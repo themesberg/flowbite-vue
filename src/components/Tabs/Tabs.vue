@@ -12,18 +12,23 @@
         />
       </ul>
     </div>
-    <slot/>
+    <div v-bind="$attrs">
+      <slot />
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { TAB_ACTIVATE_INJECTION_KEY, TAB_STYLE_INJECTION_KEY } from './config'
+import {
+  TAB_ACTIVATE_INJECTION_KEY,
+  TAB_ACTIVE_NAME_INJECTION_KEY,
+  TAB_STYLE_INJECTION_KEY,
+  TAB_VISIBILITY_DIRECTIVE_INJECTION_KEY,
+} from './config'
 import { useTabsClasses } from './useTabsClasses'
 import type { PropType } from 'vue'
-import { computed, provide, useSlots } from 'vue'
+import { computed, provide, toRef, useSlots } from 'vue'
 import { flatten } from '../../utils/flatten'
 import TabPane from './components/TabPane/TabPane.vue'
-
-export type TabsVariant = 'default' | 'underline' | 'pills'
 
 const props = defineProps({
   variant: {
@@ -34,8 +39,11 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  directive: {
+    type: String as PropType<'if' | 'show'>,
+    default: 'if',
+  },
 })
-
 
 const emit = defineEmits(['update:modelValue'])
 
@@ -59,9 +67,21 @@ const modelValueRef = computed({
   set: (value: string) => emit('update:modelValue', value),
 })
 
+provide(TAB_ACTIVE_NAME_INJECTION_KEY, modelValueRef)
+provide(TAB_VISIBILITY_DIRECTIVE_INJECTION_KEY, toRef(props, 'directive'))
+
+
 const onActivate = (value: string) => {
   modelValueRef.value = value
 }
 
 provide(TAB_ACTIVATE_INJECTION_KEY, onActivate)
+</script>
+
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+}
+
+export type TabsVariant = 'default' | 'underline' | 'pills'
 </script>
