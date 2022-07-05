@@ -41,11 +41,11 @@ const closeButtonClasses: Record<AlertType, string> = {
 }
 
 export type UseAlertClassesProps = {
-    type: AlertType
-    border: boolean
-    icon: boolean
-    inline: boolean
-    title: string
+    type: Ref<AlertType>
+    border: Ref<boolean>
+    icon: Ref<boolean>
+    inline: Ref<boolean>
+    title: Ref<string>
 }
 
 export function useAlertClasses(props: UseAlertClassesProps): {
@@ -59,40 +59,40 @@ export function useAlertClasses(props: UseAlertClassesProps): {
     const alertClasses = computed<string>(() => {
         return classNames(
             defaultAlertClasses,
-            alertTypeClasses[props.type],
+            alertTypeClasses[props.type.value],
             textClasses.value,
-            props.border ? alertBorderClasses[props.type] : 'rounded-lg', // rounded only if no border
-            props.inline ? 'flex' : '',
+            props.border.value ? alertBorderClasses[props.type.value] : 'rounded-lg', // rounded only if no border
+            props.inline.value ? 'flex' : '',
         )
     })
 
     const textClasses = computed<string>(() => {
         return classNames(
-            alertTextClasses[props.type],
+            alertTextClasses[props.type.value],
         )
     })
 
     const closeClasses = computed<string>(() => {
         return classNames(
             defaultCloseButtonClasses,
-            closeButtonClasses[props.type],
+            closeButtonClasses[props.type.value],
         )
     })
 
     const contentClasses = computed<string>(() => {
-        if(!props.inline) return classNames('mt-2 mb-4')
-        if(!props.icon && !props.title) return ''
-        return classNames(!props.title ? 'ml-3' : 'ml-1')
+        if(!props.inline.value) return classNames('mt-2 mb-4')
+        if(!props.icon.value && !props.title.value) return ''
+        return classNames(!props.title.value ? 'ml-3' : 'ml-1')
     })
 
     const titleClasses = computed<string>(() => {
-        if(!props.icon || !props.inline) return classNames(
+        if(!props.icon.value || !props.inline.value) return classNames(
             'font-medium',
-            !props.inline ? 'text-lg ml-2' : '',
+            !props.inline.value ? 'text-lg ml-2' : '',
         )
         return classNames(
             'font-medium ml-3',
-            !props.inline ? 'text-lg' : '',
+            !props.inline.value ? 'text-lg' : '',
         )
     })
 

@@ -1,31 +1,27 @@
 <template>
-  <div :class="divClasses">
-    <ul :class="ulClasses">
-      <li class="mr-2">
-        <a href="#" aria-current="page"
-           class="inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500">Profile</a>
-      </li>
-      <li class="mr-2">
-        <a href="#"
-           class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Dashboard</a>
-      </li>
-      <li class="mr-2">
-        <a href="#"
-           class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Settings</a>
-      </li>
-      <li class="mr-2">
-        <a href="#"
-           class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Contacts</a>
-      </li>
-      <li>
-        <a class="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Disabled</a>
-      </li>
-    </ul>
+  <div>
+    <div :class="divClasses">
+      <ul :class="ulClasses">
+        <tab-pane
+            v-for="(item, id) in tabsChildren"
+            :key="id"
+            :active="modelValueRef === item.props.name"
+            :name="item.props.name"
+            :disabled="item.props.disabled"
+            :title="item.props.title"
+        />
+      </ul>
+    </div>
+    <slot/>
   </div>
 </template>
 <script lang="ts" setup>
+import { TAB_ACTIVATE_INJECTION_KEY, TAB_STYLE_INJECTION_KEY } from './config'
 import { useTabsClasses } from './useTabsClasses'
 import type { PropType } from 'vue'
+import { computed, provide, useSlots } from 'vue'
+import { flatten } from '../../utils/flatten'
+import TabPane from './components/TabPane/TabPane.vue'
 
 export type TabsVariant = 'default' | 'underline' | 'pills'
 
@@ -34,7 +30,38 @@ const props = defineProps({
     type: String as PropType<TabsVariant>,
     default: 'default',
   },
+  modelValue: {
+    type: String,
+    default: '',
+  },
 })
 
+
+const emit = defineEmits(['update:modelValue'])
+
 const { ulClasses, divClasses } = useTabsClasses(props)
+
+provide(TAB_STYLE_INJECTION_KEY, props.variant)
+
+const slots = useSlots()
+const defaultSlot = slots.default
+
+const tabsChildren = computed(() => {
+  return defaultSlot
+      ? flatten(defaultSlot()).filter((v) => {
+        return (v.type as { __FLOWBITE_TAB__?: true }).__FLOWBITE_TAB__
+      })
+      : []
+})
+
+const modelValueRef = computed({
+  get: () => props.modelValue,
+  set: (value: string) => emit('update:modelValue', value),
+})
+
+const onActivate = (value: string) => {
+  modelValueRef.value = value
+}
+
+provide(TAB_ACTIVATE_INJECTION_KEY, onActivate)
 </script>

@@ -28,7 +28,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import { useAlertClasses } from './useAlertClasses'
-import { onBeforeUnmount, ref } from 'vue'
+import { onBeforeUnmount, ref, toRefs } from 'vue'
 
 export type AlertType = 'info' | 'danger' | 'success' | 'warning' | 'dark'
 
@@ -59,7 +59,7 @@ const props = defineProps({
   },
 })
 
-const { alertClasses, textClasses, closeClasses, contentClasses, titleClasses } = useAlertClasses(props)
+const { alertClasses, textClasses, closeClasses, contentClasses, titleClasses } = useAlertClasses(toRefs(props))
 
 const visible = ref(true)
 
