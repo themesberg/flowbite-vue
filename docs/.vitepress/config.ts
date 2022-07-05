@@ -16,9 +16,11 @@ function buildSidebar() {
 
 function getComponents() {
   return [
+    { text: 'Alert', link: '/guide/alert/alert.md' },
     { text: 'Button', link: '/guide/button/button.md' },
     { text: 'Button Group', link: '/guide/buttonGroup/buttonGroup.md' },
     { text: 'Spinner', link: '/guide/spinner/spinner.md' },
+    { text: 'Tabs', link: '/guide/tabs/tabs.md' },
   ]
 }
 
@@ -27,7 +29,7 @@ function getComponents() {
  * https://github.com/vuejs/vitepress/blob/master/docs/.vitepress/config.js
  */
 export default {
-  title: 'flowbite-vue vitepress',
+  title: 'Flowbite Vue 3 Components',
   themeConfig: {
     docsDir: 'docs',
     sidebar: buildSidebar(),

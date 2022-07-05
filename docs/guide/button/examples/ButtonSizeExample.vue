@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-flex items-center gap-2 flex-wrap">
+  <div class="vp-raw inline-flex items-center gap-2 flex-wrap">
     <Button size="xs">Extra small - xs</Button>
     <Button size="sm">Small - sm</Button>
     <Button size="md">Medium - md</Button>

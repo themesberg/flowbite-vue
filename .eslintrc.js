@@ -19,5 +19,6 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'comma-dangle': ['error', 'always-multiline'],
     'no-multiple-empty-lines': 'error',
+    'object-curly-spacing': ['error', 'always'],
   },
 }

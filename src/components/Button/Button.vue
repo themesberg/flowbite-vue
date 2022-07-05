@@ -28,7 +28,7 @@
   </button>
 </template>
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, toRefs } from 'vue'
 import type { PropType } from 'vue'
 import Spinner from '../Spinner/Spinner.vue'
 import { useButtonClasses } from './useButtonClasses'
@@ -89,7 +89,7 @@ const isOutlineGradient = computed(() => props.outline && props.gradient)
 const loadingPrefix = computed(() => props.loading && props.loadingPosition === 'prefix')
 const loadingSuffix = computed(() => props.loading && props.loadingPosition === 'suffix')
 
-const { wrapperClasses, spanClasses } = useButtonClasses(props)
-const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(props)
+const { wrapperClasses, spanClasses } = useButtonClasses(toRefs(props))
+const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(toRefs(props))
 
 </script>
