@@ -9,13 +9,13 @@
 
 @layer components {
   .btn-group > button {
-    @apply rounded-none
+    @apply rounded-none;
   }
   .btn-group > button:first-child {
-    @apply rounded-l-lg
+    @apply rounded-l-lg;
   }
   .btn-group > button:last-child {
-    @apply rounded-r-lg
+    @apply rounded-r-lg;
   }
 }
 </style>

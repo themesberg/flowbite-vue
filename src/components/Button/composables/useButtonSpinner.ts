@@ -1,5 +1,5 @@
-import type { ButtonGradient, ButtonSize, ButtonVariant } from './Button.vue'
-import type { SpinnerColor, SpinnerSize } from '../Spinner/Spinner.vue'
+import type { ButtonGradient, ButtonSize, ButtonVariant } from '../types'
+import type { SpinnerColor, SpinnerSize } from '../../Spinner/types'
 import type { Ref } from 'vue'
 import { computed } from 'vue'
 

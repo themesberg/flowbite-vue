@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
-import type { TabsVariant } from './Tabs.vue'
+import type { TabsVariant } from '../types'
 
 export type UseTabsClassesProps = {
     variant: TabsVariant

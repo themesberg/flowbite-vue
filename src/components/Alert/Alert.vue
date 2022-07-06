@@ -27,10 +27,10 @@
 </template>
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import { useAlertClasses } from './useAlertClasses'
+import { useAlertClasses } from './composables/useAlertClasses'
 import { onBeforeUnmount, ref, toRefs } from 'vue'
+import type { AlertType } from './types'
 
-export type AlertType = 'info' | 'danger' | 'success' | 'warning' | 'dark'
 
 const props = defineProps({
   type: {

@@ -23,12 +23,13 @@ import {
   TAB_ACTIVE_NAME_INJECTION_KEY,
   TAB_STYLE_INJECTION_KEY,
   TAB_VISIBILITY_DIRECTIVE_INJECTION_KEY,
-} from './config'
-import { useTabsClasses } from './useTabsClasses'
+} from './injection/config'
+import { useTabsClasses } from './composables/useTabsClasses'
 import type { PropType } from 'vue'
 import { computed, provide, toRef, useSlots } from 'vue'
 import { flatten } from '../../utils/flatten'
 import TabPane from './components/TabPane/TabPane.vue'
+import type { TabsVariant } from './types'
 
 const props = defineProps({
   variant: {
@@ -82,6 +83,4 @@ provide(TAB_ACTIVATE_INJECTION_KEY, onActivate)
 export default {
   inheritAttrs: false,
 }
-
-export type TabsVariant = 'default' | 'underline' | 'pills'
 </script>
