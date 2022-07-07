@@ -3,7 +3,6 @@ import { computed, useSlots } from 'vue'
 import classNames from 'classnames'
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
 
-
 export type ButtonClassMap<T extends string> =  { hover: Record<T, string>, default: Record<T, string> }
 
 const buttonColorClasses: ButtonClassMap<ButtonVariant> = {

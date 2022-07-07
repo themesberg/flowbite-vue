@@ -11,7 +11,15 @@ function buildSidebar() {
       items: [
         ...getComponents(),
       ],
-  }]
+    },
+    {
+      text: 'Utils',
+      collapsible: true,
+      items: [
+        ...getUtils(),
+      ],
+    },
+  ]
 }
 
 function getComponents() {
@@ -21,6 +29,12 @@ function getComponents() {
     { text: 'Button Group', link: '/guide/buttonGroup/buttonGroup.md' },
     { text: 'Spinner', link: '/guide/spinner/spinner.md' },
     { text: 'Tabs', link: '/guide/tabs/tabs.md' },
+  ]
+}
+
+function getUtils() {
+  return [
+    { text: 'Flowbite Themable', link: '/guide/flowbiteThemable/flowbiteThemable.md' },
   ]
 }
 

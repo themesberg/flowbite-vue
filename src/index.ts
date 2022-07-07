@@ -4,3 +4,4 @@ export { default as ButtonGroup } from './components/ButtonGroup/ButtonGroup.vue
 export { default as Alert } from './components/Alert/Alert.vue'
 export { default as Tabs } from './components/Tabs/Tabs.vue'
 export { default as Tab } from './components/Tabs/components/Tab/Tab.vue'
+export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'

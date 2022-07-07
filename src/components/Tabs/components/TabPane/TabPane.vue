@@ -6,7 +6,7 @@
   </li>
 </template>
 <script lang="ts" setup>
-import { inject, toRefs } from 'vue'
+import { inject, toRef } from 'vue'
 import { TAB_ACTIVATE_INJECTION_KEY, TAB_STYLE_INJECTION_KEY } from '../../injection/config'
 import type { TabsVariant } from '../../types'
 import { useTabClasses } from './composables/useTabClasses'
@@ -47,7 +47,8 @@ const tryActivateTab = () => {
 }
 
 const { tabClasses } = useTabClasses({
-  ...toRefs(props),
+  active: toRef(props,'active'),
+  disabled: toRef(props,'disabled'),
   variant,
 })
 </script>
