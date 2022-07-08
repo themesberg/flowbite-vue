@@ -22,7 +22,7 @@ reference: [https://flowbite.com/docs/components/buttons/](https://flowbite.com/
 ## Prop - color
 
 ```typescript
-type ButtonVariant = 'default' | 'alternative' | 'dark' | 'light' | 'green' | 'red' | 'yellow' | 'purple'
+type ButtonVariant = 'default' | 'alternative' | 'dark' | 'light' | 'green' | 'red' | 'yellow' | 'purple' | 'pink' | 'blue'
 defineProps({
     color: {
         type: String as PropType<ButtonVariant>,

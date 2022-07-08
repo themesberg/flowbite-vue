@@ -4,6 +4,10 @@ import TabsPillsExample from './examples/TabsPillsExample.vue';
 import TabsUnderlineExample from './examples/TabsUnderlineExample.vue';
 </script>
 
+# Tabs
+
+reference: [https://flowbite.com/docs/components/tabs/](https://flowbite.com/docs/components/tabs/)
+
 ## Prop - variant (default)
 
 ```typescript
@@ -75,6 +79,7 @@ const activeTab = ref('first')
 ## Prop - variant (pills)
 
 <TabsPillsExample />
+
 
 ```vue
 <script setup>

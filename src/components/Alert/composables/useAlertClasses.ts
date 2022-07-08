@@ -1,4 +1,4 @@
-import type { AlertType } from './Alert.vue'
+import type { AlertType } from '../types'
 import { computed } from 'vue'
 import type { Ref } from 'vue'
 import classNames from 'classnames'

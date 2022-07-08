@@ -54,5 +54,8 @@
     "vitest": "^0.16.0",
     "vue-eslint-parser": "^9.0.3",
     "vue-tsc": "^0.38.2"
+  },
+  "dependencies": {
+    "@vueuse/core": "^8.9.1"
   }
 }

@@ -1,6 +1,8 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
-import type { TabsVariant } from '../../Tabs.vue'
+import type { TabsVariant } from '../../../types'
+import { useFlowbiteThemable } from '../../../../utils/FlowbiteThemable/composables/useFlowbiteThemable'
+import { simplifyTailwindClasses } from '../../../../../utils/simplifyTailwindClasses'
 
 export type TabClassMap =  { disabled: string, default: string, active: string }
 
@@ -30,15 +32,28 @@ export function useTabClasses(props: UseTabClassesProps): {
     tabClasses: Ref<string>,
 } {
 
+    const theme = useFlowbiteThemable()
+
     const tabClasses = computed(() => {
+        const isActiveTheme = theme.isActive.value
+
         const tabClassType: keyof TabClassMap = props.active.value ? 'active' : props.disabled.value ? 'disabled' : 'default'
 
         if(props.variant === 'default')
-            return defaultTabClasses[tabClassType]
+            return simplifyTailwindClasses(
+                defaultTabClasses[tabClassType],
+                isActiveTheme && tabClassType === 'active' ? theme.textClasses.value : '',
+            )
         else if(props.variant === 'underline')
-            return underlineTabClasses[tabClassType]
+            return simplifyTailwindClasses(
+                underlineTabClasses[tabClassType],
+                isActiveTheme && tabClassType === 'active' ? [theme.borderClasses.value, theme.textClasses.value] : '',
+            )
         else if (props.variant === 'pills')
-            return pillsTabClasses[tabClassType]
+            return simplifyTailwindClasses(
+                pillsTabClasses[tabClassType],
+                isActiveTheme && tabClassType === 'active' ? [theme.backgroundClasses.value, 'text-white'] : '',
+            )
         return ''
     })
 

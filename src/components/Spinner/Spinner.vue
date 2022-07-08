@@ -6,11 +6,9 @@
 </template>
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import { useSpinnerClasses } from './useSpinnerClasses'
+import { useSpinnerClasses } from './composables/useSpinnerClasses'
 import { toRefs } from 'vue'
-
-export type SpinnerSize = '0' | 'px' | '0.5' | '1' | '1.5' | '2' | '2.5' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12'
-export type SpinnerColor = 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white'
+import type { SpinnerColor, SpinnerSize } from './types'
 
 const props = defineProps({
   size: {
