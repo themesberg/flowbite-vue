@@ -8,6 +8,7 @@
     <Button color="red">Red</Button>
     <Button color="yellow">Yellow</Button>
     <Button color="purple">Purple</Button>
+    <Button color="pink">Pink</Button>
   </div>
 </template>
 <script setup>
