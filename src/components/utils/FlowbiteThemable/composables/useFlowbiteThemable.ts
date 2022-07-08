@@ -1,4 +1,4 @@
-import type { FlowbiteThemablePayload, FlowbiteTheme } from '../types'
+import type { FlowbiteTheme } from '../types'
 import type { Ref } from 'vue'
 import { computed, inject } from 'vue'
 import { FLOWBITE_THEMABLE_INJECTION_KEY } from '../injection/config'
@@ -10,6 +10,7 @@ type UseFlowbiteThemableReturns = {
     disabledClasses: Ref<string>
     borderClasses: Ref<string>
     isActive: Ref<boolean>
+    color: Ref<FlowbiteTheme | undefined>
 }
 
 type FlowbiteThemeMap = { background: string, disabled: string, hover: string, text: string, border: string }
@@ -60,7 +61,8 @@ export function useFlowbiteThemable(): UseFlowbiteThemableReturns {
 
     const theme = inject<Ref<FlowbiteTheme>>(FLOWBITE_THEMABLE_INJECTION_KEY)
 
-    const isActive = computed(() => !!theme)
+    const isActive = computed(() => !!theme?.value)
+    const color = computed(() => theme?.value)
 
     const backgroundClasses = computed(() => {
         if(!theme) return ''
@@ -94,5 +96,6 @@ export function useFlowbiteThemable(): UseFlowbiteThemableReturns {
         textClasses,
         borderClasses,
         isActive,
+        color,
     }
 }

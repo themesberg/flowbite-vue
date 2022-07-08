@@ -2,6 +2,7 @@ import type { Ref } from 'vue'
 import { computed, useSlots } from 'vue'
 import classNames from 'classnames'
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
+import { useFlowbiteThemable } from '../../utils/FlowbiteThemable/composables/useFlowbiteThemable'
 
 export type ButtonClassMap<T extends string> =  { hover: Record<T, string>, default: Record<T, string> }
 
@@ -160,6 +161,8 @@ const alternativeColors = ['alternative', 'light']
 export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses: Ref<string>, spanClasses: Ref<string> } {
   const slots = useSlots()
 
+  const theme = useFlowbiteThemable()
+
   const sizeClasses = computed(() => {
     if (props.square.value) return buttonSquareSizeClasses[props.size.value]
     return buttonSizeClasses[props.size.value]
@@ -169,6 +172,8 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
     const isGradient = !!props.gradient.value
     const isColor = !!props.color.value
     const isOutline = props.outline.value
+
+    const isActiveTheme = theme.isActive.value
 
     let hoverClass = ''
     let backgroundClass = ''
@@ -193,20 +198,24 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
 
     } else if (isColor && isOutline) { // COLOR AND OUTLINE
       if (!alternativeColors.includes(props.color.value)) {
-        backgroundClass = buttonOutlineColorClasses.default[props.color.value as unknown as keyof typeof buttonOutlineColorClasses.default]
+        const color = isActiveTheme ? theme.color.value : props.color.value
+
+        backgroundClass = buttonOutlineColorClasses.default[color as unknown as keyof typeof buttonOutlineColorClasses.default]
 
         if(!props.disabled.value)
-          hoverClass = buttonOutlineColorClasses.hover[props.color.value as unknown as keyof typeof buttonOutlineColorClasses.hover]
+          hoverClass = buttonOutlineColorClasses.hover[color as unknown as keyof typeof buttonOutlineColorClasses.hover]
       } else {
         console.warn(`cannot use outline prop with "${props.color.value}" color`) // TODO: prettify
       }
 
 
     } else { // JUST COLOR
-      backgroundClass = buttonColorClasses.default[props.color.value]
+      const color = isActiveTheme ? theme.color.value : props.color.value
+
+      backgroundClass = buttonColorClasses.default[color as unknown as keyof typeof buttonColorClasses.default]
 
       if(!props.disabled.value)
-        hoverClass = buttonColorClasses.hover[props.color.value]
+        hoverClass = buttonColorClasses.hover[color as unknown as keyof typeof buttonColorClasses.hover]
     }
 
     let shadowClass = ''

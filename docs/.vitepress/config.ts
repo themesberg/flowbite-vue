@@ -27,6 +27,7 @@ function getComponents() {
     { text: 'Alert', link: '/guide/alert/alert.md' },
     { text: 'Button', link: '/guide/button/button.md' },
     { text: 'Button Group', link: '/guide/buttonGroup/buttonGroup.md' },
+    { text: 'Dropdown', link: '/guide/dropdown/dropdown.md' },
     { text: 'Spinner', link: '/guide/spinner/spinner.md' },
     { text: 'Tabs', link: '/guide/tabs/tabs.md' },
   ]
