@@ -30,6 +30,25 @@ function getComponents() {
     { text: 'Dropdown', link: '/guide/dropdown/dropdown.md' },
     { text: 'Spinner', link: '/guide/spinner/spinner.md' },
     { text: 'Tabs', link: '/guide/tabs/tabs.md' },
+
+    { text: 'Accordion', link: 'guide/accordion/accordion.md' },
+    { text: 'Avatar', link: 'guide/avatar/avatar.md' },
+    { text: 'Badge', link: 'guide/badge/badge.md' },
+    { text: 'Breadcrumb', link: 'guide/breadcrumb/breadcrumb.md' },
+    { text: 'Card', link: 'guide/card/card.md' },
+    { text: 'Carousel', link: 'guide/carousel/carousel.md' },
+    { text: 'Footer', link: 'guide/footer/footer.md' },
+    { text: 'ListGroup', link: 'guide/listGroup/listGroup.md' },
+    { text: 'Modal', link: 'guide/modal/modal.md' },
+    { text: 'Navbar', link: 'guide/navbar/navbar.md' },
+    { text: 'Pagination', link: 'guide/pagination/pagination.md' },
+    { text: 'Progress', link: 'guide/progress/progress.md' },
+    { text: 'Rating', link: 'guide/rating/rating.md' },
+    { text: 'Sidebar', link: 'guide/sidebar/sidebar.md' },
+    { text: 'Table', link: 'guide/table/table.md' },
+    { text: 'Timeline', link: 'guide/timeline/timeline.md' },
+    { text: 'Toast', link: 'guide/toast/toast.md' },
+    { text: 'Tooltip', link: 'guide/tooltip/tooltip.md' },
   ]
 }
 
