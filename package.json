@@ -5,10 +5,12 @@
   "author": "Ralph Schuler <ralph@inhaus.ai>",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "dist_types"
   ],
   "main": "./dist/flowbite-vue.umd.js",
   "module": "./dist/flowbite-vue.es.js",
+  "typings": "./dist_types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/flowbite-vue.es.js",
@@ -19,15 +21,17 @@
     "dev": "vitepress dev docs",
     "serve": "vitepress serve docs",
     "build:docs": "vitepress build docs",
+    "build:package": "npm run build-types && npm run build",
     "build": "vite build",
     "build-types": "vue-tsc --declaration --emitDeclarationOnly",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src",
     "format": "prettier .  --write",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "typecheck": "vue-tsc --noEmit"
   },
   "peerDependencies": {
-    "vue": "^3.2.37"
+    "vue": "^3"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
@@ -56,6 +60,7 @@
     "vue-tsc": "^0.38.2"
   },
   "dependencies": {
+    "@3nuc/vue-tsc-component-library-example": "0.0.6",
     "@vueuse/core": "^8.9.1"
   }
 }

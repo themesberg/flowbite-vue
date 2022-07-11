@@ -1,8 +1,18 @@
-export { default as Button } from './components/Button/Button.vue'
-export { default as Spinner } from './components/Spinner/Spinner.vue'
-export { default as ButtonGroup } from './components/ButtonGroup/ButtonGroup.vue'
-export { default as Alert } from './components/Alert/Alert.vue'
-export { default as Tabs } from './components/Tabs/Tabs.vue'
-export { default as Tab } from './components/Tabs/components/Tab/Tab.vue'
-export { default as Dropdown } from './components/Dropdown/Dropdown.vue'
-export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
+import Button from './components/Button/Button.vue'
+import Spinner from './components/Spinner/Spinner.vue'
+import ButtonGroup from './components/ButtonGroup/ButtonGroup.vue'
+import Alert from './components/Alert/Alert.vue'
+import Tabs from './components/Tabs/Tabs.vue'
+import Tab from './components/Tabs/components/Tab/Tab.vue'
+import Dropdown from './components/Dropdown/Dropdown.vue'
+import FlowbiteThemable from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
+export {
+    Button,
+    Spinner,
+    ButtonGroup,
+    Alert,
+    Tabs,
+    Tab,
+    Dropdown,
+    FlowbiteThemable,
+}
