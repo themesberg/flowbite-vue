@@ -60,7 +60,6 @@
     "vue-tsc": "^0.38.2"
   },
   "dependencies": {
-    "@3nuc/vue-tsc-component-library-example": "0.0.6",
     "@vueuse/core": "^8.9.1"
   }
 }
