@@ -5,6 +5,8 @@ import type { DropdownPlacement } from '../types'
 
 const defaultDropdownClasses = 'absolute z-10 bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700'
 
+const defaultGapInPx = 8
+
 const placementDropdownClasses: Record<DropdownPlacement, string> = {
     bottom: '',
     left: 'top-0',
@@ -20,16 +22,16 @@ export type UseDropdownClassesProps = {
 
 const placementCalculators: Record<DropdownPlacement, (rect: DOMRect) => string> = {
     bottom(rect: DOMRect): string {
-        return `bottom: -${rect.height}px;`
+        return `bottom: -${rect.height + defaultGapInPx}px;`
     },
     left(rect: DOMRect): string {
-        return `left: -${rect.width}px;`
+        return `left: -${rect.width + defaultGapInPx}px;`
     },
     right(rect: DOMRect): string {
-        return `right: -${rect.width}px;`
+        return `right: -${rect.width + defaultGapInPx}px;`
     },
     top(rect: DOMRect): string {
-        return `top: -${rect.height}px;`
+        return `top: -${rect.height + defaultGapInPx}px;`
     },
 
 }
