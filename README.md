@@ -1,8 +1,8 @@
 <div align="center">
-  <h1>:construction: flowbite-vue (unreleased) :construction:</h1>
+  <h1>flowbite-vue</h1>
   <p>
     <a href="https://flowbite.com">
-      <img alt="Flowbite - Tailwind CSS components" width="350" src="https://flowbite.s3.amazonaws.com/github/logo-github.png">
+      <img alt="Flowbite - Tailwind CSS components" width="350" src="./docs/assets/github.png">
     </a>
   </p>
   <p>
