@@ -1,54 +1,5 @@
-<script setup>
-import DropdownPlacementExample from './examples/DropdownPlacementExample.vue';
-import DropdownListGroupExample from './examples/DropdownListGroupExample.vue';
-</script>
-
-# Dropdown
-
-
-## Props - placement
-
-```vue
-<script setup>
-import { Dropdown } from 'flowbite-vue'
-</script>
 <template>
-  <dropdown placement="bottom" text="Bottom">
-    Any content here
-  </dropdown>
-  <dropdown placement="top">
-    <template #trigger="{ toggle }">
-      <Button @click="toggle">
-        Top
-        <template #suffix>
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </template>
-      </Button>
-    </template>
-    <div class="p-2">
-      Padding content
-    </div>
-  </dropdown>
-  <dropdown placement="right" text="Right">
-    <Spinner size="6" class="m-4" />
-  </dropdown>
-  <dropdown placement="left" text="Left">
-    hello world
-  </dropdown>
-</template>
-```
-
-<DropdownPlacementExample />
-
-
-## List Group
-
-```vue
-<script setup>
-import { Dropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
-</script>
-<template>
-  <dropdown text="Bottom">
+  <div class="vp-raw flex flex-col">
     <list-group>
       <list-group-item>
         <template #prefix>
@@ -68,15 +19,15 @@ import { Dropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
         </template>
         Messages
       </list-group-item>
-      <list-group-item>
+      <list-group-item disabled>
         <template #prefix>
           <svg class="w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z" clip-rule="evenodd"></path></svg>
         </template>
         Download
       </list-group-item>
     </list-group>
-  </dropdown>
+  </div>
 </template>
-```
-
-<DropdownListGroupExample />
+<script setup>
+import { ListGroup, ListGroupItem } from '../../../../src/index'
+</script>
