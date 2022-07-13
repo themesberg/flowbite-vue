@@ -5,10 +5,10 @@
         <tab-pane
             v-for="(item, id) in tabsChildren"
             :key="id"
-            :active="modelValueRef === item.props.name"
-            :name="item.props.name"
-            :disabled="item.props.disabled"
-            :title="item.props.title"
+            :active="modelValueRef === item.props?.name"
+            :name="item.props?.name"
+            :disabled="item.props?.disabled"
+            :title="item.props?.title"
         />
       </ul>
     </div>

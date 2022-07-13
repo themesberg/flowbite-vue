@@ -63,9 +63,13 @@ function getUtils() {
  * https://github.com/vuejs/vitepress/blob/master/docs/.vitepress/config.js
  */
 export default {
-  title: 'Flowbite Vue 3 Components',
+  title: 'Flowbite Vue 3',
+  head: [
+    ['link', { rel: "icon", type: "image/svg", href: "../assets/logo.svg"}],
+  ],
   themeConfig: {
     docsDir: 'docs',
     sidebar: buildSidebar(),
+    logo: '../assets/logo.svg'
   },
 }

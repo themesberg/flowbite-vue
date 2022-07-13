@@ -1,5 +1,13 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
+  "compilerOptions": {
+    "outDir": "dist_types",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",

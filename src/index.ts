@@ -6,8 +6,6 @@ export { default as Tabs } from './components/Tabs/Tabs.vue'
 export { default as Tab } from './components/Tabs/components/Tab/Tab.vue'
 export { default as Dropdown } from './components/Dropdown/Dropdown.vue'
 export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
-
-
 export { default as Accordion } from './components/Accordion/Accordion.vue'
 export { default as Avatar } from './components/Avatar/Avatar.vue'
 export { default as Badge } from './components/Badge/Badge.vue'
