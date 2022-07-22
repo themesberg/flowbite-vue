@@ -1,20 +1,24 @@
 <template>
   <div class="inline-flex relative" ref="wrapper">
-    <slot name="trigger" :show="onShow" :hide="onHide" :toggle="onToggle">
-      <Button @click="onToggle">
-        {{ text }}
-        <template #suffix>
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </template>
-      </Button>
-    </slot>
-    <div ref="content" :style="contentStyles" :class="[{ hidden: !visible }, contentClasses]">
-      <slot />
+    <div class="inline-flex items-center">
+      <slot name="trigger" :show="onShow" :hide="onHide" :toggle="onToggle">
+        <Button @click="onToggle">
+          {{ text }}
+          <template #suffix>
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </template>
+        </Button>
+      </slot>
     </div>
+    <transition :name="transitionName">
+      <div ref="content" v-if="visible" :style="contentStyles" :class="[contentClasses]">
+        <slot />
+      </div>
+    </transition>
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, toRef } from 'vue'
+import { computed, ref, toRef } from 'vue'
 import type { PropType } from 'vue'
 import type { DropdownPlacement } from './types'
 import { useDropdownClasses } from './composables/useDropdownClasses'
@@ -36,6 +40,22 @@ const props = defineProps({
     type: String ,
     default: '',
   },
+  transition: {
+    type: [String, null] as PropType<string | null>,
+    default: null,
+  },
+})
+
+const placementTransitionMap: Record<DropdownPlacement, string> = {
+  bottom: 'to-bottom',
+  left: 'to-left',
+  right: 'to-right',
+  top: 'to-top',
+}
+
+const transitionName = computed(() => {
+  if(props.transition === null) return placementTransitionMap[props.placement]
+  return props.transition
 })
 
 const content = ref<HTMLDivElement>()
@@ -52,3 +72,5 @@ onClickOutside(wrapper, () => {
   visible.value = false
 })
 </script>
+
+<style scoped src="./Dropdown.css"></style>

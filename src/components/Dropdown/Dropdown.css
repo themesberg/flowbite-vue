@@ -1,0 +1,41 @@
+/* to right */
+.to-right-enter-active,
+.to-right-leave-to { transform: translateX(-10px) }
+
+.to-right-leave,
+.to-right-enter-to { transform: translateX(0) }
+
+.to-right-enter-active,
+.to-right-leave-active { transition: all 250ms }
+
+
+
+/* to left */
+.to-left-enter-active,
+.to-left-leave-to { transform: translateX(10px) }
+
+.to-left-leave,
+.to-left-enter-to { transform: translateX(0) }
+
+.to-left-enter-active,
+.to-left-leave-active { transition: all 250ms }
+
+/* to top */
+.to-top-enter-active,
+.to-top-leave-to { transform: translateY(10px) }
+
+.to-top-leave,
+.to-top-enter-to { transform: translateY(0) }
+
+.to-top-enter-active,
+.to-top-leave-active { transition: all 250ms }
+
+/* to bottom */
+.to-bottom-enter-active,
+.to-bottom-leave-to { transform: translateY(-10px) }
+
+.to-bottom-leave,
+.to-bottom-enter-to { transform: translateY(0) }
+
+.to-bottom-enter-active,
+.to-bottom-leave-active { transition: all 250ms }
