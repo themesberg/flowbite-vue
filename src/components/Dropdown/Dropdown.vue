@@ -10,15 +10,15 @@
         </Button>
       </slot>
     </div>
-    <Transition :name="transition">
+    <transition :name="transition">
       <div ref="content" v-if="visible" :style="contentStyles" :class="[contentClasses]">
         <slot />
       </div>
-    </Transition>
+    </transition>
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, toRef } from 'vue'
+import { computed, ref, toRef } from 'vue'
 import type { PropType } from 'vue'
 import type { DropdownPlacement } from './types'
 import { useDropdownClasses } from './composables/useDropdownClasses'
@@ -46,6 +46,18 @@ const props = defineProps({
   },
 })
 
+const placementTransitionMap: Record<DropdownPlacement, string> = {
+  bottom: 'to-bottom',
+  left: 'to-left',
+  right: 'to-right',
+  top: 'to-top',
+}
+
+const transitionName = computed(() => {
+  if(!props.transition) return placementTransitionMap[props.placement]
+  return props.transition
+})
+
 const content = ref<HTMLDivElement>()
 const wrapper = ref<HTMLDivElement>()
 
@@ -60,3 +72,5 @@ onClickOutside(wrapper, () => {
   visible.value = false
 })
 </script>
+
+<style scoped src="./Dropdown.css"></style>
