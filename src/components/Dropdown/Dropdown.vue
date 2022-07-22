@@ -10,7 +10,7 @@
         </Button>
       </slot>
     </div>
-    <transition :name="transition">
+    <transition :name="transitionName">
       <div ref="content" v-if="visible" :style="contentStyles" :class="[contentClasses]">
         <slot />
       </div>
@@ -41,8 +41,8 @@ const props = defineProps({
     default: '',
   },
   transition: {
-    type: String ,
-    default: '',
+    type: [String, null] as PropType<string | null>,
+    default: null,
   },
 })
 
@@ -54,7 +54,7 @@ const placementTransitionMap: Record<DropdownPlacement, string> = {
 }
 
 const transitionName = computed(() => {
-  if(!props.transition) return placementTransitionMap[props.placement]
+  if(props.transition === null) return placementTransitionMap[props.placement]
   return props.transition
 })
 
