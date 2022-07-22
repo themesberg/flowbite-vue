@@ -11,7 +11,7 @@
       </slot>
     </div>
     <Transition :name="transition">
-      <div ref="content" v-if="visible" :style="contentStyles" :class="[{ hidden: !visible }, contentClasses]">
+      <div ref="content" v-if="visible" :style="contentStyles" :class="[contentClasses]">
         <slot />
       </div>
     </Transition>
