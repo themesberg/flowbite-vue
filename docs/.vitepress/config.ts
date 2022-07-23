@@ -64,6 +64,7 @@ function getUtils() {
  */
 export default {
   title: 'Flowbite Vue 3',
+  outDir: '../public_html',
   head: [
     ['link', { rel: "icon", type: "image/svg", href: "../assets/logo.svg"}],
   ],

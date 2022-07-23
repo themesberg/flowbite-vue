@@ -1,0 +1,6 @@
+{
+  "routes": {
+    "/assets/*": "/assets/",
+    "/**": "index.html"
+  }
+}

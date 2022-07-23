@@ -5,36 +5,4 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
-import type { PropType } from 'vue'
-
-const props = defineProps({
-  arrow: {
-    type: Boolean,
-    default: true,
-  },
-  children: {
-    type: Array,
-    default() {
-      return []
-    },
-  },
-  duration: {
-    type: Number, // animation = duration-300
-    default: 300,
-  },
-  placement: {
-    type: String, // top | right | bottom | left | {top/right/bottom/left}-{start/end}
-    default: 'auto',
-  },
-  type: {
-    type: String, // 'dark' | 'light' | 'auto'
-    default: 'dark',
-  },
-  trigger: {
-    type: String, // 'hover' | 'click'
-    default: 'hover',
-  },
-})
-
 </script>

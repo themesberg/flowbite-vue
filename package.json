@@ -20,10 +20,10 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "serve": "vitepress serve docs",
-    "build:docs": "vitepress build docs",
-    "build:package": "npm run build:types && npm run build",
+    "build": "vitepress build docs",
+    "build:package": "vite build",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly",
-    "build": "vite build",
+    "build:production": "npm run build:types && npm run build:package",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src",
     "format": "prettier .  --write",
     "test": "vitest",
