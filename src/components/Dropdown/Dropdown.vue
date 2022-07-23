@@ -1,6 +1,6 @@
 <template>
   <div class="inline-flex relative" ref="wrapper">
-    <div class="inline-flex items-center">
+    <button class="inline-flex items-center" @click="onToggle">
       <slot name="trigger" :show="onShow" :hide="onHide" :toggle="onToggle">
         <Button @click="onToggle">
           {{ text }}
@@ -9,7 +9,7 @@
           </template>
         </Button>
       </slot>
-    </div>
+    </button>
     <transition :name="transitionName">
       <div ref="content" v-if="visible" :style="contentStyles" :class="[contentClasses]">
         <slot />
