@@ -83,13 +83,13 @@ module.exports = {
 
 <table>
   <tr>
-    <td width="33.3333%">:construction: Alerts</td>
+    <td width="33.3333%">Alerts</td>
     <td width="33.3333%">:construction: Badge</td>
     <td width="33.3333%">:construction: Breadcrumbs</td>
   </tr>
   <tr>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/alerts/">
+        <a href="https://flowbite-vue.com/guide/alert/alert.html">
             <img alt="Tailwind CSS Alerts" src="https://flowbite.s3.amazonaws.com/github/alerts.jpg">
         </a>
     </td>
@@ -105,18 +105,18 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Buttons</td>
-    <td width="33.3333%">:construction: Button group</td>
+    <td width="33.3333%">Buttons</td>
+    <td width="33.3333%">Button group</td>
     <td width="33.3333%">:construction: Cards</td>
   </tr>
   <tr>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/buttons/">
+        <a href="https://flowbite-vue.com/guide/button/button.html">
             <img alt="Tailwind CSS Buttons" src="https://flowbite.s3.amazonaws.com/github/buttons.jpg">
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/button-group/">
+        <a href="https://flowbite-vue.com/guide/buttonGroup/buttonGroup.html">
             <img alt="Tailwind CSS Button Group" src="https://flowbite.s3.amazonaws.com/github/button-group.jpg">
         </a>
     </td>
@@ -127,13 +127,13 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Dropdown</td>
+    <td width="33.3333%">Dropdown</td>
     <td width="33.3333%">:construction: Forms</td>
-    <td width="33.3333%">:construction: List group</td>
+    <td width="33.3333%">List group</td>
   </tr>
   <tr>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/dropdown/">
+        <a href="https://flowbite-vue.com/guide/dropdown/dropdown.html">
             <img alt="Tailwind CSS Dropdown" src="https://flowbite.s3.amazonaws.com/github/dropdown.jpg">
         </a>
     </td>
@@ -143,7 +143,7 @@ module.exports = {
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/list-group/">
+        <a href="https://flowbite-vue.com/guide/listGroup/listGroup.html">
             <img alt="Tailwind CSS List group" src="https://flowbite.s3.amazonaws.com/github/list-group.jpg">
         </a>
     </td>
@@ -151,7 +151,7 @@ module.exports = {
   <tr>
     <td width="33.3333%">:construction: Typography</td>
     <td width="33.3333%">:construction: Modal</td>
-    <td width="33.3333%">:construction: Tabs</td>
+    <td width="33.3333%">Tabs</td>
   </tr>
   <tr>
     <td width="33.3333%">
@@ -165,7 +165,7 @@ module.exports = {
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/tabs/">
+        <a href="https://flowbite-vue.com/guide/tabs/tabs.html">
             <img alt="Tailwind CSS Tabs" src="https://flowbite.s3.amazonaws.com/github/tabs.jpg">
         </a>
     </td>
@@ -217,7 +217,7 @@ module.exports = {
   <tr>
     <td width="33.3333%">:construction: Tooltips</td>
     <td width="33.3333%">:construction: Datepicker</td>
-    <td width="33.3333%">:construction: Spinner</td>
+    <td width="33.3333%">Spinner</td>
   </tr>
   <tr>
     <td width="33.3333%">
@@ -231,7 +231,7 @@ module.exports = {
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/spinners/">
+        <a href="https://flowbite-vue.com/guide/spinner/spinner.html">
             <img alt="Tailwind CSS Spinner" src="https://flowbite.s3.amazonaws.com/github/spinner.jpg">
         </a>
     </td>

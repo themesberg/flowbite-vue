@@ -1,8 +1,11 @@
+import { defineConfig } from 'vitepress'
+
 function buildSidebar() {
   return [
     {
       items: [
-        { text: 'Home', link: '/' }
+        { text: 'Home', link: '/' },
+        { text: 'Quickstart', link: '/pages/getting-started' },
       ],
     },
     {
@@ -62,15 +65,22 @@ function getUtils() {
  * This can be used as an example
  * https://github.com/vuejs/vitepress/blob/master/docs/.vitepress/config.js
  */
-export default {
+export default defineConfig({
   title: 'Flowbite Vue 3',
-  outDir: '../public_html',
   head: [
-    ['link', { rel: "icon", type: "image/svg", href: "../assets/logo.svg"}],
+    ['link', { rel: "icon", type: "image/svg", href: "/assets/logo.svg"}],
   ],
   themeConfig: {
-    docsDir: 'docs',
     sidebar: buildSidebar(),
-    logo: '../assets/logo.svg'
+    logo: '/assets/logo.svg',
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/themesberg/flowbite-vue' }
+    ],
+
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2022 themesberg'
+    },
+
   },
-}
+})
