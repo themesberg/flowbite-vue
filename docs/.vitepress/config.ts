@@ -2,7 +2,8 @@ function buildSidebar() {
   return [
     {
       items: [
-        { text: 'Home', link: '/' }
+        { text: 'Home', link: '/' },
+        { text: 'Quickstart', link: '/pages/getting-started' },
       ],
     },
     {
@@ -64,13 +65,12 @@ function getUtils() {
  */
 export default {
   title: 'Flowbite Vue 3',
-  outDir: '../public_html',
   head: [
-    ['link', { rel: "icon", type: "image/svg", href: "../assets/logo.svg"}],
+    ['link', { rel: "icon", type: "image/svg", href: "/assets/logo.svg"}],
   ],
   themeConfig: {
     docsDir: 'docs',
     sidebar: buildSidebar(),
-    logo: '../assets/logo.svg'
+    logo: '/assets/logo.svg'
   },
 }
