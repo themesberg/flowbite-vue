@@ -19,8 +19,7 @@
   },
   "scripts": {
     "dev": "vitepress dev docs",
-    "start:vitepress": "vitepress serve docs",
-    "start": "http-server docs/.vitepress/dist",
+    "start": "vitepress serve docs --port $PORT",
     "build": "vitepress build docs && cp -r ./docs/assets/* ./docs/.vitepress/dist/assets/",
     "build:package": "vite build",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly",
