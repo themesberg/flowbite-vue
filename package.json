@@ -19,7 +19,8 @@
   },
   "scripts": {
     "dev": "vitepress dev docs",
-    "start": "vitepress serve docs",
+    "start:vitepress": "vitepress serve docs",
+    "start": "http-server docs/.vitepress/dist",
     "build": "vitepress build docs && cp -r ./docs/assets/* ./docs/.vitepress/dist/assets/",
     "build:package": "vite build",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly",
@@ -57,10 +58,11 @@
     "vite": "^2.4.3",
     "vitest": "^0.16.0",
     "vue-eslint-parser": "^9.0.3",
-    "vue-tsc": "^0.30.0"
+    "vue-tsc": "^0.30.0",
+    "vitepress": "^1.0.0-alpha.4"
   },
   "dependencies": {
     "@vueuse/core": "^8.9.1",
-    "vitepress": "^1.0.0-alpha.4"
+    "http-server": "^14.1.1"
   }
 }
