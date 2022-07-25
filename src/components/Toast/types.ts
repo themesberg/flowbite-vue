@@ -1,1 +1,1 @@
-export type ToastPresetIcon = 'success' | 'warning' | 'danger'
+export type ToastPreset = 'success' | 'warning' | 'danger' | 'empty'

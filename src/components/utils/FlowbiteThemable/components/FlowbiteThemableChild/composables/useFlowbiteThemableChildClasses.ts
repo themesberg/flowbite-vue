@@ -5,15 +5,15 @@ import type {
 } from '../types'
 import { useFlowbiteThemable } from '../../../composables/useFlowbiteThemable'
 
-type UseThemableChildrenReturns = {
+type UseFlowbiteThemableChildReturns = {
     classes: Ref<string>
 }
 
-type UseThemableChildrenProps = {
+type UseFlowbiteThemableChildProps = {
     apply: Ref<ThemableChildrenApply[]>
 }
 
-export function useFlowbiteThemableChildrenClasses(props: UseThemableChildrenProps): UseThemableChildrenReturns {
+export function useFlowbiteThemableChildClasses(props: UseFlowbiteThemableChildProps): UseFlowbiteThemableChildReturns {
 
     const { textClasses, borderClasses, backgroundClasses, hoverClasses, disabledClasses, focusClasses, isActive } = useFlowbiteThemable()
 

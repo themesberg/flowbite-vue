@@ -6,11 +6,11 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import {
-  useFlowbiteThemableChildrenClasses,
-} from './composables/useFlowbiteThemableChildrenClasses'
+  useFlowbiteThemableChildClasses,
+} from './composables/useFlowbiteThemableChildClasses'
 import type {
   ThemableChildrenApply,
-} from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChildren/types'
+} from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChild/types'
 import { toRefs } from 'vue'
 import { simplifyTailwindClasses } from '../../../../../utils/simplifyTailwindClasses'
 
@@ -25,5 +25,5 @@ const props = defineProps({
   },
 })
 
-const { classes } = useFlowbiteThemableChildrenClasses(toRefs(props))
+const { classes } = useFlowbiteThemableChildClasses(toRefs(props))
 </script>

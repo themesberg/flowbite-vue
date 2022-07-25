@@ -1,34 +1,29 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
-import type {
-    ThemableChildrenApply,
-} from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChildren/types'
-import { useFlowbiteThemable } from '@/components/utils/FlowbiteThemable/composables/useFlowbiteThemable'
+import type { ToastPreset } from '@/components/Toast/types'
 
-type UseThemableChildrenReturns = {
-    classes: Ref<string>
+type UseToastClassesReturns = {
+    typeClasses: Ref<string>
 }
 
-type UseThemableChildrenProps = {
-    apply: Ref<ThemableChildrenApply[]>
+type UseToastClassesProps = {
+    type: Ref<ToastPreset>
 }
 
-export function useFlowbiteThemableChildrenClasses(props: UseThemableChildrenProps): UseThemableChildrenReturns {
+const typeClassesMap: Record<ToastPreset, string> = {
+    danger: 'text-red-500 bg-red-100 dark:bg-red-800 dark:text-red-200',
+    empty: '',
+    success: 'text-green-500 bg-green-100 dark:bg-green-800 dark:text-green-200',
+    warning: 'text-orange-500 bg-orange-100 dark:bg-orange-700 dark:text-orange-200',
+}
 
-    const { textClasses, borderClasses, backgroundClasses, hoverClasses, disabledClasses, isActive } = useFlowbiteThemable()
+export function useToastClasses(props: UseToastClassesProps): UseToastClassesReturns {
 
-    const classes = computed(() => {
-        if(!isActive.value) return ''
-        const _classes = []
-        if(props.apply.value.includes('text')) _classes.push(textClasses)
-        if(props.apply.value.includes('border')) _classes.push(borderClasses)
-        if(props.apply.value.includes('background')) _classes.push(backgroundClasses)
-        if(props.apply.value.includes('hover')) _classes.push(hoverClasses)
-        if(props.apply.value.includes('disabled')) _classes.push(disabledClasses)
-        return _classes.join(' ')
+    const typeClasses = computed(() => {
+        return typeClassesMap[props.type.value]
     })
 
     return {
-        classes,
+        typeClasses,
     }
 }

@@ -1,5 +1,5 @@
 <template>
-  <flowbite-themable-children tag="button" :apply="['background', 'hover', 'focus']" :class="wrapperClasses" :disabled="disabled">
+  <flowbite-themable-child tag="button" :apply="['background', 'hover', 'focus']" :class="wrapperClasses" :disabled="disabled">
     <div v-if="!isOutlineGradient && ($slots.prefix || loadingPrefix)" class="mr-2"> <!--automatically add mr class if slot provided or loading -->
       <spinner :color="spinnerColor" :size="spinnerSize" v-if="loadingPrefix" />
       <slot name="prefix" v-else />
@@ -23,7 +23,7 @@
       <spinner :color="spinnerColor" :size="spinnerSize" v-if="loadingSuffix" />
       <slot name="suffix" v-else />
     </div>
-  </flowbite-themable-children>
+  </flowbite-themable-child>
 </template>
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
@@ -31,7 +31,8 @@ import type { PropType } from 'vue'
 import Spinner from '../Spinner/Spinner.vue'
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
-import FlowbiteThemableChildren from '../../components/utils/FlowbiteThemable/components/FlowbiteThemableChildren/FlowbiteThemableChildren.vue'
+import FlowbiteThemableChild from '../utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
+
 import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
 const props = defineProps({
   color: {
