@@ -5,7 +5,15 @@ import ButtonGroupIconExample from './examples/ButtonGroupIconExample.vue';
 
 # Button Group
 
-reference: [https://flowbite.com/docs/components/button-group/](https://flowbite.com/docs/components/button-group/)
+#### Button groups are a Tailwind CSS powered set of buttons sticked together in a horizontal line
+
+---
+
+:::tip
+Original reference: [https://flowbite.com/docs/components/button-group/](https://flowbite.com/docs/components/button-group/)
+:::
+
+The button group component from Flowbite can be used to stack together multiple buttons and links inside a single element.
 
 ## Basic example
 

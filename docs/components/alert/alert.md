@@ -9,7 +9,17 @@ import AlertInlineExample from './examples/AlertInlineExample.vue';
 
 # Alert
 
-reference: [https://flowbite.com/docs/components/alert/](https://flowbite.com/docs/components/alert/)
+#### Show contextual information to your users using alert elements based on Tailwind CSS
+
+---
+
+:::tip
+Original reference: [https://flowbite.com/docs/components/alert/](https://flowbite.com/docs/components/alert/)
+:::
+
+The alert component can be used to provide information to your users such as success or error messages, but also highlighted information complementing the normal flow of paragraphs and headers on a page.
+
+Flowbite also includes dismissable alerts which can be hidden by the users by clicking on the close icon.
 
 ## Prop - type
 

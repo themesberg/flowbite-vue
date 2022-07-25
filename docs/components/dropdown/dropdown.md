@@ -5,6 +5,16 @@ import DropdownListGroupExample from './examples/DropdownListGroupExample.vue';
 
 # Dropdown
 
+#### Get started with the dropdown component to show a list of menu items when clicking on the trigger element based on multiple layouts, styles, and placements
+
+---
+
+:::tip
+Original reference: [https://flowbite.com/docs/components/dropdowns/](https://flowbite.com/docs/components/dropdowns/)
+:::
+
+The dropdown component can be used to show a list of menu items when clicking on an element such as a button and hiding it when focusing outside of the triggering element.
+
 
 ## Props - placement
 

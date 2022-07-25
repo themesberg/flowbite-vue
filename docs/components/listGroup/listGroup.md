@@ -7,6 +7,15 @@ import ListGroupHoverIconDisabledExample from './examples/ListGroupHoverIconDisa
 
 # ListGroup
 
+#### Use the list group component to display a series of items, buttons or links inside a single element
+
+---
+
+:::tip
+Original reference: [https://flowbite.com/docs/components/list-group/](https://flowbite.com/docs/components/list-group/)
+:::
+
+The list group component can be used to display a series of elements, buttons or links inside a single card component similar to a sidebar.
 
 ## No hover
 ```vue

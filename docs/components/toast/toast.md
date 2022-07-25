@@ -8,7 +8,15 @@ import ToastExample from './examples/ToastExample.vue'
 import { Toast } from 'flowbite-vue'
 </script>
 <template>
-  <Toast></Toast>
+  <Toast type="warning">
+    Improve password difficulty.
+  </Toast>
+  <Toast type="success">
+    Item moved successfully.
+  </Toast>
+  <Toast type="danger">
+    Item has been deleted.
+  </Toast>
 </template>
 ```
 
