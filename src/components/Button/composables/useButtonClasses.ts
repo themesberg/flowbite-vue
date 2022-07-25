@@ -168,8 +168,6 @@ const alternativeColors = ['alternative', 'light']
 export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses: Ref<string>, spanClasses: Ref<string> } {
   const slots = useSlots()
 
-  const theme = useFlowbiteThemable()
-
   const sizeClasses = computed(() => {
     if (props.square.value) return buttonSquareSizeClasses[props.size.value]
     return buttonSizeClasses[props.size.value]
@@ -180,7 +178,6 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
     const isColor = !!props.color.value
     const isOutline = props.outline.value
 
-    const isActiveTheme = theme.isActive.value
 
     let hoverClass = ''
     let backgroundClass = ''
@@ -205,7 +202,7 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
 
     } else if (isColor && isOutline) { // COLOR AND OUTLINE
       if (!alternativeColors.includes(props.color.value)) {
-        const color = isActiveTheme ? theme.color.value : props.color.value
+        const color = props.color.value
 
         backgroundClass = buttonOutlineColorClasses.default[color as unknown as keyof typeof buttonOutlineColorClasses.default]
 
@@ -217,7 +214,7 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
 
 
     } else { // JUST COLOR
-      const color = isActiveTheme ? theme.color.value : props.color.value
+      const color = props.color.value
 
       backgroundClass = buttonColorClasses.default[color as unknown as keyof typeof buttonColorClasses.default]
 
