@@ -27,37 +27,37 @@ function buildSidebar() {
 
 function getComponents() {
   return [
-    { text: 'Alert', link: '/guide/alert/alert.md' },
-    { text: 'Button', link: '/guide/button/button.md' },
-    { text: 'Button Group', link: '/guide/buttonGroup/buttonGroup.md' },
-    { text: 'Dropdown', link: '/guide/dropdown/dropdown.md' },
-    { text: 'Spinner', link: '/guide/spinner/spinner.md' },
-    { text: 'Tabs', link: '/guide/tabs/tabs.md' },
-    { text: 'ListGroup', link: 'guide/listGroup/listGroup.md' },
+    { text: 'Alert', link: '/components/alert/alert.md' },
+    { text: 'Button', link: '/components/button/button.md' },
+    { text: 'Button Group', link: '/components/buttonGroup/buttonGroup.md' },
+    { text: 'Dropdown', link: '/components/dropdown/dropdown.md' },
+    { text: 'Spinner', link: '/components/spinner/spinner.md' },
+    { text: 'Tabs', link: '/components/tabs/tabs.md' },
+    { text: 'ListGroup', link: 'components/listGroup/listGroup.md' },
 
-    { text: '- Accordion', link: 'guide/accordion/accordion.md' },
-    { text: '- Avatar', link: 'guide/avatar/avatar.md' },
-    { text: '- Badge', link: 'guide/badge/badge.md' },
-    { text: '- Breadcrumb', link: 'guide/breadcrumb/breadcrumb.md' },
-    { text: '- Card', link: 'guide/card/card.md' },
-    { text: '- Carousel', link: 'guide/carousel/carousel.md' },
-    { text: '- Footer', link: 'guide/footer/footer.md' },
-    { text: '- Modal', link: 'guide/modal/modal.md' },
-    { text: '- Navbar', link: 'guide/navbar/navbar.md' },
-    { text: '- Pagination', link: 'guide/pagination/pagination.md' },
-    { text: '- Progress', link: 'guide/progress/progress.md' },
-    { text: '- Rating', link: 'guide/rating/rating.md' },
-    { text: '- Sidebar', link: 'guide/sidebar/sidebar.md' },
-    { text: '- Table', link: 'guide/table/table.md' },
-    { text: '- Timeline', link: 'guide/timeline/timeline.md' },
-    { text: '- Toast', link: 'guide/toast/toast.md' },
-    { text: '- Tooltip', link: 'guide/tooltip/tooltip.md' },
+    { text: '- Accordion', link: 'components/accordion/accordion.md' },
+    { text: '- Avatar', link: 'components/avatar/avatar.md' },
+    { text: '- Badge', link: 'components/badge/badge.md' },
+    { text: '- Breadcrumb', link: 'components/breadcrumb/breadcrumb.md' },
+    { text: '- Card', link: 'components/card/card.md' },
+    { text: '- Carousel', link: 'components/carousel/carousel.md' },
+    { text: '- Footer', link: 'components/footer/footer.md' },
+    { text: '- Modal', link: 'components/modal/modal.md' },
+    { text: '- Navbar', link: 'components/navbar/navbar.md' },
+    { text: '- Pagination', link: 'components/pagination/pagination.md' },
+    { text: '- Progress', link: 'components/progress/progress.md' },
+    { text: '- Rating', link: 'components/rating/rating.md' },
+    { text: '- Sidebar', link: 'components/sidebar/sidebar.md' },
+    { text: '- Table', link: 'components/table/table.md' },
+    { text: '- Timeline', link: 'components/timeline/timeline.md' },
+    { text: '- Toast', link: 'components/toast/toast.md' },
+    { text: '- Tooltip', link: 'components/tooltip/tooltip.md' },
   ]
 }
 
 function getUtils() {
   return [
-    { text: 'Flowbite Themable', link: '/guide/flowbiteThemable/flowbiteThemable.md' },
+    { text: 'Flowbite Themable', link: '/components/flowbiteThemable/flowbiteThemable.md' },
   ]
 }
 
@@ -74,7 +74,8 @@ export default defineConfig({
     sidebar: buildSidebar(),
     logo: '/assets/logo.svg',
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/themesberg/flowbite-vue' }
+      { icon: 'github', link: 'https://github.com/themesberg/flowbite-vue' },
+      { icon: 'discord', link: 'https://discord.gg/4eeurUVvTy' }
     ],
 
     footer: {

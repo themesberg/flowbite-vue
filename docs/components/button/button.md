@@ -17,7 +17,17 @@ import ButtonLoadingExample from './examples/ButtonLoadingExample.vue';
 
 # Button
 
-reference: [https://flowbite.com/docs/components/buttons/](https://flowbite.com/docs/components/buttons/)
+#### Use the button component inside forms, as links, social login, payment options with support for multiple styles, colors, sizes, gradients, and shadows
+
+---
+
+:::tip
+Original reference: [https://flowbite.com/docs/components/buttons/](https://flowbite.com/docs/components/buttons/)
+:::
+
+The button component is probably the most widely used element in any user interface or website as it can be used to launch an action but also to link to other pages.
+
+Flowbite provides a large variety of styles and sizes for the button component including outlined buttons, multiple colors, sizes, buttons with icons, and more.
 
 ## Prop - color
 

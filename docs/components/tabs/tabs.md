@@ -6,7 +6,15 @@ import TabsUnderlineExample from './examples/TabsUnderlineExample.vue';
 
 # Tabs
 
-reference: [https://flowbite.com/docs/components/tabs/](https://flowbite.com/docs/components/tabs/)
+#### Use these responsive tabs components to create a secondary navigational hierarchy for your website or toggle content inside a container
+
+---
+
+:::tip
+Original reference: [https://flowbite.com/docs/components/tabs/](https://flowbite.com/docs/components/tabs/)
+:::
+
+The tabs component can be used either as an extra navigational hierarchy complementing the main navbar or you can also use it to change content inside a container just below the tabs using the data attributes from Flowbite.
 
 ## Prop - variant (default)
 
