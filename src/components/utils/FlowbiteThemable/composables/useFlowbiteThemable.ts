@@ -1,6 +1,6 @@
 import type { FlowbiteTheme } from '../types'
 import type { Ref } from 'vue'
-import { computed, inject } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { FLOWBITE_THEMABLE_INJECTION_KEY } from '../injection/config'
 
 type UseFlowbiteThemableReturns = {
@@ -65,38 +65,38 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
 
 export function useFlowbiteThemable(): UseFlowbiteThemableReturns {
 
-    const theme = inject<Ref<FlowbiteTheme>>(FLOWBITE_THEMABLE_INJECTION_KEY)
+    const theme = inject<Ref<FlowbiteTheme | null>>(FLOWBITE_THEMABLE_INJECTION_KEY, ref(null))
 
     const isActive = computed(() => !!theme?.value)
-    const color = computed(() => theme?.value)
+    const color = computed(() => theme?.value || undefined)
 
     const backgroundClasses = computed(() => {
-        if(!theme) return ''
+        if(!theme.value) return ''
         return flowbiteThemeClasses[theme.value].background
     })
 
     const disabledClasses = computed(() => {
-        if(!theme) return ''
+        if(!theme.value) return ''
         return flowbiteThemeClasses[theme.value].disabled
     })
 
     const hoverClasses = computed(() => {
-        if(!theme) return ''
+        if(!theme.value) return ''
         return flowbiteThemeClasses[theme.value].hover
     })
 
     const textClasses = computed(() => {
-        if(!theme) return ''
+        if(!theme.value) return ''
         return flowbiteThemeClasses[theme.value].text
     })
 
     const borderClasses = computed(() => {
-        if(!theme) return ''
+        if(!theme.value) return ''
         return flowbiteThemeClasses[theme.value].border
     })
 
     const focusClasses = computed(() => {
-        if(!theme) return ''
+        if(!theme.value) return ''
         return flowbiteThemeClasses[theme.value].focus
     })
 
