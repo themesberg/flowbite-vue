@@ -27,7 +27,7 @@ import {
 import { useTabsClasses } from './composables/useTabsClasses'
 import type { PropType } from 'vue'
 import { computed, provide, toRef, useSlots } from 'vue'
-import { flatten } from '../../utils/flatten'
+import { flatten } from '@/utils/flatten'
 import TabPane from './components/TabPane/TabPane.vue'
 import type { TabsVariant } from './types'
 

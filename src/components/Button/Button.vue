@@ -31,7 +31,7 @@ import type { PropType } from 'vue'
 import Spinner from '../Spinner/Spinner.vue'
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
-import FlowbiteThemableChild from '../utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
+import FlowbiteThemableChild from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
 
 import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
 const props = defineProps({
