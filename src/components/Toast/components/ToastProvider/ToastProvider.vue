@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, h, provide, ref, resolveComponent } from 'vue'
+import { defineComponent, h, provide, ref, resolveComponent, TransitionGroup } from 'vue'
 import { FLOWBITE_TOAST_INJECTION_KEY } from '@/components/Toast/components/ToastProvider/injection/config'
 import type { ToastItem, ToastItemWithId } from '@/components/Toast/components/ToastProvider/types'
 import { Toast } from '@/index'
@@ -56,19 +56,21 @@ export default defineComponent({
 
     return h('div', {}, [
       $slots.default ? $slots.default() : null, // rendering default slot
-      h(resolveComponent('TransitionGroup'), {
+      h(TransitionGroup, {
             name: 'list',
             tag: 'div',
             class: 'xl:w-1/6 md:w-1/4 sm:w-1/4 fixed top-3 right-3 flex flex-col gap-2 z-50',
           },
-          toasts.map(_toast => // rendering every toast
-              h(resolveComponent('Toast'), {
-                closable: true,
-                type: _toast.type,
-                key: _toast.id,
-                onClose: () => removeToast(_toast.id),
-              }, _toast.text),
-          ),
+          {
+            default: () => toasts.map(_toast => // rendering every toast
+                h(Toast as any, {
+                  closable: true,
+                  type: _toast.type,
+                  key: _toast.id,
+                  onClose: () => removeToast(_toast.id),
+                }, () => _toast.text),
+            ),
+          },
       ),
     ])
   },
