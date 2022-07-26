@@ -23,7 +23,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import type { ToastAlign, ToastPreset } from '@/components/Toast/types'
+import type { ToastAlign, ToastType } from '@/components/Toast/types'
 import type { PropType } from 'vue'
 import { useToastClasses } from './composables/useToastClasses'
 import { ref, toRefs } from 'vue'
@@ -32,7 +32,7 @@ import FlowbiteThemableChild
 
 const props = defineProps({
   type: {
-    type: String as PropType<ToastPreset>,
+    type: String as PropType<ToastType>,
     default: 'empty',
   },
   alignment: {
@@ -59,5 +59,4 @@ const onClose = () => {
   emit('close')
   visible.value = false
 }
-
 </script>

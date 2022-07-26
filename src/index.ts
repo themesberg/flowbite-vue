@@ -26,4 +26,7 @@ export { default as Sidebar } from './components/Sidebar/Sidebar.vue'
 export { default as Table } from './components/Table/Table.vue'
 export { default as Timeline } from './components/Timeline/Timeline.vue'
 export { default as Toast } from './components/Toast/Toast.vue'
+export { default as ToastProvider } from './components/Toast/components/ToastProvider/ToastProvider.vue'
 export { default as Tooltip } from './components/Tooltip/Tooltip.vue'
+
+export * from './composables'

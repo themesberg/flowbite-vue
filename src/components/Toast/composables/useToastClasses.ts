@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
-import type { ToastPreset } from '@/components/Toast/types'
+import type { ToastType } from '@/components/Toast/types'
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 import type { ToastAlign } from '@/components/Toast/types'
 
@@ -11,12 +11,12 @@ type UseToastClassesReturns = {
 }
 
 type UseToastClassesProps = {
-    type: Ref<ToastPreset>
+    type: Ref<ToastType>
     divide: Ref<boolean>
     alignment: Ref<ToastAlign>
 }
 
-const typeClassesMap: Record<ToastPreset, string> = {
+const typeClassesMap: Record<ToastType, string> = {
     danger: 'text-red-500 bg-red-100 dark:bg-red-800 dark:text-red-200',
     empty: '',
     success: 'text-green-500 bg-green-100 dark:bg-green-800 dark:text-green-200',
