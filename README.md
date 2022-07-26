@@ -89,7 +89,7 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">
-        <a href="https://flowbite-vue.com/guide/alert/alert.html">
+        <a href="https://flowbite-vue.com/components/alert/alert.html">
             <img alt="Tailwind CSS Alerts" src="https://flowbite.s3.amazonaws.com/github/alerts.jpg">
         </a>
     </td>
@@ -111,12 +111,12 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">
-        <a href="https://flowbite-vue.com/guide/button/button.html">
+        <a href="https://flowbite-vue.com/components/button/button.html">
             <img alt="Tailwind CSS Buttons" src="https://flowbite.s3.amazonaws.com/github/buttons.jpg">
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-vue.com/guide/buttonGroup/buttonGroup.html">
+        <a href="https://flowbite-vue.com/components/buttonGroup/buttonGroup.html">
             <img alt="Tailwind CSS Button Group" src="https://flowbite.s3.amazonaws.com/github/button-group.jpg">
         </a>
     </td>
@@ -133,7 +133,7 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">
-        <a href="https://flowbite-vue.com/guide/dropdown/dropdown.html">
+        <a href="https://flowbite-vue.com/components/dropdown/dropdown.html">
             <img alt="Tailwind CSS Dropdown" src="https://flowbite.s3.amazonaws.com/github/dropdown.jpg">
         </a>
     </td>
@@ -143,7 +143,7 @@ module.exports = {
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-vue.com/guide/listGroup/listGroup.html">
+        <a href="https://flowbite-vue.com/components/listGroup/listGroup.html">
             <img alt="Tailwind CSS List group" src="https://flowbite.s3.amazonaws.com/github/list-group.jpg">
         </a>
     </td>
@@ -165,7 +165,7 @@ module.exports = {
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-vue.com/guide/tabs/tabs.html">
+        <a href="https://flowbite-vue.com/components/tabs/tabs.html">
             <img alt="Tailwind CSS Tabs" src="https://flowbite.s3.amazonaws.com/github/tabs.jpg">
         </a>
     </td>
@@ -195,7 +195,7 @@ module.exports = {
   <tr>
     <td width="33.3333%">:construction: Progress bar</td>
     <td width="33.3333%">:construction: Tables</td>
-    <td width="33.3333%">:construction: Toast</td>
+    <td width="33.3333%">Toast</td>
   </tr>
   <tr>
     <td width="33.3333%">
@@ -209,7 +209,7 @@ module.exports = {
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/toast/">
+        <a href="https://flowbite-vue.com/components/alert/alert.html">
             <img alt="Tailwind CSS Toast" src="https://flowbite.s3.amazonaws.com/github/toast.jpg">
         </a>
     </td>

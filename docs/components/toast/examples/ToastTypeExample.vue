@@ -1,5 +1,8 @@
 <template>
-  <div class="vp-raw flex align-center gap-2 flex-wrap">
+  <div class="vp-raw flex align-center gap-2 flex-wrap flex-col">
+    <Toast type="empty">
+      You've unlocked achievement.
+    </Toast>
     <Toast :type="'warning'">
       Improve password difficulty.
     </Toast>

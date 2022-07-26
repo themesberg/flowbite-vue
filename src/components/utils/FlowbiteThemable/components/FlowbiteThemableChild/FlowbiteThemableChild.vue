@@ -12,7 +12,8 @@ import type {
   ThemableChildrenApply,
 } from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChild/types'
 import { toRefs } from 'vue'
-import { simplifyTailwindClasses } from '../../../../../utils/simplifyTailwindClasses'
+import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
+import type { FlowbiteTheme } from '@/components/utils/FlowbiteThemable/types'
 
 const props = defineProps({
   apply: {
@@ -22,6 +23,10 @@ const props = defineProps({
   tag: {
     type: String,
     default: 'div',
+  },
+  theme: {
+    type: String as PropType<FlowbiteTheme>,
+    default: undefined,
   },
 })
 
