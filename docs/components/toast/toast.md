@@ -178,4 +178,3 @@ import { Toast } from 'flowbite-vue'
 <ToastIconExample />
 
 ---
-<ToastProviderExample />
