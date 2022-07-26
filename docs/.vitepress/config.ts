@@ -58,6 +58,7 @@ function getComponents() {
 function getUtils() {
   return [
     { text: 'Flowbite Themable', link: '/components/flowbiteThemable/flowbiteThemable.md' },
+    { text: 'ToastProvider', link: '/components/toastProvider/toastProvider.md' },
   ]
 }
 
