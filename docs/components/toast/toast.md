@@ -4,7 +4,6 @@ import ToastClosableExample from './examples/ToastClosableExample.vue';
 import ToastIconExample from './examples/ToastIconExample.vue';
 import ToastDivideExample from './examples/ToastDivideExample.vue';
 import ToastMessageExample from './examples/ToastMessageExample.vue';
-import ToastProviderExample from './examples/ToastProviderExample.vue';
 import ToastInteractiveExample from './examples/ToastInteractiveExample.vue'
 </script>
 # Toast
