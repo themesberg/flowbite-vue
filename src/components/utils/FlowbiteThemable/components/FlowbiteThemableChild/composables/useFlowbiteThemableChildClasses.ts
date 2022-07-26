@@ -4,6 +4,7 @@ import type {
     ThemableChildrenApply,
 } from '../types'
 import { useFlowbiteThemable } from '../../../composables/useFlowbiteThemable'
+import type { FlowbiteTheme } from '@/components/utils/FlowbiteThemable/types'
 
 type UseFlowbiteThemableChildReturns = {
     classes: Ref<string>
@@ -11,11 +12,12 @@ type UseFlowbiteThemableChildReturns = {
 
 type UseFlowbiteThemableChildProps = {
     apply: Ref<ThemableChildrenApply[]>
+    theme?: Ref<FlowbiteTheme | undefined>
 }
 
 export function useFlowbiteThemableChildClasses(props: UseFlowbiteThemableChildProps): UseFlowbiteThemableChildReturns {
 
-    const { textClasses, borderClasses, backgroundClasses, hoverClasses, disabledClasses, focusClasses, isActive } = useFlowbiteThemable()
+    const { textClasses, borderClasses, backgroundClasses, hoverClasses, disabledClasses, focusClasses, isActive } = useFlowbiteThemable(props.theme?.value)
 
     const classes = computed(() => {
         if(!isActive.value) return ''

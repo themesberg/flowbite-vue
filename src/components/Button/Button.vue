@@ -1,5 +1,5 @@
 <template>
-  <flowbite-themable-child tag="button" :apply="['background', 'hover', 'focus']" :class="wrapperClasses" :disabled="disabled">
+  <flowbite-themable-child tag="button" :apply="appliableTheme" :class="wrapperClasses" :disabled="disabled">
     <div v-if="!isOutlineGradient && ($slots.prefix || loadingPrefix)" class="mr-2"> <!--automatically add mr class if slot provided or loading -->
       <spinner :color="spinnerColor" :size="spinnerSize" v-if="loadingPrefix" />
       <slot name="prefix" v-else />
@@ -84,5 +84,10 @@ const loadingSuffix = computed(() => props.loading && props.loadingPosition === 
 
 const { wrapperClasses, spanClasses } = useButtonClasses(toRefs(props))
 const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(toRefs(props))
+
+const appliableTheme = computed(() => {
+  if(['alternative', 'light'].includes(props.color)) return []
+  return ['background', 'hover', 'focus']
+})
 
 </script>

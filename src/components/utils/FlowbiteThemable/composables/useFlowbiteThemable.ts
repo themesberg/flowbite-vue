@@ -63,41 +63,45 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
 
 }
 
-export function useFlowbiteThemable(): UseFlowbiteThemableReturns {
+export function useFlowbiteThemable(_theme?: FlowbiteTheme): UseFlowbiteThemableReturns {
 
     const theme = inject<Ref<FlowbiteTheme | null>>(FLOWBITE_THEMABLE_INJECTION_KEY, ref(null))
 
     const isActive = computed(() => !!theme?.value)
     const color = computed(() => theme?.value || undefined)
 
+    const themeName = computed(() => {
+        return _theme || theme.value
+    })
+
     const backgroundClasses = computed(() => {
-        if(!theme.value) return ''
-        return flowbiteThemeClasses[theme.value].background
+        if(!themeName.value) return ''
+        return flowbiteThemeClasses[themeName.value].background
     })
 
     const disabledClasses = computed(() => {
-        if(!theme.value) return ''
-        return flowbiteThemeClasses[theme.value].disabled
+        if(!themeName.value) return ''
+        return flowbiteThemeClasses[themeName.value].disabled
     })
 
     const hoverClasses = computed(() => {
-        if(!theme.value) return ''
-        return flowbiteThemeClasses[theme.value].hover
+        if(!themeName.value) return ''
+        return flowbiteThemeClasses[themeName.value].hover
     })
 
     const textClasses = computed(() => {
-        if(!theme.value) return ''
-        return flowbiteThemeClasses[theme.value].text
+        if(!themeName.value) return ''
+        return flowbiteThemeClasses[themeName.value].text
     })
 
     const borderClasses = computed(() => {
-        if(!theme.value) return ''
-        return flowbiteThemeClasses[theme.value].border
+        if(!themeName.value) return ''
+        return flowbiteThemeClasses[themeName.value].border
     })
 
     const focusClasses = computed(() => {
-        if(!theme.value) return ''
-        return flowbiteThemeClasses[theme.value].focus
+        if(!themeName.value) return ''
+        return flowbiteThemeClasses[themeName.value].focus
     })
 
     return {
