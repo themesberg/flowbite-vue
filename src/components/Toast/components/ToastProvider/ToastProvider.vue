@@ -22,7 +22,7 @@ export default defineComponent({
         id,
         ...toast,
       })
-      if(toast.time > 0)
+      if (toast.time > 0)
         runRemoveTimeout(id, toast.time)
     }
 
@@ -32,7 +32,7 @@ export default defineComponent({
     }
 
     const popToast = () => {
-      if(toasts.value.length === 0) return
+      if (toasts.value.length === 0) return
       toasts.value.pop()
     }
 
@@ -63,12 +63,18 @@ export default defineComponent({
           },
           {
             default: () => toasts.map(_toast => // rendering every toast
-                h(Toast as any, {
-                  closable: true,
-                  type: _toast.type,
-                  key: _toast.id,
-                  onClose: () => removeToast(_toast.id),
-                }, () => _toast.text),
+                _toast.component
+                    ? h(_toast.component, {
+                      key: _toast.id,
+                      onClose: () => removeToast(_toast.id),
+                      ...(_toast.componentProps ? _toast.componentProps : {}),
+                    }, () => _toast.text)
+                    : h(Toast as any, {
+                      closable: true,
+                      type: _toast.type,
+                      key: _toast.id,
+                      onClose: () => removeToast(_toast.id),
+                    }, () => _toast.text),
             ),
           },
       ),
