@@ -13,5 +13,10 @@ export type ToastItemWithId = ToastItem & {
     id: string
 }
 
-export type ToastInjection = {
+export type ToastTransition = 'slide-left' | 'slide-right' | 'fade' | 'slide-top' | 'slide-bottom'
+
+export type UseToastInjection = {
+    add: (toast: ToastItem) => string
+    remove: (id: string) => boolean // true if removed, false if not found
+    pop: () => string // empty '' string if no toast to pop
 }
