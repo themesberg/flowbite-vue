@@ -34,6 +34,7 @@ import { useButtonSpinner } from './composables/useButtonSpinner'
 import FlowbiteThemableChild from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
 
 import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
+import type { ThemableChildrenApply } from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChild/types'
 const props = defineProps({
   color: {
     type: String as PropType<ButtonVariant>,
@@ -85,7 +86,7 @@ const loadingSuffix = computed(() => props.loading && props.loadingPosition === 
 const { wrapperClasses, spanClasses } = useButtonClasses(toRefs(props))
 const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(toRefs(props))
 
-const appliableTheme = computed(() => {
+const appliableTheme = computed<ThemableChildrenApply[]>(() => {
   if(['alternative', 'light'].includes(props.color)) return []
   return ['background', 'hover', 'focus']
 })

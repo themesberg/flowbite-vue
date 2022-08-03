@@ -1,6 +1,7 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "outDir": "dist_types",
     "paths": {
       "@/*": [

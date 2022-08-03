@@ -29,4 +29,6 @@ export { default as Toast } from './components/Toast/Toast.vue'
 export { default as ToastProvider } from './components/Toast/components/ToastProvider/ToastProvider.vue'
 export { default as Tooltip } from './components/Tooltip/Tooltip.vue'
 
+export { default as Input } from './components/Input/Input.vue'
+
 export * from './composables'
