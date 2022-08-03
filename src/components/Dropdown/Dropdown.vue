@@ -18,7 +18,9 @@
     </div>
     <transition :name="transitionName">
       <div ref="content" v-if="visible" :style="contentStyles" :class="[contentClasses]">
-        <slot/>
+        <slot-listener @click="onHide">
+          <slot/>
+        </slot-listener>
       </div>
     </transition>
   </div>
