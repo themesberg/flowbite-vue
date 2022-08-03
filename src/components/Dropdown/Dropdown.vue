@@ -1,18 +1,24 @@
 <template>
   <div class="inline-flex relative" ref="wrapper">
     <div class="inline-flex items-center">
-      <slot name="trigger" :show="onShow" :hide="onHide" :toggle="onToggle">
-        <Button @click="onToggle">
-          {{ text }}
-          <template #suffix>
-            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </template>
-        </Button>
-      </slot>
+      <slot-listener @click="onToggle">
+        <slot name="trigger">
+          <Button>
+            {{ text }}
+            <template #suffix>
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </template>
+          </Button>
+        </slot>
+      </slot-listener>
+
     </div>
     <transition :name="transitionName">
       <div ref="content" v-if="visible" :style="contentStyles" :class="[contentClasses]">
-        <slot />
+        <slot/>
       </div>
     </transition>
   </div>
@@ -24,6 +30,7 @@ import type { DropdownPlacement } from './types'
 import { useDropdownClasses } from './composables/useDropdownClasses'
 import Button from '../Button/Button.vue'
 import { onClickOutside } from '@vueuse/core'
+import SlotListener from '@/components/utils/SlotListener/SlotListener.vue'
 
 const visible = ref(false)
 
@@ -37,7 +44,7 @@ const props = defineProps({
     default: 'bottom',
   },
   text: {
-    type: String ,
+    type: String,
     default: '',
   },
   transition: {
@@ -54,7 +61,7 @@ const placementTransitionMap: Record<DropdownPlacement, string> = {
 }
 
 const transitionName = computed(() => {
-  if(props.transition === null) return placementTransitionMap[props.placement]
+  if (props.transition === null) return placementTransitionMap[props.placement]
   return props.transition
 })
 
@@ -68,7 +75,7 @@ const { contentClasses, contentStyles } = useDropdownClasses({
 })
 
 onClickOutside(wrapper, () => {
-  if(!visible.value) return
+  if (!visible.value) return
   visible.value = false
 })
 </script>

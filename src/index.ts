@@ -31,4 +31,6 @@ export { default as Tooltip } from './components/Tooltip/Tooltip.vue'
 
 export { default as Input } from './components/Input/Input.vue'
 
+export { default as SlotListener } from './components/utils/SlotListener/SlotListener.vue'
+
 export * from './composables'
