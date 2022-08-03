@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" :class="simplifyTailwindClasses($attrs.class || [], classes)">
+  <component :is="tag" :class="simplifyTailwindClasses(classAttr, classes)">
     <slot />
   </component>
 </template>
@@ -11,9 +11,11 @@ import {
 import type {
   ThemableChildrenApply,
 } from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChild/types'
-import { toRefs } from 'vue'
+import { computed, toRefs, useAttrs } from 'vue'
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 import type { FlowbiteTheme } from '@/components/utils/FlowbiteThemable/types'
+
+const attrs = useAttrs()
 
 const props = defineProps({
   apply: {
@@ -31,4 +33,8 @@ const props = defineProps({
 })
 
 const { classes } = useFlowbiteThemableChildClasses(toRefs(props))
+
+const classAttr = computed<string>(() => {
+  return attrs.class as string || '' // TODO:
+})
 </script>

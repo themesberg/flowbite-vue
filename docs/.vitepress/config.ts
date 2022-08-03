@@ -16,6 +16,13 @@ function buildSidebar() {
       ],
     },
     {
+      text: 'Form',
+      collapsible: true,
+      items: [
+        ...getFormComponents(),
+      ],
+    },
+    {
       text: 'Utils',
       collapsible: true,
       items: [
@@ -52,6 +59,12 @@ function getComponents() {
     { text: '- Table', link: 'components/table/table.md' },
     { text: '- Timeline', link: 'components/timeline/timeline.md' },
     { text: '- Tooltip', link: 'components/tooltip/tooltip.md' },
+  ]
+}
+
+function getFormComponents() {
+  return [
+    { text: 'Input', link: 'components/input/input.md' },
   ]
 }
 

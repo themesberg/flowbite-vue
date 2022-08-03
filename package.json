@@ -1,6 +1,6 @@
 {
   "name": "flowbite-vue",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": "https://github.com/themesberg/flowbite-vue.git",
   "author": "themesberg",
   "license": "MIT",
@@ -22,9 +22,10 @@
     "start": "vitepress serve docs --port $PORT",
     "build": "vitepress build docs && cp -r ./docs/assets/* ./docs/.vitepress/dist/assets/",
     "build:package": "vite build",
-    "build:types": "vue-tsc --declaration --emitDeclarationOnly",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly && tsc-alias -p tsconfig.json",
     "build:production": "npm run build:types && npm run build:package",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src",
+    "clear": "rm -fr ./dist && rm -fr ./dist_types",
     "format": "prettier .  --write",
     "test": "vitest",
     "coverage": "vitest run --coverage",
@@ -53,6 +54,7 @@
     "postcss-prefix-selector": "^1.16.0",
     "prettier": "^2.3.2",
     "tailwindcss": "^3",
+    "tsc-alias": "^1.7.0",
     "typescript": "^4.7.3",
     "vite": "^2.4.3",
     "vitest": "^0.16.0",
@@ -61,7 +63,6 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.9.1",
-    "http-server": "^14.1.1",
     "vitepress": "^1.0.0-alpha.4"
   }
 }
