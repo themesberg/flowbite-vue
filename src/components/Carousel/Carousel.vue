@@ -75,15 +75,22 @@ const props = defineProps({
 
 const currentPicture = ref(0)
 const direction = ref('')
+const interval = ref()
 
 const automaticSlide = () => {
-    setInterval(function() {
+    interval.value = setInterval(function() {
       nextPicture()
     }, props.slideInterval)
 }
 
+const resetInterval = () => {
+  clearInterval(interval.value)
+  automaticSlide()
+}
+
 const slideTo = (index: number) => {
   currentPicture.value = index
+  resetInterval()
 }
 
 const nextPicture = () => {
@@ -93,6 +100,7 @@ const nextPicture = () => {
     currentPicture.value = 0
   }
   direction.value = 'right'
+  resetInterval()
 }
 
 const previousPicture = () => {
@@ -102,6 +110,7 @@ const previousPicture = () => {
     currentPicture.value = props.pictures.length -1
   }
   direction.value = 'left'
+  resetInterval()
 }
 
 onMounted(() => {
