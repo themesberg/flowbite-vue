@@ -63,10 +63,10 @@ function toggleModal() {
   isHidden.value = !isHidden.value
 }
 function hideModal() {
-  isHidden.value = !isHidden.value
+  isHidden.value = true
 }
 function showModal() {
-  isHidden.value = !isHidden.value
+  isHidden.value = false
 }
 
 </script>
