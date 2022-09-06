@@ -4,6 +4,9 @@ import AvatarBorderedExample from './examples/AvatarBorderedExample.vue'
 import AvatarDotIndicatorExample from './examples/AvatarDotIndicatorExample.vue'
 import AvatarSizeExample from './examples/AvatarSizeExample.vue'
 import AvatarDotIndicatorPositionExample from './examples/AvatarDotIndicatorPositionExample.vue'
+import AvatarAlternativeTextExample from './examples/AvatarAlternativeTextExample.vue'
+import StackedAvatarsExample from './examples/StackedAvatarsExample.vue'
+
 </script>
 # Avatar
 Use the avatar component to show a visual representation of a user profile using an image element or SVG object based on multiple styles and sizes
@@ -98,5 +101,35 @@ import { Avatar } from 'flowbite-vue'
     <Avatar status="online" status-position="bottom-right" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
     <Avatar status="online" status-position="bottom-right" rounded img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
   </div>
+</template>
+```
+## Alternative text
+
+<AvatarAlternativeTextExample />
+
+## Stacked avatars
+
+<StackedAvatarsExample />
+
+```vue
+<script setup>
+import { StackedAvatars, Avatar, StackedAvatarsCounter } from 'flowbite-vue'
+</script>
+
+<template>
+    <StackedAvatars>
+      <Avatar stacked img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" rounded />
+      <Avatar stacked img="https://flowbite.com/docs/images/people/profile-picture-2.jpg" rounded />
+      <Avatar stacked img="https://flowbite.com/docs/images/people/profile-picture-3.jpg" rounded />
+      <Avatar stacked img="https://flowbite.com/docs/images/people/profile-picture-4.jpg" rounded />
+      <Avatar stacked img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
+    </StackedAvatars>
+    <StackedAvatars class="mt-2.5">
+      <Avatar stacked img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" rounded />
+      <Avatar stacked img="https://flowbite.com/docs/images/people/profile-picture-2.jpg" rounded />
+      <Avatar stacked img="https://flowbite.com/docs/images/people/profile-picture-3.jpg" rounded />
+      <Avatar stacked img="https://flowbite.com/docs/images/people/profile-picture-4.jpg" rounded />
+      <StackedAvatarsCounter total="99" href="#" />
+    </StackedAvatars>
 </template>
 ```

@@ -56,6 +56,7 @@ export function useAvatarClasses(props: UseAvatarClassesProps): {
             avatarSizeClasses[props.size.value],
             avatarTypeClasses[props.rounded.value ? 'rounded' : 'default'],
             props.bordered.value ? avatarBorderedClasses : '',
+            props.stacked.value ? 'border-2 border-white dark:border-gray-800' : '',
         )
     })
     const avatarDotClasses = computed<string>(() => {
@@ -67,7 +68,6 @@ export function useAvatarClasses(props: UseAvatarClassesProps): {
         )
     })
     // TODO: Placeholder
-    // TODO: Stacked avatars
     // TODO: Avatar Initials
 
     return {
