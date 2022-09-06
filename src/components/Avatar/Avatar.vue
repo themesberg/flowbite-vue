@@ -1,26 +1,23 @@
 <template>
-  <div>
-<!--    <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="Rounded avatar">-->
+  <div class="relative">
+    <img :class="avatarClasses" :src="img" :alt="alt">
+    <span v-if="status" :class="avatarDotClasses" :data-pos="statusPosition"></span>
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
+import { toRefs } from 'vue'
 import type { PropType } from 'vue'
+import type { AvatarSize, AvatarStatus, AvatarStatusPosition } from './types'
+import { useAvatarClasses } from '@/components/Avatar/composables/useAvatarClasses'
 
 const props = defineProps({
   alt: {
     type: String,
-    default: '',
+    default: 'Avatar',
   },
   bordered: {
     type: Boolean,
     default: false,
-  },
-  children: {
-    type: Array,
-    default() {
-      return []
-    },
   },
   img: {
     type: String,
@@ -31,7 +28,7 @@ const props = defineProps({
     default: false,
   },
   size: {
-    type: String, // 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+    type: String as PropType<AvatarSize>,
     default: 'md',
   },
   stacked: {
@@ -39,13 +36,15 @@ const props = defineProps({
     default: false,
   },
   status: {
-    type: String, // 'away' | 'busy' | 'offline' | 'online';
-    default: '',
+    type: String as PropType<AvatarStatus>,
+    default: null,
   },
   statusPosition: {
-    type: String, // 'bottom-left' | 'bottom-right' | 'bottom-center' | 'top-left' | 'top-center' | 'top-right' | 'center-left' | 'center' | 'center-right'
-    default: 'top-left',
+    type: String as PropType<AvatarStatusPosition>,
+    default: 'top-right',
   },
 })
+
+const { avatarClasses, avatarDotClasses } = useAvatarClasses(toRefs(props))
 
 </script>

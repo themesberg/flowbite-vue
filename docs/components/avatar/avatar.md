@@ -1,15 +1,102 @@
 <script setup>
 import AvatarExample from './examples/AvatarExample.vue'
+import AvatarBorderedExample from './examples/AvatarBorderedExample.vue'
+import AvatarDotIndicatorExample from './examples/AvatarDotIndicatorExample.vue'
+import AvatarSizeExample from './examples/AvatarSizeExample.vue'
+import AvatarDotIndicatorPositionExample from './examples/AvatarDotIndicatorPositionExample.vue'
 </script>
 # Avatar
+Use the avatar component to show a visual representation of a user profile using an image element or SVG object based on multiple styles and sizes
+
+## Default avatar
+Use this example to create a circle and rounded avatar on an image element.
+
+<AvatarExample />
 
 ```vue
 <script setup>
 import { Avatar } from 'flowbite-vue'
 </script>
 <template>
-  <Avatar></Avatar>
+    <div class="flex">
+        <Avatar status="online" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" />
+        <Avatar status="online" rounded img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" />
+    </div>
 </template>
 ```
 
-<AvatarExample />
+## Bordered
+Use this example to create a circle and rounded avatar on an image element.
+
+<AvatarBorderedExample />
+
+```vue
+<script setup>
+import { Avatar } from 'flowbite-vue'
+</script>
+<template>
+    <div class="flex">
+        <Avatar status="online" bordered img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+        <Avatar status="online" bordered rounded img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    </div>
+</template>
+```
+
+## Dot indicator
+
+<AvatarDotIndicatorExample />
+
+```vue
+<script setup>
+import { Avatar } from 'flowbite-vue'
+</script>
+<template>
+    <div class="flex">
+        <Avatar status="online" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+        <Avatar status="busy" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+        <Avatar status="away" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+        <Avatar status="offline" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    </div>
+</template>
+```
+
+## Sizes
+
+<AvatarSizeExample />
+
+```vue
+<script setup>
+import { Avatar } from 'flowbite-vue'
+</script>
+<template>
+  <div class="flex items-center">
+    <Avatar size="xs" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar size="sm" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar size="md" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar size="lg" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar size="xl" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+  </div>
+</template>
+```
+
+## Dot indicator position
+
+<AvatarDotIndicatorPositionExample />
+
+```vue
+<script setup>
+import { Avatar } from 'flowbite-vue'
+</script>
+<template>
+  <div class="flex items-center">
+    <Avatar status="online" status-position="top-left" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar status="online" status-position="top-left" rounded img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar status="online" status-position="top-right" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar status="online" status-position="top-right" rounded img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar status="online" status-position="bottom-left" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar status="online" status-position="bottom-left" rounded img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar status="online" status-position="bottom-right" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar status="online" status-position="bottom-right" rounded img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+  </div>
+</template>
+```
