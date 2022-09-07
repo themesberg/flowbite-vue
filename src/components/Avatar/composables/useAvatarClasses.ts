@@ -34,6 +34,17 @@ const avatarStatusDotPositionClasses: Record<avatarDotIndicatorPositionClasses, 
     'bottom-left-default': '-bottom-1.5 left-0 transform -translate-x-1/2 ',
 }
 
+const avatarPlaceholderDefaultClasses = 'absolute w-auto h-auto text-gray-400'
+const avatarPlaceholderWrapperDefaultClasses = 'inline-flex overflow-hidden relative justify-center items-center bg-gray-100 dark:bg-gray-600'
+const avatarPlaceholderInitialsDefaultClasses = 'font-medium text-gray-600 dark:text-gray-300'
+const avatarPlaceholderSizes = {
+    xs: 'bottom-0',
+    sm: 'bottom-0',
+    md: '-bottom-1',
+    lg: '-bottom-2',
+    xl: '-bottom-4',
+}
+
 export type UseAvatarClassesProps = {
     status: Ref<AvatarStatus>
     bordered: Ref<boolean>
@@ -48,6 +59,9 @@ export type UseAvatarClassesProps = {
 export function useAvatarClasses(props: UseAvatarClassesProps): {
     avatarClasses: Ref<string>
     avatarDotClasses: Ref<string>
+    avatarPlaceholderClasses: Ref<string>
+    avatarPlaceholderWrapperClasses: Ref<string>
+    avatarPlaceholderInitialsClasses: Ref<string>
 } {
 
     const avatarClasses = computed<string>(() => {
@@ -67,12 +81,32 @@ export function useAvatarClasses(props: UseAvatarClassesProps): {
             avatarStatusDotPositionClasses[avatarType as avatarDotIndicatorPositionClasses],
         )
     })
-    // TODO: Placeholder
+    const avatarPlaceholderClasses = computed<string>(() => {
+        return classNames(
+            avatarPlaceholderDefaultClasses,
+            avatarPlaceholderSizes[props.size.value],
+        )
+    })
+    const avatarPlaceholderWrapperClasses = computed<string>(() => {
+        return classNames(
+            avatarPlaceholderWrapperDefaultClasses,
+            avatarSizeClasses[props.size.value],
+            avatarTypeClasses[props.rounded.value ? 'rounded' : 'default'],
+        )
+    })
+    const avatarPlaceholderInitialsClasses = computed<string>(() => {
+        return classNames(
+            avatarPlaceholderInitialsDefaultClasses,
+        )
+    })
     // TODO: Avatar Initials
 
     return {
         avatarClasses,
         avatarDotClasses,
+        avatarPlaceholderClasses,
+        avatarPlaceholderWrapperClasses,
+        avatarPlaceholderInitialsClasses,
     }
 }
 

@@ -6,6 +6,8 @@ import AvatarSizeExample from './examples/AvatarSizeExample.vue'
 import AvatarDotIndicatorPositionExample from './examples/AvatarDotIndicatorPositionExample.vue'
 import AvatarAlternativeTextExample from './examples/AvatarAlternativeTextExample.vue'
 import StackedAvatarsExample from './examples/StackedAvatarsExample.vue'
+import AvatarPlaceholderExample from './examples/AvatarPlaceholderExample.vue'
+import AvatarPlaceholderInitialsExample from './examples/AvatarPlaceholderInitialsExample.vue'
 
 </script>
 # Avatar
@@ -46,6 +48,7 @@ import { Avatar } from 'flowbite-vue'
 ```
 
 ## Dot indicator
+Use a dot element relative to the avatar component as an indicator for the user (eg. online or offline status).
 
 <AvatarDotIndicatorExample />
 
@@ -63,26 +66,8 @@ import { Avatar } from 'flowbite-vue'
 </template>
 ```
 
-## Sizes
-
-<AvatarSizeExample />
-
-```vue
-<script setup>
-import { Avatar } from 'flowbite-vue'
-</script>
-<template>
-  <div class="flex items-center">
-    <Avatar size="xs" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
-    <Avatar size="sm" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
-    <Avatar size="md" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
-    <Avatar size="lg" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
-    <Avatar size="xl" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
-  </div>
-</template>
-```
-
 ## Dot indicator position
+
 
 <AvatarDotIndicatorPositionExample />
 
@@ -103,11 +88,44 @@ import { Avatar } from 'flowbite-vue'
   </div>
 </template>
 ```
+
+## Sizes
+
+Choose from multiple sizing options for the avatar component from this example.
+
+<AvatarSizeExample />
+
+```vue
+<script setup>
+import { Avatar } from 'flowbite-vue'
+</script>
+<template>
+  <div class="flex items-center">
+    <Avatar size="xs" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar size="sm" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar size="md" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar size="lg" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+    <Avatar size="xl" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" class="mr-2.5" />
+  </div>
+</template>
+```
+
 ## Alternative text
 
 <AvatarAlternativeTextExample />
 
+```vue
+<script setup>
+import { Avatar } from 'flowbite-vue'
+</script>
+
+<template>
+    <Avatar status="online" alt="Alternative text" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"/>
+</template>
+```
+
 ## Stacked avatars
+Use this example if you want to stack a group of users by overlapping the avatar components.
 
 <StackedAvatarsExample />
 
@@ -131,5 +149,39 @@ import { StackedAvatars, Avatar, StackedAvatarsCounter } from 'flowbite-vue'
       <Avatar stacked img="https://flowbite.com/docs/images/people/profile-picture-4.jpg" rounded />
       <StackedAvatarsCounter total="99" href="#" />
     </StackedAvatars>
+</template>
+```
+
+## Placeholder icon
+
+<AvatarPlaceholderExample />
+
+```vue
+<script setup>
+import { Avatar } from 'flowbite-vue'
+</script>
+
+<template>
+  <div class="flex">
+    <Avatar class="mr-2.5" />
+    <Avatar rounded />
+  </div>
+</template>
+```
+
+## Placeholder initials
+
+<AvatarPlaceholderInitialsExample />
+
+```vue
+<script setup>
+import { Avatar } from 'flowbite-vue'
+</script>
+
+<template>
+  <div class="flex">
+    <Avatar initials="JD" class="mr-2.5" />
+    <Avatar initials="JD" rounded />
+  </div>
 </template>
 ```
