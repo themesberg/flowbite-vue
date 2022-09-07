@@ -5,9 +5,9 @@
 If you are looking to help to with a code contribution our project uses Typescript, Vue 3 and TailwindCSS. If you don't feel ready to make a code contribution yet, no problem!
 If you are interested in making a code contribution and would like to learn more about the technologies that we use, check out the list below.
 
-- [React Course - Beginner's Tutorial for React JavaScript Library](https://www.youtube.com/watch?v=bMknfKXIFA8)
+- [Vue Course - Intro to Vue 3](https://www.youtube.com/watch?v=bzlFvd0b65c)
 - [TypeScript Course](https://www.youtube.com/watch?v=BwuLxPH8IDs)
-- [React + TypeScript](https://www.youtube.com/watch?v=jrKcJxF0lAU)
+- [Vue + TypeScript](https://www.youtube.com/watch?v=J53niBev2f0)
 - [TailwindCSS](https://tailwindcss.com/)
 
 ## How do I make a contribution?
