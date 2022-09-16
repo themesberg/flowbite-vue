@@ -46,7 +46,6 @@ function getComponents() {
     { text: 'Toast', link: 'components/toast/toast.md' },
 
     { text: '- Accordion', link: 'components/accordion/accordion.md' },
-    { text: '- Avatar', link: 'components/avatar/avatar.md' },
     { text: '- Breadcrumb', link: 'components/breadcrumb/breadcrumb.md' },
     { text: '- Card', link: 'components/card/card.md' },
     { text: '- Carousel', link: 'components/carousel/carousel.md' },
