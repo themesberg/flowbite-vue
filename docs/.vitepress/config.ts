@@ -37,6 +37,7 @@ function getComponents() {
     { text: 'Alert', link: '/components/alert/alert.md' },
     { text: 'Avatar', link: 'components/avatar/avatar.md' },
     { text: 'Button', link: '/components/button/button.md' },
+    { text: 'Badge', link: 'components/badge/badge.md' },
     { text: 'Button Group', link: '/components/buttonGroup/buttonGroup.md' },
     { text: 'Dropdown', link: '/components/dropdown/dropdown.md' },
     { text: 'Spinner', link: '/components/spinner/spinner.md' },
@@ -45,7 +46,6 @@ function getComponents() {
     { text: 'Toast', link: 'components/toast/toast.md' },
 
     { text: '- Accordion', link: 'components/accordion/accordion.md' },
-    { text: '- Badge', link: 'components/badge/badge.md' },
     { text: '- Breadcrumb', link: 'components/breadcrumb/breadcrumb.md' },
     { text: '- Card', link: 'components/card/card.md' },
     { text: '- Carousel', link: 'components/carousel/carousel.md' },
