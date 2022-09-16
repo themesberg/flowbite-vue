@@ -36,6 +36,7 @@ function getComponents() {
   return [
     { text: 'Alert', link: '/components/alert/alert.md' },
     { text: 'Avatar', link: 'components/avatar/avatar.md' },
+    { text: 'Breadcrumb', link: 'components/breadcrumb/breadcrumb.md' },
     { text: 'Button', link: '/components/button/button.md' },
     { text: 'Button Group', link: '/components/buttonGroup/buttonGroup.md' },
     { text: 'Dropdown', link: '/components/dropdown/dropdown.md' },
@@ -46,7 +47,6 @@ function getComponents() {
 
     { text: '- Accordion', link: 'components/accordion/accordion.md' },
     { text: '- Badge', link: 'components/badge/badge.md' },
-    { text: '- Breadcrumb', link: 'components/breadcrumb/breadcrumb.md' },
     { text: '- Card', link: 'components/card/card.md' },
     { text: '- Carousel', link: 'components/carousel/carousel.md' },
     { text: '- Footer', link: 'components/footer/footer.md' },
