@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /pages/getting-started
+      link: /pages/getting-started/vue
     - theme: alt
       text: View on GitHub
       link: https://github.com/themesberg/flowbite-vue

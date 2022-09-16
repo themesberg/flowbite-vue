@@ -5,29 +5,24 @@ function buildSidebar() {
     {
       items: [
         { text: 'Home', link: '/' },
-        { text: 'Quickstart', link: '/pages/getting-started' },
+        { text: 'Quickstart', link: '/pages/getting-started/vue' },
+        { text: 'Quickstart - Nuxt 3', link: '/pages/getting-started/nuxt3' },
       ],
     },
     {
       text: 'Components',
       collapsible: true,
-      items: [
-        ...getComponents(),
-      ],
+      items: [...getComponents()],
     },
     {
       text: 'Form',
       collapsible: true,
-      items: [
-        ...getFormComponents(),
-      ],
+      items: [...getFormComponents()],
     },
     {
       text: 'Utils',
       collapsible: true,
-      items: [
-        ...getUtils(),
-      ],
+      items: [...getUtils()],
     },
   ]
 }
@@ -63,9 +58,7 @@ function getComponents() {
 }
 
 function getFormComponents() {
-  return [
-    { text: 'Input', link: 'components/input/input.md' },
-  ]
+  return [{ text: 'Input', link: 'components/input/input.md' }]
 }
 
 function getUtils() {
@@ -82,21 +75,18 @@ function getUtils() {
  */
 export default defineConfig({
   title: 'Flowbite Vue 3',
-  head: [
-    ['link', { rel: "icon", type: "image/svg", href: "/assets/logo.svg"}],
-  ],
+  head: [['link', { rel: 'icon', type: 'image/svg', href: '/assets/logo.svg' }]],
   themeConfig: {
     sidebar: buildSidebar(),
     logo: '/assets/logo.svg',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/themesberg/flowbite-vue' },
-      { icon: 'discord', link: 'https://discord.gg/4eeurUVvTy' }
+      { icon: 'discord', link: 'https://discord.gg/4eeurUVvTy' },
     ],
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2022 themesberg'
+      copyright: 'Copyright © 2022 themesberg',
     },
-
   },
 })
