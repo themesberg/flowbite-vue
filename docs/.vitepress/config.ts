@@ -35,6 +35,7 @@ function buildSidebar() {
 function getComponents() {
   return [
     { text: 'Alert', link: '/components/alert/alert.md' },
+    { text: 'Avatar', link: 'components/avatar/avatar.md' },
     { text: 'Button', link: '/components/button/button.md' },
     { text: 'Badge', link: 'components/badge/badge.md' },
     { text: 'Button Group', link: '/components/buttonGroup/buttonGroup.md' },
