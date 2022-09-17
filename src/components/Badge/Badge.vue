@@ -1,33 +1,33 @@
 <template>
-  <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Default</span>
+  <component :is="wrapperType" :class="badgeClasses" :href="href">
+    <slot name="icon"/>
+    <slot name="default" />
+  </component>
 </template>
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
+import { computed, toRefs, useSlots } from 'vue'
 import type { PropType } from 'vue'
+import type { BadgeType, BadgeSize } from './types'
+import { useBadgeClasses } from '@/components/Badge/composables/useBadgeClasses'
 
 const props = defineProps({
-  children: {
-    type: Array,
-    default() {
-      return []
-    },
+  type: {
+    type: String as PropType<BadgeType>,
+    default: 'default',
   },
-  color: {
-    type: String, // 'failure' | 'gray' | 'indigo' | 'info' | 'pink' | 'purple' | 'success'
-    default: 'info',
+  size: {
+    type: String as PropType<BadgeSize>,
+    default: 'xs',
   },
   href: {
     type: String,
-    default: '',
-  },
-  icon: {
-    type: String,
-    default: '',
-  },
-  size: {
-    type: String, // 'xs' | 'sm'
-    default: 'xs',
+    default: null,
   },
 })
 
+const slots = useSlots()
+const isContentEmpty = computed(() => !slots.default)
+const wrapperType = computed(() => props.href ? 'a' : 'span')
+
+const { badgeClasses } = useBadgeClasses(toRefs(props), { isContentEmpty })
 </script>
