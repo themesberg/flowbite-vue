@@ -84,3 +84,6 @@ jspm_packages/
 .pnp.*
 
 .idea
+
+#
+package-lock.json
