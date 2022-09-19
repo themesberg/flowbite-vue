@@ -1,6 +1,6 @@
 <template>
   <div class="vp-raw flex flex-col">
-    <Breadcrumb>
+    <Breadcrumb solid>
       <BreadcrumbItem href="#" home>
         Home
       </BreadcrumbItem>
