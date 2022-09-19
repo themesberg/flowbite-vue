@@ -1,18 +1,19 @@
 <template>
-  <a href="#" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+  <a :href="href" :class="cardClasses">
+    <img v-if="imgSrc" class="rounded-t-lg" :class="horizontalImageClasses" :src="imgSrc" :alt="imgAlt"/>
+    <div class="p-6">
+      <slot />
+    </div>
+    
   </a>
 </template>
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
 import type { PropType } from 'vue'
+import { useCardsClasses } from './composables/useCardClasses'
+import type { CardsVariant } from './types'
 
 const props = defineProps({
-  horizontal: {
-    type: Boolean,
-    default: false,
-  },
   href: {
     type: String,
     default: '',
@@ -25,6 +26,12 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  variant: {
+    type: String as PropType<CardsVariant>,
+    default: 'default',
+  },
 })
+
+const { cardClasses, horizontalImageClasses } = useCardsClasses(props)
 
 </script>
