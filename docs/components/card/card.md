@@ -21,10 +21,10 @@ Use these responsive card components to show data entries and information to you
 
 ```vue
 <script setup>
-import { Card } from 'flowbite-vue'
+import { TheCard } from 'flowbite-vue'
 </script>
 <template>
-  <Card :href="'#'"/>
+  <the-card :href="'#'"/>
 </template>
 ```
 
@@ -34,14 +34,14 @@ import { Card } from 'flowbite-vue'
 
 ```vue
 <script setup>
-import { Card } from 'flowbite-vue'
+import { TheCard } from 'flowbite-vue'
 </script>
 <template>
-  <Card 
+  <the-card 
     :variant="'image'" 
     :href="'#'" 
-    :imgSrc="'./images/blog/image-1.jpg'" 
-    :imgAlt="'Image'"
+    :img-src="'./images/blog/image-1.jpg'" 
+    :img-alt="'Image'"
   />
 </template>
 ```
@@ -52,14 +52,14 @@ import { Card } from 'flowbite-vue'
 
 ```vue
 <script setup>
-import { Card } from 'flowbite-vue'
+import { TheCard } from 'flowbite-vue'
 </script>
 <template>
-  <Card 
+  <the-card 
     :variant="'horizontal'" 
     :href="'#'" 
-    :imgSrc="'./images/blog/image-4.jpg'" 
-    :imgAlt="'Image'"
+    :img-src="'./images/blog/image-4.jpg'" 
+    :img-alt="'Image'"
   />
 </template>
 ```

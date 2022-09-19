@@ -14,7 +14,7 @@ export { default as Accordion } from './components/Accordion/Accordion.vue'
 
 export { default as Badge } from './components/Badge/Badge.vue'
 export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb.vue'
-export { default as Card } from './components/Card/Card.vue'
+export { default as TheCard } from './components/Card/TheCard.vue'
 export { default as Carousel } from './components/Carousel/Carousel.vue'
 export { default as Footer } from './components/Footer/Footer.vue'
 export { default as ListGroup } from './components/ListGroup/ListGroup.vue'
