@@ -6,7 +6,7 @@ import FlowbiteThemableDropdownExample from './examples/dropdown/FlowbiteThemabl
 import FlowbiteThemableButtonExample from './examples/button/FlowbiteThemableButtonExample.vue';
 </script>
 
-# Flowbite Themable
+# Vue Themable Configuration - Flowbite
 
 You can use this wrapper for styling components with no color prop(like tabs, dropdown etc.)
 

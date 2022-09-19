@@ -1,7 +1,7 @@
 <script setup>
 import FooterExample from './examples/FooterExample.vue'
 </script>
-# Footer
+# Vue Footer Component - Flowbite
 
 ```vue
 <script setup>

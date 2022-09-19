@@ -1,7 +1,7 @@
 <script setup>
 import TooltipExample from './examples/TooltipExample.vue'
 </script>
-# Tooltip
+# Vue Tooltip Component - Flowbite
 
 ```vue
 <script setup>

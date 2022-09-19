@@ -3,7 +3,7 @@ import BreadcrumbExample from './examples/BreadcrumbExample.vue'
 import BreadcrumbSolidExample from './examples/BreadcrumbSolidExample.vue'
 import BreadcrumbCustomIconsExample from './examples/BreadcrumbCustomIconsExample.vue'
 </script>
-# Breadcrumb
+# Vue Breadcrumb Component - Flowbite
 The breadcrumb component is an important part of any website or application that can be used to show the current location of a page in a hierarchical structure of pages.
 
 Flowbite includes two styles of breadcrumb elements, one that has a transparent background and a few more that come with a background in different colors.

@@ -7,7 +7,7 @@ import InputPrefixExample from './examples/InputPrefixExample.vue';
 import InputSuffixExample from './examples/InputSuffixExample.vue'
 </script>
 
-# Input
+# Vue Input Components - Flowbite
 
 #### Get started with a collection of input fields built with Tailwind CSS to start accepting data from the user based on multiple sizes, variants, and input types
 

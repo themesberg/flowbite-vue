@@ -1,7 +1,7 @@
 <script setup>
 import CardExample from './examples/CardExample.vue'
 </script>
-# Card
+# Vue Card Components - Flowbite
 
 ```vue
 <script setup>

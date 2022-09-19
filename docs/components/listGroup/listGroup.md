@@ -5,7 +5,7 @@ import ListGroupHoverIconExample from './examples/ListGroupHoverIconExample.vue'
 import ListGroupHoverIconDisabledExample from './examples/ListGroupHoverIconDisabledExample.vue'
 </script>
 
-# ListGroup
+# Vue List Group Component - Flowbite
 
 #### Use the list group component to display a series of items, buttons or links inside a single element
 
