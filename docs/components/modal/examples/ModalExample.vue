@@ -1,9 +1,9 @@
 <template>
   <div class="vp-raw flex flex-col">
-    <Modal>
+    <Modal :size="size">
       <template #trigger="props">
         <button @click="props.show()" type="button" class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          Show Modal
+          {{triggerText}}
         </button>
       </template>
       <template #header="props">
@@ -40,5 +40,33 @@
   </div>
 </template>
 <script setup>
-import { Modal } from '../../../../src/index'
+import { Modal } from '../../../../src/index';
+const props = defineProps({
+  children: {
+    type: Array,
+    default() {
+      return []
+    },
+  },
+  popup: {
+    type: Boolean,
+    default: false,
+  },
+  position: {
+    type: String, // 'bottom-left' | 'bottom-right' | 'bottom-center' | 'top-left' | 'top-center' | 'top-right' | 'center-left' | 'center' | 'center-right'
+    default: 'center',
+  },
+  show: {
+    type: Boolean,
+    default: false,
+  },
+  size: {
+    type: String, // 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl'
+    default: '2xl',
+  },
+  triggerText: {
+    type: String,
+    default: 'Demo Modal',
+  },
+})
 </script>

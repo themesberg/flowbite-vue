@@ -1,9 +1,10 @@
 <script setup>
-import ModalExample from './examples/ModalExample.vue'
+import ModalExample from './examples/ModalExample.vue';
+import ModalSizeExample from './examples/ModalSizeExample.vue';
 </script>
 # Modal
 
-### Demo
+## Demo
 
 <ModalExample />
 
@@ -52,9 +53,35 @@ import { Modal } from 'flowbite-vue'
 </template>
 ```
 
-### Slot Properties 
+## Slot Properties 
 
 Modal slots receive the following functions to interact with the modal:
 1. `show` = show the modal 
 2. `hide` = hide the modal 
 3. `toggle` = toggles the modal from current state (e.g. if shown, then hide)
+
+These properties allow your code to set the open/closed state of the modal easily. 
+
+## Sizes 
+
+The modal can come in the following sizes (based on TailwindCSS classes).
+
+`xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`
+
+The default value is: `2xl`
+
+Demo: 
+
+<ModalSizeExample/>
+
+```vue
+<script setup>
+import { Modal } from 'flowbite-vue'
+</script>
+<template>
+    <Modal size="xs" />
+    <Modal size="md" />
+    <Modal size="xl" />
+    <Modal size="5xl" />
+</template>
+```

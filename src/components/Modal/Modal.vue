@@ -4,7 +4,8 @@
     <div v-if="!isHidden" class="bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40"></div>
     <div v-if="!isHidden" tabindex="-1" :aria-hidden="isHidden ? 'true' : 'false'"
          class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex">
-      <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+      <div class="relative p-4 w-full h-full md:h-auto"
+           :class="`${modalSizeClasses[size]}`">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <!-- Modal header -->
@@ -53,6 +54,20 @@ const props = defineProps({
     default: '2xl',
   },
 })
+
+const modalSizeClasses = {
+  xs: 'max-w-xs',
+  sm: 'max-w-sm',
+  md: 'max-w-md',
+  lg: 'max-w-lg',
+  xl: 'max-w-xl',
+  '2xl': 'max-w-2xl',
+  '3xl': 'max-w-3xl',
+  '4xl': 'max-w-4xl',
+  '5xl': 'max-w-5xl',
+  '6xl': 'max-w-6xl',
+  '7xl': 'max-w-7xl',
+}
 
 const isHidden: Ref<boolean> = ref(!props.show)
 
