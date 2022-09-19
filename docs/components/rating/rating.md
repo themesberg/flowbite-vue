@@ -1,7 +1,7 @@
 <script setup>
 import RatingExample from './examples/RatingExample.vue'
 </script>
-# Rating
+# Vue Rating Component - Flowbite
 
 ```vue
 <script setup>

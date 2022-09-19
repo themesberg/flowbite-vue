@@ -1,7 +1,7 @@
 <script setup>
 import AccordionExample from './examples/AccordionExample.vue'
 </script>
-# Accordion
+# Vue Accordion Component - Flowbite
 
 ```vue
 <script setup>

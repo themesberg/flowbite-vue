@@ -4,7 +4,7 @@ import DropdownListGroupExample from './examples/DropdownListGroupExample.vue';
 import DropdownTriggerExample from './examples/DropdownTriggerExample.vue';
 </script>
 
-# Dropdown
+# Vue Dropdown Component - Flowbite
 
 #### Get started with the dropdown component to show a list of menu items when clicking on the trigger element based on multiple layouts, styles, and placements
 
@@ -32,7 +32,7 @@ import { Dropdown } from 'flowbite-vue'
       <Button @click="toggle">
         Top
         <template #suffix>
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </template>
       </Button>
     </template>

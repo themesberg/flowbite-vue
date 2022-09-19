@@ -1,7 +1,7 @@
 <script setup>
 import CarouselExample from './examples/CarouselExample.vue'
 </script>
-# Carousel
+# Vue Carousel Component - Flowbite
 
 ```vue
 <script setup>

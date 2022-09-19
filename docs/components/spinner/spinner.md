@@ -4,7 +4,7 @@ import SpinnerSizeExample from './examples/SpinnerSizeExample.vue';
 import SpinnerColorExample from './examples/SpinnerColorExample.vue';
 </script>
 
-# Spinner
+# Vue Spinner Component - Flowbite
 
 #### Use the spinner component as a loader indicator in your projects when fetching data based on an animated SVG using the utility classes from Tailwind CSS
 

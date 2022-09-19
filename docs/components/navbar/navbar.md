@@ -1,7 +1,7 @@
 <script setup>
 import NavbarExample from './examples/NavbarExample.vue'
 </script>
-# Navbar
+# Vue Navbar Component - Flowbite
 
 ```vue
 <script setup>
