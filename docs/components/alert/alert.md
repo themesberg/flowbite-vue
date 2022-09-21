@@ -7,7 +7,7 @@ import AlertIconExample from './examples/AlertIconExample.vue';
 import AlertInlineExample from './examples/AlertInlineExample.vue';
 </script>
 
-# Alert
+# Vue Alert Component - Flowbite
 
 #### Show contextual information to your users using alert elements based on Tailwind CSS
 

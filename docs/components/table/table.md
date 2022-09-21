@@ -1,7 +1,7 @@
 <script setup>
 import TableExample from './examples/TableExample.vue'
 </script>
-# Table
+# Vue Table Component - Flowbite
 
 ```vue
 <script setup>

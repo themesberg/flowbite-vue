@@ -1,7 +1,7 @@
 <script setup>
 import TimelineExample from './examples/TimelineExample.vue'
 </script>
-# Timeline
+# Vue Timeline Component - Flowbite
 
 ```vue
 <script setup>

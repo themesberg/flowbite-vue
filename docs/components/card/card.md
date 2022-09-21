@@ -3,7 +3,7 @@ import CardDefaultExample from './examples/CardDefaultExample.vue'
 import CardImageExample from './examples/CardImageExample.vue'
 import CardHorizontalExample from './examples/CardHorizontalExample.vue'
 </script>
-# Card
+# Vue Card Components - Flowbite
 
 #### Get started with a large variety of Tailwind CSS card examples for your web project
 

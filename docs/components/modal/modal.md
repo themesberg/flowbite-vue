@@ -1,7 +1,7 @@
 <script setup>
 import ModalExample from './examples/ModalExample.vue'
 </script>
-# Modal
+# Vue Modal Component - Flowbite
 
 ```vue
 <script setup>

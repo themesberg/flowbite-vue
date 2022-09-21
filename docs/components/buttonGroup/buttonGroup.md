@@ -3,7 +3,7 @@ import ButtonGroupBasicExample from './examples/ButtonGroupBasicExample.vue';
 import ButtonGroupIconExample from './examples/ButtonGroupIconExample.vue';
 </script>
 
-# Button Group
+# Vue Button Group Component - Flowbite
 
 #### Button groups are a Tailwind CSS powered set of buttons sticked together in a horizontal line
 

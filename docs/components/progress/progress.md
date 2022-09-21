@@ -1,7 +1,7 @@
 <script setup>
 import ProgressExample from './examples/ProgressExample.vue'
 </script>
-# Progress
+# Vue Progress Bar Component - Flowbite
 
 ```vue
 <script setup>
