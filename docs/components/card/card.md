@@ -24,7 +24,7 @@ Use these responsive card components to show data entries and information to you
 import { TheCard } from 'flowbite-vue'
 </script>
 <template>
-  <the-card :href="'#'"/>
+  <the-card href="#"/>
 </template>
 ```
 
@@ -38,10 +38,10 @@ import { TheCard } from 'flowbite-vue'
 </script>
 <template>
   <the-card 
-    :variant="'image'" 
-    :href="'#'" 
-    :img-src="'./images/blog/image-1.jpg'" 
-    :img-alt="'Image'"
+    variant="image" 
+    href="#" 
+    img-src="./images/blog/image-1.jpg" 
+    img-alt="Image"
   />
 </template>
 ```
@@ -56,10 +56,10 @@ import { TheCard } from 'flowbite-vue'
 </script>
 <template>
   <the-card 
-    :variant="'horizontal'" 
-    :href="'#'" 
-    :img-src="'./images/blog/image-4.jpg'" 
-    :img-alt="'Image'"
+    variant="horizontal" 
+    href="#" 
+    img-src="./images/blog/image-4.jpg" 
+    img-alt="Image"
   />
 </template>
 ```

@@ -1,11 +1,10 @@
 <template>
-  <a :href="href" :class="cardClasses">
+  <component :is="wrapperType" :href="href" :class="cardClasses">
     <img v-if="imgSrc" class="rounded-t-lg" :class="horizontalImageClasses" :src="imgSrc" :alt="imgAlt"/>
     <div class="p-6">
       <slot />
     </div>
-    
-  </a>
+  </component>
 </template>
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
@@ -32,6 +31,7 @@ const props = defineProps({
   },
 })
 
-const { cardClasses, horizontalImageClasses } = useCardsClasses(props)
+const { cardClasses, horizontalImageClasses } = useCardsClasses(toRefs(props))
+const wrapperType = computed(() => props.href ? 'a' : 'div')
 
 </script>
