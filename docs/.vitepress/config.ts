@@ -40,6 +40,7 @@ function getComponents() {
     { text: 'Button', link: '/components/button/button.md' },
     { text: 'Badge', link: 'components/badge/badge.md' },
     { text: 'Button Group', link: '/components/buttonGroup/buttonGroup.md' },
+    { text: 'Card', link: 'components/card/card.md' },
     { text: 'Dropdown', link: '/components/dropdown/dropdown.md' },
     { text: 'Spinner', link: '/components/spinner/spinner.md' },
     { text: 'Tabs', link: '/components/tabs/tabs.md' },
@@ -47,7 +48,6 @@ function getComponents() {
     { text: 'Toast', link: 'components/toast/toast.md' },
 
     { text: '- Accordion', link: 'components/accordion/accordion.md' },
-    { text: '- Card', link: 'components/card/card.md' },
     { text: '- Carousel', link: 'components/carousel/carousel.md' },
     { text: '- Footer', link: 'components/footer/footer.md' },
     { text: '- Modal', link: 'components/modal/modal.md' },
