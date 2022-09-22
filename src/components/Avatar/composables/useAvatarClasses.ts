@@ -65,7 +65,6 @@ export function useAvatarClasses(props: UseAvatarClassesProps): {
 } {
 
     const avatarClasses = computed<string>(() => {
-        console.log('border', props.bordered.value)
         return classNames(
             avatarSizeClasses[props.size.value],
             avatarTypeClasses[props.rounded.value ? 'rounded' : 'default'],

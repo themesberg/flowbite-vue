@@ -28,7 +28,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import { useAlertClasses } from './composables/useAlertClasses'
-import { onBeforeUnmount, ref, toRefs } from 'vue'
+import { ref, toRefs } from 'vue'
 import type { AlertType } from './types'
 
 
@@ -66,8 +66,4 @@ const visible = ref(true)
 const onCloseClick = () => {
   visible.value = false
 }
-
-onBeforeUnmount(() => {
-  console.log('UNMOUNTED')
-})
 </script>
