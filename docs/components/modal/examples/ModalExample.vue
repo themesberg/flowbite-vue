@@ -39,8 +39,10 @@
     </Modal>
   </div>
 </template>
-<script setup>
-import { Modal } from '../../../../src/index';
+<script lang="ts" setup>
+import { Modal } from '../../../../src/index'
+import type { PropType } from 'vue'
+import type { ModalSize, ModalPosition } from '../../../../src/components/Modal/types'
 const props = defineProps({
   children: {
     type: Array,
@@ -53,7 +55,7 @@ const props = defineProps({
     default: false,
   },
   position: {
-    type: String, // 'bottom-left' | 'bottom-right' | 'bottom-center' | 'top-left' | 'top-center' | 'top-right' | 'center-left' | 'center' | 'center-right'
+    type: String as PropType<ModalPosition>,
     default: 'center',
   },
   show: {
@@ -61,7 +63,7 @@ const props = defineProps({
     default: false,
   },
   size: {
-    type: String, // 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl'
+    type: String as PropType<ModalSize>,
     default: '2xl',
   },
   triggerText: {

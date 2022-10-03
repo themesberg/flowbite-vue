@@ -1,7 +1,7 @@
 <template>
   <div>
-    <slot name="trigger" :show="showModal" :hide="hideModal" :toggle="toggleModal"></slot>
-    <div v-if="!isHidden" class="bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40"></div>
+    <slot name="trigger" :show="showModal" :hide="hideModal" :toggle="toggleModal"/>
+    <div v-if="!isHidden" class="bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40"/>
     <div v-if="!isHidden" tabindex="-1" :aria-hidden="isHidden ? 'true' : 'false'"
          class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex">
       <div class="relative p-4 w-full h-full md:h-auto"
@@ -11,15 +11,15 @@
           <!-- Modal header -->
           <div class="p-4 rounded-t"
                :class="$slots.header ? 'border-b' : ''">
-            <slot name="header" :show="showModal" :hide="hideModal" :toggle="toggleModal"></slot>
+            <slot name="header" :show="showModal" :hide="hideModal" :toggle="toggleModal"/>
           </div>
           <!-- Modal body -->
           <div class="p-6" :class="$slots.header ? '' : 'pt-0'">
-            <slot name="body" :show="showModal" :hide="hideModal" :toggle="toggleModal"></slot>
+            <slot name="body" :show="showModal" :hide="hideModal" :toggle="toggleModal"/>
           </div>
           <!-- Modal footer -->
           <div v-if="$slots.footer" class="p-6 rounded-b border-gray-200">
-            <slot name="footer"  :show="showModal" :hide="hideModal" :toggle="toggleModal"/>
+            <slot name="footer" :show="showModal" :hide="hideModal" :toggle="toggleModal"/>
           </div>
         </div>
       </div>
@@ -28,7 +28,8 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { Ref } from 'vue'
+import type { PropType, Ref } from 'vue'
+import type { ModalSize, ModalPosition } from './types'
 
 const props = defineProps({
   children: {
@@ -42,7 +43,7 @@ const props = defineProps({
     default: false,
   },
   position: {
-    type: String, // 'bottom-left' | 'bottom-right' | 'bottom-center' | 'top-left' | 'top-center' | 'top-right' | 'center-left' | 'center' | 'center-right'
+    type: String as PropType<ModalPosition>,
     default: 'center',
   },
   show: {
@@ -50,7 +51,7 @@ const props = defineProps({
     default: false,
   },
   size: {
-    type: String, // 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl'
+    type: String as PropType<ModalSize>,
     default: '2xl',
   },
 })
@@ -74,9 +75,11 @@ const isHidden: Ref<boolean> = ref(!props.show)
 function toggleModal() {
   isHidden.value = !isHidden.value
 }
+
 function hideModal() {
   isHidden.value = true
 }
+
 function showModal() {
   isHidden.value = false
 }
