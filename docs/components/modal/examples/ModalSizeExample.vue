@@ -1,7 +1,7 @@
 <template>
-  <div class="vp-raw flex justify-between">
+  <div class="vp-raw flex justify-start space-x-2">
     <span>
-      <ModalExample size="xs" trigger-text="XS Modal" />
+      <ModalExample size="xs" trigger-text="SM Modal" />
     </span>
     <span>
       <ModalExample size="md" trigger-text="MD Modal" />
