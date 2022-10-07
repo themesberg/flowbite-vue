@@ -9,7 +9,7 @@
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <!-- Modal header -->
-          <div class="p-4 rounded-t flex justify-between items-center" :class="$slots.header ? 'border-b' : ''">
+          <div class="p-4 rounded-t flex justify-between items-center" :class="$slots.header ? 'border-b dark:border-gray-600' : ''">
             <slot name="header" />
             <div>
               <button @click="closeModal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
