@@ -6,6 +6,7 @@
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
 import type { PropType } from 'vue'
+import { useProgressClasses } from './composables/useProgressClasses'
 
 const props = defineProps({
   color: {
@@ -33,5 +34,7 @@ const props = defineProps({
     default: 'md',
   },
 })
+
+const { wrapperClasses } = useProgressClasses(toRefs(props))
 
 </script>
