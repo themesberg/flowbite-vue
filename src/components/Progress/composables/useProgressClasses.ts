@@ -13,6 +13,11 @@ const progressColorClasses: ProgressClassMap<ProgressVariant> = {
   },
 }
 
+export type UseProgressClassesProps = {
+  color: Ref<progressColor>
+}
+
 export function useProgressClasses(props: UseProgressClassesProps): { wrapperClasses: Ref<string>} {
-  
+  let colorClasses = '';
+  colorClasses = progressColorClasses(props.gradient.value as unknown as keyof typeof progressColorClasses.default)
 }
