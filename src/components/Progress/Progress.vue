@@ -2,11 +2,11 @@
   <template v-if="label || (labelProgress && labelPosition === 'outside')">
     <div class="flex justify-between mb-1">
       <span v-show="label || (labelProgress && labelPosition === 'outside')" class="text-base font-medium" :class="outsideLabelClasses">{{ label }}</span>
-      <span v-if="labelProgress && labelPosition === 'outside'" class="text-sm font-medium" :class="outsideLabelClasses">45%</span>
+      <span v-if="labelProgress && labelPosition === 'outside'" class="text-sm font-medium" :class="outsideLabelClasses">{{ progress }}%</span>
     </div>
   </template>
   <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700" :class="outerClasses">
-    <div class="rounded-full font-medium text-blue-100 text-center p-0.5" :class="innerClasses" style="width: 45%">
+    <div class="rounded-full font-medium text-blue-100 text-center p-0.5" :class="innerClasses" :style="{ width: progress + '%' }">
       <template v-if="labelProgress && labelPosition === 'inside'">
         {{ progress }}%
       </template>
@@ -25,7 +25,7 @@ const props = defineProps({
   },
   label: {
     type: String,
-    default: 'rate',
+    default: '',
   },
   labelPosition: {
     type: String, // 'inside' | 'outside' | 'none'
@@ -37,13 +37,15 @@ const props = defineProps({
   },
   progress: {
     type: Number,
-    default: 55,
+    default: 45,
   },
   size: {
     type: String, // 'sm' | 'md' | 'lg' | 'xl'
-    default: 'md',
+    default: 'lg',
   },
 })
+
+const widthStyle = computed(() => "width:" + props.progress + "%")
 
 const { innerClasses, outerClasses, outsideLabelClasses } = useProgressClasses(toRefs(props))
 

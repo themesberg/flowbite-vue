@@ -13,3 +13,15 @@ import { Progress } from 'flowbite-vue'
 ```
 
 <ProgressExample />
+
+## Sizes
+You can also use different sizes by using various sizing.
+
+## With label inside
+Here is an example of using a progress bar with the label inside the bar.
+
+## With label outside
+And this is an example of using a progress bar outside the bar.
+
+## Colors
+You can also apply color.
