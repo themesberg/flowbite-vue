@@ -1,6 +1,6 @@
 <template>
   <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-    <div class="bg-blue-600 h-2.5 rounded-full" :class="wrapperClasses" style="width: 45%"></div>
+    <div class="h-2.5 rounded-full" :class="wrapperClasses" style="width: 45%"></div>
   </div>
 </template>
 <script lang="ts" setup>
@@ -11,7 +11,7 @@ import { useProgressClasses } from './composables/useProgressClasses'
 const props = defineProps({
   color: {
     type: String, // 'dark' | 'blue' | 'red' | 'green' | 'yellow' | 'indigo' | 'purple'
-    default: 'yellow',
+    default: 'pink',
   },
   label: {
     type: String,

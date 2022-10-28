@@ -8,16 +8,16 @@ export type ProgressClassMap<T extends string> = { default: Record<T, string> }
 
 const progressColorClasses: ProgressClassMap<ProgressVariant> = {
   default: {
-    default: '',
-    blue: 'bg-blue-600',
-    alternative: '',
+    default: 'bg-blue-600 dark:bg-blue-600',
+    blue: 'bg-blue-600 dark:bg-blue-600',
+    alternative: 'dark:bg-gray-800',
     dark: 'bg-gray-600 dark:bg-gray-300',
-    light: '',
+    light: 'bg-white dark:bg-gray-800',
     green: 'bg-green-600 dark:bg-green-500',
     red: 'bg-red-600 dark:bg-red-500',
     yellow: 'bg-yellow-400',
     purple: 'bg-purple-600 dark:bg-purple-500',
-    pink: '',
+    pink: 'bg-pink-700 dark:bg-pink-600',
   },
 }
 
