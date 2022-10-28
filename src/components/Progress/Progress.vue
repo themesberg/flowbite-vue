@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-    <div class="h-2.5 rounded-full" :class="wrapperClasses" style="width: 45%"></div>
+  <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700" :class="outerClass">
+    <div class="rounded-full" :class="wrapperClasses" style="width: 45%"></div>
   </div>
 </template>
 <script lang="ts" setup>
@@ -31,10 +31,10 @@ const props = defineProps({
   },
   size: {
     type: String, // 'sm' | 'md' | 'lg' | 'xl'
-    default: 'md',
+    default: 'lg',
   },
 })
 
-const { wrapperClasses } = useProgressClasses(toRefs(props))
+const { wrapperClasses, outerClass } = useProgressClasses(toRefs(props))
 
 </script>
