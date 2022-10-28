@@ -6,7 +6,7 @@ import type { ProgressVariant, ProgressSize } from '../types'
 
 // export type ProgressClassMap<T extends string> = { default: Record<T, string> }
 
-const progressColorClasses: Record<ProgressVariant, string> = {
+const barColorClasses: Record<ProgressVariant, string> = {
   // const progressColorClasses: ProgressClassMap<ProgressVariant> = {
   // default: {
     default: 'bg-blue-600 dark:bg-blue-600',
@@ -22,11 +22,24 @@ const progressColorClasses: Record<ProgressVariant, string> = {
   // },
 }
 
+const outsideTextColorClasses: Record<ProgressVariant, string> = {
+    default: 'text-blue-700 dark:text-blue-500',
+    blue: 'text-blue-700 dark:text-blue-500',
+    alternative: 'dark:bg-gray-800',
+    dark: 'dark:text-white',
+    light: 'text-white dark:text-gray-800',
+    green: 'text-green-700 dark:text-green-500',
+    red: 'text-red-700 dark:text-red-500',
+    yellow: 'text-yellow-700 dark:text-yellow-500',
+    purple: 'text-purple-700 dark:text-purple-500',
+    pink: 'text-pink-700 dark:text-pink-600',
+}
+
 const progressSizeClasses: Record<ProgressSize, string> = {
-  sm: 'text-sm h-1.5',
-  md: 'text-sm h-2.5',
-  lg: 'text-base h-4',
-  xl: 'text-base h-6',
+  sm: 'h-1.5 text-xs leading-none',
+  md: 'h-2.5 text-xs leading-none',
+  lg: 'h-4 text-sm leading-none',
+  xl: 'h-6 text-base leading-tight',
 }
 
 export type UseProgressClassesProps = {
@@ -34,11 +47,11 @@ export type UseProgressClassesProps = {
   size: Ref<ProgressSize>
 }
 
-export function useProgressClasses(props: UseProgressClassesProps): { wrapperClasses: Ref<string>, outerClass: Ref<string>} {
+export function useProgressClasses(props: UseProgressClassesProps): { innerClasses: Ref<string>, outerClasses: Ref<string>, outsideLabelClasses: Ref<string>} {
   
   const bindClasses = computed(() => {
     let colorClass = ''
-    colorClass = progressColorClasses[props.color.value]
+    colorClass = barColorClasses[props.color.value]
 
     let sizeClass = ''
     sizeClass = progressSizeClasses[props.size.value]
@@ -49,7 +62,7 @@ export function useProgressClasses(props: UseProgressClassesProps): { wrapperCla
     )
   })
 
-  const outerClass = computed(() => {
+  const outerClasses = computed(() => {
     let outerSizeClass = ''
     outerSizeClass = progressSizeClasses[props.size.value]
     return classNames(
@@ -57,9 +70,18 @@ export function useProgressClasses(props: UseProgressClassesProps): { wrapperCla
     )
   })
 
+  const outsideLabelClasses = computed(() => {
+    let outsideLabelClass = ''
+    outsideLabelClass = outsideTextColorClasses[props.color.value]
+    return classNames(
+      outsideLabelClass
+    )
+  })
+
   
   return {
-    wrapperClasses: bindClasses,
-    outerClass
+    innerClasses: bindClasses,
+    outerClasses,
+    outsideLabelClasses
   }
 }
