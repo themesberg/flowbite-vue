@@ -1,3 +1,11 @@
+import type { Ref } from 'vue'
+import { computed } from 'vue'
+import classNames from 'classnames'
+import type { ProgressVariant } from '../types'
+
+
+export type ProgressClassMap<T extends string> = { default: Record<T, string> }
+
 const progressColorClasses: ProgressClassMap<ProgressVariant> = {
   default: {
     default: '',
@@ -14,10 +22,23 @@ const progressColorClasses: ProgressClassMap<ProgressVariant> = {
 }
 
 export type UseProgressClassesProps = {
-  color: Ref<progressColor>
+  color: Ref<ProgressVariant>
 }
 
 export function useProgressClasses(props: UseProgressClassesProps): { wrapperClasses: Ref<string>} {
-  let colorClasses = '';
-  colorClasses = progressColorClasses(props.gradient.value as unknown as keyof typeof progressColorClasses.default)
+  
+  const bindClasses = computed(() => {
+    let colorClass = ''
+
+    const color = props.color.value
+    colorClass = progressColorClasses.default[color as unknown as keyof typeof progressColorClasses.default]
+
+    return classNames(
+      colorClass
+    )
+  })
+
+  return {
+    wrapperClasses: bindClasses,
+  }
 }
