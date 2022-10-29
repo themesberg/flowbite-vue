@@ -1,3 +1,2 @@
-export type progressColor = 'default' | 'alternative' | 'dark' | 'light' | 'green' | 'red' | 'yellow' | 'purple' | 'pink' | 'blue'
-export type ProgressVariant = 'default' | 'alternative' | 'dark' | 'light' | 'green' | 'red' | 'yellow' | 'purple' | 'pink' | 'blue'
+export type ProgressVariant = 'default' | 'dark' | 'green' | 'red' | 'yellow' | 'purple' | 'blue' | 'indigo'
 export type ProgressSize = 'sm' | 'md' | 'lg' | 'xl'

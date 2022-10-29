@@ -1,4 +1,5 @@
 <template>
+  <div>
   <template v-if="label || (labelProgress && labelPosition === 'outside')">
     <div class="flex justify-between mb-1">
       <span v-show="label || (labelProgress && labelPosition === 'outside')" class="text-base font-medium" :class="outsideLabelClasses">{{ label }}</span>
@@ -12,6 +13,7 @@
       </template>
     </div>
   </div>
+</div>
 </template>
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
@@ -20,8 +22,8 @@ import { useProgressClasses } from './composables/useProgressClasses'
 
 const props = defineProps({
   color: {
-    type: String, // 'dark' | 'blue' | 'red' | 'green' | 'yellow' | 'indigo' | 'purple'
-    default: 'pink',
+    type: String, // 'default' | 'dark' | 'blue' | 'red' | 'green' | 'yellow' | 'indigo' | 'purple'
+    default: 'default',
   },
   label: {
     type: String,
@@ -33,11 +35,11 @@ const props = defineProps({
   },
   labelProgress: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   progress: {
     type: Number,
-    default: 45,
+    default: 0,
   },
   size: {
     type: String, // 'sm' | 'md' | 'lg' | 'xl'

@@ -1,6 +1,6 @@
 <template>
   <div class="vp-raw flex flex-col">
-    <Progress></Progress>
+    <Progress progress="45"></Progress>
   </div>
 </template>
 <script setup>
