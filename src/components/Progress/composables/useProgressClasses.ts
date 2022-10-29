@@ -3,21 +3,15 @@ import { computed } from 'vue'
 import classNames from 'classnames'
 import type { ProgressVariant, ProgressSize } from '../types'
 
-
-// export type ProgressClassMap<T extends string> = { default: Record<T, string> }
-
 const barColorClasses: Record<ProgressVariant, string> = {
-  // const progressColorClasses: ProgressClassMap<ProgressVariant> = {
-  // default: {
-    default: 'bg-blue-600 dark:bg-blue-600',
-    blue: 'bg-blue-600 dark:bg-blue-600',
-    dark: 'bg-gray-600 dark:bg-gray-300',
-    green: 'bg-green-600 dark:bg-green-500',
-    red: 'bg-red-600 dark:bg-red-500',
-    yellow: 'bg-yellow-400',
-    indigo: 'bg-indigo-600 dark:bg-indigo-500',
-    purple: 'bg-purple-600 dark:bg-purple-500',
-  // },
+  default: 'bg-blue-600 dark:bg-blue-600',
+  blue: 'bg-blue-600 dark:bg-blue-600',
+  dark: 'bg-gray-600 dark:bg-gray-300',
+  green: 'bg-green-600 dark:bg-green-500',
+  red: 'bg-red-600 dark:bg-red-500',
+  yellow: 'bg-yellow-400',
+  indigo: 'bg-indigo-600 dark:bg-indigo-500',
+  purple: 'bg-purple-600 dark:bg-purple-500',
 }
 
 const outsideTextColorClasses: Record<ProgressVariant, string> = {
