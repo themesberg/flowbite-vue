@@ -51,7 +51,7 @@ Here is an example of using a progress bar with the label inside the bar.
 import { Progress } from 'flowbite-vue'
 </script>
 <template>
-  <Progress labelProgress="true" labelPosition="inside" progress="45"></Progress>
+  <Progress labelProgress="true" labelPosition="inside" size="lg" progress="45"></Progress>
 </template>
 ```
 

@@ -31,7 +31,7 @@ const props = defineProps({
   },
   labelPosition: {
     type: String, // 'inside' | 'outside' | 'none'
-    default: 'inside',
+    default: 'none',
   },
   labelProgress: {
     type: Boolean,
@@ -43,7 +43,7 @@ const props = defineProps({
   },
   size: {
     type: String, // 'sm' | 'md' | 'lg' | 'xl'
-    default: 'lg',
+    default: 'md',
   },
 })
 
