@@ -19,6 +19,7 @@
 import { toRefs } from 'vue'
 import type { PropType } from 'vue'
 import { useProgressClasses } from './composables/useProgressClasses'
+import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from './types'
 
 const props = defineProps({
   color: {
