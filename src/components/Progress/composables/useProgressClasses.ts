@@ -39,40 +39,26 @@ export type UseProgressClassesProps = {
 }
 
 export function useProgressClasses(props: UseProgressClassesProps): { innerClasses: Ref<string>, outerClasses: Ref<string>, outsideLabelClasses: Ref<string>} {
-  
   const bindClasses = computed(() => {
-    let colorClass = ''
-    colorClass = barColorClasses[props.color.value]
-
-    let sizeClass = ''
-    sizeClass = progressSizeClasses[props.size.value]
-
     return classNames(
-      colorClass,
-      sizeClass,
+        barColorClasses[props.color.value],
+        progressSizeClasses[props.size.value],
     )
   })
-
   const outerClasses = computed(() => {
-    let outerSizeClass = ''
-    outerSizeClass = progressSizeClasses[props.size.value]
     return classNames(
-      outerSizeClass
+        progressSizeClasses[props.size.value],
     )
   })
-
   const outsideLabelClasses = computed(() => {
-    let outsideLabelClass = ''
-    outsideLabelClass = outsideTextColorClasses[props.color.value]
     return classNames(
-      outsideLabelClass
+        outsideTextColorClasses[props.color.value],
     )
   })
 
-  
   return {
     innerClasses: bindClasses,
     outerClasses,
-    outsideLabelClasses
+    outsideLabelClasses,
   }
 }
