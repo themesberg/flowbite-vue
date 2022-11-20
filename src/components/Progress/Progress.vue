@@ -31,7 +31,7 @@ const props = defineProps({
     default: '',
   },
   labelPosition: {
-    type: String, // 'inside' | 'outside' | 'none'
+    type: String as PropType<ProgressLabelPosition>,
     default: 'none',
   },
   labelProgress: {
