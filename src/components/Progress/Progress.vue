@@ -48,7 +48,6 @@ const props = defineProps({
   },
 })
 
-
 const { innerClasses, outerClasses, outsideLabelClasses } = useProgressClasses(toRefs(props))
 
 </script>
