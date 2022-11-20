@@ -35,6 +35,7 @@ const progressSizeClasses: Record<ProgressSize, string> = {
 export type UseProgressClassesProps = {
   color: Ref<ProgressVariant>
   size: Ref<ProgressSize>
+  labelPosition: Ref<ProgressLabelPosition>
 }
 
 export function useProgressClasses(props: UseProgressClassesProps): { innerClasses: Ref<string>, outerClasses: Ref<string>, outsideLabelClasses: Ref<string>} {
