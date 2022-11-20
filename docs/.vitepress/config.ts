@@ -47,11 +47,11 @@ function getComponents() {
     { text: 'ListGroup', link: 'components/listGroup/listGroup.md' },
     { text: 'Toast', link: 'components/toast/toast.md' },
     { text: 'Modal', link: 'components/modal/modal.md' },
+    { text: 'Navbar', link: 'components/navbar/navbar.md' },
 
     { text: '- Accordion', link: 'components/accordion/accordion.md' },
     { text: '- Carousel', link: 'components/carousel/carousel.md' },
     { text: '- Footer', link: 'components/footer/footer.md' },
-    { text: '- Navbar', link: 'components/navbar/navbar.md' },
     { text: '- Pagination', link: 'components/pagination/pagination.md' },
     { text: '- Progress', link: 'components/progress/progress.md' },
     { text: '- Rating', link: 'components/rating/rating.md' },
