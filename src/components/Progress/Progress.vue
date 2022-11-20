@@ -48,7 +48,6 @@ const props = defineProps({
   },
 })
 
-const widthStyle = computed(() => "width:" + props.progress + "%")
 
 const { innerClasses, outerClasses, outsideLabelClasses } = useProgressClasses(toRefs(props))
 
