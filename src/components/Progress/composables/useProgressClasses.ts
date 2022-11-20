@@ -49,7 +49,7 @@ export function useProgressClasses(props: UseProgressClassesProps): { innerClass
 
     return classNames(
       colorClass,
-      sizeClass
+      sizeClass,
     )
   })
 
