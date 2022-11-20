@@ -171,7 +171,7 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Navbar</td>
+    <td width="33.3333%">Navbar</td>
     <td width="33.3333%">:construction: Pagination</td>
     <td width="33.3333%">:construction: Timeline</td>
   </tr>
@@ -193,7 +193,7 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Progress bar</td>
+    <td width="33.3333%">Progress bar</td>
     <td width="33.3333%">:construction: Tables</td>
     <td width="33.3333%">Toast</td>
   </tr>
