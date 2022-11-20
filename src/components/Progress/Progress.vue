@@ -43,7 +43,7 @@ const props = defineProps({
     default: 0,
   },
   size: {
-    type: String, // 'sm' | 'md' | 'lg' | 'xl'
+    type: String as PropType<ProgressSize>,
     default: 'md',
   },
 })
