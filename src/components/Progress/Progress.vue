@@ -16,7 +16,7 @@
 </div>
 </template>
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
+import { toRefs } from 'vue'
 import type { PropType } from 'vue'
 import { useProgressClasses } from './composables/useProgressClasses'
 
