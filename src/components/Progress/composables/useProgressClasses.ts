@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
 import classNames from 'classnames'
-import type { ProgressVariant, ProgressSize } from '../types'
+import type { ProgressVariant, ProgressSize, ProgressLabelPosition } from '../types'
 
 const barColorClasses: Record<ProgressVariant, string> = {
   default: 'bg-blue-600 dark:bg-blue-600',
