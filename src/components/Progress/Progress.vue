@@ -23,7 +23,7 @@ import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from './typ
 
 const props = defineProps({
   color: {
-    type: String, // 'default' | 'dark' | 'blue' | 'red' | 'green' | 'yellow' | 'indigo' | 'purple'
+    type: String as PropType<ProgressVariant>,
     default: 'default',
   },
   label: {
