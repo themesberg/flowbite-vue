@@ -2,7 +2,7 @@
   <div>
   <template v-if="label || (labelProgress && labelPosition === 'outside')">
     <div class="flex justify-between mb-1">
-      <span v-show="label || (labelProgress && labelPosition === 'outside')" class="text-base font-medium" :class="outsideLabelClasses">{{ label }}</span>
+      <span class="text-base font-medium" :class="outsideLabelClasses">{{ label }}</span>
       <span v-if="labelProgress && labelPosition === 'outside'" class="text-sm font-medium" :class="outsideLabelClasses">{{ progress }}%</span>
     </div>
   </template>
