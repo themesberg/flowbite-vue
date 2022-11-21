@@ -7,5 +7,5 @@
   </div>
 </template>
 <script setup>
-import { Progress } from 'flowbite-vue'
+import { Progress } from '../../../../src/index'
 </script>
