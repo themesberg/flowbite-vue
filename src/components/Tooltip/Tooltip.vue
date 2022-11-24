@@ -1,50 +1,78 @@
 <template>
-  <div>
-      <Popper :class="colorStyle"  v-bind="$attrs" :placement="placement"> 
-        <slot name="trigger"></slot>
-
-        <template #content>
-          <slot name="content"></slot>
-        </template>
-      </Popper>
+  <div class="flex items-start">
+    <TooltipComponent :placement="placement" :triggers="[trigger]" :theme="tooltipStyle">
+      <slot name="trigger"></slot>
+      <template #popper>
+        <slot name="content"></slot>
+      </template>
+    </TooltipComponent>
   </div>
 </template>
 
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import type { TooltipPlacement, TooltipStyle } from './types'
-import Popper from "vue3-popper";
+import type { TooltipPlacement, TooltipStyle, TooltipTrigger } from './types'
+import { Tooltip as TooltipComponent } from 'floating-vue'
+import 'floating-vue/dist/style.css'
 
 const props = defineProps({
     placement: {
       type: String as PropType<TooltipPlacement>,
       default: "top"
     },
-    colorStyle: {
-      type: String  as PropType<TooltipStyle>,
+    tooltipStyle: {
+      type: String as PropType<TooltipStyle>,
       default: "tooltip-dark",
+    },
+    trigger: {
+      type: String as PropType<TooltipTrigger>,
+      default: "hover"
     }
 })
 </script>
 
-<style scoped>
-  .tooltip-dark {
-  --popper-theme-background-color: #0f172a;
-  --popper-theme-background-color-hover: #0f172a;
-  --popper-theme-text-color: white;
-  --popper-theme-border-width: 0px;
-  --popper-theme-border-radius: 6px;
-  --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
+<style>
+.v-popper--theme-tooltip-dark .v-popper__wrapper .v-popper__inner {
+  background: rgba(0,0,0);
+  color: #fff;
+  border-radius: 6px;
+  padding: 7px 12px 6px;
 }
 
-.tooltip-light {
-  --popper-theme-background-color: #ffffff;
-  --popper-theme-background-color-hover: #ffffff;
-  --popper-theme-text-color: #333333;
-  --popper-theme-border-width: 1px;
-  --popper-theme-border-style: solid;
-  --popper-theme-border-color: #eeeeee;
-  --popper-theme-border-radius: 6px;
-  --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
+.v-popper--theme-tooltip-dark .v-popper__arrow-inner {
+  visibility: hidden;
 }
+
+.v-popper--theme-tooltip-dark .v-popper__arrow-outer {
+  border-color: #000c;
+}
+
+@media (prefers-color-scheme: dark) {
+  .v-popper--theme-tooltip-dark .v-popper__wrapper .v-popper__inner {
+    background: rgb(55 65 81);
+  }
+
+  .v-popper--theme-tooltip-dark .v-popper__arrow-outer {
+    border-color: rgb(55 65 81);
+  }
+}
+
+.v-popper--theme-tooltip-light .v-popper__wrapper .v-popper__inner {
+  background: #fff;
+  color: black;
+  padding: 7px 12px 6px;
+  border-radius: 6px;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+}
+
+.v-popper--theme-tooltip-light .v-popper__arrow-inner {
+  visibility: visible;
+  border-color: #fff;
+}
+
+.v-popper--theme-tooltip-light .v-popper__arrow-outer {
+  border-color: #ddd;
+}
+
 </style>
