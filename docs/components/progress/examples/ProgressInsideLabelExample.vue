@@ -1,7 +1,5 @@
 <template>
-  <div class="vp-raw flex flex-col">
-    <Progress progress="45"></Progress>
-  </div>
+  <Progress labelProgress="true" labelPosition="inside" size="lg" progress="45"></Progress>
 </template>
 <script setup>
 import { Progress } from '../../../../src/index'
