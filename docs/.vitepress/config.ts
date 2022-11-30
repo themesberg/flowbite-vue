@@ -47,6 +47,7 @@ function getComponents() {
     { text: 'Tabs', link: '/components/tabs/tabs.md' },
     { text: 'ListGroup', link: 'components/listGroup/listGroup.md' },
     { text: 'Toast', link: 'components/toast/toast.md' },
+    { text: 'Tooltip', link: 'components/tooltip/tooltip.md' },
     { text: 'Modal', link: 'components/modal/modal.md' },
     { text: 'Navbar', link: 'components/navbar/navbar.md' },
 
@@ -58,7 +59,6 @@ function getComponents() {
     { text: '- Sidebar', link: 'components/sidebar/sidebar.md' },
     { text: '- Table', link: 'components/table/table.md' },
     { text: '- Timeline', link: 'components/timeline/timeline.md' },
-    { text: '- Tooltip', link: 'components/tooltip/tooltip.md' },
   ]
 }
 

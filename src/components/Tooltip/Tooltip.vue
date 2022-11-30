@@ -1,15 +1,78 @@
 <template>
-  <div>
-    <button data-tooltip-target="tooltip-default" type="button"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-      Default tooltip
-    </button>
-    <div id="tooltip-default" role="tooltip"
-         class="inline-block absolute z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm transition-opacity duration-300 tooltip dark:bg-gray-700">
-      Tooltip content
-      <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
+  <div class="flex items-start">
+    <TooltipComponent :placement="placement" :triggers="[trigger]" :theme="tooltipStyle">
+      <slot name="trigger"></slot>
+      <template #popper>
+        <slot name="content"></slot>
+      </template>
+    </TooltipComponent>
   </div>
 </template>
+
 <script lang="ts" setup>
+import type { PropType } from 'vue'
+import type { TooltipPlacement, TooltipStyle, TooltipTrigger } from './types'
+import { Tooltip as TooltipComponent } from 'floating-vue'
+import 'floating-vue/dist/style.css'
+
+const props = defineProps({
+    placement: {
+      type: String as PropType<TooltipPlacement>,
+      default: "top"
+    },
+    tooltipStyle: {
+      type: String as PropType<TooltipStyle>,
+      default: "tooltip-dark",
+    },
+    trigger: {
+      type: String as PropType<TooltipTrigger>,
+      default: "hover"
+    }
+})
 </script>
+
+<style>
+.v-popper--theme-tooltip-dark .v-popper__wrapper .v-popper__inner {
+  background: rgba(0,0,0);
+  color: #fff;
+  border-radius: 6px;
+  padding: 7px 12px 6px;
+}
+
+.v-popper--theme-tooltip-dark .v-popper__arrow-inner {
+  visibility: hidden;
+}
+
+.v-popper--theme-tooltip-dark .v-popper__arrow-outer {
+  border-color: #000c;
+}
+
+@media (prefers-color-scheme: dark) {
+  .v-popper--theme-tooltip-dark .v-popper__wrapper .v-popper__inner {
+    background: rgb(55 65 81);
+  }
+
+  .v-popper--theme-tooltip-dark .v-popper__arrow-outer {
+    border-color: rgb(55 65 81);
+  }
+}
+
+.v-popper--theme-tooltip-light .v-popper__wrapper .v-popper__inner {
+  background: #fff;
+  color: black;
+  padding: 7px 12px 6px;
+  border-radius: 6px;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+}
+
+.v-popper--theme-tooltip-light .v-popper__arrow-inner {
+  visibility: visible;
+  border-color: #fff;
+}
+
+.v-popper--theme-tooltip-light .v-popper__arrow-outer {
+  border-color: #ddd;
+}
+
+</style>
