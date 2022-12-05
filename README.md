@@ -215,7 +215,7 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Tooltips</td>
+    <td width="33.3333%">Tooltips</td>
     <td width="33.3333%">:construction: Datepicker</td>
     <td width="33.3333%">Spinner</td>
   </tr>
