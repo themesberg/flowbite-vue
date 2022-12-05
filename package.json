@@ -15,6 +15,10 @@
     ".": {
       "import": "./dist/flowbite-vue.es.js",
       "require": "./dist/flowbite-vue.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
   "scripts": {
