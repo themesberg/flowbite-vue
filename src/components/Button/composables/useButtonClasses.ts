@@ -122,7 +122,6 @@ const buttonOutlineGradientClasses: ButtonClassMap<ButtonDuotoneGradient> = {
   },
 }
 
-
 const buttonSizeClasses: Record<ButtonSize, string> = {
   xs: 'text-xs px-2 py-1',
   sm: 'text-sm px-3 py-1.5',

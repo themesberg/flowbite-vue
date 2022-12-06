@@ -1,7 +1,7 @@
 <script setup>
 import SidebarExample from './examples/SidebarExample.vue'
 </script>
-# Sidebar
+# Vue Sidebar Component - Flowbite
 
 ```vue
 <script setup>

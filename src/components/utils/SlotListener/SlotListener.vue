@@ -3,7 +3,7 @@ import { defineComponent } from 'vue'
 import type { VNode, PropType } from 'vue'
 import type { SlotListenerTrigger, TriggerEventHandlers } from '@/components/utils/SlotListener/types'
 import { getFirstSlotVNode } from '@/utils/getFirstSlotNode'
-import pick from 'lodash/pick'
+import { pick } from 'lodash-es'
 
 // inspired from https://github.com/TuSimple/naive-ui/blob/main/src/popover/src/Popover.tsx
 

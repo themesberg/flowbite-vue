@@ -54,5 +54,5 @@ const props = defineProps({
 
 const model = useVModel(props, 'modelValue')
 
-const {inputClasses, labelClasses} = useInputClasses(toRefs(props))
+const { inputClasses, labelClasses } = useInputClasses(toRefs(props))
 </script>

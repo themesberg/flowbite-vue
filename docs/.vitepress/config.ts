@@ -40,25 +40,25 @@ function getComponents() {
     { text: 'Button', link: '/components/button/button.md' },
     { text: 'Badge', link: 'components/badge/badge.md' },
     { text: 'Button Group', link: '/components/buttonGroup/buttonGroup.md' },
+    { text: 'Card', link: 'components/card/card.md' },
     { text: 'Dropdown', link: '/components/dropdown/dropdown.md' },
+    { text: 'Progress', link: 'components/progress/progress.md' },
     { text: 'Spinner', link: '/components/spinner/spinner.md' },
     { text: 'Tabs', link: '/components/tabs/tabs.md' },
     { text: 'ListGroup', link: 'components/listGroup/listGroup.md' },
     { text: 'Toast', link: 'components/toast/toast.md' },
+    { text: 'Tooltip', link: 'components/tooltip/tooltip.md' },
+    { text: 'Modal', link: 'components/modal/modal.md' },
+    { text: 'Navbar', link: 'components/navbar/navbar.md' },
 
     { text: '- Accordion', link: 'components/accordion/accordion.md' },
-    { text: '- Card', link: 'components/card/card.md' },
     { text: '- Carousel', link: 'components/carousel/carousel.md' },
     { text: '- Footer', link: 'components/footer/footer.md' },
-    { text: '- Modal', link: 'components/modal/modal.md' },
-    { text: '- Navbar', link: 'components/navbar/navbar.md' },
     { text: '- Pagination', link: 'components/pagination/pagination.md' },
-    { text: '- Progress', link: 'components/progress/progress.md' },
     { text: '- Rating', link: 'components/rating/rating.md' },
     { text: '- Sidebar', link: 'components/sidebar/sidebar.md' },
     { text: '- Table', link: 'components/table/table.md' },
     { text: '- Timeline', link: 'components/timeline/timeline.md' },
-    { text: '- Tooltip', link: 'components/tooltip/tooltip.md' },
   ]
 }
 
@@ -95,7 +95,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2022 themesberg'
+      copyright: 'Copyright © 2022 Flowbite™'
     },
 
   },
