@@ -13,7 +13,7 @@ Use this simple example of a star rating component for showing review results.
 import { Rating } from 'flowbite-vue'
 </script>
 <template>
-  <Rating></Rating>
+  <Rating rating=4></Rating>
 </template>
 ```
 
@@ -26,7 +26,11 @@ If you also want to show a text near the stars you can use this example as a ref
 import { Rating } from 'flowbite-vue'
 </script>
 <template>
-  <Rating></Rating>
+  <Rating rating=4>
+      <template #besideText>
+          <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">4.95 out of 5</p>
+        </template>
+    </Rating>
 </template>
 ```
 
@@ -39,7 +43,17 @@ Aggregate more results by using this example to show the amount of reviews and t
 import { Rating } from 'flowbite-vue'
 </script>
 <template>
-  <Rating></Rating>
+  <Rating
+    rating=1
+    scale=1
+    review-text="73 reviews"
+    review-link="#"
+    >
+      <template #besideText>
+        <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white">4.95</p>
+      </template>
+      
+    </Rating>
 </template>
 ```
 
@@ -52,7 +66,12 @@ Check out the different sizing options for the star review component from small,
 import { Rating } from 'flowbite-vue'
 </script>
 <template>
-  <Rating></Rating>
+    <!-- Small -->
+    <Rating size="sm" rating=4 ></Rating>
+    <!-- Medium -->
+    <Rating size="md" rating=4></Rating>
+    <!-- Large -->
+    <Rating size="lg" rating=4></Rating>
 </template>
 ```
 
