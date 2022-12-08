@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vp-raw flex flex-col">
     <template v-for="(item, i) in formattedItems" :key="item.id">
       <h2>
         <button
