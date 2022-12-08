@@ -4,8 +4,11 @@
       <h2>
         <button
           type="button"
+          :class="[
+            { 'rounded-t-xl border-b-0': i === 0 },
+            headerClasses
+          ]"
           class="flex justify-between items-center p-5 w-full font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-          :class="{'rounded-t-xl border-b-0': i === 0}"
           @click="toggleItem(item)"
         >
           <span>{{item.header}}</span>
@@ -21,7 +24,10 @@
           </svg>
         </button>
       </h2>
-      <div :class="{hidden: !item.isVisible}" class="p-5 border [&:not(:last-item)]:border-b-0 last:border-t-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+      <div
+        :class="[ { hidden: !item.isVisible }, contentClasses ]"
+        class="p-5 border [&:not(:last-item)]:border-b-0 last:border-t-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+      >
         <slot />
       </div>
     </template>
@@ -38,7 +44,11 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  arrowIcon: {
+  headerClasses: {
+    type: String,
+    default: '',
+  },
+  contentClasses: {
     type: String,
     default: '',
   },
