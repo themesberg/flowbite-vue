@@ -9,6 +9,10 @@ const ratingSizeClasses: Record<RatingSize, string> = {
   lg: 'w-10 h-10'
 }
 
+export type UseRatingClassesProps = {
+  size: Ref<RatingSize>
+}
+
 export function useRatingClasses(props: UseRatingClassesProps):{
   sizeClasses: Ref<string>
 }{
