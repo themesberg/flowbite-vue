@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw flex flex-col">
+  <div class="vp-raw">
     <template v-for="(item, i) in formattedItems" :key="item.id">
       <h2>
         <button
@@ -8,10 +8,10 @@
             { 'rounded-t-xl border-b-0': i === 0 },
             headerClasses
           ]"
-          class="flex justify-between items-center p-5 w-full font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+          class="flex items-center p-5 w-full font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
           @click="toggleItem(item)"
         >
-          <span>{{item.header}}</span>
+          <span class="w-full">{{item.header}}</span>
           <svg
             data-accordion-icon
             class="w-6 h-6 shrink-0"
