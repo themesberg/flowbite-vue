@@ -1,18 +1,19 @@
 <template>
   <div class="flex items-start">
-    <TooltipComponent :placement="placement" :triggers="[trigger]" :theme="theme" auto-hide>
+    <Tooltip :placement="placement" :triggers="[trigger]" :theme="theme" auto-hide>
       <slot name="trigger"></slot>
       <template #popper>
         <slot name="content"></slot>
       </template>
-    </TooltipComponent>
+    </Tooltip>
   </div>
 </template>
 
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import type { TooltipPlacement, TooltipStyle, TooltipTrigger } from './types'
-import { Tooltip as TooltipComponent } from 'floating-vue'
+import * as pkg from 'floating-vue'
+const { Tooltip } = pkg
 import 'floating-vue/dist/style.css'
 import { computed } from 'vue'
 
