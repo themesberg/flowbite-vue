@@ -1,27 +1,51 @@
 <script setup>
 import { Accordion } from '../../../../src/index'
-import { ref } from 'vue'
+import AccordionPanel from '@/components/Accordion/AccordionPanel.vue'
+import AccordionHeader from '@/components/Accordion/AccordionHeader.vue'
+import AccordionContent from '@/components/Accordion/AccordionContent.vue'
 
-const items = ref([
-  { header: 'header' },
-  { header: 'another header' },
-  { header: 'and one more header' },
-])
 </script>
 
 <template>
-  <Accordion :items="items" header-classes="bg-blue-800">
-    <div>
-      <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
-      <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
-    </div>
-    <div>
-      <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-      <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
-    </div>
-    <div>
-      <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-      <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
-    </div>
+  <Accordion flush>
+    <accordion-panel>
+      <template #header>
+        <accordion-header>header</accordion-header>
+      </template>
+      <template #content>
+        <accordion-content>
+          <div>
+            <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
+            <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
+          </div>
+        </accordion-content>
+      </template>
+    </accordion-panel>
+    <accordion-panel>
+      <template #header>
+        <accordion-header class="bg-blue-800">another header</accordion-header>
+      </template>
+      <template #content>
+        <accordion-content>
+          <div>
+            <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+            <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+          </div>
+        </accordion-content>
+      </template>
+    </accordion-panel>
+    <accordion-panel>
+      <template #header>
+        <accordion-header>and one more header</accordion-header>
+      </template>
+      <template #content>
+        <accordion-content>
+          <div>
+            <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+            <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+          </div>
+        </accordion-content>
+      </template>
+    </accordion-panel>
   </Accordion>
 </template>
