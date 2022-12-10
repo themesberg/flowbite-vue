@@ -2,7 +2,10 @@
   <button
       type="button"
       @click="toggleItem"
-      :class="{ 'rounded-t-xl border-b-0': panelState.order === 0 }"
+      :class="{
+        'rounded-t-xl': panelState.order === 0,
+        'border-b-0': panelState.order !== panelsCount - 1,
+        }"
       class="flex items-center p-5 w-full font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
   >
     <span class="w-full"><slot /></span>
@@ -21,7 +24,7 @@
 
 <script lang="ts" setup>
 import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
-import { computed, inject, provide } from 'vue'
+import { computed, inject } from 'vue'
 
 
 const accordionId: any = inject('accordionId')
@@ -30,6 +33,7 @@ const panelId: any = inject('panelId')
 const accordionState = computed(() => {
   return accordionsStates[accordionId]
 })
+const panelsCount = computed(() => Object.keys(accordionsStates[accordionId].panels[panelId]).length)
 
 const commonToggleItem = () => {
   const selectedPanel = accordionState.value.panels[panelId]
