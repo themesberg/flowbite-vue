@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot name="header" @click="toggleItem"/>
+    <slot name="header"/>
     <slot name="content"/>
   </div>
 </template>
