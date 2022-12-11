@@ -9,7 +9,8 @@ type tAccordionPanels = {
 }
 type tStateElement = {
   id: string,
-  mode: tAccordionMode
+  flush: boolean,
+  alwaysOpen: boolean,
 
   panels: tAccordionPanels
 }

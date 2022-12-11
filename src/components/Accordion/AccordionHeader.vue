@@ -3,8 +3,9 @@
       type="button"
       @click="toggleItem"
       :class="{
-        'rounded-t-xl': panelState.order === 0,
+        'rounded-t-xl': panelState.order === 0 && !accordionState.flush,
         'border-b-0': panelState.order !== panelsCount - 1,
+        'border-x-0': accordionState.flush,
         }"
       class="flex items-center p-5 w-full font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
   >
@@ -30,9 +31,7 @@ import { computed, inject } from 'vue'
 const accordionId: any = inject('accordionId')
 const panelId: any = inject('panelId')
 
-const accordionState = computed(() => {
-  return accordionsStates[accordionId]
-})
+const accordionState = computed(() => accordionsStates[accordionId])
 const panelsCount = computed(() => Object.keys(accordionsStates[accordionId].panels[panelId]).length)
 
 const commonToggleItem = () => {
@@ -48,18 +47,9 @@ const alwaysOpenToggleItem = () => {
   const selectedPanel = accordionState.value.panels[panelId]
   selectedPanel.isVisible = !selectedPanel.isVisible
 }
-const flushToggleItem = () => {
-  const selectedPanel = accordionState.value.panels[panelId]
-  if (selectedPanel.isVisible) return
-  commonToggleItem()
-}
 const toggleItem = () => {
-  const actionsMap = {
-    flush: flushToggleItem,
-    alwaysOpen: alwaysOpenToggleItem,
-    default: commonToggleItem,
-  }
-  actionsMap[accordionState.value.mode]()
+  if (accordionState.value.alwaysOpen ) return alwaysOpenToggleItem()
+  commonToggleItem()
 }
 
 const { accordionsStates } = useAccordionState()

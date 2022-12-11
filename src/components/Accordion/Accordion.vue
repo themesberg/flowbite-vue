@@ -6,7 +6,6 @@
 <script lang="ts" setup>
 import { provide } from 'vue'
 import { nanoid } from 'nanoid'
-import type { tAccordionMode } from '@/components/Accordion/types'
 import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
 
 const props = defineProps({
@@ -22,8 +21,5 @@ const props = defineProps({
 
 const accordionId = nanoid()
 provide('accordionId', accordionId)
-let mode: tAccordionMode = 'default'
-if (props.alwaysOpen) mode = 'alwaysOpen'
-if (props.flush) mode = 'flush'
-useAccordionState(accordionId, mode)
+useAccordionState(accordionId, { ...props })
 </script>

@@ -4,6 +4,7 @@
       hidden: !panelState.isVisible,
       'border-b-0': panelState.order !== panelsCount - 1,
       'border-t-0': panelState.order === panelsCount - 1,
+      'border-x-0': accordionState.flush,
     }"
     class="p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900"
   >
@@ -20,6 +21,8 @@ const panelId: any = inject('panelId')
 
 
 const { accordionsStates } = useAccordionState()
+
+const accordionState = computed(() => accordionsStates[accordionId])
 const panelState = computed(() => accordionsStates[accordionId].panels[panelId])
 const panelsCount = computed(() => Object.keys(accordionsStates[accordionId].panels[panelId]).length)
 </script>
