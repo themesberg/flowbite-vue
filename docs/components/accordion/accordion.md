@@ -132,7 +132,7 @@ import AccordionContent from '@/components/Accordion/AccordionContent.vue'
 <AccordionAlwaysOpenExample />
 
 ## Flush accordion
-Flush prop makes opened tab being not able to close.
+Flush prop removes side borders, and rounded corners
 ```vue
 <script setup>
 import { Accordion } from 'flowbite'
