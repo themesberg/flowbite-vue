@@ -4,7 +4,8 @@
       @click="toggleItem"
       :class="{
         'rounded-t-xl': panelState.order === 0 && !accordionState.flush,
-        'border-b-0': panelState.order !== panelsCount - 1,
+        'border-t-0': panelState.order === 0 && accordionState.flush,
+        'border-b-0': isBottomBorderVisibleForFlush,
         'border-x-0': accordionState.flush,
         }"
       class="flex items-center p-5 w-full font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -33,6 +34,10 @@ const panelId: any = inject('panelId')
 
 const accordionState = computed(() => accordionsStates[accordionId])
 const panelsCount = computed(() => Object.keys(accordionsStates[accordionId].panels[panelId]).length)
+const isPanelLast = computed(() => panelState.value.order !== panelsCount.value - 1)
+const isBottomBorderVisibleForFlush = computed(() =>
+    isPanelLast.value ||
+    (accordionState.value.flush && panelState.value.order === panelsCount.value - 1 && !panelState.value.isVisible))
 
 const commonToggleItem = () => {
   const selectedPanel = accordionState.value.panels[panelId]

@@ -2,7 +2,7 @@
   <div
     :class="{
       hidden: !panelState.isVisible,
-      'border-b-0': panelState.order !== panelsCount - 1,
+      'border-b-0': panelState.order !== panelsCount - 1 || accordionState.flush,
       'border-t-0': panelState.order === panelsCount - 1,
       'border-x-0': accordionState.flush,
     }"
