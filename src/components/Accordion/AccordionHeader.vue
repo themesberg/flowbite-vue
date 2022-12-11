@@ -2,19 +2,12 @@
   <button
       type="button"
       @click="toggleItem"
-      :class="{
-        'rounded-t-xl': panelState.order === 0 && !accordionState.flush,
-        'border-t-0': panelState.order === 0 && accordionState.flush,
-        'border-b-0': isBottomBorderVisibleForFlush,
-        'border-x-0': accordionState.flush,
-        }"
-      class="flex items-center p-5 w-full font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+      :class="headerClasses"
   >
     <span class="w-full"><slot /></span>
     <svg
         data-accordion-icon
-        class="w-6 h-6 shrink-0"
-        :class="{'rotate-180': panelState.isVisible}"
+        :class="arrowClasses"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -27,36 +20,30 @@
 <script lang="ts" setup>
 import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
 import { computed, inject } from 'vue'
+import { useAccordionHeaderClasses } from '@/components/Accordion/composables/useAccordionHeaderClasses'
 
+const accordionId: string = inject('accordionId') ?? ''
+const panelId: string = inject('panelId') ?? ''
 
-const accordionId: any = inject('accordionId')
-const panelId: any = inject('panelId')
-
+const { accordionsStates } = useAccordionState()
 const accordionState = computed(() => accordionsStates[accordionId])
-const panelsCount = computed(() => Object.keys(accordionsStates[accordionId].panels[panelId]).length)
-const isPanelLast = computed(() => panelState.value.order !== panelsCount.value - 1)
-const isBottomBorderVisibleForFlush = computed(() =>
-    isPanelLast.value ||
-    (accordionState.value.flush && panelState.value.order === panelsCount.value - 1 && !panelState.value.isVisible))
+const panelState = computed(() => accordionState.value.panels[panelId])
 
-const commonToggleItem = () => {
-  const selectedPanel = accordionState.value.panels[panelId]
-  const isSelectedVisible = selectedPanel.isVisible
+const { headerClasses, arrowClasses } = useAccordionHeaderClasses()
+function commonToggleItem() {
+  const isSelectedVisible = panelState.value.isVisible
   for (const panelIndex in accordionState.value.panels) {
     const panel = accordionState.value.panels[panelIndex]
     if (panel.id !== panelId) panel.isVisible = false
     else panel.isVisible = !isSelectedVisible
   }
 }
-const alwaysOpenToggleItem = () => {
-  const selectedPanel = accordionState.value.panels[panelId]
-  selectedPanel.isVisible = !selectedPanel.isVisible
+function alwaysOpenToggleItem() {
+  panelState.value.isVisible = !panelState.value.isVisible
 }
-const toggleItem = () => {
+function toggleItem() {
   if (accordionState.value.alwaysOpen ) return alwaysOpenToggleItem()
   commonToggleItem()
 }
 
-const { accordionsStates } = useAccordionState()
-const panelState = computed(() => accordionsStates[accordionId].panels[panelId])
 </script>

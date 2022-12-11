@@ -1,5 +1,5 @@
 import { onBeforeMount, onBeforeUnmount, reactive } from 'vue'
-import type { tAccordionMode, tState } from '@/components/Accordion/types'
+import type { tState } from '@/components/Accordion/types'
 
 const accordionsStates = reactive<tState>({})
 export function useAccordionState(id?: string, options?: {flush: boolean, alwaysOpen: boolean}): {

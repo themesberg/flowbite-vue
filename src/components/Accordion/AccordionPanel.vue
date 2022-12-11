@@ -1,7 +1,7 @@
+// TODO: 1 слот
 <template>
   <div>
-    <slot name="header"/>
-    <slot name="content"/>
+    <slot></slot>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import { nanoid } from 'nanoid'
 const { accordionsStates } = useAccordionState()
 
 const panelId = nanoid()
-const accordionId: any = inject('accordionId')
+const accordionId: string = inject('accordionId') ?? ''
 provide('panelId', panelId)
 
 const accordionState = computed(() => {

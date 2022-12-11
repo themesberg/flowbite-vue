@@ -51,7 +51,7 @@ function getComponents() {
     { text: 'Modal', link: 'components/modal/modal.md' },
     { text: 'Navbar', link: 'components/navbar/navbar.md' },
 
-    { text: '- Accordion', link: 'components/accordion/accordion.md' },
+    { text: 'Accordion', link: 'components/accordion/accordion.md' },
     { text: '- Carousel', link: 'components/carousel/carousel.md' },
     { text: '- Footer', link: 'components/footer/footer.md' },
     { text: '- Pagination', link: 'components/pagination/pagination.md' },
