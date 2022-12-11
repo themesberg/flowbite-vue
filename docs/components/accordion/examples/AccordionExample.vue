@@ -1,9 +1,5 @@
 <script setup>
-import { Accordion } from '../../../../src/index'
-import AccordionPanel from '@/components/Accordion/AccordionPanel.vue'
-import AccordionHeader from '@/components/Accordion/AccordionHeader.vue'
-import AccordionContent from '@/components/Accordion/AccordionContent.vue'
-
+import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from '../../../../src/index'
 </script>
 
 <template>

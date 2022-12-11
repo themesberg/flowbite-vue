@@ -17,11 +17,7 @@ Original reference: [https://flowbite.com/docs/components/accordion/](https://fl
 Use this example to basic accordion. 
 ```vue
 <script setup>
-import { Accordion } from 'flowbite'
-import AccordionPanel from 'flowbite'
-import AccordionHeader from 'flowbite'
-import AccordionContent from 'flowbite'
-
+import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from 'flowbite'
 </script>
 
 <template>
@@ -64,11 +60,7 @@ import AccordionContent from 'flowbite'
 Always open prop to makes accordion able to open multiple elements.
 ```vue
 <script setup>
-import { Accordion } from 'flowbite'
-import AccordionPanel from 'flowbite'
-import AccordionHeader from 'flowbite'
-import AccordionContent from 'flowbite'
-
+import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from 'flowbite'
 </script>
 
 <template>
@@ -111,11 +103,7 @@ import AccordionContent from 'flowbite'
 Flush prop removes side borders, and rounded corners
 ```vue
 <script setup>
-import { Accordion } from 'flowbite'
-import AccordionPanel from 'flowbite'
-import AccordionHeader from 'flowbite'
-import AccordionContent from 'flowbite'
-
+import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from 'flowbite'
 </script>
 
 <template>
@@ -158,15 +146,11 @@ import AccordionContent from 'flowbite'
 You can style accordion content and headers by passing tailwind classes into them.
 ```vue
 <script setup>
-import { Accordion } from 'flowbite'
-import AccordionPanel from 'flowbite'
-import AccordionHeader from 'flowbite'
-import AccordionContent from 'flowbite'
-
+import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from 'flowbite'
 </script>
 
 <template>
-  <Accordion >
+  <Accordion>
     <accordion-panel>
       <accordion-header>header</accordion-header>
       <accordion-content>
