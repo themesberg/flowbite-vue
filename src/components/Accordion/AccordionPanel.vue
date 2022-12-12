@@ -1,4 +1,3 @@
-// TODO: 1 слот
 <template>
   <div>
     <slot></slot>
