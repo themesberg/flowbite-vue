@@ -1,7 +1,11 @@
 <template>
-  <tr class="bg-white dark:bg-gray-800 [&:not(:last-child)]:border-b [&:not(:last-child)]:dark:border-gray-700">
+  <tr :class="tableRowClasses">
     <slot></slot>
   </tr>
 </template>
 <script lang="ts" setup>
+
+import { useTableRowClasses } from '@/components/Table/composables/tableRowClasses'
+
+const { tableRowClasses } = useTableRowClasses()
 </script>

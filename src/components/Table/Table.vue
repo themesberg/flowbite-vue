@@ -6,13 +6,9 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { provide } from 'vue'
+
 const props = defineProps({
-  children: {
-    type: Array,
-    default() {
-      return []
-    },
-  },
   striped: {
     type: Boolean,
     default: false,
@@ -21,10 +17,8 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  className: {
-    type: String,
-    default: '',
-  },
 })
 
+provide('striped', props.striped)
+provide('hoverable', props.hoverable)
 </script>
