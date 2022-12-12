@@ -11,7 +11,6 @@ type tStateElement = {
   id: string,
   flush: boolean,
   alwaysOpen: boolean,
-
   panels: tAccordionPanels
 }
 export type tState = {
