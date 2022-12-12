@@ -4,7 +4,6 @@
   </tr>
 </template>
 <script lang="ts" setup>
-
 import { useTableRowClasses } from '@/components/Table/composables/tableRowClasses'
 
 const { tableRowClasses } = useTableRowClasses()
