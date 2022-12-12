@@ -44,6 +44,7 @@ function getComponents() {
     { text: 'Dropdown', link: '/components/dropdown/dropdown.md' },
     { text: 'Progress', link: 'components/progress/progress.md' },
     { text: 'Spinner', link: '/components/spinner/spinner.md' },
+    { text: 'Table', link: 'components/table/table.md' },
     { text: 'Tabs', link: '/components/tabs/tabs.md' },
     { text: 'ListGroup', link: 'components/listGroup/listGroup.md' },
     { text: 'Toast', link: 'components/toast/toast.md' },
@@ -57,7 +58,6 @@ function getComponents() {
     { text: '- Pagination', link: 'components/pagination/pagination.md' },
     { text: '- Rating', link: 'components/rating/rating.md' },
     { text: '- Sidebar', link: 'components/sidebar/sidebar.md' },
-    { text: '- Table', link: 'components/table/table.md' },
     { text: '- Timeline', link: 'components/timeline/timeline.md' },
   ]
 }
