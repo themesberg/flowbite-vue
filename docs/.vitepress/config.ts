@@ -34,6 +34,7 @@ function buildSidebar() {
 
 function getComponents() {
   return [
+    { text: 'Accordion', link: 'components/accordion/accordion.md' },
     { text: 'Alert', link: '/components/alert/alert.md' },
     { text: 'Avatar', link: 'components/avatar/avatar.md' },
     { text: 'Breadcrumb', link: 'components/breadcrumb/breadcrumb.md' },
@@ -51,7 +52,6 @@ function getComponents() {
     { text: 'Modal', link: 'components/modal/modal.md' },
     { text: 'Navbar', link: 'components/navbar/navbar.md' },
 
-    { text: '- Accordion', link: 'components/accordion/accordion.md' },
     { text: '- Carousel', link: 'components/carousel/carousel.md' },
     { text: '- Footer', link: 'components/footer/footer.md' },
     { text: '- Pagination', link: 'components/pagination/pagination.md' },
