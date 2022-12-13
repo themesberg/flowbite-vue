@@ -13,6 +13,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  stripedColumns: {
+    type: Boolean,
+    default: false,
+  },
   hoverable: {
     type: Boolean,
     default: false,
@@ -21,4 +25,5 @@ const props = defineProps({
 
 provide('striped', props.striped)
 provide('hoverable', props.hoverable)
+provide('stripedColumns', props.stripedColumns)
 </script>
