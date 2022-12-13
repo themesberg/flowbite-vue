@@ -1,10 +1,9 @@
 <template>
-  <div class="vp-raw">
-    <slot :accordionId="accordionId"/>
+  <div class="vp-raw" :data-accordion-id="accordionId">
+    <slot />
   </div>
 </template>
 <script lang="ts" setup>
-import { provide } from 'vue'
 import { nanoid } from 'nanoid'
 import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
 
@@ -20,6 +19,5 @@ const props = defineProps({
 })
 
 const accordionId = nanoid()
-provide('accordionId', accordionId)
 useAccordionState(accordionId, { ...props })
 </script>
