@@ -42,6 +42,7 @@ function getComponents() {
     { text: 'Badge', link: 'components/badge/badge.md' },
     { text: 'Button Group', link: '/components/buttonGroup/buttonGroup.md' },
     { text: 'Card', link: 'components/card/card.md' },
+    { text: 'Carousel', link: 'components/carousel/carousel.md' },
     { text: 'Dropdown', link: '/components/dropdown/dropdown.md' },
     { text: 'Progress', link: 'components/progress/progress.md' },
     { text: 'Spinner', link: '/components/spinner/spinner.md' },
@@ -52,7 +53,6 @@ function getComponents() {
     { text: 'Modal', link: 'components/modal/modal.md' },
     { text: 'Navbar', link: 'components/navbar/navbar.md' },
 
-    { text: '- Carousel', link: 'components/carousel/carousel.md' },
     { text: '- Footer', link: 'components/footer/footer.md' },
     { text: '- Pagination', link: 'components/pagination/pagination.md' },
     { text: '- Rating', link: 'components/rating/rating.md' },

@@ -238,7 +238,7 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">:construction: Footer</td>
-    <td width="33.3333%">:construction: Accordion</td>
+    <td width="33.3333%">Accordion</td>
     <td width="33.3333%">:construction: Sidebar</td>
   </tr>
   <tr>
@@ -259,7 +259,7 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Carousel</td>
+    <td width="33.3333%">Carousel</td>
     <td width="33.3333%">Avatar</td>
     <td width="33.3333%">:construction: Rating</td>
   </tr>
