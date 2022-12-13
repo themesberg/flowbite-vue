@@ -82,6 +82,7 @@ function getUtils() {
  */
 export default defineConfig({
   title: 'Flowbite Vue 3',
+  cleanUrls: 'without-subfolders',
   head: [
     ['link', { rel: "icon", type: "image/svg", href: "/assets/logo.svg"}],
   ],
