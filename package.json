@@ -64,12 +64,13 @@
     "vue-tsc": "0.30.0"
   },
   "dependencies": {
-    "floating-vue": "^2.0.0-beta.20",
     "@vueuse/core": "9.3.0",
     "classnames": "2.3.2",
+    "floating-vue": "^2.0.0-beta.20",
     "flowbite": "1.5.4",
     "lodash-es": "4.17.21",
-    "tailwindcss": "3.2.4"
+    "nanoid": "4.0.0",
+    "tailwindcss": "^3"
   },
   "engines": {
     "node": "14.x",

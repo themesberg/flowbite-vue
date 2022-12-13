@@ -3,7 +3,7 @@ import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from '..
 </script>
 
 <template>
-  <Accordion>
+  <Accordion flush>
     <accordion-panel>
       <accordion-header>header</accordion-header>
       <accordion-content>

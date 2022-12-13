@@ -3,7 +3,7 @@ import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from '..
 </script>
 
 <template>
-  <Accordion>
+  <Accordion >
     <accordion-panel>
       <accordion-header>header</accordion-header>
       <accordion-content>
@@ -14,7 +14,7 @@ import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from '..
       </accordion-content>
     </accordion-panel>
     <accordion-panel>
-      <accordion-header>another header</accordion-header>
+      <accordion-header class="bg-pink-200 dark:bg-pink-900 dark:text-gray-50">another header</accordion-header>
       <accordion-content>
         <div>
           <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
