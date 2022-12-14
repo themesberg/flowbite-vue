@@ -1,7 +1,7 @@
 <script setup>
-import SpinnerBasicExample from './examples/SpinnerBasicExample.vue';
-import SpinnerSizeExample from './examples/SpinnerSizeExample.vue';
-import SpinnerColorExample from './examples/SpinnerColorExample.vue';
+import SpinnerBasicExample from './spinner/examples/SpinnerBasicExample.vue';
+import SpinnerSizeExample from './spinner/examples/SpinnerSizeExample.vue';
+import SpinnerColorExample from './spinner/examples/SpinnerColorExample.vue';
 </script>
 
 # Vue Spinner Component - Flowbite

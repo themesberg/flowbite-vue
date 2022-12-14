@@ -64,15 +64,14 @@ function getComponents() {
 
 function getFormComponents() {
   return [
-    { text: 'Input', link: 'components/input/input.md' },
+    { text: 'Input', link: 'components/input' },
   ]
 }
 
 function getUtils() {
   return [
     { text: 'Flowbite Themable', link: '/components/flowbiteThemable/flowbiteThemable.md' },
-    { text: 'Toast Provider', link: '/components/toastProvider/toastProvider.md' },
-    { text: 'PLAYGROUND', link: '/components/PLAYGROUND/PLAYGROUND.md' },
+    { text: 'Toast Provider', link: '/components/toastProvider/toastProvider.md' }
   ]
 }
 

@@ -1,13 +1,13 @@
 <script setup>
-import AvatarExample from './examples/AvatarExample.vue'
-import AvatarBorderedExample from './examples/AvatarBorderedExample.vue'
-import AvatarDotIndicatorExample from './examples/AvatarDotIndicatorExample.vue'
-import AvatarSizeExample from './examples/AvatarSizeExample.vue'
-import AvatarDotIndicatorPositionExample from './examples/AvatarDotIndicatorPositionExample.vue'
-import AvatarAlternativeTextExample from './examples/AvatarAlternativeTextExample.vue'
-import StackedAvatarsExample from './examples/StackedAvatarsExample.vue'
-import AvatarPlaceholderExample from './examples/AvatarPlaceholderExample.vue'
-import AvatarPlaceholderInitialsExample from './examples/AvatarPlaceholderInitialsExample.vue'
+import AvatarExample from './avatar/examples/AvatarExample.vue'
+import AvatarBorderedExample from './avatar/examples/AvatarBorderedExample.vue'
+import AvatarDotIndicatorExample from './avatar/examples/AvatarDotIndicatorExample.vue'
+import AvatarSizeExample from './avatar/examples/AvatarSizeExample.vue'
+import AvatarDotIndicatorPositionExample from './avatar/examples/AvatarDotIndicatorPositionExample.vue'
+import AvatarAlternativeTextExample from './avatar/examples/AvatarAlternativeTextExample.vue'
+import StackedAvatarsExample from './avatar/examples/StackedAvatarsExample.vue'
+import AvatarPlaceholderExample from './avatar/examples/AvatarPlaceholderExample.vue'
+import AvatarPlaceholderInitialsExample from './avatar/examples/AvatarPlaceholderInitialsExample.vue'
 
 </script>
 # Vue Avatar Component - Flowbite

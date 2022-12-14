@@ -1,9 +1,9 @@
 <script setup>
-import BadgeTypesExample from './examples/BadgeTypesExample.vue'
-import BadgeSizesExample from './examples/BadgeSizesExample.vue'
-import BadgeLinksExample from './examples/BadgeLinksExample.vue'
-import BadgeIconsExample from './examples/BadgeIconsExample.vue'
-import BadgeOnlyIconsExample from './examples/BadgeOnlyIconsExample.vue'
+import BadgeTypesExample from './badge/examples/BadgeTypesExample.vue'
+import BadgeSizesExample from './badge/examples/BadgeSizesExample.vue'
+import BadgeLinksExample from './badge/examples/BadgeLinksExample.vue'
+import BadgeIconsExample from './badge/examples/BadgeIconsExample.vue'
+import BadgeOnlyIconsExample from './badge/examples/BadgeOnlyIconsExample.vue'
 </script>
 # Vue Badge Component - Flowbite
 

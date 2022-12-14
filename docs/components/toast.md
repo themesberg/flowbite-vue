@@ -1,10 +1,10 @@
 <script setup>
-import ToastTypeExample from './examples/ToastTypeExample.vue';
-import ToastClosableExample from './examples/ToastClosableExample.vue';
-import ToastIconExample from './examples/ToastIconExample.vue';
-import ToastDivideExample from './examples/ToastDivideExample.vue';
-import ToastMessageExample from './examples/ToastMessageExample.vue';
-import ToastInteractiveExample from './examples/ToastInteractiveExample.vue'
+import ToastTypeExample from './toast/examples/ToastTypeExample.vue';
+import ToastClosableExample from './toast/examples/ToastClosableExample.vue';
+import ToastIconExample from './toast/examples/ToastIconExample.vue';
+import ToastDivideExample from './toast/examples/ToastDivideExample.vue';
+import ToastMessageExample from './toast/examples/ToastMessageExample.vue';
+import ToastInteractiveExample from './toast/examples/ToastInteractiveExample.vue'
 </script>
 # Vue Toast Component - Flowbite
 

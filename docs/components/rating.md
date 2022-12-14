@@ -1,8 +1,8 @@
 <script setup>
-import RatingExample from './examples/RatingExample.vue'
-import RatingWithTextExample from './examples/RatingWithTextExample.vue'
-import RatingCountExample from './examples/RatingCountExample.vue'
-import RatingStarSizesExample from './examples/RatingStarSizesExample.vue'
+import RatingExample from './rating/examples/RatingExample.vue'
+import RatingWithTextExample from './rating/examples/RatingWithTextExample.vue'
+import RatingCountExample from './rating/examples/RatingCountExample.vue'
+import RatingStarSizesExample from './rating/examples/RatingStarSizesExample.vue'
 </script>
 # Vue Rating Component - Flowbite
 

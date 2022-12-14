@@ -1,18 +1,18 @@
 <script setup>
-import ButtonColorExample from './examples/ButtonColorExample.vue';
-import ButtonSizeExample from './examples/ButtonSizeExample.vue';
-import ButtonPillExample from './examples/ButtonPillExample.vue';
-import ButtonGradientMonochromeExample from './examples/ButtonGradientMonochromeExample.vue';
-import ButtonGradientDuotoneExample from './examples/ButtonGradientDuotoneExample.vue';
-import ButtonOutlineColorExample from './examples/ButtonOutlineColorExample.vue';
-import ButtonPrefixExample from './examples/ButtonPrefixExample.vue';
-import ButtonSuffixExample from './examples/ButtonSuffixExample.vue';
-import ButtonOutlineGradientExample from './examples/ButtonOutlineGradientExample.vue';
-import ButtonGradientShadowExample from './examples/ButtonGradientShadowExample.vue';
-import ButtonIconExample from './examples/ButtonIconExample.vue';
-import ButtonSquareExample from './examples/ButtonSquareExample.vue';
-import ButtonDisabledExample from './examples/ButtonDisabledExample.vue';
-import ButtonLoadingExample from './examples/ButtonLoadingExample.vue';
+import ButtonColorExample from './button/examples/ButtonColorExample.vue';
+import ButtonSizeExample from './button/examples/ButtonSizeExample.vue';
+import ButtonPillExample from './button/examples/ButtonPillExample.vue';
+import ButtonGradientMonochromeExample from './button/examples/ButtonGradientMonochromeExample.vue';
+import ButtonGradientDuotoneExample from './button/examples/ButtonGradientDuotoneExample.vue';
+import ButtonOutlineColorExample from './button/examples/ButtonOutlineColorExample.vue';
+import ButtonPrefixExample from './button/examples/ButtonPrefixExample.vue';
+import ButtonSuffixExample from './button/examples/ButtonSuffixExample.vue';
+import ButtonOutlineGradientExample from './button/examples/ButtonOutlineGradientExample.vue';
+import ButtonGradientShadowExample from './button/examples/ButtonGradientShadowExample.vue';
+import ButtonIconExample from './button/examples/ButtonIconExample.vue';
+import ButtonSquareExample from './button/examples/ButtonSquareExample.vue';
+import ButtonDisabledExample from './button/examples/ButtonDisabledExample.vue';
+import ButtonLoadingExample from './button/examples/ButtonLoadingExample.vue';
 </script>
 
 # Vue Button Component - Flowbite
@@ -37,7 +37,7 @@ defineProps({
     color: {
         type: String as PropType<ButtonVariant>,
         default: 'default',
-    }, 
+    },
 })
 ```
 

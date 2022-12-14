@@ -1,9 +1,9 @@
 <script setup>
-import ProgressExample from './examples/ProgressExample.vue'
-import ProgressSizeExample from './examples/ProgressSizeExample.vue'
-import ProgressInsideLabelExample from './examples/ProgressInsideLabelExample.vue'
-import ProgressOutsideLabelExample from './examples/ProgressOutsideLabelExample.vue'
-import ProgressColorExample from './examples/ProgressColorExample.vue'
+import ProgressExample from './progress/examples/ProgressExample.vue'
+import ProgressSizeExample from './progress/examples/ProgressSizeExample.vue'
+import ProgressInsideLabelExample from './progress/examples/ProgressInsideLabelExample.vue'
+import ProgressOutsideLabelExample from './progress/examples/ProgressOutsideLabelExample.vue'
+import ProgressColorExample from './progress/examples/ProgressColorExample.vue'
 
 
 </script>
