@@ -1,8 +1,8 @@
 <script setup>
-import NavbarExample from './examples/NavbarExample.vue'
-import NavbarSolidExample from './examples/NavbarSolidExample.vue'
-import NavbarActionButtonExample from './examples/NavbarActionButtonExample.vue'
-import NavbarCustomMobileIconExample from './examples/NavbarCustomMobileIconExample.vue'
+import NavbarExample from './navbar/examples/NavbarExample.vue'
+import NavbarSolidExample from './navbar/examples/NavbarSolidExample.vue'
+import NavbarActionButtonExample from './navbar/examples/NavbarActionButtonExample.vue'
+import NavbarCustomMobileIconExample from './navbar/examples/NavbarCustomMobileIconExample.vue'
 
 </script>
 # Navbar Component – Flowbite

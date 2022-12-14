@@ -1,10 +1,10 @@
 <script setup>
-import InputExample from './examples/InputExample.vue';
-import InputSizeExample from './examples/InputSizeExample.vue';
-import InputDisabledExample from './examples/InputDisabledExample.vue';
-import InputHelperExample from './examples/InputHelperExample.vue';
-import InputPrefixExample from './examples/InputPrefixExample.vue';
-import InputSuffixExample from './examples/InputSuffixExample.vue'
+import InputExample from './input/examples/InputExample.vue';
+import InputSizeExample from './input/examples/InputSizeExample.vue';
+import InputDisabledExample from './input/examples/InputDisabledExample.vue';
+import InputHelperExample from './input/examples/InputHelperExample.vue';
+import InputPrefixExample from './input/examples/InputPrefixExample.vue';
+import InputSuffixExample from './input/examples/InputSuffixExample.vue'
 </script>
 
 # Vue Input Components - Flowbite

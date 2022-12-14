@@ -1,5 +1,5 @@
 <script setup>
-import FooterExample from './examples/FooterExample.vue'
+import FooterExample from './footer/examples/FooterExample.vue'
 </script>
 # Vue Footer Component - Flowbite
 

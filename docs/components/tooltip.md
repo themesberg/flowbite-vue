@@ -1,8 +1,8 @@
 <script setup>
-import TooltipExample from './examples/TooltipExample.vue'
-import TooltipPositionExample from './examples/TooltipPositionExample.vue'
-import TooltipStyleExample from './examples/TooltipStyleExample.vue'
-import TooltipTriggerExample from './examples/TooltipTriggerExample.vue'
+import TooltipExample from './tooltip/examples/TooltipExample.vue'
+import TooltipPositionExample from './tooltip/examples/TooltipPositionExample.vue'
+import TooltipStyleExample from './tooltip/examples/TooltipStyleExample.vue'
+import TooltipTriggerExample from './tooltip/examples/TooltipTriggerExample.vue'
 </script>
 # Vue Tooltip Component - Flowbite
 

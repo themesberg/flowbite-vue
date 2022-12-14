@@ -1,6 +1,6 @@
 <script setup>
-import ModalExample from './examples/ModalExample.vue';
-import ModalSizeExample from './examples/ModalSizeExample.vue';
+import ModalExample from './modal/examples/ModalExample.vue';
+import ModalSizeExample from './modal/examples/ModalSizeExample.vue';
 </script>
 # Vue Modal Component - Flowbite
 

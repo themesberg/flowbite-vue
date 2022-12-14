@@ -1,8 +1,8 @@
 <script setup>
-import ListGroupExample from './examples/ListGroupExample.vue'
-import ListGroupHoverExample from './examples/ListGroupHoverExample.vue'
-import ListGroupHoverIconExample from './examples/ListGroupHoverIconExample.vue'
-import ListGroupHoverIconDisabledExample from './examples/ListGroupHoverIconDisabledExample.vue'
+import ListGroupExample from './listGroup/examples/ListGroupExample.vue'
+import ListGroupHoverExample from './listGroup/examples/ListGroupHoverExample.vue'
+import ListGroupHoverIconExample from './listGroup/examples/ListGroupHoverIconExample.vue'
+import ListGroupHoverIconDisabledExample from './listGroup/examples/ListGroupHoverIconDisabledExample.vue'
 </script>
 
 # Vue List Group Component - Flowbite

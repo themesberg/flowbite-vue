@@ -1,10 +1,10 @@
 <script setup>
-import AlertTypeExample from './examples/AlertTypeExample.vue';
-import AlertTitleExample from './examples/AlertTitleExample.vue';
-import AlertClosableExample from './examples/AlertClosableExample.vue';
-import AlertBorderExample from './examples/AlertBorderExample.vue';
-import AlertIconExample from './examples/AlertIconExample.vue';
-import AlertInlineExample from './examples/AlertInlineExample.vue';
+import AlertTypeExample from './alert/examples/AlertTypeExample.vue';
+import AlertTitleExample from './alert/examples/AlertTitleExample.vue';
+import AlertClosableExample from './alert/examples/AlertClosableExample.vue';
+import AlertBorderExample from './alert/examples/AlertBorderExample.vue';
+import AlertIconExample from './alert/examples/AlertIconExample.vue';
+import AlertInlineExample from './alert/examples/AlertInlineExample.vue';
 </script>
 
 # Vue Alert Component - Flowbite
@@ -29,7 +29,7 @@ defineProps({
     type: {
         type: String as PropType<AlertType>,
         default: 'info',
-    }, 
+    },
 })
 ```
 
@@ -58,7 +58,7 @@ defineProps({
     title: {
         type: String,
         default: '',
-    }, 
+    },
 })
 ```
 
@@ -87,7 +87,7 @@ defineProps({
     closable: {
         type: Boolean,
         default: false,
-    }, 
+    },
 })
 ```
 
@@ -116,7 +116,7 @@ defineProps({
     border: {
         type: Boolean,
         default: false,
-    }, 
+    },
 })
 ```
 
@@ -145,7 +145,7 @@ defineProps({
     icon: {
         type: Boolean,
         default: true,
-    }, 
+    },
 })
 ```
 
@@ -174,7 +174,7 @@ defineProps({
     inline: {
         type: Boolean,
         default: true,
-    }, 
+    },
 })
 ```
 

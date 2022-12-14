@@ -1,5 +1,5 @@
 <script setup>
-import PaginationExample from './examples/PaginationExample.vue'
+import PaginationExample from './pagination/examples/PaginationExample.vue'
 </script>
 # Vue Pagination Component - Flowbite
 

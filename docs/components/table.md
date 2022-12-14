@@ -1,5 +1,5 @@
 <script setup>
-import TableExample from './examples/TableExample.vue'
+import TableExample from './table/examples/TableExample.vue'
 </script>
 # Vue Table Component - Flowbite
 

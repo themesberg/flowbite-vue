@@ -1,10 +1,10 @@
 <script setup>
-import CarouselDefaultExample from './examples/CarouselDefaultExample.vue';
-import CarouselNoControlsExample from './examples/CarouselNoControlsExample.vue';
-import CarouselNoIndicatorsExample from './examples/CarouselNoIndicatorsExample.vue';
-import CarouselSlideExample from './examples/CarouselSlideExample.vue';
-import CarouselSlideIntervalExample from './examples/CarouselSlideIntervalExample.vue';
-import CarouselPicturesExample from './examples/CarouselPicturesExample.vue';
+import CarouselDefaultExample from './carousel/examples/CarouselDefaultExample.vue';
+import CarouselNoControlsExample from './carousel/examples/CarouselNoControlsExample.vue';
+import CarouselNoIndicatorsExample from './carousel/examples/CarouselNoIndicatorsExample.vue';
+import CarouselSlideExample from './carousel/examples/CarouselSlideExample.vue';
+import CarouselSlideIntervalExample from './carousel/examples/CarouselSlideIntervalExample.vue';
+import CarouselPicturesExample from './carousel/examples/CarouselPicturesExample.vue';
 </script>
 # Vue Carousel Component - Flowbite
 

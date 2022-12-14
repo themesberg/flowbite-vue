@@ -1,7 +1,7 @@
 <script setup>
-import CardDefaultExample from './examples/CardDefaultExample.vue'
-import CardImageExample from './examples/CardImageExample.vue'
-import CardHorizontalExample from './examples/CardHorizontalExample.vue'
+import CardDefaultExample from './card/examples/CardDefaultExample.vue'
+import CardImageExample from './card/examples/CardImageExample.vue'
+import CardHorizontalExample from './card/examples/CardHorizontalExample.vue'
 </script>
 # Vue Card Components - Flowbite
 
