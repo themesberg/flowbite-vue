@@ -1,6 +1,6 @@
 <template>
   <div class="vp-raw flex flex-col">
-    <Rating rating=4></Rating>
+    <Rating :rating="4" />
   </div>
 </template>
 <script setup>

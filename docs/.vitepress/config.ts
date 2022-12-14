@@ -45,6 +45,7 @@ function getComponents() {
     { text: 'Carousel', link: 'components/carousel/carousel.md' },
     { text: 'Dropdown', link: '/components/dropdown/dropdown.md' },
     { text: 'Progress', link: 'components/progress/progress.md' },
+    { text: 'Rating', link: 'components/rating/rating.md' },
     { text: 'Spinner', link: '/components/spinner/spinner.md' },
     { text: 'Tabs', link: '/components/tabs/tabs.md' },
     { text: 'ListGroup', link: 'components/listGroup/listGroup.md' },
@@ -55,7 +56,6 @@ function getComponents() {
 
     { text: '- Footer', link: 'components/footer/footer.md' },
     { text: '- Pagination', link: 'components/pagination/pagination.md' },
-    { text: '- Rating', link: 'components/rating/rating.md' },
     { text: '- Sidebar', link: 'components/sidebar/sidebar.md' },
     { text: '- Table', link: 'components/table/table.md' },
     { text: '- Timeline', link: 'components/timeline/timeline.md' },
