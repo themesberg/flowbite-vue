@@ -1,6 +1,6 @@
 <script setup>
-import ButtonGroupBasicExample from './examples/ButtonGroupBasicExample.vue';
-import ButtonGroupIconExample from './examples/ButtonGroupIconExample.vue';
+import ButtonGroupBasicExample from './buttonGroup/examples/ButtonGroupBasicExample.vue';
+import ButtonGroupIconExample from './buttonGroup/examples/ButtonGroupIconExample.vue';
 </script>
 
 # Vue Button Group Component - Flowbite

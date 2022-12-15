@@ -1,8 +1,8 @@
 <script setup>
-import AccordionExample from './examples/AccordionExample.vue';
-import AccordionAlwaysOpenExample from './examples/AccordionAlwaysOpenExample.vue';
-import AccordionFlushExample from './examples/AccordionFlushExample.vue';
-import AccordionStyledHeadersExample from './examples/AccordionStyledHeadersExample.vue';
+import AccordionExample from './accordion/examples/AccordionExample.vue';
+import AccordionAlwaysOpenExample from './accordion/examples/AccordionAlwaysOpenExample.vue';
+import AccordionFlushExample from './accordion/examples/AccordionFlushExample.vue';
+import AccordionStyledHeadersExample from './accordion/examples/AccordionStyledHeadersExample.vue';
 </script>
 # Vue Accordion Component - Flowbite
 
@@ -14,7 +14,7 @@ Original reference: [https://flowbite.com/docs/components/accordion/](https://fl
 :::
 
 ## Default accordion
-Use this example to basic accordion. 
+Use this example to basic accordion.
 ```vue
 <script setup>
 import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from 'flowbite-vue'

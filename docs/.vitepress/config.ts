@@ -34,45 +34,44 @@ function buildSidebar() {
 
 function getComponents() {
   return [
-    { text: 'Accordion', link: 'components/accordion/accordion.md' },
-    { text: 'Alert', link: '/components/alert/alert.md' },
-    { text: 'Avatar', link: 'components/avatar/avatar.md' },
-    { text: 'Breadcrumb', link: 'components/breadcrumb/breadcrumb.md' },
-    { text: 'Button', link: '/components/button/button.md' },
-    { text: 'Badge', link: 'components/badge/badge.md' },
-    { text: 'Button Group', link: '/components/buttonGroup/buttonGroup.md' },
-    { text: 'Card', link: 'components/card/card.md' },
-    { text: 'Carousel', link: 'components/carousel/carousel.md' },
-    { text: 'Dropdown', link: '/components/dropdown/dropdown.md' },
-    { text: 'Progress', link: 'components/progress/progress.md' },
-    { text: 'Spinner', link: '/components/spinner/spinner.md' },
-    { text: 'Table', link: 'components/table/table.md' },
-    { text: 'Tabs', link: '/components/tabs/tabs.md' },
-    { text: 'ListGroup', link: 'components/listGroup/listGroup.md' },
-    { text: 'Toast', link: 'components/toast/toast.md' },
-    { text: 'Tooltip', link: 'components/tooltip/tooltip.md' },
-    { text: 'Modal', link: 'components/modal/modal.md' },
-    { text: 'Navbar', link: 'components/navbar/navbar.md' },
+    { text: 'Accordion', link: 'components/accordion' },
+    { text: 'Alert', link: '/components/alert' },
+    { text: 'Avatar', link: 'components/avatar' },
+    { text: 'Breadcrumb', link: 'components/breadcrumb' },
+    { text: 'Button', link: '/components/button' },
+    { text: 'Badge', link: 'components/badge' },
+    { text: 'Button Group', link: '/components/button-group' },
+    { text: 'Card', link: 'components/card.md' },
+    { text: 'Carousel', link: 'components/carousel' },
+    { text: 'Dropdown', link: '/components/dropdown' },
+    { text: 'Progress', link: 'components/progress' },
+    { text: 'Rating', link: 'components/rating' },
+    { text: 'Spinner', link: '/components/spinner' },
+    { text: 'Table', link: 'components/table' },
+    { text: 'Tabs', link: '/components/tabs' },
+    { text: 'ListGroup', link: 'components/list-group' },
+    { text: 'Toast', link: 'components/toast' },
+    { text: 'Tooltip', link: 'components/tooltip' },
+    { text: 'Modal', link: 'components/modal' },
+    { text: 'Navbar', link: 'components/navbar' },
 
-    { text: '- Footer', link: 'components/footer/footer.md' },
-    { text: '- Pagination', link: 'components/pagination/pagination.md' },
-    { text: '- Rating', link: 'components/rating/rating.md' },
-    { text: '- Sidebar', link: 'components/sidebar/sidebar.md' },
-    { text: '- Timeline', link: 'components/timeline/timeline.md' },
+    { text: '- Footer', link: 'components/footer' },
+    { text: '- Pagination', link: 'components/pagination' },
+    { text: '- Sidebar', link: 'components/sidebar' },
+    { text: '- Timeline', link: 'components/timeline' },
   ]
 }
 
 function getFormComponents() {
   return [
-    { text: 'Input', link: 'components/input/input.md' },
+    { text: 'Input', link: 'components/input' },
   ]
 }
 
 function getUtils() {
   return [
     { text: 'Flowbite Themable', link: '/components/flowbiteThemable/flowbiteThemable.md' },
-    { text: 'Toast Provider', link: '/components/toastProvider/toastProvider.md' },
-    { text: 'PLAYGROUND', link: '/components/PLAYGROUND/PLAYGROUND.md' },
+    { text: 'Toast Provider', link: '/components/toastProvider/toastProvider.md' }
   ]
 }
 

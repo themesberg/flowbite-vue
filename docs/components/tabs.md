@@ -1,7 +1,7 @@
 <script setup>
-import TabsDefaultExample from './examples/TabsDefaultExample.vue';
-import TabsPillsExample from './examples/TabsPillsExample.vue';
-import TabsUnderlineExample from './examples/TabsUnderlineExample.vue';
+import TabsDefaultExample from './tabs/examples/TabsDefaultExample.vue';
+import TabsPillsExample from './tabs/examples/TabsPillsExample.vue';
+import TabsUnderlineExample from './tabs/examples/TabsUnderlineExample.vue';
 </script>
 
 # Vue Tabs Component - Flowbite

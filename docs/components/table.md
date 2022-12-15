@@ -1,8 +1,8 @@
 <script setup>
-import TableExample from './examples/TableExample.vue';
-import TableStripedExample from './examples/TableStripedExample.vue';
-import TableStripedColumnsExample from './examples/TableStripedColumnsExample.vue';
-import TableHoverableExample from './examples/TableHoverableExample.vue';
+import TableExample from './table/examples/TableExample.vue';
+import TableStripedExample from './table/examples/TableStripedExample.vue';
+import TableStripedColumnsExample from './table/examples/TableStripedColumnsExample.vue';
+import TableHoverableExample from './table/examples/TableHoverableExample.vue';
 </script>
 # Vue Table Component - Flowbite
 

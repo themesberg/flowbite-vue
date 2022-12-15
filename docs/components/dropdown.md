@@ -1,7 +1,7 @@
 <script setup>
-import DropdownPlacementExample from './examples/DropdownPlacementExample.vue';
-import DropdownListGroupExample from './examples/DropdownListGroupExample.vue';
-import DropdownTriggerExample from './examples/DropdownTriggerExample.vue';
+import DropdownPlacementExample from './dropdown/examples/DropdownPlacementExample.vue';
+import DropdownListGroupExample from './dropdown/examples/DropdownListGroupExample.vue';
+import DropdownTriggerExample from './dropdown/examples/DropdownTriggerExample.vue';
 </script>
 
 # Vue Dropdown Component - Flowbite
