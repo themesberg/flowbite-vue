@@ -1,14 +1,24 @@
 <template>
-  <ol class="relative border-l border-gray-200 dark:border-gray-700">
-    <slot></slot>
-  </ol>
+  <div class="vp-raw">
+    <ol :class="classNames(defaultClasses, horizontal ? horizontalClasses : verticalClasses)" v-bind="$attrs">
+      <slot></slot>
+    </ol>
+  </div>
 </template>
 <script lang="ts" setup>
-defineProps({
+import classNames from 'classnames'
+import { provide } from 'vue'
+
+const props = defineProps({
   horizontal: {
     type: Boolean,
     default: false,
   },
 })
 
+provide('horizontal', props.horizontal)
+
+const defaultClasses = 'relative border-gray-200 dark:border-gray-700'
+const verticalClasses = 'border-l'
+const horizontalClasses = 'flex'
 </script>
