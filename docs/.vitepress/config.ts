@@ -49,6 +49,7 @@ function getComponents() {
     { text: 'Spinner', link: '/components/spinner' },
     { text: 'Tabs', link: '/components/tabs' },
     { text: 'ListGroup', link: 'components/list-group' },
+    { text: 'Timeline', link: 'components/timeline' },
     { text: 'Toast', link: 'components/toast' },
     { text: 'Tooltip', link: 'components/tooltip' },
     { text: 'Modal', link: 'components/modal' },
@@ -58,7 +59,7 @@ function getComponents() {
     { text: '- Pagination', link: 'components/pagination' },
     { text: '- Sidebar', link: 'components/sidebar' },
     { text: '- Table', link: 'components/table' },
-    { text: '- Timeline', link: 'components/timeline' },
+    { text: 'Timeline', link: 'components/timeline' },
   ]
 }
 
