@@ -34,7 +34,8 @@ const { accordionsStates } = useAccordionState()
 const accordionState = computed(() => accordionsStates[accordionId.value])
 const panelState = computed(() => accordionState.value.panels[panelId.value])
 
-let headerClasses, arrowClasses
+const headerClasses = ref('')
+const arrowClasses = ref('')
 function commonToggleItem() {
   const isSelectedVisible = panelState.value.isVisible
   for (const panelIndex in accordionState.value.panels) {
@@ -53,8 +54,8 @@ function toggleItem() {
 
 onMounted(() => {
   const accordionHeaderClasses = useAccordionHeaderClasses(header)
-  headerClasses = accordionHeaderClasses.headerClasses
-  arrowClasses = accordionHeaderClasses.arrowClasses
+  headerClasses.value = accordionHeaderClasses.headerClasses.value
+  arrowClasses.value = accordionHeaderClasses.arrowClasses.value
   isLoaded.value = true
 })
 </script>

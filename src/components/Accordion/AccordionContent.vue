@@ -15,12 +15,11 @@ import { onMounted, ref } from 'vue'
 
 const isLoaded = ref(false)
 const content = ref()
-
-let contentClasses
+const contentClasses = ref('')
 
 onMounted(() => {
   const accordionHeaderClasses = useAccordionContentClasses(content)
-  contentClasses = accordionHeaderClasses.contentClasses
+  contentClasses.value = accordionHeaderClasses.contentClasses.value
   isLoaded.value = true
 })
 </script>
