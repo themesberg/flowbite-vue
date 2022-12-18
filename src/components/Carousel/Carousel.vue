@@ -5,13 +5,13 @@
       <!-- Item 1 -->
 <!--      duration-700 ease-in-out-->
       <div :class="index === currentPicture ? 'z-30' : 'z-0'"
-           v-for="(picture, index) in pictures" :key="picture" class="absolute inset-0 -translate-y-0">
+           v-for="(picture, index) in pictures" :key="index" class="absolute inset-0 -translate-y-0">
         <img :src="picture.src" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" :alt="picture.alt">
       </div>
     </div>
     <!-- Slider indicators -->
     <div v-if="indicators" class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-      <button v-for="(picture, index) in pictures" :key="picture" type="button" :class="index === currentPicture ? 'bg-white' : 'bg-white/50'" class="w-3 h-3 rounded-full bg-white" aria-current="false" :aria-label="'Slide ' + index" @click.prevent="slideTo(index)"></button>
+      <button v-for="(picture, index) in pictures" :key="index" type="button" :class="index === currentPicture ? 'bg-white' : 'bg-white/50'" class="w-3 h-3 rounded-full bg-white" aria-current="false" :aria-label="'Slide ' + index" @click.prevent="slideTo(index)"></button>
     </div>
     <!-- Slider controls -->
     <button v-if="controls" @click.prevent="previousPicture" type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -30,10 +30,12 @@
 </template>
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
+import type { PropType } from 'vue'
+import type { PictureItem } from '@/components/Carousel/types'
 
 const props = defineProps({
   pictures: {
-    type: Array,
+    type: Array as PropType<PictureItem[]>,
     default() {
       return [
         {

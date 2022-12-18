@@ -11,17 +11,23 @@ function buildSidebar() {
     {
       text: 'Components',
       collapsible: true,
-      items: [...getComponents()],
+      items: [
+        ...getComponents(),
+      ],
     },
     {
       text: 'Form',
       collapsible: true,
-      items: [...getFormComponents()],
+      items: [
+        ...getFormComponents(),
+      ],
     },
     {
       text: 'Utils',
       collapsible: true,
-      items: [...getUtils()],
+      items: [
+        ...getUtils(),
+      ],
     },
   ]
 }
@@ -41,6 +47,7 @@ function getComponents() {
     { text: 'Progress', link: 'components/progress' },
     { text: 'Rating', link: 'components/rating' },
     { text: 'Spinner', link: '/components/spinner' },
+    { text: 'Table', link: 'components/table' },
     { text: 'Tabs', link: '/components/tabs' },
     { text: 'ListGroup', link: 'components/list-group' },
     { text: 'Timeline', link: 'components/timeline' },
@@ -52,18 +59,19 @@ function getComponents() {
     { text: '- Footer', link: 'components/footer' },
     { text: '- Pagination', link: 'components/pagination' },
     { text: '- Sidebar', link: 'components/sidebar' },
-    { text: '- Table', link: 'components/table' },
   ]
 }
 
 function getFormComponents() {
-  return [{ text: 'Input', link: 'components/input' }]
+  return [
+    { text: 'Input', link: 'components/input' },
+  ]
 }
 
 function getUtils() {
   return [
     { text: 'Flowbite Themable', link: '/components/flowbiteThemable/flowbiteThemable.md' },
-    { text: 'Toast Provider', link: '/components/toastProvider/toastProvider.md' },
+    { text: 'Toast Provider', link: '/components/toastProvider/toastProvider.md' }
   ]
 }
 
@@ -74,18 +82,21 @@ function getUtils() {
 export default defineConfig({
   title: 'Flowbite Vue 3',
   cleanUrls: 'without-subfolders',
-  head: [['link', { rel: 'icon', type: 'image/svg', href: '/assets/logo.svg' }]],
+  head: [
+    ['link', { rel: "icon", type: "image/svg", href: "/assets/logo.svg"}],
+  ],
   themeConfig: {
     sidebar: buildSidebar(),
     logo: '/assets/logo.svg',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/themesberg/flowbite-vue' },
-      { icon: 'discord', link: 'https://discord.gg/4eeurUVvTy' },
+      { icon: 'discord', link: 'https://discord.gg/4eeurUVvTy' }
     ],
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2022 Flowbite™',
+      copyright: 'Copyright © 2022 Flowbite™'
     },
+
   },
 })

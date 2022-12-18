@@ -1,6 +1,6 @@
 {
   "name": "flowbite-vue",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "repository": "https://github.com/themesberg/flowbite-vue.git",
   "author": "themesberg",
   "license": "MIT",
@@ -74,7 +74,7 @@
     "tailwindcss": "^3"
   },
   "engines": {
-    "node": "14.x",
-    "npm": "8.x"
+    "node": ">=14.x",
+    "npm": ">=6.x"
   }
 }
