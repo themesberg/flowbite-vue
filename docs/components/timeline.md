@@ -11,7 +11,7 @@ import TimelineHorizontalExample from './timeline/examples/TimelineHorizontalExa
 
 ```vue
 <script setup>
-import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle, TimelineButton } from 'flowbite-vue'
+import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle } from 'flowbite-vue'
 </script>
 <template>
   <Timeline>
@@ -28,9 +28,6 @@ import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, T
         <timeline-body>
           Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.
         </timeline-body>
-        <timeline-button>
-          Learn more <svg class="ml-2 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-        </timeline-button>
       </timeline-content>
     </timeline-item>
     <timeline-item>
@@ -75,7 +72,7 @@ You can add icons by passing svg icons as slot to `<timeline-point></timeline-po
 
 ```vue
 <script setup>
-import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle, TimelineButton } from 'flowbite-vue'
+import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle } from 'flowbite-vue'
 </script>
 <template>
   <Timeline>
@@ -93,9 +90,6 @@ import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, T
         <timeline-body>
           Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.
         </timeline-body>
-        <timeline-button>
-          Learn more <svg class="ml-2 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-        </timeline-button>
       </timeline-content>
     </timeline-item>
     <timeline-item>
@@ -142,7 +136,7 @@ import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, T
 
 ```vue
 <script setup>
-import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle, TimelineButton } from 'flowbite-vue'
+import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle } from 'flowbite-vue'
 </script>
 <template>
   <Timeline>
@@ -160,9 +154,6 @@ import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, T
         <timeline-body>
           Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.
         </timeline-body>
-        <timeline-button>
-          Learn more <svg class="ml-2 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-        </timeline-button>
       </timeline-content>
     </timeline-item>
     <timeline-item>

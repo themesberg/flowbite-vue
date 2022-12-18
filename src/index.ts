@@ -39,7 +39,6 @@ export { default as TimelineContent } from './components/Timeline/TimelineConten
 export { default as TimelineTime } from './components/Timeline/TimelineTime.vue'
 export { default as TimelineTitle } from './components/Timeline/TimelineTitle.vue'
 export { default as TimelineBody } from './components/Timeline/TimelineBody.vue'
-export { default as TimelineButton } from './components/Timeline/TimelineButton.vue'
 export { default as Toast } from './components/Toast/Toast.vue'
 export { default as ToastProvider } from './components/Toast/components/ToastProvider/ToastProvider.vue'
 export { default as Tooltip } from './components/Tooltip/Tooltip.vue'
