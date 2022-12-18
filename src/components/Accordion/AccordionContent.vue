@@ -12,14 +12,14 @@
 <script lang="ts" setup>
 import { useAccordionContentClasses } from '@/components/Accordion/composables/useAccordionContentClasses'
 import { onMounted, ref } from 'vue'
-
+import type { ComputedRef } from 'vue'
 const isLoaded = ref(false)
 const content = ref()
-const contentClasses = ref('')
+let contentClasses: ComputedRef
 
 onMounted(() => {
   const accordionHeaderClasses = useAccordionContentClasses(content)
-  contentClasses.value = accordionHeaderClasses.contentClasses.value
+  contentClasses = accordionHeaderClasses.contentClasses
   isLoaded.value = true
 })
 </script>

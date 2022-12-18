@@ -23,6 +23,7 @@
 <script lang="ts" setup>
 import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
 import { computed, onMounted, ref } from 'vue'
+import type { ComputedRef } from 'vue'
 import { useAccordionHeaderClasses } from '@/components/Accordion/composables/useAccordionHeaderClasses'
 
 const isLoaded = ref(false)
@@ -34,8 +35,7 @@ const { accordionsStates } = useAccordionState()
 const accordionState = computed(() => accordionsStates[accordionId.value])
 const panelState = computed(() => accordionState.value.panels[panelId.value])
 
-const headerClasses = ref('')
-const arrowClasses = ref('')
+let headerClasses: ComputedRef, arrowClasses: ComputedRef
 function commonToggleItem() {
   const isSelectedVisible = panelState.value.isVisible
   for (const panelIndex in accordionState.value.panels) {
@@ -54,8 +54,8 @@ function toggleItem() {
 
 onMounted(() => {
   const accordionHeaderClasses = useAccordionHeaderClasses(header)
-  headerClasses.value = accordionHeaderClasses.headerClasses.value
-  arrowClasses.value = accordionHeaderClasses.arrowClasses.value
+  headerClasses = accordionHeaderClasses.headerClasses
+  arrowClasses = accordionHeaderClasses.arrowClasses
   isLoaded.value = true
 })
 </script>
