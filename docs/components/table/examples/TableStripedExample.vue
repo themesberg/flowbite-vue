@@ -1,5 +1,5 @@
 <template>
-  <Table>
+  <Table striped>
     <table-head>
       <table-head-cell>Product name</table-head-cell>
       <table-head-cell>Color</table-head-cell>

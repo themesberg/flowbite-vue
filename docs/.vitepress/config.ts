@@ -47,6 +47,7 @@ function getComponents() {
     { text: 'Progress', link: 'components/progress' },
     { text: 'Rating', link: 'components/rating' },
     { text: 'Spinner', link: '/components/spinner' },
+    { text: 'Table', link: 'components/table' },
     { text: 'Tabs', link: '/components/tabs' },
     { text: 'ListGroup', link: 'components/list-group' },
     { text: 'Toast', link: 'components/toast' },
@@ -57,7 +58,6 @@ function getComponents() {
     { text: '- Footer', link: 'components/footer' },
     { text: '- Pagination', link: 'components/pagination' },
     { text: '- Sidebar', link: 'components/sidebar' },
-    { text: '- Table', link: 'components/table' },
     { text: '- Timeline', link: 'components/timeline' },
   ]
 }
