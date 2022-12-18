@@ -1,5 +1,5 @@
 <template>
-  <Timeline>
+  <Timeline class="vp-raw">
     <timeline-item>
       <timeline-point>
       </timeline-point>

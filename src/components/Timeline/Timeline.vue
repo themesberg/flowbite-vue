@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw">
+  <div>
     <ol :class="classNames(defaultClasses, horizontal ? horizontalClasses : verticalClasses)" v-bind="$attrs">
       <slot></slot>
     </ol>
