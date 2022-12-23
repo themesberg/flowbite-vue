@@ -79,7 +79,7 @@ const props = defineProps({
   },
   sliceLength: {
     type: Number,
-    default: 3,
+    default: 2,
   },
   previousLabel: {
     type: String,

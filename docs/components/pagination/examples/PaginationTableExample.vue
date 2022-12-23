@@ -2,8 +2,8 @@
   <div class="vp-raw flex items-center justify-center text-center">
     <Pagination
       v-model="currentPage"
-      :total-pages="100"
       :layout="'table'"
+      :per-page="10"
       :total-items="998"
     ></Pagination>
   </div>
