@@ -1,6 +1,10 @@
 <template>
   <li>
-    <a :href="href" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+    <a
+      :href="href"
+      class="flex items-center text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+      :class="padding"
+    >
       <span class="mr-3" v-if="hasIcon">
         <slot name="icon"/>
       </span>
@@ -10,10 +14,18 @@
   </li>
 </template>
 <script lang="ts" setup>
-import { computed, defineAsyncComponent, useSlots } from 'vue'
+import { computed, defineAsyncComponent, inject, useSlots } from 'vue'
 import { isNull } from 'lodash-es'
 const SidebarStringLabel = defineAsyncComponent(() => import('@/components/Sidebar/SidebarStringLabel.vue'))
 const SidebarNumberLabel = defineAsyncComponent(() => import('@/components/Sidebar/SidebarNumberLabel.vue'))
+
+const baseDepth = 1
+const depth = inject('depth', baseDepth)
+
+const padding = computed(() => {
+  if (depth === baseDepth) return 'p-2'
+  return `p-2 pl-${depth * 4}`
+})
 
 const props = defineProps({
   label: {
