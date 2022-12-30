@@ -94,7 +94,7 @@ import { Input } from 'flowbite-vue'
 ## Slot - Suffix
 ```vue
 <script setup>
-import { Input } from 'flowbite-vue'
+import { Input, Button } from 'flowbite-vue'
 </script>
 <template>
   <Input size="lg" placeholder="enter your search query" label="Search">
