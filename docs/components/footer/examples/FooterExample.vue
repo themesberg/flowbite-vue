@@ -10,7 +10,7 @@
       </FooterCopyright>
       <FooterLinkGroup>
         <FooterLink href="#">
-          About2
+          About
         </FooterLink>
         <FooterLink href="#">
           Privacy Policy

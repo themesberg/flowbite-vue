@@ -4,6 +4,7 @@
   
   </footer>
 </template>
+
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
 import type { PropType } from 'vue'
