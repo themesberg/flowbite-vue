@@ -1,27 +1,27 @@
 import { defineComponent, h } from 'vue'
 
 export default defineComponent({
-    name: 'FooterCopyright',
+    name: 'FooterBrand',
     props: {
         href: {
             type: String,
             default: '/',
         },
-        by: {
+        src: {
             type: String,
             default: '',
         },
-        year: {
-            type: Number,
+        alt: {
+            type: String,
             default: '',
         },
-        suffix: {
+        name: {
             type: String,
             default: '',
         },
         component: {
             type: [Object, String],
-            default: 'span',
+            default: 'a',
         },
     },
     emits: [
@@ -33,28 +33,28 @@ export default defineComponent({
                 // @ts-ignore
                 props.component,
                 {
-                    class: 'text-sm text-gray-500 sm:text-center dark:text-gray-400',
+                    class: 'flex items-center mb-4 sm:mb-0',
+                    href: props.href,
                 },
                 {
                     default: () => [
                         h(
-                            'span',
-                            {},
-                            props.year + " "
+                            'img',
+                            {
+                              src: props.src,
+                              class: "h-8 mr-3",
+                              alt: props.alt
+                            },
                         ),
                         h(
-                            'a',
+                            'span',
                             {
                                 href: props.href,
-                                class: 'hover:underline',
+                                class: 'self-center text-2xl font-semibold whitespace-nowrap dark:text-white',
                             },
-                            props.by,
+                            props.name,
                         ),
-                        h(
-                            'span',
-                            {},
-                            props.suffix
-                        ),],
+                    ]
                 },
             )
     },

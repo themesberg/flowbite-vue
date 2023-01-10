@@ -35,15 +35,4 @@ export default defineComponent({
               },
           )
   },
-    // setup(props, { slots }) {
-    //     return () =>
-    //         h(
-    //             // @ts-ignore
-    //             props.component,
-                // {
-                //     href: props.href,
-                //     class: 'flex items-center',
-                // },
-    //         )
-    // },
 })
