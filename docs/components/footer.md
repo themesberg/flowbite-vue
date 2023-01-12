@@ -1,6 +1,7 @@
 <script setup>
 import FooterExample from './footer/examples/FooterExample.vue'
 import FooterWithLogoExample from './footer/examples/FooterWithLogoExample.vue'
+import FooterSocialMediaIconsExample from './footer/examples/FooterSocialMediaIconsExample.vue'
 </script>
 # Vue Footer Component - Flowbite
 
@@ -47,6 +48,8 @@ import { Footer } from 'flowbite-vue'
 <FooterWithLogoExample />
 
 ## Social media icons
+
+<FooterSocialMediaIconsExample />
 
 ## Sitemap links
 
