@@ -2,6 +2,7 @@
 import FooterExample from './footer/examples/FooterExample.vue'
 import FooterWithLogoExample from './footer/examples/FooterWithLogoExample.vue'
 import FooterSocialMediaIconsExample from './footer/examples/FooterSocialMediaIconsExample.vue'
+import FooterSitemapLinksExample from './footer/examples/FooterSitemapLinksExample.vue'
 </script>
 # Vue Footer Component - Flowbite
 
@@ -52,5 +53,7 @@ import { Footer } from 'flowbite-vue'
 <FooterSocialMediaIconsExample />
 
 ## Sitemap links
+
+<FooterSitemapLinksExample />
 
 ## Sticky footer
