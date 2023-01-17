@@ -40,7 +40,7 @@ export default defineComponent({
                         h(
                             'span',
                             {},
-                            props.year + " "
+                            "© " + props.year + " "
                         ),
                         h(
                             'a',
