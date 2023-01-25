@@ -44,6 +44,7 @@ function getComponents() {
     { text: 'Card', link: 'components/card.md' },
     { text: 'Carousel', link: 'components/carousel' },
     { text: 'Dropdown', link: '/components/dropdown' },
+    { text: 'Pagination', link: 'components/pagination' },
     { text: 'Progress', link: 'components/progress' },
     { text: 'Rating', link: 'components/rating' },
     { text: 'Spinner', link: '/components/spinner' },
@@ -57,7 +58,6 @@ function getComponents() {
     { text: 'Navbar', link: 'components/navbar' },
 
     { text: '- Footer', link: 'components/footer' },
-    { text: '- Pagination', link: 'components/pagination' },
     { text: '- Sidebar', link: 'components/sidebar' },
   ]
 }
