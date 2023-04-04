@@ -62,10 +62,6 @@ const props = defineProps({
     type: String,
     default: null,
   },
-  placeholder: {
-    type: Object,
-    default: null,
-  },
 })
 
 const { avatarClasses, avatarDotClasses, avatarPlaceholderClasses, avatarPlaceholderWrapperClasses, avatarPlaceholderInitialsClasses } = useAvatarClasses(toRefs(props))
