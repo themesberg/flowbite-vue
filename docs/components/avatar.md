@@ -1,5 +1,6 @@
 <script setup>
 import AvatarExample from './avatar/examples/AvatarExample.vue'
+import AvatarAlternativePlaceholderExample from './avatar/examples/AvatarAlternativePlaceholderExample.vue'
 import AvatarBorderedExample from './avatar/examples/AvatarBorderedExample.vue'
 import AvatarDotIndicatorExample from './avatar/examples/AvatarDotIndicatorExample.vue'
 import AvatarSizeExample from './avatar/examples/AvatarSizeExample.vue'
@@ -184,4 +185,27 @@ import { Avatar } from 'flowbite-vue'
     <Avatar initials="JD" rounded />
   </div>
 </template>
+```
+
+## Alternative Placeholder Icon
+Use this example if you'd like to specify a different placeholder icon. Specify a `#placeholder` template slot to override the default placeholder icon. This has no effect if using initials.
+
+<AvatarAlternativePlaceholderExample />
+
+```vue
+<template>
+  <div class="vp-raw flex">
+    <Avatar rounded>
+      <template #placeholder>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" id="profile">
+          <path fill="#000" fill-rule="evenodd" d="M338.083 1965c0-2.206-1.831-4-4.083-4-2.252 0-4.083 1.794-4.083 4s1.831 4 4.083 4c2.252 0 4.083-1.794 4.083-4m3.863 14h-1.821a1.01 1.01 0 0 1-1.021-1c0-.552.457-1 1.02-1h.439c.706 0 1.228-.697.96-1.338-1.236-2.964-4.14-4.662-7.523-4.662-3.384 0-6.287 1.698-7.523 4.662-.268.641.254 1.338.96 1.338h.438c.564 0 1.021.448 1.021 1s-.457 1-1.02 1h-1.822c-1.276 0-2.28-1.143-2.01-2.364.743-3.359 3.064-5.838 6.12-6.963-1.394-1.099-2.289-2.783-2.289-4.673 0-3.551 3.148-6.381 6.859-5.958 2.689.306 4.916 2.405 5.32 5.028.346 2.261-.598 4.326-2.218 5.603 3.056 1.125 5.377 3.604 6.12 6.963.27 1.221-.734 2.364-2.01 2.364m-4.884-1c0 .552-.457 1-1.02 1h-4.084a1.01 1.01 0 0 1-1.02-1c0-.552.457-1 1.02-1h4.084c.563 0 1.02.448 1.02 1" transform="translate(-324 -1959)"></path>
+        </svg>
+      </template>
+    </Avatar>
+  </div>
+</template>
+<script setup>
+import { Avatar } from 'flowbite-vue'
+
+</script>
 ```
