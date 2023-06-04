@@ -131,7 +131,7 @@ defineProps({
 ## Tab pane interaction
 
 You can add `@click:pane` to Tabs component to intercept click on tab pane.
-```typescript
+```vue
 <script setup>
 import { ref } from 'vue'
 import { Tabs, Tab } from 'flowbite-vue'
