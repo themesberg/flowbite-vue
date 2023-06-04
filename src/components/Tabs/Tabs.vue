@@ -9,6 +9,7 @@
             :name="item.props?.name"
             :disabled="item.props?.disabled"
             :title="item.props?.title"
+            @click="emitClick"
         />
       </ul>
     </div>
@@ -46,7 +47,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'click:pane'])
 
 const { ulClasses, divClasses } = useTabsClasses(props)
 
@@ -71,9 +72,12 @@ const modelValueRef = computed({
 provide(TAB_ACTIVE_NAME_INJECTION_KEY, modelValueRef)
 provide(TAB_VISIBILITY_DIRECTIVE_INJECTION_KEY, toRef(props, 'directive'))
 
-
 const onActivate = (value: string) => {
   modelValueRef.value = value
+}
+
+function emitClick(): void {
+  emit('click:pane')
 }
 
 provide(TAB_ACTIVATE_INJECTION_KEY, onActivate)
