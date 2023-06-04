@@ -130,7 +130,7 @@ defineProps({
 
 ## Tab pane interaction
 
-You can add @click:pane to Tabs component to intercept click on tab pane.
+You can add `@click:pane` to Tabs component to intercept click on tab pane.
 ```typescript
 <script setup>
 import { ref } from 'vue'
