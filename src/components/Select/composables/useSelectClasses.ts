@@ -3,6 +3,9 @@ import { computed } from 'vue'
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 import type { InputSize } from '@/components/Input/types'
 
+// LABEL
+const defaultLabelClasses = 'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+
 // SELECT
 const defaultSelectClasses = 'w-full text-gray-900 bg-gray-50 border-[1px] border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
 const disabledSelectClasses = 'cursor-not-allowed bg-gray-100'
@@ -28,8 +31,13 @@ export function useSelectClasses(props: UseSelectClassesProps) {
     return underlineSelectClasses
   })
 
+  const labelClasses = computed(() => {
+    return defaultLabelClasses
+  })
+
   return { 
     selectClasses,
     underlineClasses,
+    labelClasses,
   }
 }

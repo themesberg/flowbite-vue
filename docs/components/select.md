@@ -67,6 +67,8 @@ const countries = [
 <template>
   <div>
     <Select v-model="selected" :options="countries" :size="lg" />
+    <Select v-model="selected" :options="countries" :size="md" />
+    <Select v-model="selected" :options="countries" :size="sm" />
   </div>
 </template>
 ```

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Select v-model="selected" :options="countries" :underline="true" />
+    <Select v-model="selected" :options="countries" label="Select a country" :underline="true" />
   </div>
 </template>
 

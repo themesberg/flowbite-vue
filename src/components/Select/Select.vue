@@ -1,5 +1,6 @@
 <template>
   <div>
+    <label v-if="label" :class="labelClasses">{{ label }}</label>
     <select :disabled="disabled" :class="[selectClasses, underline? underlineClasses: '']" @change="handelChange">
       <option disabled selected value="">{{ placeholder }}</option>
       <option :value="option.value" v-for="(option, index) in options" :key="index">
@@ -18,6 +19,10 @@ import { useSelectClasses } from '@/components/Select/composables/useSelectClass
 
 const props = defineProps({
   modelValue: {
+    default: '',
+  },
+  label: {
+    type: String,
     default: '',
   },
   options: {
@@ -47,5 +52,5 @@ const handelChange = (event: Event) => {
   emit('update:modelValue', (event.target as HTMLInputElement).value)
 }
 
-const { selectClasses, underlineClasses } = useSelectClasses(toRefs(props))
+const { selectClasses, underlineClasses, labelClasses } = useSelectClasses(toRefs(props))
 </script>
