@@ -29,5 +29,5 @@ const handelChange = (event: Event) => {
   emit('update:value', (event.target as HTMLInputElement).checked)
 }
 
-const { checkboxClasses, labelClasses } = useCheckboxClasses(toRefs(props))
+const { checkboxClasses, labelClasses } = useCheckboxClasses()
 </script>
