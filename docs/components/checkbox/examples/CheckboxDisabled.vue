@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Checkbox v-model:value="ref1" label="Default checkbox" />
+    <Checkbox v-model:value="ref2" label="Disabled checkbox" :disabled="true" />
   </div>
 </template>
 
@@ -8,5 +8,5 @@
 import { ref } from 'vue'
 import Checkbox from '../../../../src/components/Checkbox/Checkbox.vue'
 
-const ref1 = ref(false)
+const ref2 = ref(false)
 </script>

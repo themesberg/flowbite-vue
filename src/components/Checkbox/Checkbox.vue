@@ -1,8 +1,8 @@
 <template>
   <div class="flex gap-3 items-center">
-    <div>{{ value }}</div>
     <input @input="handelChange" type="checkbox" :disabled="disabled" :checked="value" :class="checkboxClasses" />
     <label v-if="label" :class="labelClasses">{{ label }}</label>
+    <slot />
   </div>
 </template>
 
