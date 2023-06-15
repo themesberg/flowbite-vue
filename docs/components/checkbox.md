@@ -16,7 +16,7 @@ import { ref } from 'vue'
 const ref1 = ref(false)
 </script>
 <template>
-  <Checkbox v-model:value="ref1" label="Default checkbox" />
+  <Checkbox v-model="ref1" label="Default checkbox" />
 </template>
 ```
 
@@ -32,7 +32,7 @@ import { ref } from 'vue'
 const ref1 = ref(false)
 </script>
 <template>
-  <Checkbox v-model:value="ref1" label="Disabled checkbox" :disabled="true" />
+  <Checkbox v-model="ref1" label="Disabled checkbox" :disabled="true" />
 </template>
 ```
 
@@ -48,7 +48,7 @@ import { ref } from 'vue'
 const ref1 = ref(true)
 </script>
 <template>
-  <Checkbox v-model:value="ref1" label="Checked checkbox" />
+  <Checkbox v-model="ref1" label="Checked checkbox" />
 </template>
 ```
 
