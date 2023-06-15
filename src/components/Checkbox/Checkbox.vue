@@ -1,33 +1,35 @@
 <template>
   <div class="flex gap-3 items-center">
-    <input @input="handelChange" type="checkbox" :disabled="disabled" :checked="value" :class="checkboxClasses" />
+    <input v-model="model" type="checkbox" :disabled="disabled" :class="checkboxClasses" />
     <label v-if="label" :class="labelClasses">{{ label }}</label>
     <slot />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue'
+import { computed } from 'vue'
 import { useCheckboxClasses } from './composables/useCheckboxClasses'
-const props = defineProps({
-  value: {
-    type: Boolean,
-    default: false,
-  },
-  label: {
-    type: String,
-    default: '',
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+
+interface CheckboxProps {
+  modelValue?: string,
+  label?: string,
+  disabled?: boolean,
+}
+const props = withDefaults(defineProps<CheckboxProps>(), {
+  modelValue: '',
+  label: '',
+  disabled: false,
 })
 
-const emit = defineEmits(['update:value'])
-const handelChange = (event: Event) => {
-  emit('update:value', (event.target as HTMLInputElement).checked)
-}
+const emit = defineEmits(['update:modelValue'])
+const model = computed({
+  get() {
+    return props.modelValue
+  },
+  set(val) {
+    emit('update:modelValue', val)
+  },
+})
 
 const { checkboxClasses, labelClasses } = useCheckboxClasses()
 </script>

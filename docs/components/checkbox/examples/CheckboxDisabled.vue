@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Checkbox v-model:value="ref2" label="Disabled checkbox" :disabled="true" />
+    <Checkbox v-model="ref2" label="Disabled checkbox" :disabled="true" />
   </div>
 </template>
 
