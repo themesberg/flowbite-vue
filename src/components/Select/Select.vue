@@ -1,7 +1,7 @@
 <template>
   <div>
     <label v-if="label" :class="labelClasses">{{ label }}</label>
-    <select :disabled="disabled" :class="[selectClasses, underline? underlineClasses: '']" @change="handelChange">
+    <select v-model="model" :disabled="disabled" :class="[selectClasses, underline? underlineClasses: '']">
       <option disabled selected value="">{{ placeholder }}</option>
       <option :value="option.value" v-for="(option, index) in options" :key="index">
         {{ option.name }}
@@ -11,46 +11,39 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 import type { InputSize } from '@/components/Input/types'
-import type { optionsType } from '@/components/Select/types'
-import { toRefs } from 'vue'
+import type { OptionsType } from '@/components/Select/types'
+import { toRefs, computed } from 'vue'
 import { useSelectClasses } from '@/components/Select/composables/useSelectClasses'
 
-const props = defineProps({
-  value: {
-    default: '',
+interface InputProps {
+  modelValue?: string;
+  label?: string;
+  options?: OptionsType[];
+  placeholder?: string;
+  disabled?: boolean;
+  underline?: boolean;
+  size?: InputSize;
+}
+const props = withDefaults(defineProps<InputProps>(), {
+  modelValue: '',
+  label: '',
+  options: () => [],
+  placeholder: 'Please select one',
+  disabled: false,
+  underline: false,
+  size: 'md',
+})
+const emit = defineEmits(['update:modelValue'])
+
+const model = computed({
+  get() {
+    return props.modelValue
   },
-  label: {
-    type: String,
-    default: '',
-  },
-  options: {
-    type: Array as PropType<optionsType[]>,
-    default: () => [],
-  },
-  placeholder: {
-    type: String,
-    default: 'Please select one',
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  underline: {
-    type: Boolean,
-    default: false,
-  },
-  size: {
-    type: String as PropType<InputSize>,
-    default: 'md',
+  set(val) {
+    emit('update:modelValue', val)
   },
 })
-
-const emit = defineEmits(['update:value'])
-const handelChange = (event: Event) => {
-  emit('update:value', (event.target as HTMLInputElement).value)
-}
 
 const { selectClasses, underlineClasses, labelClasses } = useSelectClasses(toRefs(props))
 </script>
