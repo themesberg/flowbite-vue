@@ -18,7 +18,7 @@ import { toRefs } from 'vue'
 import { useSelectClasses } from '@/components/Select/composables/useSelectClasses'
 
 const props = defineProps({
-  modelValue: {
+  value: {
     default: '',
   },
   label: {
@@ -47,9 +47,9 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:value'])
 const handelChange = (event: Event) => {
-  emit('update:modelValue', (event.target as HTMLInputElement).value)
+  emit('update:value', (event.target as HTMLInputElement).value)
 }
 
 const { selectClasses, underlineClasses, labelClasses } = useSelectClasses(toRefs(props))

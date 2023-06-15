@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Select v-model="selected" :options="countries" placeholder="You can't select" label="Select a country" :disabled="true" />
+    <Select v-model:value="selected" :options="countries" placeholder="You can't select" label="Select a country" :disabled="true" />
   </div>
 </template>
 
