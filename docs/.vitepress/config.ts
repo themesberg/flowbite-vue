@@ -65,6 +65,7 @@ function getComponents() {
 function getFormComponents() {
   return [
     { text: 'Input', link: 'components/input' },
+    { text: 'Toggle', link: 'components/toggle' },
   ]
 }
 

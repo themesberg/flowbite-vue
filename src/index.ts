@@ -52,4 +52,6 @@ export { default as Input } from './components/Input/Input.vue'
 
 export { default as SlotListener } from './components/utils/SlotListener/SlotListener.vue'
 
+export { default as Toggle } from './components/Toggle/Toggle.vue'
+
 export * from './composables'
