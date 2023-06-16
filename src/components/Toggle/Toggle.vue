@@ -1,6 +1,6 @@
 <template>
   <label :class="labelClasses">
-    <input :disabled="disabled" v-model="model" type="checkbox" value="" class="sr-only peer">
+    <input :disabled="disabled" v-model="model" type="checkbox" class="sr-only peer" />
     <div :class="[toggleClasses, toggleSize, toggleColor]"></div>
     <span :class="toggleBallClasses">{{ label }}</span>
   </label>

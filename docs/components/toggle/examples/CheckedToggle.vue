@@ -8,5 +8,5 @@
 import { ref } from 'vue'
 import { Toggle } from '../../../../src/index'
 
-const toggle = ref(false)
+const toggle = ref(true)
 </script>
