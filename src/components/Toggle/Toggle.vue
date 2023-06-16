@@ -20,7 +20,7 @@ interface ToggleProps {
 }
 
 const props = withDefaults(defineProps<ToggleProps>(), {
-  modelValue: '',
+  modelValue: false,
   label: '',
   color: '',
   size: 'md',

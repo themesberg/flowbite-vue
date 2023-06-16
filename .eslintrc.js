@@ -20,5 +20,6 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
     'no-multiple-empty-lines': 'error',
     'object-curly-spacing': ['error', 'always'],
+    'vue/no-v-model-argument': 'off',
   },
 }
