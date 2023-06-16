@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-2">
     <Select v-model="selected" :options="countries" label="Select a country" size="lg" />
     <Select v-model="selected" :options="countries" label="Select a country" size="md" />
-    <Select v-model:value="selected" :options="countries" label="Select a country" size="sm" />
+    <Select v-model="selected" :options="countries" label="Select a country" size="sm" />
   </div>
 </template>
 
