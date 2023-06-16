@@ -12,7 +12,7 @@ import { useToggleClasses } from './composables/useToggleClasses'
 import type { InputSize } from '@/components/Input/types'
 
 interface ToggleProps {
-  modelValue?: string;
+  modelValue?: boolean;
   label?: '';
   color?: '';
   size?: InputSize;
