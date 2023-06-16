@@ -65,7 +65,7 @@ function getComponents() {
 function getFormComponents() {
   return [
     { text: 'Input', link: 'components/input' },
-    { text: 'Select', link: 'components/select' },
+    { text: 'Checkbox', link: 'components/checkbox' },
   ]
 }
 
