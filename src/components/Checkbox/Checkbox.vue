@@ -1,9 +1,9 @@
 <template>
-  <div class="flex gap-3 items-center">
+  <label class="flex gap-3 items-center justify-start">
     <input v-model="model" type="checkbox" :disabled="disabled" :class="checkboxClasses" />
-    <label v-if="label" :class="labelClasses">{{ label }}</label>
+    <span v-if="label" :class="labelClasses">{{ label }}</span>
     <slot />
-  </div>
+  </label>
 </template>
 
 <script lang="ts" setup>
