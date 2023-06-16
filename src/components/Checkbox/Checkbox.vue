@@ -11,12 +11,12 @@ import { computed } from 'vue'
 import { useCheckboxClasses } from './composables/useCheckboxClasses'
 
 interface CheckboxProps {
-  modelValue?: string,
+  modelValue?: boolean,
   label?: string,
   disabled?: boolean,
 }
 const props = withDefaults(defineProps<CheckboxProps>(), {
-  modelValue: '',
+  modelValue: false,
   label: '',
   disabled: false,
 })
