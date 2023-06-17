@@ -82,7 +82,7 @@ const toggle = ref(false)
 ## Size
 ```vue
 <template>
-  <Toggle label="Samll" size="sm" />
+  <Toggle label="Small" size="sm" />
   <Toggle label="Medium" size="md" />
   <Toggle label="Large" size="lg" />
 </template>
