@@ -172,8 +172,8 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">Navbar</td>
-    <td width="33.3333%">:construction: Pagination</td>
-    <td width="33.3333%">:construction: Timeline</td>
+    <td width="33.3333%">Pagination</td>
+    <td width="33.3333%">Timeline</td>
   </tr>
   <tr>
     <td width="33.3333%">
@@ -194,7 +194,7 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">Progress bar</td>
-    <td width="33.3333%">:construction: Tables</td>
+    <td width="33.3333%">Tables</td>
     <td width="33.3333%">Toast</td>
   </tr>
   <tr>
@@ -261,7 +261,7 @@ module.exports = {
   <tr>
     <td width="33.3333%">Carousel</td>
     <td width="33.3333%">Avatar</td>
-    <td width="33.3333%">:construction: Rating</td>
+    <td width="33.3333%">Rating</td>
   </tr>
   <tr>
     <td width="33.3333%">
@@ -303,9 +303,9 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Select</td>
+    <td width="33.3333%">Select</td>
     <td width="33.3333%">:construction: Textarea</td>
-    <td width="33.3333%">:construction: Checkbox</td>
+    <td width="33.3333%">Checkbox</td>
   </tr>
   <tr>
     <td width="33.3333%">
@@ -326,7 +326,7 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">:construction: Radio</td>
-    <td width="33.3333%">:construction: Toggle</td>
+    <td width="33.3333%">Toggle</td>
     <td width="33.3333%">:construction: Range Slider</td>
   </tr>
   <tr>
