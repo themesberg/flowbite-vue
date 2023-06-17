@@ -9,7 +9,7 @@ const defaultToggleBallClasses = 'ml-3 text-sm font-medium text-gray-900 dark:te
 const toggleSizeClasses: Record<InputSize, string> = {
   lg: 'w-14 h-7 after:top-0.5 after:left-[4px] after:h-6 after:w-6',
   md: 'w-11 h-6 after:top-[2px] after:left-[2px] after:h-5 after:w-5',
-  sm: '!w-9 !h-5 after:top-[2px] after:left-[2px] after:h-4 after:w-4',
+  sm: 'w-9 h-5 after:top-[2px] after:left-[2px] after:h-4 after:w-4',
 }
 const toggleColorClasses: Record<string, string> = {
   red: 'peer-focus:ring-red-300 dark:peer-focus:ring-red-800 peer-checked:bg-red-600',
