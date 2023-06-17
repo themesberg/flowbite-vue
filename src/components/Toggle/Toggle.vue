@@ -1,7 +1,7 @@
 <template>
   <label :class="labelClasses">
     <input :disabled="disabled" v-model="model" type="checkbox" class="sr-only peer" />
-    <div :class="[toggleClasses, toggleSize, toggleColor]"></div>
+    <span :class="[toggleClasses, toggleSize, toggleColor]"></span>
     <span :class="toggleBallClasses">{{ label }}</span>
   </label>
 </template>
