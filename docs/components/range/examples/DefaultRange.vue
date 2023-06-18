@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Range v-model="value" :steps="5" />
+    <Range v-model="value" :steps="5" :size="lg" />
+    <Range v-model="value" :steps="5" :disabled="true" />
+    <Range v-model="value" :steps="5" size="sm" />
+    <Range v-model="value" :steps="5" size="md" />
+    <Range v-model="value" :steps="5" size="lg" />
     {{ value }}
   </div>
 </template>

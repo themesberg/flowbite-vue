@@ -1,12 +1,12 @@
 <template>
   <div>
     <label for="default-range" :class="labelClasses">Default range</label>
-    <input :step="steps" v-model="model" id="default-range" type="range" :class="rangeClasses">
+    <input :step="steps" v-model="model" :disabled="disabled" id="default-range" type="range" :class="rangeClasses">
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, toRefs } from 'vue'
 import { useRangeClasses } from './composables/useRangeClasses'
 
 interface RangeProps {
@@ -35,5 +35,5 @@ const model = computed({
   },
 })
 
-const { rangeClasses, labelClasses } = useRangeClasses()
+const { rangeClasses, labelClasses } = useRangeClasses(toRefs(props))
 </script>
