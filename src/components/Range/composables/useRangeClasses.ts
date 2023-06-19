@@ -14,8 +14,8 @@ const rangeSizeClasses: Record<InputSize, string> = {
 }
 
 export type UseRangeClassesProps = {
-  disabled: Ref<boolean>
   size: Ref<InputSize>
+  disabled: Ref<boolean>
 }
 
 export function useRangeClasses(props: UseRangeClassesProps) {

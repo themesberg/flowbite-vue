@@ -1,26 +1,31 @@
 <template>
   <div>
-    <label for="default-range" :class="labelClasses">Default range</label>
-    <input :step="steps" v-model="model" :disabled="disabled" id="default-range" type="range" :class="rangeClasses">
+    <label for="default-range" :class="labelClasses">{{ label }}</label>
+    <input :step="steps" v-model="model" :min="min" :max="max" :disabled="disabled" id="default-range" type="range" :class="rangeClasses">
   </div>
 </template>
 
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
 import { useRangeClasses } from './composables/useRangeClasses'
+import type { InputSize } from '@/components/Input/types'
 
 interface RangeProps {
   modelValue?: number;
-  label?: '';
+  label?: string;
   disabled?: boolean;
-  size?: string;
+  min?: number;
+  max?: number;
+  size?: InputSize;
   steps?: number;
 }
 
 const props = withDefaults(defineProps<RangeProps>(), {
   modelValue: 50,
-  label: '',
+  label: 'Range slider',
   disabled: false,
+  min: 0,
+  max: 100,
   size: 'md',
   steps: 1,
 })
