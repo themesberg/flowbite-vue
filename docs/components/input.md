@@ -25,9 +25,12 @@ On this page you will find all of the input types based on multiple variants, st
 ```vue
 <script setup>
 import { Input } from 'flowbite-vue'
+import { ref } from 'vue'
+
+const name = ref('')
 </script>
 <template>
-    <Input placeholder="enter your first name" label="First name" />
+    <Input v-modal="name" placeholder="enter your first name" label="First name" />
 </template>
 ```
 

@@ -23,33 +23,25 @@
   </div>
 </template>
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 import type { InputSize } from '@/components/Input/types'
 import { useInputClasses } from '@/components/Input/composables/useInputClasses'
 import { toRefs } from 'vue'
 import { useVModel } from '@vueuse/core'
 
-const props = defineProps({
-  label: {
-    type: String,
-    default: '',
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  type: {
-    type: String as PropType<'button' | 'checkbox' | 'color' | 'date' | 'datetime-local' | 'email' | 'file' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week'>,
-    default: 'text',
-  },
-  size: {
-    type: String as PropType<InputSize>,
-    default: 'md',
-  },
-  modelValue: {
-    type: String,
-    default: '',
-  },
+interface InputProps {
+  label?: string;
+  disabled?: boolean;
+  type?: 'button' | 'checkbox' | 'color' | 'date' | 'datetime-local' | 'email' | 'file' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week';
+  size?: InputSize;
+  modelValue: string;
+}
+
+const props = withDefaults(defineProps<InputProps>(), {
+  label: '',
+  disabled: false,
+  type: 'text',
+  size: 'md',
+  modelValue: '',
 })
 
 const model = useVModel(props, 'modelValue')
