@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<RangeProps>(), {
   modelValue: '50',
   label: 'Range slider',
   disabled: false,
-  min: 0,
+  min: '0',
   max: 100,
   size: 'md',
   steps: 1,
