@@ -17,7 +17,7 @@ interface RangeProps {
   min?: string;
   max?: string;
   size?: InputSize;
-  steps?: number;
+  steps?: string;
 }
 
 const props = withDefaults(defineProps<RangeProps>(), {
