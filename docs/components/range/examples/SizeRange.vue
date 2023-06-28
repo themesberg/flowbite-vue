@@ -12,5 +12,5 @@ import { ref } from 'vue'
 
 const value1 = ref(10)
 const value2 = ref(10)
-const value3 = ref(10)
+const value3 = ref('10')
 </script>
