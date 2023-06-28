@@ -21,7 +21,7 @@ interface RangeProps {
 }
 
 const props = withDefaults(defineProps<RangeProps>(), {
-  modelValue: 50,
+  modelValue: '50',
   label: 'Range slider',
   disabled: false,
   min: 0,
