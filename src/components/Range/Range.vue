@@ -1,7 +1,7 @@
 <template>
   <div>
     <label for="default-range" :class="labelClasses">{{ label }}</label>
-    <input :step="steps" v-model="model" :min="min" :max="max" :disabled="disabled" id="default-range" type="range" :class="rangeClasses">
+    <input :step="steps" v-model="model" :min="min" :max="max" :disabled="disabled" type="range" :class="rangeClasses">
   </div>
 </template>
 
