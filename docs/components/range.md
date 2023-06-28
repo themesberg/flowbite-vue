@@ -48,7 +48,7 @@ const value = ref('10')
 
 ```vue
 <template>
-  <Range v-model="value" label="Min-max range" :min="0" :max="10" />
+  <Range v-model="value" label="Min-max range" min="0" max="10" />
 </template>
 ```
 
