@@ -4,7 +4,7 @@ import AccordionAlwaysOpenExample from './accordion/examples/AccordionAlwaysOpen
 import AccordionFlushExample from './accordion/examples/AccordionFlushExample.vue';
 import AccordionStyledHeadersExample from './accordion/examples/AccordionStyledHeadersExample.vue';
 </script>
-# Vue Accordion Component - Flowbite
+# Vue Accordion - Flowbite
 
 #### Use Tailwind CSS accordion component to show expanding content
 ---

@@ -4,7 +4,7 @@ import TabsPillsExample from './tabs/examples/TabsPillsExample.vue';
 import TabsUnderlineExample from './tabs/examples/TabsUnderlineExample.vue';
 </script>
 
-# Vue Tabs Component - Flowbite
+# Vue Tabs - Flowbite
 
 #### Use these responsive tabs components to create a secondary navigational hierarchy for your website or toggle content inside a container
 

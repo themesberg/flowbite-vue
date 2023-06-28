@@ -4,7 +4,7 @@ import TableStripedExample from './table/examples/TableStripedExample.vue';
 import TableStripedColumnsExample from './table/examples/TableStripedColumnsExample.vue';
 import TableHoverableExample from './table/examples/TableHoverableExample.vue';
 </script>
-# Vue Table Component - Flowbite
+# Vue Table - Flowbite
 
 #### Button groups are a Tailwind CSS powered set of buttons sticked together in a horizontal line
 

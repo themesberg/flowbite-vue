@@ -3,7 +3,7 @@ import TimelineExample from './timeline/examples/TimelineExample.vue';
 import TimelineWithIconsExample from './timeline/examples/TimelineWithIconsExample.vue';
 import TimelineHorizontalExample from './timeline/examples/TimelineHorizontalExample.vue';
 </script>
-# Vue Timeline Component - Flowbite
+# Vue Timeline - Flowbite
 
 ## Default timeline usage
 

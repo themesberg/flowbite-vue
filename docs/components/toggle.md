@@ -6,7 +6,7 @@
   import SizeToggle from './toggle/examples/SizeToggle.vue'
 </script>
 
-# Vue Toggle Component - Flowbite
+# Vue Toggle - Flowbite
 
 #### Use the toggle component to switch between a binary state of true or false using a single click available in multiple sizes, variants, and colors
 

@@ -6,7 +6,7 @@ import CarouselSlideExample from './carousel/examples/CarouselSlideExample.vue';
 import CarouselSlideIntervalExample from './carousel/examples/CarouselSlideIntervalExample.vue';
 import CarouselPicturesExample from './carousel/examples/CarouselPicturesExample.vue';
 </script>
-# Vue Carousel Component - Flowbite
+# Vue Carousel - Flowbite
 
 Use the carousel component to slide through multiple elements and images using custom controls, indicators, intervals, and options
 

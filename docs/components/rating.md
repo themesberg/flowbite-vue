@@ -4,7 +4,7 @@ import RatingWithTextExample from './rating/examples/RatingWithTextExample.vue'
 import RatingCountExample from './rating/examples/RatingCountExample.vue'
 import RatingStarSizesExample from './rating/examples/RatingStarSizesExample.vue'
 </script>
-# Vue Rating Component - Flowbite
+# Vue Rating - Flowbite
 
 ## Default rating
 Use this simple example of a star rating component for showing review results.

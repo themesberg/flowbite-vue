@@ -7,7 +7,7 @@ import ProgressColorExample from './progress/examples/ProgressColorExample.vue'
 
 
 </script>
-# Vue Progress Bar Component - Flowbite
+# Vue Progress Bar - Flowbite
 
 ## Default
 

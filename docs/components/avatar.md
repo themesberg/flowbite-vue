@@ -11,7 +11,7 @@ import AvatarPlaceholderExample from './avatar/examples/AvatarPlaceholderExample
 import AvatarPlaceholderInitialsExample from './avatar/examples/AvatarPlaceholderInitialsExample.vue'
 
 </script>
-# Vue Avatar Component - Flowbite
+# Vue Avatar - Flowbite
 Use the avatar component to show a visual representation of a user profile using an image element or SVG object based on multiple styles and sizes
 
 ## Default avatar
