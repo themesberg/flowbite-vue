@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<RangeProps>(), {
   min: '0',
   max: '100',
   size: 'md',
-  steps: 1,
+  steps: '1',
 })
 
 const emit = defineEmits(['update:modelValue'])
