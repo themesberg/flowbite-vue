@@ -26,7 +26,7 @@ Original reference: [https://flowbite.com/docs/forms/range/](https://flowbite.co
 import Range from 'flowbite-vue'
 import { ref } from 'vue'
 
-const value = ref(10)
+const value = ref('10')
 </script>
 
 ```
