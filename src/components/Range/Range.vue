@@ -11,7 +11,7 @@ import { useRangeClasses } from './composables/useRangeClasses'
 import type { InputSize } from '@/components/Input/types'
 
 interface RangeProps {
-  modelValue?: number;
+  modelValue?: string;
   label?: string;
   disabled?: boolean;
   min?: number;
