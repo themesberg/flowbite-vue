@@ -19,7 +19,6 @@ export type UseRangeClassesProps = {
 }
 
 export function useRangeClasses(props: UseRangeClassesProps) {
-  console.log(props.size.value)
   const rangeClasses = computed(() => {
     return simplifyTailwindClasses(rangeDefaultClasses, rangeSizeClasses[props.size.value])
   })
