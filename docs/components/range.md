@@ -58,7 +58,7 @@ const value = ref(10)
 
 ```vue
 <template>
-  <Range v-model="value"  label="Steps range" :steps="5" />
+  <Range v-model="value"  label="Steps range" steps="5" />
 </template>
 ```
 
