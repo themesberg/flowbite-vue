@@ -2,7 +2,7 @@
 import ModalExample from './modal/examples/ModalExample.vue';
 import ModalSizeExample from './modal/examples/ModalSizeExample.vue';
 </script>
-# Vue Modal Component - Flowbite
+# Vue Modal - Flowbite
 
 ## Demo
 

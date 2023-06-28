@@ -4,7 +4,7 @@ import DropdownListGroupExample from './dropdown/examples/DropdownListGroupExamp
 import DropdownTriggerExample from './dropdown/examples/DropdownTriggerExample.vue';
 </script>
 
-# Vue Dropdown Component - Flowbite
+# Vue Dropdown - Flowbite
 
 #### Get started with the dropdown component to show a list of menu items when clicking on the trigger element based on multiple layouts, styles, and placements
 

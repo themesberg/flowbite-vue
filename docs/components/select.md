@@ -5,7 +5,7 @@ import SelectSize from './select/examples/SelectSize.vue';
 import UnderlinedSelect from './select/examples/UnderlinedSelect.vue';
 </script>
 
-# Vue Select Components - Flowbite
+# Vue Select - Flowbite
 
 #### Get started with the select component to allow the user to choose from one or more options from a dropdown list based on multiple styles, sizes, and variants
 

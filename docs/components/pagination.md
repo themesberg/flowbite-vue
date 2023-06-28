@@ -6,7 +6,7 @@ import PaginationWithIconsExample from './pagination/examples/PaginationWithIcon
 import PaginationWithCustomTextExample from './pagination/examples/PaginationWithCustomTextExample.vue';
 import PaginationWithCustomSlice from './pagination/examples/PaginationWithCustomSlice.vue';
 </script>
-# Vue Pagination Component - Flowbite
+# Vue Pagination - Flowbite
 
 ## Default pagination
 
