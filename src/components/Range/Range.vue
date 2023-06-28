@@ -14,7 +14,7 @@ interface RangeProps {
   modelValue?: string;
   label?: string;
   disabled?: boolean;
-  min?: number;
+  min?: string;
   max?: number;
   size?: InputSize;
   steps?: number;
