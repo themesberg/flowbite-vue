@@ -68,6 +68,7 @@ function getFormComponents() {
     { text: 'Checkbox', link: 'components/checkbox' },
     { text: 'Select', link: 'components/select' },
     { text: 'Toggle', link: 'components/toggle' },
+    { text: 'Range', link: 'components/range' },
   ]
 }
 

@@ -58,4 +58,6 @@ export { default as Select } from './components/Select/Select.vue'
 
 export { default as Toggle } from './components/Toggle/Toggle.vue'
 
+export { default as Range } from './components/Range/Range.vue'
+
 export * from './composables'
