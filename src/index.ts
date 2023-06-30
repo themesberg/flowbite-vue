@@ -60,4 +60,6 @@ export { default as Toggle } from './components/Toggle/Toggle.vue'
 
 export { default as Range } from './components/Range/Range.vue'
 
+export { default as Radio } from './components/Radio/Radio.vue'
+
 export * from './composables'
