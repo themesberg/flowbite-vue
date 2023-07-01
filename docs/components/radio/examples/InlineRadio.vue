@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-3">
+  <div class="flex w-96">
     <Radio v-model="picked" value="first" label="Inline 1" />
     <Radio v-model="picked" value="sec" label="Inline 2" />
     <Radio v-model="picked" value="third" label="Inline 3" />

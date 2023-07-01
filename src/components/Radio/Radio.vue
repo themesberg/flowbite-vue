@@ -1,13 +1,15 @@
 <template>
-  <div class="flex items-center mt-2 mb-2">
-    <input :id="label + name" type="radio" v-model="model" :disabled="disabled" :name="name" :value="value"
-      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-    <label :for="label + name" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ label }}</label>
-  </div>
+  <label class="flex w-[100%] items-center">
+    <input :id="name" type="radio" v-model="model" :disabled="disabled" :name="name" :value="value"
+      :class="radioClasses">
+    <span :for="name" :class="labelClasses">{{ label }}</span>
+    <slot />
+  </label>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useRadioClasses } from './composables/useRadioClasses'
 
 interface RadioProps {
   modelValue?: string;
@@ -20,7 +22,7 @@ interface RadioProps {
 const props = withDefaults(defineProps<RadioProps>(), {
   value: '',
   name: '',
-  label: 'Default radio',
+  label: '',
   disabled: false,
 })
 
@@ -33,4 +35,6 @@ const model = computed({
     emit('update:modelValue', val)
   },
 })
+
+const { radioClasses, labelClasses } = useRadioClasses()
 </script>
