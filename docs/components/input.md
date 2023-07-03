@@ -5,6 +5,7 @@ import InputDisabledExample from './input/examples/InputDisabledExample.vue';
 import InputHelperExample from './input/examples/InputHelperExample.vue';
 import InputPrefixExample from './input/examples/InputPrefixExample.vue';
 import InputSuffixExample from './input/examples/InputSuffixExample.vue'
+import InputRequiredExample from './input/examples/InputRequiredExample.vue'
 </script>
 
 # Vue Input - Flowbite
@@ -30,7 +31,7 @@ import { ref } from 'vue'
 const name = ref('')
 </script>
 <template>
-    <Input v-modal="name" placeholder="enter your first name" label="First name" />
+    <Input v-model="name" placeholder="enter your first name" label="First name" />
 </template>
 ```
 
@@ -60,7 +61,18 @@ import { Input } from 'flowbite-vue'
 </template>
 ```
 
-<InputDisabledExample />
+## Required
+
+```vue
+<script setup>
+import { Input } from 'flowbite-vue'
+</script>
+<template>
+  <Input required placeholder="enter your first name" label="First name" />
+</template>
+```
+
+<InputRequiredExample />
 
 ## Slot - Helper
 ```vue
@@ -112,4 +124,3 @@ import { Input, Button } from 'flowbite-vue'
 ```
 
 <InputSuffixExample />
-
