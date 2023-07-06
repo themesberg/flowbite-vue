@@ -10,6 +10,7 @@
           v-model="model"
           :disabled="disabled"
           :type="type"
+          :required='required'
 
           :class="[inputClasses, $slots.prefix ? 'pl-10' : '']"
       />
@@ -33,6 +34,7 @@ interface InputProps {
   disabled?: boolean;
   type?: 'button' | 'checkbox' | 'color' | 'date' | 'datetime-local' | 'email' | 'file' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week';
   size?: InputSize;
+  required?: boolean;
   modelValue: string;
 }
 
@@ -41,6 +43,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   disabled: false,
   type: 'text',
   size: 'md',
+  required: false,
   modelValue: '',
 })
 
