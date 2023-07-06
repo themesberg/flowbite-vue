@@ -2,7 +2,7 @@
   <label class="flex w-[100%] items-center">
     <input :id="name" type="radio" v-model="model" :disabled="disabled" :name="name" :value="value"
       :class="radioClasses">
-    <span :for="name" :class="labelClasses">{{ label }}</span>
+    <span :class="labelClasses">{{ label }}</span>
     <slot />
   </label>
 </template>
