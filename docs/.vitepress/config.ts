@@ -69,6 +69,7 @@ function getFormComponents() {
     { text: 'Select', link: 'components/select' },
     { text: 'Toggle', link: 'components/toggle' },
     { text: 'Range', link: 'components/range' },
+    { text: 'Radio', link: 'components/radio' },
   ]
 }
 
