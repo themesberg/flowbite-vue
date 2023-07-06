@@ -1,6 +1,6 @@
 <template>
   <label class="flex w-[100%] items-center">
-    <input :id="name" type="radio" v-model="model" :disabled="disabled" :name="name" :value="value"
+    <input type="radio" v-model="model" :disabled="disabled" :name="name" :value="value"
       :class="radioClasses">
     <span :class="labelClasses">{{ label }}</span>
     <slot />
