@@ -62,4 +62,6 @@ export { default as Range } from './components/Range/Range.vue'
 
 export { default as Radio } from './components/Radio/Radio.vue'
 
+export { default as FileInput } from './components/FileInput/FileInput.vue'
+
 export * from './composables'
