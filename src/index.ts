@@ -62,4 +62,6 @@ export { default as Range } from './components/Range/Range.vue'
 
 export { default as Radio } from './components/Radio/Radio.vue'
 
+export { default as Textarea } from './components/Textarea/Textarea.vue'
+
 export * from './composables'
