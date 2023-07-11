@@ -7,7 +7,8 @@
       </label>
       <slot />
     </div>
-    <div v-else @change="handleChange" class="flex items-center justify-center">
+    <div v-else @change="handleChange" @drop="dropFileHandler" @dragover="dragOverHandler"
+      class="flex items-center justify-center">
       <label for="dropzone-file" :class="dropzoneLabelClasses">
         <div :class="dropzoneWrapClasses">
           <svg class="w-8 h-8 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -59,6 +60,28 @@ const model = computed({
 const handleChange = (event: Event) => {
   const target = event.target as HTMLInputElement
   model.value = target.files?.[0]?.name
+}
+
+const dropFileHandler = (event: any) => {
+  console.log('File(s) dropped')
+  event.preventDefault()
+
+  if (event.dataTransfer.items) {
+    [...event.dataTransfer.items].forEach((item, i) => {
+      if (item.kind === 'file') {
+        const file = item.getAsFile()
+        model.value = file.name
+      }
+    })
+  } else {
+    [...event.dataTransfer.files].forEach((file, i) => {
+      model.value = file.name
+    })
+  }
+}
+
+const dragOverHandler = (event: Event) => {
+  event.preventDefault()
 }
 
 const {

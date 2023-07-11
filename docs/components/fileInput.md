@@ -5,7 +5,7 @@ import FileInpSize from './fileInput/examples/FileInpSize.vue'
 import FileInpDropZone from './fileInput/examples/FileInpDropZone.vue'
 </script>
 
-# Vue Dropdown - Flowbite
+# Vue FileInput - Flowbite
 
 #### Get started with the file input component to let the user to upload one or more files from their device storage based on multiple styles and sizes
 
