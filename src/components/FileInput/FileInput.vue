@@ -22,7 +22,7 @@
             </p>
             <slot />
           </div>
-          <p v-else>value: {{ model }}</p>
+          <p v-else>File: {{ model }}</p>
         </div>
         <input type="file" class="hidden" />
       </label>
