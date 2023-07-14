@@ -24,7 +24,7 @@
           </div>
           <p v-else>value: {{ model }}</p>
         </div>
-        <input id="dropzone-file" type="file" class="hidden" />
+        <input type="file" class="hidden" />
       </label>
     </div>
   </div>
