@@ -2,10 +2,23 @@
 import ModalExample from './modal/examples/ModalExample.vue';
 import ModalSizeExample from './modal/examples/ModalSizeExample.vue';
 import ModalEscapableExample from './modal/examples/ModalEscapableExample.vue';
+import ModalPersistentExample from './modal/examples/ModalPersistentExample.vue';
 </script>
 # Vue Modal - Flowbite
 
-## Demo
+#### Use the modal component to show interactive dialogs and notifications to your website users available in multiple sizes, colors, and styles
+
+---
+
+:::tip
+Original reference: [https://flowbite.com/docs/components/modal/](https://flowbite.com/docs/components/modal/)
+:::
+
+The modal component can be used as an interactive dialog on top of the main content area of the website to show notifications and gather information using form elements from your website users.
+
+Get started with multiple sizes, colors, and styles built with the utility classes from Tailwind CSS and the components from Flowbite.
+
+## Default modal
 
 <ModalExample />
 
@@ -101,3 +114,35 @@ import { Modal } from 'flowbite-vue'
     <Modal :escapable="false" />
 </template>
 ```
+
+## Persistent
+
+Clicking outside of the element or pressing esc key will not send `close` event.
+
+Demo:
+<ModalPersistentExample />
+
+```vue
+<script setup>
+import { Modal } from 'flowbite-vue'
+</script>
+<template>
+    <Modal persistent />
+</template>
+```
+
+## API
+
+### Props:
+
+| Name       | Values                                                    | Default |
+|------------|-----------------------------------------------------------|---------|
+| size       | `md`,`lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl` | 2xl     |
+| escapable  | `true`, `false`                                           | `true`  |
+| persistent | `true`, `false`                                           | `true`  |
+
+### Events:
+| Name                | Type                                                                             |
+|---------------------|----------------------------------------------------------------------------------|
+| `close`             | Clicked on the close button, pressed `Esc`, or clicked outside the modal content |
+| `click:outside`     | Clicked outside the modal content                                                |

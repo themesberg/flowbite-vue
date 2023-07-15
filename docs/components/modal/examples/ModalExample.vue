@@ -3,7 +3,7 @@
     <button @click="showModal" type="button" class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
       {{ triggerText }}
     </button>
-    <Modal :escapable="escapable" :size="size" v-if="isShowModal" @close="closeModal">
+    <Modal :escapable="escapable" :size="size" v-if="isShowModal" @close="closeModal" :persistent="persistent">
       <template #header>
         <div class="flex items-center text-lg">
           Terms of Service
@@ -32,42 +32,22 @@
 </template>
 <script lang="ts" setup>
 import { Modal } from '../../../../src/index'
-import type { PropType } from 'vue'
-import type { ModalSize, ModalPosition } from '../../../../src/components/Modal/types'
+import type { ModalSize } from '../../../../src/components/Modal/types'
 import { ref } from 'vue'
 
-defineProps({
-  children: {
-    type: Array,
-    default() {
-      return []
-    },
-  },
-  popup: {
-    type: Boolean,
-    default: false,
-  },
-  position: {
-    type: String as PropType<ModalPosition>,
-    default: 'center',
-  },
-  show: {
-    type: Boolean,
-    default: false,
-  },
-  size: {
-    type: String as PropType<ModalSize>,
-    default: '2xl',
-  },
-  escapable: {
-    type: Boolean,
-    default: true,
-  },
-  triggerText: {
-    type: String,
-    default: 'Demo Modal',
-  },
+interface ModalProps {
+  size?: ModalSize,
+  escapable?: boolean,
+  persistent?: boolean,
+  triggerText?: string
+}
+withDefaults(defineProps<ModalProps>(), {
+  size: '2xl',
+  escapable: true,
+  persistent: false,
+  triggerText: 'Demo Modal',
 })
+
 const isShowModal = ref(false)
 function closeModal() {
   isShowModal.value = false
