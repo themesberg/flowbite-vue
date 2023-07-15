@@ -5,21 +5,22 @@
   "author": "themesberg",
   "license": "MIT",
   "files": [
-    "dist",
-    "dist_types"
+    "dist"
   ],
   "main": "./dist/flowbite-vue.umd.js",
   "module": "./dist/flowbite-vue.mjs",
-  "typings": "./dist_types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/flowbite-vue.mjs",
       "require": "./dist/flowbite-vue.umd.js"
     },
     "./dist/style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
-    }
+    },
+    "./*": "./dist/*"
   },
   "scripts": {
     "dev": "vitepress dev docs",
@@ -27,7 +28,7 @@
     "build": "vitepress build docs && cp -r ./docs/assets/* ./docs/.vitepress/dist/assets/",
     "build:package": "vite build",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly && tsc-alias -p tsconfig.json",
-    "build:production": "npm run build:types && npm run build:package",
+    "build:production": "npm run build:package && npm run build:types",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore",
     "lint-fix": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src",
     "clear": "rm -fr ./dist && rm -fr ./dist_types",
