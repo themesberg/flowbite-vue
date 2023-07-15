@@ -76,4 +76,10 @@ const theme = computed(() => {
 .v-popper--theme-tooltip-light .v-popper__arrow-outer {
   border-color: #ddd;
 }
+.v-popper__popper[data-popper-placement^='bottom'] .v-popper__inner {
+  margin-top: -1px;
+}
+.v-popper__popper[data-popper-placement^='right'] .v-popper__inner {
+  margin-left: -1px;
+}
 </style>
