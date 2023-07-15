@@ -8,6 +8,5 @@
 import FileInput from '../../../../src/components/FileInput/FileInput.vue'
 import { ref } from 'vue'
 
-const file = ref()
-
+const file = ref(null)
 </script>
