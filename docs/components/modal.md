@@ -1,6 +1,7 @@
 <script setup>
 import ModalExample from './modal/examples/ModalExample.vue';
 import ModalSizeExample from './modal/examples/ModalSizeExample.vue';
+import ModalEscapableExample from './modal/examples/ModalEscapableExample.vue';
 </script>
 # Vue Modal - Flowbite
 
@@ -53,7 +54,7 @@ function showModal() {
 </template>
 ```
 
-## Sizes
+## Size
 
 You can use four different modal sizing options starting from small to extra large, but keep in mind that the width of these modals will remain the same when browsing on smaller devices.
 
@@ -73,5 +74,30 @@ import { Modal } from 'flowbite-vue'
     <Modal size="md" />
     <Modal size="xl" />
     <Modal size="5xl" />
+</template>
+```
+
+## Escapable
+
+The escapable property is true by default to improve user experience and accessibility.
+
+This means that you may close the modal by
+
+ - Using the close button on the modal
+ - Clicking outside of the modal
+ - Pressing the escape key
+
+In some situations, your user may be required to interact with the modal content. If this is the case, you can set the `escapable` property to false. The developer can then choose when they want to close the modal.
+
+Demo:
+<ModalEscapableExample/>
+
+```vue
+<script setup>
+import { Modal } from 'flowbite-vue'
+</script>
+<template>
+    <Modal />
+    <Modal :escapable="false" />
 </template>
 ```
