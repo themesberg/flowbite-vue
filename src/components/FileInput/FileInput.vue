@@ -63,7 +63,6 @@ const handleChange = (event: Event) => {
 }
 
 const dropFileHandler = (event: any) => {
-  console.log('File(s) dropped')
   event.preventDefault()
 
   if (event.dataTransfer.items) {
