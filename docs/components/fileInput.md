@@ -3,6 +3,7 @@ import FileInpDefault from './fileInput/examples/FileInpDefault.vue'
 import FileInpHelper from './fileInput/examples/FileInpHelper.vue'
 import FileInpSize from './fileInput/examples/FileInpSize.vue'
 import FileInpDropZone from './fileInput/examples/FileInpDropZone.vue'
+import MultipleFile from './fileInput/examples/MultipleFile.vue'
 </script>
 
 # Vue FileInput - Flowbite
@@ -24,11 +25,29 @@ Original reference: [https://flowbite.com/docs/forms/file-input/](https://flowbi
 import FileInput from 'flowbite-vue'
 import { ref } from 'vue'
 
-const file = ref('')
+const file = ref()
 </script>
 ```
 
 <FileInpDefault />
+
+## Multiple File upload
+
+```vue
+<template>
+  <FileInput multiple v-model="file" label="Multiple upload" />
+</template>
+
+<script setup>
+import FileInput from 'flowbite-vue'
+import { ref } from 'vue'
+
+const file = ref([])
+</script>
+```
+
+<MultipleFile />
+
 
 ## Helper text
 

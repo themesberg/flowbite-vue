@@ -3,7 +3,7 @@
     <div v-if="!dropzone">
       <label>
         <span :class="labelClasses">{{ label }}</span>
-        <input :class="fileInpClasses" @change="handleChange" type="file">
+        <input :class="fileInpClasses" :multiple="multiple" @change="handleChange" type="file">
       </label>
       <slot />
     </div>
@@ -22,7 +22,7 @@
             </p>
             <slot />
           </div>
-          <p v-else>File: {{ model }}</p>
+          <p v-else>File: {{ model.name }}</p>
         </div>
         <input type="file" class="hidden" />
       </label>
@@ -35,16 +35,18 @@ import { computed } from 'vue'
 import { useFileInputClasses } from '@/components/FileInput/composables/useFileInputClasses'
 
 interface FileInputProps {
-  modelValue?: string;
+  modelValue?: any;
   label?: string;
   size?: string;
   dropzone?: boolean;
+  multiple?: boolean;
 }
 const props = withDefaults(defineProps<FileInputProps>(), {
-  value: '',
+  value: null,
   label: '',
   size: 'sm',
   dropzone: false,
+  multiple: false,
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -59,7 +61,8 @@ const model = computed({
 
 const handleChange = (event: Event) => {
   const target = event.target as HTMLInputElement
-  model.value = target.files?.[0]?.name
+  if(props.multiple) { model.value = target.files }
+  else { model.value = target.files?.[0] }
 }
 
 const dropFileHandler = (event: any) => {
@@ -69,12 +72,12 @@ const dropFileHandler = (event: any) => {
     [...event.dataTransfer.items].forEach((item, i) => {
       if (item.kind === 'file') {
         const file = item.getAsFile()
-        model.value = file.name
+        model.value = file
       }
     })
   } else {
     [...event.dataTransfer.files].forEach((file, i) => {
-      model.value = file.name
+      model.value = file
     })
   }
 }
