@@ -36,6 +36,7 @@ interface InputProps {
   size?: InputSize;
   required?: boolean;
   modelValue: string;
+  classes?: string;
 }
 
 const props = withDefaults(defineProps<InputProps>(), {
@@ -45,6 +46,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   size: 'md',
   required: false,
   modelValue: '',
+  classes: '',
 })
 
 const model = useVModel(props, 'modelValue')

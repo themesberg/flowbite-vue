@@ -4,7 +4,7 @@ import CheckboxDisabled from './checkbox/examples/CheckboxDisabled.vue'
 import CheckboxChecked from './checkbox/examples/CheckboxChecked.vue'
 import CheckboxLink from './checkbox/examples/CheckboxLink.vue'
 </script>
-# Vue Footer - Flowbite
+# Vue Checkbox - Flowbite
 
 ## Default checkbox
 

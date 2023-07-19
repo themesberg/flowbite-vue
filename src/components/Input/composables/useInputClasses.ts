@@ -16,6 +16,7 @@ const inputSizeClasses: Record<InputSize, string> = {
 }
 
 export type UseInputClassesProps = {
+    classes: Ref<string>
     size: Ref<InputSize>
     disabled: Ref<boolean>
 }
@@ -25,7 +26,7 @@ export function useInputClasses(props: UseInputClassesProps): {
     labelClasses: Ref<string>
 } {
     const inputClasses = computed(() => {
-        return simplifyTailwindClasses(defaultInputClasses, inputSizeClasses[props.size.value], props.disabled.value ? disabledInputClasses : '')
+        return simplifyTailwindClasses(defaultInputClasses, inputSizeClasses[props.size.value], props.disabled.value ? disabledInputClasses : '', props.classes.value)
     })
 
     const labelClasses = computed(() => {

@@ -45,6 +45,7 @@ interface FileInputProps {
   size?: string
   dropzone?: boolean
   multiple?: boolean
+  classes?: string
 }
 const props = withDefaults(defineProps<FileInputProps>(), {
   modelValue: null,
@@ -52,6 +53,7 @@ const props = withDefaults(defineProps<FileInputProps>(), {
   size: 'sm',
   dropzone: false,
   multiple: false,
+  classes: '',
 })
 const dropZoneText = computed(() => {
   if (isArray(props.modelValue)) {
@@ -111,5 +113,5 @@ const dragOverHandler = (event: Event) => {
   event.preventDefault()
 }
 
-const { fileInpClasses, labelClasses, dropzoneLabelClasses, dropzoneWrapClasses, dropzoneTextClasses } = useFileInputClasses(props.size)
+const { fileInpClasses, labelClasses, dropzoneLabelClasses, dropzoneWrapClasses, dropzoneTextClasses } = useFileInputClasses(props.size, props.classes)
 </script>
