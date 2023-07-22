@@ -3,6 +3,7 @@ import SelectExample from './select/examples/SelectExample.vue';
 import DisabledSelect from './select/examples/DisabledSelect.vue';
 import SelectSize from './select/examples/SelectSize.vue';
 import UnderlinedSelect from './select/examples/UnderlinedSelect.vue';
+import CustomClasses from './select/examples/CustomClasses.vue'
 </script>
 
 # Vue Select - Flowbite
@@ -74,3 +75,15 @@ const countries = [
 ```
 
 <SelectSize />
+
+## Override classes
+
+Override default select field class with `classes` and `labelClass` for label.
+
+```vue
+<template>
+  <Select classes="focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500" :options="countries" label="Select a country" />
+</template>
+```
+
+<CustomClasses />

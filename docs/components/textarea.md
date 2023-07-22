@@ -1,6 +1,7 @@
 <script setup>
 import DefaultTextarea from './textarea/examples/DefaultTextarea.vue'
 import CommentTextarea from './textarea/examples/CommentTextarea.vue'
+import CustomClasses from './textarea/examples/CustomClasses.vue'
 </script>
 
 # Vue Textarea - Flowbite
@@ -63,3 +64,15 @@ import { Button, Textarea } from 'flowbite-vue'
 ```
 
 <CommentTextarea />
+
+## Override classes
+
+Override default input field class with `classes` and `labelClass` for label.
+
+```vue
+<template>
+  <Textarea classes="focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500" rows="4" placeholder="Write you message..." v-model="message" label="Your message" />
+</template>
+```
+
+<CustomClasses />

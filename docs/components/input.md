@@ -6,6 +6,7 @@ import InputHelperExample from './input/examples/InputHelperExample.vue';
 import InputPrefixExample from './input/examples/InputPrefixExample.vue';
 import InputSuffixExample from './input/examples/InputSuffixExample.vue'
 import InputRequiredExample from './input/examples/InputRequiredExample.vue'
+import CustomClasses from './input/examples/CustomClasses.vue' 
 </script>
 
 # Vue Input - Flowbite
@@ -124,3 +125,15 @@ import { Input, Button } from 'flowbite-vue'
 ```
 
 <InputSuffixExample />
+
+## Override classes
+
+Override default input field class with `classes` and `labelClass` for label.
+
+```vue
+<template>
+  <Input classes="focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="enter your first name" label="First name" />
+</template>
+```
+
+<CustomClasses />

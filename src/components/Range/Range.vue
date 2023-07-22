@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="default-range" :class="labelClasses">{{ label }}</label>
+    <label for="default-range" :class="[labelClasses, props.labelClass]">{{ label }}</label>
     <input :step="steps" v-model="model" :min="min" :max="max" :disabled="disabled" type="range" :class="[rangeClasses, props.classes]">
   </div>
 </template>
@@ -19,6 +19,7 @@ interface RangeProps {
   size?: InputSize;
   steps?: string;
   classes?: string;
+  labelClass?: string;
 }
 
 const props = withDefaults(defineProps<RangeProps>(), {
@@ -30,6 +31,7 @@ const props = withDefaults(defineProps<RangeProps>(), {
   size: 'md',
   steps: '1',
   classes: '',
+  labelClass: '',
 })
 
 const emit = defineEmits(['update:modelValue'])

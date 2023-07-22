@@ -1,6 +1,6 @@
 <template>
   <label>
-    <div :class="labelClasses">{{ label }}</div>
+    <div :class="[labelClasses, props.labelClass]">{{ label }}</div>
     <div :class="wrapperClasses">
       <textarea v-model="model" :rows="rows" :class="[textareaClasses, props.classes]" :placeholder="placeholder"></textarea>
       <div v-if="$slots.footer" :class="footerClasses">
@@ -21,6 +21,7 @@ interface TextareaProps {
   custom?: boolean;
   placeholder?: string;
   classes?: string;
+  labelClass?: string;
 }
 
 const props = withDefaults(defineProps<TextareaProps>(), {
@@ -30,6 +31,7 @@ const props = withDefaults(defineProps<TextareaProps>(), {
   custom: false,
   placeholder: 'Write your message here...',
   classes: '',
+  labelClass: '',
 })
 
 const emit = defineEmits(['update:modelValue'])
