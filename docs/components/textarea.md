@@ -24,7 +24,7 @@ Get started with the default example of a textarea component below.
 
 <script setup>
 import { ref } from 'vue'
-import Textarea from 'flowbite-vue'
+import { Textarea } from 'flowbite-vue'
 
 const message = ref('')
 </script>
