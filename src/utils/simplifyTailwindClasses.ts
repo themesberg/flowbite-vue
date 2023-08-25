@@ -19,7 +19,7 @@ const getTypeFromClass = (_class: string, matchers: TailwindClassMatcherMap = cl
 }
 
 export function simplifyTailwindClasses(...classes: (string | string[])[]): string {
-    return classes.reduce((acc: { types: string[], classes: string[] }, value: string | string[]) => {
+    return classes.filter(_ => _).reduce((acc: { types: string[], classes: string[] }, value: string | string[]) => {
         const currentClasses = Array.isArray(value)
             ? Array.from(value).map(_ => _.split(' ')).flat() // to support args like ['text-white background-red', 'flex'] etc.
             : value.split(' ')
