@@ -11,7 +11,6 @@ import { nanoid } from 'nanoid'
 
 const { accordionsStates } = useAccordionState()
 
-
 const panelId = nanoid()
 const panel = ref()
 const accordionId = computed(() => {
@@ -28,7 +27,7 @@ onMounted(() => {
   accordionState.value.panels[panelId] = {
     id: panelId,
     order: panelsCount,
-    isVisible: !panelsCount,
+    isVisible: (accordionState.value.openFirstItem && panelsCount === 0) ?? false,
   }
 })
 </script>

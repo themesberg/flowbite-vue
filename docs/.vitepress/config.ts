@@ -11,23 +11,17 @@ function buildSidebar() {
     {
       text: 'Components',
       collapsible: true,
-      items: [
-        ...getComponents(),
-      ],
+      items: [...getComponents()],
     },
     {
       text: 'Form',
       collapsible: true,
-      items: [
-        ...getFormComponents(),
-      ],
+      items: [...getFormComponents()],
     },
     {
       text: 'Utils',
       collapsible: true,
-      items: [
-        ...getUtils(),
-      ],
+      items: [...getUtils()],
     },
   ]
 }
@@ -78,7 +72,7 @@ function getFormComponents() {
 function getUtils() {
   return [
     { text: 'Flowbite Themable', link: '/components/flowbiteThemable/flowbiteThemable.md' },
-    { text: 'Toast Provider', link: '/components/toastProvider/toastProvider.md' }
+    { text: 'Toast Provider', link: '/components/toastProvider/toastProvider.md' },
   ]
 }
 
@@ -90,9 +84,9 @@ export default defineConfig({
   title: 'Flowbite Vue 3',
   cleanUrls: 'without-subfolders',
   head: [
-    ['link', { rel: "icon", type: "image/svg", href: "/assets/logo.svg"}],
+    ['link', { rel: 'icon', type: 'image/svg', href: '/assets/logo.svg' }],
     [
-      "script",
+      'script',
       {},
       `
       // Fathom - beautiful, simple website analytics
@@ -112,21 +106,20 @@ export default defineConfig({
       fathom("set", "siteId", "MPNTKCVJ");
       fathom("trackPageview");
       // / Fathom
-      `
-    ]
+      `,
+    ],
   ],
   themeConfig: {
     sidebar: buildSidebar(),
     logo: '/assets/logo.svg',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/themesberg/flowbite-vue' },
-      { icon: 'discord', link: 'https://discord.gg/4eeurUVvTy' }
+      { icon: 'discord', link: 'https://discord.gg/4eeurUVvTy' },
     ],
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023 Flowbite™'
+      copyright: 'Copyright © 2023 Flowbite™',
     },
-
   },
 })

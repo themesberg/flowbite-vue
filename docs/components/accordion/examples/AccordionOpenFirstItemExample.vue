@@ -4,7 +4,7 @@ import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from '..
 
 <template>
   <div class="vp-raw">
-    <Accordion>
+    <Accordion :open-first-item="false">
       <AccordionPanel>
         <AccordionHeader>header</AccordionHeader>
         <AccordionContent>

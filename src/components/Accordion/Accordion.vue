@@ -1,21 +1,21 @@
 <template>
-  <div class="vp-raw" :data-accordion-id="accordionId">
+  <div :data-accordion-id="accordionId">
     <slot />
   </div>
 </template>
 <script lang="ts" setup>
 import { nanoid } from 'nanoid'
 import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
+interface AccordionProps {
+  alwaysOpen?: boolean
+  openFirstItem?: boolean
+  flush?: boolean
+}
 
-const props = defineProps({
-  alwaysOpen: {
-    type: Boolean,
-    default: false,
-  },
-  flush: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<AccordionProps>(), {
+  alwaysOpen: false,
+  openFirstItem: true,
+  flush: false,
 })
 
 const accordionId = nanoid()
