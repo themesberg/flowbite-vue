@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label v-if="label" :class="labelClasses">{{ label }}</label>
+    <label v-if="label" :class="[labelClasses, props.labelClass]">{{ label }}</label>
     <div class="flex relative">
       <div v-if="$slots.prefix" class="w-10 flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none overflow-hidden">
         <slot name="prefix" />
@@ -36,6 +36,8 @@ interface InputProps {
   size?: InputSize;
   required?: boolean;
   modelValue: string;
+  classes?: string;
+  labelClass?: string;
 }
 
 const props = withDefaults(defineProps<InputProps>(), {
@@ -45,6 +47,8 @@ const props = withDefaults(defineProps<InputProps>(), {
   size: 'md',
   required: false,
   modelValue: '',
+  classes: '',
+  labelClass: '',
 })
 
 const model = useVModel(props, 'modelValue')

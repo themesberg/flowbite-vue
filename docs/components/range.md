@@ -4,6 +4,7 @@ import DisabledRange from './range/examples/DisabledRange.vue'
 import MinMaxRange from './range/examples/MinMaxRange.vue'
 import StepsRange from './range/examples/StepsRange.vue'
 import SizeRange from './range/examples/SizeRange.vue'
+import CustomClasses from './range/examples/CustomClasses.vue'
 </script>
 
 # Vue Toggle Range - Flowbite
@@ -28,7 +29,6 @@ import { ref } from 'vue'
 
 const value = ref('10')
 </script>
-
 ```
 
 <DefaultRange />
@@ -77,3 +77,15 @@ const value = ref('10')
 ```
 
 <SizeRange />
+
+## Override classes
+
+Override default range field class with `classes` and `labelClass` for label.
+
+```vue
+<template>
+  <Range classes="dark:bg-blue-200 bg-blue-200" v-model="value" />
+</template>
+```
+
+<CustomClasses />

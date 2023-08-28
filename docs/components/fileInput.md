@@ -4,6 +4,7 @@ import FileInpHelper from './fileInput/examples/FileInpHelper.vue'
 import FileInpSize from './fileInput/examples/FileInpSize.vue'
 import FileInpDropZone from './fileInput/examples/FileInpDropZone.vue'
 import MultipleFile from './fileInput/examples/MultipleFile.vue'
+import CustomClasses from './fileInput/examples/CustomClasses.vue'
 </script>
 
 # Vue FileInput - Flowbite
@@ -101,3 +102,15 @@ import FileInput from 'flowbite-vue'
 ```
 
 <FileInpDropZone />
+
+## Override classes
+
+Override default input field class with `classes` and `labelClass` for label.
+
+```vue
+<template>
+  <FileInput classes="focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500" label="Upload file" />
+</template>
+```
+
+<CustomClasses />

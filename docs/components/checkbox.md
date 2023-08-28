@@ -3,8 +3,9 @@ import CheckboxDefault from './checkbox/examples/CheckboxDefault.vue'
 import CheckboxDisabled from './checkbox/examples/CheckboxDisabled.vue'
 import CheckboxChecked from './checkbox/examples/CheckboxChecked.vue'
 import CheckboxLink from './checkbox/examples/CheckboxLink.vue'
+import CustomClasses from './checkbox/examples/CustomClasses.vue'
 </script>
-# Vue Footer - Flowbite
+# Vue Checkbox - Flowbite
 
 ## Default checkbox
 
@@ -67,3 +68,15 @@ const ref1 = ref(true)
 ```
 
 <CheckboxLink />
+
+## Override classes
+
+Override default input field class with `classes` and `labelClass` for label.
+
+```vue
+<template>
+  <Input classes="focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="enter your first name" label="First name" />
+</template>
+```
+
+<CustomClasses />

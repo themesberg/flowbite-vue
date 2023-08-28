@@ -2,7 +2,7 @@
   <div>
     <div v-if="!dropzone">
       <label>
-        <span :class="labelClasses">{{ label }}</span>
+        <span :class="[labelClasses, props.labelClass]">{{ label }}</span>
         <input :class="fileInpClasses" :multiple="multiple" @change="handleChange" type="file" />
       </label>
       <slot />
@@ -45,6 +45,8 @@ interface FileInputProps {
   size?: string
   dropzone?: boolean
   multiple?: boolean
+  classes?: string
+  labelClass?: string
 }
 const props = withDefaults(defineProps<FileInputProps>(), {
   modelValue: null,
@@ -52,6 +54,8 @@ const props = withDefaults(defineProps<FileInputProps>(), {
   size: 'sm',
   dropzone: false,
   multiple: false,
+  classes: '',
+  labelClass: '',
 })
 const dropZoneText = computed(() => {
   if (isArray(props.modelValue)) {
@@ -111,5 +115,5 @@ const dragOverHandler = (event: Event) => {
   event.preventDefault()
 }
 
-const { fileInpClasses, labelClasses, dropzoneLabelClasses, dropzoneWrapClasses, dropzoneTextClasses } = useFileInputClasses(props.size)
+const { fileInpClasses, labelClasses, dropzoneLabelClasses, dropzoneWrapClasses, dropzoneTextClasses } = useFileInputClasses(props.size, props.classes)
 </script>

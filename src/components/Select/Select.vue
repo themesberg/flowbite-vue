@@ -1,7 +1,7 @@
 <template>
   <div>
-    <label v-if="label" :class="labelClasses">{{ label }}</label>
-    <select v-model="model" :disabled="disabled" :class="[selectClasses, underline? underlineClasses: '']">
+    <label v-if="label" :class="[labelClasses, props.labelClass]">{{ label }}</label>
+    <select v-model="model" :disabled="disabled" :class="[selectClasses, underline? underlineClasses: '', props.classes]">
       <option disabled selected value="">{{ placeholder }}</option>
       <option :value="option.value" v-for="(option, index) in options" :key="index">
         {{ option.name }}
@@ -24,6 +24,8 @@ interface InputProps {
   disabled?: boolean;
   underline?: boolean;
   size?: InputSize;
+  classes?: string;
+  labelClass?: string;
 }
 const props = withDefaults(defineProps<InputProps>(), {
   modelValue: '',
@@ -33,6 +35,8 @@ const props = withDefaults(defineProps<InputProps>(), {
   disabled: false,
   underline: false,
   size: 'md',
+  classes: '',
+  labelClass: '',
 })
 const emit = defineEmits(['update:modelValue'])
 

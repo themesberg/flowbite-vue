@@ -4,6 +4,7 @@
   import DisabledToggle from './toggle/examples/DisabledToggle.vue'
   import ColorsToggle from './toggle/examples/ColorsToggle.vue'
   import SizeToggle from './toggle/examples/SizeToggle.vue'
+  import CustomClasses from './toggle/examples/CustomClasses.vue'
 </script>
 
 # Vue Toggle - Flowbite
@@ -89,3 +90,15 @@ const toggle = ref(false)
 ```
 
 <SizeToggle />
+
+## Override classes
+
+Override default toggle field class with `classes` and `labelClass` for label.
+
+```vue
+<template>
+  <Toggle classes="peer-focus:ring-pink-300 dark:peer-focus:ring-pink-800 peer-checked:bg-pink-600" v-model="toggle" label="Toggle me" />
+</template>
+```
+
+<CustomClasses />

@@ -6,6 +6,7 @@ import HorizontalListRadio from './radio/examples/HorizontalListRadio.vue'
 import InlineRadio from './radio/examples/InlineRadio.vue'
 import LinkRadio from './radio/examples/LinkRadio.vue'
 import BorderedRadio from './radio/examples/BorderedRadio.vue'
+import CustomClasses from './radio/examples/CustomClasses.vue'
 </script>
 
 # Vue Toggle Radio - Flowbite
@@ -130,3 +131,18 @@ const picked = ref('one')
 ```
 
 <BorderedRadio />
+
+## Override classes
+
+Override default radio field class with `classes` and `labelClass` for label.
+
+```vue
+<template>
+    <div>
+      <Radio classes="!w-6 !h-6 text-green-600 focus:ring-green-500 dark:focus:ring-green-500 dark:ring-offset-gray-800" name="default radio" v-model="picked" value="one" label="Default radio" />
+      <Radio classes="!w-6 !h-6 text-green-600 focus:ring-green-500 dark:focus:ring-green-500 dark:ring-offset-gray-800" name="default radio" v-model="picked" value="two" label="Checked state" />
+    </div>
+</template>
+```
+
+<CustomClasses />

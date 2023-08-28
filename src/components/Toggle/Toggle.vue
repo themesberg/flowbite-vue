@@ -1,7 +1,7 @@
 <template>
-  <label :class="labelClasses">
+  <label :class="[labelClasses, props.labelClass]">
     <input :disabled="disabled" v-model="model" type="checkbox" class="sr-only peer" />
-    <span :class="[toggleClasses, toggleSize, toggleColor]"></span>
+    <span :class="[toggleClasses, toggleSize, toggleColor, props.classes]"></span>
     <span :class="toggleBallClasses">{{ label }}</span>
   </label>
 </template>
@@ -17,6 +17,8 @@ interface ToggleProps {
   color?: '';
   size?: InputSize;
   disabled?: boolean;
+  classes?: string;
+  labelClass?: string;
 }
 
 const props = withDefaults(defineProps<ToggleProps>(), {
@@ -25,6 +27,8 @@ const props = withDefaults(defineProps<ToggleProps>(), {
   color: '',
   size: 'md',
   disabled: false,
+  classes: '',
+  labelClass: '',
 })
 
 const emit = defineEmits(['update:modelValue'])
