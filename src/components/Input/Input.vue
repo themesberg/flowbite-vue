@@ -18,15 +18,18 @@
         <slot name="suffix" />
       </div>
     </div>
+    <p v-if="$slots.validationMessage" class="mt-2 text-sm" :class="validationWrapperClasses">
+      <slot name="validationMessage" />
+    </p>
     <p v-if="$slots.helper" class="mt-2 text-sm text-gray-500 dark:text-gray-400">
       <slot name="helper" />
     </p>
   </div>
 </template>
 <script lang="ts" setup>
-import type { InputSize } from '@/components/Input/types'
+import { ValidationStatus, type InputSize } from '@/components/Input/types'
 import { useInputClasses } from '@/components/Input/composables/useInputClasses'
-import { toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 import { useVModel } from '@vueuse/core'
 
 interface InputProps {
@@ -36,6 +39,7 @@ interface InputProps {
   size?: InputSize;
   required?: boolean;
   modelValue: string;
+  validationStatus?: ValidationStatus;
 }
 
 const props = withDefaults(defineProps<InputProps>(), {
@@ -45,9 +49,12 @@ const props = withDefaults(defineProps<InputProps>(), {
   size: 'md',
   required: false,
   modelValue: '',
+  validationStatus: undefined,
 })
 
 const model = useVModel(props, 'modelValue')
 
 const { inputClasses, labelClasses } = useInputClasses(toRefs(props))
+
+const validationWrapperClasses = computed(() => props.validationStatus === ValidationStatus.Success ? 'text-green-600 dark:text-green-500' : (props.validationStatus === ValidationStatus.Error ? 'text-red-600 dark:text-red-500' : ''))
 </script>

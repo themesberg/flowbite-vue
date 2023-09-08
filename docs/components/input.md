@@ -6,6 +6,7 @@ import InputHelperExample from './input/examples/InputHelperExample.vue';
 import InputPrefixExample from './input/examples/InputPrefixExample.vue';
 import InputSuffixExample from './input/examples/InputSuffixExample.vue'
 import InputRequiredExample from './input/examples/InputRequiredExample.vue'
+import InputValidationExample from './input/examples/InputValidationExample.vue'
 </script>
 
 # Vue Input - Flowbite
@@ -124,3 +125,24 @@ import { Input, Button } from 'flowbite-vue'
 ```
 
 <InputSuffixExample />
+
+## Slot - Validation
+
+- Set validation status via `validationStatus` props, which accepts `'success'` or `'error'`.
+- Add validation message via `validationMessage` slot.
+
+```vue
+<script setup>
+import { Input } from 'flowbite-vue'
+</script>
+<template>
+  <Input v-model='email' required placeholder="enter your email address" label="Email" validation-status='success' />
+  <Input v-model='email' required placeholder="enter your email address" label="Email" validation-status='error'>
+    <template #validationMessage>
+      Please enter a valid email address
+    </template>
+  </Input>
+</template>
+```
+
+<InputValidationExample />
