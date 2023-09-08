@@ -137,7 +137,7 @@ import { Input } from 'flowbite-vue'
 </script>
 <template>
   <Input v-model='email' required placeholder="enter your email address" label="Email" validation-status='success' />
-  <Input v-model='email' required placeholder="enter your email address" label="Email" validationStatus='error'>
+  <Input v-model='email' required placeholder="enter your email address" label="Email" validation-status='error'>
     <template #validationMessage>
       Please enter a valid email address
     </template>
