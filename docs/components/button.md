@@ -15,7 +15,7 @@ import ButtonDisabledExample from './button/examples/ButtonDisabledExample.vue';
 import ButtonLoadingExample from './button/examples/ButtonLoadingExample.vue';
 </script>
 
-# Vue Button Component - Flowbite
+# Vue Button - Flowbite
 
 #### Use the button component inside forms, as links, social login, payment options with support for multiple styles, colors, sizes, gradients, and shadows
 

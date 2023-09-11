@@ -5,9 +5,11 @@ import InputDisabledExample from './input/examples/InputDisabledExample.vue';
 import InputHelperExample from './input/examples/InputHelperExample.vue';
 import InputPrefixExample from './input/examples/InputPrefixExample.vue';
 import InputSuffixExample from './input/examples/InputSuffixExample.vue'
+import InputRequiredExample from './input/examples/InputRequiredExample.vue'
+import InputValidationExample from './input/examples/InputValidationExample.vue'
 </script>
 
-# Vue Input Components - Flowbite
+# Vue Input - Flowbite
 
 #### Get started with a collection of input fields built with Tailwind CSS to start accepting data from the user based on multiple sizes, variants, and input types
 
@@ -25,9 +27,12 @@ On this page you will find all of the input types based on multiple variants, st
 ```vue
 <script setup>
 import { Input } from 'flowbite-vue'
+import { ref } from 'vue'
+
+const name = ref('')
 </script>
 <template>
-    <Input placeholder="enter your first name" label="First name" />
+    <Input v-model="name" placeholder="enter your first name" label="First name" />
 </template>
 ```
 
@@ -57,7 +62,18 @@ import { Input } from 'flowbite-vue'
 </template>
 ```
 
-<InputDisabledExample />
+## Required
+
+```vue
+<script setup>
+import { Input } from 'flowbite-vue'
+</script>
+<template>
+  <Input required placeholder="enter your first name" label="First name" />
+</template>
+```
+
+<InputRequiredExample />
 
 ## Slot - Helper
 ```vue
@@ -110,3 +126,23 @@ import { Input, Button } from 'flowbite-vue'
 
 <InputSuffixExample />
 
+## Slot - Validation
+
+- Set validation status via `validationStatus` props, which accepts `'success'` or `'error'`.
+- Add validation message via `validationMessage` slot.
+
+```vue
+<script setup>
+import { Input } from 'flowbite-vue'
+</script>
+<template>
+  <Input v-model='email' required placeholder="enter your email address" label="Email" validation-status='success' />
+  <Input v-model='email' required placeholder="enter your email address" label="Email" validation-status='error'>
+    <template #validationMessage>
+      Please enter a valid email address
+    </template>
+  </Input>
+</template>
+```
+
+<InputValidationExample />

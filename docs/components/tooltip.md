@@ -4,7 +4,7 @@ import TooltipPositionExample from './tooltip/examples/TooltipPositionExample.vu
 import TooltipStyleExample from './tooltip/examples/TooltipStyleExample.vue'
 import TooltipTriggerExample from './tooltip/examples/TooltipTriggerExample.vue'
 </script>
-# Vue Tooltip Component - Flowbite
+# Vue Tooltip - Flowbite
 
 ## Demo
 

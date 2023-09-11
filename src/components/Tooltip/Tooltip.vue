@@ -10,31 +10,24 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 import type { TooltipPlacement, TooltipStyle, TooltipTrigger } from './types'
-import * as pkg from 'floating-vue'
-const { Tooltip } = pkg
+import { Tooltip } from 'floating-vue'
 import 'floating-vue/dist/style.css'
 import { computed } from 'vue'
-
-const props = defineProps({
-    placement: {
-      type: String as PropType<TooltipPlacement>,
-      default: 'top',
-    },
-    theme: {
-      type: String as PropType<TooltipStyle>,
-      default: 'dark',
-    },
-    trigger: {
-      type: String as PropType<TooltipTrigger>,
-      default: 'hover',
-    },
+interface TooltipProps {
+  placement?: TooltipPlacement
+  theme?: TooltipStyle
+  trigger?: TooltipTrigger
+}
+const props = withDefaults(defineProps<TooltipProps>(), {
+  placement: 'top',
+  theme: 'dark',
+  trigger: 'hover',
 })
 const theme = computed(() => {
   const themes = {
-    'light': 'tooltip-light',
-    'dark': 'tooltip-dark',
+    light: 'tooltip-light',
+    dark: 'tooltip-dark',
   }
   return themes[props.theme]
 })
@@ -42,7 +35,7 @@ const theme = computed(() => {
 
 <style>
 .v-popper--theme-tooltip-dark .v-popper__wrapper .v-popper__inner {
-  background: rgba(0,0,0);
+  background: rgba(0, 0, 0);
   color: #fff;
   border-radius: 6px;
   padding: 7px 12px 6px;
@@ -83,5 +76,10 @@ const theme = computed(() => {
 .v-popper--theme-tooltip-light .v-popper__arrow-outer {
   border-color: #ddd;
 }
-
+.v-popper__popper[data-popper-placement^='bottom'] .v-popper__inner {
+  margin-top: -1px;
+}
+.v-popper__popper[data-popper-placement^='right'] .v-popper__inner {
+  margin-left: -1px;
+}
 </style>

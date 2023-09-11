@@ -53,9 +53,21 @@ export { default as TimelineBody } from './components/Timeline/TimelineBody.vue'
 export { default as Toast } from './components/Toast/Toast.vue'
 export { default as ToastProvider } from './components/Toast/components/ToastProvider/ToastProvider.vue'
 export { default as Tooltip } from './components/Tooltip/Tooltip.vue'
-
+export { default as Textarea } from './components/Textarea/Textarea.vue'
 export { default as Input } from './components/Input/Input.vue'
 
 export { default as SlotListener } from './components/utils/SlotListener/SlotListener.vue'
+
+export { default as Checkbox } from './components/Checkbox/Checkbox.vue'
+
+export { default as Select } from './components/Select/Select.vue'
+
+export { default as Toggle } from './components/Toggle/Toggle.vue'
+
+export { default as Range } from './components/Range/Range.vue'
+
+export { default as Radio } from './components/Radio/Radio.vue'
+
+export { default as FileInput } from './components/FileInput/FileInput.vue'
 
 export * from './composables'

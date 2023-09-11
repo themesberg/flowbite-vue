@@ -8,6 +8,9 @@ hero:
   name: Flowbite Vue 3
   text: Vue component library based on Tailwind CSS
   tagline: Get started with the most popular open-source library of interactive UI components built with the utility classes from Tailwind CSS
+  image:
+    src: /assets/logo.svg
+    alt: VitePress
   actions:
     - theme: brand
       text: Get Started

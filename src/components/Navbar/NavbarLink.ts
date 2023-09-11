@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue'
+import { defineComponent, h, resolveComponent } from 'vue'
 import classNames from 'classnames'
 
 export default defineComponent({
@@ -46,7 +46,7 @@ export default defineComponent({
             h('li', null, h(
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                props.component,
+                resolveComponent(props.component),
                 {
                     ...props,
                     class: linkClasses,

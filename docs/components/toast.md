@@ -6,7 +6,7 @@ import ToastDivideExample from './toast/examples/ToastDivideExample.vue';
 import ToastMessageExample from './toast/examples/ToastMessageExample.vue';
 import ToastInteractiveExample from './toast/examples/ToastInteractiveExample.vue'
 </script>
-# Vue Toast Component - Flowbite
+# Vue Toast - Flowbite
 
 #### Push notifications to your users using the toast component and choose from multiple sizes, colors, styles, and positions
 

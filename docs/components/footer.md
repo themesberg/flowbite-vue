@@ -4,7 +4,7 @@ import FooterWithLogoExample from './footer/examples/FooterWithLogoExample.vue'
 import FooterSocialMediaIconsExample from './footer/examples/FooterSocialMediaIconsExample.vue'
 import FooterSitemapLinksExample from './footer/examples/FooterSitemapLinksExample.vue'
 </script>
-# Vue Footer Component - Flowbite
+# Vue Footer - Flowbite
 
 ## Default footer
 

@@ -8,9 +8,10 @@ type tAccordionPanels = {
   [key: string]: tAccordionPanel
 }
 type tStateElement = {
-  id: string,
-  flush: boolean,
-  alwaysOpen: boolean,
+  id: string
+  flush: boolean
+  alwaysOpen: boolean
+  openFirstItem: boolean
   panels: tAccordionPanels
 }
 export type tState = {

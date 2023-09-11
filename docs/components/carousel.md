@@ -6,7 +6,7 @@ import CarouselSlideExample from './carousel/examples/CarouselSlideExample.vue';
 import CarouselSlideIntervalExample from './carousel/examples/CarouselSlideIntervalExample.vue';
 import CarouselPicturesExample from './carousel/examples/CarouselPicturesExample.vue';
 </script>
-# Vue Carousel Component - Flowbite
+# Vue Carousel - Flowbite
 
 Use the carousel component to slide through multiple elements and images using custom controls, indicators, intervals, and options
 
@@ -143,25 +143,26 @@ const props = defineProps({
 import { Carousel } from 'flowbite-vue'
 const pictures = [
   {
-    'src': 'https://i.picsum.photos/id/221/1920/1080.jpg?grayscale&hmac=GWPBzHGEhEh-BrPn1i-PuximCxLtUpKHcNwyACiTRHk',
+    'src': 'https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg',
     'alt': 'Picture 1',
   },
   {
-    'src': 'https://i.picsum.photos/id/608/1920/1080.jpg?grayscale&hmac=kkVc8-M3ovbO-sFr02WmRbrHx5YcfWmOtkP8rNF9fO4',
+    'src': 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg',
     'alt': 'Picture 2',
   },
   {
-    'src': 'https://i.picsum.photos/id/1012/1920/1080.jpg?grayscale&hmac=Zy9JmZ_sl88DXTF502k_0QqaeCyqjhkn60DjyE5F8Eo',
+    'src': 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg',
     'alt': 'Picture 3',
   },
   {
-    'src': 'https://i.picsum.photos/id/1004/1920/1080.jpg?grayscale&hmac=48C-T9K-36l8jpzJntPTu40OiDuXflIlG_YB-lQWYZI',
+    'src': 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg',
     'alt': 'Picture 4',
   },
   {
-    'src': 'https://i.picsum.photos/id/244/1920/1080.jpg?grayscale&hmac=lLcfHciI-EqaOIHGB_Gab7OpUjVSmDLw6GOq6B5THak',
+    'src': 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg',
     'alt': 'Picture 5',
-  },]
+  },
+]
 </script>
 <template>
   <Carousel :pictures="pictures"></Carousel>

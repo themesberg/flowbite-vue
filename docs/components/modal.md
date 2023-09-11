@@ -1,10 +1,24 @@
 <script setup>
 import ModalExample from './modal/examples/ModalExample.vue';
 import ModalSizeExample from './modal/examples/ModalSizeExample.vue';
+import ModalEscapableExample from './modal/examples/ModalEscapableExample.vue';
+import ModalPersistentExample from './modal/examples/ModalPersistentExample.vue';
 </script>
-# Vue Modal Component - Flowbite
+# Vue Modal - Flowbite
 
-## Demo
+#### Use the modal component to show interactive dialogs and notifications to your website users available in multiple sizes, colors, and styles
+
+---
+
+:::tip
+Original reference: [https://flowbite.com/docs/components/modal/](https://flowbite.com/docs/components/modal/)
+:::
+
+The modal component can be used as an interactive dialog on top of the main content area of the website to show notifications and gather information using form elements from your website users.
+
+Get started with multiple sizes, colors, and styles built with the utility classes from Tailwind CSS and the components from Flowbite.
+
+## Default modal
 
 <ModalExample />
 
@@ -53,7 +67,7 @@ function showModal() {
 </template>
 ```
 
-## Sizes
+## Size
 
 You can use four different modal sizing options starting from small to extra large, but keep in mind that the width of these modals will remain the same when browsing on smaller devices.
 
@@ -75,3 +89,60 @@ import { Modal } from 'flowbite-vue'
     <Modal size="5xl" />
 </template>
 ```
+
+## Escapable
+
+The escapable property is true by default to improve user experience and accessibility.
+
+This means that you may close the modal by
+
+ - Using the close button on the modal
+ - Clicking outside of the modal
+ - Pressing the escape key
+
+In some situations, your user may be required to interact with the modal content. If this is the case, you can set the `escapable` property to false. The developer can then choose when they want to close the modal.
+
+Demo:
+<ModalEscapableExample/>
+
+```vue
+<script setup>
+import { Modal } from 'flowbite-vue'
+</script>
+<template>
+    <Modal />
+    <Modal :escapable="false" />
+</template>
+```
+
+## Persistent
+
+Clicking outside of the element or pressing esc key will not send `close` event.
+
+Demo:
+<ModalPersistentExample />
+
+```vue
+<script setup>
+import { Modal } from 'flowbite-vue'
+</script>
+<template>
+    <Modal persistent />
+</template>
+```
+
+## API
+
+### Props:
+
+| Name       | Values                                                    | Default |
+|------------|-----------------------------------------------------------|---------|
+| size       | `md`,`lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl` | 2xl     |
+| escapable  | `true`, `false`                                           | `true`  |
+| persistent | `true`, `false`                                           | `true`  |
+
+### Events:
+| Name                | Type                                                                             |
+|---------------------|----------------------------------------------------------------------------------|
+| `close`             | Clicked on the close button, pressed `Esc`, or clicked outside the modal content |
+| `click:outside`     | Clicked outside the modal content                                                |

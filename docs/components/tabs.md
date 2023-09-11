@@ -4,7 +4,7 @@ import TabsPillsExample from './tabs/examples/TabsPillsExample.vue';
 import TabsUnderlineExample from './tabs/examples/TabsUnderlineExample.vue';
 </script>
 
-# Vue Tabs Component - Flowbite
+# Vue Tabs - Flowbite
 
 #### Use these responsive tabs components to create a secondary navigational hierarchy for your website or toggle content inside a container
 
@@ -126,4 +126,33 @@ defineProps({
         default: 'if',
     },
 })
+```
+
+## Tab pane interaction
+
+You can add `@click:pane` to Tabs component to intercept click on tab pane.
+```vue
+<script setup>
+import { ref } from 'vue'
+import { Tabs, Tab } from 'flowbite-vue'
+function handlePaneClick(): void {
+    console.log("Click!")
+}
+</script>
+<template>
+  <tabs variant="pills" v-model="activeTab" class="p-5" @click:pane="handlePaneClick">
+    <tab name="first" title="First">
+      Lorem...
+    </tab>
+    <tab name="second" title="Second">
+      Lorem...
+    </tab>
+    <tab name="third" title="Third">
+      Lorem...
+    </tab>
+    <tab name="fourth" title="Fourth" :disabled="true">
+      Lorem...
+    </tab>
+  </tabs>
+</template>
 ```
