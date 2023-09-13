@@ -237,7 +237,7 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Footer</td>
+    <td width="33.3333%">Footer</td>
     <td width="33.3333%">Accordion</td>
     <td width="33.3333%">:construction: Sidebar</td>
   </tr>
@@ -281,8 +281,8 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Input Field</td>
-    <td width="33.3333%">:construction: File Input</td>
+    <td width="33.3333%">Input Field</td>
+    <td width="33.3333%">File Input</td>
     <td width="33.3333%">:construction: Search Input</td>
   </tr>
   <tr>
@@ -304,7 +304,7 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">Select</td>
-    <td width="33.3333%">:construction: Textarea</td>
+    <td width="33.3333%">Textarea</td>
     <td width="33.3333%">Checkbox</td>
   </tr>
   <tr>
@@ -325,9 +325,9 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Radio</td>
+    <td width="33.3333%">Radio</td>
     <td width="33.3333%">Toggle</td>
-    <td width="33.3333%">:construction: Range Slider</td>
+    <td width="33.3333%">Range Slider</td>
   </tr>
   <tr>
     <td width="33.3333%">
