@@ -11,6 +11,8 @@ export default defineConfig({
     },
   },
   build: {
+    cssCodeSplit: true,
+    target: 'esnext',
     lib: {
       entry: resolve(__dirname, './src/index.ts'),
       name: 'flowbite-vue',
