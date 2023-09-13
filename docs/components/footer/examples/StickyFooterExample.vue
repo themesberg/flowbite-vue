@@ -1,6 +1,7 @@
 <template>
-  <div class="vp-raw">
-    <Footer>
+  <div class="vp-raw relative">
+    <div style="height: 300px" class="overflow-scroll pb-16 pt-4 px-4 bg-white dark:bg-gray-900">Some content</div>
+    <Footer sticky class="rounded-none">
       <FooterCopyright by="Flowbite™" href="https://flowbite.com/" copyright-message="All Rights Reserved." />
       <FooterLinkGroup>
         <FooterLink href="#"> About </FooterLink>

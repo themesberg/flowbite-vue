@@ -1,42 +1,32 @@
+<script lang="ts" setup>
+import { useAttrs } from 'vue'
+import { twMerge } from 'tailwind-merge'
+
+defineOptions({
+  inheritAttrs: false,
+})
+type FooterType = 'sitemap' | 'default' | 'logo' | 'socialmedia'
+interface IFooterProps {
+  sticky?: boolean
+  footerType?: FooterType
+}
+const props = withDefaults(defineProps<IFooterProps>(), {
+  sticky: false,
+  footerType: 'default',
+})
+const attrs = useAttrs()
+const wrapperClasses = twMerge(
+  props.footerType === 'sitemap' && 'bg-gray-800',
+  props.footerType === 'socialmedia' && 'p-4 bg-white sm:p-6 dark:bg-gray-800',
+  props.footerType === 'logo' && 'p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-800',
+  props.footerType === 'default' && 'p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800',
+  props.sticky && 'absolute bottom-0 left-0 z-20 w-full border-t border-gray-200 dark:border-gray-600',
+  attrs.class as string,
+)
+</script>
+
 <template>
-  <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
-    </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
-      <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
-      </li>
-      <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-      </li>
-      <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
-      </li>
-      <li>
-        <a href="#" class="hover:underline">Contact</a>
-      </li>
-    </ul>
+  <footer v-bind="$attrs" :class="wrapperClasses">
+    <slot></slot>
   </footer>
 </template>
-<script lang="ts" setup>
-import { computed, toRefs } from 'vue'
-import type { PropType } from 'vue'
-
-const props = defineProps({
-  children: {
-    type: Array,
-    default() {
-      return []
-    },
-  },
-  bgDark: {
-    type: Boolean,
-    default: false,
-  },
-  container: {
-    type: Boolean,
-    default: false,
-  },
-})
-
-</script>
