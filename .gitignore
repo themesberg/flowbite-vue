@@ -72,6 +72,7 @@ jspm_packages/
 
 # vuepress build output
 .vuepress/dist
+docs/.vitepress/cache
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test

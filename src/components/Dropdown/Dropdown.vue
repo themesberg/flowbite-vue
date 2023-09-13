@@ -6,20 +6,18 @@
           <Button>
             {{ text }}
             <template #suffix>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                   xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </template>
           </Button>
         </slot>
       </slot-listener>
-
     </div>
     <transition :name="transitionName">
       <div ref="content" v-if="visible" :style="contentStyles" :class="[contentClasses]">
         <slot-listener @click="onHide">
-          <slot/>
+          <slot />
         </slot-listener>
       </div>
     </transition>
@@ -27,7 +25,6 @@
 </template>
 <script lang="ts" setup>
 import { computed, ref, toRef } from 'vue'
-import type { PropType } from 'vue'
 import type { DropdownPlacement } from './types'
 import { useDropdownClasses } from './composables/useDropdownClasses'
 import Button from '../Button/Button.vue'
@@ -35,25 +32,21 @@ import { onClickOutside } from '@vueuse/core'
 import SlotListener from '@/components/utils/SlotListener/SlotListener.vue'
 
 const visible = ref(false)
+const onHide = () => (visible.value = false)
+const onToggle = () => (visible.value = !visible.value)
 
-const onShow = () => visible.value = true
-const onHide = () => visible.value = false
-const onToggle = () => visible.value = !visible.value
-
-const props = defineProps({
-  placement: {
-    type: String as PropType<DropdownPlacement>,
-    default: 'bottom',
+const props = withDefaults(
+  defineProps<{
+    placement: DropdownPlacement
+    text: string
+    transition: string
+  }>(),
+  {
+    placement: 'bottom',
+    text: '',
+    transition: '',
   },
-  text: {
-    type: String,
-    default: '',
-  },
-  transition: {
-    type: [String, null] as PropType<string | null>,
-    default: null,
-  },
-})
+)
 
 const placementTransitionMap: Record<DropdownPlacement, string> = {
   bottom: 'to-bottom',
