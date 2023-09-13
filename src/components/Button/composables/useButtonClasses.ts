@@ -2,17 +2,18 @@ import type { Ref } from 'vue'
 import { computed, useSlots } from 'vue'
 import classNames from 'classnames'
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
-import { useFlowbiteThemable } from '../../utils/FlowbiteThemable/composables/useFlowbiteThemable'
 
-export type ButtonClassMap<T extends string> =  { hover: Record<T, string>, default: Record<T, string> }
+export type ButtonClassMap<T extends string> = { hover: Record<T, string>; default: Record<T, string> }
 
 const buttonColorClasses: ButtonClassMap<ButtonVariant> = {
   default: {
     default: 'text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800',
     blue: 'text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800',
-    alternative: 'font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600',
+    alternative:
+      'font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600',
     dark: 'text-white bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg dark:bg-gray-800 dark:focus:ring-gray-700 dark:border-gray-700',
-    light: 'text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:focus:ring-gray-700',
+    light:
+      'text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:focus:ring-gray-700',
     green: 'focus:outline-none text-white bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg dark:bg-green-600 dark:focus:ring-green-800',
     red: 'focus:outline-none text-white bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg dark:bg-red-600 dark:focus:ring-red-900',
     yellow: 'focus:outline-none text-white bg-yellow-400 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg dark:focus:ring-yellow-900',
@@ -36,13 +37,17 @@ const buttonColorClasses: ButtonClassMap<ButtonVariant> = {
 const buttonOutlineColorClasses: ButtonClassMap<Exclude<ButtonVariant, 'light' | 'alternative'>> = {
   default: {
     dark: 'text-gray-900 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm text-center dark:border-gray-600 dark:text-gray-400 dark:focus:ring-gray-800',
-    default: 'text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800',
+    default:
+      'text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800',
     blue: 'text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800',
-    green: 'text-green-700 border border-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center dark:border-green-500 dark:text-green-500 dark:focus:ring-green-800',
-    purple: 'text-purple-700 border border-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm text-center dark:border-purple-400 dark:text-purple-400 dark:focus:ring-purple-900',
+    green:
+      'text-green-700 border border-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center dark:border-green-500 dark:text-green-500 dark:focus:ring-green-800',
+    purple:
+      'text-purple-700 border border-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm text-center dark:border-purple-400 dark:text-purple-400 dark:focus:ring-purple-900',
     pink: 'text-pink-700 border border-pink-700 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm text-center dark:border-pink-400 dark:text-pink-400 dark:focus:ring-pink-900',
     red: 'text-red-700 border border-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm text-center dark:border-red-500 dark:text-red-500 dark:focus:ring-red-900',
-    yellow: 'text-yellow-400 border border-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm text-center dark:border-yellow-300 dark:text-yellow-300 dark:focus:ring-yellow-900',
+    yellow:
+      'text-yellow-400 border border-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm text-center dark:border-yellow-300 dark:text-yellow-300 dark:focus:ring-yellow-900',
   },
   hover: {
     dark: 'hover:text-white hover:bg-gray-900 dark:hover:text-white dark:hover:bg-gray-600',
@@ -55,7 +60,6 @@ const buttonOutlineColorClasses: ButtonClassMap<Exclude<ButtonVariant, 'light' |
     yellow: 'hover:text-white hover:bg-yellow-500 dark:hover:text-white dark:hover:bg-yellow-400',
   },
 }
-
 
 const buttonGradientClasses: ButtonClassMap<ButtonGradient> = {
   hover: {
@@ -97,19 +101,19 @@ const buttonGradientClasses: ButtonClassMap<ButtonGradient> = {
 const buttonOutlineGradientClasses: ButtonClassMap<ButtonDuotoneGradient> = {
   default: {
     'cyan-blue':
-        'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800',
+      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800',
     'green-blue':
-        'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800',
+      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800',
     'pink-orange':
-        'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800',
+      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800',
     'purple-blue':
-        'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800',
+      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800',
     'purple-pink':
-        'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800',
+      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800',
     'red-yellow':
-        'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 dark:text-white focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400',
+      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 dark:text-white focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400',
     'teal-lime':
-        'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 dark:text-white focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800',
+      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 dark:text-white focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800',
   },
   hover: {
     'cyan-blue': 'group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white',
@@ -164,7 +168,7 @@ export type UseButtonClassesProps = {
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
 const alternativeColors = ['alternative', 'light']
 
-export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses: Ref<string>, spanClasses: Ref<string> } {
+export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses: Ref<string>; spanClasses: Ref<string> } {
   const slots = useSlots()
 
   const sizeClasses = computed(() => {
@@ -177,48 +181,41 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
     const isColor = !!props.color.value
     const isOutline = props.outline.value
 
-
     let hoverClass = ''
     let backgroundClass = ''
 
-    if (isGradient && isOutline) { // GRADIENT AND OUTLINE
+    if (isGradient && isOutline) {
+      // GRADIENT AND OUTLINE
       if (!simpleGradients.includes(props.gradient.value!)) {
         backgroundClass = buttonOutlineGradientClasses.default[props.gradient.value as unknown as keyof typeof buttonOutlineGradientClasses.default]
 
-        if(!props.disabled.value)
-          hoverClass = buttonOutlineGradientClasses.hover[props.gradient.value as unknown as keyof typeof buttonOutlineGradientClasses.hover]
+        if (!props.disabled.value) hoverClass = buttonOutlineGradientClasses.hover[props.gradient.value as unknown as keyof typeof buttonOutlineGradientClasses.hover]
       } else {
         console.warn(`cannot use outline prop with "${props.gradient.value}" gradient`) // TODO: prettify
       }
-
-
-    } else if (isGradient) { // JUST GRADIENT
+    } else if (isGradient) {
+      // JUST GRADIENT
       backgroundClass = buttonGradientClasses.default[props.gradient.value!]
 
-      if(!props.disabled.value)
-        hoverClass = buttonGradientClasses.hover[props.gradient.value!]
-
-
-    } else if (isColor && isOutline) { // COLOR AND OUTLINE
+      if (!props.disabled.value) hoverClass = buttonGradientClasses.hover[props.gradient.value!]
+    } else if (isColor && isOutline) {
+      // COLOR AND OUTLINE
       if (!alternativeColors.includes(props.color.value)) {
         const color = props.color.value
 
         backgroundClass = buttonOutlineColorClasses.default[color as unknown as keyof typeof buttonOutlineColorClasses.default]
 
-        if(!props.disabled.value)
-          hoverClass = buttonOutlineColorClasses.hover[color as unknown as keyof typeof buttonOutlineColorClasses.hover]
+        if (!props.disabled.value) hoverClass = buttonOutlineColorClasses.hover[color as unknown as keyof typeof buttonOutlineColorClasses.hover]
       } else {
         console.warn(`cannot use outline prop with "${props.color.value}" color`) // TODO: prettify
       }
-
-
-    } else { // JUST COLOR
+    } else {
+      // JUST COLOR
       const color = props.color.value
 
       backgroundClass = buttonColorClasses.default[color as unknown as keyof typeof buttonColorClasses.default]
 
-      if(!props.disabled.value)
-        hoverClass = buttonColorClasses.hover[color as unknown as keyof typeof buttonColorClasses.hover]
+      if (!props.disabled.value) hoverClass = buttonColorClasses.hover[color as unknown as keyof typeof buttonColorClasses.hover]
     }
 
     let shadowClass = ''
@@ -240,18 +237,19 @@ export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses
       shadowClass,
       props.pill.value ? '!rounded-full' : '',
       props.disabled.value ? 'cursor-not-allowed opacity-50' : '',
-      (isGradient && isOutline) ? 'p-0.5' : sizeClasses.value,
-      (slots.prefix || slots.suffix || props.loading.value) ? 'inline-flex items-center' : '',
+      isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
+      slots.prefix || slots.suffix || props.loading.value ? 'inline-flex items-center' : '',
     )
   })
 
   const spanClasses = computed(() => {
-    if (!!props.gradient.value && props.outline.value) { // ONLY FOR GRADIENT OUTLINE BUTTON
-        return classNames(
-            'relative bg-white dark:bg-gray-900 rounded-md inline-flex items-center',
-            sizeClasses.value,
-            !props.disabled.value ? 'group-hover:bg-opacity-0 transition-all ease-in duration-75' : '',
-        )
+    if (!!props.gradient.value && props.outline.value) {
+      // ONLY FOR GRADIENT OUTLINE BUTTON
+      return classNames(
+        'relative bg-white dark:bg-gray-900 rounded-md inline-flex items-center',
+        sizeClasses.value,
+        !props.disabled.value ? 'group-hover:bg-opacity-0 transition-all ease-in duration-75' : '',
+      )
     }
     return ''
   })
