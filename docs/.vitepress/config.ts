@@ -51,7 +51,7 @@ function getComponents() {
     { text: 'Tooltip', link: 'components/tooltip' },
     { text: 'Modal', link: 'components/modal' },
     { text: 'Navbar', link: 'components/navbar' },
-    { text: '- Footer', link: 'components/footer' },
+    { text: 'Footer', link: 'components/footer' },
     { text: '- Sidebar', link: 'components/sidebar' },
   ]
 }
