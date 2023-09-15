@@ -1,10 +1,21 @@
 <template>
   <div class="vp-raw flex flex-col">
-    <Alert type="info" title="Some info title" class="mb-2">Info</Alert>
-    <Alert type="warning" title="Some warning title" class="mb-2">Warning</Alert>
-    <Alert type="danger" title="Some danger title" class="mb-2">Danger</Alert>
-    <Alert type="dark" title="Some dark title" class="mb-2">Dark</Alert>
-    <Alert type="success" title="Some success title">Success</Alert>
+    <Alert type="info" class="mb-2">
+      <span class="font-medium">Ensure that these requirements are met:</span>
+      <ul class="mt-1.5 ml-4 list-disc list-inside">
+        <li>At least 10 characters (and up to 100 characters)</li>
+        <li>At least one lowercase character</li>
+        <li>Inclusion of at least one special character, e.g., ! @ # ?</li>
+      </ul>
+    </Alert>
+    <Alert type="danger" class="mb-2">
+      <span class="font-medium">Ensure that these requirements are met:</span>
+      <ul class="mt-1.5 ml-4 list-disc list-inside">
+        <li>At least 10 characters (and up to 100 characters)</li>
+        <li>At least one lowercase character</li>
+        <li>Inclusion of at least one special character, e.g., ! @ # ?</li>
+      </ul>
+    </Alert>
   </div>
 </template>
 <script setup>
