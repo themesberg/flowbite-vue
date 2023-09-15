@@ -4,36 +4,17 @@ import AlertTitleExample from './alert/examples/AlertTitleExample.vue';
 import AlertClosableExample from './alert/examples/AlertClosableExample.vue';
 import AlertBorderExample from './alert/examples/AlertBorderExample.vue';
 import AlertIconExample from './alert/examples/AlertIconExample.vue';
-import AlertInlineExample from './alert/examples/AlertInlineExample.vue';
+import AlertBorderAccentExample from './alert/examples/AlertBorderAccentExample.vue';
+import AlertCustomContentExample from './alert/examples/AlertCustomContentExample.vue';
 </script>
 
 # Vue Alert - Flowbite
 
 #### Show contextual information to your users using alert elements based on Tailwind CSS
-
----
-
-:::tip
-Original reference: [https://flowbite.com/docs/components/alert/](https://flowbite.com/docs/components/alert/)
-:::
-
 The alert component can be used to provide information to your users such as success or error messages, but also highlighted information complementing the normal flow of paragraphs and headers on a page.
 
-Flowbite also includes dismissable alerts which can be hidden by the users by clicking on the close icon.
-
-## Prop - type
-
-```typescript
-export type AlertType = 'info' | 'danger' | 'success' | 'warning' | 'dark'
-defineProps({
-    type: {
-        type: String as PropType<AlertType>,
-        default: 'info',
-    },
-})
-```
-
-
+## Default alert
+Use the following examples of alert components to show messages as feedback to your users.
 <AlertTypeExample />
 
 ```vue
@@ -42,26 +23,76 @@ import { Alert } from 'flowbite-vue'
 </script>
 <template>
   <div class="flex flex-col">
-    <Alert type="info" class="mb-2">Info</Alert>
-    <Alert type="warning" class="mb-2">Warning</Alert>
-    <Alert type="danger" class="mb-2">Danger</Alert>
-    <Alert type="dark" class="mb-2">Dark</Alert>
-    <Alert type="success">Success</Alert>
+    <Alert type="info" class="mb-2">Info alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="warning" class="mb-2"> Warning alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="danger" class="mb-2">Danger alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="dark" class="mb-2"> Dark alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="success"> Success alert! Change a few things up and try submitting again. </Alert>
+  </div>
+</template>
+```
+## Alerts with icon
+You can also include a descriptive icon to complement the message inside the alert component with the following example.
+
+<AlertIconExample />
+
+```vue
+<script setup>
+import { Alert } from 'flowbite-vue'
+</script>
+<template>
+  <div class="flex flex-col">
+    <Alert type="info" class="mb-2" icon> Info alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="warning" class="mb-2" icon> Warning alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="danger" class="mb-2" icon> Danger alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="dark" class="mb-2" icon> Dark alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="success" icon> Success alert! Change a few things up and try submitting again. </Alert>
   </div>
 </template>
 ```
 
-## Prop - title
+## Bordered alerts
+Use this example to add a border accent to the alert component instead of just a plain background.
 
-```typescript
-defineProps({
-    title: {
-        type: String,
-        default: '',
-    },
-})
+<AlertBorderExample />
+
+```vue
+<script setup>
+import { Alert } from 'flowbite-vue'
+</script>
+<template>
+  <div class="flex flex-col">
+    <Alert type="info" border icon class="mb-2">Info alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="warning" border icon class="mb-2">Warning alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="danger" border icon class="mb-2"> Info Danger alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="dark" border icon class="mb-2"> Info Dark alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="success" border icon>Success alert! Change a few things up and try submitting again. </Alert>
+  </div>
+</template>
 ```
 
+## Border accent
+Use this example to add a border accent on top of the alert component for further visual distinction.
+
+<AlertBorderAccentExample />
+
+```vue
+<script setup>
+import { Alert } from 'flowbite-vue'
+</script>
+<template>
+  <div class="flex flex-col">
+    <Alert type="info" icon class="mb-2 border-t-4 rounded-none">Info alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="warning" icon class="mb-2 border-t-4 rounded-none">Warning alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="danger" icon class="mb-2 border-t-4 rounded-none"> Info Danger alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="dark" icon class="mb-2 border-t-4 rounded-none"> Info Dark alert! Change a few things up and try submitting again. </Alert>
+    <Alert type="success" icon class="border-t-4 rounded-none">Success alert! Change a few things up and try submitting again. </Alert>
+  </div>
+</template>
+```
+
+## Alerts with list
+Use this example to show a list and a description inside an alert component.
 
 <AlertTitleExample />
 
@@ -71,26 +102,28 @@ import { Alert } from 'flowbite-vue'
 </script>
 <template>
   <div class="flex flex-col">
-    <Alert type="info" title="Some info title" class="mb-2">Info</Alert>
-    <Alert type="warning" title="Some warning title" class="mb-2">Warning</Alert>
-    <Alert type="danger" title="Some danger title" class="mb-2">Danger</Alert>
-    <Alert type="dark" title="Some dark title" class="mb-2">Dark</Alert>
-    <Alert type="success" title="Some success title">Success</Alert>
+    <Alert type="info" class="mb-2">
+      <span class="font-medium">Ensure that these requirements are met:</span>
+      <ul class="mt-1.5 ml-4 list-disc list-inside">
+        <li>At least 10 characters (and up to 100 characters)</li>
+        <li>At least one lowercase character</li>
+        <li>Inclusion of at least one special character, e.g., ! @ # ?</li>
+      </ul>
+    </Alert>
+    <Alert type="danger" class="mb-2">
+      <span class="font-medium">Ensure that these requirements are met:</span>
+      <ul class="mt-1.5 ml-4 list-disc list-inside">
+        <li>At least 10 characters (and up to 100 characters)</li>
+        <li>At least one lowercase character</li>
+        <li>Inclusion of at least one special character, e.g., ! @ # ?</li>
+      </ul>
+    </Alert>
   </div>
 </template>
 ```
 
-## Prop - closable
-
-```typescript
-defineProps({
-    closable: {
-        type: Boolean,
-        default: false,
-    },
-})
-```
-
+## Dismissing
+Use the following alert elements that are also dismissable.
 
 <AlertClosableExample />
 
@@ -109,110 +142,74 @@ import { Alert } from 'flowbite-vue'
 </template>
 ```
 
-## Prop - border
+## Additional content
+The following alert components can be used if you wish to disclose more information inside the element.
 
-```typescript
-defineProps({
-    border: {
-        type: Boolean,
-        default: false,
-    },
-})
-```
-
-
-<AlertBorderExample />
+<AlertCustomContentExample />
 
 ```vue
 <script setup>
 import { Alert } from 'flowbite-vue'
 </script>
 <template>
-  <div class="flex flex-col">
-    <Alert type="info" border class="mb-2">Info</Alert>
-    <Alert type="warning" border class="mb-2">Warning</Alert>
-    <Alert type="danger" border class="mb-2">Danger</Alert>
-    <Alert type="dark" border class="mb-2">Dark</Alert>
-    <Alert type="success" border>Success</Alert>
-  </div>
+  <Alert type="info">
+    <template #icon>
+      <svg class="flex-shrink-0 w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+      </svg>
+      <span class="sr-only">Info</span>
+    </template>
+    <template #title>
+      <h3 class="text-lg font-medium">This is a info alert</h3>
+    </template>
+    <template v-slot:default="{ onCloseClick }">
+      <div class="mt-2 mb-4 text-sm">
+        More info about this info alert goes here. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+      </div>
+      <div class="flex">
+        <button
+            type="button"
+            class="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          <svg class="-ml-0.5 mr-2 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
+            <path d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+          </svg>
+          View more
+        </button>
+        <button
+            type="button"
+            class="text-blue-800 bg-transparent border border-blue-800 hover:bg-blue-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-blue-600 dark:border-blue-600 dark:text-blue-400 dark:hover:text-white dark:focus:ring-blue-800"
+            data-dismiss-target="#alert-additional-content-1"
+            aria-label="Close"
+            @click="onCloseClick"
+        >
+          Dismiss
+        </button>
+      </div>
+    </template>
+  </Alert>
 </template>
 ```
 
-## Prop - icon
+## API
 
-```typescript
-defineProps({
-    icon: {
-        type: Boolean,
-        default: true,
-    },
-})
-```
+### Props
+| Name       | Values                                        | Default |
+|------------|-----------------------------------------------|---------|
+| type       | `info`, `danger`, `success`,`warning`, `dark` | `info`  |
+| closable   | `boolean`                                     | `false` |
+| icon       | `boolean`                                     | `false` |
+| border     | `boolean`                                     | `false` |
 
+### Events
+| Name     | Description          |
+|----------|----------------------|
+| close    | Close button pressed |
 
-<AlertIconExample />
-
-```vue
-<script setup>
-import { Alert } from 'flowbite-vue'
-</script>
-<template>
-  <div class="flex flex-col">
-    <Alert type="info" :icon="false" class="mb-2">Info</Alert>
-    <Alert title="WARNING" type="warning" :icon="false" class="mb-2">Warning</Alert>
-    <Alert type="danger" :icon="false" class="mb-2">Danger</Alert>
-    <Alert type="dark" :icon="false" class="mb-2">Dark</Alert>
-    <Alert type="success" :icon="false">Success</Alert>
-  </div>
-</template>
-```
-
-## Prop - inline
-
-```typescript
-defineProps({
-    inline: {
-        type: Boolean,
-        default: true,
-    },
-})
-```
-
-
-<AlertInlineExample />
-
-```vue
-<script setup>
-import { Alert } from 'flowbite-vue'
-</script>
-<template>
-  <div class="flex flex-col">
-    <Alert type="info" title="Info title" :inline="false" class="mb-2">
-      Lorem...
-    </Alert>
-    <Alert type="warning" title="Warning title" :inline="false" class="mb-2">
-      Lorem...
-    </Alert>
-    <Alert type="danger" title="Danger title" :inline="false" class="mb-2">
-      Lorem...
-    </Alert>
-    <Alert closable type="dark" title="Dark title" :inline="false" class="mb-2">
-      Lorem...
-    </Alert>
-    <Alert type="success" title="Success title" :inline="false">
-      Lorem...
-      <template #actions>
-        <Button size="sm" color="green" class="mr-2">
-          Buttons everywhere
-        </Button>
-        <Button size="sm" outline color="green">
-          <template #prefix>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
-          </template>
-          And here
-        </Button>
-      </template>
-    </Alert>
-  </div>
-</template>
-```
+### Slots 
+| Name       | Description       |
+|------------|-------------------|
+| default    | alert content     |
+| close-icon | custom close icon |
+| icon       | custom icon       |
+| title      | title content     |
