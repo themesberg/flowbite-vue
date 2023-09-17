@@ -19,6 +19,13 @@ function buildSidebar() {
       items: [...getFormComponents()],
     },
     {
+      text: 'Typography',
+      collapsible: true,
+      items: [
+        ...getTypography(),
+      ]
+    },
+    {
       text: 'Utils',
       collapsible: true,
       items: [...getUtils()],
@@ -72,6 +79,15 @@ function getUtils() {
   return [
     { text: 'Flowbite Themable', link: '/components/flowbiteThemable/flowbiteThemable.md' },
     { text: 'Toast Provider', link: '/components/toastProvider/toastProvider.md' },
+  ]
+}
+
+function getTypography() {
+  return [
+    { text: 'Heading', link: '/components/heading' },
+    { text: 'Paragraph', link: '/components/paragraph' },
+    { text: 'Image', link: '/components/image' },
+    { text: 'Link', link: '/components/link' }
   ]
 }
 
