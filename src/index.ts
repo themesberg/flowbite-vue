@@ -69,4 +69,9 @@ export { default as Radio } from './components/Radio/Radio.vue'
 
 export { default as FileInput } from './components/FileInput/FileInput.vue'
 
+export { default as Heading } from './components/Typography/Heading.vue'
+export { default as A } from './components/Typography/Heading.vue'
+export { default as P } from './components/Typography/P.vue'
+export { default as Img } from './components/Typography/Img.vue'
+
 export * from './composables'
