@@ -10,7 +10,7 @@ interface LinkProps {
   color?: string
 }
 
-const props = withDefaults(defineProps<LinkProps>(), {
+withDefaults(defineProps<LinkProps>(), {
   href: '',
   color: 'text-primary-600 dark:text-primary-500',
 })
