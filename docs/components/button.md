@@ -13,6 +13,7 @@ import ButtonIconExample from './button/examples/ButtonIconExample.vue';
 import ButtonSquareExample from './button/examples/ButtonSquareExample.vue';
 import ButtonDisabledExample from './button/examples/ButtonDisabledExample.vue';
 import ButtonLoadingExample from './button/examples/ButtonLoadingExample.vue';
+import ButtonLinkExample from './button/examples/ButtonLinkExample.vue';
 </script>
 
 # Vue Button - Flowbite
@@ -372,7 +373,20 @@ import { Button } from 'flowbite-vue'
   </Button>
 </template>
 ```
+## Prop - href
+You can add a link to a `Button` component.
+Additionally you can add `tag` prop to change button component to `router-link`
+<ButtonLinkExample />
 
+```vue
+<script setup>
+import { Button } from 'flowbite-vue'
+</script>
+<template>
+  <Button color="default" href="https://google.com" target="_blank">Default</Button>
+  <Button href="/about" tag="router-link">Router link</Button>
+</template>
+```
 
 ## Slot - default
 

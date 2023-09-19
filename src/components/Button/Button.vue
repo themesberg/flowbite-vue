@@ -1,5 +1,5 @@
 <template>
-  <button :class="wrapperClasses">
+  <component :is="buttonComponent" :class="wrapperClasses" :[linkAttr]="href">
     <div v-if="!isOutlineGradient && ($slots.prefix || loadingPrefix)" class="mr-2">
       <!--automatically add mr class if slot provided or loading -->
       <spinner :color="spinnerColor" :size="spinnerSize" v-if="loadingPrefix" />
@@ -7,19 +7,19 @@
     </div>
 
     <span :class="spanClasses">
-      <div v-if="isOutlineGradient && ($slots.prefix || loadingPrefix)" class="mr-2">
+      <span v-if="isOutlineGradient && ($slots.prefix || loadingPrefix)" class="mr-2">
         <!--if outline gradient - need to place slots inside span -->
         <spinner :color="spinnerColor" :size="spinnerSize" v-if="loadingPrefix" />
         <slot name="prefix" v-else />
-      </div>
+      </span>
 
       <slot />
 
-      <div v-if="isOutlineGradient && ($slots.suffix || loadingSuffix)" class="ml-2">
+      <span v-if="isOutlineGradient && ($slots.suffix || loadingSuffix)" class="ml-2">
         <!--if outline gradient - need to place slots inside span -->
         <spinner :color="spinnerColor" :size="spinnerSize" v-if="loadingSuffix" />
         <slot name="suffix" v-else />
-      </div>
+      </span>
     </span>
 
     <div v-if="!isOutlineGradient && ($slots.suffix || loadingSuffix)" class="ml-2">
@@ -27,55 +27,42 @@
       <spinner :color="spinnerColor" :size="spinnerSize" v-if="loadingSuffix" />
       <slot name="suffix" v-else />
     </div>
-  </button>
+  </component>
 </template>
 <script lang="ts" setup>
-import { computed, toRefs, type PropType } from 'vue'
+import { computed, resolveComponent, toRefs } from 'vue'
 import Spinner from '../Spinner/Spinner.vue'
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
 import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
-const props = defineProps({
-  color: {
-    type: String as PropType<ButtonVariant>,
-    default: 'default',
-  },
-  gradient: {
-    type: [String, null] as PropType<ButtonGradient | null>,
-    default: null,
-  },
-  size: {
-    type: String as PropType<ButtonSize>,
-    default: 'md',
-  },
-  shadow: {
-    type: [String, null] as PropType<ButtonMonochromeGradient | '' | null>,
-    default: null,
-  },
-  pill: {
-    type: Boolean,
-    default: false,
-  },
-  square: {
-    type: Boolean,
-    default: false,
-  },
-  outline: {
-    type: Boolean,
-    default: false,
-  },
-  loading: {
-    type: Boolean,
-    default: false,
-  },
-  loadingPosition: {
-    type: String as PropType<'suffix' | 'prefix'>,
-    default: 'prefix',
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+
+interface IButtonProps {
+  color?: ButtonVariant
+  gradient?: ButtonGradient | null
+  size?: ButtonSize
+  shadow?: ButtonMonochromeGradient | null
+  pill?: boolean
+  square?: boolean
+  outline?: boolean
+  loading?: boolean
+  loadingPosition?: 'suffix' | 'prefix'
+  disabled?: boolean
+  href?: string
+  tag?: string
+}
+const props = withDefaults(defineProps<IButtonProps>(), {
+  color: 'default',
+  gradient: null,
+  size: 'md',
+  shadow: null,
+  pill: false,
+  square: false,
+  outline: false,
+  loading: false,
+  loadingPosition: 'prefix',
+  disabled: false,
+  href: '',
+  tag: 'a',
 })
 
 const isOutlineGradient = computed(() => props.outline && props.gradient)
@@ -85,4 +72,8 @@ const loadingSuffix = computed(() => props.loading && props.loadingPosition === 
 
 const { wrapperClasses, spanClasses } = useButtonClasses(toRefs(props))
 const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(toRefs(props))
+
+const linkComponent = props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
+const buttonComponent = props.href ? linkComponent : 'button'
+const linkAttr = props.tag === 'router-link' || props.tag === 'nuxt-link' ? 'to' : 'href'
 </script>
