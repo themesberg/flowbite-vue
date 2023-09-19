@@ -1,5 +1,5 @@
 <template>
-  <Heading color="text-green-400" tag="h1">This is my heading</Heading>
+  <Heading color="text-green-400" tag="h1">Green heading</Heading>
 </template>
 
 <script setup>

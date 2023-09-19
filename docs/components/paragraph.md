@@ -15,8 +15,12 @@ Use this example of a paragraph element to use inside article content or a landi
 
 ```vue
 <template>
+  <P class="mb-2">
+    Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams
+    have richer contextual information to rapidly respond to requests, incidents, and changes.
+  </P>
   <P>
-    Deliver great service experiences fast - without the complexity of traditional ITSM solutions. Accelerate critical development work, eliminate toil, and deploy changes with ease, with a complete
+    Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease, with a complete
     audit trail for every change.
   </P>
 </template>
@@ -34,8 +38,12 @@ Use `weight` prop to set the text-weight.
 
 ```vue
 <template>
+  <P class="mb-2" weight="light">
+    Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams
+    have richer contextual information to rapidly respond to requests, incidents, and changes.
+  </P>
   <P weight="light">
-    Deliver great service experiences fast - without the complexity of traditional ITSM solutions. Accelerate critical development work, eliminate toil, and deploy changes with ease, with a complete
+    Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease, with a complete
     audit trail for every change.
   </P>
 </template>

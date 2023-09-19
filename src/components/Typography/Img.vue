@@ -1,12 +1,9 @@
 <template>
-  <div>
-    <figure v-if="caption" :class="figClass">
-      <img :src="src" :alt="alt" :class="[size, alignment, imgClass]" />
-      <figcaption :class="captionClass">{{ caption }}</figcaption>
-    </figure>
-
-    <img v-else :src="src" :alt="alt" :class="[size, alignment, imgClass]" />
-  </div>
+  <figure v-if="caption" :class="size">
+    <img :src="src" :alt="alt" :class="[size, alignment, imgClass]" />
+    <figcaption :class="captionClass">{{ caption }}</figcaption>
+  </figure>
+  <img v-else :src="src" :alt="alt" :class="[size, alignment, imgClass]" />
 </template>
 
 <script setup lang="ts">
@@ -18,7 +15,6 @@ interface ImageProps {
   imgClass?: string
   alignment?: string
   captionClass?: string
-  figClass?: string
 }
 
 withDefaults(defineProps<ImageProps>(), {
@@ -29,6 +25,5 @@ withDefaults(defineProps<ImageProps>(), {
   imgClass: 'h-auto',
   alignment: '',
   captionClass: 'mt-2 text-sm text-center text-gray-500 dark:text-gray-400',
-  figClass: 'max-w-lg',
 })
 </script>

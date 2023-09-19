@@ -1,5 +1,5 @@
 <template>
-  <Heading tag="h6">This is my heading</Heading>
+  <Heading tag="h6">Heading 6</Heading>
 </template>
 
 <script setup>
