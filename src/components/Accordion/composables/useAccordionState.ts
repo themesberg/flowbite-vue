@@ -8,7 +8,7 @@ interface AccordionProps {
 const accordionsStates = reactive<tState>({})
 export function useAccordionState(
   id?: string,
-  options?: AccordionProps
+  options?: AccordionProps,
 ): {
   accordionsStates: tState
 } {

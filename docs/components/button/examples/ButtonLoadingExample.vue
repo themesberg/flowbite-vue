@@ -25,8 +25,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {ref} from 'vue'
-import {Button} from '../../../../src/index'
+import { ref } from 'vue'
+import { Button } from '../../../../src/index'
 
 const loading = ref(false)
 </script>

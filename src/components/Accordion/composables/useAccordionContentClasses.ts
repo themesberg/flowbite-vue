@@ -1,9 +1,9 @@
-import { computed } from 'vue'
+import { computed, type Ref } from 'vue'
 import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
 import classNames from 'classnames'
 
 const baseContentClasses = 'p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900'
-export function useAccordionContentClasses(contentRef: any) {
+export function useAccordionContentClasses(contentRef: Ref) {
   const accordionId = computed(() => contentRef.value.parentElement.parentElement.dataset.accordionId)
   const panelId = computed(() => contentRef.value.parentElement.dataset.panelId)
   const { accordionsStates } = useAccordionState()

@@ -1,11 +1,11 @@
-import { computed } from 'vue'
+import { computed, type Ref } from 'vue'
 import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
 import classNames from 'classnames'
 
 const baseHeaderClasses =
   'flex items-center p-5 w-full font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
 const baseArrowClasses = 'w-6 h-6 shrink-0'
-export function useAccordionHeaderClasses(headerRef: any) {
+export function useAccordionHeaderClasses(headerRef: Ref) {
   const accordionId = computed(() => headerRef.value.parentElement.parentElement.dataset.accordionId)
   const panelId = computed(() => headerRef.value.parentElement.dataset.panelId)
   const { accordionsStates } = useAccordionState()
