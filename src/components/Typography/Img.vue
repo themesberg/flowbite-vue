@@ -21,7 +21,7 @@ interface ImageProps {
   figClass?: string
 }
 
-const props = withDefaults(defineProps<ImageProps>(), {
+withDefaults(defineProps<ImageProps>(), {
   caption: '',
   src: '',
   size: 'max-w-full',
