@@ -14,7 +14,7 @@ interface ParagraphProps {
   align?: string
 }
 
-const props = withDefaults(defineProps<ParagraphProps>(), {
+withDefaults(defineProps<ParagraphProps>(), {
   height: 'normal',
   color: 'text-gray-900 dark:text-white',
   size: '',
