@@ -9,7 +9,7 @@ import HColor from './typography/heading/HColor.vue'
 import HCustom from './typography/heading/HCustom.vue'
 </script>
 
-# Svelte Heading - Flowbite
+# Vue Heading - Flowbite
 
 #### The heading component defines six levels of title elements from H1 to H6 that are used as titles and subtitles on a web page based on multiple styles and layouts
 
