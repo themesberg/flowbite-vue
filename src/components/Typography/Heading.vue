@@ -11,7 +11,7 @@ interface HeadingProps {
   customSize?: string
 }
 
-const props = withDefaults(defineProps<HeadingProps>(), {
+withDefaults(defineProps<HeadingProps>(), {
   tag: 'h1',
   color: 'text-gray-900 dark:text-white',
   customSize: '',
