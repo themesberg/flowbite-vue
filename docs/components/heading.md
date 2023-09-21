@@ -1,12 +1,12 @@
 <script setup>
-import H1 from './typography/heading/H1.vue'
-import H2 from './typography/heading/H2.vue'
-import H3 from './typography/heading/H3.vue'
-import H4 from './typography/heading/H4.vue'
-import H5 from './typography/heading/H5.vue'
-import H6 from './typography/heading/H6.vue'
-import HColor from './typography/heading/HColor.vue'
-import HCustom from './typography/heading/HCustom.vue'
+import FwbHExampleLevel1 from './typography/heading/FwbHExampleLevel1.vue'
+import FwbHExampleLevel2 from './typography/heading/FwbHExampleLevel2.vue'
+import FwbHExampleLevel3 from './typography/heading/FwbHExampleLevel3.vue'
+import FwbHExampleLevel4 from './typography/heading/FwbHExampleLevel4.vue'
+import FwbHExampleLevel5 from './typography/heading/FwbHExampleLevel5.vue'
+import FwbHExampleLevel6 from './typography/heading/FwbHExampleLevel6.vue'
+import FwbHExampleColor from './typography/heading/FwbHExampleColor.vue'
+import FwbHExampleCustom from './typography/heading/FwbHExampleCustom.vue'
 </script>
 
 # Vue Heading - Flowbite
@@ -17,135 +17,127 @@ import HCustom from './typography/heading/HCustom.vue'
 
 Use the `tag="h1"` as the most important text element to indicate the title of your web page.
 
-<H1 />
 
 ```vue
 <template>
-  <Heading tag="h1">This is my heading</Heading>
+  <fwb-fwb-heading tag="h1">Heading 1</fwb-heading>
 </template>
 
 <script setup>
-import Heading from 'flowbite-vue'
+import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
+<fwb-h-example-level1 />
 
 
-## Heading one (H2)
+## Heading two (H2)
 
 The H2 tag can be used as subtitles of the page’s sections.
 
-<H2 />
-
 ```vue
 <template>
-  <Heading tag="h2">This is my heading</Heading>
+  <fwb-heading tag="h2">Heading 2</fwb-heading>
 </template>
 
 <script setup>
-import Heading from 'flowbite-vue'
+import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
+<fwb-h-example-level2 />
 
 
-## Heading one (H3)
+## Heading three (H3)
 
 Use the H3 tags inside sections that already have a H2 available.
 
-<H3 />
-
 ```vue
 <template>
-  <Heading tag="h3">This is my heading</Heading>
+  <fwb-heading tag="h3">Heading 3</fwb-heading>
 </template>
 
 <script setup>
-import Heading from 'flowbite-vue'
+import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
+<fwb-h-example-level3 />
 
 
-## Heading one (H4)
+## Heading four (H4)
 
 The H4 can be generally used after H2 and H3 tags are already present and you need a more in-depth hierarchy.
 
-<H4 />
-
 ```vue
 <template>
-  <Heading tag="h4">This is my heading</Heading>
+  <fwb-heading tag="h4">Heading 4</fwb-heading>
 </template>
 
 <script setup>
-import Heading from 'flowbite-vue'
+import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
+<fwb-h-example-level4 />
 
 
-## Heading one (H5)
+## Heading five (H5)
 
 The H5 tag is most often used in longer articles with other heading already available or in sidebars.
 
-<H5 />
-
 ```vue
 <template>
-  <Heading tag="h5">This is my heading</Heading>
+  <fwb-heading tag="h5">Heading 5</fwb-heading>
 </template>
 
 <script setup>
-import Heading from 'flowbite-vue'
+import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
+<fwb-h-example-level5 />
 
 
-## Heading one (H6)
+## Heading six (H6)
 
 Using the H6 tag is quite rare because it means that you’ve already used all heading from H1 to H5, but you can still use it if you have a very complex article with lots of headings.
 
-<H6 />
-
 ```vue
 <template>
-  <Heading tag="h6">This is my heading</Heading>
+  <fwb-heading tag="h6">Heading 6</fwb-heading>
 </template>
 
 <script setup>
-import Heading from 'flowbite-vue'
+import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
+<fwb-h-example-level6 />
 
 
 ## Color
 
 Use the `color` prop to set the text color.
 
-<HColor />
-
 ```vue
 <template>
-  <Heading color="text-green-400" tag="h1">This is my heading</Heading>
+  <fwb-heading color="text-green-400">Green eading</fwb-heading>
 </template>
 
 <script setup>
-import Heading from 'flowbite-vue'
+import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
+<fwb-h-example-color />
 
 
 ## Custom classes
 
 Use the `class` attribute to apply the tailwind classes.
 
-<HCustom />
 
 ```vue
 <template>
-  <Heading class="!text-xl italic underline" tag="h1">This is my heading</Heading>
+  <fwb-heading class="!text-xl italic underline">Custom heading</fwb-heading>
 </template>
 
 <script setup>
-import Heading from 'flowbite-vue'
+import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
-
-
+<fwb-h-example-custom />
