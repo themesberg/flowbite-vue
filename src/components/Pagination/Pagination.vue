@@ -1,6 +1,6 @@
 <template>
-  <nav aria-label="Page navigation example">
-    <div class="text-sm text-gray-700 dark:text-gray-400 mb-2" v-if="layout === 'table'">
+  <nav aria-label="Navigation">
+    <div class="text-gray-700 dark:text-gray-400 mb-2" :class="large ? 'text-base' : 'text-sm'" v-if="layout === 'table'">
       Showing
       <span class="font-semibold text-gray-900 dark:text-white">{{ startItemsCount }}</span>
       to
@@ -8,123 +8,146 @@
       of
       <span class="font-semibold text-gray-900 dark:text-white">{{ computedTotalItems }}</span>
     </div>
-    <ul class="inline-flex -space-x-px">
-      <!-- First Button -->
-      <li>
-          <button 
-              :disabled="isFirstPage" 
-              @click="goToFirstPage" 
-              class="py-2 px-3 rounded-l-md leading-tight text-gray-500 bg-white border border-gray-300  dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-              First
-          </button>
-      </li>
-      <li>
-        <button
-          :disabled="isDecreaseDisabled"
-          @click="decreasePage"
-          class="flex items-center py-2 px-3 ml-0 leading-tight text-gray-500 bg-white  border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-        >
-          <svg v-if="showIcons" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" class="h-5 w-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-          {{ previousLabel }}
+    <div class="inline-flex" :class="large && 'text-base h-10'">
+      <slot name="start" />
+
+      <slot name="first-button" v-if="enableFirstAndLastButtons">
+        <button :disabled="isFirstPage" @click="goToFirstPage" :class="getNavigationButtonClasses(1)">First</button>
+      </slot>
+
+      <slot name="prev-button" :disabled="isDecreaseDisabled" :decrease-page="decreasePage">
+        <button :disabled="isDecreaseDisabled" @click="decreasePage" :class="getNavigationButtonClasses(modelValue - 1)">
+          <slot name="prev-icon">
+            <svg
+              v-if="showIcons || $slots['prev-icon']"
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+              class="h-5 w-5"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+          </slot>
+          <template v-if="showLabels">{{ previousLabel }}</template>
         </button>
-      </li>
-      <li
-        v-for="index in pagesToDisplay"
-        :key="index"
-      >
-        <button
-            :disabled="isSetPageDisabled(index)"
-            @click="setPage(index)"
-            class="w-12 py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            :class="{'text-blue-600 dark:text-white bg-blue-50 dark:bg-gray-700': index === modelValue}"
-        >
+      </slot>
+      <slot v-for="index in pagesToDisplay" :key="index" name="page-button" :page="index" :set-page="setPage" :disabled="isSetPageDisabled(index)">
+        <button :disabled="isSetPageDisabled(index)" @click="setPage(index)" :class="getPageButtonClasses(index === modelValue)">
           {{ index }}
         </button>
-      </li>
-      <li>
-        <button
-          :disabled="isIncreaseDisabled"
-          @click="increasePage"
-          class="flex items-center py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-        >
-          {{ nextLabel }}
-          <svg v-if="showIcons" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" class="h-5 w-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+      </slot>
+      <slot name="next-button" :disabled="isIncreaseDisabled" :increase-page="increasePage">
+        <button :disabled="isIncreaseDisabled" @click="increasePage" :class="getNavigationButtonClasses(modelValue + 1)">
+          <template v-if="showLabels">
+            {{ nextLabel }}
+          </template>
+          <slot name="next-icon">
+            <svg
+              v-if="showIcons || $slots['next-icon']"
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+              class="h-5 w-5"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            </svg>
+          </slot>
         </button>
-      </li>
-      <!-- Last Button -->
-      <li>
-          <button 
-              :disabled="isLastPage" 
-              @click="goToLastPage"
-              class="w-12 py-2 px-3 rounded-r-md leading-tight text-gray-500 bg-white border border-gray-300  dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-              Last
-          </button>
-      </li>
-    </ul>
+      </slot>
+
+      <slot name="last-button" v-if="enableFirstAndLastButtons">
+        <button :disabled="isLastPage" @click="goToLastPage" :class="getNavigationButtonClasses(computedTotalPages)">Last</button>
+      </slot>
+
+      <slot name="end" />
+    </div>
   </nav>
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue'
-import type { PropType } from 'vue'
 import type { PaginationLayout } from '@/components/Pagination/types'
+import { twMerge } from 'tailwind-merge'
 
-const emit = defineEmits(['update:modelValue', 'page-changed'])
+const emit = defineEmits<{
+  'update:model-value': [page: number]
+  'page-changed': [page: number]
+}>()
+interface IPaginationProps {
+  modelValue?: number
+  totalPages?: number
+  perPage?: number
+  totalItems?: number
+  layout?: PaginationLayout
+  showIcons?: boolean
+  sliceLength?: number
+  previousLabel?: string
+  nextLabel?: string
+  enableFirstAndLastButtons?: boolean
+  showLabels?: boolean
+  large?: boolean
+}
 
-const props = defineProps({
-  modelValue: {
-    type: Number,
-    default: 1,
-  },
-  totalPages: {
-    type: Number,
-    default: 1,
-  },
-  perPage: {
-    type: Number,
-    default: 10,
-  },
-  totalItems: {
-    type: Number,
-    required: false,
-  },
-  layout: {
-    type: String as PropType<PaginationLayout>, // 'navigation' | 'pagination' | 'table'
-    default: 'pagination',
-  },
-  showIcons: {
-    type: Boolean,
-    default: false,
-  },
-  sliceLength: {
-    type: Number,
-    default: 2,
-  },
-  previousLabel: {
-    type: String,
-    default: 'Previous',
-  },
-  nextLabel: {
-    type: String,
-    default: 'Next',
-  },
+const props = withDefaults(defineProps<IPaginationProps>(), {
+  modelValue: 1,
+  totalPages: undefined,
+  perPage: 10,
+  totalItems: 10,
+  layout: 'pagination',
+  showIcons: false,
+  sliceLength: 2,
+  previousLabel: 'Prev',
+  nextLabel: 'Next',
+  enableFirstAndLastButtons: false,
+  showLabels: true,
+  large: false,
 })
-
-const setPage = (index: number) => {
-  emit('update:modelValue', index)
-  emit('page-changed', index);
+defineSlots<{
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  start: any
+  'first-button': any
+  'prev-button': any
+  'prev-icon': any
+  'page-button': any
+  'next-button': any
+  'next-icon': any
+  'last-button': any
+  end: any
+  /* eslint-enable @typescript-eslint/no-explicit-any */
+}>()
+function setPage(index: number) {
+  emit('update:model-value', index)
+  emit('page-changed', index)
 }
-const decreasePage = () => {
-  emit('update:modelValue', props.modelValue - 1)
-  emit('page-changed', props.modelValue - 1);
+function decreasePage() {
+  emit('update:model-value', props.modelValue - 1)
+  emit('page-changed', props.modelValue - 1)
 }
-const increasePage = () => {
-  emit('update:modelValue', props.modelValue + 1)
-  emit('page-changed', props.modelValue + 1);
+function increasePage() {
+  emit('update:model-value', props.modelValue + 1)
+  emit('page-changed', props.modelValue + 1)
+}
+function goToFirstPage() {
+  emit('update:model-value', 1)
+  emit('page-changed', 1)
+}
+function goToLastPage() {
+  const lastPage = computedTotalPages.value
+  emit('update:model-value', lastPage)
+  emit('page-changed', lastPage)
 }
 
 const computedTotalPages = computed(() => {
-  if (!props.totalItems) return props.totalPages
-  if (!props.perPage) return props.totalPages
+  if (props.totalPages) return props.totalPages
   return Math.ceil(props.totalItems / props.perPage)
 })
 
@@ -168,7 +191,6 @@ const pagesToDisplay = computed(() => {
   return pages
 })
 
-
 const startItemsCount = computed(() => props.modelValue * props.perPage - props.perPage + 1)
 const endItemsCount = computed(() => {
   const count = props.modelValue * props.perPage + 1
@@ -181,17 +203,31 @@ const computedTotalItems = computed(() => {
   return computedTotalPages.value * props.perPage
 })
 
-const isFirstPage = computed(() => props.modelValue === 1);
-const isLastPage = computed(() => props.modelValue === computedTotalPages.value);
+const isFirstPage = computed(() => props.modelValue === 1)
+const isLastPage = computed(() => props.modelValue === computedTotalPages.value)
 
-const goToFirstPage = () => {
-  emit('update:modelValue', 1);
-  emit('page-changed', 1);
+function getPageButtonClasses(active: boolean) {
+  const baseClasses =
+    'flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+  const activeClasses = 'text-blue-600 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:bg-gray-700 dark:text-white'
+  const largeClasses = 'px-4 h-10'
+  return twMerge(baseClasses, active && activeClasses, props.large && largeClasses)
 }
-
-const goToLastPage = () => {
-  const lastPage = computedTotalPages.value;
-  emit('update:modelValue', lastPage);
-  emit('page-changed', lastPage);
+function getNavigationButtonClasses(toPage: number) {
+  const baseClasses =
+    'flex items-center justify-center first:rounded-l-lg last:rounded-r-lg px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+  const disabledClasses = 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-white cursor-not-allowed'
+  const largeClasses = 'px-4 h-10'
+  const tableClasses =
+    'border-none text-white hover:text-white bg-gray-800 rounded-none first:rounded-l last:rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+  return twMerge(
+    baseClasses,
+    toPage === props.modelValue && disabledClasses,
+    props.large && largeClasses,
+    (toPage > computedTotalPages.value || toPage < 1) && disabledClasses,
+    props.layout === 'navigation' && 'first:mr-3',
+    (props.layout === 'navigation' || props.layout === 'table') && 'rounded-lg',
+    props.layout === 'table' && tableClasses,
+  )
 }
 </script>

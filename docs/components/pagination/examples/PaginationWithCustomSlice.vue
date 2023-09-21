@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw">
+  <div class="vp-raw flex items-center justify-center">
     <Pagination v-model="currentPage" :total-pages="100" :slice-length="4"></Pagination>
   </div>
 </template>

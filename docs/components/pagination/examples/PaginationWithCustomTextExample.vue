@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw flex flex-col">
+  <div class="vp-raw flex flex-col items-center">
     <Pagination v-model="currentPage" :total-pages="100" previous-label="<<<" next-label=">>>"></Pagination>
   </div>
 </template>
