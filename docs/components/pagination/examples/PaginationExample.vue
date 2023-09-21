@@ -1,6 +1,7 @@
 <template>
-  <div class="vp-raw">
-    <Pagination v-model="currentPage" :total-pages="100"></Pagination>
+  <div class="vp-raw flex flex-col items-center">
+    <Pagination v-model="currentPage" :total-items="100" class="mb-2"></Pagination>
+    <Pagination v-model="currentPage" :total-items="100" large></Pagination>
   </div>
 </template>
 <script lang="ts" setup>
