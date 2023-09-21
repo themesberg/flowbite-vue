@@ -70,8 +70,8 @@ export { default as Radio } from './components/Radio/Radio.vue'
 export { default as FileInput } from './components/FileInput/FileInput.vue'
 
 // Typography
+export { default as FwbA } from './components/Typography/FwbA.vue'
 export { default as FwbHeading } from './components/Typography/FwbHeading.vue'
-// export { default as A } from './components/Typography/Heading.vue'
 export { default as FwbP } from './components/Typography/FwbP.vue'
 export { default as Img } from './components/Typography/Img.vue'
 

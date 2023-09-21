@@ -1,5 +1,8 @@
 <template>
-  <a :href="href" :class="[color, 'inline-flex items-center hover:underline']">
+  <a
+    :href="href"
+    :class="[color, 'inline-flex items-center hover:underline']"
+  >
     <slot />
   </a>
 </template>
@@ -9,6 +12,10 @@ interface LinkProps {
   href?: string
   color?: string
 }
+
+defineOptions({
+  name: 'FwbA',
+})
 
 withDefaults(defineProps<LinkProps>(), {
   href: '',
