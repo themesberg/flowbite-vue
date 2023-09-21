@@ -1,3 +1,5 @@
+export { default as FwbAlert } from './components/FwbAlert/FwbAlert.vue'
+
 export { default as Accordion } from './components/Accordion/Accordion.vue'
 export { default as AccordionPanel } from './components/Accordion/AccordionPanel.vue'
 export { default as AccordionHeader } from './components/Accordion/AccordionHeader.vue'
@@ -5,7 +7,6 @@ export { default as AccordionContent } from './components/Accordion/AccordionCon
 export { default as Button } from './components/Button/Button.vue'
 export { default as Spinner } from './components/Spinner/Spinner.vue'
 export { default as ButtonGroup } from './components/ButtonGroup/ButtonGroup.vue'
-export { default as Alert } from './components/Alert/Alert.vue'
 export { default as Tabs } from './components/Tabs/Tabs.vue'
 export { default as Tab } from './components/Tabs/components/Tab/Tab.vue'
 export { default as Dropdown } from './components/Dropdown/Dropdown.vue'
