@@ -20,7 +20,7 @@ Use the `tag="h1"` as the most important text element to indicate the title of y
 
 ```vue
 <template>
-  <fwb-fwb-heading tag="h1">Heading 1</fwb-heading>
+  <fwb-heading tag="h1">Heading 1</fwb-heading>
 </template>
 
 <script setup>
