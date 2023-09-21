@@ -72,7 +72,7 @@ export { default as FileInput } from './components/FileInput/FileInput.vue'
 // Typography
 export { default as FwbA } from './components/Typography/FwbA.vue'
 export { default as FwbHeading } from './components/Typography/FwbHeading.vue'
+export { default as FwbImg } from './components/Typography/FwbImg.vue'
 export { default as FwbP } from './components/Typography/FwbP.vue'
-export { default as Img } from './components/Typography/Img.vue'
 
 export * from './composables'

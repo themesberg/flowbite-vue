@@ -1,9 +1,23 @@
 <template>
-  <figure v-if="caption" :class="size">
-    <img :src="src" :alt="alt" :class="[size, alignment, imgClass]" />
-    <figcaption :class="captionClass">{{ caption }}</figcaption>
+  <figure
+    v-if="caption"
+    :class="size"
+  >
+    <img
+      :src="src"
+      :alt="alt"
+      :class="[size, alignment, imgClass]"
+    >
+    <figcaption :class="captionClass">
+      {{ caption }}
+    </figcaption>
   </figure>
-  <img v-else :src="src" :alt="alt" :class="[size, alignment, imgClass]" />
+  <img
+    v-else
+    :src="src"
+    :alt="alt"
+    :class="[size, alignment, imgClass]"
+  >
 </template>
 
 <script setup lang="ts">
@@ -16,6 +30,10 @@ interface ImageProps {
   alignment?: string
   captionClass?: string
 }
+
+defineOptions({
+  name: 'FwbImg',
+})
 
 withDefaults(defineProps<ImageProps>(), {
   caption: '',
