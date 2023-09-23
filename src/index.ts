@@ -1,4 +1,7 @@
 export { default as FwbAlert } from './components/FwbAlert/FwbAlert.vue'
+export { default as FwbAvatar } from './components/FwbAvatar/FwbAvatar.vue'
+export { default as FwbAvatarStack } from './components/FwbAvatar/FwbAvatarStack.vue'
+export { default as FwbAvatarStackCounter } from './components/FwbAvatar/FwbAvatarStackCounter.vue'
 
 export { default as Accordion } from './components/Accordion/Accordion.vue'
 export { default as AccordionPanel } from './components/Accordion/AccordionPanel.vue'
@@ -14,9 +17,6 @@ export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable
 export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
 export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb.vue'
 export { default as BreadcrumbItem } from './components/Breadcrumb/BreadcrumbItem.vue'
-export { default as Avatar } from './components/Avatar/Avatar.vue'
-export { default as StackedAvatars } from './components/Avatar/StackedAvatars.vue'
-export { default as StackedAvatarsCounter } from './components/Avatar/StackedAvatarsCounter.vue'
 export { default as Badge } from './components/Badge/Badge.vue'
 export { default as TheCard } from './components/Card/TheCard.vue'
 export { default as Carousel } from './components/Carousel/Carousel.vue'
