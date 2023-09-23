@@ -1,14 +1,18 @@
 <template>
-  <component :is="wrapperType" :class="badgeClasses" :href="href">
-    <slot name="icon"/>
+  <component
+    :is="wrapperType"
+    :class="badgeClasses"
+    :href="href"
+  >
+    <slot name="icon" />
     <slot name="default" />
   </component>
 </template>
+
 <script lang="ts" setup>
-import { computed, toRefs, useSlots } from 'vue'
-import type { PropType } from 'vue'
-import type { BadgeType, BadgeSize } from './types'
-import { useBadgeClasses } from '@/components/Badge/composables/useBadgeClasses'
+import { type PropType, computed, toRefs, useSlots } from 'vue'
+import type { BadgeSize, BadgeType } from './types'
+import { useBadgeClasses } from './composables/useBadgeClasses'
 
 const props = defineProps({
   type: {
