@@ -1,0 +1,56 @@
+<template>
+  <div class="vp-raw flex flex-wrap gap-2">
+    <fwb-button
+      color="default"
+      pill
+    >
+      Default
+    </fwb-button>
+    <fwb-button
+      color="alternative"
+      pill
+    >
+      Alternative
+    </fwb-button>
+    <fwb-button
+      color="dark"
+      pill
+    >
+      Dark
+    </fwb-button>
+    <fwb-button
+      color="light"
+      pill
+    >
+      Light
+    </fwb-button>
+    <fwb-button
+      color="green"
+      pill
+    >
+      Green
+    </fwb-button>
+    <fwb-button
+      color="red"
+      pill
+    >
+      Red
+    </fwb-button>
+    <fwb-button
+      color="yellow"
+      pill
+    >
+      Yellow
+    </fwb-button>
+    <fwb-button
+      color="purple"
+      pill
+    >
+      Purple
+    </fwb-button>
+  </div>
+</template>
+
+<script setup>
+import { FwbButton } from '../../../../src/index'
+</script>

@@ -1,7 +1,6 @@
-import type { Ref } from 'vue'
-import { computed, useSlots } from 'vue'
-import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
+import { type Ref, computed, useSlots } from 'vue'
 import { twMerge } from 'tailwind-merge'
+import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>; default: Record<T, string> }
 
@@ -100,20 +99,13 @@ const buttonGradientClasses: ButtonClassMap<ButtonGradient> = {
 
 const buttonOutlineGradientClasses: ButtonClassMap<ButtonDuotoneGradient> = {
   default: {
-    'cyan-blue':
-      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800',
-    'green-blue':
-      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800',
-    'pink-orange':
-      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800',
-    'purple-blue':
-      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800',
-    'purple-pink':
-      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800',
-    'red-yellow':
-      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 dark:text-white focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400',
-    'teal-lime':
-      'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 dark:text-white focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800',
+    'cyan-blue': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800',
+    'green-blue': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800',
+    'pink-orange': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800',
+    'purple-blue': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800',
+    'purple-pink': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800',
+    'red-yellow': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 dark:text-white focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400',
+    'teal-lime': 'relative inline-flex items-center justify-center overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 dark:text-white focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800',
   },
   hover: {
     'cyan-blue': 'group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white',
@@ -168,7 +160,7 @@ export type UseButtonClassesProps = {
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
 const alternativeColors = ['alternative', 'light']
 
-export function useButtonClasses(props: UseButtonClassesProps): { wrapperClasses: Ref<string>; spanClasses: Ref<string> } {
+export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasses: Ref<string>; spanClasses: Ref<string> } {
   const slots = useSlots()
 
   const sizeClasses = computed(() => {

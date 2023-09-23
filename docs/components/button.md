@@ -1,19 +1,19 @@
 <script setup>
-import ButtonColorExample from './button/examples/ButtonColorExample.vue';
-import ButtonSizeExample from './button/examples/ButtonSizeExample.vue';
-import ButtonPillExample from './button/examples/ButtonPillExample.vue';
-import ButtonGradientMonochromeExample from './button/examples/ButtonGradientMonochromeExample.vue';
-import ButtonGradientDuotoneExample from './button/examples/ButtonGradientDuotoneExample.vue';
-import ButtonOutlineColorExample from './button/examples/ButtonOutlineColorExample.vue';
-import ButtonPrefixExample from './button/examples/ButtonPrefixExample.vue';
-import ButtonSuffixExample from './button/examples/ButtonSuffixExample.vue';
-import ButtonOutlineGradientExample from './button/examples/ButtonOutlineGradientExample.vue';
-import ButtonGradientShadowExample from './button/examples/ButtonGradientShadowExample.vue';
-import ButtonIconExample from './button/examples/ButtonIconExample.vue';
-import ButtonSquareExample from './button/examples/ButtonSquareExample.vue';
-import ButtonDisabledExample from './button/examples/ButtonDisabledExample.vue';
-import ButtonLoadingExample from './button/examples/ButtonLoadingExample.vue';
-import ButtonLinkExample from './button/examples/ButtonLinkExample.vue';
+import FwbButtonExampleColor from './button/examples/FwbButtonExampleColor.vue';
+import FwbButtonExampleDisabled from './button/examples/FwbButtonExampleDisabled.vue';
+import FwbButtonExampleGradientDuotone from './button/examples/FwbButtonExampleGradientDuotone.vue';
+import FwbButtonExampleGradientMonochrome from './button/examples/FwbButtonExampleGradientMonochrome.vue';
+import FwbButtonExampleLink from './button/examples/FwbButtonExampleLink.vue';
+import FwbButtonExampleLoading from './button/examples/FwbButtonExampleLoading.vue';
+import FwbButtonExampleOutline from './button/examples/FwbButtonExampleOutline.vue';
+import FwbButtonExampleOutlineGradient from './button/examples/FwbButtonExampleOutlineGradient.vue';
+import FwbButtonExamplePill from './button/examples/FwbButtonExamplePill.vue';
+import FwbButtonExampleShadow from './button/examples/FwbButtonExampleShadow.vue';
+import FwbButtonExampleSize from './button/examples/FwbButtonExampleSize.vue';
+import FwbButtonExampleSlot from './button/examples/FwbButtonExampleSlot.vue';
+import FwbButtonExampleSlotPrefix from './button/examples/FwbButtonExampleSlotPrefix.vue';
+import FwbButtonExampleSlotSuffix from './button/examples/FwbButtonExampleSlotSuffix.vue';
+import FwbButtonExampleSquare from './button/examples/FwbButtonExampleSquare.vue';
 </script>
 
 # Vue Button - Flowbite
@@ -32,421 +32,352 @@ Flowbite provides a large variety of styles and sizes for the button component i
 
 ## Prop - color
 
-```typescript
-type ButtonVariant = 'default' | 'alternative' | 'dark' | 'light' | 'green' | 'red' | 'yellow' | 'purple' | 'pink' | 'blue'
-defineProps({
-    color: {
-        type: String as PropType<ButtonVariant>,
-        default: 'default',
-    },
-})
-```
-
-
-<ButtonColorExample />
-
+<fwb-button-example-color />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-    <Button color="default">Default</Button>
-    <Button color="alternative">Alternative</Button>
-    <Button color="dark">Dark</Button>
-    <Button color="light">Light</Button>
-    <Button color="green">Green</Button>
-    <Button color="red">Red</Button>
-    <Button color="yellow">Yellow</Button>
-    <Button color="purple">Purple</Button>
+  <fwb-button color="default">Default</fwb-button>
+  <fwb-button color="alternative">Alternative</fwb-button>
+  <fwb-button color="dark">Dark</fwb-button>
+  <fwb-button color="light">Light</fwb-button>
+  <fwb-button color="green">Green</fwb-button>
+  <fwb-button color="red">Red</fwb-button>
+  <fwb-button color="yellow">Yellow</fwb-button>
+  <fwb-button color="purple">Purple</fwb-button>
+  <fwb-button color="pink">Pink</fwb-button>
 </template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
 
 
 ## Prop - size
 
-```typescript
-type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-defineProps({
-    size: {
-        type: String as PropType<ButtonSize>,
-        default: 'md',
-    },
-})
-```
-
-
-<ButtonSizeExample />
-
+<fwb-button-example-size />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button size="xs">XS</Button>
-  <Button size="sm">SM</Button>
-  <Button size="md">MD</Button>
-  <Button size="lg">LG</Button>
-  <Button size="xl">XL</Button>
+  <fwb-button size="xs">Extra Small - xs</fwb-button>
+  <fwb-button size="sm">Small - sm</fwb-button>
+  <fwb-button size="md">Medium - md</fwb-button>
+  <fwb-button size="lg">Large - lg</fwb-button>
+  <fwb-button size="xl">Extra Large - xl</fwb-button>
 </template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
 
 ## Prop - pill
 
-```typescript
-defineProps({
-    pill: {
-        type: Boolean,
-        default: false,
-    },
-})
-```
-
-
-<ButtonPillExample />
-
+<fwb-button-example-pill />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button color="default" pill>Default</Button>
-  <Button color="alternative" pill>Alternative</Button>
-  <Button color="dark" pill>Dark</Button>
-  <Button color="light" pill>Light</Button>
-  <Button color="green" pill>Green</Button>
-  <Button color="red" pill>Red</Button>
-  <Button color="yellow" pill>Yellow</Button>
-  <Button color="purple" pill>Purple</Button>
+  <fwb-button color="default" pill>Default</fwb-button>
+  <fwb-button color="alternative" pill>Alternative</fwb-button>
+  <fwb-button color="dark" pill>Dark</fwb-button>
+  <fwb-button color="light" pill>Light</fwb-button>
+  <fwb-button color="green" pill>Green</fwb-button>
+  <fwb-button color="red" pill>Red</fwb-button>
+  <fwb-button color="yellow" pill>Yellow</fwb-button>
+  <fwb-button color="purple" pill>Purple</fwb-button>
 </template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
+
 
 ## Prop - gradient (monochrome)
 
-```typescript
-type ButtonMonochromeGradient = 'blue' | 'green' | 'cyan' | 'teal' | 'lime' | 'red' | 'pink' | 'purple'
-type ButtonDuotoneGradient = 'purple-blue' | 'cyan-blue' | 'green-blue' | 'purple-pink' | 'pink-orange' | 'teal-lime' | 'red-yellow'
-type ButtonGradient = ButtonDuotoneGradient | ButtonMonochromeGradient
-
-defineProps({
-    gradient: {
-        type: [String, null] as PropType<ButtonGradient | null>,
-        default: null,
-    },
-})
-```
-
-
-<ButtonGradientMonochromeExample />
-
+<fwb-button-example-gradient-monochrome />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button gradient="blue">Blue</Button>
-  <Button gradient="cyan">Cyan</Button>
-  <Button gradient="green">Green</Button>
-  <Button gradient="lime">Lime</Button>
-  <Button gradient="pink">Pink</Button>
-  <Button gradient="purple">Purple</Button>
-  <Button gradient="red">Red</Button>
-  <Button gradient="teal">Teal</Button>
+  <fwb-button gradient="blue">Blue</fwb-button>
+  <fwb-button gradient="cyan">Cyan</fwb-button>
+  <fwb-button gradient="green">Green</fwb-button>
+  <fwb-button gradient="lime">Lime</fwb-button>
+  <fwb-button gradient="pink">Pink</fwb-button>
+  <fwb-button gradient="purple">Purple</fwb-button>
+  <fwb-button gradient="red">Red</fwb-button>
+  <fwb-button gradient="teal">Teal</fwb-button>
 </template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
 
 
-## Prop - gradient  (duotone)
+## Prop - gradient (duotone)
 
-<ButtonGradientDuotoneExample />
-
+<fwb-button-example-gradient-duotone />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button gradient="purple-blue">Purple to blue</Button>
-  <Button gradient="cyan-blue">Cyan to blue</Button>
-  <Button gradient="green-blue">Green to blue</Button>
-  <Button gradient="purple-pink">Purple to pink</Button>
-  <Button gradient="pink-orange">Pink to orange</Button>
-  <Button gradient="teal-lime">Teal to lime</Button>
-  <Button gradient="red-yellow">Red to yellow</Button>
+  <fwb-button gradient="purple-blue">Purple to blue</fwb-button>
+  <fwb-button gradient="cyan-blue">Cyan to blue</fwb-button>
+  <fwb-button gradient="green-blue">Green to blue</fwb-button>
+  <fwb-button gradient="purple-pink">Purple to pink</fwb-button>
+  <fwb-button gradient="pink-orange">Pink to orange</fwb-button>
+  <fwb-button gradient="teal-lime">Teal to lime</fwb-button>
+  <fwb-button gradient="red-yellow">Red to yellow</fwb-button>
 </template>
-```
 
-## Prop - outline (color)
-
-```typescript
-defineProps({
-    outline: {
-        type: Boolean,
-        default: false,
-    },
-})
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
 
 
-<ButtonOutlineColorExample />
+## Prop - outline
 
+<fwb-button-example-outline />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button gradient="purple-blue">Purple to blue</Button>
-  <Button gradient="cyan-blue">Cyan to blue</Button>
-  <Button gradient="green-blue">Green to blue</Button>
-  <Button gradient="purple-pink">Purple to pink</Button>
-  <Button gradient="pink-orange">Pink to orange</Button>
-  <Button gradient="teal-lime">Teal to lime</Button>
-  <Button gradient="red-yellow">Red to yellow</Button>
+  <fwb-button color="default" outline>Default</fwb-button>
+  <fwb-button color="dark" outline>Dark</fwb-button>
+  <fwb-button color="green" outline>Green</fwb-button>
+  <fwb-button color="red" outline>Red</fwb-button>
+  <fwb-button color="yellow" outline>Yellow</fwb-button>
+  <fwb-button color="purple" outline>Purple</fwb-button>
 </template>
-```
 
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
+```
 
 ## Prop - outline (gradient)
 
-<ButtonOutlineGradientExample />
-
+<fwb-button-example-outline-gradient />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button gradient="purple-blue" outline>Purple to blue</Button>
-  <Button gradient="cyan-blue" outline>Cyan to blue</Button>
-  <Button gradient="green-blue" outline>Green to blue</Button>
-  <Button gradient="purple-pink" outline>Purple to pink</Button>
-  <Button gradient="pink-orange" outline>Pink to orange</Button>
-  <Button gradient="teal-lime" outline>Teal to lime</Button>
-  <Button gradient="red-yellow" outline>Red to yellow</Button>
+  <fwb-button gradient="purple-blue">Purple to blue</fwb-button>
+  <fwb-button gradient="cyan-blue">Cyan to blue</fwb-button>
+  <fwb-button gradient="green-blue">Green to blue</fwb-button>
+  <fwb-button gradient="purple-pink">Purple to pink</fwb-button>
+  <fwb-button gradient="pink-orange">Pink to orange</fwb-button>
+  <fwb-button gradient="teal-lime">Teal to lime</fwb-button>
+  <fwb-button gradient="red-yellow">Red to yellow</fwb-button>
 </template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
 
 ## Prop - shadow
 
-```typescript
-type ButtonMonochromeGradient = 'blue' | 'green' | 'cyan' | 'teal' | 'lime' | 'red' | 'pink' | 'purple'
-
-defineProps({
-    shadow: {
-        type: [String, null] as PropType<ButtonMonochromeGradient | '' | null>,
-        default: null,
-    },
-})
-```
-
-<ButtonGradientShadowExample />
-
+<fwb-button-example-shadow />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button gradient="blue" shadow>Blue</Button>
-  <Button gradient="cyan" shadow>Cyan</Button>
-  <Button gradient="green" shadow>Green</Button>
-  <Button gradient="lime" shadow>Lime</Button>
-  <Button gradient="pink" shadow>Pink</Button>
-  <Button gradient="purple" shadow>Purple</Button>
-  <Button gradient="red" shadow>Red</Button>
-  <Button gradient="teal" shadow>Teal</Button>
+  <fwb-button gradient="blue" shadow>Blue with blue</fwb-button>
+  <fwb-button gradient="cyan" shadow>Cyan with cyan</fwb-button>
+  <fwb-button gradient="green" shadow>Green with green</fwb-button>
+  <fwb-button gradient="lime" shadow>Lime with lime</fwb-button>
+  <fwb-button gradient="pink" shadow>Pink with pink</fwb-button>
+  <fwb-button gradient="purple" shadow>Purple with purple</fwb-button>
+  <fwb-button gradient="red" shadow>Red with red</fwb-button>
+  <fwb-button gradient="teal" shadow>Teal with teal</fwb-button>
+  <fwb-button gradient="blue" shadow="red">Blue with red</fwb-button>
+  <fwb-button gradient="cyan" shadow="teal">Cyan with teal</fwb-button>
+  <fwb-button gradient="teal" shadow="purple">Teal with purple</fwb-button>
 </template>
-```
 
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
+```
 
 ## Prop - square
 
-```typescript
-defineProps({
-    square: {
-        type: Boolean,
-        default: false,
-    },
-})
-```
-
-
-<ButtonSquareExample />
-
+<fwb-button-example-square />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button gradient="red-yellow" square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button color="default" pill square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button color="dark" outline square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button color="yellow" pill outline square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
+  <fwb-button gradient="red-yellow" square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
+    </svg>
+  </fwb-button>
+  <fwb-button color="default" pill square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
+    </svg>
+  </fwb-button>
+  <fwb-button color="dark" outline square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
+    </svg>
+  </fwb-button>
+  <fwb-button color="yellow" outline pill square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>
+  </fwb-button>
 </template>
-```
 
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
+```
 
 ## Prop - loading
 
-```typescript
-defineProps({
-    loading: {
-        type: Boolean,
-        default: false,
-    },
-    loadingPosition: {
-        type: String as PropType<'suffix' | 'prefix'>,
-        default: 'prefix',
-    },
-})
-```
-
-
-<ButtonLoadingExample />
-
+<fwb-button-example-loading />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-const loading = ref(false)
-</script>
 <template>
-  <Button gradient="purple-blue" outline :disabled="loading" :loading="loading" @click="loading = !loading" size="xs">
+  <fwb-button :disabled="loading" :loading="loading" gradient="purple-blue" outline size="xs" @click="loading = !loading">
     Click me
-  </Button>
-  <Button gradient="red-yellow" :loading="loading" @click="loading = !loading" size="sm">
+  </fwb-button>
+  <fwb-button :loading="loading" gradient="red-yellow" size="sm" @click="loading = !loading">
     Click me
-  </Button>
-  <Button outline color="default" loading-position="suffix" :loading="loading" @click="loading = !loading">
+  </fwb-button>
+  <fwb-button :loading="loading" color="default" loading-position="suffix" outline @click="loading = !loading">
     Click me
     <template #suffix>
       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clip-rule="evenodd"></path>
+        <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
       </svg>
     </template>
-  </Button>
-  <Button gradient="green-blue" :loading="loading" @click="loading = !loading" size="lg">
+  </fwb-button>
+  <fwb-button :loading="loading" gradient="green-blue" size="lg" @click="loading = !loading">
     Click me
-  </Button>
-  <Button gradient="pink" :loading="loading" @click="loading = !loading" size="xl">
+  </fwb-button>
+  <fwb-button :loading="loading" gradient="pink" size="xl" @click="loading = !loading">
     Click me
-  </Button>
+  </fwb-button>
 </template>
-```
 
+<script setup>
+import { ref } from 'vue'
+import { FwbButton } from 'flowbite-vue'
+
+const loading = ref(false)
+</script>
+```
 
 ## Prop - disabled
 
-```typescript
-defineProps({
-    disabled: {
-        type: Boolean,
-        default: false,
-    },
-})
-```
-
-
-<ButtonDisabledExample />
-
+<fwb-button-example-disabled />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button gradient="red-yellow" square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button color="default" pill square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button color="dark" outline square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button color="yellow" pill outline square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
+  <fwb-button color="default" disabled>Default</fwb-button>
+  <fwb-button color="default" outline disabled>Default outline</fwb-button>
+  <fwb-button gradient="red" disabled>Red gradient</fwb-button>
+  <fwb-button gradient="red-yellow" disabled>Red to yellow gradient</fwb-button>
+  <fwb-button gradient="red-yellow" outline disabled>Red to yellow outline</fwb-button>
 </template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
+
 ## Prop - href
 You can add a link to a `Button` component.
 Additionally you can add `tag` prop to change button component to `router-link`
-<ButtonLinkExample />
 
+<fwb-button-example-link />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button color="default" href="https://google.com" target="_blank">Default</Button>
-  <Button href="/about" tag="router-link">Router link</Button>
+  <fwb-button href="https://google.com" target="_blank">Google.com</fwb-button>
+  <fwb-button href="/pages/getting-started" tag="router-link">Quickstart</fwb-button>
 </template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
 
 ## Slot - default
 
-<ButtonIconExample />
-
+<fwb-button-example-slot />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button gradient="purple-blue" square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button color="default" pill square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button gradient="green-blue" square>
+  <fwb-button gradient="purple-blue" square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
+    </svg>
+  </fwb-button>
+  <fwb-button color="default" pill square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
+    </svg>
+  </fwb-button>
+  <fwb-button gradient="green-blue" square>
     Close something
-  </Button>
-  <Button color="default" pill outline square>
+  </fwb-button>
+  <fwb-button color="default" outline pill square>
     Open something
     <template #suffix>
-      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
+      </svg>
     </template>
-  </Button>
+  </fwb-button>
 </template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
 
 ## Slot - prefix
 
-<ButtonPrefixExample />
-
+<fwb-button-example-slot-prefix />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button color="default">
+  <fwb-button>
     <template #prefix>
-      <svg class="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+      </svg>
     </template>
     Buy
-  </Button>
+  </fwb-button>
 </template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
 
 ## Slot - suffix
 
-<ButtonSuffixExample />
-
+<fwb-button-example-slot-suffix />
 ```vue
-<script setup>
-import { Button } from 'flowbite-vue'
-</script>
 <template>
-  <Button color="default">
+  <fwb-button>
     Choose plan
     <template #suffix>
-      <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
+      </svg>
     </template>
-  </Button>
+  </fwb-button>
 </template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
+
+## Button API
+
+### Props
+| Name             | Type    | Values                                                                                         | Default   |
+|------------------|---------|------------------------------------------------------------------------------------------------|-----------|
+| color            | String  | `default`, `alternative`, `dark`, `light`, `green`, `red`, `yellow`, `purple`, `pink`, `blue`  | `default` |
+| disabled         | Boolean |                                                                                                | `false`   |
+| gradient         | String  | monochrome:<br>`blue`, `green`, `cyan`, `teal`, `lime`, `red`, `pink`, `purple`<br>duotone:<br>`purple-blue`, `cyan-blue`, `green-blue`, `purple-pink`, `pink-orange`, `teal-lime`, `red-yellow`                                      | `null`    |
+| href             | String  |                                                                                                | `''`      |
+| loading          | Boolean |                                                                                                | `false`   |
+| loading-position | String  |  `prefix`, `suffix`                                                                            | `prefix`  |
+| outline          | Boolean |                                                                                                | `false`   |
+| pill             | Boolean |                                                                                                | `false`   |
+| shadow           | String  | `blue`, `green`, `cyan`, `teal`, `lime`, `red`, `pink`, `purple`                               | `null`    |
+| size             | String  | `xs`, `sm`, `md`, `lg`, `xl`                                                                   | `md`      |
+| square           | Boolean |                                                                                                | `false`   |
+| tag              | String  |                                                                                                | `a`       |
