@@ -1,3 +1,7 @@
+export { default as FwbAccordion } from './components/FwbAccordion/FwbAccordion.vue'
+export { default as FwbAccordionContent } from './components/FwbAccordion/FwbAccordionContent.vue'
+export { default as FwbAccordionHeader } from './components/FwbAccordion/FwbAccordionHeader.vue'
+export { default as FwbAccordionPanel } from './components/FwbAccordion/FwbAccordionPanel.vue'
 export { default as FwbAlert } from './components/FwbAlert/FwbAlert.vue'
 export { default as FwbAvatar } from './components/FwbAvatar/FwbAvatar.vue'
 export { default as FwbAvatarStack } from './components/FwbAvatar/FwbAvatarStack.vue'
@@ -5,10 +9,6 @@ export { default as FwbAvatarStackCounter } from './components/FwbAvatar/FwbAvat
 export { default as FwbBreadcrumb } from './components/FwbBreadcrumb/FwbBreadcrumb.vue'
 export { default as FwbBreadcrumbItem } from './components/FwbBreadcrumb/FwbBreadcrumbItem.vue'
 
-export { default as Accordion } from './components/Accordion/Accordion.vue'
-export { default as AccordionPanel } from './components/Accordion/AccordionPanel.vue'
-export { default as AccordionHeader } from './components/Accordion/AccordionHeader.vue'
-export { default as AccordionContent } from './components/Accordion/AccordionContent.vue'
 export { default as Button } from './components/Button/Button.vue'
 export { default as Spinner } from './components/Spinner/Spinner.vue'
 export { default as ButtonGroup } from './components/ButtonGroup/ButtonGroup.vue'

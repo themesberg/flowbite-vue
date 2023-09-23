@@ -1,13 +1,16 @@
 <template>
-  <div :data-panel-id="panelId" ref="panel">
-    <slot v-if="accordionId"></slot>
+  <div
+    ref="panel"
+    :data-panel-id="panelId"
+  >
+    <slot v-if="accordionId" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue'
-import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
 import { nanoid } from 'nanoid'
+import { useAccordionState } from './composables/useAccordionState'
 
 const { accordionsStates } = useAccordionState()
 

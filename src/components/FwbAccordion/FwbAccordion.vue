@@ -3,9 +3,11 @@
     <slot />
   </div>
 </template>
+
 <script lang="ts" setup>
 import { nanoid } from 'nanoid'
-import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
+import { useAccordionState } from './composables/useAccordionState'
+
 interface AccordionProps {
   alwaysOpen?: boolean
   openFirstItem?: boolean
