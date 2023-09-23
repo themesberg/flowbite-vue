@@ -71,7 +71,6 @@ interface IAlertProps {
 }
 
 defineOptions({
-  name: 'FwbAlert',
   inheritAttrs: false,
 })
 

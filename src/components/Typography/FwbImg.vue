@@ -31,10 +31,6 @@ interface ImageProps {
   captionClass?: string
 }
 
-defineOptions({
-  name: 'FwbImg',
-})
-
 withDefaults(defineProps<ImageProps>(), {
   caption: '',
   src: '',

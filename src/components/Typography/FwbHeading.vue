@@ -11,10 +11,6 @@ interface HeadingProps {
   customSize?: string
 }
 
-defineOptions({
-  name: 'FwbHeading',
-})
-
 withDefaults(defineProps<HeadingProps>(), {
   tag: 'h1',
   color: 'text-gray-900 dark:text-white',

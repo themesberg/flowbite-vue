@@ -14,10 +14,6 @@ interface ParagraphProps {
   align?: string
 }
 
-defineOptions({
-  name: 'FwbP',
-})
-
 withDefaults(defineProps<ParagraphProps>(), {
   height: 'normal',
   color: 'text-gray-900 dark:text-white',

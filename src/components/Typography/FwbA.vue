@@ -13,10 +13,6 @@ interface LinkProps {
   color?: string
 }
 
-defineOptions({
-  name: 'FwbA',
-})
-
 withDefaults(defineProps<LinkProps>(), {
   href: '',
   color: 'text-primary-600 dark:text-primary-500',
