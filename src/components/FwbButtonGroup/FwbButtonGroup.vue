@@ -1,6 +1,9 @@
 <template>
-  <div class="btn-group inline-flex rounded-md shadow-sm" role="group">
-   <slot />
+  <div
+    class="btn-group inline-flex rounded-md shadow-sm"
+    role="group"
+  >
+    <slot />
   </div>
 </template>
 <!-- TODO: maybe use provide/inject to control styles -->
