@@ -3,6 +3,7 @@
     <slot />
   </ul>
 </template>
+
 <script lang="ts" setup>
 import { useListGroupClasses } from './composables/useListGroupClasses'
 
