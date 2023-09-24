@@ -1,9 +1,9 @@
 <script setup>
-import FwbAccordionExample from './accordion/examples/FwbAccordionExample.vue';
-import FwbAccordionExampleAlwaysOpen from './accordion/examples/FwbAccordionExampleAlwaysOpen.vue';
-import FwbAccordionExampleFlush from './accordion/examples/FwbAccordionExampleFlush.vue';
-import FwbAccordionExampleStyledHeaders from './accordion/examples/FwbAccordionExampleStyledHeaders.vue';
-import FwbAccordionExampleFirstItemClosed from './accordion/examples/FwbAccordionExampleFirstItemClosed.vue';
+import FwbAccordionExample from './accordion/examples/FwbAccordionExample.vue'
+import FwbAccordionExampleAlwaysOpen from './accordion/examples/FwbAccordionExampleAlwaysOpen.vue'
+import FwbAccordionExampleFlush from './accordion/examples/FwbAccordionExampleFlush.vue'
+import FwbAccordionExampleStyledHeaders from './accordion/examples/FwbAccordionExampleStyledHeaders.vue'
+import FwbAccordionExampleFirstItemClosed from './accordion/examples/FwbAccordionExampleFirstItemClosed.vue'
 </script>
 # Vue Accordion - Flowbite
 

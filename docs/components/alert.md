@@ -1,11 +1,11 @@
 <script setup>
-import FwbAlertExampleBorder from './alert/examples/FwbAlertExampleBorder.vue';
-import FwbAlertExampleBorderAccent from './alert/examples/FwbAlertExampleBorderAccent.vue';
-import FwbAlertExampleCustomContent from './alert/examples/FwbAlertExampleCustomContent.vue';
-import FwbAlertExampleDismissable from './alert/examples/FwbAlertExampleDismissable.vue';
-import FwbAlertExampleIcon from './alert/examples/FwbAlertExampleIcon.vue';
-import FwbAlertExampleList from './alert/examples/FwbAlertExampleList.vue';
-import FwbAlertExampleType from './alert/examples/FwbAlertExampleType.vue';
+import FwbAlertExampleBorder from './alert/examples/FwbAlertExampleBorder.vue'
+import FwbAlertExampleBorderAccent from './alert/examples/FwbAlertExampleBorderAccent.vue'
+import FwbAlertExampleCustomContent from './alert/examples/FwbAlertExampleCustomContent.vue'
+import FwbAlertExampleDismissable from './alert/examples/FwbAlertExampleDismissable.vue'
+import FwbAlertExampleIcon from './alert/examples/FwbAlertExampleIcon.vue'
+import FwbAlertExampleList from './alert/examples/FwbAlertExampleList.vue'
+import FwbAlertExampleType from './alert/examples/FwbAlertExampleType.vue'
 </script>
 
 # Vue Alert - Flowbite
@@ -264,17 +264,17 @@ import { FwbAlert } from 'flowbite-vue'
 ## API
 
 ### Props
-| Name       | Values                                        | Default |
-|------------|-----------------------------------------------|---------|
-| type       | `info`, `danger`, `success`,`warning`, `dark` | `info`  |
-| closable   | `boolean`                                     | `false` |
-| icon       | `boolean`                                     | `false` |
-| border     | `boolean`                                     | `false` |
+| Name     | Values                                        | Default |
+|----------|-----------------------------------------------|---------|
+| type     | `info`, `danger`, `success`,`warning`, `dark` | `info`  |
+| closable | `boolean`                                     | `false` |
+| icon     | `boolean`                                     | `false` |
+| border   | `boolean`                                     | `false` |
 
 ### Events
-| Name     | Description          |
-|----------|----------------------|
-| close    | Close button pressed |
+| Name  | Description          |
+|-------|----------------------|
+| close | Close button pressed |
 
 ### Slots
 | Name       | Description       |
