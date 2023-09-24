@@ -1,14 +1,23 @@
 <template>
-  <component :is="wrapperType" :href="href" :class="cardClasses">
-    <img v-if="imgSrc" class="rounded-t-lg" :class="horizontalImageClasses" :src="imgSrc" :alt="imgAlt"/>
+  <component
+    :is="wrapperType"
+    :class="cardClasses"
+    :href="href"
+  >
+    <img
+      v-if="imgSrc"
+      :alt="imgAlt"
+      :class="horizontalImageClasses"
+      :src="imgSrc"
+      class="rounded-t-lg"
+    >
     <div class="p-6">
       <slot />
     </div>
   </component>
 </template>
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
-import type { PropType } from 'vue'
+import { type PropType, computed, toRefs } from 'vue'
 import { useCardsClasses } from './composables/useCardClasses'
 import type { CardsVariant } from './types'
 
@@ -33,5 +42,4 @@ const props = defineProps({
 
 const { cardClasses, horizontalImageClasses } = useCardsClasses(toRefs(props))
 const wrapperType = computed(() => props.href ? 'a' : 'div')
-
 </script>
