@@ -1,10 +1,26 @@
+<template>
+  <div
+    :class="wrapperClasses"
+    v-bind="$attrs"
+  >
+    <a
+      :class="aClasses"
+      :href="href"
+    >
+      <img
+        :alt="alt"
+        :class="imageClasses"
+        :src="src"
+      >
+      <span :class="mameClasses">{{ name }}</span>
+    </a>
+  </div>
+</template>
+
 <script setup lang="ts">
-import { twMerge } from 'tailwind-merge'
 import { useAttrs } from 'vue'
-defineOptions({
-  inheritAttrs: false,
-})
-const attrs = useAttrs()
+import { twMerge } from 'tailwind-merge'
+
 interface IFooterProps {
   href: string
   src: string
@@ -14,6 +30,12 @@ interface IFooterProps {
   nameClass?: string
   aClass?: string
 }
+
+defineOptions({
+  inheritAttrs: false,
+})
+
+const attrs = useAttrs()
 const props = withDefaults(defineProps<IFooterProps>(), {
   href: '',
   src: '',
@@ -29,12 +51,3 @@ const aClasses = twMerge('flex items-center', props.aClass)
 const imageClasses = twMerge('h-8 mr-3', props.imageClass)
 const mameClasses = twMerge('self-center text-2xl font-semibold whitespace-nowrap dark:text-white', props.nameClass)
 </script>
-
-<template>
-  <div v-bind="$attrs" :class="wrapperClasses">
-    <a :href="href" :class="aClasses">
-      <img :src="src" :class="imageClasses" :alt="alt" />
-      <span :class="mameClasses">{{ name }}</span>
-    </a>
-  </div>
-</template>

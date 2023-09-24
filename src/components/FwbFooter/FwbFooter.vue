@@ -1,19 +1,32 @@
+<template>
+  <footer
+    v-bind="$attrs"
+    :class="wrapperClasses"
+  >
+    <slot />
+  </footer>
+</template>
+
 <script lang="ts" setup>
 import { useAttrs } from 'vue'
 import { twMerge } from 'tailwind-merge'
 
-defineOptions({
-  inheritAttrs: false,
-})
 type FooterType = 'sitemap' | 'default' | 'logo' | 'socialmedia'
+
 interface IFooterProps {
   sticky?: boolean
   footerType?: FooterType
 }
-const props = withDefaults(defineProps<IFooterProps>(), {
-  sticky: false,
-  footerType: 'default',
+
+defineOptions({
+  inheritAttrs: false,
 })
+
+const props = withDefaults(defineProps<IFooterProps>(), {
+  footerType: 'default',
+  sticky: false,
+})
+
 const attrs = useAttrs()
 const wrapperClasses = twMerge(
   props.footerType === 'sitemap' && 'bg-gray-800',
@@ -24,9 +37,3 @@ const wrapperClasses = twMerge(
   attrs.class as string,
 )
 </script>
-
-<template>
-  <footer v-bind="$attrs" :class="wrapperClasses">
-    <slot></slot>
-  </footer>
-</template>
