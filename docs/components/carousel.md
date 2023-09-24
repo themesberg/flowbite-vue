@@ -1,170 +1,120 @@
 <script setup>
-import CarouselDefaultExample from './carousel/examples/CarouselDefaultExample.vue';
-import CarouselNoControlsExample from './carousel/examples/CarouselNoControlsExample.vue';
-import CarouselNoIndicatorsExample from './carousel/examples/CarouselNoIndicatorsExample.vue';
-import CarouselSlideExample from './carousel/examples/CarouselSlideExample.vue';
-import CarouselSlideIntervalExample from './carousel/examples/CarouselSlideIntervalExample.vue';
-import CarouselPicturesExample from './carousel/examples/CarouselPicturesExample.vue';
+import FwbCarouselExample from './carousel/examples/FwbCarouselExample.vue'
+import FwbCarouselExamplePictures from './carousel/examples/FwbCarouselExamplePictures.vue'
+import FwbCarouselExampleSlide from './carousel/examples/FwbCarouselExampleSlide.vue'
+import FwbCarouselExampleSlideInterval from './carousel/examples/FwbCarouselExampleSlideInterval.vue'
+import FwbCarouselExampleWithoutControls from './carousel/examples/FwbCarouselExampleWithoutControls.vue'
+import FwbCarouselExampleWithoutIndicators from './carousel/examples/FwbCarouselExampleWithoutIndicators.vue'
 </script>
 # Vue Carousel - Flowbite
 
 Use the carousel component to slide through multiple elements and images using custom controls, indicators, intervals, and options
 
-## Default slider
+## Basic Carousel
 
+<fwb-carousel-example />
 ```vue
-<script setup>
-import { Carousel } from 'flowbite-vue'
-</script>
 <template>
-  <Carousel></Carousel>
+  <fwb-carousel :pictures="pictures" />
 </template>
-```
 
-<CarouselDefaultExample />
-
-## Prop - controls
-
-```typescript
-const props = defineProps({
-    controls: {
-    type: Boolean,
-    default: true,
-    },
-})
-```
-
-<CarouselNoControlsExample />
-
-```vue
 <script setup>
-import { Carousel } from 'flowbite-vue'
-</script>
-<template>
-  <Carousel :controls="false"></Carousel>
-</template>
-```
-## Prop - indicators
+import { FwbCarousel } from 'flowbite-vue'
 
-```typescript
-const props = defineProps({
-    indicators: {
-        type: Boolean,
-        default: true,
-    },
-})
-```
-
-<CarouselNoIndicatorsExample />
-
-```vue
-<script setup>
-import { Carousel } from 'flowbite-vue'
-</script>
-<template>
-  <Carousel :indicators="false"></Carousel>
-</template>
-```
-
-## Prop - slide
-
-```typescript
-const props = defineProps({
-    slide: {
-        type: Boolean,
-        default: false,
-    },
-})
-```
-
-<CarouselSlideExample />
-
-```vue
-<script setup>
-import { Carousel } from 'flowbite-vue'
-</script>
-<template>
-  <Carousel :slide="true"></Carousel>
-</template>
-```
-
-## Prop - slide interval
-
-```typescript
-const props = defineProps({
-    slideInterval: {
-        type: Number,
-        default: 3000,
-    },
-})
-```
-
-<CarouselSlideIntervalExample />
-
-```vue
-<script setup>
-import { Carousel } from 'flowbite-vue'
-</script>
-<template>
-  <Carousel :slide="true" :slide-interval="1000"></Carousel>
-</template>
-```
-
-## Prop - pictures
-
-```typescript
-const props = defineProps({
-    pictures: {
-        type: Array,
-        default() {
-            return [
-                {
-                    'src': 'https://flowbite.com/docs/images/carousel/carousel-1.svg',
-                    'alt': 'Picture 1',
-                },
-                {
-                    'src': 'https://flowbite.com/docs/images/carousel/carousel-2.svg',
-                    'alt': 'Picture 2',
-                },
-                {
-                    'src': 'https://flowbite.com/docs/images/carousel/carousel-3.svg',
-                    'alt': 'Picture 3',
-                },
-            ]
-        },
-    },
-})
-```
-
-<CarouselPicturesExample />
-
-```vue
-<script setup>
-import { Carousel } from 'flowbite-vue'
 const pictures = [
-  {
-    'src': 'https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg',
-    'alt': 'Picture 1',
-  },
-  {
-    'src': 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg',
-    'alt': 'Picture 2',
-  },
-  {
-    'src': 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg',
-    'alt': 'Picture 3',
-  },
-  {
-    'src': 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg',
-    'alt': 'Picture 4',
-  },
-  {
-    'src': 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg',
-    'alt': 'Picture 5',
-  },
+  {src: '/images/img-1.svg', alt: 'Image 1'},
+  {src: '/images/img-2.svg', alt: 'Image 2'},
+  {src: '/images/img-3.svg', alt: 'Image 3'},
 ]
 </script>
-<template>
-  <Carousel :pictures="pictures"></Carousel>
-</template>
 ```
+
+
+## Carousel without controls
+
+<fwb-carousel-example-without-controls />
+```vue
+<template>
+  <fwb-carousel no-controls :pictures="pictures" />
+</template>
+
+<script setup>
+import { FwbCarousel } from 'flowbite-vue'
+
+const pictures = [
+  {src: '/images/img-1.svg', alt: 'Image 1'},
+  {src: '/images/img-2.svg', alt: 'Image 2'},
+  {src: '/images/img-3.svg', alt: 'Image 3'},
+]
+</script>
+```
+## Carousel without indicators
+
+<fwb-carousel-example-without-indicators />
+```vue
+<template>
+  <fwb-carousel no-indicators :pictures="pictures" />
+</template>
+
+<script setup>
+import { FwbCarousel } from 'flowbite-vue'
+
+const pictures = [
+  {src: '/images/img-1.svg', alt: 'Image 1'},
+  {src: '/images/img-2.svg', alt: 'Image 2'},
+  {src: '/images/img-3.svg', alt: 'Image 3'},
+]
+</script>
+```
+
+## Carousel with slide animation
+
+<fwb-carousel-example-slide />
+```vue
+<template>
+  <fwb-carousel :pictures="pictures" slide />
+</template>
+
+<script setup>
+import { FwbCarousel } from 'flowbite-vue'
+
+const pictures = [
+  {src: '/images/img-1.svg', alt: 'Image 1'},
+  {src: '/images/img-2.svg', alt: 'Image 2'},
+  {src: '/images/img-3.svg', alt: 'Image 3'},
+]
+</script>
+```
+
+## Carousel with slide and custom interval
+
+<fwb-carousel-example-slide-interval />
+
+```vue
+<template>
+  <fwb-carousel :pictures="pictures" slide :slide-interval="1000"/>
+</template>
+
+<script setup>
+import { FwbCarousel } from 'flowbite-vue'
+
+const pictures = [
+  {src: '/images/img-1.svg', alt: 'Image 1'},
+  {src: '/images/img-2.svg', alt: 'Image 2'},
+  {src: '/images/img-3.svg', alt: 'Image 3'},
+]
+</script>
+```
+
+## Carousel API
+
+### Props
+
+| Name          | Type    | Values                         | Default |
+|---------------|---------|--------------------------------|---------|
+| animation     | Boolean | `true`, `false`                | `false` |
+| noControls    | Boolean | `true`, `false`                | `false` |
+| noIndicators  | Boolean | `true`, `false`                | `false` |
+| pictures      | Array   | `[{source: '', alt: ''}, ...]` | `[]`    |
+| slide         | Boolean | `true`, `false`                | `false` |
+| slideInterval | Number  |                                | `3000`  |
