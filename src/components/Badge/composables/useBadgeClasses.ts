@@ -38,6 +38,8 @@ export type UseBadgeClassesProps = {
     type: Ref<BadgeType>
     size: Ref<BadgeSize>
     href: Ref<string>
+    customBgColor?: Ref<string>
+    customTextColor?: Ref<string>
 }
 export type UseBadgeClassesOptions = {
     isContentEmpty: Ref<boolean>
@@ -46,6 +48,9 @@ export type UseBadgeClassesOptions = {
 export function useBadgeClasses(props: UseBadgeClassesProps, options: UseBadgeClassesOptions): {
     badgeClasses: Ref<string>
 } {
+    const bgColor = props.customBgColor?.value || badgeTypeClasses[props.type.value];
+    const textColor = props.customTextColor?.value || badgeTextClasses[props.type.value];
+    
     const badgeClasses = computed<string>(() => {
         return classNames(
             badgeSizeClasses[props.size.value],
