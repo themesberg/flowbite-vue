@@ -23,6 +23,14 @@ const props = defineProps({
     type: String,
     default: null,
   },
+   customBgColor: {
+    type: String,
+    default: null,
+  },
+  customTextColor: {
+    type: String,
+    default: null,
+  }
 })
 
 const slots = useSlots()
