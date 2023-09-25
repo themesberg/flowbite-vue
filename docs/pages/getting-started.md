@@ -10,7 +10,7 @@ Make sure that you have [Node.js](https://nodejs.org/en/) and [Tailwind CSS](htt
 
 1. Install `flowbite` and `flowbite-vue` as a dependency using NPM by running the following command:
 
-```text
+```bash
 npm i flowbite flowbite-vue
 ```
 

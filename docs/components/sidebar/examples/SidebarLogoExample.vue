@@ -1,6 +1,7 @@
 <template>
   <div class="vp-raw flex flex-col relative">
     <Sidebar class="!h-full relative">
+      <SidebarLogo name="Flowbite" logo="https://flowbite.com/docs/images/logo.svg" tag="router-link" />
       <SidebarItem>
         <template #icon>
           <svg
@@ -124,5 +125,5 @@
   </div>
 </template>
 <script setup>
-import { Sidebar, SidebarItem } from '../../../../src/index'
+import { Sidebar, SidebarItem, SidebarLogo } from '../../../../src/index'
 </script>

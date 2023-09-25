@@ -120,9 +120,20 @@
         </template>
         <template #default>Sign Up</template>
       </SidebarItem>
+
+      <SidebarCta v-if="isShowCta" label="Beta" @close="toggleCta">
+        <p class="mb-3 text-sm text-blue-800 dark:text-blue-400">Preview the new Flowbite dashboard navigation! You can turn the new navigation off for a limited time in your profile.</p>
+        <a class="text-sm text-blue-800 underline font-medium hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300" href="#">Turn new navigation off</a>
+      </SidebarCta>
     </Sidebar>
   </div>
 </template>
 <script setup>
-import { Sidebar, SidebarItem } from '../../../../src/index'
+import { Sidebar, SidebarCta, SidebarItem } from '../../../../src/index'
+import { ref } from 'vue'
+
+const isShowCta = ref(true)
+function toggleCta() {
+  isShowCta.value = !isShowCta.value
+}
 </script>
