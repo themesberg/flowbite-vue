@@ -1,8 +1,8 @@
 <script setup>
-import ModalExample from './modal/examples/ModalExample.vue';
-import ModalSizeExample from './modal/examples/ModalSizeExample.vue';
-import ModalEscapableExample from './modal/examples/ModalEscapableExample.vue';
-import ModalPersistentExample from './modal/examples/ModalPersistentExample.vue';
+import FwbModalExample from './modal/examples/FwbModalExample.vue'
+import FwbModalExampleSize from './modal/examples/FwbModalExampleSize.vue'
+import FwbModalExampleEscapable from './modal/examples/FwbModalExampleEscapable.vue'
+import FwbModalExamplePersistent from './modal/examples/FwbModalExamplePersistent.vue'
 </script>
 # Vue Modal - Flowbite
 
@@ -20,51 +20,53 @@ Get started with multiple sizes, colors, and styles built with the utility class
 
 ## Default modal
 
-<ModalExample />
-
+<fwb-modal-example />
 ```vue
-<script setup>
-import { Modal } from 'flowbite-vue'
+<template>
+  <fwb-button @click="showModal">
+    Open modal
+  </fwb-button>
+
+  <fwb-modal v-if="isShowModal" @close="closeModal">
+    <template #header>
+      <div class="flex items-center text-lg">
+        Terms of Service
+      </div>
+    </template>
+    <template #body>
+      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+      </p>
+      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+      </p>
+    </template>
+    <template #footer>
+      <div class="flex justify-between">
+        <fwb-button @click="closeModal" color="alternative">
+          Decline
+        </fwb-button>
+        <fwb-button @click="closeModal" color="green">
+          I accept
+        </fwb-button>
+      </div>
+    </template>
+  </fwb-modal>
+</template>
+
+<script lang="ts" setup>
 import { ref } from 'vue'
+import { FwbButton, FwbModal } from 'flowbite-vue'
 
 const isShowModal = ref(false)
-function closeModal() {
+
+function closeModal () {
   isShowModal.value = false
 }
-function showModal() {
+function showModal () {
   isShowModal.value = true
 }
 </script>
-<template>
-    <button @click="showModal" type="button" class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Show modal
-    </button>
-    <Modal :size="size" v-if="isShowModal" @close="closeModal">
-      <template #header>
-        <div class="flex items-center text-lg">
-          Terms of Service
-        </div>
-      </template>
-      <template #body>
-        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-          With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-        </p>
-        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-          The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-        </p>
-      </template>
-      <template #footer>
-        <div class="flex justify-between">
-          <button @click="closeModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
-            Decline
-          </button>
-          <button @click="closeModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            I accept
-          </button>
-        </div>
-      </template>
-    </Modal>
-</template>
 ```
 
 ## Size
@@ -75,19 +77,18 @@ You can use four different modal sizing options starting from small to extra lar
 
 The default value is: `2xl`
 
-Demo:
-<ModalSizeExample/>
-
+<fwb-modal-example-size />
 ```vue
-<script setup>
-import { Modal } from 'flowbite-vue'
-</script>
 <template>
-    <Modal size="xs" />
-    <Modal size="md" />
-    <Modal size="xl" />
-    <Modal size="5xl" />
+  <fwb-modal size="xs" />
+  <fwb-modal size="md" />
+  <fwb-modal size="xl" />
+  <fwb-modal size="5xl" />
 </template>
+
+<script setup>
+import { FwbModal } from 'flowbite-vue'
+</script>
 ```
 
 ## Escapable
@@ -100,49 +101,47 @@ This means that you may close the modal by
  - Clicking outside of the modal
  - Pressing the escape key
 
-In some situations, your user may be required to interact with the modal content. If this is the case, you can set the `escapable` property to false. The developer can then choose when they want to close the modal.
+In some situations, your user may be required to interact with the modal content. If this is the case, you can set the `not-escapable` property to `true`. The developer can then choose when they want to close the modal.
 
-Demo:
-<ModalEscapableExample/>
-
+<fwb-modal-example-escapable />
 ```vue
-<script setup>
-import { Modal } from 'flowbite-vue'
-</script>
 <template>
-    <Modal />
-    <Modal :escapable="false" />
+  <fwb-modal />
+  <fwb-modal not-escapable />
 </template>
+
+<script setup>
+import { FwbModal } from 'flowbite-vue'
+</script>
 ```
 
 ## Persistent
 
 Clicking outside of the element or pressing esc key will not send `close` event.
 
-Demo:
-<ModalPersistentExample />
-
+<fwb-modal-example-persistent />
 ```vue
-<script setup>
-import { Modal } from 'flowbite-vue'
-</script>
 <template>
-    <Modal persistent />
+  <fwb-modal persistent />
 </template>
+
+<script setup>
+import { FwbModal } from 'flowbite-vue'
+</script>
 ```
 
 ## API
 
 ### Props:
 
-| Name       | Values                                                    | Default |
-|------------|-----------------------------------------------------------|---------|
-| size       | `md`,`lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl` | 2xl     |
-| escapable  | `true`, `false`                                           | `true`  |
-| persistent | `true`, `false`                                           | `true`  |
+| Name         | Values                                                    | Default |
+|--------------|-----------------------------------------------------------|---------|
+| size         | `md`,`lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl` | 2xl     |
+| notEscapable | `true`, `false`                                           | `false` |
+| persistent   | `true`, `false`                                           | `true`  |
 
 ### Events:
-| Name                | Type                                                                             |
-|---------------------|----------------------------------------------------------------------------------|
-| `close`             | Clicked on the close button, pressed `Esc`, or clicked outside the modal content |
-| `click:outside`     | Clicked outside the modal content                                                |
+| Name            | Type                                                                             |
+|-----------------|----------------------------------------------------------------------------------|
+| `close`         | Clicked on the close button, pressed `Esc`, or clicked outside the modal content |
+| `click:outside` | Clicked outside the modal content                                                |

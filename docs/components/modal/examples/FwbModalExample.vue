@@ -1,9 +1,15 @@
 <template>
   <div class="vp-raw flex justify-start">
-    <button @click="showModal" type="button" class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    <fwb-button @click="showModal">
       {{ triggerText }}
-    </button>
-    <Modal :escapable="escapable" :size="size" v-if="isShowModal" @close="closeModal" :persistent="persistent">
+    </fwb-button>
+    <fwb-modal
+      v-if="isShowModal"
+      :not-escapable="notEscapable"
+      :persistent="persistent"
+      :size="size"
+      @close="closeModal"
+    >
       <template #header>
         <div class="flex items-center text-lg">
           Terms of Service
@@ -19,40 +25,49 @@
       </template>
       <template #footer>
         <div class="flex justify-between">
-          <button @click="closeModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+          <fwb-button
+            color="alternative"
+            @click="closeModal"
+          >
             Decline
-          </button>
-          <button @click="closeModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          </fwb-button>
+          <fwb-button
+            color="green"
+            @click="closeModal"
+          >
             I accept
-          </button>
+          </fwb-button>
         </div>
       </template>
-    </Modal>
+    </fwb-modal>
   </div>
 </template>
 <script lang="ts" setup>
-import { Modal } from '../../../../src/index'
-import type { ModalSize } from '../../../../src/components/Modal/types'
 import { ref } from 'vue'
+import { FwbButton, FwbModal } from '../../../../src/index'
+import { type ModalSize } from '../../../../src/components/FwbModal/types'
 
 interface ModalProps {
   size?: ModalSize,
-  escapable?: boolean,
+  notEscapable?: boolean,
   persistent?: boolean,
   triggerText?: string
 }
+
 withDefaults(defineProps<ModalProps>(), {
   size: '2xl',
-  escapable: true,
+  notEscapable: false,
   persistent: false,
-  triggerText: 'Demo Modal',
+  triggerText: 'Open Modal',
 })
 
 const isShowModal = ref(false)
-function closeModal() {
+
+function closeModal () {
   isShowModal.value = false
 }
-function showModal() {
+
+function showModal () {
   isShowModal.value = true
 }
 </script>

@@ -22,13 +22,13 @@ export { default as FwbFooterLink } from './components/FwbFooter/FwbFooterLink.v
 export { default as FwbFooterLinkGroup } from './components/FwbFooter/FwbFooterLinkGroup.vue'
 export { default as FwbListGroup } from './components/FwbListGroup/FwbListGroup.vue'
 export { default as FwbListGroupItem } from './components/FwbListGroup/FwbListGroupItem.vue'
+export { default as FwbModal } from './components/FwbModal/FwbModal.vue'
 
 export { default as Spinner } from './components/Spinner/Spinner.vue'
 export { default as Tabs } from './components/Tabs/Tabs.vue'
 export { default as Tab } from './components/Tabs/components/Tab/Tab.vue'
 export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
 export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
-export { default as Modal } from './components/Modal/Modal.vue'
 export { default as Navbar } from './components/Navbar/Navbar.vue'
 export { default as NavbarLogo } from './components/Navbar/NavbarLogo'
 export { default as NavbarCollapse } from './components/Navbar/NavbarCollapse.vue'
@@ -56,8 +56,6 @@ export { default as Tooltip } from './components/Tooltip/Tooltip.vue'
 export { default as Textarea } from './components/Textarea/Textarea.vue'
 export { default as Input } from './components/Input/Input.vue'
 
-export { default as SlotListener } from './components/utils/SlotListener/SlotListener.vue'
-
 export { default as Checkbox } from './components/Checkbox/Checkbox.vue'
 
 export { default as Select } from './components/Select/Select.vue'
@@ -75,5 +73,8 @@ export { default as FwbA } from './components/Typography/FwbA.vue'
 export { default as FwbHeading } from './components/Typography/FwbHeading.vue'
 export { default as FwbImg } from './components/Typography/FwbImg.vue'
 export { default as FwbP } from './components/Typography/FwbP.vue'
+
+// utilities
+export { default as SlotListener } from './components/utils/SlotListener/SlotListener.vue'
 
 export * from './composables'
