@@ -1,16 +1,17 @@
 <template>
-  <div class="vp-raw flex items-center justify-center text-center">
-    <Pagination
+  <div class="vp-raw flex justify-center">
+    <fwb-pagination
       v-model="currentPage"
       :layout="'table'"
       :per-page="10"
       :total-items="998"
-    ></Pagination>
+    />
   </div>
 </template>
+
 <script lang="ts" setup>
-import { Pagination } from '../../../../src/index'
 import { ref } from 'vue'
+import { FwbPagination } from '../../../../src/index'
 
 const currentPage = ref<number>(1)
 </script>

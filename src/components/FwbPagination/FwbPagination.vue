@@ -1,6 +1,9 @@
 <template>
-  <nav aria-label="Page navigation example">
-    <div class="text-sm text-gray-700 dark:text-gray-400 mb-2" v-if="layout === 'table'">
+  <nav>
+    <div
+      v-if="layout === 'table'"
+      class="text-sm text-gray-700 dark:text-gray-400 mb-2"
+    >
       Showing
       <span class="font-semibold text-gray-900 dark:text-white">{{ startItemsCount }}</span>
       to
@@ -12,11 +15,28 @@
       <li>
         <button
           :disabled="isDecreaseDisabled"
-          @click="decreasePage"
           class="flex items-center py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          @click="decreasePage"
         >
-          <svg v-if="showIcons" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" class="h-5 w-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-          {{ previousLabel }}
+          <svg
+            v-if="showIcons"
+            aria-hidden="true"
+            class="h-5 w-5"
+            fill="currentColor"
+            height="1em"
+            stroke-width="0"
+            stroke="currentColor"
+            viewBox="0 0 20 20"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          {{ labelPrevious }}
         </button>
       </li>
       <li
@@ -24,10 +44,10 @@
         :key="index"
       >
         <button
-            :disabled="isSetPageDisabled(index)"
-            @click="setPage(index)"
-            class="w-12 py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            :class="{'text-blue-600 dark:text-white bg-blue-50 dark:bg-gray-700': index === modelValue}"
+          :class="{'text-blue-600 dark:text-white bg-blue-50 dark:bg-gray-700': index === modelValue}"
+          :disabled="isSetPageDisabled(index)"
+          class="w-12 py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          @click="setPage(index)"
         >
           {{ index }}
         </button>
@@ -35,61 +55,63 @@
       <li>
         <button
           :disabled="isIncreaseDisabled"
-          @click="increasePage"
           class="flex items-center py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          @click="increasePage"
         >
-          {{ nextLabel }}
-          <svg v-if="showIcons" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" class="h-5 w-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+          {{ labelNext }}
+          <svg
+            v-if="showIcons"
+            aria-hidden="true"
+            class="h-5 w-5"
+            fill="currentColor"
+            height="1em"
+            stroke-width="0"
+            stroke="currentColor"
+            viewBox="0 0 20 20"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              fill-rule="evenodd"
+            />
+          </svg>
         </button>
       </li>
     </ul>
   </nav>
 </template>
+
 <script lang="ts" setup>
 import { computed } from 'vue'
-import type { PropType } from 'vue'
-import type { PaginationLayout } from '@/components/Pagination/types'
+import type { PaginationLayout } from './types'
+
+interface IPaginationProps {
+  labelNext?: string
+  labelPrevious?: string
+  layout?: PaginationLayout
+  modelValue?: number
+  perPage?: number
+  showIcons?: boolean
+  sliceLength?: number
+  totalItems?: number | null
+  totalPages?: number
+}
+
+const props = withDefaults(defineProps<IPaginationProps>(), {
+  labelNext: 'Next',
+  labelPrevious: 'Previous',
+  layout: 'pagination',
+  modelValue: 1,
+  perPage: 10,
+  showIcons: false,
+  sliceLength: 2,
+  totalItems: null,
+  totalPages: 1,
+})
 
 const emit = defineEmits(['update:modelValue'])
-
-const props = defineProps({
-  modelValue: {
-    type: Number,
-    default: 1,
-  },
-  totalPages: {
-    type: Number,
-    default: 1,
-  },
-  perPage: {
-    type: Number,
-    default: 10,
-  },
-  totalItems: {
-    type: Number,
-    required: false,
-  },
-  layout: {
-    type: String as PropType<PaginationLayout>, // 'navigation' | 'pagination' | 'table'
-    default: 'pagination',
-  },
-  showIcons: {
-    type: Boolean,
-    default: false,
-  },
-  sliceLength: {
-    type: Number,
-    default: 2,
-  },
-  previousLabel: {
-    type: String,
-    default: 'Previous',
-  },
-  nextLabel: {
-    type: String,
-    default: 'Next',
-  },
-})
 
 const setPage = (index: number) => {
   emit('update:modelValue', index)
@@ -116,14 +138,14 @@ const pagesToDisplay = computed(() => {
   if (props.layout === 'table') return []
 
   if (computedTotalPages.value <= props.sliceLength * 2 + 1) {
-    const pages = []
+    const pages: number[] = []
     for (let page = 1; page <= computedTotalPages.value; page++) {
       pages.push(page)
     }
     return pages
   }
   if (props.modelValue <= props.sliceLength) {
-    const pages = []
+    const pages: number[] = []
     const slicedLength = Math.abs(props.modelValue - props.sliceLength) + props.modelValue + props.sliceLength + 1
     for (let page = 1; page <= slicedLength; page++) {
       pages.push(page)
@@ -131,22 +153,21 @@ const pagesToDisplay = computed(() => {
     return pages
   }
   if (props.modelValue >= computedTotalPages.value - props.sliceLength) {
-    const pages = []
+    const pages: number[] = []
     for (let page = Math.abs(computedTotalPages.value - props.sliceLength * 2); page <= computedTotalPages.value; page++) {
       pages.push(page)
     }
     return pages
   }
 
-  const pages = []
-  let startedPage = props.modelValue - props.sliceLength > 0 ? props.modelValue - props.sliceLength : 1
+  const pages: number[] = []
+  const startedPage = props.modelValue - props.sliceLength > 0 ? props.modelValue - props.sliceLength : 1
   for (let page = startedPage; page < props.modelValue + props.sliceLength + 1; page++) {
     if (page >= computedTotalPages.value) break
     pages.push(page)
   }
   return pages
 })
-
 
 const startItemsCount = computed(() => props.modelValue * props.perPage - props.perPage + 1)
 const endItemsCount = computed(() => {
