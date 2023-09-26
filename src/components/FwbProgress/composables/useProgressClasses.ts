@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
 import classNames from 'classnames'
-import type { ProgressVariant, ProgressSize, ProgressLabelPosition } from '../types'
+import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from '../types'
 
 const barColorClasses: Record<ProgressVariant, string> = {
   default: 'bg-blue-600 dark:bg-blue-600',
@@ -15,14 +15,14 @@ const barColorClasses: Record<ProgressVariant, string> = {
 }
 
 const outsideTextColorClasses: Record<ProgressVariant, string> = {
-    default: '',
-    blue: 'text-blue-700 dark:text-blue-500',
-    dark: 'dark:text-white',
-    green: 'text-green-700 dark:text-green-500',
-    red: 'text-red-700 dark:text-red-500',
-    yellow: 'text-yellow-700 dark:text-yellow-500',
-    indigo: 'text-indigo-700 dark:text-indigo-500',
-    purple: 'text-purple-700 dark:text-purple-500',
+  default: '',
+  blue: 'text-blue-700 dark:text-blue-500',
+  dark: 'dark:text-white',
+  green: 'text-green-700 dark:text-green-500',
+  red: 'text-red-700 dark:text-red-500',
+  yellow: 'text-yellow-700 dark:text-yellow-500',
+  indigo: 'text-indigo-700 dark:text-indigo-500',
+  purple: 'text-purple-700 dark:text-purple-500',
 }
 
 const progressSizeClasses: Record<ProgressSize, string> = {
@@ -38,21 +38,21 @@ export type UseProgressClassesProps = {
   labelPosition: Ref<ProgressLabelPosition>
 }
 
-export function useProgressClasses(props: UseProgressClassesProps): { innerClasses: Ref<string>, outerClasses: Ref<string>, outsideLabelClasses: Ref<string>} {
+export function useProgressClasses (props: UseProgressClassesProps): { innerClasses: Ref<string>, outerClasses: Ref<string>, outsideLabelClasses: Ref<string>} {
   const bindClasses = computed(() => {
     return classNames(
-        barColorClasses[props.color.value],
-        progressSizeClasses[props.size.value],
+      barColorClasses[props.color.value],
+      progressSizeClasses[props.size.value],
     )
   })
   const outerClasses = computed(() => {
     return classNames(
-        progressSizeClasses[props.size.value],
+      progressSizeClasses[props.size.value],
     )
   })
   const outsideLabelClasses = computed(() => {
     return classNames(
-        outsideTextColorClasses[props.color.value],
+      outsideTextColorClasses[props.color.value],
     )
   })
 
