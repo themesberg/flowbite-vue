@@ -1,7 +1,6 @@
+import { type Ref, computed } from 'vue'
 import type { ButtonGradient, ButtonSize, ButtonVariant } from '../types'
-import type { SpinnerColor, SpinnerSize } from '../../Spinner/types'
-import type { Ref } from 'vue'
-import { computed } from 'vue'
+import type { SpinnerColor, SpinnerSize } from '@components/FwbSpinner/types'
 
 export type UseButtonSpinnerProps = {
     outline: Ref<boolean>
@@ -37,7 +36,7 @@ export function useButtonSpinner (props: UseButtonSpinnerProps): { size: Ref<Spi
   })
 
   return {
-    size,
     color,
+    size,
   }
 }

@@ -1,7 +1,7 @@
 <script setup>
-import SpinnerBasicExample from './spinner/examples/SpinnerBasicExample.vue';
-import SpinnerSizeExample from './spinner/examples/SpinnerSizeExample.vue';
-import SpinnerColorExample from './spinner/examples/SpinnerColorExample.vue';
+import FwbSpinnerExample from './spinner/examples/FwbSpinnerExample.vue'
+import FwbSpinnerExampleColor from './spinner/examples/FwbSpinnerExampleColor.vue'
+import FwbSpinnerExampleSize from './spinner/examples/FwbSpinnerExampleSize.vue'
 </script>
 
 # Vue Spinner - Flowbite
@@ -16,79 +16,60 @@ Original reference: [https://flowbite.com/docs/components/spinner/](https://flow
 
 The spinner component can be used as a loading indicator which comes in multiple colors, sizes, and styles separately or inside elements such as buttons to improve the user experience whenever data is being fetched from your server.
 
-
 ## Basic example
 
-<SpinnerBasicExample />
-
+<fwb-spinner-example />
 ```vue
-<script setup>
-import { Spinner } from 'flowbite-vue'
-</script>
 <template>
-  <spinner />
+  <fwb-spinner />
 </template>
+
+<script setup>
+import { FwbSpinner } from 'flowbite-vue'
+</script>
 ```
 
 ## Prop - size
 
-```typescript
-type SpinnerSize = '0' | 'px' | '0.5' | '1' | '1.5' | '2' | '2.5' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12'
-
-defineProps({
-    size: {
-        type: String as PropType<SpinnerSize>, // any string for w-${size} and h-${size} tailwind classes
-        default: '4',
-    },
-})
-```
-
-
-<SpinnerSizeExample />
-
+<fwb-spinner-example-size />
 ```vue
-<script setup>
-import { Spinner } from 'flowbite-vue'
-</script>
 <template>
-  <spinner />
-  <spinner size="6" />
-  <spinner size="8" />
-  <spinner size="10" />
-  <spinner size="12" />
+  <fwb-spinner />
+  <fwb-spinner size="6" />
+  <fwb-spinner size="8" />
+  <fwb-spinner size="10" />
+  <fwb-spinner size="12" />
 </template>
-```
 
+<script setup>
+import { FwbSpinner } from 'flowbite-vue'
+</script>
+```
 
 ## Prop - color
 
-```typescript
-type SpinnerColor = 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white'
-
-defineProps({
-    color: {
-        type: String as PropType<SpinnerColor>,
-        default: 'blue',
-    },
-})
-```
-
-
-<SpinnerColorExample />
-
+<fwb-spinner-example-color />
 ```vue
-<script setup>
-import { Spinner } from 'flowbite-vue'
-</script>
 <template>
-  <spinner color="blue" size="6" />
-  <spinner color="pink" size="8" />
-  <spinner color="gray" size="10" />
-  <spinner color="green" size="12" />
-  <spinner color="purple" size="10" />
-  <spinner color="white" size="8" />
-  <spinner color="yellow" size="6" />
-  <spinner color="red" size="4" />
+  <fwb-spinner color="blue" />
+  <fwb-spinner color="gray" />
+  <fwb-spinner color="green" />
+  <fwb-spinner color="pink" />
+  <fwb-spinner color="purple" />
+  <fwb-spinner color="red" />
+  <fwb-spinner color="white" />
+  <fwb-spinner color="yellow" />
 </template>
+
+<script setup>
+import { FwbSpinner } from 'flowbite-vue'
+</script>
 ```
 
+## API
+
+### Props
+| Name  | Values                                                                                  | Default |
+|-------|-----------------------------------------------------------------------------------------|---------|
+| color | `blue`, `gray`, `green`, `pink`, `purple`, `red`, `white`, `yellow`                     | `blue`  |
+| size  | `0`, `0.5`, `1`, `1.5`, `10`, `11`, `12`, `2`, `2.5`, `3`, `4`, `5`, `6`, `7`, `8`, `9` | `4`     |

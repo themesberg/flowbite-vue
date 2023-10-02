@@ -9,7 +9,7 @@
       class="mr-2"
     >
       <!--automatically add mr class if slot provided or loading -->
-      <spinner
+      <fwb-spinner
         v-if="loadingPrefix"
         :color="spinnerColor"
         :size="spinnerSize"
@@ -26,7 +26,7 @@
         class="mr-2"
       >
         <!--if outline gradient - need to place slots inside span -->
-        <spinner
+        <fwb-spinner
           v-if="loadingPrefix"
           :color="spinnerColor"
           :size="spinnerSize"
@@ -42,7 +42,7 @@
         class="ml-2"
       >
         <!--if outline gradient - need to place slots inside span -->
-        <spinner
+        <fwb-spinner
           v-if="loadingSuffix"
           :color="spinnerColor"
           :size="spinnerSize"
@@ -58,7 +58,7 @@
       class="ml-2"
     >
       <!--automatically add ml class if slot provided or loading -->
-      <spinner
+      <fwb-spinner
         v-if="loadingSuffix"
         :color="spinnerColor"
         :size="spinnerSize"
@@ -72,7 +72,7 @@
 </template>
 <script lang="ts" setup>
 import { computed, resolveComponent, toRefs } from 'vue'
-import Spinner from '../Spinner/Spinner.vue'
+import FwbSpinner from '@/components/FwbSpinner/FwbSpinner.vue'
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
 import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
@@ -119,3 +119,4 @@ const linkComponent = props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
 const buttonComponent = props.href ? linkComponent : 'button'
 const linkAttr = props.tag === 'router-link' || props.tag === 'nuxt-link' ? 'to' : 'href'
 </script>
+../FwbSpinner/Spinner.vue

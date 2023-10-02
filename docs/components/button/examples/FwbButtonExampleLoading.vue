@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw flex flex-wrap gap-2">
+  <div class="vp-raw flex flex-wrap items-center gap-2">
     <fwb-button
       :disabled="loading"
       :loading="loading"
