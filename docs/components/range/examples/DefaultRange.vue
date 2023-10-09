@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Range v-model="value" />
+    <range v-model="value" />
   </div>
 </template>
 

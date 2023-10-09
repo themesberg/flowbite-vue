@@ -1,5 +1,9 @@
 <template>
-  <aside v-bind="$attrs" :class="wrapperClasses" aria-label="Sidebar">
+  <aside
+    v-bind="$attrs"
+    :class="wrapperClasses"
+    aria-label="Sidebar"
+  >
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
       <div class="space-y-2 font-medium">
         <slot />

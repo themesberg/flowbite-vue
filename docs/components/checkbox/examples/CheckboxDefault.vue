@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Checkbox v-model="ref1" label="Default checkbox" />
+    <checkbox
+      v-model="ref1"
+      label="Default checkbox"
+    />
   </div>
 </template>
 

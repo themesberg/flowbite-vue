@@ -1,7 +1,17 @@
 <template>
   <div>
-    <Radio name="default radio" v-model="picked" value="one" label="Default radio" />
-    <Radio name="default radio" v-model="picked" value="two" label="Checked state" />
+    <radio
+      v-model="picked"
+      name="default radio"
+      value="one"
+      label="Default radio"
+    />
+    <radio
+      v-model="picked"
+      name="default radio"
+      value="two"
+      label="Checked state"
+    />
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="vp-raw flex flex-col relative">
-    <Sidebar class="!h-full relative">
-      <SidebarItem>
+    <sidebar class="!h-full relative">
+      <sidebar-item>
         <template #icon>
           <svg
             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -14,9 +14,11 @@
             <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
           </svg>
         </template>
-        <template #default>Dashboard</template>
-      </SidebarItem>
-      <SidebarItem>
+        <template #default>
+          Dashboard
+        </template>
+      </sidebar-item>
+      <sidebar-item>
         <template #icon>
           <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -30,12 +32,14 @@
             />
           </svg>
         </template>
-        <template #default>Kanban</template>
+        <template #default>
+          Kanban
+        </template>
         <template #suffix>
           <span class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
         </template>
-      </SidebarItem>
-      <SidebarDropdownItem>
+      </sidebar-item>
+      <sidebar-dropdown-item>
         <template #icon>
           <svg
             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -48,16 +52,24 @@
             <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
           </svg>
         </template>
-        <template #trigger> E-commerce </template>
-        <template #default>
-          <SidebarItem class="pl-11"> Products </SidebarItem>
-          <SidebarItem class="pl-11"> Sign In </SidebarItem>
-          <SidebarItem class="pl-11"> Sign Up </SidebarItem>
+        <template #trigger>
+          E-commerce
         </template>
-      </SidebarDropdownItem>
-    </Sidebar>
+        <template #default>
+          <sidebar-item class="pl-11">
+            Products
+          </sidebar-item>
+          <sidebar-item class="pl-11">
+            Sign In
+          </sidebar-item>
+          <sidebar-item class="pl-11">
+            Sign Up
+          </sidebar-item>
+        </template>
+      </sidebar-dropdown-item>
+    </sidebar>
   </div>
 </template>
 <script setup>
-import { Sidebar, SidebarItem, SidebarDropdownItem } from '../../../../src/index'
+import { Sidebar, SidebarDropdownItem, SidebarItem } from '../../../../src/index'
 </script>

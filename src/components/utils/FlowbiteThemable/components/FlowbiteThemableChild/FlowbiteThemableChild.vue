@@ -1,5 +1,8 @@
 <template>
-  <component :is="tag" :class="simplifyTailwindClasses(classAttr, classes)">
+  <component
+    :is="tag"
+    :class="simplifyTailwindClasses(classAttr, classes)"
+  >
     <slot />
   </component>
 </template>

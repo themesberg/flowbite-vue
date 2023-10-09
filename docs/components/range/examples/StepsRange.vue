@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Range v-model="value" label="Steps range" steps="5" />
+    <range
+      v-model="value"
+      label="Steps range"
+      steps="5"
+    />
   </div>
 </template>
 

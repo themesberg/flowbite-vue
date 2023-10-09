@@ -3,14 +3,31 @@
     <div v-if="!dropzone">
       <label>
         <span :class="labelClasses">{{ label }}</span>
-        <input :class="fileInpClasses" :multiple="multiple" @change="handleChange" type="file" />
+        <input
+          :class="fileInpClasses"
+          :multiple="multiple"
+          type="file"
+          @change="handleChange"
+        >
       </label>
       <slot />
     </div>
-    <div v-else @change="handleChange" @drop="dropFileHandler" @dragover="dragOverHandler" class="flex items-center justify-center">
+    <div
+      v-else
+      class="flex items-center justify-center"
+      @change="handleChange"
+      @drop="dropFileHandler"
+      @dragover="dragOverHandler"
+    >
       <label :class="dropzoneLabelClasses">
         <div :class="dropzoneWrapClasses">
-          <svg class="w-8 h-8 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+          <svg
+            class="w-8 h-8 text-gray-500 dark:text-gray-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 20 16"
+          >
             <path
               stroke="currentColor"
               stroke-linecap="round"
@@ -28,7 +45,11 @@
           </div>
           <p v-else>File: {{ dropZoneText }}</p>
         </div>
-        <input :multiple="multiple" type="file" class="hidden" />
+        <input
+          :multiple="multiple"
+          type="file"
+          class="hidden"
+        >
       </label>
     </div>
   </div>
@@ -69,10 +90,10 @@ const dropZoneText = computed(() => {
 
 const emit = defineEmits(['update:modelValue'])
 const model = computed({
-  get() {
+  get () {
     return props.modelValue
   },
-  set(val) {
+  set (val) {
     emit('update:modelValue', val)
   },
 })

@@ -46,7 +46,10 @@ export function useDropdownClasses (props: UseDropdownClassesProps): {
 
   const calculatePlacementClasses = () => {
     const boundingRect = props.contentRef.value?.getBoundingClientRect()
-    if (!boundingRect) return placementStyles.value = ''
+    if (!boundingRect) {
+      placementStyles.value = ''
+      return
+    }
     placementStyles.value = placementCalculators[props.placement.value](boundingRect)
   }
 

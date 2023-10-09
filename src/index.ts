@@ -71,7 +71,7 @@ export { default as Checkbox } from './components/Checkbox/Checkbox.vue'
 
 export { default as Select } from './components/Select/Select.vue'
 
-export { default as Toggle } from './components/Toggle/Toggle.vue'
+export { default as FwbToggle } from './components/Toggle/Toggle.vue'
 
 export { default as Range } from './components/Range/Range.vue'
 

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Range v-model="value" label="Min-max range" min="0" max="10" />
+    <range
+      v-model="value"
+      label="Min-max range"
+      min="0"
+      max="10"
+    />
   </div>
 </template>
 

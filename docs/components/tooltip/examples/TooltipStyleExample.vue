@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap justify-center py-8 space-x-3">
     <!-- light style tooltip -->
-    <Tooltip theme="light">
+    <tooltip theme="light">
       <template #trigger>
         <button
           type="button"
@@ -13,9 +13,9 @@
       <template #content>
         Tooltip content
       </template>
-    </Tooltip>
+    </tooltip>
     <!-- dark style tooltip -->
-    <Tooltip theme="dark">
+    <tooltip theme="dark">
       <template #trigger>
         <button
           type="button"
@@ -27,10 +27,10 @@
       <template #content>
         Tooltip content
       </template>
-    </Tooltip>
+    </tooltip>
   </div>
 </template>
 
 <script setup>
-  import { Tooltip } from '../../../../src/index'
+import { Tooltip } from '../../../../src/index'
 </script>

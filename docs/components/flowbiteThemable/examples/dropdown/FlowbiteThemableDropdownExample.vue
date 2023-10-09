@@ -17,7 +17,7 @@
 </template>
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import { FlowbiteThemable, Dropdown } from '../../../../../src/index'
+import { Dropdown, FlowbiteThemable } from '../../../../../src/index'
 import type { FlowbiteTheme } from '../../../../../src/components/utils/FlowbiteThemable/types'
 
 defineProps({

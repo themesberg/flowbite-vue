@@ -1,17 +1,29 @@
 <template>
   <div class="vp-raw flex align-center gap-2 flex-wrap flex-col">
-    <Toast type="empty" closable>
+    <toast
+      type="empty"
+      closable
+    >
       You've unlocked achievement.
-    </Toast>
-    <Toast :type="'warning'" closable>
+    </toast>
+    <toast
+      :type="'warning'"
+      closable
+    >
       Improve password difficulty.
-    </Toast>
-    <Toast :type="'success'" closable>
+    </toast>
+    <toast
+      :type="'success'"
+      closable
+    >
       Item moved successfully.
-    </Toast>
-    <Toast :type="'danger'" closable>
+    </toast>
+    <toast
+      :type="'danger'"
+      closable
+    >
       Item has been deleted.
-    </Toast>
+    </toast>
   </div>
 </template>
 <script setup>

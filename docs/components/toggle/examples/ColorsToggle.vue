@@ -1,11 +1,35 @@
 <template>
   <div class="flex justify-between">
-    <Toggle v-model="toggle1" label="Red" color="red" />
-    <Toggle v-model="toggle2" label="Green" color="green" />
-    <Toggle v-model="toggle3" label="Purple" color="purple" />
-    <Toggle v-model="toggle4" label="Yellow" color="yellow" />
-    <Toggle v-model="toggle5" label="Teal" color="teal" />
-    <Toggle v-model="toggle6" label="Orange" color="orange" />
+    <toggle
+      v-model="toggle1"
+      label="Red"
+      color="red"
+    />
+    <toggle
+      v-model="toggle2"
+      label="Green"
+      color="green"
+    />
+    <toggle
+      v-model="toggle3"
+      label="Purple"
+      color="purple"
+    />
+    <toggle
+      v-model="toggle4"
+      label="Yellow"
+      color="yellow"
+    />
+    <toggle
+      v-model="toggle5"
+      label="Teal"
+      color="teal"
+    />
+    <toggle
+      v-model="toggle6"
+      label="Orange"
+      color="orange"
+    />
   </div>
 </template>
 

@@ -1,7 +1,13 @@
 <template>
   <label class="flex w-[100%] items-center">
-    <input type="radio" v-model="model" :disabled="disabled" :name="name" :value="value"
-      :class="radioClasses">
+    <input
+      v-model="model"
+      type="radio"
+      :disabled="disabled"
+      :name="name"
+      :value="value"
+      :class="radioClasses"
+    >
     <span :class="labelClasses">{{ label }}</span>
     <slot />
   </label>
@@ -28,10 +34,10 @@ const props = withDefaults(defineProps<RadioProps>(), {
 
 const emit = defineEmits(['update:modelValue'])
 const model = computed({
-  get() {
+  get () {
     return props.modelValue
   },
-  set(val) {
+  set (val) {
     emit('update:modelValue', val)
   },
 })

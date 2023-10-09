@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import type { VNode, PropType } from 'vue'
+import type { PropType, VNode } from 'vue'
 import type { SlotListenerTrigger, TriggerEventHandlers } from '@/components/utils/SlotListener/types'
 import { getFirstSlotVNode } from '@/utils/getFirstSlotNode'
 import { pick } from 'lodash-es'
@@ -13,9 +13,9 @@ const triggerEventMap: Record<SlotListenerTrigger, string[]> = {
   hover: ['onMouseenter', 'onMouseleave'],
 }
 
-function appendEvents(
-    vNode: VNode,
-    events: TriggerEventHandlers,
+function appendEvents (
+  vNode: VNode,
+  events: TriggerEventHandlers,
 ): void {
   Object.entries(triggerEventMap).forEach(([, eventNames]) => {
     eventNames.forEach((eventName) => {
@@ -39,14 +39,14 @@ function appendEvents(
 
 export default defineComponent({
   name: 'SlotListener',
-  emits: ['click', 'focus', 'blur', 'mouseenter', 'mouseleave'],
   props: {
     trigger: {
       type: String as PropType<SlotListenerTrigger>,
       default: 'click',
     },
   },
-  setup(props, { emit }) {
+  emits: ['click', 'focus', 'blur', 'mouseenter', 'mouseleave'],
+  setup (props, { emit }) {
     const handleFocus = (e: FocusEvent) => {
       emit('focus', e)
     }
@@ -71,7 +71,7 @@ export default defineComponent({
       handleMouseEnter,
     }
   },
-  render() {
+  render () {
     const {
       $slots,
     } = this
@@ -84,13 +84,12 @@ export default defineComponent({
       onBlur: this.handleBlur,
     }
 
-    let triggerVNode = getFirstSlotVNode($slots, 'default')
+    const triggerVNode = getFirstSlotVNode($slots, 'default')
 
     const ascendantAndCurrentHandlers: TriggerEventHandlers[] = [
       handlers,
     ]
-    if (triggerVNode?.props)
-      ascendantAndCurrentHandlers.push(pick(triggerVNode.props, 'onClick', 'onMouseenter', 'onMouseleave', 'onFocus', 'onBlur'))
+    if (triggerVNode?.props) { ascendantAndCurrentHandlers.push(pick(triggerVNode.props, 'onClick', 'onMouseenter', 'onMouseleave', 'onFocus', 'onBlur')) }
 
     const mergedHandlers: TriggerEventHandlers = {
       onBlur: (e: FocusEvent) => {
@@ -120,11 +119,12 @@ export default defineComponent({
       },
     }
 
-    if (triggerVNode)
+    if (triggerVNode) {
       appendEvents(
-          triggerVNode,
-          mergedHandlers,
+        triggerVNode,
+        mergedHandlers,
       )
+    }
 
     return triggerVNode
   },

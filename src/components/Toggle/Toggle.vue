@@ -1,13 +1,18 @@
 <template>
   <label :class="labelClasses">
-    <input :disabled="disabled" v-model="model" type="checkbox" class="sr-only peer" />
-    <span :class="[toggleClasses, toggleSize, toggleColor]"></span>
+    <input
+      v-model="model"
+      :disabled="disabled"
+      type="checkbox"
+      class="sr-only peer"
+    >
+    <span :class="[toggleClasses, toggleSize, toggleColor]" />
     <span :class="toggleBallClasses">{{ label }}</span>
   </label>
 </template>
 
 <script lang="ts" setup>
-import { toRefs, computed } from 'vue'
+import { computed, toRefs } from 'vue'
 import { useToggleClasses } from './composables/useToggleClasses'
 import type { InputSize } from '@/components/Input/types'
 
@@ -29,10 +34,10 @@ const props = withDefaults(defineProps<ToggleProps>(), {
 
 const emit = defineEmits(['update:modelValue'])
 const model = computed({
-  get() {
+  get () {
     return props.modelValue
   },
-  set(val) {
+  set (val) {
     emit('update:modelValue', val)
   },
 })

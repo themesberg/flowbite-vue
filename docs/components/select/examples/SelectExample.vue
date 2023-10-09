@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Select v-model="selected" :options="countries" label="Select a country" />
+    <select
+      v-model="selected"
+      :options="countries"
+      label="Select a country"
+    />
   </div>
 </template>
 
@@ -8,7 +12,7 @@
 import { ref } from 'vue'
 import { Select } from '../../../../src/index'
 
-let selected = ref('')
+const selected = ref('')
 const countries = [
   { value: 'us', name: 'United States' },
   { value: 'ca', name: 'Canada' },

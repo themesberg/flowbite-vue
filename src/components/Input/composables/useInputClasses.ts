@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
-import { ValidationStatus, type InputSize } from '@/components/Input/types'
+import { type InputSize, ValidationStatus } from '@/components/Input/types'
 import { twMerge } from 'tailwind-merge'
 // LABEL
 const baseLabelClasses = 'block mb-2 text-sm font-medium'
@@ -25,19 +25,19 @@ export type UseInputClassesProps = {
   validationStatus: Ref<ValidationStatus | undefined>
 }
 
-export function useInputClasses(props: UseInputClassesProps): {
+export function useInputClasses (props: UseInputClassesProps): {
   inputClasses: Ref<string>
   labelClasses: Ref<string>
 } {
   const inputClasses = computed(() => {
     const vs = props.validationStatus.value
-    const classByStatus = vs === ValidationStatus.Success ? successInputClasses : vs == ValidationStatus.Error ? errorInputClasses : ''
+    const classByStatus = vs === ValidationStatus.Success ? successInputClasses : vs === ValidationStatus.Error ? errorInputClasses : ''
     return twMerge(defaultInputClasses, classByStatus, inputSizeClasses[props.size.value], props.disabled.value ? disabledInputClasses : '')
   })
 
   const labelClasses = computed(() => {
     const vs = props.validationStatus.value
-    const classByStatus = vs === ValidationStatus.Success ? 'text-green-700 dark:text-green-500' : vs == ValidationStatus.Error ? 'text-red-700 dark:text-red-500' : 'text-gray-900 dark:text-gray-300'
+    const classByStatus = vs === ValidationStatus.Success ? 'text-green-700 dark:text-green-500' : vs === ValidationStatus.Error ? 'text-red-700 dark:text-red-500' : 'text-gray-900 dark:text-gray-300'
     return twMerge(baseLabelClasses, classByStatus)
   })
 

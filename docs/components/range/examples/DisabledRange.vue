@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Range v-model="value" label="Disabled range" :disabled="true" />
+    <range
+      v-model="value"
+      label="Disabled range"
+      :disabled="true"
+    />
   </div>
 </template>
 

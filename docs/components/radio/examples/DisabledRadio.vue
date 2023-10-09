@@ -1,7 +1,19 @@
 <template>
   <div>
-    <Radio name="disabled-radio" v-model="picked" value="one" label="Disabled radio" :disabled="true" />
-    <Radio name="disabled-radio" v-model="picked" value="two" label="Disabled checked" :disabled="true" />
+    <radio
+      v-model="picked"
+      name="disabled-radio"
+      value="one"
+      label="Disabled radio"
+      :disabled="true"
+    />
+    <radio
+      v-model="picked"
+      name="disabled-radio"
+      value="two"
+      label="Disabled checked"
+      :disabled="true"
+    />
   </div>
 </template>
 

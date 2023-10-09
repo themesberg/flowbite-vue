@@ -11,7 +11,7 @@ module.exports = {
     'standard',
     'plugin:vue/vue3-recommended',
     'plugin:vue-scoped-css/vue3-recommended',
-    '@vue/eslint-config-typescript/recommended'
+    '@vue/eslint-config-typescript/recommended',
   ],
   parserOptions: {
     ecmaVersion: 12,

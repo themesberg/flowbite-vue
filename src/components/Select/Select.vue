@@ -1,9 +1,26 @@
 <template>
   <div>
-    <label v-if="label" :class="labelClasses">{{ label }}</label>
-    <select v-model="model" :disabled="disabled" :class="[selectClasses, underline? underlineClasses: '']">
-      <option disabled selected value="">{{ placeholder }}</option>
-      <option :value="option.value" v-for="(option, index) in options" :key="index">
+    <label
+      v-if="label"
+      :class="labelClasses"
+    >{{ label }}</label>
+    <select
+      v-model="model"
+      :disabled="disabled"
+      :class="[selectClasses, underline? underlineClasses: '']"
+    >
+      <option
+        disabled
+        selected
+        value=""
+      >
+        {{ placeholder }}
+      </option>
+      <option
+        v-for="(option, index) in options"
+        :key="index"
+        :value="option.value"
+      >
         {{ option.name }}
       </option>
     </select>
@@ -13,7 +30,7 @@
 <script lang="ts" setup>
 import type { InputSize } from '@/components/Input/types'
 import type { OptionsType } from '@/components/Select/types'
-import { toRefs, computed } from 'vue'
+import { computed, toRefs } from 'vue'
 import { useSelectClasses } from '@/components/Select/composables/useSelectClasses'
 
 interface InputProps {
@@ -37,10 +54,10 @@ const props = withDefaults(defineProps<InputProps>(), {
 const emit = defineEmits(['update:modelValue'])
 
 const model = computed({
-  get() {
+  get () {
     return props.modelValue
   },
-  set(val) {
+  set (val) {
     emit('update:modelValue', val)
   },
 })

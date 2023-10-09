@@ -1,8 +1,7 @@
 <template>
-  <Timeline class="vp-raw">
+  <timeline class="vp-raw">
     <timeline-item>
-      <timeline-point>
-      </timeline-point>
+      <timeline-point />
       <timeline-content>
         <timeline-time>
           February 2020
@@ -16,8 +15,7 @@
       </timeline-content>
     </timeline-item>
     <timeline-item>
-      <timeline-point>
-      </timeline-point>
+      <timeline-point />
       <timeline-content>
         <timeline-time>
           February 2020
@@ -31,8 +29,7 @@
       </timeline-content>
     </timeline-item>
     <timeline-item>
-      <timeline-point>
-      </timeline-point>
+      <timeline-point />
       <timeline-content>
         <timeline-time>
           February 2020
@@ -45,8 +42,8 @@
         </timeline-body>
       </timeline-content>
     </timeline-item>
-  </Timeline>
+  </timeline>
 </template>
 <script setup>
-import { Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle, TimelineBody } from '../../../../src/index'
+import { Timeline, TimelineBody, TimelineContent, TimelineItem, TimelinePoint, TimelineTime, TimelineTitle } from '../../../../src/index'
 </script>

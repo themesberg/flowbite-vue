@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Textarea rows="4" placeholder="Write you message..." v-model="message" label="Your message" />
+    <textarea
+      v-model="message"
+      rows="4"
+      placeholder="Write you message..."
+      label="Your message"
+    />
   </div>
 </template>
 

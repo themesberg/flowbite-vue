@@ -25,7 +25,7 @@ export type UseToggleClassesProps = {
   color: Ref<string>
 }
 
-export function useToggleClasses(props: UseToggleClassesProps) {
+export function useToggleClasses (props: UseToggleClassesProps) {
   const labelClasses = computed(() => {
     return defaultLabelClasses
   })
@@ -46,7 +46,7 @@ export function useToggleClasses(props: UseToggleClassesProps) {
     return defaultToggleBallClasses
   })
 
-  return { 
+  return {
     labelClasses,
     toggleSize,
     toggleClasses,

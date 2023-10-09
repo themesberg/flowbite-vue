@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap justify-center py-8 space-x-3">
     <!-- Show tooltip on top -->
-    <Tooltip placement="top">
+    <tooltip placement="top">
       <template #trigger>
         <button
           type="button"
@@ -13,9 +13,9 @@
       <template #content>
         Tooltip on top
       </template>
-    </Tooltip>
+    </tooltip>
     <!-- Show tooltip on right -->
-    <Tooltip placement="right">
+    <tooltip placement="right">
       <template #trigger>
         <button
           type="button"
@@ -27,9 +27,9 @@
       <template #content>
         Tooltip on right
       </template>
-    </Tooltip>
+    </tooltip>
     <!-- Show tooltip on bottom -->
-    <Tooltip placement="bottom">
+    <tooltip placement="bottom">
       <template #trigger>
         <button
           type="button"
@@ -41,9 +41,9 @@
       <template #content>
         Tooltip on bottom
       </template>
-    </Tooltip>
+    </tooltip>
     <!-- Show tooltip on left -->
-    <Tooltip placement="left">
+    <tooltip placement="left">
       <template #trigger>
         <button
           type="button"
@@ -55,10 +55,10 @@
       <template #content>
         Tooltip on left
       </template>
-    </Tooltip>
+    </tooltip>
   </div>
 </template>
 
 <script setup>
-  import { Tooltip } from '../../../../src/index'
+import { Tooltip } from '../../../../src/index'
 </script>

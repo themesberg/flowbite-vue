@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-const isOpen = ref(false)
-function toggleDropdown() {
-  isOpen.value = !isOpen.value
-}
-</script>
-
 <template>
   <div class="overflow-hidden">
     <button
@@ -30,9 +22,25 @@ function toggleDropdown() {
       <span class="flex-1 ml-3 text-left whitespace-nowrap">
         <slot name="trigger" />
       </span>
-      <slot name="arrow-icon" :toggle-dropdown="toggleDropdown">
-        <svg class="w-3 h-3 transition-all duration-300" :class="isOpen && 'rotate-180'" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+      <slot
+        name="arrow-icon"
+        :toggle-dropdown="toggleDropdown"
+      >
+        <svg
+          class="w-3 h-3 transition-all duration-300"
+          :class="isOpen && 'rotate-180'"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 10 6"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m1 1 4 4 4-4"
+          />
         </svg>
       </slot>
     </button>
@@ -54,3 +62,11 @@ function toggleDropdown() {
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+const isOpen = ref(false)
+function toggleDropdown () {
+  isOpen.value = !isOpen.value
+}
+</script>

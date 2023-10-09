@@ -1,8 +1,20 @@
 <template>
   <div class="flex flex-col gap-3">
-    <Range v-model="value1" label="Small range" size="sm" />
-    <Range v-model="value2" label="Medium range" size="md" />
-    <Range v-model="value3" label="Large range" size="lg" />
+    <range
+      v-model="value1"
+      label="Small range"
+      size="sm"
+    />
+    <range
+      v-model="value2"
+      label="Medium range"
+      size="md"
+    />
+    <range
+      v-model="value3"
+      label="Large range"
+      size="lg"
+    />
   </div>
 </template>
 

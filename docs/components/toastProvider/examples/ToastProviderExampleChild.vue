@@ -1,22 +1,50 @@
 <template>
   <div class="flex flex-col gap-2">
-    <label for="ms" class="block text-sm font-medium text-gray-900 dark:text-gray-400">Duration(ms)</label>
+    <label
+      for="ms"
+      class="block text-sm font-medium text-gray-900 dark:text-gray-400"
+    >Duration(ms)</label>
     <input
+      id="ms"
       v-model.number="ms"
       type="number"
-      id="ms"
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       placeholder="John"
       required
-    />
+    >
     <div class="flex gap-2">
-      <Button @click="() => add('success')" color="green">success</Button>
-      <Button @click="() => add('warning')" color="yellow">warning</Button>
-      <Button @click="() => add('danger')" color="red">danger</Button>
-      <Button @click="() => add('update')" color="purple">update</Button>
+      <button
+        color="green"
+        @click="() => add('success')"
+      >
+        success
+      </button>
+      <button
+        color="yellow"
+        @click="() => add('warning')"
+      >
+        warning
+      </button>
+      <button
+        color="red"
+        @click="() => add('danger')"
+      >
+        danger
+      </button>
+      <button
+        color="purple"
+        @click="() => add('update')"
+      >
+        update
+      </button>
     </div>
     <div class="flex">
-      <Button @click="remove" color="alternative">pop</Button>
+      <button
+        color="alternative"
+        @click="remove"
+      >
+        pop
+      </button>
     </div>
   </div>
 </template>

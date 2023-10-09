@@ -1,11 +1,11 @@
 <template>
   <div :class="wrapperClasses">
     <div
-        :class="pointClasses"
+      :class="pointClasses"
     >
       <slot />
     </div>
-    <div :class="borderClasses"></div>
+    <div :class="borderClasses" />
   </div>
 </template>
 
@@ -28,7 +28,6 @@ const wrapperClasses = computed(() => {
 const defaultBorderClasses = 'h-0.5 w-full bg-gray-200 dark:bg-gray-700 sm:flex'
 const borderClasses = computed(() => classNames(defaultBorderClasses, { 'sm:hidden hidden': !isHorizontal }))
 
-
 const pointClasses = computed(() => {
   const defaultClasses = 'absolute rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700'
 
@@ -43,13 +42,13 @@ const pointClasses = computed(() => {
   const isHorizontalWithIcon = isHorizontal && hasSlot.value
 
   return classNames(
-      defaultClasses,
-      {
-        [verticalWithNoIconClasses]: isVerticalWithNoIcon,
-        [verticalWithIconClasses]: isVerticalWithIcon,
-        [horizontalWithNoIconClasses]: isHorizontalWithNoIcon,
-        [horizontalWithIconClasses]: isHorizontalWithIcon,
-      },
+    defaultClasses,
+    {
+      [verticalWithNoIconClasses]: isVerticalWithNoIcon,
+      [verticalWithIconClasses]: isVerticalWithIcon,
+      [horizontalWithNoIconClasses]: isHorizontalWithNoIcon,
+      [horizontalWithIconClasses]: isHorizontalWithIcon,
+    },
   )
 })
 </script>

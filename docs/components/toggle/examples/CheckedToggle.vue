@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-col gap-2">
-    <Toggle v-model="toggle" label="Toggle me" />
+    <toggle
+      v-model="toggle"
+      label="Toggle me"
+    />
   </div>
 </template>
 

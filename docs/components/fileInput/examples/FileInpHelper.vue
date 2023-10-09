@@ -1,8 +1,13 @@
 <template>
   <div>
-    <FileInput v-model="file" label="Upload file">
-      <p class="!mt-1 text-sm text-gray-500 dark:text-gray-300">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
-    </FileInput>
+    <file-input
+      v-model="file"
+      label="Upload file"
+    >
+      <p class="!mt-1 text-sm text-gray-500 dark:text-gray-300">
+        SVG, PNG, JPG or GIF (MAX. 800x400px).
+      </p>
+    </file-input>
   </div>
 </template>
 

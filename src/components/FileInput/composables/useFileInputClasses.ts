@@ -9,7 +9,7 @@ const fileInpDropzoneClasses =
 const fileDropzoneWrapClasses = 'flex flex-col items-center justify-center pt-5 pb-6'
 const fileDropzoneDefaultTextClasses = '!-mb-2 text-sm text-gray-500 dark:text-gray-400'
 
-export function useFileInputClasses(size: string) {
+export function useFileInputClasses (size: string) {
   const fileInpClasses = computed(() => {
     return simplifyTailwindClasses(fileInpDefaultClasses, 'text-' + size)
   })

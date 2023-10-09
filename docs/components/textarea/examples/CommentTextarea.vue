@@ -1,7 +1,13 @@
 <template>
   <div>
     <form>
-      <Textarea custom rows="3" placeholder="Write you message..." v-model="message" label="Your message">
+      <textarea
+        v-model="message"
+        custom
+        rows="3"
+        placeholder="Write you message..."
+        label="Your message"
+      >
         <template #footer>
           <div class="flex items-center justify-between">
             <Button type="submit">Post comment</Button>
@@ -12,9 +18,14 @@
             </div>
           </div>
         </template>
-      </Textarea>
+      </textarea>
     </form>
-    <p class="ml-auto text-xs text-gray-500 dark:text-gray-400">Remember, contributions to this topic should follow our <a href="/" class="text-primary-600 dark:text-primary-500 hover:underline">Community Guidelines</a>.</p>
+    <p class="ml-auto text-xs text-gray-500 dark:text-gray-400">
+      Remember, contributions to this topic should follow our <a
+        href="/"
+        class="text-primary-600 dark:text-primary-500 hover:underline"
+      >Community Guidelines</a>.
+    </p>
   </div>
 </template>
 

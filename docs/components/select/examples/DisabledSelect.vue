@@ -1,6 +1,12 @@
 <template>
   <div>
-    <Select v-model="selected" :options="countries" placeholder="You can't select" label="Select a country" :disabled="true" />
+    <select
+      v-model="selected"
+      :options="countries"
+      placeholder="You can't select"
+      label="Select a country"
+      :disabled="true"
+    />
   </div>
 </template>
 
@@ -8,7 +14,7 @@
 import { ref } from 'vue'
 import { Select } from '../../../../src/index'
 
-let selected = ref('')
+const selected = ref('')
 const countries = [
   { value: 'us', name: 'United States' },
   { value: 'ca', name: 'Canada' },

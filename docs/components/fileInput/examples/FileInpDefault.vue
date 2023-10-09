@@ -1,6 +1,9 @@
 <template>
   <div>
-    <FileInput v-model="file" label="Upload file" />
+    <file-input
+      v-model="file"
+      label="Upload file"
+    />
   </div>
 </template>
 

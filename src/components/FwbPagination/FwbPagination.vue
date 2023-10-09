@@ -1,6 +1,10 @@
 <template>
   <nav aria-label="Navigation">
-    <div class="text-gray-700 dark:text-gray-400 mb-2" :class="large ? 'text-base' : 'text-sm'" v-if="layout === 'table'">
+    <div
+      v-if="layout === 'table'"
+      class="text-gray-700 dark:text-gray-400 mb-2"
+      :class="large ? 'text-base' : 'text-sm'"
+    >
       Showing
       <span class="font-semibold text-gray-900 dark:text-white">{{ startItemsCount }}</span>
       to
@@ -8,15 +12,35 @@
       of
       <span class="font-semibold text-gray-900 dark:text-white">{{ computedTotalItems }}</span>
     </div>
-    <div class="inline-flex" :class="large && 'text-base h-10'">
+    <div
+      class="inline-flex"
+      :class="large && 'text-base h-10'"
+    >
       <slot name="start" />
 
-      <slot name="first-button" v-if="enableFirstAndLastButtons">
-        <button :disabled="isFirstPage" @click="goToFirstPage" :class="getNavigationButtonClasses(1)">First</button>
+      <slot
+        v-if="enableFirstAndLastButtons"
+        name="first-button"
+      >
+        <button
+          :disabled="isFirstPage"
+          :class="getNavigationButtonClasses(1)"
+          @click="goToFirstPage"
+        >
+          First
+        </button>
       </slot>
 
-      <slot name="prev-button" :disabled="isDecreaseDisabled" :decrease-page="decreasePage">
-        <button :disabled="isDecreaseDisabled" @click="decreasePage" :class="getNavigationButtonClasses(modelValue - 1)">
+      <slot
+        name="prev-button"
+        :disabled="isDecreaseDisabled"
+        :decrease-page="decreasePage"
+      >
+        <button
+          :disabled="isDecreaseDisabled"
+          :class="getNavigationButtonClasses(modelValue - 1)"
+          @click="decreasePage"
+        >
           <slot name="prev-icon">
             <svg
               v-if="showIcons || $slots['prev-icon']"
@@ -30,19 +54,44 @@
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              <path
+                fill-rule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
             </svg>
           </slot>
-          <template v-if="showLabels">{{ previousLabel }}</template>
+          <template v-if="showLabels">
+            {{ previousLabel }}
+          </template>
         </button>
       </slot>
-      <slot v-for="index in pagesToDisplay" :key="index" name="page-button" :page="index" :set-page="setPage" :disabled="isSetPageDisabled(index)">
-        <button :disabled="isSetPageDisabled(index)" @click="setPage(index)" :class="getPageButtonClasses(index === modelValue)">
+      <slot
+        v-for="index in pagesToDisplay"
+        :key="index"
+        name="page-button"
+        :page="index"
+        :set-page="setPage"
+        :disabled="isSetPageDisabled(index)"
+      >
+        <button
+          :disabled="isSetPageDisabled(index)"
+          :class="getPageButtonClasses(index === modelValue)"
+          @click="setPage(index)"
+        >
           {{ index }}
         </button>
       </slot>
-      <slot name="next-button" :disabled="isIncreaseDisabled" :increase-page="increasePage">
-        <button :disabled="isIncreaseDisabled" @click="increasePage" :class="getNavigationButtonClasses(modelValue + 1)">
+      <slot
+        name="next-button"
+        :disabled="isIncreaseDisabled"
+        :increase-page="increasePage"
+      >
+        <button
+          :disabled="isIncreaseDisabled"
+          :class="getNavigationButtonClasses(modelValue + 1)"
+          @click="increasePage"
+        >
           <template v-if="showLabels">
             {{ nextLabel }}
           </template>
@@ -59,14 +108,27 @@
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"
+              />
             </svg>
           </slot>
         </button>
       </slot>
 
-      <slot name="last-button" v-if="enableFirstAndLastButtons">
-        <button :disabled="isLastPage" @click="goToLastPage" :class="getNavigationButtonClasses(computedTotalPages)">Last</button>
+      <slot
+        v-if="enableFirstAndLastButtons"
+        name="last-button"
+      >
+        <button
+          :disabled="isLastPage"
+          :class="getNavigationButtonClasses(computedTotalPages)"
+          @click="goToLastPage"
+        >
+          Last
+        </button>
       </slot>
 
       <slot name="end" />
@@ -125,23 +187,23 @@ defineSlots<{
   end: any
   /* eslint-enable @typescript-eslint/no-explicit-any */
 }>()
-function setPage(index: number) {
+function setPage (index: number) {
   emit('update:model-value', index)
   emit('page-changed', index)
 }
-function decreasePage() {
+function decreasePage () {
   emit('update:model-value', props.modelValue - 1)
   emit('page-changed', props.modelValue - 1)
 }
-function increasePage() {
+function increasePage () {
   emit('update:model-value', props.modelValue + 1)
   emit('page-changed', props.modelValue + 1)
 }
-function goToFirstPage() {
+function goToFirstPage () {
   emit('update:model-value', 1)
   emit('page-changed', 1)
 }
-function goToLastPage() {
+function goToLastPage () {
   const lastPage = computedTotalPages.value
   emit('update:model-value', lastPage)
   emit('page-changed', lastPage)
@@ -207,14 +269,14 @@ const computedTotalItems = computed(() => {
 const isFirstPage = computed(() => props.modelValue === 1)
 const isLastPage = computed(() => props.modelValue === computedTotalPages.value)
 
-function getPageButtonClasses(active: boolean) {
+function getPageButtonClasses (active: boolean) {
   const baseClasses =
     'flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
   const activeClasses = 'text-blue-600 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:bg-gray-700 dark:text-white'
   const largeClasses = 'px-4 h-10'
   return twMerge(baseClasses, active && activeClasses, props.large && largeClasses)
 }
-function getNavigationButtonClasses(toPage: number) {
+function getNavigationButtonClasses (toPage: number) {
   const baseClasses =
     'flex items-center justify-center first:rounded-l-lg last:rounded-r-lg px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
   const disabledClasses = 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-white cursor-not-allowed'

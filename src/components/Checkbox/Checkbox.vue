@@ -1,7 +1,15 @@
 <template>
   <label class="flex gap-3 items-center justify-start">
-    <input v-model="model" type="checkbox" :disabled="disabled" :class="checkboxClasses" />
-    <span v-if="label" :class="labelClasses">{{ label }}</span>
+    <input
+      v-model="model"
+      type="checkbox"
+      :disabled="disabled"
+      :class="checkboxClasses"
+    >
+    <span
+      v-if="label"
+      :class="labelClasses"
+    >{{ label }}</span>
     <slot />
   </label>
 </template>
@@ -23,10 +31,10 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
 
 const emit = defineEmits(['update:modelValue'])
 const model = computed({
-  get() {
+  get () {
     return props.modelValue
   },
-  set(val) {
+  set (val) {
     emit('update:modelValue', val)
   },
 })

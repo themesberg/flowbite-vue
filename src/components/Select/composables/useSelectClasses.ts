@@ -22,7 +22,7 @@ export type UseSelectClassesProps = {
   underline: Ref<boolean>
 }
 
-export function useSelectClasses(props: UseSelectClassesProps) {
+export function useSelectClasses (props: UseSelectClassesProps) {
   const selectClasses = computed(() => {
     return simplifyTailwindClasses(defaultSelectClasses, selectSizeClasses[props.size.value], props.disabled.value ? disabledSelectClasses : '')
   })
@@ -35,7 +35,7 @@ export function useSelectClasses(props: UseSelectClassesProps) {
     return defaultLabelClasses
   })
 
-  return { 
+  return {
     selectClasses,
     underlineClasses,
     labelClasses,

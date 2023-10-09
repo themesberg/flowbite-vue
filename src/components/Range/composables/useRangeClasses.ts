@@ -18,7 +18,7 @@ export type UseRangeClassesProps = {
   disabled: Ref<boolean>
 }
 
-export function useRangeClasses(props: UseRangeClassesProps) {
+export function useRangeClasses (props: UseRangeClassesProps) {
   const rangeClasses = computed(() => {
     return simplifyTailwindClasses(rangeDefaultClasses, rangeSizeClasses[props.size.value])
   })
@@ -31,4 +31,4 @@ export function useRangeClasses(props: UseRangeClassesProps) {
     rangeClasses,
     labelClasses,
   }
-} 
+}

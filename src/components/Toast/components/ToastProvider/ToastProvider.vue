@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, h, provide, ref, TransitionGroup } from 'vue'
+import { TransitionGroup, defineComponent, h, provide, ref } from 'vue'
 import { FLOWBITE_TOAST_INJECTION_KEY } from '@/components/Toast/components/ToastProvider/injection/config'
 import type { ToastItem, ToastItemWithId, ToastTransition, UseToastInjection } from '@/components/Toast/components/ToastProvider/types'
 import { Toast } from '@/index'
@@ -16,7 +16,7 @@ export default defineComponent({
       default: 'slide-left',
     },
   },
-  setup() {
+  setup () {
     const toasts = ref<ToastItemWithId[]>([])
 
     const runRemoveTimeout = (id: string, ms: number) => {
@@ -57,7 +57,7 @@ export default defineComponent({
       removeToast,
     }
   },
-  render() {
+  render () {
     const { $props, $slots, toasts, removeToast } = this
 
     return h('div', {}, [
@@ -77,24 +77,24 @@ export default defineComponent({
               ) =>
                 _toast.component
                   ? h(
-                      _toast.component,
-                      {
-                        key: _toast.id,
-                        onClose: () => removeToast(_toast.id),
-                        ...(_toast.componentProps ? _toast.componentProps : {}),
-                      },
-                      () => _toast.text,
-                    )
+                    _toast.component,
+                    {
+                      key: _toast.id,
+                      onClose: () => removeToast(_toast.id),
+                      ...(_toast.componentProps ? _toast.componentProps : {}),
+                    },
+                    () => _toast.text,
+                  )
                   : h(
-                      Toast,
-                      {
-                        closable: true,
-                        type: _toast.type,
-                        key: _toast.id,
-                        onClose: () => removeToast(_toast.id),
-                      },
-                      () => _toast.text,
-                    ),
+                    Toast,
+                    {
+                      closable: true,
+                      type: _toast.type,
+                      key: _toast.id,
+                      onClose: () => removeToast(_toast.id),
+                    },
+                    () => _toast.text,
+                  ),
             ),
         },
       ),

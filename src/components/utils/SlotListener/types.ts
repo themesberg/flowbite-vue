@@ -1,6 +1,5 @@
 export type SlotListenerTrigger = 'click' | 'focus' | 'hover'
 
-
 export type TriggerEventHandlers = {
     onClick: (e: MouseEvent) => void
     onMouseenter: (e: MouseEvent) => void

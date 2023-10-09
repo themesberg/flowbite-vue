@@ -1,5 +1,5 @@
-import type { BadgeType, BadgeSize } from '../types'
-import { computed, type Ref, useAttrs } from 'vue'
+import type { BadgeSize, BadgeType } from '../types'
+import { type Ref, computed, useAttrs } from 'vue'
 import { twMerge } from 'tailwind-merge'
 
 const defaultBadgeClasses = 'mr-2 px-2.5 py-0.5 rounded flex items-center justify-center'
@@ -42,7 +42,7 @@ export type UseBadgeClassesOptions = {
   isContentEmpty: Ref<boolean>
 }
 
-export function useBadgeClasses(
+export function useBadgeClasses (
   props: UseBadgeClassesProps,
   options: UseBadgeClassesOptions,
 ): {

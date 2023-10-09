@@ -1,8 +1,17 @@
 <template>
   <div class="flex flex-col gap-2">
-    <Toggle label="Small" size="sm" />
-    <Toggle label="Medium" size="md" />
-    <Toggle label="Large" size="lg" />
+    <toggle
+      label="Small"
+      size="sm"
+    />
+    <toggle
+      label="Medium"
+      size="md"
+    />
+    <toggle
+      label="Large"
+      size="lg"
+    />
   </div>
 </template>
 

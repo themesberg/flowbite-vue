@@ -1,11 +1,16 @@
 <template>
   <div class="flex items-start">
-    <Tooltip :placement="placement" :triggers="[trigger]" :theme="theme" auto-hide>
-      <slot name="trigger"></slot>
+    <tooltip
+      :placement="placement"
+      :triggers="[trigger]"
+      :theme="theme"
+      auto-hide
+    >
+      <slot name="trigger" />
       <template #popper>
-        <slot name="content"></slot>
+        <slot name="content" />
       </template>
-    </Tooltip>
+    </tooltip>
   </div>
 </template>
 

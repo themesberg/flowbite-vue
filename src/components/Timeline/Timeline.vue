@@ -1,7 +1,10 @@
 <template>
   <div>
-    <ol :class="timelineClasses" v-bind="$attrs">
-      <slot></slot>
+    <ol
+      :class="timelineClasses"
+      v-bind="$attrs"
+    >
+      <slot />
     </ol>
   </div>
 </template>

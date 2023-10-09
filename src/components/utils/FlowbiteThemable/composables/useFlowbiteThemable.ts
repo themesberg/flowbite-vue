@@ -60,7 +60,7 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
   },
 }
 
-export function useFlowbiteThemable(_theme?: FlowbiteTheme): UseFlowbiteThemableReturns {
+export function useFlowbiteThemable (_theme?: FlowbiteTheme): UseFlowbiteThemableReturns {
   const theme = inject<Ref<FlowbiteTheme | null>>(FLOWBITE_THEMABLE_INJECTION_KEY, ref(null))
 
   const isActive = computed(() => !!theme?.value)

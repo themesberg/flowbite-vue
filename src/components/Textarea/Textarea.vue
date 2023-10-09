@@ -2,9 +2,17 @@
   <label>
     <div :class="labelClasses">{{ label }}</div>
     <div :class="wrapperClasses">
-      <textarea v-model="model" :rows="rows" :class="textareaClasses" :placeholder="placeholder"></textarea>
-      <div v-if="$slots.footer" :class="footerClasses">
-        <slot name="footer"></slot>
+      <textarea
+        v-model="model"
+        :rows="rows"
+        :class="textareaClasses"
+        :placeholder="placeholder"
+      />
+      <div
+        v-if="$slots.footer"
+        :class="footerClasses"
+      >
+        <slot name="footer" />
       </div>
     </div>
   </label>
@@ -32,17 +40,17 @@ const props = withDefaults(defineProps<TextareaProps>(), {
 
 const emit = defineEmits(['update:modelValue'])
 const model = computed({
-  get() {
+  get () {
     return props.modelValue
   },
-  set(val) {
+  set (val) {
     emit('update:modelValue', val)
   },
 })
 
 const {
   textareaClasses,
-  labelClasses, 
+  labelClasses,
   wrapperClasses,
   footerClasses,
 } = useTextareaClasses(props.custom)

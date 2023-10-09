@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap justify-center py-8 space-x-3">
     <!-- Show tooltip on hover -->
-    <Tooltip trigger="hover">
+    <tooltip trigger="hover">
       <template #trigger>
         <button
           type="button"
@@ -10,10 +10,12 @@
           Tooltip hover
         </button>
       </template>
-      <template #content> Tooltip content </template>
-    </Tooltip>
+      <template #content>
+        Tooltip content
+      </template>
+    </tooltip>
     <!-- Show tooltip on click -->
-    <Tooltip trigger="click">
+    <tooltip trigger="click">
       <template #trigger>
         <button
           type="button"
@@ -22,8 +24,10 @@
           Tooltip click
         </button>
       </template>
-      <template #content> Tooltip content </template>
-    </Tooltip>
+      <template #content>
+        Tooltip content
+      </template>
+    </tooltip>
   </div>
 </template>
 
