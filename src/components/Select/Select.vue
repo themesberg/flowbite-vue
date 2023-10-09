@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { InputSize } from '@/components/Input/types'
+import type { InputSize } from '@/components/FwbInput/types'
 import type { OptionsType } from '@/components/Select/types'
 import { computed, toRefs } from 'vue'
 import { useSelectClasses } from '@/components/Select/composables/useSelectClasses'

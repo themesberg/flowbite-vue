@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
-import { type InputSize, ValidationStatus } from '@/components/Input/types'
+import { type InputSize, ValidationStatus } from '@/components/FwbInput/types'
 import { twMerge } from 'tailwind-merge'
 // LABEL
 const baseLabelClasses = 'block mb-2 text-sm font-medium'

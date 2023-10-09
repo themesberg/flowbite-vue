@@ -41,8 +41,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { type InputSize, ValidationStatus } from '@/components/Input/types'
-import { useInputClasses } from '@/components/Input/composables/useInputClasses'
+import { type InputSize, ValidationStatus } from '@/components/FwbInput/types'
+import { useInputClasses } from '@/components/FwbInput/composables/useInputClasses'
 import { computed, toRefs } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { twMerge } from 'tailwind-merge'

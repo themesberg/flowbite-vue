@@ -1,31 +1,31 @@
 <template>
   <div class="flex justify-between">
-    <toggle
+    <fwb-toggle
       v-model="toggle1"
       label="Red"
       color="red"
     />
-    <toggle
+    <fwb-toggle
       v-model="toggle2"
       label="Green"
       color="green"
     />
-    <toggle
+    <fwb-toggle
       v-model="toggle3"
       label="Purple"
       color="purple"
     />
-    <toggle
+    <fwb-toggle
       v-model="toggle4"
       label="Yellow"
       color="yellow"
     />
-    <toggle
+    <fwb-toggle
       v-model="toggle5"
       label="Teal"
       color="teal"
     />
-    <toggle
+    <fwb-toggle
       v-model="toggle6"
       label="Orange"
       color="orange"
@@ -35,7 +35,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Toggle } from '../../../../src/index'
+import { FwbToggle } from '../../../../src/index'
 
 const toggle1 = ref(true)
 const toggle2 = ref(true)

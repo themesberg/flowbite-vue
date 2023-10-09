@@ -1,7 +1,7 @@
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 import { computed } from 'vue'
 import type { Ref } from 'vue'
-import type { InputSize } from '@/components/Input/types'
+import type { InputSize } from '@/components/FwbInput/types'
 
 // Range
 const rangeDefaultClasses = 'w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700'

@@ -1,14 +1,14 @@
 <template>
   <div class="flex flex-col gap-2">
-    <toggle
+    <fwb-toggle
       label="Small"
       size="sm"
     />
-    <toggle
+    <fwb-toggle
       label="Medium"
       size="md"
     />
-    <toggle
+    <fwb-toggle
       label="Large"
       size="lg"
     />
@@ -16,6 +16,6 @@
 </template>
 
 <script setup>
-import { Toggle } from '../../../../src/index'
+import { FwbToggle } from '../../../../src/index'
 
 </script>

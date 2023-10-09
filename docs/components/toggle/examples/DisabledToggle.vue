@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-2">
-    <toggle
+    <fwb-toggle
       v-model="toggle"
       label="Toggle me"
       :disabled="true"

@@ -6,16 +6,16 @@
         :key="theme"
         :theme="theme"
       >
-        <button>
+        <fwb-button>
           {{ theme }}
-        </button>
+        </fwb-button>
       </flowbite-themable>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import { Button, FlowbiteThemable } from '../../../../../src/index'
+import { FlowbiteThemable, FwbButton } from '../../../../../src/index'
 import type { FlowbiteTheme } from '../../../../../src/components/utils/FlowbiteThemable/types'
 
 const themes: FlowbiteTheme[] = ['blue', 'green', 'red', 'pink', 'purple']

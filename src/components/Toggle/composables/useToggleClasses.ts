@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
-import type { InputSize } from '@/components/Input/types'
+import type { InputSize } from '@/components/FwbInput/types'
 
 // Toggle Background
 const defaultLabelClasses = 'w-fit relative inline-flex items-center cursor-pointer'

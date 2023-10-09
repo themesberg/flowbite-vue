@@ -1,8 +1,8 @@
 <template>
   <div>
-    <textarea
+    <fwb-textarea
       v-model="message"
-      rows="4"
+      :rows="4"
       placeholder="Write you message..."
       label="Your message"
     />
@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import Textarea from '../../../../src/components/Textarea/Textarea.vue'
+import { FwbTextarea } from '../../../../src/index'
 
 const message = ref('')
 </script>

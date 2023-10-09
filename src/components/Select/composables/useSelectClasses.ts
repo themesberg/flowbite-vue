@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
-import type { InputSize } from '@/components/Input/types'
+import type { InputSize } from '@/components/FwbInput/types'
 
 // LABEL
 const defaultLabelClasses = 'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
