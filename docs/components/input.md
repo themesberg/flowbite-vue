@@ -26,13 +26,13 @@ On this page you will find all of the input types based on multiple variants, st
 ## Default
 ```vue
 <script setup>
-import { Input } from 'flowbite-vue'
+import { FwbInput } from 'flowbite-vue'
 import { ref } from 'vue'
 
 const name = ref('')
 </script>
 <template>
-    <Input v-model="name" placeholder="enter your first name" label="First name" />
+    <fwb-input v-model="name" placeholder="enter your first name" label="First name" />
 </template>
 ```
 
@@ -41,12 +41,12 @@ const name = ref('')
 ## Size
 ```vue
 <script setup>
-import { Input } from 'flowbite-vue'
+import { FwbInput } from 'flowbite-vue'
 </script>
 <template>
-    <Input size="sm" placeholder="enter your first name" label="Small" />
-    <Input size="md" placeholder="enter your last name" label="Medium" />
-    <Input size="lg" placeholder="enter your second name" label="Large" />
+    <fwb-input size="sm" placeholder="enter your first name" label="Small" />
+    <fwb-input size="md" placeholder="enter your last name" label="Medium" />
+    <fwb-input size="lg" placeholder="enter your second name" label="Large" />
 </template>
 ```
 
@@ -55,10 +55,10 @@ import { Input } from 'flowbite-vue'
 ## Disabled
 ```vue
 <script setup>
-import { Input } from 'flowbite-vue'
+import { FwbInput } from 'flowbite-vue'
 </script>
 <template>
-  <Input :disabled="true" placeholder="enter your first name" label="First name" />
+  <fwb-input :disabled="true" placeholder="enter your first name" label="First name" />
 </template>
 ```
 
@@ -66,10 +66,10 @@ import { Input } from 'flowbite-vue'
 
 ```vue
 <script setup>
-import { Input } from 'flowbite-vue'
+import { FwbInput } from 'flowbite-vue'
 </script>
 <template>
-  <Input required placeholder="enter your first name" label="First name" />
+  <fwb-input required placeholder="enter your first name" label="First name" />
 </template>
 ```
 
@@ -78,14 +78,14 @@ import { Input } from 'flowbite-vue'
 ## Slot - Helper
 ```vue
 <script setup>
-import { Input } from 'flowbite-vue'
+import { FwbInput } from 'flowbite-vue'
 </script>
 <template>
-  <Input placeholder="enter your first name" label="First name">
+  <fwb-input placeholder="enter your first name" label="First name">
     <template #helper>
       We’ll never share your details. Read our <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Privacy Policy</a>.
     </template>
-  </Input>
+  </fwb-input>
 </template>
 ```
 
@@ -94,14 +94,14 @@ import { Input } from 'flowbite-vue'
 ## Slot - Prefix
 ```vue
 <script setup>
-import { Input } from 'flowbite-vue'
+import { FwbInput } from 'flowbite-vue'
 </script>
 <template>
-  <Input placeholder="enter your first name" label="First name">
+  <fwb-input placeholder="enter your first name" label="First name">
     <template #prefix>
       <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
     </template>
-  </Input>
+  </fwb-input>
 </template>
 ```
 
@@ -110,17 +110,17 @@ import { Input } from 'flowbite-vue'
 ## Slot - Suffix
 ```vue
 <script setup>
-import { Input, Button } from 'flowbite-vue'
+import { FwbInput, FwbButton } from 'flowbite-vue'
 </script>
 <template>
-  <Input size="lg" placeholder="enter your search query" label="Search">
+  <fwb-input size="lg" placeholder="enter your search query" label="Search">
     <template #prefix>
       <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
     </template>
     <template #suffix>
-      <Button>Search</Button>
+      <fwb-button>Search</fwb-button>
     </template>
-  </Input>
+  </fwb-input>
 </template>
 ```
 
@@ -133,15 +133,15 @@ import { Input, Button } from 'flowbite-vue'
 
 ```vue
 <script setup>
-import { Input } from 'flowbite-vue'
+import { FwbInput } from 'flowbite-vue'
 </script>
 <template>
-  <Input v-model='email' required placeholder="enter your email address" label="Email" validation-status='success' />
-  <Input v-model='email' required placeholder="enter your email address" label="Email" validation-status='error'>
+  <fwb-input v-model='email' required placeholder="enter your email address" label="Email" validation-status='success' />
+  <fwb-input v-model='email' required placeholder="enter your email address" label="Email" validation-status='error'>
     <template #validationMessage>
       Please enter a valid email address
     </template>
-  </Input>
+  </fwb-input>
 </template>
 ```
 
