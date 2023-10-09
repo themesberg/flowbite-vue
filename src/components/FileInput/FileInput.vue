@@ -28,7 +28,7 @@
           </div>
           <p v-else>File: {{ dropZoneText }}</p>
         </div>
-        <input type="file" class="hidden" />
+        <input :multiple="multiple" type="file" class="hidden" />
       </label>
     </div>
   </div>
