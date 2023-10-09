@@ -193,13 +193,12 @@ defineProps({
 import { Button } from 'flowbite-vue'
 </script>
 <template>
-  <Button gradient="purple-blue">Purple to blue</Button>
-  <Button gradient="cyan-blue">Cyan to blue</Button>
-  <Button gradient="green-blue">Green to blue</Button>
-  <Button gradient="purple-pink">Purple to pink</Button>
-  <Button gradient="pink-orange">Pink to orange</Button>
-  <Button gradient="teal-lime">Teal to lime</Button>
-  <Button gradient="red-yellow">Red to yellow</Button>
+  <Button color="default" outline>Default</Button>
+  <Button color="dark" outline>Dark</Button>
+  <Button color="green" outline>Green</Button>
+  <Button color="red" outline>Red</Button>
+  <Button color="yellow" outline>Yellow</Button>
+  <Button color="purple" outline>Purple</Button>
 </template>
 ```
 
@@ -359,18 +358,11 @@ defineProps({
 import { Button } from 'flowbite-vue'
 </script>
 <template>
-  <Button gradient="red-yellow" square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button color="default" pill square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button color="dark" outline square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
-  <Button color="yellow" pill outline square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-  </Button>
+  <Button color="default" disabled>Default</Button>
+  <Button color="default" outline disabled>Default outline</Button>
+  <Button gradient="red" disabled>Red gradient</Button>
+  <Button gradient="red-yellow" disabled>Red to yellow gradient</Button>
+  <Button gradient="red-yellow" outline disabled>Red to yellow outline</Button>
 </template>
 ```
 ## Prop - href
