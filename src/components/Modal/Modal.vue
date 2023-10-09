@@ -9,7 +9,7 @@
         @click.self="clickOutside"
     >
       <div
-          class="relative p-4 w-full h-full md:h-auto"
+          class="relative p-4 w-full h-full"
           :class="`${modalSizeClasses[size]}`"
       >
         <!-- Modal content -->
