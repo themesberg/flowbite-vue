@@ -1,4 +1,10 @@
 <script setup>
+import FwbPaginationExample from './pagination/examples/FwbPaginationExample.vue'
+import FwbPaginationExampleNavigation from './pagination/examples/FwbPaginationExampleNavigation.vue'
+import FwbPaginationExampleTable from './pagination/examples/FwbPaginationExampleTable.vue'
+import FwbPaginationExampleWithCustomSlice from './pagination/examples/FwbPaginationExampleWithCustomSlice.vue'
+import FwbPaginationExampleWithCustomText from './pagination/examples/FwbPaginationExampleWithCustomText.vue'
+import FwbPaginationExampleWithIcons from './pagination/examples/FwbPaginationExampleWithIcons.vue'
 import PaginationExample from './pagination/examples/PaginationExample.vue';
 import PaginationNavigationExample from './pagination/examples/PaginationNavigationExample.vue';
 import PaginationTableExample from './pagination/examples/PaginationTableExample.vue';
@@ -34,6 +40,7 @@ The following pagination component example shows how you can use SVG icons inste
 
 <PaginationWithIconsExample />
 
+<fwb-pagination-example />
 ```vue
 <script setup>
 import { Pagination } from 'flowbite-vue'
@@ -44,6 +51,13 @@ const currentPage = ref(1)
 <template>
   <Pagination v-model="currentPage" :total-pages="100" show-icons></Pagination>
 </template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { FwbPagination } from 'flowbite-vue'
+
+const currentPage = ref<number>(1)
+</script>
 ```
 
 
@@ -103,8 +117,12 @@ const currentPage = ref(1)
 </script>
 <template>
   <div class="flex items-center justify-center text-center">
-    <Pagination v-model="currentPage" :layout="'table'" :per-page="20" :total-items="998" class="mb-2" />
-    <Pagination v-model="currentPage" :layout="'table'" :per-page="20" :total-items="998" large />
+    <Pagination
+        v-model="currentPage"
+        :layout="'table'"
+        :per-page="10"
+        :total-items="998"
+    ></Pagination>
   </div>
 </template>
 ```
