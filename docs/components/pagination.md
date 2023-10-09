@@ -1,17 +1,11 @@
 <script setup>
-import FwbPaginationExample from './pagination/examples/FwbPaginationExample.vue'
-import FwbPaginationExampleNavigation from './pagination/examples/FwbPaginationExampleNavigation.vue'
-import FwbPaginationExampleTable from './pagination/examples/FwbPaginationExampleTable.vue'
-import FwbPaginationExampleWithCustomSlice from './pagination/examples/FwbPaginationExampleWithCustomSlice.vue'
-import FwbPaginationExampleWithCustomText from './pagination/examples/FwbPaginationExampleWithCustomText.vue'
-import FwbPaginationExampleWithIcons from './pagination/examples/FwbPaginationExampleWithIcons.vue'
-import PaginationExample from './pagination/examples/PaginationExample.vue';
-import PaginationNavigationExample from './pagination/examples/PaginationNavigationExample.vue';
-import PaginationTableExample from './pagination/examples/PaginationTableExample.vue';
-import PaginationWithIconsExample from './pagination/examples/PaginationWithIconsExample.vue';
-import PaginationWithCustomTextExample from './pagination/examples/PaginationWithCustomTextExample.vue';
-import PaginationWithCustomSlice from './pagination/examples/PaginationWithCustomSlice.vue';
-import PaginationSlotsExample from './pagination/examples/PaginationSlotsExample.vue';
+import PaginationExample from './pagination/examples/FwbPaginationExample.vue';
+import PaginationNavigationExample from './pagination/examples/FwbPaginationExampleNavigation.vue';
+import PaginationTableExample from './pagination/examples/FwbPaginationExampleTable.vue';
+import PaginationWithIconsExample from './pagination/examples/FwbPaginationExampleWithIcons.vue';
+import PaginationWithCustomTextExample from './pagination/examples/FwbPaginationExampleWithCustomText.vue';
+import PaginationWithCustomSlice from './pagination/examples/FwbPaginationExampleWithCustomSlice.vue';
+import PaginationSlotsExample from './pagination/examples/FwbPaginationExampleSlots.vue';
 </script>
 # Vue Pagination - Flowbite
 #### Use the Tailwind CSS pagination element to indicate a series of content across various pages based on multiple styles and sizes
@@ -24,14 +18,14 @@ Use the following list of pagination items based on two sizes powered by Tailwin
 
 ```vue
 <script setup>
-import { Pagination } from 'flowbite-vue'
+import { FwbPagination } from 'flowbite-vue'
 import { ref } from 'vue'
 
 const currentPage = ref(1)
 </script>
 <template>
-  <Pagination v-model="currentPage" :total-items="100"></Pagination>
-  <Pagination v-model="currentPage" :total-items="100" large></Pagination>
+  <fwb-pagination v-model="currentPage" :total-items="100"></fwb-pagination>
+  <fwb-pagination v-model="currentPage" :total-items="100" large></fwb-pagination>
 </template>
 ```
 
@@ -40,24 +34,16 @@ The following pagination component example shows how you can use SVG icons inste
 
 <PaginationWithIconsExample />
 
-<fwb-pagination-example />
 ```vue
 <script setup>
-import { Pagination } from 'flowbite-vue'
+import { FwbPagination } from 'flowbite-vue'
 import { ref } from 'vue'
 
 const currentPage = ref(1)
 </script>
 <template>
-  <Pagination v-model="currentPage" :total-pages="100" show-icons></Pagination>
+  <fwb-pagination v-model="currentPage" :total-pages="100" show-icons></fwb-pagination>
 </template>
-
-<script lang="ts" setup>
-import { ref } from 'vue'
-import { FwbPagination } from 'flowbite-vue'
-
-const currentPage = ref<number>(1)
-</script>
 ```
 
 
@@ -71,13 +57,13 @@ This prop means left side and right side pages row slicing. In the example it ha
 
 ```vue
 <script setup>
-import { Pagination } from 'flowbite-vue'
+import { FwbPagination } from 'flowbite-vue'
 import { ref } from 'vue'
 
 const currentPage = ref(1)
 </script>
 <template>
-  <Pagination v-model="currentPage" :total-pages="100" :slice-length="4"></Pagination>
+  <fwb-pagination v-model="currentPage" :total-pages="100" :slice-length="4"></fwb-pagination>
 </template>
 ```
 
@@ -87,14 +73,14 @@ const currentPage = ref(1)
 
 ```vue
 <script setup>
-import { Pagination } from 'flowbite-vue'
+import { FwbPagination } from 'flowbite-vue'
 import { ref } from 'vue'
 
 const currentPage = ref(1)
 </script>
 <template>
   <div class="flex items-center justify-center text-center">
-    <Pagination v-model="currentPage" :total-pages="10" :layout="'navigation'"></Pagination>
+    <fwb-pagination v-model="currentPage" :total-pages="10" :layout="'navigation'"></fwb-pagination>
   </div>
 </template>
 ```
@@ -102,7 +88,7 @@ const currentPage = ref(1)
 <PaginationNavigationExample />
 
 ## Pagination with table layout
-To use that layout you have to pass required props: 
+To use that layout you have to pass required props:
 - `per-page`: it's items count displayed on each page.
 - `total-items`: it's the total items count.
 
@@ -110,19 +96,15 @@ And there you don't need to use `total-pages` prop.
 
 ```vue
 <script setup>
-import { Pagination } from 'flowbite-vue'
+import { FwbPagination } from 'flowbite-vue'
 import { ref } from 'vue'
 
 const currentPage = ref(1)
 </script>
 <template>
   <div class="flex items-center justify-center text-center">
-    <Pagination
-        v-model="currentPage"
-        :layout="'table'"
-        :per-page="10"
-        :total-items="998"
-    ></Pagination>
+    <fwb-pagination v-model="currentPage" :layout="'table'" :per-page="20" :total-items="998" class="mb-2" />
+    <fwb-pagination v-model="currentPage" :layout="'table'" :per-page="20" :total-items="998" large />
   </div>
 </template>
 ```
@@ -133,13 +115,13 @@ const currentPage = ref(1)
 
 ```vue
 <script setup>
-import { Pagination } from 'flowbite-vue'
+import { FwbPagination } from 'flowbite-vue'
 import { ref } from 'vue'
 
 const currentPage = ref(1)
 </script>
 <template>
-  <Pagination v-model="currentPage" :total-pages="100" previous-label="<<<" next-label=">>>"></Pagination>
+  <fwb-pagination v-model="currentPage" :total-pages="100" previous-label="<<<" next-label=">>>"></fwb-pagination>
 </template>
 ```
 <PaginationWithCustomTextExample />
@@ -151,13 +133,13 @@ const currentPage = ref(1)
 
 ```vue
 <script setup>
-import { Pagination } from 'flowbite-vue'
+import { FwbPagination } from 'flowbite-vue'
 import { ref } from 'vue'
 
 const currentPage = ref(1)
 </script>
 <template>
-  <Pagination v-model="currentPage" :total-items="100" :show-labels="false">
+  <fwb-pagination v-model="currentPage" :total-items="100" :show-labels="false">
     <template #prev-icon>⬅️</template>
     <template #next-icon>➡️</template>
     <template v-slot:page-button="{ page, setPage }">
@@ -168,7 +150,7 @@ const currentPage = ref(1)
         {{ page }}
       </button>
     </template>
-  </Pagination>
+  </fwb-pagination>
   Current page: {{ currentPage }}
 </template>
 ```

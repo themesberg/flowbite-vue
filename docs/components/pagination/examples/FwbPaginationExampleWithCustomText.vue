@@ -3,8 +3,8 @@
     <fwb-pagination
       v-model="currentPage"
       :total-pages="100"
-      label-next=">>>"
-      label-previous="<<<"
+      previous-label="<<<"
+      next-label=">>>"
     />
   </div>
 </template>
