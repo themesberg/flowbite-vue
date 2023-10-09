@@ -1,6 +1,6 @@
-import { type Ref, computed } from 'vue'
 import type { BadgeSize, BadgeType } from '../types'
-import classNames from 'classnames'
+import { type Ref, computed, useAttrs } from 'vue'
+import { twMerge } from 'tailwind-merge'
 
 const defaultBadgeClasses = 'mr-2 px-2.5 py-0.5 rounded flex items-center justify-center'
 const badgeLinkClasses = 'bg-blue-100 hover:bg-blue-200 text-blue-800 dark:text-blue-800 dark:hover:bg-blue-300'
@@ -34,25 +34,29 @@ const badgeSizeClasses: Record<BadgeSize, string> = {
 }
 
 export type UseBadgeClassesProps = {
-    type: Ref<BadgeType>
-    size: Ref<BadgeSize>
-    href: Ref<string>
+  type: BadgeType
+  size: BadgeSize
+  href: string | null
 }
-
 export type UseBadgeClassesOptions = {
-    isContentEmpty: Ref<boolean>
+  isContentEmpty: Ref<boolean>
 }
 
-export function useBadgeClasses (props: UseBadgeClassesProps, options: UseBadgeClassesOptions): {
-    badgeClasses: Ref<string>
+export function useBadgeClasses (
+  props: UseBadgeClassesProps,
+  options: UseBadgeClassesOptions,
+): {
+  badgeClasses: Ref<string>
 } {
+  const attrs = useAttrs()
   const badgeClasses = computed<string>(() => {
-    return classNames(
-      badgeSizeClasses[props.size.value],
-      props.href.value ? '' : badgeTypeClasses[props.type.value],
-      props.href.value ? '' : badgeTextClasses[props.type.value],
-      props.href.value ? badgeLinkClasses : '',
+    return twMerge(
+      badgeSizeClasses[props.size],
+      props.href ? '' : badgeTypeClasses[props.type],
+      props.href ? '' : badgeTextClasses[props.type],
+      props.href ? badgeLinkClasses : '',
       options.isContentEmpty.value ? onlyIconClasses : defaultBadgeClasses,
+        attrs.class as string,
     )
   })
   return {

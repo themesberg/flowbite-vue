@@ -1,9 +1,9 @@
 <script setup>
-import SidebarExample from './sidebar/examples/SidebarExample.vue'
-import SidebarDropdownExample from './sidebar/examples/SidebarDropdownExample.vue'
-import SidebarGroupExample from './sidebar/examples/SidebarGroupExample.vue'
-import SidebarCtaExample from './sidebar/examples/SidebarCtaExample.vue'
-import SidebarLogoExample from './sidebar/examples/SidebarLogoExample.vue'
+import FwbSidebarExample from './sidebar/examples/FwbSidebarExample.vue'
+import FwbSidebarDropdownExample from './sidebar/examples/FwbSidebarDropdownExample.vue'
+import FwbSidebarGroupExample from './sidebar/examples/FwbSidebarGroupExample.vue'
+import FwbSidebarCtaExample from './sidebar/examples/FwbSidebarCtaExample.vue'
+import FwbSidebarLogoExample from './sidebar/examples/FwbSidebarLogoExample.vue'
 </script>
 # Vue Sidebar - Flowbite
 #### Use the sidebar component to show a list of menu items and multi-level menu items on either side of the page to navigate on your website
@@ -12,12 +12,12 @@ The sidebar component can be used as a complementary element relative to the nav
 ## Default sidebar
 Use this example to show a responsive list of menu items inside the sidebar with icons and labels.
 
-<SidebarExample />
+<FwbSidebarExample />
 
 ```vue
 <template>
-  <Sidebar>
-      <SidebarItem>
+  <fwb-sidebar>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -31,8 +31,8 @@ Use this example to show a responsive list of menu items inside the sidebar with
           </svg>
         </template>
         <template #default>Dashboard</template>
-      </SidebarItem>
-      <SidebarItem>
+      </fwb-sidebar-item>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -50,8 +50,8 @@ Use this example to show a responsive list of menu items inside the sidebar with
         <template #suffix>
           <span class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
         </template>
-      </SidebarItem>
-      <SidebarItem>
+      </fwb-sidebar-item>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -69,8 +69,8 @@ Use this example to show a responsive list of menu items inside the sidebar with
         <template #suffix>
           <span class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
         </template>
-      </SidebarItem>
-      <SidebarItem>
+      </fwb-sidebar-item>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -85,8 +85,8 @@ Use this example to show a responsive list of menu items inside the sidebar with
           </svg>
         </template>
         <template #default>Users</template>
-      </SidebarItem>
-      <SidebarItem>
+      </fwb-sidebar-item>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -101,8 +101,8 @@ Use this example to show a responsive list of menu items inside the sidebar with
           </svg>
         </template>
         <template #default>Products</template>
-      </SidebarItem>
-      <SidebarItem>
+      </fwb-sidebar-item>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -115,8 +115,8 @@ Use this example to show a responsive list of menu items inside the sidebar with
           </svg>
         </template>
         <template #default>Sign In</template>
-      </SidebarItem>
-      <SidebarItem>
+      </fwb-sidebar-item>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -135,24 +135,24 @@ Use this example to show a responsive list of menu items inside the sidebar with
           </svg>
         </template>
         <template #default>Sign Up</template>
-      </SidebarItem>
-    </Sidebar>
+      </fwb-sidebar-item>
+    </fwb-sidebar>
 </template>
 <script setup>
-import { Sidebar, SidebarItem } from 'flowbite-vue'
+import { FwbSidebar, FwbSidebarItem } from 'flowbite-vue'
 </script>
 
 ```
 
 ## Multi-level menu
-Use this sidebar example to create multi-level menu items by using the SidebarDropdownItem component.
+Use this sidebar example to create multi-level menu items by using the FwbSidebarDropdownItem component.
 
-<SidebarDropdownExample />
+<FwbSidebarDropdownExample />
 
 ```vue
 <template>
-  <Sidebar>
-    <SidebarItem>
+  <fwb-sidebar>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -166,8 +166,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Dashboard</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -185,8 +185,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
       <template #suffix>
         <span class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
       </template>
-    </SidebarItem>
-    <SidebarDropdownItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-dropdown-item>
       <template #icon>
         <svg
             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -201,26 +201,26 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
       </template>
       <template #trigger> E-commerce </template>
       <template #default>
-        <SidebarItem class="pl-11"> Products </SidebarItem>
-        <SidebarItem class="pl-11"> Sign In </SidebarItem>
-        <SidebarItem class="pl-11"> Sign Up </SidebarItem>
+        <fwb-sidebar-item class="pl-11"> Products </fwb-sidebar-item>
+        <fwb-sidebar-item class="pl-11"> Sign In </fwb-sidebar-item>
+        <fwb-sidebar-item class="pl-11"> Sign Up </fwb-sidebar-item>
       </template>
-    </SidebarDropdownItem>
-  </Sidebar>
+    </fwb-sidebar-dropdown-item>
+  </fwb-sidebar>
 </template>
 <script setup>
-  import { Sidebar, SidebarItem, SidebarDropdownItem } from 'flowbite-vue'
+  import { FwbSidebar, FwbSidebarItem, FwbSidebarDropdownItem } from 'flowbite-vue'
 </script>
 ```
 
 ## Content separator
 
-<SidebarGroupExample />
+<FwbSidebarGroupExample />
 
 ```vue
 <template>
-  <Sidebar>
-    <SidebarItem>
+  <fwb-sidebar>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -234,8 +234,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Dashboard</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -253,8 +253,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
       <template #suffix>
         <span class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
       </template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -272,8 +272,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
       <template #suffix>
         <span class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
       </template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -288,8 +288,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Users</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -304,8 +304,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Products</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -318,8 +318,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Sign In</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -338,9 +338,9 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Sign Up</template>
-    </SidebarItem>
-    <SidebarItemGroup border>
-      <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item-group border>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
               class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -355,8 +355,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
           </svg>
         </template>
         <template #default>Upgrade to Pro</template>
-      </SidebarItem>
-      <SidebarItem>
+      </fwb-sidebar-item>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
               class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -369,8 +369,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
           </svg>
         </template>
         <template #default>Documentation</template>
-      </SidebarItem>
-      <SidebarItem>
+      </fwb-sidebar-item>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
               class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -384,8 +384,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
           </svg>
         </template>
         <template #default>Components</template>
-      </SidebarItem>
-      <SidebarItem>
+      </fwb-sidebar-item>
+      <fwb-sidebar-item>
         <template #icon>
           <svg
               class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -400,23 +400,23 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
           </svg>
         </template>
         <template #default>Help</template>
-      </SidebarItem>
-    </SidebarItemGroup>
-  </Sidebar>
+      </fwb-sidebar-item>
+    </fwb-sidebar-item-group>
+  </fwb-sidebar>
 </template>
 <script setup>
-  import { Sidebar, SidebarItemGroup, SidebarItem } from 'flowbite-vue'
+  import { FwbSidebar, FwbSidebarItemGroup, FwbSidebarItem } from 'flowbite-vue'
 </script>
 ```
 
 ## CTA button
 
-<SidebarCtaExample />
+<FwbSidebarCtaExample />
 
 ```vue
 <template>
-  <Sidebar>
-    <SidebarItem>
+  <fwb-sidebar>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -430,8 +430,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Dashboard</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -449,8 +449,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
       <template #suffix>
         <span class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
       </template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -468,8 +468,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
       <template #suffix>
         <span class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
       </template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -484,8 +484,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Users</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -500,8 +500,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Products</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -514,8 +514,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Sign In</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -534,28 +534,28 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Sign Up</template>
-    </SidebarItem>
+    </fwb-sidebar-item>
 
-    <SidebarCta v-if="isShowCta" label="Beta" @close="toggleCta">
+    <fwb-sidebar-cta v-if="isShowCta" label="Beta" @close="toggleCta">
       <p class="mb-3 text-sm text-blue-800 dark:text-blue-400">Preview the new Flowbite dashboard navigation! You can turn the new navigation off for a limited time in your profile.</p>
       <a class="text-sm text-blue-800 underline font-medium hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300" href="#">Turn new navigation off</a>
-    </SidebarCta>
-  </Sidebar>
+    </fwb-sidebar-cta>
+  </fwb-sidebar>
 </template>
 <script setup>
-  import { Sidebar, SidebarCta, SidebarItem } from 'flowbite-vue'
+  import { FwbSidebar, FwbSidebarCta, FwbSidebarItem } from 'flowbite-vue'
 </script>
 ```
 
 ## Logo branding
 
-<SidebarLogoExample />
+<FwbSidebarLogoExample />
 
 ```vue
 <template>
-  <Sidebar>
-    <SidebarLogo name="Flowbite" logo="https://flowbite.com/docs/images/logo.svg" tag="router-link" />
-    <SidebarItem>
+  <fwb-sidebar>
+    <fwb-sidebar-logo name="Flowbite" logo="https://flowbite.com/docs/images/logo.svg" tag="router-link" />
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -569,8 +569,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Dashboard</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -588,8 +588,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
       <template #suffix>
         <span class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
       </template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -607,8 +607,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
       <template #suffix>
         <span class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
       </template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -623,8 +623,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Users</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -639,8 +639,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Products</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -653,8 +653,8 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Sign In</template>
-    </SidebarItem>
-    <SidebarItem>
+    </fwb-sidebar-item>
+    <fwb-sidebar-item>
       <template #icon>
         <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -673,11 +673,11 @@ Use this sidebar example to create multi-level menu items by using the SidebarDr
         </svg>
       </template>
       <template #default>Sign Up</template>
-    </SidebarItem>
-  </Sidebar>
+    </fwb-sidebar-item>
+  </fwb-sidebar>
 </template>
 <script setup>
-  import { Sidebar, SidebarItem, SidebarLogo } from 'flowbite-vue'
+  import { FwbSidebar, FwbSidebarItem, FwbSidebarLogo } from 'flowbite-vue'
 </script>
 ```
 

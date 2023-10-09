@@ -1,8 +1,8 @@
 <template>
   <component
     :is="buttonComponent"
-    :[linkAttr]="href"
     :class="wrapperClasses"
+    :[linkAttr]="href"
   >
     <div
       v-if="!isOutlineGradient && ($slots.prefix || loadingPrefix)"
@@ -36,7 +36,9 @@
           name="prefix"
         />
       </span>
+
       <slot />
+
       <span
         v-if="isOutlineGradient && ($slots.suffix || loadingSuffix)"
         class="ml-2"
@@ -53,6 +55,7 @@
         />
       </span>
     </span>
+
     <div
       v-if="!isOutlineGradient && ($slots.suffix || loadingSuffix)"
       class="ml-2"
@@ -72,38 +75,37 @@
 </template>
 <script lang="ts" setup>
 import { computed, resolveComponent, toRefs } from 'vue'
-import FwbSpinner from '@/components/FwbSpinner/FwbSpinner.vue'
+import FwbSpinner from '../FwbSpinner/FwbSpinner.vue'
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
 import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
 
 interface IButtonProps {
   color?: ButtonVariant
-  disabled?: boolean
   gradient?: ButtonGradient | null
-  href?: string
+  size?: ButtonSize
+  shadow?: ButtonMonochromeGradient | null
+  pill?: boolean
+  square?: boolean
+  outline?: boolean
   loading?: boolean
   loadingPosition?: 'suffix' | 'prefix'
-  outline?: boolean
-  pill?: boolean
-  shadow?: ButtonMonochromeGradient | null
-  size?: ButtonSize
-  square?: boolean
+  disabled?: boolean
+  href?: string
   tag?: string
 }
-
 const props = withDefaults(defineProps<IButtonProps>(), {
   color: 'default',
-  disabled: false,
   gradient: null,
-  href: '',
+  size: 'md',
+  shadow: null,
+  pill: false,
+  square: false,
+  outline: false,
   loading: false,
   loadingPosition: 'prefix',
-  outline: false,
-  pill: false,
-  shadow: null,
-  size: 'md',
-  square: false,
+  disabled: false,
+  href: '',
   tag: 'a',
 })
 
@@ -119,4 +121,3 @@ const linkComponent = props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
 const buttonComponent = props.href ? linkComponent : 'button'
 const linkAttr = props.tag === 'router-link' || props.tag === 'nuxt-link' ? 'to' : 'href'
 </script>
-../FwbSpinner/Spinner.vue

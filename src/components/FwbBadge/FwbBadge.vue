@@ -11,7 +11,7 @@
 <script lang="ts" setup>
 import { computed, useSlots } from 'vue'
 import type { BadgeSize, BadgeType } from './types'
-import { useBadgeClasses } from '@/components/Badge/composables/useBadgeClasses'
+import { useBadgeClasses } from './composables/useBadgeClasses'
 
 interface IBadgeProps {
   type?: BadgeType
