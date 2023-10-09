@@ -13,7 +13,7 @@ import type { InputSize } from '@/components/Input/types'
 
 interface ToggleProps {
   modelValue?: boolean;
-  label?: '';
+  label?: string;
   color?: '';
   size?: InputSize;
   disabled?: boolean;
