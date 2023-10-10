@@ -10,7 +10,7 @@
     >
       <div
         :class="`${modalSizeClasses[size]}`"
-        class="relative p-4 w-full h-full md:h-auto"
+        class="relative p-4 w-full h-full"
       >
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">

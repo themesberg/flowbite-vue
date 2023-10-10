@@ -138,7 +138,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import type { PaginationLayout } from '@/components/Pagination/types'
+import type { PaginationLayout } from './types'
 import { twMerge } from 'tailwind-merge'
 
 const emit = defineEmits<{
