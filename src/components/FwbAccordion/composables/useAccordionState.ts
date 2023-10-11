@@ -1,5 +1,5 @@
 import { onBeforeMount, onBeforeUnmount, reactive } from 'vue'
-import type { tState } from '@/components/FwbAccordion/types'
+import type { tState } from '../types'
 
 interface AccordionProps {
   alwaysOpen?: boolean

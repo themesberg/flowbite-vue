@@ -1,5 +1,5 @@
-import { computed, type Ref } from 'vue'
-import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
+import { type Ref, computed } from 'vue'
+import { useAccordionState } from './useAccordionState'
 import { twMerge } from 'tailwind-merge'
 
 const baseHeaderClasses =
