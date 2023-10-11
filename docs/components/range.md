@@ -19,16 +19,17 @@ Original reference: [https://flowbite.com/docs/forms/range/](https://flowbite.co
 
 ```vue
 <template>
-  <Range v-model="value" />
+  <div class="vp-raw">
+    <fwb-range v-model="value" />
+  </div>
 </template>
 
 <script setup>
-import Range from 'flowbite-vue'
-import { ref } from 'vue'
+  import { FwbRange } from 'flowbite-vue'
+  import { ref } from 'vue'
 
-const value = ref('10')
+  const value = ref('10')
 </script>
-
 ```
 
 <DefaultRange />
@@ -37,8 +38,20 @@ const value = ref('10')
 
 ```vue
 <template>
-  <Range v-model="value" label="Disabled range" :disabled="true" />
+  <div>
+    <fwb-range
+        v-model="value"
+        label="Disabled range"
+        :disabled="true"
+    />
+  </div>
 </template>
+
+<script setup>
+  import { FwbRange } from 'flowbite-vue'
+  import { ref } from 'vue'
+
+  const value = ref('10')
 </script>
 ```
 
@@ -48,8 +61,22 @@ const value = ref('10')
 
 ```vue
 <template>
-  <Range v-model="value" label="Min-max range" min="0" max="10" />
+  <div>
+    <fwb-range
+        v-model="value"
+        label="Min-max range"
+        min="0"
+        max="10"
+    />
+  </div>
 </template>
+
+<script setup>
+  import { FwbRange } from 'flowbite-vue'
+  import { ref } from 'vue'
+
+  const value = ref('10')
+</script>
 ```
 
 <MinMaxRange />
@@ -58,8 +85,21 @@ const value = ref('10')
 
 ```vue
 <template>
-  <Range v-model="value"  label="Steps range" steps="5" />
+  <div>
+    <fwb-range
+        v-model="value"
+        label="Steps range"
+        steps="5"
+    />
+  </div>
 </template>
+
+<script setup>
+  import { FwbRange } from 'flowbite-vue'
+  import { ref } from 'vue'
+
+  const value = ref('10')
+</script>
 ```
 
 <StepsRange />
@@ -68,12 +108,34 @@ const value = ref('10')
 
 ```vue
 <template>
-  <div>
-    <Range v-model="value1" label="Small range" size="sm" />
-    <Range v-model="value2" label="Medium range" size="md" />
-    <Range v-model="value3" label="Large range" size="lg" />
+  <div class="flex flex-col gap-3">
+    <fwb-range
+        v-model="value"
+        label="Small range"
+        size="sm"
+    />
+    <fwb-range
+        v-model="value"
+        label="Medium range"
+        size="md"
+    />
+    <fwb-range
+        v-model="value"
+        label="Large range"
+        size="lg"
+    />
+    <div class="mt-2">
+      Value: {{ value }}
+    </div>
   </div>
 </template>
+
+<script setup>
+  import { FwbRange } from 'flowbite-vue'
+  import { ref } from 'vue'
+
+  const value = ref('10')
+</script>
 ```
 
 <SizeRange />

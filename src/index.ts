@@ -67,7 +67,7 @@ export { default as Select } from './components/Select/Select.vue'
 
 export { default as FwbToggle } from './components/Toggle/Toggle.vue'
 
-export { default as Range } from './components/Range/Range.vue'
+export { default as FwbRange } from '@/components/FwbRange/FwbRange.vue'
 
 export { default as FwbRadio } from '@/components/FwbRadio/FwbRadio.vue'
 

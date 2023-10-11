@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import type { Ref } from 'vue'
 import type { InputSize } from '@/components/FwbInput/types'
 
-// Range
 const rangeDefaultClasses = 'w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700'
 const rangeLabelClasses = 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'
 

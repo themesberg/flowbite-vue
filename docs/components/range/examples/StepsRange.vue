@@ -1,15 +1,18 @@
 <template>
-  <div>
-    <range
+  <div class="vp-raw">
+    <fwb-range
       v-model="value"
       label="Steps range"
       steps="5"
     />
+    <div class="mt-2">
+      Value: {{ value }}
+    </div>
   </div>
 </template>
 
 <script setup>
-import Range from '../../../../src/components/Range/Range.vue'
+import { FwbRange } from '../../../../src/index'
 import { ref } from 'vue'
 
 const value = ref('10')
