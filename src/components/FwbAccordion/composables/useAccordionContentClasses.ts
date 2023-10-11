@@ -1,6 +1,6 @@
-import { type Ref, computed } from 'vue'
-import classNames from 'classnames'
-import { useAccordionState } from '@/components/FwbAccordion/composables/useAccordionState'
+import { computed, type Ref } from 'vue'
+import { useAccordionState } from '@/components/Accordion/composables/useAccordionState'
+import { twMerge } from 'tailwind-merge'
 
 const baseContentClasses = 'p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900'
 
@@ -13,12 +13,13 @@ export function useAccordionContentClasses (contentRef: Ref) {
   const panelsCount = computed(() => Object.keys(accordionsStates[accordionId.value].panels[panelId.value]).length)
 
   const contentClasses = computed(() => {
-    return classNames(baseContentClasses, {
-      hidden: !panelState.value.isVisible,
-      'border-b-0': panelState.value.order !== panelsCount.value - 1 || accordionState.value.flush,
-      'border-t-0': panelState.value.order === panelsCount.value - 1,
-      'border-x-0': accordionState.value.flush,
-    })
+    return twMerge(
+      baseContentClasses,
+      !panelState.value.isVisible && 'hidden',
+      (panelState.value.order !== panelsCount.value - 1 || accordionState.value.flush) && 'border-b-0',
+      panelState.value.order === panelsCount.value - 1 && 'border-t-0',
+      accordionState.value.flush && 'border-x-0',
+    )
   })
   return {
     contentClasses,
