@@ -1,6 +1,6 @@
 <template>
   <li :class="timelineItemClasses">
-    <slot></slot>
+    <slot />
   </li>
 </template>
 

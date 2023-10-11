@@ -37,35 +37,29 @@ export { default as FwbTableCell } from './components/FwbTable/FwbTableCell.vue'
 export { default as FwbTableHead } from './components/FwbTable/FwbTableHead.vue'
 export { default as FwbTableHeadCell } from './components/FwbTable/FwbTableHeadCell.vue'
 export { default as FwbTableRow } from './components/FwbTable/FwbTableRow.vue'
-export { default as FwbTabs } from './components/FwbTabs/FwbTabs.vue'
 export { default as FwbTab } from './components/FwbTabs/FwbTab.vue'
+export { default as FwbTabs } from './components/FwbTabs/FwbTabs.vue'
+export { default as FwbTimeline } from './components/FwbTimeline/FwbTimeline.vue'
+export { default as FwbTimelineBody } from './components/FwbTimeline/FwbTimelineBody.vue'
+export { default as FwbTimelineContent } from './components/FwbTimeline/FwbTimelineContent.vue'
+export { default as FwbTimelineItem } from './components/FwbTimeline/FwbTimelineItem.vue'
+export { default as FwbTimelinePoint } from './components/FwbTimeline/FwbTimelinePoint.vue'
+export { default as FwbTimelineTime } from './components/FwbTimeline/FwbTimelineTime.vue'
+export { default as FwbTimelineTitle } from './components/FwbTimeline/FwbTimelineTitle.vue'
 
 export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
 export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
 export { default as Sidebar } from './components/Sidebar/Sidebar.vue'
-export { default as Timeline } from './components/Timeline/Timeline.vue'
-export { default as TimelineItem } from './components/Timeline/TimelineItem.vue'
-export { default as TimelinePoint } from './components/Timeline/TimelinePoint.vue'
-export { default as TimelineContent } from './components/Timeline/TimelineContent.vue'
-export { default as TimelineTime } from './components/Timeline/TimelineTime.vue'
-export { default as TimelineTitle } from './components/Timeline/TimelineTitle.vue'
-export { default as TimelineBody } from './components/Timeline/TimelineBody.vue'
 export { default as Toast } from './components/Toast/Toast.vue'
 export { default as ToastProvider } from './components/Toast/components/ToastProvider/ToastProvider.vue'
 export { default as Tooltip } from './components/Tooltip/Tooltip.vue'
 export { default as Textarea } from './components/Textarea/Textarea.vue'
 export { default as Input } from './components/Input/Input.vue'
-
 export { default as Checkbox } from './components/Checkbox/Checkbox.vue'
-
 export { default as Select } from './components/Select/Select.vue'
-
 export { default as Toggle } from './components/Toggle/Toggle.vue'
-
 export { default as Range } from './components/Range/Range.vue'
-
 export { default as Radio } from './components/Radio/Radio.vue'
-
 export { default as FileInput } from './components/FileInput/FileInput.vue'
 
 // Typography
