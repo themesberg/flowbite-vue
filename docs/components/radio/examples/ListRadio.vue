@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vp-raw">
     <p class="mb-4 font-semibold text-gray-900 dark:text-white">
       Technology <span class="capitalize">{{ picked }}</span>
     </p>
@@ -7,7 +7,7 @@
       class="w-48 !p-0 text-sm text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     >
       <li class="w-full !m-0 pl-3 flex border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <radio
+        <fwb-radio
           v-model="picked"
           name="list-radio"
           value="svelte"
@@ -15,7 +15,7 @@
         />
       </li>
       <li class="w-full !m-0 pl-3 flex border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <radio
+        <fwb-radio
           v-model="picked"
           name="list-radio"
           value="vue"
@@ -23,7 +23,7 @@
         />
       </li>
       <li class="w-full !m-0 pl-3 flex border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <radio
+        <fwb-radio
           v-model="picked"
           name="list-radio"
           value="react"
@@ -31,7 +31,7 @@
         />
       </li>
       <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
-        <radio
+        <fwb-radio
           v-model="picked"
           name="list-radio"
           value="angular"
@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import Radio from '../../../../src/components/Radio/Radio.vue'
+import { FwbRadio } from '../../../../src/index'
 import { ref } from 'vue'
 
 const picked = ref('svelte')

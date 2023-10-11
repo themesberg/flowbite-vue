@@ -1,20 +1,20 @@
 <template>
   <label>
-    <div :class="labelClasses">{{ label }}</div>
-    <div :class="wrapperClasses">
+    <span :class="labelClasses">{{ label }}</span>
+    <span :class="wrapperClasses">
       <textarea
         v-model="model"
         :rows="rows"
         :class="textareaClasses"
         :placeholder="placeholder"
       />
-      <div
+      <span
         v-if="$slots.footer"
         :class="footerClasses"
       >
         <slot name="footer" />
-      </div>
-    </div>
+      </span>
+    </span>
   </label>
 </template>
 
@@ -31,7 +31,7 @@ interface TextareaProps {
 }
 
 const props = withDefaults(defineProps<TextareaProps>(), {
-  value: '',
+  modelValue: '',
   label: 'Your message',
   rows: 4,
   custom: false,

@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <radio
+  <div class="vp-raw">
+    <fwb-radio
       v-model="picked"
       name="disabled-radio"
       value="one"
       label="Disabled radio"
       :disabled="true"
     />
-    <radio
+    <fwb-radio
       v-model="picked"
       name="disabled-radio"
       value="two"
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import Radio from '../../../../src/components/Radio/Radio.vue'
+import { FwbRadio } from '../../../../src/index'
 import { ref } from 'vue'
 
 const picked = ref('one')

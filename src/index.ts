@@ -69,7 +69,7 @@ export { default as FwbToggle } from './components/Toggle/Toggle.vue'
 
 export { default as Range } from './components/Range/Range.vue'
 
-export { default as Radio } from './components/Radio/Radio.vue'
+export { default as FwbRadio } from '@/components/FwbRadio/FwbRadio.vue'
 
 export { default as FileInput } from './components/FileInput/FileInput.vue'
 
