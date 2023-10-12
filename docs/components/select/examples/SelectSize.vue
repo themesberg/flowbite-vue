@@ -1,18 +1,18 @@
 <template>
-  <div class="flex flex-col gap-2">
-    <select
+  <div class="flex flex-col gap-2 vp-raw">
+    <fwb-select
       v-model="selected"
       :options="countries"
       label="Select a country"
       size="lg"
     />
-    <select
+    <fwb-select
       v-model="selected"
       :options="countries"
       label="Select a country"
       size="md"
     />
-    <select
+    <fwb-select
       v-model="selected"
       :options="countries"
       label="Select a country"
@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Select } from '../../../../src/index'
+import { FwbSelect } from '../../../../src/index'
 
 const selected = ref('')
 const countries = [

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <select
+  <div class="vp-raw">
+    <fwb-select
       v-model="selected"
       :options="countries"
       label="Select a country"
@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Select } from '../../../../src/index'
+import { FwbSelect } from '../../../../src/index'
 
 const selected = ref('')
 const countries = [

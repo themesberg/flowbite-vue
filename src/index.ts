@@ -63,7 +63,7 @@ export { default as FwbInput } from '@/components/FwbInput/FwbInput.vue'
 
 export { default as Checkbox } from './components/Checkbox/Checkbox.vue'
 
-export { default as Select } from './components/Select/Select.vue'
+export { default as FwbSelect } from '@/components/FwbSelect/FwbSelect.vue'
 
 export { default as FwbToggle } from './components/Toggle/Toggle.vue'
 

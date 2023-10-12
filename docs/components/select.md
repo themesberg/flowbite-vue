@@ -19,20 +19,28 @@ The select input component can be used to gather information from users based on
 
 ## Default
 ```vue
-<script setup>
-import { ref } from 'vue'
-import { Select } from 'flowbite-vue'
-
-let selected = ref('')
-const countries = [
-  { value: 'us', name: 'United States' },
-  { value: 'ca', name: 'Canada' },
-  { value: 'fr', name: 'France' },
-]
-</script>
 <template>
-    <Select v-model="selected" :options="countries" />
+  <div>
+    <fwb-select
+        v-model="selected"
+        :options="countries"
+        label="Select a country"
+    />
+  </div>
 </template>
+
+<script setup>
+  import { ref } from 'vue'
+  import { FwbSelect } from 'flowbite-vue'
+
+  const selected = ref('')
+  const countries = [
+    { value: 'us', name: 'United States' },
+    { value: 'ca', name: 'Canada' },
+    { value: 'fr', name: 'France' },
+  ]
+</script>
+
 ```
 
 <SelectExample />
@@ -42,9 +50,27 @@ const countries = [
 ```vue
 <template>
   <div>
-    <Select v-model="selected" :options="countries" placeholder="You can't select" :disabled="true" />
+    <fwb-select
+        v-model="selected"
+        :options="countries"
+        placeholder="You can't select"
+        label="Select a country"
+        :disabled="true"
+    />
   </div>
 </template>
+
+<script setup>
+  import { ref } from 'vue'
+  import { FwbSelect } from 'flowbite-vue'
+
+  const selected = ref('')
+  const countries = [
+    { value: 'us', name: 'United States' },
+    { value: 'ca', name: 'Canada' },
+    { value: 'fr', name: 'France' },
+  ]
+</script>
 ```
 
 <DisabledSelect />
@@ -54,9 +80,26 @@ const countries = [
 ```vue
 <template>
   <div>
-    <Select v-model="selected" :options="countries" :underline="true" />
+    <fwb-select
+        v-model="selected"
+        :options="countries"
+        label="Select a country"
+        :underline="true"
+    />
   </div>
 </template>
+
+<script setup>
+  import { ref } from 'vue'
+  import { FwbSelect } from 'flowbite-vue'
+
+  const selected = ref('')
+  const countries = [
+    { value: 'us', name: 'United States' },
+    { value: 'ca', name: 'Canada' },
+    { value: 'fr', name: 'France' },
+  ]
+</script>
 ```
 
 <UnderlinedSelect />
@@ -65,12 +108,40 @@ const countries = [
 
 ```vue
 <template>
-  <div>
-    <Select v-model="selected" :options="countries" :size="lg" />
-    <Select v-model="selected" :options="countries" :size="md" />
-    <Select v-model="selected" :options="countries" :size="sm" />
+  <div class="flex flex-col gap-2">
+    <fwb-select
+        v-model="selected"
+        :options="countries"
+        label="Select a country"
+        size="lg"
+    />
+    <fwb-select
+        v-model="selected"
+        :options="countries"
+        label="Select a country"
+        size="md"
+    />
+    <fwb-select
+        v-model="selected"
+        :options="countries"
+        label="Select a country"
+        size="sm"
+    />
   </div>
 </template>
+
+<script setup>
+  import { ref } from 'vue'
+  import { FwbSelect } from 'flowbite-vue'
+
+  const selected = ref('')
+  const countries = [
+    { value: 'us', name: 'United States' },
+    { value: 'ca', name: 'Canada' },
+    { value: 'fr', name: 'France' },
+  ]
+</script>
+
 ```
 
 <SelectSize />
