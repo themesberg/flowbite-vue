@@ -48,11 +48,11 @@ export { default as FwbTimelineTime } from './components/FwbTimeline/FwbTimeline
 export { default as FwbTimelineTitle } from './components/FwbTimeline/FwbTimelineTitle.vue'
 export { default as FwbToast } from './components/FwbToast/FwbToast.vue'
 export { default as FwbToastProvider } from './components/FwbToast/FwbToastProvider.vue'
+export { default as FwbTooltip } from './components/FwbTooltip/FwbTooltip.vue'
 
 export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
 export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
 export { default as Sidebar } from './components/Sidebar/Sidebar.vue'
-export { default as Tooltip } from './components/Tooltip/Tooltip.vue'
 export { default as Textarea } from './components/Textarea/Textarea.vue'
 export { default as Input } from './components/Input/Input.vue'
 export { default as Checkbox } from './components/Checkbox/Checkbox.vue'
