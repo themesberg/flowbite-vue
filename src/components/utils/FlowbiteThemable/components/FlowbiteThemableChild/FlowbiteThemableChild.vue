@@ -1,19 +1,19 @@
 <template>
-  <component :is="tag" :class="simplifyTailwindClasses(classAttr, classes)">
+  <component
+    :is="tag"
+    :class="simplifyTailwindClasses(classAttr, classes)"
+  >
     <slot />
   </component>
 </template>
+
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import {
-  useFlowbiteThemableChildClasses,
-} from './composables/useFlowbiteThemableChildClasses'
-import type {
-  ThemableChildrenApply,
-} from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChild/types'
 import { computed, toRefs, useAttrs } from 'vue'
-import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
+import type { ThemableChildrenApply } from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChild/types'
 import type { FlowbiteTheme } from '@/components/utils/FlowbiteThemable/types'
+import { useFlowbiteThemableChildClasses } from './composables/useFlowbiteThemableChildClasses'
+import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 
 const attrs = useAttrs()
 
@@ -34,7 +34,5 @@ const props = defineProps({
 
 const { classes } = useFlowbiteThemableChildClasses(toRefs(props))
 
-const classAttr = computed<string>(() => {
-  return attrs.class as string || '' // TODO:
-})
+const classAttr = computed<string>(() => attrs.class as string || '')
 </script>

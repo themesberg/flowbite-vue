@@ -1,5 +1,3 @@
-import { useToast } from '@/components/Toast/components/ToastProvider/composables/useToast'
+import { useToast } from '@/components/FwbToast/composables/useToast'
 
-export {
-    useToast,
-}
+export { useToast }
