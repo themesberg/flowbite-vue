@@ -1,15 +1,15 @@
 <script setup>
-import SidebarExample from './sidebar/examples/SidebarExample.vue'
+import FwbSidebarExample from './sidebar/examples/FwbSidebarExample.vue'
 </script>
 # Vue Sidebar - Flowbite
 
+<fwb-sidebar-example />
 ```vue
-<script setup>
-import { Sidebar } from 'flowbite-vue'
-</script>
 <template>
-  <Sidebar></Sidebar>
+    <fwb-sidebar />
 </template>
-```
 
-<SidebarExample />
+<script setup>
+import { FwbSidebar } from 'flowbite-vue'
+</script>
+```
