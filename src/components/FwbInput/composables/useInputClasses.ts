@@ -1,7 +1,12 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
-import { ValidationStatus, type InputSize } from '@/components/Input/types'
 import { twMerge } from 'tailwind-merge'
+import {
+  type InputSize,
+  type ValidationStatus,
+  validationStatusMap,
+} from '../types'
+
 // LABEL
 const baseLabelClasses = 'block mb-2 text-sm font-medium'
 
@@ -15,8 +20,7 @@ const inputSizeClasses: Record<InputSize, string> = {
   sm: 'p-2 text-sm',
 }
 
-const successInputClasses =
-  'bg-green-50 border-green-500 dark:border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus:ring-green-500 focus:border-green-500'
+const successInputClasses = 'bg-green-50 border-green-500 dark:border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus:ring-green-500 focus:border-green-500'
 const errorInputClasses = 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500'
 
 export type UseInputClassesProps = {
@@ -25,19 +29,35 @@ export type UseInputClassesProps = {
   validationStatus: Ref<ValidationStatus | undefined>
 }
 
-export function useInputClasses(props: UseInputClassesProps): {
+export function useInputClasses (props: UseInputClassesProps): {
   inputClasses: Ref<string>
   labelClasses: Ref<string>
 } {
   const inputClasses = computed(() => {
     const vs = props.validationStatus.value
-    const classByStatus = vs === ValidationStatus.Success ? successInputClasses : vs == ValidationStatus.Error ? errorInputClasses : ''
-    return twMerge(defaultInputClasses, classByStatus, inputSizeClasses[props.size.value], props.disabled.value ? disabledInputClasses : '')
+
+    const classByStatus = vs === validationStatusMap.Success
+      ? successInputClasses
+      : vs === validationStatusMap.Error
+        ? errorInputClasses
+        : ''
+
+    return twMerge(
+      defaultInputClasses,
+      classByStatus,
+      inputSizeClasses[props.size.value],
+      props.disabled.value ? disabledInputClasses : '',
+    )
   })
 
   const labelClasses = computed(() => {
     const vs = props.validationStatus.value
-    const classByStatus = vs === ValidationStatus.Success ? 'text-green-700 dark:text-green-500' : vs == ValidationStatus.Error ? 'text-red-700 dark:text-red-500' : 'text-gray-900 dark:text-gray-300'
+    const classByStatus = vs === validationStatusMap.Success
+      ? 'text-green-700 dark:text-green-500'
+      : vs === validationStatusMap.Error
+        ? 'text-red-700 dark:text-red-500'
+        : 'text-gray-900 dark:text-gray-300'
+
     return twMerge(baseLabelClasses, classByStatus)
   })
 

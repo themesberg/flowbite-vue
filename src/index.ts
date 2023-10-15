@@ -51,10 +51,12 @@ export { default as FwbToast } from './components/FwbToast/FwbToast.vue'
 export { default as FwbToastProvider } from './components/FwbToast/FwbToastProvider.vue'
 export { default as FwbTooltip } from './components/FwbTooltip/FwbTooltip.vue'
 
+// Form
+export { default as FwbInput } from './components/FwbInput/FwbInput.vue'
+
 export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
 export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
 export { default as Textarea } from './components/Textarea/Textarea.vue'
-export { default as Input } from './components/Input/Input.vue'
 export { default as Checkbox } from './components/Checkbox/Checkbox.vue'
 export { default as Select } from './components/Select/Select.vue'
 export { default as Toggle } from './components/Toggle/Toggle.vue'
