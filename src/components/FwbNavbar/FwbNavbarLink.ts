@@ -44,8 +44,6 @@ export default defineComponent({
     }
     return () =>
       h('li', null, h(
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         resolveComponent(props.component),
         {
           ...props,
