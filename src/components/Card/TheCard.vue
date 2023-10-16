@@ -1,9 +1,7 @@
 <template>
   <component :is="wrapperType" :href="href" :class="cardClasses">
     <img v-if="imgSrc" class="rounded-t-lg" :class="horizontalImageClasses" :src="imgSrc" :alt="imgAlt"/>
-    <div class="p-6">
       <slot />
-    </div>
   </component>
 </template>
 <script lang="ts" setup>
