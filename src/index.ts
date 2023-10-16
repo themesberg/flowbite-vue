@@ -55,6 +55,7 @@ export { default as FwbTooltip } from './components/FwbTooltip/FwbTooltip.vue'
 export { default as FwbCheckbox } from './components/FwbCheckbox/FwbCheckbox.vue'
 export { default as FwbFileInput } from './components/FwbFileInput/FwbFileInput.vue'
 export { default as FwbInput } from './components/FwbInput/FwbInput.vue'
+export { default as FwbRadio } from './components/FwbRadio/FwbRadio.vue'
 export { default as FwbSelect } from './components/FwbSelect/FwbSelect.vue'
 export { default as FwbTextarea } from './components/FwbTextarea/FwbTextarea.vue'
 
@@ -62,7 +63,6 @@ export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable
 export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
 export { default as Toggle } from './components/Toggle/Toggle.vue'
 export { default as Range } from './components/Range/Range.vue'
-export { default as Radio } from './components/Radio/Radio.vue'
 
 // Typography
 export { default as FwbA } from './components/Typography/FwbA.vue'

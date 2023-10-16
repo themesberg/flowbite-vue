@@ -1,37 +1,45 @@
 <template>
-  <label class="flex w-[100%] items-center">
-    <input type="radio" v-model="model" :disabled="disabled" :name="name" :value="value"
-      :class="radioClasses">
+  <label class="flex w-full items-center">
+    <input
+      v-model="model"
+      :class="radioClasses"
+      :disabled="disabled"
+      :name="name"
+      :value="value"
+      type="radio"
+    >
     <span :class="labelClasses">{{ label }}</span>
     <slot />
   </label>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 import { useRadioClasses } from './composables/useRadioClasses'
 
 interface RadioProps {
+  disabled?: boolean;
+  label?: string;
   modelValue?: string;
   name?: string;
   value?: string;
-  label?: string;
-  disabled?: boolean;
 }
 
 const props = withDefaults(defineProps<RadioProps>(), {
-  value: '',
-  name: '',
-  label: '',
   disabled: false,
+  label: '',
+  modelValue: '',
+  name: '',
+  value: '',
 })
 
 const emit = defineEmits(['update:modelValue'])
+
 const model = computed({
-  get() {
+  get () {
     return props.modelValue
   },
-  set(val) {
+  set (val) {
     emit('update:modelValue', val)
   },
 })
