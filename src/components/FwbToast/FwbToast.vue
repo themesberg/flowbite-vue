@@ -90,7 +90,7 @@ import { ref, toRefs } from 'vue'
 import type { PropType } from 'vue'
 import type { ToastAlign, ToastType } from './types'
 import { useToastClasses } from './composables/useToastClasses'
-import FlowbiteThemableChild from '@/components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
+import FlowbiteThemableChild from '@/components/utils/FlowbiteThemable/FlowbiteThemableChild.vue'
 
 const props = defineProps({
   type: {
@@ -115,7 +115,11 @@ const visible = ref(true)
 
 const emit = defineEmits(['close'])
 
-const { typeClasses, wrapperClasses, contentClasses } = useToastClasses(toRefs(props))
+const {
+  typeClasses,
+  wrapperClasses,
+  contentClasses,
+} = useToastClasses(toRefs(props))
 
 const onClose = () => {
   emit('close')
