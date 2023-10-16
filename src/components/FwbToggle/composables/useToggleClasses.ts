@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
-import type { InputSize } from '@/components/Input/types'
+import type { InputSize } from '@/components/FwbInput/types'
 
 // Toggle Background
 const defaultLabelClasses = 'w-fit relative inline-flex items-center cursor-pointer'
@@ -25,28 +25,14 @@ export type UseToggleClassesProps = {
   color: Ref<string>
 }
 
-export function useToggleClasses(props: UseToggleClassesProps) {
-  const labelClasses = computed(() => {
-    return defaultLabelClasses
-  })
+export function useToggleClasses (props: UseToggleClassesProps) {
+  const labelClasses = computed(() => defaultLabelClasses)
+  const toggleClasses = computed(() => defaultToggleBackgroundClasses)
+  const toggleSize = computed(() => toggleSizeClasses[props.size.value])
+  const toggleColor = computed(() => toggleColorClasses[props.color.value])
+  const toggleBallClasses = computed(() => defaultToggleBallClasses)
 
-  const toggleClasses = computed(() => {
-    return defaultToggleBackgroundClasses
-  })
-
-  const toggleSize = computed(() => {
-    return toggleSizeClasses[props.size.value]
-  })
-
-  const toggleColor = computed(() => {
-    return toggleColorClasses[props.color.value]
-  })
-
-  const toggleBallClasses = computed(() => {
-    return defaultToggleBallClasses
-  })
-
-  return { 
+  return {
     labelClasses,
     toggleSize,
     toggleClasses,

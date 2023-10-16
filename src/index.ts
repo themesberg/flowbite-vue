@@ -58,10 +58,10 @@ export { default as FwbInput } from './components/FwbInput/FwbInput.vue'
 export { default as FwbRadio } from './components/FwbRadio/FwbRadio.vue'
 export { default as FwbSelect } from './components/FwbSelect/FwbSelect.vue'
 export { default as FwbTextarea } from './components/FwbTextarea/FwbTextarea.vue'
+export { default as FwbToggle } from './components/FwbToggle/FwbToggle.vue'
 
 export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
 export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
-export { default as Toggle } from './components/Toggle/Toggle.vue'
 export { default as Range } from './components/Range/Range.vue'
 
 // Typography
