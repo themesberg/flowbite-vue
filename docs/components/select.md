@@ -1,8 +1,8 @@
 <script setup>
-import SelectExample from './select/examples/SelectExample.vue';
-import DisabledSelect from './select/examples/DisabledSelect.vue';
-import SelectSize from './select/examples/SelectSize.vue';
-import UnderlinedSelect from './select/examples/UnderlinedSelect.vue';
+import FwbSelectExample from './select/examples/FwbSelectExample.vue'
+import FwbSelectExampleDisabled from './select/examples/FwbSelectExampleDisabled.vue'
+import FwbSelectExampleSize from './select/examples/FwbSelectExampleSize.vue'
+import FwbSelectExampleUnderlined from './select/examples/FwbSelectExampleUnderlined.vue'
 </script>
 
 # Vue Select - Flowbite
@@ -18,59 +18,117 @@ Original reference: [https://flowbite.com/docs/forms/select/](https://flowbite.c
 The select input component can be used to gather information from users based on multiple options in the form of a dropdown list and by browsing this page you will find multiple options, styles, sizes, and variants built with the utility classes from Tailwind CSS also available in dark mode.
 
 ## Default
+
+<fwb-select-example />
 ```vue
+<template>
+  <fwb-select
+    v-model="selected"
+    :options="countries"
+    label="Select a country"
+  />
+</template>
+
 <script setup>
 import { ref } from 'vue'
-import { Select } from 'flowbite-vue'
+import { FwbSelect } from 'flowbite-vue'
 
-let selected = ref('')
+const selected = ref('')
 const countries = [
   { value: 'us', name: 'United States' },
   { value: 'ca', name: 'Canada' },
   { value: 'fr', name: 'France' },
 ]
 </script>
-<template>
-    <Select v-model="selected" :options="countries" />
-</template>
 ```
-
-<SelectExample />
 
 ## Disabled
 
+<fwb-select-example-disabled />
 ```vue
 <template>
-  <div>
-    <Select v-model="selected" :options="countries" placeholder="You can't select" :disabled="true" />
-  </div>
+  <fwb-select
+    v-model="selected"
+    :options="countries"
+    disabled
+    label="Select a country"
+    placeholder="You can't select"
+  />
 </template>
-```
 
-<DisabledSelect />
+<script setup>
+import { ref } from 'vue'
+import { FwbSelect } from 'flowbite-vue'
+
+const selected = ref('')
+const countries = [
+  { value: 'us', name: 'United States' },
+  { value: 'ca', name: 'Canada' },
+  { value: 'fr', name: 'France' },
+]
+</script>
+```
 
 ## Underlined
 
+<fwb-select-example-underlined />
 ```vue
 <template>
-  <div>
-    <Select v-model="selected" :options="countries" :underline="true" />
-  </div>
+  <fwb-select
+    v-model="selected"
+    :options="countries"
+    label="Select a country"
+    underline
+  />
 </template>
-```
 
-<UnderlinedSelect />
+<script setup>
+import { ref } from 'vue'
+import { FwbSelect } from 'flowbite-vue'
+
+const selected = ref('')
+const countries = [
+  { value: 'us', name: 'United States' },
+  { value: 'ca', name: 'Canada' },
+  { value: 'fr', name: 'France' },
+]
+</script>
+```
 
 ## Size
 
+<fwb-select-example-size />
 ```vue
 <template>
-  <div>
-    <Select v-model="selected" :options="countries" :size="lg" />
-    <Select v-model="selected" :options="countries" :size="md" />
-    <Select v-model="selected" :options="countries" :size="sm" />
-  </div>
+  <fwb-select
+    v-model="selected"
+    :options="countries"
+    label="Select a country"
+    size="sm"
+  />
+  <fwb-select
+    v-model="selected"
+    :options="countries"
+    label="Select a country"
+    size="md"
+  />
+  <fwb-select
+    v-model="selected"
+    :options="countries"
+    label="Select a country"
+    size="lg"
+  />
 </template>
-```
 
-<SelectSize />
+<script setup>
+import { ref } from 'vue'
+import { FwbSelect } from 'flowbite-vue'
+
+const selected = ref('')
+const countries = [
+  { value: 'us', name: 'United States' },
+  { value: 'ca', name: 'Canada' },
+  { value: 'fr', name: 'France' },
+]
+</script>
+```

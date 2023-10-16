@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
-import type { InputSize } from '@/components/Input/types'
+import type { InputSize } from '@/components/FwbInput/types'
 
 // LABEL
 const defaultLabelClasses = 'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
@@ -22,20 +22,17 @@ export type UseSelectClassesProps = {
   underline: Ref<boolean>
 }
 
-export function useSelectClasses(props: UseSelectClassesProps) {
-  const selectClasses = computed(() => {
-    return simplifyTailwindClasses(defaultSelectClasses, selectSizeClasses[props.size.value], props.disabled.value ? disabledSelectClasses : '')
-  })
+export function useSelectClasses (props: UseSelectClassesProps) {
+  const selectClasses = computed(() => simplifyTailwindClasses(
+    defaultSelectClasses,
+    selectSizeClasses[props.size.value],
+    props.disabled.value ? disabledSelectClasses : '',
+  ))
 
-  const underlineClasses = computed(() => {
-    return underlineSelectClasses
-  })
+  const underlineClasses = computed(() => underlineSelectClasses)
+  const labelClasses = computed(() => defaultLabelClasses)
 
-  const labelClasses = computed(() => {
-    return defaultLabelClasses
-  })
-
-  return { 
+  return {
     selectClasses,
     underlineClasses,
     labelClasses,
