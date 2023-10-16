@@ -1,9 +1,7 @@
 <script setup>
-import FlowbiteThemableTabsPillsExample from './examples/tabs/FlowbiteThemableTabsPillsExample.vue';
-import FlowbiteThemableTabsUnderlineExample from './examples/tabs/FlowbiteThemableTabsUnderlineExample.vue';
-import FlowbiteThemableTabsDefaultExample from './examples/tabs/FlowbiteThemableTabsDefaultExample.vue';
-import FlowbiteThemableDropdownExample from './examples/dropdown/FlowbiteThemableDropdownExample.vue';
-import FlowbiteThemableButtonExample from './examples/button/FlowbiteThemableButtonExample.vue';
+import FlowbiteThemableExampleTabs from './examples/FlowbiteThemableExampleTabs.vue'
+import FlowbiteThemableExampleButton from './examples/FlowbiteThemableExampleButton.vue'
+import FlowbiteThemableExampleDropdown from './examples/FlowbiteThemableExampleDropdown.vue'
 </script>
 
 # Vue Themable Configuration - Flowbite
@@ -16,97 +14,65 @@ WIP, Do not use it in production
 
 ## Tabs
 
+<flowbite-themable-example-tabs />
 ```vue
+<template>
+  <flowbite-themable :theme="theme">
+      <fwb-tabs :variant="variant">
+        ...
+      </fwb-tabs>
+  </flowbite-themable>
+</template>
+
 <script setup>
-import { Tabs, Tab, FlowbiteThemable } from 'flowbite-vue'
+import { FwbTabs, FwbTab, FlowbiteThemable } from 'flowbite-vue'
 const theme = 'blue' // 'blue', 'green', 'red', 'pink', 'purple'
 const variant = 'default' // see tabs docs
 </script>
-<template>
-  <flowbite-themable :theme="theme">
-      <tabs :variant="variant" class="p-5">
-        ...
-      </tabs>
-  </flowbite-themable>
-</template>
 ```
 
-### **variant: pills**
+### variant: pills
 ---
-<FlowbiteThemableTabsPillsExample theme="blue" />
-
-<FlowbiteThemableTabsPillsExample theme="green" />
-
-<FlowbiteThemableTabsPillsExample theme="pink" />
-
-<FlowbiteThemableTabsPillsExample theme="purple" />
-
-<FlowbiteThemableTabsPillsExample theme="red" />
-
-### **variant: underline**
+<flowbite-themable-example-tabs tabs-variant="pills" />
 ---
-<FlowbiteThemableTabsUnderlineExample theme="blue" />
 
-<FlowbiteThemableTabsUnderlineExample theme="green" />
-
-<FlowbiteThemableTabsUnderlineExample theme="pink" />
-
-<FlowbiteThemableTabsUnderlineExample theme="purple" />
-
-<FlowbiteThemableTabsUnderlineExample theme="red" />
-
-### **variant: default**
+### variant: underline
 ---
-<FlowbiteThemableTabsDefaultExample theme="blue" />
-
-<FlowbiteThemableTabsDefaultExample theme="green" />
-
-<FlowbiteThemableTabsDefaultExample theme="pink" />
-
-<FlowbiteThemableTabsDefaultExample theme="purple" />
-
-<FlowbiteThemableTabsDefaultExample theme="red" />
+<flowbite-themable-example-tabs tabs-variant="underline" />
+---
 
 ## Dropdown
 
+<flowbite-themable-example-dropdown />
 ```vue
-<script setup>
-import { Dropdown, FlowbiteThemable } from 'flowbite-vue'
-const theme = 'blue' // 'blue', 'green', 'red', 'pink', 'purple'
-</script>
 <template>
   <flowbite-themable :theme="theme">
-      <dropdown>
+      <fwb-dropdown>
         ...
-      </dropdown>
+      </fwb-dropdown>
   </flowbite-themable>
 </template>
+
+<script setup>
+import { FwbDropdown, FlowbiteThemable } from 'flowbite-vue'
+const theme = 'blue' // 'blue', 'green', 'red', 'pink', 'purple'
+</script>
 ```
-
-<FlowbiteThemableDropdownExample theme="blue" class="mb-2" />
-
-<FlowbiteThemableDropdownExample theme="green" class="mb-2" />
-
-<FlowbiteThemableDropdownExample theme="pink" class="mb-2" />
-
-<FlowbiteThemableDropdownExample theme="purple" class="mb-2" />
-
-<FlowbiteThemableDropdownExample theme="red" />
 
 ## Button
 
+<flowbite-themable-example-button />
 ```vue
-<script setup>
-import { Button, FlowbiteThemable } from 'flowbite-vue'
-const theme = 'blue' // 'blue', 'green', 'red', 'pink', 'purple'
-</script>
 <template>
   <flowbite-themable :theme="theme">
-      <Button>
+      <fwb-button>
         ...
-      </Button>
+      </fwb-button>
   </flowbite-themable>
 </template>
-```
 
-<FlowbiteThemableButtonExample />
+<script setup>
+import { FwbButton, FlowbiteThemable } from 'flowbite-vue'
+const theme = 'blue' // 'blue', 'green', 'red', 'pink', 'purple'
+</script>
+```

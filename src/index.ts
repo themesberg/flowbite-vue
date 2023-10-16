@@ -61,9 +61,6 @@ export { default as FwbSelect } from './components/FwbSelect/FwbSelect.vue'
 export { default as FwbTextarea } from './components/FwbTextarea/FwbTextarea.vue'
 export { default as FwbToggle } from './components/FwbToggle/FwbToggle.vue'
 
-export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
-export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/components/FlowbiteThemableChild/FlowbiteThemableChild.vue'
-
 // Typography
 export { default as FwbA } from './components/Typography/FwbA.vue'
 export { default as FwbHeading } from './components/Typography/FwbHeading.vue'
@@ -71,6 +68,8 @@ export { default as FwbImg } from './components/Typography/FwbImg.vue'
 export { default as FwbP } from './components/Typography/FwbP.vue'
 
 // utilities
+export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
+export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/FlowbiteThemableChild.vue'
 export { default as SlotListener } from './components/utils/SlotListener/SlotListener.vue'
 
 export * from './composables'
