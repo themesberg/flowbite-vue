@@ -1,7 +1,7 @@
-import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 import { computed } from 'vue'
 import type { Ref } from 'vue'
-import type { InputSize } from '@/components/Input/types'
+import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
+import type { InputSize } from '@/components/FwbInput/types'
 
 // Range
 const rangeDefaultClasses = 'w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700'
@@ -18,17 +18,16 @@ export type UseRangeClassesProps = {
   disabled: Ref<boolean>
 }
 
-export function useRangeClasses(props: UseRangeClassesProps) {
-  const rangeClasses = computed(() => {
-    return simplifyTailwindClasses(rangeDefaultClasses, rangeSizeClasses[props.size.value])
-  })
+export function useRangeClasses (props: UseRangeClassesProps) {
+  const rangeClasses = computed(() => simplifyTailwindClasses(
+    rangeDefaultClasses,
+    rangeSizeClasses[props.size.value],
+  ))
 
-  const labelClasses = computed(() => {
-    return rangeLabelClasses
-  })
+  const labelClasses = computed(() => rangeLabelClasses)
 
   return {
     rangeClasses,
     labelClasses,
   }
-} 
+}
