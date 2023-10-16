@@ -1,7 +1,15 @@
 <template>
   <label class="flex gap-3 items-center justify-start">
-    <input v-model="model" type="checkbox" :disabled="disabled" :class="checkboxClasses" />
-    <span v-if="label" :class="labelClasses">{{ label }}</span>
+    <input
+      v-model="model"
+      :class="checkboxClasses"
+      :disabled="disabled"
+      type="checkbox"
+    >
+    <span
+      v-if="label"
+      :class="labelClasses"
+    >{{ label }}</span>
     <slot />
   </label>
 </template>
@@ -11,25 +19,28 @@ import { computed } from 'vue'
 import { useCheckboxClasses } from './composables/useCheckboxClasses'
 
 interface CheckboxProps {
-  modelValue?: boolean,
-  label?: string,
   disabled?: boolean,
+  label?: string,
+  modelValue?: boolean,
 }
 const props = withDefaults(defineProps<CheckboxProps>(), {
-  modelValue: false,
-  label: '',
   disabled: false,
+  label: '',
+  modelValue: false,
 })
 
 const emit = defineEmits(['update:modelValue'])
 const model = computed({
-  get() {
+  get () {
     return props.modelValue
   },
-  set(val) {
+  set (val) {
     emit('update:modelValue', val)
   },
 })
 
-const { checkboxClasses, labelClasses } = useCheckboxClasses()
+const {
+  checkboxClasses,
+  labelClasses,
+} = useCheckboxClasses()
 </script>
