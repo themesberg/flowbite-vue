@@ -62,7 +62,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type Ref, onMounted, ref } from 'vue'
+import { onMounted, ref, type Ref } from 'vue'
 import type { ModalSize } from './types'
 
 interface ModalProps {

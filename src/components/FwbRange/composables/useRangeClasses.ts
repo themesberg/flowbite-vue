@@ -1,5 +1,4 @@
-import { computed } from 'vue'
-import type { Ref } from 'vue'
+import { computed, type Ref } from 'vue'
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 import type { InputSize } from '@/components/FwbInput/types'
 

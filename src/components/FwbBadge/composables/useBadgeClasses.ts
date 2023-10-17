@@ -1,4 +1,4 @@
-import { type Ref, computed } from 'vue'
+import { computed, type Ref } from 'vue'
 import type { BadgeSize, BadgeType } from '../types'
 import classNames from 'classnames'
 

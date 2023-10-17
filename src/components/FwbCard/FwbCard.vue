@@ -16,8 +16,9 @@
     </div>
   </component>
 </template>
+
 <script lang="ts" setup>
-import { type PropType, computed, toRefs } from 'vue'
+import { computed, type PropType, toRefs } from 'vue'
 import { useCardsClasses } from './composables/useCardClasses'
 import type { CardsVariant } from './types'
 

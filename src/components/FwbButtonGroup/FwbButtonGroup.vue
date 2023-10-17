@@ -6,6 +6,7 @@
     <slot />
   </div>
 </template>
+
 <!-- TODO: maybe use provide/inject to control styles -->
 <style>
 @tailwind components;

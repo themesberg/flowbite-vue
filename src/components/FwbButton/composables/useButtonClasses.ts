@@ -1,4 +1,4 @@
-import { type Ref, computed, useSlots } from 'vue'
+import { computed, type Ref, useSlots } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
 

@@ -4,7 +4,7 @@
     class="inline-flex relative"
   >
     <div class="inline-flex items-center">
-      <slot-listener @click="onToggle">
+      <fwb-slot-listener @click="onToggle">
         <slot name="trigger">
           <fwb-button>
             {{ text }}
@@ -26,7 +26,7 @@
             </template>
           </fwb-button>
         </slot>
-      </slot-listener>
+      </fwb-slot-listener>
     </div>
     <transition :name="transitionName">
       <div
@@ -35,9 +35,9 @@
         :class="[contentClasses]"
         :style="contentStyles"
       >
-        <slot-listener @click="onHide">
+        <fwb-slot-listener @click="onHide">
           <slot />
-        </slot-listener>
+        </fwb-slot-listener>
       </div>
     </transition>
   </div>
@@ -48,7 +48,7 @@ import { computed, ref, toRef } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import type { DropdownPlacement } from './types'
 import FwbButton from '@/components/FwbButton/FwbButton.vue'
-import SlotListener from '@/components/utils/SlotListener/SlotListener.vue'
+import FwbSlotListener from '@/components/utils/FwbSlotListener/FwbSlotListener.vue'
 import { useDropdownClasses } from './composables/useDropdownClasses'
 
 const visible = ref(false)

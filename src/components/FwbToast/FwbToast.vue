@@ -86,8 +86,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, toRefs } from 'vue'
-import type { PropType } from 'vue'
+import { type PropType, ref, toRefs } from 'vue'
 import type { ToastAlign, ToastType } from './types'
 import { useToastClasses } from './composables/useToastClasses'
 import FlowbiteThemableChild from '@/components/utils/FlowbiteThemable/FlowbiteThemableChild.vue'

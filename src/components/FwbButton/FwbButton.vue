@@ -70,6 +70,7 @@
     </div>
   </component>
 </template>
+
 <script lang="ts" setup>
 import { computed, resolveComponent, toRefs } from 'vue'
 import FwbSpinner from '@/components/FwbSpinner/FwbSpinner.vue'
@@ -119,4 +120,3 @@ const linkComponent = props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
 const buttonComponent = props.href ? linkComponent : 'button'
 const linkAttr = props.tag === 'router-link' || props.tag === 'nuxt-link' ? 'to' : 'href'
 </script>
-../FwbSpinner/Spinner.vue

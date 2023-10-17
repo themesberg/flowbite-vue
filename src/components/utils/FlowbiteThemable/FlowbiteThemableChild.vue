@@ -8,8 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue'
-import { computed, toRefs, useAttrs } from 'vue'
+import { computed, type PropType, toRefs, useAttrs } from 'vue'
 import type { FlowbiteTheme, ThemableChildrenApply } from '@/components/utils/FlowbiteThemable/types'
 import { useFlowbiteThemableChildClasses } from './composables/useFlowbiteThemableChildClasses'
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'

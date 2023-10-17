@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type ComputedRef, computed, onMounted, ref } from 'vue'
+import { computed, type ComputedRef, onMounted, ref } from 'vue'
 import { useAccordionState } from './composables/useAccordionState'
 import { useAccordionHeaderClasses } from './composables/useAccordionHeaderClasses'
 

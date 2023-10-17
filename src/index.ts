@@ -70,6 +70,6 @@ export { default as FwbP } from './components/Typography/FwbP.vue'
 // utilities
 export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable/FlowbiteThemable.vue'
 export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/FlowbiteThemableChild.vue'
-export { default as SlotListener } from './components/utils/SlotListener/SlotListener.vue'
+export { default as FwbSlotListener } from './components/utils/FwbSlotListener/FwbSlotListener.vue'
 
 export * from './composables'

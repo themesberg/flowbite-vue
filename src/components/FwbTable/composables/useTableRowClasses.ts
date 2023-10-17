@@ -1,4 +1,4 @@
-import { type Ref, computed, inject } from 'vue'
+import { computed, inject, type Ref } from 'vue'
 import classNames from 'classnames'
 
 const baseClasses = 'bg-white dark:bg-gray-800 [&:not(:last-child)]:border-b [&:not(:last-child)]:dark:border-gray-700'
@@ -9,10 +9,13 @@ export function useTableRowClasses (): { tableRowClasses: Ref<string> } {
   const isStriped = inject('striped')
   const isHoverable = inject('hoverable')
 
-  const tableRowClasses = computed(() => classNames(baseClasses, {
-    [hoverableClasses]: isHoverable,
-    [stripedClasses]: isStriped,
-  }))
+  const tableRowClasses = computed(() => classNames(
+    baseClasses,
+    {
+      [hoverableClasses]: isHoverable,
+      [stripedClasses]: isStriped,
+    },
+  ))
 
   return { tableRowClasses }
 }

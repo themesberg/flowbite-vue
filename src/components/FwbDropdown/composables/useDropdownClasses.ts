@@ -1,4 +1,4 @@
-import { type Ref, computed, nextTick, ref, watch } from 'vue'
+import { computed, nextTick, ref, type Ref, watch } from 'vue'
 import classNames from 'classnames'
 import type { DropdownPlacement } from '../types'
 
@@ -46,7 +46,10 @@ export function useDropdownClasses (props: UseDropdownClassesProps): {
 
   const calculatePlacementClasses = () => {
     const boundingRect = props.contentRef.value?.getBoundingClientRect()
-    if (!boundingRect) return placementStyles.value = ''
+    if (!boundingRect) {
+      placementStyles.value = ''
+      return
+    }
     placementStyles.value = placementCalculators[props.placement.value](boundingRect)
   }
 

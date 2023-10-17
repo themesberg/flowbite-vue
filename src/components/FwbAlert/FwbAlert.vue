@@ -60,7 +60,6 @@
 <script lang="ts" setup>
 import { ref, useAttrs } from 'vue'
 import { twMerge } from 'tailwind-merge'
-
 import type { AlertType } from './types'
 
 interface IAlertProps {

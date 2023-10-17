@@ -3,8 +3,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { FlowbiteTheme } from './types'
 import { provide, toRef } from 'vue'
+import type { FlowbiteTheme } from './types'
 import { FLOWBITE_THEMABLE_INJECTION_KEY } from './injection/config'
 
 interface IFlowbiteThemableProps {

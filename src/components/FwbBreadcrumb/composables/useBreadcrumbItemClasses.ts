@@ -1,4 +1,4 @@
-import { type Ref, computed } from 'vue'
+import { computed, type Ref } from 'vue'
 import classNames from 'classnames'
 
 const breadcrumbItemDefaultClasses = 'ml-1 inline-flex items-center text-sm font-medium dark:text-gray-400'
@@ -13,12 +13,10 @@ export type useBreadcrumbItemProps = {
 export function useBreadcrumbItemClasses (props: useBreadcrumbItemProps): {
   breadcrumbItemClasses: Ref<string>
 } {
-  const breadcrumbItemClasses = computed<string>(() => {
-    return classNames(
-      breadcrumbItemDefaultClasses,
-      props.href.value ? breadcrumbItemLinkClasses : breadcrumbSpanClasses,
-    )
-  })
+  const breadcrumbItemClasses = computed<string>(() => classNames(
+    breadcrumbItemDefaultClasses,
+    props.href.value ? breadcrumbItemLinkClasses : breadcrumbSpanClasses,
+  ))
 
   return {
     breadcrumbItemClasses,

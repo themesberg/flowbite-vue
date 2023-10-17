@@ -82,8 +82,9 @@
     </template>
   </div>
 </template>
+
 <script lang="ts" setup>
-import { type PropType, onMounted, ref } from 'vue'
+import { onMounted, type PropType, ref } from 'vue'
 import type { PictureItem } from '@/components/FwbCarousel/types'
 
 const props = defineProps({

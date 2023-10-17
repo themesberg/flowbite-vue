@@ -1,4 +1,4 @@
-import { type Ref, computed } from 'vue'
+import { computed, type Ref } from 'vue'
 import classNames from 'classnames'
 import type { SpinnerColor, SpinnerSize } from '../types'
 

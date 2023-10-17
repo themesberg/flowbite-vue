@@ -1,10 +1,10 @@
-import { type Ref, computed } from 'vue'
+import { computed, type Ref } from 'vue'
 import type {
+  avatarDotIndicatorPositionClasses,
   AvatarSize,
   AvatarStatus,
   AvatarStatusPosition,
   AvatarType,
-  avatarDotIndicatorPositionClasses,
 } from '@/components/FwbAvatar/types'
 import classNames from 'classnames'
 
