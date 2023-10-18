@@ -1,7 +1,7 @@
 import { computed, type Ref } from 'vue'
 import { simplifyTailwindClasses } from '../../../utils/simplifyTailwindClasses'
 import { useFlowbiteThemable } from '../../utils/FlowbiteThemable/composables/useFlowbiteThemable'
-import type { TabsVariant } from '../../../types'
+import type { TabsVariant } from './../types'
 
 export type TabClassMap = {
   active: string

@@ -1,5 +1,4 @@
 import type { DefineComponent } from 'vue'
-import type { ToastType } from '@/components/FwbToast/types'
 
 export type ToastAlign = 'start' | 'center' | 'end'
 export type ToastType = 'success' | 'warning' | 'danger' | 'empty'

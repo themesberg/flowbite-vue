@@ -26,7 +26,7 @@ describe('FwbButton', () => {
       'py-2',
     ]
 
-    const wrapper = mount(Button, { props: { color: 'default' } })
+    const wrapper = mount(FwbButton, { props: { color: 'default' } })
     const classes = wrapper.classes()
 
     defaultButtonClasses.forEach(cl => expect(classes).toContain(cl))
@@ -37,7 +37,7 @@ describe('FwbButton', () => {
       'text-base', 'px-6', 'py-3',
     ]
 
-    const wrapper = mount(Button, { props: { size: 'xl' } })
+    const wrapper = mount(FwbButton, { props: { size: 'xl' } })
     const classes = wrapper.classes()
 
     xlButtonSizeClasses.forEach(cl => expect(classes).toContain(cl))
