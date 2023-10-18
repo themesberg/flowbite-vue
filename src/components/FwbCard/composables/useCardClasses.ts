@@ -1,4 +1,4 @@
-import { type Ref, computed } from 'vue'
+import { computed, type Ref } from 'vue'
 import type { CardsVariant } from '../types'
 
 export type UseCardsClassesProps = {
@@ -21,13 +21,10 @@ export function useCardsClasses (props: UseCardsClassesProps): {
     return ''
   })
 
-  const horizontalImageClasses = computed(() => {
-    if (props.variant.value === 'horizontal') {
-      return 'object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg'
-    }
-
-    return ''
-  })
+  const horizontalImageClasses = computed(() => (props.variant.value === 'horizontal')
+    ? 'object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg'
+    : '',
+  )
 
   return {
     cardClasses,

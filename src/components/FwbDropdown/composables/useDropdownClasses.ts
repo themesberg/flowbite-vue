@@ -1,4 +1,4 @@
-import { type Ref, computed, nextTick, ref, watch } from 'vue'
+import { computed, nextTick, ref, type Ref, watch } from 'vue'
 import classNames from 'classnames'
 import type { DropdownPlacement } from '../types'
 

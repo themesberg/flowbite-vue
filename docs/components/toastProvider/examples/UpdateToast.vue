@@ -1,6 +1,6 @@
 <template>
   <flowbite-themable theme="blue">
-    <toast
+    <fwb-toast
       v-bind="$attrs"
       @close="$emit('close')"
     >
@@ -24,20 +24,22 @@
         <slot />
       </div>
       <div class="grid grid-cols-2 gap-2">
-        <button size="xs">
+        <fwb-button size="xs">
           Update
-        </button>
-        <button
+        </fwb-button>
+        <fwb-button
           size="xs"
           :color="'alternative'"
         >
           Not now
-        </button>
+        </fwb-button>
       </div>
-    </toast>
+    </fwb-toast>
   </flowbite-themable>
 </template>
+
 <script setup>
-import { Button, FlowbiteThemable, Toast } from '../../../../src/index'
+import { FlowbiteThemable, FwbButton, FwbToast } from '../../../../src/index'
+
 defineEmits(['close'])
 </script>

@@ -1,9 +1,9 @@
 <script setup>
-import DefaultRange from './range/examples/DefaultRange.vue'
-import DisabledRange from './range/examples/DisabledRange.vue'
-import MinMaxRange from './range/examples/MinMaxRange.vue'
-import StepsRange from './range/examples/StepsRange.vue'
-import SizeRange from './range/examples/SizeRange.vue'
+import FwbRangeExample from './range/examples/FwbRangeExample.vue'
+import FwbRangeExampleDisabled from './range/examples/FwbRangeExampleDisabled.vue'
+import FwbRangeExampleMinMax from './range/examples/FwbRangeExampleMinMax.vue'
+import FwbRangeExampleSize from './range/examples/FwbRangeExampleSize.vue'
+import FwbRangeExampleSteps from './range/examples/FwbRangeExampleSteps.vue'
 </script>
 
 # Vue Toggle Range - Flowbite
@@ -17,125 +17,55 @@ Original reference: [https://flowbite.com/docs/forms/range/](https://flowbite.co
 
 ## Default
 
+<fwb-range-example />
 ```vue
 <template>
-  <div class="vp-raw">
-    <fwb-range v-model="value" />
-  </div>
+  <fwb-range v-model="value" />
+  <pre>Current value: {{ value }}</pre>
 </template>
 
 <script setup>
-  import { FwbRange } from 'flowbite-vue'
-  import { ref } from 'vue'
+import { ref } from 'vue'
+import { FwbRange } from 'flowbite-vue'
 
-  const value = ref('10')
+const value = ref(10)
 </script>
 ```
-
-<DefaultRange />
 
 ## Disabled state
 
+<fwb-range-example-disabled />
 ```vue
 <template>
-  <div>
-    <fwb-range
-        v-model="value"
-        label="Disabled range"
-        :disabled="true"
-    />
-  </div>
+  <fwb-range v-model="value" disabled label="Disabled range" />
 </template>
-
-<script setup>
-  import { FwbRange } from 'flowbite-vue'
-  import { ref } from 'vue'
-
-  const value = ref('10')
-</script>
 ```
-
-<DisabledRange />
 
 ## Min and Max
 
+<fwb-range-example-min-max />
 ```vue
 <template>
-  <div>
-    <fwb-range
-        v-model="value"
-        label="Min-max range"
-        min="0"
-        max="10"
-    />
-  </div>
+  <fwb-range v-model="value" :max="15" :min="5" label="Min-max range" />
 </template>
-
-<script setup>
-  import { FwbRange } from 'flowbite-vue'
-  import { ref } from 'vue'
-
-  const value = ref('10')
-</script>
 ```
-
-<MinMaxRange />
 
 ## Steps
 
+<fwb-range-example-steps />
 ```vue
 <template>
-  <div>
-    <fwb-range
-        v-model="value"
-        label="Steps range"
-        steps="5"
-    />
-  </div>
+  <fwb-range v-model="value" :steps="5" label="Steps range" />
 </template>
-
-<script setup>
-  import { FwbRange } from 'flowbite-vue'
-  import { ref } from 'vue'
-
-  const value = ref('10')
-</script>
 ```
-
-<StepsRange />
 
 ## Sizes
 
+<fwb-range-example-size />
 ```vue
 <template>
-  <div class="flex flex-col gap-3">
-    <fwb-range
-        v-model="value"
-        label="Small range"
-        size="sm"
-    />
-    <fwb-range
-        v-model="value"
-        label="Medium range"
-        size="md"
-    />
-    <fwb-range
-        v-model="value"
-        label="Large range"
-        size="lg"
-    />
-    <div class="mt-2">
-      Value: {{ value }}
-    </div>
-  </div>
+  <fwb-range v-model="value1" label="Small range" size="sm" />
+  <fwb-range v-model="value2" label="Medium range" size="md" />
+  <fwb-range v-model="value3" label="Large range" size="lg" />
 </template>
-
-<script setup>
-  import { FwbRange } from 'flowbite-vue'
-  import { ref } from 'vue'
-
-  const value = ref('10')
-</script>
 ```
-
-<SizeRange />

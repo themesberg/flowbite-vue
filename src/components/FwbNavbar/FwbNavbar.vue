@@ -37,6 +37,7 @@
     </div>
   </nav>
 </template>
+
 <script lang="ts" setup>
 import { computed, ref, useSlots } from 'vue'
 import { breakpointsTailwind, useBreakpoints, useToggle } from '@vueuse/core'
@@ -68,19 +69,15 @@ const navbarRoundedClasses = 'rounded'
 const navbarSolidClasses = 'p-3 bg-gray-50 dark:bg-gray-800 dark:border-gray-700'
 const navbarWhiteClasses = 'bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900'
 
-const navbarClasses = computed(() => {
-  return classNames(
-    navbarBaseClasses,
-    props.sticky ? navbarFloatClasses : '',
-    props.rounded ? navbarRoundedClasses : '',
-    props.solid ? navbarSolidClasses : navbarWhiteClasses,
-  )
-})
-const isShowMenu = computed(() => {
-  if (!isMobile) {
-    return true
-  } else {
-    return isShowMenuOnMobile.value
-  }
-})
+const navbarClasses = computed(() => classNames(
+  navbarBaseClasses,
+  props.sticky ? navbarFloatClasses : '',
+  props.rounded ? navbarRoundedClasses : '',
+  props.solid ? navbarSolidClasses : navbarWhiteClasses,
+))
+
+const isShowMenu = computed(() => (!isMobile)
+  ? true
+  : isShowMenuOnMobile.value,
+)
 </script>

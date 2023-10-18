@@ -1,11 +1,11 @@
 <script setup>
-import DefaultRadio from './radio/examples/DefaultRadio.vue'
-import DisabledRadio from './radio/examples/DisabledRadio.vue'
-import ListRadio from './radio/examples/ListRadio.vue'
-import HorizontalListRadio from './radio/examples/HorizontalListRadio.vue'
-import InlineRadio from './radio/examples/InlineRadio.vue'
-import LinkRadio from './radio/examples/LinkRadio.vue'
-import BorderedRadio from './radio/examples/BorderedRadio.vue'
+import FwbRadioExample from './radio/examples/FwbRadioExample.vue'
+import FwbRadioExampleBordered from './radio/examples/FwbRadioExampleBordered.vue'
+import FwbRadioExampleDisabled from './radio/examples/FwbRadioExampleDisabled.vue'
+import FwbRadioExampleInline from './radio/examples/FwbRadioExampleInline.vue'
+import FwbRadioExampleLink from './radio/examples/FwbRadioExampleLink.vue'
+import FwbRadioExampleList from './radio/examples/FwbRadioExampleList.vue'
+import FwbRadioExampleListHorizontal from './radio/examples/FwbRadioExampleListHorizontal.vue'
 </script>
 
 # Vue Toggle Radio - Flowbite
@@ -20,278 +20,216 @@ Original reference: [https://flowbite.com/docs/forms/range/](https://flowbite.co
 
 ## Radio examples
 
+<fwb-radio-example />
 ```vue
 <template>
-  <div>
-    <fwb-radio
-      v-model="picked"
-      name="default radio"
-      value="one"
-      label="Default radio"
-    />
-    <fwb-radio
-      v-model="picked"
-      name="default radio"
-      value="two"
-      label="Checked state"
-    />
-  </div>
+  <fwb-radio v-model="picked" name="radio" label="Radio 1" value="one" />
+  <fwb-radio v-model="picked" name="radio" label="Radio 2" value="two" />
 </template>
 
 <script setup>
-import { FwbRadio } from 'flowbite-vue'
 import { ref } from 'vue'
+import { FwbRadio } from 'flowbite-vue'
 
-const picked = ref('one')
+const picked = ref()
 </script>
 ```
-
-<DefaultRadio />
 
 ## Disabled Radio
 
+<fwb-radio-example-disabled />
 ```vue
 <template>
-  <div>
-    <fwb-radio
-        v-model="picked"
-        name="disabled-radio"
-        value="one"
-        label="Disabled radio"
-        :disabled="true"
-    />
-    <fwb-radio
-        v-model="picked"
-        name="disabled-radio"
-        value="two"
-        label="Disabled checked"
-        :disabled="true"
-    />
-  </div>
+  <fwb-radio
+    v-model="picked"
+    disabled
+    label="Disabled radio"
+    name="radio-disabled"
+    value="one"
+  />
+  <fwb-radio
+    v-model="picked"
+    disabled
+    label="Disabled checked"
+    name="radio-disabled"
+    value="two"
+  />
 </template>
 
 <script setup>
-  import { FwbRadio } from 'flowbite-vue'
+import { ref } from 'vue'
+import { FwbRadio } from 'flowbite-vue'
+
+const picked = ref('two')
 </script>
 ```
-
-<DisabledRadio />
 
 ## Radio list group
 
+<fwb-radio-example-list />
 ```vue
 <template>
-  <div>
-    <p class="mb-4 font-semibold text-gray-900 dark:text-white">
-      Technology <span class="capitalize">{{ picked }}</span>
-    </p>
-    <ul
-        class="w-48 !p-0 text-sm text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-    >
-      <li class="w-full !m-0 pl-3 flex border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <fwb-radio
-            v-model="picked"
-            name="list-radio"
-            value="svelte"
-            label="Svelte"
-        />
-      </li>
-      <li class="w-full !m-0 pl-3 flex border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <fwb-radio
-            v-model="picked"
-            name="list-radio"
-            value="vue"
-            label="Vue JS"
-        />
-      </li>
-      <li class="w-full !m-0 pl-3 flex border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <fwb-radio
-            v-model="picked"
-            name="list-radio"
-            value="react"
-            label="React"
-        />
-      </li>
-      <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
-        <fwb-radio
-            v-model="picked"
-            name="list-radio"
-            value="angular"
-            label="Angular"
-        />
-      </li>
-    </ul>
-  </div>
+  <fwb-p class="mb-2">
+    Technology {{ picked }}
+  </fwb-p>
+
+  <fwb-list-group>
+    <fwb-list-group-item>
+      <fwb-radio
+        v-model="picked"
+        label="Svelte"
+        name="list-radio"
+        value="Svelte"
+      />
+    </fwb-list-group-item>
+    <fwb-list-group-item>
+      <fwb-radio
+        v-model="picked"
+        label="Vue JS"
+        name="list-radio"
+        value="Vue JS"
+      />
+    </fwb-list-group-item>
+    <fwb-list-group-item>
+      <fwb-radio
+        v-model="picked"
+        label="React"
+        name="list-radio"
+        value="React"
+      />
+    </fwb-list-group-item>
+    <fwb-list-group-item>
+      <fwb-radio
+        v-model="picked"
+        label="Angular"
+        name="list-radio"
+        value="Angular"
+      />
+    </fwb-list-group-item>
+  </fwb-list-group>
 </template>
 
 <script setup>
-  import { FwbRadio } from 'flowbite-vue'
-  import { ref } from 'vue'
+import { ref } from 'vue'
+import { FwbListGroup, FwbListGroupItem, FwbP, FwbRadio } from 'flowbite-vue'
 
-  const picked = ref('svelte')
+const picked = ref('Vue JS')
 </script>
 ```
-
-<ListRadio />
 
 ## Horizontal list group
 
+<fwb-radio-example-list-horizontal />
 ```vue
 <template>
-  <div>
-    <p class="mb-4 font-semibold text-gray-900 dark:text-white">
-      Technology <span class="capitalize">{{ picked1 }}</span>
-    </p>
-    <ul
-        class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-    >
-      <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
-        <fwb-radio
-            v-model="picked1"
-            name="hor-radio"
-            value="svelte"
-            label="Svelte"
-        />
-      </li>
-      <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
-        <fwb-radio
-            v-model="picked1"
-            name="hor-radio"
-            value="vue"
-            label="Vue JS"
-        />
-      </li>
-      <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
-        <fwb-radio
-            v-model="picked1"
-            name="hor-radio"
-            value="react"
-            label="React"
-        />
-      </li>
-      <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
-        <fwb-radio
-            v-model="picked1"
-            name="hor-radio"
-            value="angular"
-            label="Angular"
-        />
-      </li>
-    </ul>
-  </div>
+  <fwb-p class="mb-2">
+    Technology {{ picked }}
+  </fwb-p>
+  <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+    <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
+      <fwb-radio
+        v-model="picked"
+        label="Svelte"
+        name="radio-horizontal"
+        value="Svelte"
+      />
+    </li>
+    <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
+      <fwb-radio
+        v-model="picked"
+        label="Vue JS"
+        name="radio-horizontal"
+        value="Vue JS"
+      />
+    </li>
+    <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
+      <fwb-radio
+        v-model="picked"
+        label="React"
+        name="radio-horizontal"
+        value="React"
+      />
+    </li>
+    <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
+      <fwb-radio
+        v-model="picked"
+        label="Angular"
+        name="radio-horizontal"
+        value="Angular"
+      />
+    </li>
+  </ul>
 </template>
 
 <script setup>
-  import { FwbRadio } from 'flowbite-vue'
-  import { ref } from 'vue'
+import { ref } from 'vue'
+import { FwbP, FwbRadio } from 'flowbite-vue'
 
-  const picked1 = ref('svelte')
+const picked = ref('svelte')
 </script>
-
 ```
-
-<HorizontalListRadio />
 
 ## Inline Radio
 
+<fwb-radio-example-inline />
 ```vue
 <template>
   <div class="flex w-96">
-    <fwb-radio
-        v-model="picked"
-        value="first"
-        label="Inline 1"
-    />
-    <fwb-radio
-        v-model="picked"
-        value="sec"
-        label="Inline 2"
-    />
-    <fwb-radio
-        v-model="picked"
-        value="third"
-        label="Inline 3"
-    />
-    <fwb-radio
-        v-model="picked"
-        value="fourth"
-        label="Inline 4"
-    />
+    <fwb-radio v-model="picked" label="Inline 1" value="first" />
+    <fwb-radio v-model="picked" label="Inline 2" value="second" />
+    <fwb-radio v-model="picked" label="Inline 3" value="third" />
+    <fwb-radio v-model="picked" label="Inline 4" value="fourth" />
   </div>
 </template>
 
 <script setup>
-  import { FwbRadio } from 'flowbite-vue'
-  import { ref } from 'vue'
+import { ref } from 'vue'
+import { FwbRadio } from 'flowbite-vue'
 
-  const picked = ref('first')
+const picked = ref('first')
 </script>
-
 ```
-
-<InlineRadio />
 
 ## Radio with a link
 
+<fwb-radio-example-link />
 ```vue
 <template>
-  <div>
-    <fwb-radio
-        v-model="picked"
-        value="first"
-        name="with-link"
-    >
-      I agree with the
-      <a
-          href="/"
-          class="text-primary-600 dark:text-primary-500 hover:underline ml-1"
-      >
-        terms and conditions
-      </a>.
-    </fwb-radio>
-  </div>
+  <fwb-radio v-model="picked" name="with-link" value="first">
+    I agree with the
+    <fwb-a class="ml-1" href="#">
+      terms and conditions
+    </fwb-a>.
+  </fwb-radio>
 </template>
 
 <script setup>
-  import { FwbRadio } from 'flowbite-vue'
-  import { ref } from 'vue'
+import { ref } from 'vue'
+import { FwbA, FwbRadio } from 'flowbite-vue'
 
-  const picked = ref('first')
+const picked = ref()
 </script>
-
 ```
-
-<LinkRadio />
 
 ## Bordered Radio
 
+<fwb-radio-example-bordered />
 ```vue
 <template>
   <div class="grid grid-cols-2 gap-6">
     <div class="flex items-center p-2 border border-gray-200 rounded dark:border-gray-700">
-      <fwb-radio
-          v-model="picked"
-          value="fs"
-          label="Radio 1"
-      />
+      <fwb-radio v-model="picked" label="Radio 1" name="radio-bordered" value="one" />
     </div>
     <div class="flex items-center p-2 border border-gray-200 rounded dark:border-gray-700">
-      <fwb-radio
-          v-model="picked"
-          value="sec"
-          label="Radio 2"
-      />
+      <fwb-radio v-model="picked" label="Radio 2" name="radio-bordered" value="two" />
     </div>
   </div>
 </template>
 
 <script setup>
-  import { FwbRadio } from 'flowbite-vue'
-  import { ref } from 'vue'
+import { ref } from 'vue'
+import { FwbRadio } from 'flowbite-vue'
 
-  const picked = ref('fs')
+const picked = ref('one')
 </script>
-
 ```
-
-<BorderedRadio />

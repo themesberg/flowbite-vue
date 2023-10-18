@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
-import Button from '../FwbButton.vue'
+import FwbButton from '../FwbButton.vue'
 
-describe('Button', () => {
+describe('FwbButton', () => {
   it('renders correct text', () => {
-    const wrapper = mount(Button, { props: {}, slots: { default: 'test' } })
+    const wrapper = mount(FwbButton, { props: {}, slots: { default: 'test' } })
     expect(wrapper.text()).toBe('test')
   })
 

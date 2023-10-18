@@ -1,14 +1,15 @@
 <template>
-  <slot-listener
+  <fwb-slot-listener
     @click="onClick"
     @mouseleave="onMouseleave"
     @mouseenter="onMouseenter"
   >
-    <button>HELLO</button>
-  </slot-listener>
+    <fwb-button>HELLO</fwb-button>
+  </fwb-slot-listener>
 </template>
+
 <script lang="ts" setup>
-import { SlotListener } from '../../../../src/index'
+import { FwbButton, FwbSlotListener } from '../../../../src/index'
 const onClick = () => {
   console.log('onClick from slot-listener')
 }

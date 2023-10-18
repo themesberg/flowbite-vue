@@ -22,7 +22,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'no-multiple-empty-lines': 'error',
     'object-curly-spacing': ['error', 'always'],
-    'sort-imports': ['error', { ignoreDeclarationSort: true }],
+    'sort-imports': ['error', { ignoreCase: true, ignoreDeclarationSort: true }],
     'vue/block-order': ['error', { order: ['template', 'script', 'style'] }],
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
   },

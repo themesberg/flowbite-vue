@@ -7,22 +7,14 @@ const textareaLabelClasses = 'block mb-2 text-sm font-medium text-gray-900 dark:
 const textareaFooterClasses = 'block py-2 px-3 border-gray-200 dark:border-gray-600'
 
 export function useTextareaClasses (custom: boolean) {
-  const textareaClasses = computed(() => {
-    return simplifyTailwindClasses(textareaDefaultClasses, custom ? 'bg-white dark:bg-gray-800 border-none' : 'border')
-  })
+  const textareaClasses = computed(() => simplifyTailwindClasses(
+    textareaDefaultClasses,
+    custom ? 'bg-white dark:bg-gray-800 border-none' : 'border',
+  ))
 
-  const labelClasses = computed(() => {
-    return textareaLabelClasses
-  })
-
-  const wrapperClasses = computed(() => {
-    if (custom) return textareaWrapperClasses
-    return ''
-  })
-
-  const footerClasses = computed(() => {
-    return textareaFooterClasses
-  })
+  const labelClasses = computed(() => textareaLabelClasses)
+  const wrapperClasses = computed(() => (custom) ? textareaWrapperClasses : '')
+  const footerClasses = computed(() => textareaFooterClasses)
 
   return {
     textareaClasses,

@@ -73,6 +73,7 @@
     </div>
   </component>
 </template>
+
 <script lang="ts" setup>
 import { computed, resolveComponent, toRefs } from 'vue'
 import FwbSpinner from '../FwbSpinner/FwbSpinner.vue'

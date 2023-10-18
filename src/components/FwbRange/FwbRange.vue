@@ -21,26 +21,27 @@ import { useRangeClasses } from './composables/useRangeClasses'
 import type { InputSize } from '@/components/FwbInput/types'
 
 interface RangeProps {
-  modelValue?: string;
-  label?: string;
-  disabled?: boolean;
-  min?: string;
-  max?: string;
-  size?: InputSize;
-  steps?: string;
+  disabled?: boolean
+  label?: string
+  max?: number
+  min?: number
+  modelValue?: number
+  size?: InputSize
+  steps?: number
 }
 
 const props = withDefaults(defineProps<RangeProps>(), {
-  modelValue: '50',
-  label: 'Range slider',
   disabled: false,
-  min: '0',
-  max: '100',
+  label: 'Range slider',
+  max: 100,
+  min: 0,
+  modelValue: 50,
   size: 'md',
-  steps: '1',
+  steps: 1,
 })
 
 const emit = defineEmits(['update:modelValue'])
+
 const model = computed({
   get () {
     return props.modelValue

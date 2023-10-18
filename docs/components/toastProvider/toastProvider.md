@@ -1,6 +1,7 @@
 <script setup>
-import ToastProviderExample from './examples/ToastProviderExample.vue';
+import FwbToastProviderExample from './examples/FwbToastProviderExample.vue'
 </script>
+
 # Vue Toast Provider - Flowbite
 
-<ToastProviderExample />
+<fwb-toast-provider-example />

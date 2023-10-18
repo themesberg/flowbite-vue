@@ -1,4 +1,4 @@
-import { type Ref, computed, inject } from 'vue'
+import { computed, inject, type Ref } from 'vue'
 import classNames from 'classnames'
 
 const baseClasses = 'px-6 py-4 first:font-medium first:text-gray-900 first:dark:text-white first:whitespace-nowrap last:text-right'
@@ -7,9 +7,10 @@ const stripedCellClasses = 'even:bg-gray-white even:dark:bg-gray-900 odd:dark:bg
 export function useTableCellClasses (): { tableCellClasses: Ref<string> } {
   const isColumnsStriped = inject('stripedColumns')
 
-  const tableCellClasses = computed(() => classNames(baseClasses, {
-    [stripedCellClasses]: isColumnsStriped,
-  }))
+  const tableCellClasses = computed(() => classNames(
+    baseClasses,
+    { [stripedCellClasses]: isColumnsStriped },
+  ))
 
   return { tableCellClasses }
 }

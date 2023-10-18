@@ -40,52 +40,36 @@
     </p>
   </div>
 </template>
+
 <script lang="ts" setup>
-import { type InputSize, ValidationStatus } from '@/components/FwbInput/types'
-import { useInputClasses } from '@/components/FwbInput/composables/useInputClasses'
 import { computed, toRefs } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { twMerge } from 'tailwind-merge'
+import { useInputClasses } from './composables/useInputClasses'
+import {
+  type InputSize,
+  type InputType,
+  type ValidationStatus,
+  validationStatusMap,
+} from './types'
 
 interface InputProps {
-  label?: string
   disabled?: boolean
-  type?:
-    | 'button'
-    | 'checkbox'
-    | 'color'
-    | 'date'
-    | 'datetime-local'
-    | 'email'
-    | 'file'
-    | 'hidden'
-    | 'image'
-    | 'month'
-    | 'number'
-    | 'password'
-    | 'radio'
-    | 'range'
-    | 'reset'
-    | 'search'
-    | 'submit'
-    | 'tel'
-    | 'text'
-    | 'time'
-    | 'url'
-    | 'week'
-  size?: InputSize
-  required?: boolean
+  label?: string
   modelValue: string
+  required?: boolean
+  size?: InputSize
+  type?: InputType
   validationStatus?: ValidationStatus
 }
 
 const props = withDefaults(defineProps<InputProps>(), {
-  label: '',
   disabled: false,
-  type: 'text',
-  size: 'md',
-  required: false,
+  label: '',
   modelValue: '',
+  required: false,
+  size: 'md',
+  type: 'text',
   validationStatus: undefined,
 })
 
@@ -93,11 +77,10 @@ const model = useVModel(props, 'modelValue')
 
 const { inputClasses, labelClasses } = useInputClasses(toRefs(props))
 
-const validationWrapperClasses = computed(() => {
-  return twMerge(
-    'mt-2 text-sm',
-    props.validationStatus === ValidationStatus.Success ? 'text-green-600 dark:text-green-500' : '',
-    props.validationStatus === ValidationStatus.Error ? 'text-red-600 dark:text-red-500' : '',
-  )
-})
+const validationWrapperClasses = computed(() => twMerge(
+  'mt-2 text-sm',
+  props.validationStatus === validationStatusMap.Success ? 'text-green-600 dark:text-green-500' : '',
+  props.validationStatus === validationStatusMap.Error ? 'text-red-600 dark:text-red-500' : '',
+
+))
 </script>
