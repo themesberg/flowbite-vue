@@ -1,5 +1,5 @@
 <template>
-  <component :is="buttonComponent" :class="wrapperClasses" :[linkAttr]="href">
+  <component :is="buttonComponent" :disabled="buttonComponent === 'button' && disabled" :class="wrapperClasses" :[linkAttr]="href">
     <div v-if="!isOutlineGradient && ($slots.prefix || loadingPrefix)" class="mr-2">
       <!--automatically add mr class if slot provided or loading -->
       <spinner :color="spinnerColor" :size="spinnerSize" v-if="loadingPrefix" />
