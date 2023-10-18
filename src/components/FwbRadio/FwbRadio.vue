@@ -1,12 +1,12 @@
 <template>
   <label class="flex w-[100%] items-center">
     <input
-        v-model="model"
-        type="radio"
-        :disabled="disabled"
-        :name="name"
-        :value="value"
-        :class="radioClasses"
+      v-model="model"
+      type="radio"
+      :disabled="disabled"
+      :name="name"
+      :value="value"
+      :class="radioClasses"
     >
     <span :class="labelClasses">{{ label }}</span>
     <slot />
