@@ -11,7 +11,9 @@
       :src="imgSrc"
       class="rounded-t-lg"
     >
-    <slot />
+    <div>
+      <slot />
+    </div>
   </component>
 </template>
 
