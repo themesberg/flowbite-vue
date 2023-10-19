@@ -3,6 +3,7 @@
     :is="buttonComponent"
     :class="wrapperClasses"
     :[linkAttr]="href"
+    :disabled="buttonComponent === 'button' && disabled"
   >
     <div
       v-if="!isOutlineGradient && ($slots.prefix || loadingPrefix)"
