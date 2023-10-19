@@ -4,7 +4,7 @@ import FwbCheckboxExampleChecked from './checkbox/examples/FwbCheckboxExampleChe
 import FwbCheckboxExampleDisabled from './checkbox/examples/FwbCheckboxExampleDisabled.vue'
 import FwbCheckboxExampleLink from './checkbox/examples/FwbCheckboxExampleLink.vue'
 </script>
-# Vue Footer - Flowbite
+# Vue Checkbox - Flowbite
 
 ## Default checkbox
 
