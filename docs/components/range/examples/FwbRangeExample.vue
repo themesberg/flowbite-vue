@@ -1,6 +1,6 @@
 <template>
   <div class="vp-raw">
-    <fwb-range v-model="value" />
+    <fwb-range v-model.number="value" />
     <pre>Selected value: {{ value }}</pre>
   </div>
 </template>
