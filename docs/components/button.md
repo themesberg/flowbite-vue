@@ -49,7 +49,8 @@ Flowbite provides a large variety of styles and sizes for the button component i
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+
+````
 
 
 ## Prop - size
@@ -67,7 +68,7 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+````
 
 ## Prop - pill
 
@@ -87,7 +88,8 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+
+````
 
 
 ## Prop - gradient (monochrome)
@@ -108,8 +110,7 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
-
+````
 
 ## Prop - gradient (duotone)
 
@@ -128,7 +129,8 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+
+````
 
 
 ## Prop - outline
@@ -147,26 +149,27 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+````
 
 ## Prop - outline (gradient)
 
 <fwb-button-example-outline-gradient />
 ```vue
 <template>
-  <fwb-button gradient="purple-blue">Purple to blue</fwb-button>
-  <fwb-button gradient="cyan-blue">Cyan to blue</fwb-button>
-  <fwb-button gradient="green-blue">Green to blue</fwb-button>
-  <fwb-button gradient="purple-pink">Purple to pink</fwb-button>
-  <fwb-button gradient="pink-orange">Pink to orange</fwb-button>
-  <fwb-button gradient="teal-lime">Teal to lime</fwb-button>
-  <fwb-button gradient="red-yellow">Red to yellow</fwb-button>
+  <fwb-button gradient="purple-blue" outline>Purple to blue</fwb-button>
+  <fwb-button gradient="cyan-blue" outline>Cyan to blue</fwb-button>
+  <fwb-button gradient="green-blue" outline>Green to blue</fwb-button>
+  <fwb-button gradient="purple-pink" outline>Purple to pink</fwb-button>
+  <fwb-button gradient="pink-orange" outline>Pink to orange</fwb-button>
+  <fwb-button gradient="teal-lime" outline>Teal to lime</fwb-button>
+  <fwb-button gradient="red-yellow" outline>Red to yellow</fwb-button>
 </template>
 
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+
+````
 
 ## Prop - shadow
 
@@ -189,7 +192,7 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+````
 
 ## Prop - square
 
@@ -221,7 +224,8 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+
+````
 
 ## Prop - loading
 
@@ -256,7 +260,7 @@ import { FwbButton } from 'flowbite-vue'
 
 const loading = ref(false)
 </script>
-```
+````
 
 ## Prop - disabled
 
@@ -273,7 +277,8 @@ const loading = ref(false)
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+
+````
 
 ## Prop - href
 You can add a link to a `Button` component.
@@ -289,7 +294,7 @@ Additionally you can add `tag` prop to change button component to `router-link`
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+````
 
 ## Slot - default
 
@@ -322,7 +327,8 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+
+````
 
 ## Slot - prefix
 
@@ -342,7 +348,7 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-```
+````
 
 ## Slot - suffix
 
@@ -362,6 +368,7 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
+
 ```
 
 ## Button API
@@ -381,3 +388,4 @@ import { FwbButton } from 'flowbite-vue'
 | size             | String  | `xs`, `sm`, `md`, `lg`, `xl`                                                                   | `md`      |
 | square           | Boolean |                                                                                                | `false`   |
 | tag              | String  |                                                                                                | `a`       |
+```
