@@ -16,19 +16,19 @@
     <div class="flex gap-2">
       <fwb-button
         color="green"
-        @click="add('success')"
+        @click="add('green')"
       >
         success
       </fwb-button>
       <fwb-button
         color="yellow"
-        @click="add('warning')"
+        @click="add('yellow')"
       >
         warning
       </fwb-button>
       <fwb-button
         color="red"
-        @click="add('danger')"
+        @click="add('red')"
       >
         danger
       </fwb-button>
@@ -42,6 +42,7 @@
     <div class="flex">
       <fwb-button
         color="alternative"
+        @click="popToast"
       >
         pop
       </fwb-button>
@@ -65,8 +66,9 @@ function addUpdate () {
     text: 'A new software version is available for download.',
     component: shallowRef(UpdateToast),
     componentAttrs: {
+      color: 'blue',
       alignment: 'start',
-      closable: true,
+      dismissable: true,
     },
   })
 }
@@ -78,8 +80,14 @@ function add (type) {
     time: parseInt(ms.value) || 0,
     text: `${type} alert! Hello world!`,
     componentAttrs: {
-      type,
+      color: type,
+      dismissable: true,
     },
   })
+}
+
+function popToast () {
+  const lastToast = toast.toasts.value[toast.toasts.value.length - 1]
+  toast.removeToast(lastToast.id)
 }
 </script>

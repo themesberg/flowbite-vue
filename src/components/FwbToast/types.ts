@@ -1,24 +1,20 @@
-import type { DefineComponent } from 'vue'
+import type { ShallowRef } from 'vue'
 
 export type ToastAlign = 'start' | 'center' | 'end'
-export type ToastType = 'success' | 'warning' | 'danger' | 'empty'
+export type ToastType = 'success' | 'warning' | 'danger' | 'info'
+export type ToastColor = 'primary' | 'gray' | 'red' | 'yellow' | 'green' | 'blue' | 'indigo' | 'purple' | 'orange' | 'none'
 
 export type ToastItem = {
-  time?: number // ms
-  type?: ToastType
-  text?: string
-  component?: string
-  componentProps?: Record<string, unknown>
-}
-
-export type ToastItemWithId = ToastItem & {
-  id: string
+  id?: string
+  text: string,
+  time: number,
+  component?: ShallowRef
+  componentAttrs: {
+    type: ToastColor,
+    alignment: ToastAlign,
+    closable: boolean,
+    divide: boolean,
+  }
 }
 
 export type ToastTransition = 'slide-left' | 'slide-right' | 'fade' | 'slide-top' | 'slide-bottom'
-
-export type UseToastInjection = {
-  add: (toast: ToastItem) => string
-  remove: (id: string) => boolean // true if removed, false if not found
-  pop: () => string // empty '' string if no toast to pop
-}

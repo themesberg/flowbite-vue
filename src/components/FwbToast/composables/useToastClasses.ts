@@ -1,6 +1,5 @@
 import { computed, type Ref } from 'vue'
-import type { ToastAlign, ToastType } from '../types'
-import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
+import type { ToastAlign, ToastColor } from '../types'
 import { twMerge } from 'tailwind-merge'
 
 type UseToastClassesReturns = {
@@ -10,16 +9,23 @@ type UseToastClassesReturns = {
 }
 
 type UseToastClassesProps = {
-  type: Ref<ToastType>
-  divide: Ref<boolean>
-  alignment: Ref<ToastAlign>
+  color: ToastColor,
+  alignment: ToastAlign,
+  dismissable: boolean,
+  divide: boolean,
 }
 
-const typeClassesMap: Record<ToastType, string> = {
-  danger: 'text-red-500 bg-red-100 dark:bg-red-800 dark:text-red-200',
-  empty: '',
-  success: 'text-green-500 bg-green-100 dark:bg-green-800 dark:text-green-200',
-  warning: 'text-orange-500 bg-orange-100 dark:bg-orange-700 dark:text-orange-200',
+const typeClassesMap: Record<ToastColor, string> = {
+  primary: 'text-blue-500 bg-blue-100 dark:bg-blue-800 dark:text-blue-200',
+  red: 'text-red-500 bg-red-100 dark:bg-red-800 dark:text-red-200',
+  blue: 'text-blue-500 bg-blue-100 dark:bg-blue-800 dark:text-blue-200',
+  green: 'text-green-500 bg-green-100 dark:bg-green-800 dark:text-green-200',
+  yellow: 'text-orange-500 bg-orange-100 dark:bg-orange-700 dark:text-orange-200',
+  gray: 'text-gray-500 bg-gray-100 dark:bg-gray-700 dark:text-gray-200',
+  indigo: 'text-indigo-500 bg-indigo-100 dark:bg-indigo-700 dark:text-indigo-200',
+  purple: 'text-purple-500 bg-purple-100 dark:bg-purple-700 dark:text-purple-200',
+  orange: 'text-orange-500 bg-orange-100 dark:bg-orange-700 dark:text-orange-200',
+  none: '',
 }
 
 const wrapperAlignmentClasses: Record<ToastAlign, string> = {
@@ -32,11 +38,13 @@ const defaultWrapperClasses = 'flex items-center w-full max-w-xs p-4 text-gray-5
 const defaultContentClasses = 'text-sm font-normal'
 
 export function useToastClasses (props: UseToastClassesProps): UseToastClassesReturns {
-  const typeClasses = computed(() => typeClassesMap[props.type.value])
+  const typeClasses = computed(() => typeClassesMap[props.color])
+  console.log('typeClasses', typeClasses.value, props.color)
 
   const wrapperClasses = computed(() => {
-    const alignmentClass = wrapperAlignmentClasses[props.alignment.value]
-    if (props.divide.value) {
+    const alignmentClass = wrapperAlignmentClasses[props.alignment]
+
+    if (props.divide) {
       return twMerge(defaultWrapperClasses, 'dark:divide-gray-700 divide-x divide-gray-200', alignmentClass)
     }
 
@@ -44,7 +52,7 @@ export function useToastClasses (props: UseToastClassesProps): UseToastClassesRe
   })
 
   const contentClasses = computed(() => {
-    if (props.type.value !== 'empty' && props.divide.value) {
+    if (props.divide) {
       return twMerge(defaultContentClasses, 'pl-3')
     }
 

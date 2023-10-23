@@ -27,7 +27,8 @@ export function useToast () {
       useTimeoutFn(() => removeToast(toastId), item.time)
     }
   }
-  function removeToast (id: string) {
+  function removeToast (id?: string) {
+    if (!id) return
     toasts.value = toasts.value.filter(el => el.id !== id)
   }
 
