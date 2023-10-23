@@ -1,7 +1,7 @@
 <template>
   <div class="vp-raw">
     <fwb-range
-      v-model="value"
+      v-model.number="value"
       :steps="5"
       label="Steps range"
     />

@@ -1,7 +1,7 @@
 <template>
   <div class="vp-raw">
     <fwb-range
-      v-model="value"
+      v-model.number="value"
       :max="15"
       :min="5"
       label="Min-max range"
