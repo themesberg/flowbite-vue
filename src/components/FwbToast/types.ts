@@ -4,10 +4,10 @@ export type ToastAlign = 'start' | 'center' | 'end'
 export type ToastType = 'success' | 'warning' | 'danger' | 'empty'
 
 export type ToastItem = {
-  time: number // ms
-  type: ToastType
-  text: string
-  component?: DefineComponent
+  time?: number // ms
+  type?: ToastType
+  text?: string
+  component?: string
   componentProps?: Record<string, unknown>
 }
 
