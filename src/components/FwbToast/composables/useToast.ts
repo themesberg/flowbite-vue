@@ -1,38 +1,39 @@
-import { inject } from 'vue'
-import type { ToastItem, UseToastInjection } from '../types'
-import { FLOWBITE_TOAST_INJECTION_KEY } from '../injection/config'
+import { ref, type Ref, type ShallowRef } from 'vue'
+import { type ToastAlign, type ToastType } from '@/components/FwbToast/types'
+import { nanoid } from 'nanoid'
+import { useTimeoutFn } from '@vueuse/core'
 
-export function useToast (): UseToastInjection {
-  const injection = inject<UseToastInjection | null>(FLOWBITE_TOAST_INJECTION_KEY, null)
-  if (injection === null) console.warn('Cannot use useToast outside <toast-provider> component. Please wrap your component with <toast-provider>')
-
-  const add = (toast: ToastItem): string => {
-    if (!injection) {
-      return ''
+interface ToastItem {
+    id?: string
+    text: string,
+    time: number,
+    component?: ShallowRef
+    componentAttrs: {
+        type: ToastType,
+        alignment: ToastAlign,
+        closable: boolean,
+        divide: boolean,
     }
-
-    return injection?.add(toast)
+}
+const toasts:Ref<ToastItem[]> = ref([])
+export function useToast () {
+  function addToast (item: ToastItem) {
+    const toastId = nanoid()
+    toasts.value.push({
+      ...item,
+      id: toastId,
+    })
+    if (item.time && item.time > 0) {
+      useTimeoutFn(() => removeToast(toastId), item.time)
+    }
   }
-
-  const remove = (id: string): boolean => {
-    if (!injection) {
-      return false
-    }
-
-    return injection?.remove(id)
-  }
-
-  const pop = (): string => {
-    if (!injection) {
-      return ''
-    }
-
-    return injection?.pop()
+  function removeToast (id: string) {
+    toasts.value = toasts.value.filter(el => el.id !== id)
   }
 
   return {
-    add,
-    remove,
-    pop,
+    addToast,
+    removeToast,
+    toasts,
   }
 }

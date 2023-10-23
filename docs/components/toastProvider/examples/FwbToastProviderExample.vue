@@ -1,40 +1,85 @@
 <template>
-  <fwb-toast-provider :transition="transition">
+  <new-fwb-toast-provider />
+  <div class="flex flex-col gap-2">
     <label
-      for="countries"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-    >Select transition</label>
-    <select
-      id="countries"
-      v-model="transition"
-      class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      for="ms"
+      class="block text-sm font-medium text-gray-900 dark:text-gray-400"
+    >Duration(ms)</label>
+    <input
+      id="ms"
+      v-model.number="ms"
+      type="number"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="John"
+      required
     >
-      <option value="slide-left">
-        Slide left
-      </option>
-      <option value="slide-right">
-        Slide right
-      </option>
-      <option value="slide-top">
-        Slide top
-      </option>
-      <option value="slide-bottom">
-        Slide bottom
-      </option>
-      <option value="fade">
-        Fade
-      </option>
-    </select>
-    <div class="vp-raw flex align-center gap-2 flex-wrap flex-col">
-      <fwb-toast-provider-example-child />
+    <div class="flex gap-2">
+      <fwb-button
+        color="green"
+        @click="add('success')"
+      >
+        success
+      </fwb-button>
+      <fwb-button
+        color="yellow"
+        @click="add('warning')"
+      >
+        warning
+      </fwb-button>
+      <fwb-button
+        color="red"
+        @click="add('danger')"
+      >
+        danger
+      </fwb-button>
+      <fwb-button
+        color="purple"
+        @click="add('update')"
+      >
+        update
+      </fwb-button>
     </div>
-  </fwb-toast-provider>
+    <div class="flex">
+      <fwb-button
+        color="alternative"
+      >
+        pop
+      </fwb-button>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { FwbToastProvider } from '../../../../src/index'
-import FwbToastProviderExampleChild from './FwbToastProviderExampleChild.vue'
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
+import { FwbButton, useToast } from '../../../../src/index'
+import UpdateToast from './UpdateToast.vue'
+import NewFwbToastProvider from '@/components/FwbToast/FwbToastProvider.vue'
 
-const transition = ref('slide-left')
+const ms = ref(5000)
+
+const toast = useToast()
+
+function addUpdate () {
+  toast.addToast({
+    time: parseInt(ms.value) || 0,
+    text: 'A new software version is available for download.',
+    component: shallowRef(UpdateToast),
+    componentAttrs: {
+      alignment: 'start',
+      closable: true,
+    },
+  })
+}
+
+function add (type) {
+  if (type === 'update') return addUpdate()
+  toast.addToast({
+    type,
+    time: parseInt(ms.value) || 0,
+    text: `${type} alert! Hello world!`,
+    componentAttrs: {
+      type,
+    },
+  })
+}
 </script>
