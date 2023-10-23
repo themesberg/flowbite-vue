@@ -1,7 +1,9 @@
 <script setup>
-import TabsDefaultExample from './tabs/examples/TabsDefaultExample.vue';
-import TabsPillsExample from './tabs/examples/TabsPillsExample.vue';
-import TabsUnderlineExample from './tabs/examples/TabsUnderlineExample.vue';
+import FwbTabsExample from './tabs/examples/FwbTabsExample.vue'
+import FwbTabsExampleInteraction from './tabs/examples/FwbTabsExampleInteraction.vue'
+import FwbTabsExampleDirective from './tabs/examples/FwbTabsExampleDirective.vue'
+import FwbTabsExamplePills from './tabs/examples/FwbTabsExamplePills.vue'
+import FwbTabsExampleUnderline from './tabs/examples/FwbTabsExampleUnderline.vue'
 </script>
 
 # Vue Tabs - Flowbite
@@ -18,141 +20,161 @@ The tabs component can be used either as an extra navigational hierarchy complem
 
 ## Prop - variant (default)
 
-```typescript
-export type TabsVariant = 'default' | 'underline' | 'pills'
-
-defineProps({
-    variant: {
-        type: String as PropType<TabsVariant>,
-        default: 'default',
-    },
-})
-```
-
-
-<TabsDefaultExample />
-
+<fwb-tabs-example />
 ```vue
+<template>
+  <fwb-tabs v-model="activeTab" class="p-5">
+    <fwb-tab name="first" title="First">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="second" title="Second">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="third" title="Third">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="fourth" title="Fourth" disabled>
+      Lorem ipsum dolor...
+    </fwb-tab>
+  </fwb-tabs>
+</template>
+
 <script setup>
 import { ref } from 'vue'
-import { Tabs, Tab } from 'flowbite-vue'
+import { FwbTab, FwbTabs } from 'flowbite-vue'
+
 const activeTab = ref('first')
 </script>
-<template>
-  <tabs v-model="activeTab" class="p-5"> <!-- class appends to content DIV for all tabs -->
-    <tab name="first" title="First">
-      Lorem...
-    </tab>
-    <tab name="second" title="Second">
-      Lorem...
-    </tab>
-    <tab name="third" title="Third">
-      Lorem...
-    </tab>
-    <tab name="fourth" title="Fourth" :disabled="true">
-      Lorem...
-    </tab>
-  </tabs>
-</template>
 ```
 
 ## Prop - variant (underline)
 
-<TabsUnderlineExample />
-
+<fwb-tabsExample-underline />
 ```vue
+<template>
+  <fwb-tabs v-model="activeTab" variant="underline" class="p-5">
+    <fwb-tab name="first" title="First">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="second" title="Second">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="third" title="Third">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="fourth" title="Fourth" disabled>
+      Lorem ipsum dolor...
+    </fwb-tab>
+  </fwb-tabs>
+</template>
+
 <script setup>
 import { ref } from 'vue'
-import { Tabs, Tab } from 'flowbite-vue'
+import { FwbTab, FwbTabs } from 'flowbite-vue'
+
 const activeTab = ref('first')
 </script>
-<template>
-  <tabs variant="underline" v-model="activeTab" class="p-5"> <!-- class appends to content DIV for all tabs -->
-    <tab name="first" title="First">
-      Lorem...
-    </tab>
-    <tab name="second" title="Second">
-      Lorem...
-    </tab>
-    <tab name="third" title="Third">
-      Lorem...
-    </tab>
-    <tab name="fourth" title="Fourth" :disabled="true">
-      Lorem...
-    </tab>
-  </tabs>
-</template>
 ```
 
 ## Prop - variant (pills)
 
-<TabsPillsExample />
-
-
+<fwb-tabs-example-pills />
 ```vue
+<template>
+  <fwb-tabs v-model="activeTab" variant="pills" class="p-5">
+    <fwb-tab name="first" title="First" >
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="second" title="Second">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="third" title="Third">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="fourth" title="Fourth" disabled>
+      Lorem ipsum dolor...
+    </fwb-tab>
+  </fwb-tabs>
+ </div>
+</template>
+
 <script setup>
 import { ref } from 'vue'
-import { Tabs, Tab } from 'flowbite-vue'
+import { FwbTab, FwbTabs } from 'flowbite-vue'
+
 const activeTab = ref('first')
 </script>
-<template>
-  <tabs variant="pills" v-model="activeTab" class="p-5"> <!-- class appends to content DIV for all tabs -->
-    <tab name="first" title="First">
-      Lorem...
-    </tab>
-    <tab name="second" title="Second">
-      Lorem...
-    </tab>
-    <tab name="third" title="Third">
-      Lorem...
-    </tab>
-    <tab name="fourth" title="Fourth" :disabled="true">
-      Lorem...
-    </tab>
-  </tabs>
-</template>
 ```
 
 ## Prop - directive
 
 Use this props if you want to control which directive to use for rendering every tab content
 
-```typescript
-export type TabsVariant = 'default' | 'underline' | 'pills'
+<fwb-tabs-example-directive />
+```vue
+<template>
+  <fwb-tabs v-model="activeTab" directive="show" class="p-5">
+    <fwb-tab name="first" title="First">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="second" title="Second">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="third" title="Third">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="fourth" title="Fourth" disabled>
+      Lorem ipsum dolor...
+    </fwb-tab>
+  </fwb-tabs>
+</template>
 
-defineProps({
-    directive: {
-        type: String as PropType<'if' | 'show'>,
-        default: 'if',
-    },
-})
+<script setup>
+import { ref } from 'vue'
+import { FwbTab, FwbTabs } from 'flowbite-vue'
+
+const activeTab = ref('first')
+</script>
 ```
 
 ## Tab pane interaction
 
 You can add `@click:pane` to Tabs component to intercept click on tab pane.
+
+<fwb-tabs-example-interaction />
 ```vue
+<template>
+  <fwb-tabs @click:pane="handlePaneClick" v-model="activeTab" class="p-5">
+    <fwb-tab name="first" title="First">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="second" title="Second">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="third" title="Third">
+      Lorem ipsum dolor...
+    </fwb-tab>
+    <fwb-tab name="fourth" title="Fourth" disabled>
+      Lorem ipsum dolor...
+    </fwb-tab>
+  </fwb-tabs>
+</template>
+
 <script setup>
 import { ref } from 'vue'
-import { Tabs, Tab } from 'flowbite-vue'
-function handlePaneClick(): void {
-    console.log("Click!")
-}
+import { FwbTab, FwbTabs } from 'flowbite-vue'
+
+const activeTab = ref('first')
+
+const handlePaneClick = () => { console.log('Click!') }
 </script>
-<template>
-  <tabs variant="pills" v-model="activeTab" class="p-5" @click:pane="handlePaneClick">
-    <tab name="first" title="First">
-      Lorem...
-    </tab>
-    <tab name="second" title="Second">
-      Lorem...
-    </tab>
-    <tab name="third" title="Third">
-      Lorem...
-    </tab>
-    <tab name="fourth" title="Fourth" :disabled="true">
-      Lorem...
-    </tab>
-  </tabs>
-</template>
 ```
+
+## API
+
+### Props
+| Name       | Values                         | Default   |
+|------------|--------------------------------|-----------|
+| directive  | `if`, `show`                   | `if`      |
+| modelValue | `string`                       | `''`      |
+| variant    | `default`, `underline`, `pill` | `default` |

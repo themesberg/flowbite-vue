@@ -1,9 +1,9 @@
 <script setup>
-import ProgressExample from './progress/examples/ProgressExample.vue'
-import ProgressSizeExample from './progress/examples/ProgressSizeExample.vue'
-import ProgressInsideLabelExample from './progress/examples/ProgressInsideLabelExample.vue'
-import ProgressOutsideLabelExample from './progress/examples/ProgressOutsideLabelExample.vue'
-import ProgressColorExample from './progress/examples/ProgressColorExample.vue'
+import FwbProgressExample from './progress/examples/FwbProgressExample.vue'
+import FwbProgressExampleColor from './progress/examples/FwbProgressExampleColor.vue'
+import FwbProgressExampleLabelInside from './progress/examples/FwbProgressExampleLabelInside.vue'
+import FwbProgressExampleLabelOutside from './progress/examples/FwbProgressExampleLabelOutside.vue'
+import FwbProgressExampleSize from './progress/examples/FwbProgressExampleSize.vue'
 
 
 </script>
@@ -11,92 +11,93 @@ import ProgressColorExample from './progress/examples/ProgressColorExample.vue'
 
 ## Default
 
+<fwb-progress-example />
 ```vue
-<script setup>
-import { Progress } from 'flowbite-vue'
-</script>
 <template>
-  <Progress progress="45"></Progress>
+  <fwb-progress :progress="45" />
 </template>
-```
 
-<ProgressExample />
+<script setup>
+import { FwbProgress } from 'flowbite-vue'
+</script>
+```
 
 ## Sizes
 You can also use different sizes by using various sizing.
 
+<fwb-progress-example-size />
 ```vue
-<script setup>
-import { Progress } from 'flowbite-vue'
-</script>
 <template>
-  <!-- small size -->
-  <Progress size="sm" label="Small" progress="45"></Progress>
-  <!-- medium size -->
-  <Progress size="md" label="Medium" progress="45"></Progress>
-  <!-- large size -->
-  <Progress size="lg" label="Large" progress="45"></Progress>
-  <!-- extra large size -->
-  <Progress size="xl" label="Extra Large" progress="45"></Progress>
+  <div class="grid gap-2">
+    <fwb-progress :progress="25" size="sm" label="Small" />
+    <fwb-progress :progress="50" size="md" label="Medium" />
+    <fwb-progress :progress="75" size="lg" label="Large" />
+    <fwb-progress :progress="100" size="xl" label="Extra Large" />
+  </div>
 </template>
-```
 
-<ProgressSizeExample />
+<script setup>
+import { FwbProgress } from 'flowbite-vue'
+</script>
+```
 
 ## With label inside
 Here is an example of using a progress bar with the label inside the bar.
 
+<fwb-progress-example-label-inside />
 ```vue
-<script setup>
-import { Progress } from 'flowbite-vue'
-</script>
 <template>
-  <Progress labelProgress="true" labelPosition="inside" size="lg" progress="45"></Progress>
+  <fwb-progress
+    :progress="50"
+    label-position="inside"
+    label-progress
+    size="lg"
+  />
 </template>
-```
 
-<ProgressInsideLabelExample />
+<script setup>
+import { FwbProgress } from 'flowbite-vue'
+</script>
+```
 
 ## With label outside
 And this is an example of using a progress bar outside the bar.
 
+<fwb-progress-example-label-outside />
 ```vue
-<script setup>
-import { Progress } from 'flowbite-vue'
-</script>
 <template>
-  <Progress labelProgress="true" labelPosition="outside" label="Flowbite Vue 3" progress="45"></Progress>
+  <fwb-progress
+    :progress="42"
+    label-position="outside"
+    label-progress
+    label="Flowbite Vue 3"
+  />
 </template>
-```
 
-<ProgressOutsideLabelExample />
+<script setup>
+import { FwbProgress } from 'flowbite-vue'
+</script>
+```
 
 ## Colors
 You can also apply color.
 
+<fwb-progress-example-color />
 ```vue
-<script setup>
-import { Progress } from 'flowbite-vue'
-</script>
 <template>
-  <!-- Default color -->
-  <Progress label="Default" progress="45"></Progress>
-  <!-- Dark -->
-  <Progress color="dark" label="Dark" progress="45"></Progress>
-  <!-- Blue -->
-  <Progress color="blue" label="Blue" progress="45"></Progress>
-  <!-- Red -->
-  <Progress color="red" label="Red" progress="45"></Progress>
-  <!-- Green -->
-  <Progress color="green" label="Green" progress="45"></Progress>
-  <!-- Yellow -->
-  <Progress color="yellow" label="Yellow" progress="45"></Progress>
-  <!-- Indigo -->
-  <Progress color="indigo" label="Indigo" progress="45"></Progress>
-  <!-- Purple -->
-  <Progress color="purple" label="Purple" progress="45"></Progress>
-
+  <div class="grid gap-2">
+    <fwb-progress :progress="12.5" label="Default"  />
+    <fwb-progress :progress="25" color="dark" label="Dark"  />
+    <fwb-progress :progress="37.5" color="blue" label="Blue"  />
+    <fwb-progress :progress="50" color="red" label="Red"  />
+    <fwb-progress :progress="62.5" color="green" label="Green"  />
+    <fwb-progress :progress="75" color="yellow" label="Yellow"  />
+    <fwb-progress :progress="87.5" color="indigo" label="Indigo"  />
+    <fwb-progress :progress="100" color="purple" label="Purple"  />
+  </div>
 </template>
-```
 
-<ProgressColorExample />
+<script setup>
+import { FwbProgress } from 'flowbite-vue'
+</script>
+```

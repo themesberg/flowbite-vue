@@ -1,20 +1,27 @@
+import { computed, inject, ref, type Ref } from 'vue'
 import type { FlowbiteTheme } from '../types'
-import type { Ref } from 'vue'
-import { computed, inject, ref } from 'vue'
 import { FLOWBITE_THEMABLE_INJECTION_KEY } from '../injection/config'
 
 type UseFlowbiteThemableReturns = {
-  textClasses: Ref<string>
   backgroundClasses: Ref<string>
-  hoverClasses: Ref<string>
-  disabledClasses: Ref<string>
   borderClasses: Ref<string>
-  focusClasses: Ref<string>
-  isActive: Ref<boolean>
   color: Ref<FlowbiteTheme | undefined>
+  disabledClasses: Ref<string>
+  focusClasses: Ref<string>
+  hoverClasses: Ref<string>
+  isActive: Ref<boolean>
+  textClasses: Ref<string>
 }
 
-type FlowbiteThemeMap = { background: string; disabled: string; hover: string; text: string; border: string; focus: string }
+type FlowbiteThemeMap = {
+  background: string
+  border: string
+  disabled: string
+  focus: string
+  hover: string
+  text: string
+}
+
 type FlowbiteThemes<T extends string = string> = Record<T, FlowbiteThemeMap>
 
 const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
@@ -60,54 +67,61 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
   },
 }
 
-export function useFlowbiteThemable(_theme?: FlowbiteTheme): UseFlowbiteThemableReturns {
+export function useFlowbiteThemable (_theme?: FlowbiteTheme): UseFlowbiteThemableReturns {
   const theme = inject<Ref<FlowbiteTheme | null>>(FLOWBITE_THEMABLE_INJECTION_KEY, ref(null))
-
-  const isActive = computed(() => !!theme?.value)
-  const color = computed(() => theme?.value || undefined)
 
   const themeName = computed(() => {
     return _theme || theme.value
   })
 
-  const backgroundClasses = computed(() => {
-    if (!themeName.value) return ''
-    return flowbiteThemeClasses[themeName.value].background
-  })
+  const isActive = computed(() => !!theme?.value)
 
-  const disabledClasses = computed(() => {
-    if (!themeName.value) return ''
-    return flowbiteThemeClasses[themeName.value].disabled
-  })
+  const backgroundClasses = computed(() =>
+    (!themeName.value)
+      ? ''
+      : flowbiteThemeClasses[themeName.value].background,
+  )
 
-  const hoverClasses = computed(() => {
-    if (!themeName.value) return ''
-    return flowbiteThemeClasses[themeName.value].hover
-  })
+  const borderClasses = computed(() =>
+    (!themeName.value)
+      ? ''
+      : flowbiteThemeClasses[themeName.value].border,
+  )
 
-  const textClasses = computed(() => {
-    if (!themeName.value) return ''
-    return flowbiteThemeClasses[themeName.value].text
-  })
+  const color = computed(() => theme?.value || undefined)
 
-  const borderClasses = computed(() => {
-    if (!themeName.value) return ''
-    return flowbiteThemeClasses[themeName.value].border
-  })
+  const disabledClasses = computed(() =>
+    (!themeName.value)
+      ? ''
+      : flowbiteThemeClasses[themeName.value].disabled,
+  )
 
-  const focusClasses = computed(() => {
-    if (!themeName.value) return ''
-    return flowbiteThemeClasses[themeName.value].focus
-  })
+  const focusClasses = computed(() =>
+    (!themeName.value)
+      ? ''
+      : flowbiteThemeClasses[themeName.value].focus,
+  )
+
+  const hoverClasses = computed(() =>
+    (!themeName.value)
+      ? ''
+      : flowbiteThemeClasses[themeName.value].hover,
+  )
+
+  const textClasses = computed(() =>
+    (!themeName.value)
+      ? ''
+      : flowbiteThemeClasses[themeName.value].text,
+  )
 
   return {
     backgroundClasses,
-    disabledClasses,
-    hoverClasses,
-    textClasses,
     borderClasses,
-    focusClasses,
-    isActive,
     color,
+    disabledClasses,
+    focusClasses,
+    hoverClasses,
+    isActive,
+    textClasses,
   }
 }

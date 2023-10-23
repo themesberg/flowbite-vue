@@ -1,10 +1,10 @@
 <script setup>
-import Img from './typography/image/Img.vue'
-import ImgCap from './typography/image/ImgCap.vue'
-import ImgSize from './typography/image/ImgSize.vue'
-import ImgAlign from './typography/image/ImgAlign.vue'
-import ImgBlur from './typography/image/ImgBlur.vue'
-import ImgCustom from './typography/image/ImgCustom.vue'
+import FwbImgExample from './typography/image/FwbImgExample.vue'
+import FwbImgExampleCaption from './typography/image/FwbImgExampleCaption.vue'
+import FwbImgExampleSize from './typography/image/FwbImgExampleSize.vue'
+import FwbImgExampleAlign from './typography/image/FwbImgExampleAlign.vue'
+import FwbImgExampleGrayscale from './typography/image/FwbImgExampleGrayscale.vue'
+import FwbImgExampleCustom from './typography/image/FwbImgExampleCustom.vue'
 </script>
 
 # Vue Images - Flowbite
@@ -17,15 +17,17 @@ Use this example to show the a responsive image that won’t grow beyond the max
 
 ```vue
 <template>
-  <Img src="https://flowbite-svelte.com/images/examples/content-gallery-3.png" alt="flowbite-vue" />
+  <fwb-img
+    alt="flowbite-vue"
+    src="/images/examples/image.png"
+  />
 </template>
 
 <script setup>
-import Img from 'flowbite-vue'
+import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-
-<Img />
+<fwb-img-example />
 
 ## Image caption
 
@@ -33,15 +35,19 @@ This example can be used to add a caption for the image often used inside articl
 
 ```vue
 <template>
-  <Img caption="flowbite-vue" src="https://flowbite-svelte.com/images/examples/content-gallery-3.png" alt="flowbite-vue" />
+  <fwb-img
+    alt="flowbite-vue"
+    caption="flowbite-vue"
+    src="/images/examples/image.png"
+  />
 </template>
 
 <script setup>
-import Img from 'flowbite-vue'
+import { FwbImg } from 'flowbite-vue'
 </script>
 ```
+<fwb-img-example-caption />
 
-<ImgCap />
 
 ## Sizes
 
@@ -49,15 +55,18 @@ Set the size of the image using the `w-size` and `h-size` or `max-w-size` utilit
 
 ```vue
 <template>
-  <Img size="max-w-md" src="https://flowbite-svelte.com/images/examples/content-gallery-3.png" alt="flowbite-vue" />
+  <fwb-img
+    alt="flowbite-vue"
+    size="max-w-md"
+    src="/images/examples/image.png"
+  />
 </template>
 
 <script setup>
-import Img from 'flowbite-vue'
+import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-
-<ImgSize />
+<fwb-img-example-size />
 
 ## Alignment
 
@@ -65,15 +74,19 @@ Align the image component to the center or right side of the document page using
 
 ```vue
 <template>
-  <Img align="ml-auto" size="max-w-md" src="https://flowbite-svelte.com/images/examples/content-gallery-3.png" alt="flowbite-vue" />
+  <fwb-img
+    alignment="mx-auto"
+    alt="flowbite-vue"
+    size="max-w-md"
+    src="/images/examples/image.png"
+  />
 </template>
 
 <script setup>
-import Img from 'flowbite-vue'
+import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-
-<ImgAlign />
+<fwb-img-example-align />
 
 ## Grayscale
 
@@ -81,20 +94,19 @@ Use the filter option and apply a grayscale to the image element using the grays
 
 ```vue
 <template>
-  <Img
-    size="max-w-lg"
-    alt="My gallery"
+  <fwb-img
+    alt="flowbite-vue"
     img-class="rounded-lg transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0"
-    src="https://flowbite-svelte.com/images/examples/content-gallery-3.png"
+    size="max-w-lg"
+    src="/images/examples/image.png"
   />
 </template>
 
 <script setup>
-import Img from 'flowbite-vue'
+import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-
-<ImgBlur />
+<fwb-img-example-grayscale />
 
 ## Custom classes
 
@@ -102,12 +114,16 @@ Use the `img-class` prop to apply tailwind classes.
 
 ```vue
 <template>
-  <Img img-class="rounded-lg border-[1px]" size="max-w-lg" src="https://flowbite-svelte.com/images/examples/content-gallery-3.png" alt="flowbite-vue" />
+  <fwb-img
+    alt="flowbite-vue"
+    img-class="rounded-lg border-[1px]"
+    size="max-w-lg"
+    src="/images/examples/image.png"
+  />
 </template>
 
 <script setup>
-import Img from 'flowbite-vue'
+import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-
-<ImgCustom />
+<fwb-img-example-custom />

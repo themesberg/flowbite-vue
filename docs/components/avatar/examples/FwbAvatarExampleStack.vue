@@ -1,0 +1,61 @@
+<template>
+  <div class="vp-raw grid gap-2">
+    <fwb-avatar-stack>
+      <fwb-avatar
+        img="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
+        rounded
+        stacked
+      />
+      <fwb-avatar
+        img="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+        rounded
+        stacked
+      />
+      <fwb-avatar
+        img="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+        rounded
+        stacked
+      />
+      <fwb-avatar
+        img="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
+        rounded
+        stacked
+      />
+      <fwb-avatar
+        img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+        rounded
+        stacked
+      />
+    </fwb-avatar-stack>
+    <fwb-avatar-stack>
+      <fwb-avatar
+        img="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
+        rounded
+        stacked
+      />
+      <fwb-avatar
+        img="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+        rounded
+        stacked
+      />
+      <fwb-avatar
+        img="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+        rounded
+        stacked
+      />
+      <fwb-avatar
+        img="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
+        rounded
+        stacked
+      />
+      <fwb-avatar-stack-counter
+        href="#"
+        :total="99"
+      />
+    </fwb-avatar-stack>
+  </div>
+</template>
+
+<script setup>
+import { FwbAvatar, FwbAvatarStack, FwbAvatarStackCounter } from '../../../../src/index'
+</script>

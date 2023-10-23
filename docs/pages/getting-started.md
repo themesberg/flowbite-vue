@@ -32,15 +32,16 @@ module.exports = {
 3. Now you can use `flowbite-vue` anywhere in your project and build awesome interfaces:
 ```vue
 <template>
-  <dropdown text="Click me" placement="top">
-    <list-group>
-      <list-group-item>Item #1</list-group-item>
-      <list-group-item>Item #2</list-group-item>
-      <list-group-item>Item #3</list-group-item>
-    </list-group>
-  </dropdown>
+  <fwb-dropdown text="Click me" placement="top">
+    <fwb-list-group>
+      <fwb-list-group-item>Item #1</fwb-list-group-item>
+      <fwb-list-group-item>Item #2</fwb-list-group-item>
+      <fwb-list-group-item>Item #3</fwb-list-group-item>
+    </fwb-list-group>
+  </fwb-dropdown>
 </template>
+
 <script setup>
-import { Dropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
+import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 </script>
 ```

@@ -1,7 +1,7 @@
 <script setup>
-import CardDefaultExample from './card/examples/CardDefaultExample.vue'
-import CardImageExample from './card/examples/CardImageExample.vue'
-import CardHorizontalExample from './card/examples/CardHorizontalExample.vue'
+import FwbCardExample from './card/examples/FwbCardExample.vue'
+import FwbCardExampleImage from './card/examples/FwbCardExampleImage.vue'
+import FwbCardExampleHorizontal from './card/examples/FwbCardExampleHorizontal.vue'
 </script>
 # Vue Card - Flowbite
 
@@ -17,54 +17,74 @@ Use these responsive card components to show data entries and information to you
 
 ## Prop - default
 
-<CardDefaultExample />
-
+<fwb-card-example />
 ```vue
-<script setup>
-import { TheCard } from 'flowbite-vue'
-</script>
 <template>
-  <the-card href="#">
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-    <p class="font-normal text-gray-700 dark:text-gray-400">
-      Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-    </p>
-  </the-card>
+    <fwb-card href="#">
+      <div class="p-5">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          Noteworthy technology acquisitions 2021
+        </h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400">
+          Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+        </p>
+      </div>
+    </fwb-card>
 </template>
+
+<script setup>
+import { FwbCard } from 'flowbite-vue'
+</script>
 ```
 
 ## Prop - image
 
-<CardImageExample />
-
+<fwb-card-example-image />
 ```vue
-<script setup>
-import { TheCard } from 'flowbite-vue'
-</script>
 <template>
-  <the-card variant="image" img-src="https://flowbite.com/docs/images/blog/image-1.jpg" img-alt="Desk">
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-    <p class="font-normal text-gray-700 dark:text-gray-400">
-      Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-    </p>
-  </the-card>
+    <fwb-card
+      img-alt="Desk"
+      img-src="https://flowbite.com/docs/images/blog/image-1.jpg"
+      variant="image"
+    >
+      <div class="p-5">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          Noteworthy technology acquisitions 2021
+        </h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400">
+          Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+        </p>
+      </div>
+    </fwb-card>
 </template>
+
+<script setup>
+import { FwbCard } from 'flowbite-vue'
+</script>
 ```
 
 ## Prop - horizontal
 
-<CardHorizontalExample />
-
+<fwb-card-example-horizontal />
 ```vue
-<script setup>
-import { TheCard } from 'flowbite-vue'
-</script>
 <template>
-  <the-card href="#" variant="horizontal" img-src="https://flowbite.com/docs/images/blog/image-4.jpg" img-alt="Desk">
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-    <p class="font-normal text-gray-700 dark:text-gray-400">
-      Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-    </p>
-  </the-card>
+    <fwb-card
+      img-alt="Desk"
+      img-src="https://flowbite.com/docs/images/blog/image-4.jpg"
+      variant="horizontal"
+    >
+      <div class="p-5">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          Noteworthy technology acquisitions 2021
+        </h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400">
+          Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+        </p>
+      </div>
+    </fwb-card>
 </template>
+
+<script setup>
+import { FwbCard } from 'flowbite-vue'
+</script>
 ```

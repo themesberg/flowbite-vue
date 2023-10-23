@@ -1,8 +1,8 @@
 <script setup>
-import TableExample from './table/examples/TableExample.vue';
-import TableStripedExample from './table/examples/TableStripedExample.vue';
-import TableStripedColumnsExample from './table/examples/TableStripedColumnsExample.vue';
-import TableHoverableExample from './table/examples/TableHoverableExample.vue';
+import FwbTableExample from './table/examples/FwbTableExample.vue'
+import FwbTableExampleHoverable from './table/examples/FwbTableExampleHoverable.vue'
+import FwbTableExampleStriped from './table/examples/FwbTableExampleStriped.vue'
+import FwbTableExampleStripedColumns from './table/examples/FwbTableExampleStripedColumns.vue'
 </script>
 # Vue Table - Flowbite
 
@@ -16,204 +16,263 @@ Original reference: [https://flowbite.com/docs/components/tables/](https://flowb
 
 ## Basic example
 
-<TableExample />
-
+<fwb-table-example />
 ```vue
 <template>
-  <Table>
-    <table-head>
-      <table-head-cell>Product name</table-head-cell>
-      <table-head-cell>Color</table-head-cell>
-      <table-head-cell>Category</table-head-cell>
-      <table-head-cell>Price</table-head-cell>
-      <table-head-cell><span class="sr-only">Edit</span></table-head-cell>
-    </table-head>
-    <table-body>
-      <table-row>
-        <table-cell>Apple MacBook Pro 17"</table-cell>
-        <table-cell>Sliver</table-cell>
-        <table-cell>Laptop</table-cell>
-        <table-cell>$2999</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-      <table-row>
-        <table-cell>Microsoft Surface Pro</table-cell>
-        <table-cell>White</table-cell>
-        <table-cell>Laptop PC</table-cell>
-        <table-cell>$1999</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-      <table-row>
-        <table-cell>Magic Mouse 2</table-cell>
-        <table-cell>Black</table-cell>
-        <table-cell>Accessories</table-cell>
-        <table-cell>$99</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-    </table-body>
-  </Table>
+  <fwb-table>
+    <fwb-table-head>
+      <fwb-table-head-cell>Product name</fwb-table-head-cell>
+      <fwb-table-head-cell>Color</fwb-table-head-cell>
+      <fwb-table-head-cell>Category</fwb-table-head-cell>
+      <fwb-table-head-cell>Price</fwb-table-head-cell>
+      <fwb-table-head-cell>
+        <span class="sr-only">Edit</span>
+      </fwb-table-head-cell>
+    </fwb-table-head>
+    <fwb-table-body>
+      <fwb-table-row>
+        <fwb-table-cell>Apple MacBook Pro 17"</fwb-table-cell>
+        <fwb-table-cell>Sliver</fwb-table-cell>
+        <fwb-table-cell>Laptop</fwb-table-cell>
+        <fwb-table-cell>$2999</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+      <fwb-table-row>
+        <fwb-table-cell>Microsoft Surface Pro</fwb-table-cell>
+        <fwb-table-cell>White</fwb-table-cell>
+        <fwb-table-cell>Laptop PC</fwb-table-cell>
+        <fwb-table-cell>$1999</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+      <fwb-table-row>
+        <fwb-table-cell>Magic Mouse 2</fwb-table-cell>
+        <fwb-table-cell>Black</fwb-table-cell>
+        <fwb-table-cell>Accessories</fwb-table-cell>
+        <fwb-table-cell>$99</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+    </fwb-table-body>
+  </fwb-table>
 </template>
-<script setup>
-import { Table, TableHead, TableBody, TableHeadCell, TableRow, TableCell } from 'flowbite-vue'
-</script>
 
+<script setup>
+import {
+  FwbA,
+  FwbTable,
+  FwbTableBody,
+  FwbTableCell,
+  FwbTableHead,
+  FwbTableHeadCell,
+  FwbTableRow,
+} from 'flowbite-vue'
+</script>
 ```
 
 ## Striped example
 
-<TableStripedExample />
-
+<fwb-table-example-striped />
 ```vue
 <template>
-  <Table striped>
-    <table-head>
-      <table-head-cell>Product name</table-head-cell>
-      <table-head-cell>Color</table-head-cell>
-      <table-head-cell>Category</table-head-cell>
-      <table-head-cell>Price</table-head-cell>
-      <table-head-cell><span class="sr-only">Edit</span></table-head-cell>
-    </table-head>
-    <table-body>
-      <table-row>
-        <table-cell>Apple MacBook Pro 17"</table-cell>
-        <table-cell>Sliver</table-cell>
-        <table-cell>Laptop</table-cell>
-        <table-cell>$2999</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-      <table-row>
-        <table-cell>Microsoft Surface Pro</table-cell>
-        <table-cell>White</table-cell>
-        <table-cell>Laptop PC</table-cell>
-        <table-cell>$1999</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-      <table-row>
-        <table-cell>Magic Mouse 2</table-cell>
-        <table-cell>Black</table-cell>
-        <table-cell>Accessories</table-cell>
-        <table-cell>$99</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-    </table-body>
-  </Table>
+  <fwb-table striped>
+    <fwb-table-head>
+      <fwb-table-head-cell>Product name</fwb-table-head-cell>
+      <fwb-table-head-cell>Color</fwb-table-head-cell>
+      <fwb-table-head-cell>Category</fwb-table-head-cell>
+      <fwb-table-head-cell>Price</fwb-table-head-cell>
+      <fwb-table-head-cell>
+        <span class="sr-only">Edit</span>
+      </fwb-table-head-cell>
+    </fwb-table-head>
+    <fwb-table-body>
+      <fwb-table-row>
+        <fwb-table-cell>Apple MacBook Pro 17"</fwb-table-cell>
+        <fwb-table-cell>Sliver</fwb-table-cell>
+        <fwb-table-cell>Laptop</fwb-table-cell>
+        <fwb-table-cell>$2999</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+      <fwb-table-row>
+        <fwb-table-cell>Microsoft Surface Pro</fwb-table-cell>
+        <fwb-table-cell>White</fwb-table-cell>
+        <fwb-table-cell>Laptop PC</fwb-table-cell>
+        <fwb-table-cell>$1999</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+      <fwb-table-row>
+        <fwb-table-cell>Magic Mouse 2</fwb-table-cell>
+        <fwb-table-cell>Black</fwb-table-cell>
+        <fwb-table-cell>Accessories</fwb-table-cell>
+        <fwb-table-cell>$99</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+    </fwb-table-body>
+  </fwb-table>
 </template>
+
 <script setup>
-import { Table, TableHead, TableBody, TableHeadCell, TableRow, TableCell } from 'flowbite-vue'
+import {
+  FwbA,
+  FwbTable,
+  FwbTableBody,
+  FwbTableCell,
+  FwbTableHead,
+  FwbTableHeadCell,
+  FwbTableRow,
+} from 'flowbite-vue'
 </script>
 
 ```
 
 ## Striped columns example
 
-<TableStripedColumnsExample />
-
+<fwb-table-example-striped-columns />
 ```vue
 <template>
-  <Table striped-columns>
-    <table-head>
-      <table-head-cell>Product name</table-head-cell>
-      <table-head-cell>Color</table-head-cell>
-      <table-head-cell>Category</table-head-cell>
-      <table-head-cell>Price</table-head-cell>
-      <table-head-cell><span class="sr-only">Edit</span></table-head-cell>
-    </table-head>
-    <table-body>
-      <table-row>
-        <table-cell>Apple MacBook Pro 17"</table-cell>
-        <table-cell>Sliver</table-cell>
-        <table-cell>Laptop</table-cell>
-        <table-cell>$2999</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-      <table-row>
-        <table-cell>Microsoft Surface Pro</table-cell>
-        <table-cell>White</table-cell>
-        <table-cell>Laptop PC</table-cell>
-        <table-cell>$1999</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-      <table-row>
-        <table-cell>Magic Mouse 2</table-cell>
-        <table-cell>Black</table-cell>
-        <table-cell>Accessories</table-cell>
-        <table-cell>$99</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-    </table-body>
-  </Table>
+  <fwb-table striped-columns>
+    <fwb-table-head>
+      <fwb-table-head-cell>Product name</fwb-table-head-cell>
+      <fwb-table-head-cell>Color</fwb-table-head-cell>
+      <fwb-table-head-cell>Category</fwb-table-head-cell>
+      <fwb-table-head-cell>Price</fwb-table-head-cell>
+      <fwb-table-head-cell><span class="sr-only">Edit</span></fwb-table-head-cell>
+    </fwb-table-head>
+    <fwb-table-body>
+      <fwb-table-row>
+        <fwb-table-cell>Apple MacBook Pro 17"</fwb-table-cell>
+        <fwb-table-cell>Sliver</fwb-table-cell>
+        <fwb-table-cell>Laptop</fwb-table-cell>
+        <fwb-table-cell>$2999</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+      <fwb-table-row>
+        <fwb-table-cell>Microsoft Surface Pro</fwb-table-cell>
+        <fwb-table-cell>White</fwb-table-cell>
+        <fwb-table-cell>Laptop PC</fwb-table-cell>
+        <fwb-table-cell>$1999</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+      <fwb-table-row>
+        <fwb-table-cell>Magic Mouse 2</fwb-table-cell>
+        <fwb-table-cell>Black</fwb-table-cell>
+        <fwb-table-cell>Accessories</fwb-table-cell>
+        <fwb-table-cell>$99</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+    </fwb-table-body>
+  </fwb-table>
 </template>
-<script setup>
-import { Table, TableHead, TableBody, TableHeadCell, TableRow, TableCell } from 'flowbite-vue'
-</script>
 
+<script setup>
+import {
+  FwbA,
+  FwbTable,
+  FwbTableBody,
+  FwbTableCell,
+  FwbTableHead,
+  FwbTableHeadCell,
+  FwbTableRow,
+} from 'flowbite-vue'
+</script>
 ```
 
 ## Hoverable example
 
-<TableHoverableExample />
-
+<fwb-table-example-hoverable />
 ```vue
 <template>
-  <Table hoverable>
-    <table-head>
-      <table-head-cell>Product name</table-head-cell>
-      <table-head-cell>Color</table-head-cell>
-      <table-head-cell>Category</table-head-cell>
-      <table-head-cell>Price</table-head-cell>
-      <table-head-cell><span class="sr-only">Edit</span></table-head-cell>
-    </table-head>
-    <table-body>
-      <table-row>
-        <table-cell>Apple MacBook Pro 17"</table-cell>
-        <table-cell>Sliver</table-cell>
-        <table-cell>Laptop</table-cell>
-        <table-cell>$2999</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-      <table-row>
-        <table-cell>Microsoft Surface Pro</table-cell>
-        <table-cell>White</table-cell>
-        <table-cell>Laptop PC</table-cell>
-        <table-cell>$1999</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-      <table-row>
-        <table-cell>Magic Mouse 2</table-cell>
-        <table-cell>Black</table-cell>
-        <table-cell>Accessories</table-cell>
-        <table-cell>$99</table-cell>
-        <table-cell>
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-        </table-cell>
-      </table-row>
-    </table-body>
-  </Table>
+  <fwb-table hoverable>
+    <fwb-table-head>
+      <fwb-table-head-cell>Product name</fwb-table-head-cell>
+      <fwb-table-head-cell>Color</fwb-table-head-cell>
+      <fwb-table-head-cell>Category</fwb-table-head-cell>
+      <fwb-table-head-cell>Price</fwb-table-head-cell>
+      <fwb-table-head-cell>
+        <span class="sr-only">Edit</span>
+      </fwb-table-head-cell>
+    </fwb-table-head>
+    <fwb-table-body>
+      <fwb-table-row>
+        <fwb-table-cell>Apple MacBook Pro 17"</fwb-table-cell>
+        <fwb-table-cell>Sliver</fwb-table-cell>
+        <fwb-table-cell>Laptop</fwb-table-cell>
+        <fwb-table-cell>$2999</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+      <fwb-table-row>
+        <fwb-table-cell>Microsoft Surface Pro</fwb-table-cell>
+        <fwb-table-cell>White</fwb-table-cell>
+        <fwb-table-cell>Laptop PC</fwb-table-cell>
+        <fwb-table-cell>$1999</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+      <fwb-table-row>
+        <fwb-table-cell>Magic Mouse 2</fwb-table-cell>
+        <fwb-table-cell>Black</fwb-table-cell>
+        <fwb-table-cell>Accessories</fwb-table-cell>
+        <fwb-table-cell>$99</fwb-table-cell>
+        <fwb-table-cell>
+          <fwb-a href="#">
+            Edit
+          </fwb-a>
+        </fwb-table-cell>
+      </fwb-table-row>
+    </fwb-table-body>
+  </fwb-table>
 </template>
-<script setup>
-import { Table, TableHead, TableBody, TableHeadCell, TableRow, TableCell } from 'flowbite-vue'
-</script>
 
+<script setup>
+import {
+  FwbA,
+  FwbTable,
+  FwbTableBody,
+  FwbTableCell,
+  FwbTableHead,
+  FwbTableHeadCell,
+  FwbTableRow,
+} from 'flowbite-vue'
+</script>
 ```

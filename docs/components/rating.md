@@ -1,77 +1,82 @@
 <script setup>
-import RatingExample from './rating/examples/RatingExample.vue'
-import RatingWithTextExample from './rating/examples/RatingWithTextExample.vue'
-import RatingCountExample from './rating/examples/RatingCountExample.vue'
-import RatingStarSizesExample from './rating/examples/RatingStarSizesExample.vue'
+import FwbRatingExample from './rating/examples/FwbRatingExample.vue'
+import FwbRatingExampleWithText from './rating/examples/FwbRatingExampleWithText.vue'
+import FwbRatingExampleCount from './rating/examples/FwbRatingExampleCount.vue'
+import FwbRatingExampleStarSizes from './rating/examples/FwbRatingExampleStarSizes.vue'
 </script>
 # Vue Rating - Flowbite
 
 ## Default rating
 Use this simple example of a star rating component for showing review results.
-```vue
-<script setup>
-import { Rating } from 'flowbite-vue'
-</script>
-<template>
-    <Rating :rating="4" />
-</template>
-```
 
-<RatingExample />
+<fwb-rating-example />
+```vue
+<template>
+  <fwb-rating :rating="4" />
+</template>
+
+<script setup>
+import { FwbRating } from 'flowbite-vue'
+</script>
+```
 
 ## Rating with text
 If you also want to show a text near the stars you can use this example as a reference.
-```vue
-<script setup>
-import { Rating } from 'flowbite-vue'
-</script>
-<template>
-    <Rating :rating="4">
-      <template #besideText>
-          <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">4.95 out of 5</p>
-        </template>
-    </Rating>
-</template>
-```
 
-<RatingWithTextExample />
+<fwb-rating-example-with-text />
+```vue
+<template>
+  <fwb-rating :rating="4.75">
+    <template #besideText>
+      <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+        4.75 out of 5
+      </p>
+    </template>
+  </fwb-rating>
+</template>
+
+<script setup>
+import { FwbRating } from 'flowbite-vue'
+</script>
+```
 
 ## Rating count
 Aggregate more results by using this example to show the amount of reviews and the average score.
-```vue
-<script setup>
-import { Rating } from 'flowbite-vue'
-</script>
-<template>
-    <Rating
-      :rating="1"
-      :scale="1"
-      review-text="73 reviews"
-      review-link="#"
-    >
-      <template #besideText>
-        <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white">4.95</p>
-      </template>
-    </Rating>
-</template>
-```
 
-<RatingCountExample />
+<fwb-rating-example-count />
+```vue
+<template>
+  <fwb-rating
+    :rating="1"
+    :scale="1"
+    review-link="#"
+    review-text="73 reviews"
+  >
+    <template #besideText>
+      <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white">
+        4.95
+      </p>
+    </template>
+  </fwb-rating>
+</template>
+
+<script setup>
+import { FwbRating } from 'flowbite-vue'
+</script>
+```
 
 ## Star sizes
 Check out the different sizing options for the star review component from small, medium, and large.
-```vue
-<script setup>
-import { Rating } from 'flowbite-vue'
-</script>
-<template>
-    <!-- Small -->
-    <Rating size="sm" :rating="4" />
-    <!-- Medium -->
-    <Rating size="md" :rating="4" />
-    <!-- Large -->
-    <Rating size="lg" :rating="4" />
-</template>
-```
 
-<RatingStarSizesExample />
+<fwb-rating-example-star-sizes />
+```vue
+<template>
+    <fwb-rating size="sm" :rating="4" />
+    <fwb-rating size="md" :rating="4" />
+    <fwb-rating size="lg" :rating="4" />
+</template>
+
+<script setup>
+import { FwbRating } from 'flowbite-vue'
+</script>
+```

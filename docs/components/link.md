@@ -1,7 +1,7 @@
 <script setup>
-import A from './typography/link/A.vue'
-import APara from './typography/link/APara.vue'
-import ACustom from './typography/link/ACustom.vue'
+import FwbAExample from './typography/link/FwbAExample.vue'
+import FwbAExampleParagraph from './typography/link/FwbAExampleParagraph.vue'
+import FwbAExampleCustom from './typography/link/FwbAExampleCustom.vue'
 </script>
 
 # Vue Links - Flowbite
@@ -14,34 +14,34 @@ Use this example to set default styles to an inline link element.
 
 ```vue
 <template>
-  <A href="/"> Flowbite-vue </A>
+  <fwb-a href="#"> Flowbite-vue </fwb-a>
 </template>
 
 <script setup>
-import A from 'flowbite-vue'
+import { FwbA } from 'flowbite-vue'
 </script>
 ```
+<fwb-a-example />
 
-<A />
-
-## Para link
+## Paragraph link
 
 Use this example to set a link inside a paragraph with an underline style.
 
 ```vue
 <template>
-  <P>
-    The free updates that will be provided is based on the <A href="/" class="underline hover:no-underline">roadmap</A> that we have laid out for this project. It is also possible that we will provide
+  <fwb-p>
+    The free updates that will be provided is based on the <fwb-a href="#"
+    class="underline hover:no-underline">roadmap</fwb-a> that we have laid
+    out for this project. It is also possible that we will provide
     extra updates outside of the roadmap as well.
-  </P>
+  </fwb-p>
 </template>
 
 <script setup>
-import { P, A } from 'flowbite-vue'
+import { FwbA, FwbP } from 'flowbite-vue'
 </script>
 ```
-
-<APara />
+<fwb-a-example-paragraph />
 
 ## Custom classes
 
@@ -49,12 +49,11 @@ Use `class` attribute prop to apply the tailwind classes.
 
 ```vue
 <template>
-  <A class="underline italic" href="/"> Flowbite-vue </A>
+  <fwb-a class="text-orange-500 italic" href="#"> Flowbite-vue </fwb-a>
 </template>
 
 <script setup>
-import A from 'flowbite-vue'
+import { FwbA } from 'flowbite-vue'
 </script>
 ```
-
-<ACustom />
+<fwb-a-example-custom />
