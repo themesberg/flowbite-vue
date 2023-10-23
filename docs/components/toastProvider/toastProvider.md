@@ -4,4 +4,8 @@ import FwbToastProviderExample from './examples/FwbToastProviderExample.vue'
 
 # Vue Toast Provider - Flowbite
 
+:::warning
+WIP, Do not use it in production
+:::
+
 <fwb-toast-provider-example />
