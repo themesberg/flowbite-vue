@@ -1,6 +1,8 @@
 <script setup>
 import FwbTextareaExample from './textarea/examples/FwbTextareaExample.vue'
 import FwbTextareaExampleComment from './textarea/examples/FwbTextareaExampleComment.vue'
+import FwbTextareaExampleDisabled from './textarea/examples/FwbTextareaExampleDisabled.vue'
+import FwbTextareaExampleFormId from './textarea/examples/FwbTextareaExampleFormId.vue'
 </script>
 
 # Vue Textarea - Flowbite
@@ -24,7 +26,7 @@ Get started with the default example of a textarea component below.
     v-model="message"
     :rows="4"
     label="Your message"
-    placeholder="Write you message..."
+    placeholder="Write your message..."
   />
 </template>
 
@@ -50,7 +52,7 @@ Most often the textarea component is used as the main text field input element i
         :rows="3"
         custom
         label="Your message"
-        placeholder="Write you message..."
+        placeholder="Write your message..."
       >
         <template #footer>
           <div class="flex items-center justify-between">
@@ -92,4 +94,56 @@ import { FwbA, FwbButton, FwbTextarea } from 'flowbite-vue'
 
 const message = ref('')
 </script>
+```
+
+## Disabled / Readonly Textarea
+
+<fwb-textarea-example-disabled />
+```vue
+<template>
+  <div>
+    <fwb-textarea
+      v-model="message"
+      label="Your message"
+      placeholder="Write your message..."
+      disabled
+    />
+    <fwb-textarea
+      v-model="message"
+      label="Your message"
+      placeholder="Write your message..."
+      readonly
+    />
+  </div>
+</template>
+```
+
+## Textarea with form ID
+
+<fwb-textarea-example-form-id />
+```vue
+<template>
+  <div>
+    <form id="my-form" @submit.prevent="handleSubmit">
+      <!-- Inside the form -->
+      <fwb-textarea
+        v-model="message"
+        label="Your message"
+        placeholder="Write your message..."
+      />
+      <fwb-button type="submit">
+        Submit
+      </fwb-button>
+    </form>
+
+    <!-- Outside the form -->
+    <fwb-textarea
+      v-model="message"
+      label="Your message"
+      placeholder="Write your message..."
+      form="my-form"
+      required
+    />
+  </div>
+</template>
 ```

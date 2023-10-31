@@ -4,7 +4,7 @@
       v-model="message"
       :rows="4"
       label="Your message"
-      placeholder="Write you message..."
+      placeholder="Write your message..."
     />
   </div>
 </template>
