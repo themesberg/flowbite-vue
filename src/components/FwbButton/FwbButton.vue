@@ -76,7 +76,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, resolveComponent, toRefs } from 'vue'
+import { computed, resolveComponent, toRefs, useAttrs } from 'vue'
+import { useMergeClasses } from '@/composables/useMergeClasses'
 import FwbSpinner from '../FwbSpinner/FwbSpinner.vue'
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
@@ -111,12 +112,23 @@ const props = withDefaults(defineProps<IButtonProps>(), {
   tag: 'a',
 })
 
+const attributes = useAttrs()
+
+const userClasses: string = String(attributes.class)
+const buttonClasses = useButtonClasses(toRefs(props))
+const wrapperClasses = computed(() => useMergeClasses([
+  buttonClasses.wrapperClasses,
+  userClasses,
+]))
+const spanClasses = computed(() => useMergeClasses([
+  buttonClasses.spanClasses,
+]))
+
 const isOutlineGradient = computed(() => props.outline && props.gradient)
 
 const loadingPrefix = computed(() => props.loading && props.loadingPosition === 'prefix')
 const loadingSuffix = computed(() => props.loading && props.loadingPosition === 'suffix')
 
-const { wrapperClasses, spanClasses } = useButtonClasses(toRefs(props))
 const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(toRefs(props))
 
 const linkComponent = props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
