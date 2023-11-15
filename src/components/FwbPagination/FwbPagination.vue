@@ -256,7 +256,7 @@ const pagesToDisplay = computed(() => {
 
 const startItemsCount = computed(() => props.modelValue * props.perPage - props.perPage + 1)
 const endItemsCount = computed(() => {
-  const count = props.modelValue * props.perPage + 1
+  const count = props.modelValue * props.perPage
   if (!props.totalItems) return count
   if (count > props.totalItems) return props.totalItems
   return count
