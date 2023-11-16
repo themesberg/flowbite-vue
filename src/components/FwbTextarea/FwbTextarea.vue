@@ -4,16 +4,10 @@
     <span :class="wrapperClasses">
       <textarea
         v-model="model"
-        :rows="rows"
+        v-bind="$attrs"
         :class="textareaClasses"
+        :rows="rows"
         :placeholder="placeholder"
-        :form="form"
-        :disabled="disabled"
-        :maxlength="maxlength"
-        :minlength="minlength"
-        :required="required"
-        :readonly="readonly"
-        :wrap="wrap"
       />
       <span
         v-if="$slots.footer"
@@ -30,20 +24,16 @@ import { computed } from 'vue'
 import { useTextareaClasses } from './composables/useTextareaClasses'
 
 interface TextareaProps {
-  modelValue?: string;
-  label?: string;
-  rows?: number;
-  custom?: boolean;
-  placeholder?: string;
-  disabled?: boolean;
-  form?: string;
-  maxlength?: string | number;
-  minlength?: string | number;
-  required?: boolean;
-  readonly?: boolean;
-  /** Docs: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#wrap */
-  wrap?: 'hard' | 'soft' | 'off';
+  modelValue?: string
+  label?: string
+  rows?: number
+  custom?: boolean
+  placeholder?: string
 }
+
+defineOptions({
+  inheritAttrs: false,
+})
 
 const props = withDefaults(defineProps<TextareaProps>(), {
   modelValue: '',
@@ -51,10 +41,6 @@ const props = withDefaults(defineProps<TextareaProps>(), {
   rows: 4,
   custom: false,
   placeholder: 'Write your message here...',
-  form: undefined,
-  maxlength: '',
-  minlength: '',
-  wrap: 'soft',
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -67,10 +53,5 @@ const model = computed({
   },
 })
 
-const {
-  textareaClasses,
-  labelClasses,
-  wrapperClasses,
-  footerClasses,
-} = useTextareaClasses(props.custom)
+const { textareaClasses, labelClasses, wrapperClasses, footerClasses } = useTextareaClasses(props.custom)
 </script>
