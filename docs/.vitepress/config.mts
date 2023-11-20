@@ -45,6 +45,7 @@ function getComponents() {
     { text: 'Card', link: '/components/card.md' },
     { text: 'Carousel', link: '/components/carousel' },
     { text: 'Dropdown', link: '/components/dropdown' },
+    { text: 'Jumbotron', link: '/components/jumbotron' },
     { text: 'ListGroup', link: '/components/list-group' },
     { text: 'Pagination', link: '/components/pagination' },
     { text: 'Progress', link: '/components/progress' },
