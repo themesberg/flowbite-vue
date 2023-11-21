@@ -5,7 +5,7 @@
       :rows="3"
       custom
       label="Your message"
-      placeholder="Write you message..."
+      placeholder="Write your message..."
     >
       <template #footer>
         <div class="flex items-center justify-between">
@@ -84,7 +84,10 @@
     </fwb-textarea>
     <p class="ml-auto text-xs text-gray-500 dark:text-gray-400">
       Remember, contributions to this topic should follow our
-      <fwb-a href="#">
+      <fwb-a
+        class="underline"
+        href="#"
+      >
         Community Guidelines
       </fwb-a>.
     </p>

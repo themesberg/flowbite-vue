@@ -4,8 +4,9 @@
     <span :class="wrapperClasses">
       <textarea
         v-model="model"
-        :rows="rows"
+        v-bind="$attrs"
         :class="textareaClasses"
+        :rows="rows"
         :placeholder="placeholder"
       />
       <span
@@ -23,12 +24,16 @@ import { computed } from 'vue'
 import { useTextareaClasses } from './composables/useTextareaClasses'
 
 interface TextareaProps {
-  modelValue?: string;
-  label?: string;
-  rows?: number;
-  custom?: boolean;
-  placeholder?: string;
+  modelValue?: string
+  label?: string
+  rows?: number
+  custom?: boolean
+  placeholder?: string
 }
+
+defineOptions({
+  inheritAttrs: false,
+})
 
 const props = withDefaults(defineProps<TextareaProps>(), {
   modelValue: '',
@@ -48,10 +53,5 @@ const model = computed({
   },
 })
 
-const {
-  textareaClasses,
-  labelClasses,
-  wrapperClasses,
-  footerClasses,
-} = useTextareaClasses(props.custom)
+const { textareaClasses, labelClasses, wrapperClasses, footerClasses } = useTextareaClasses(props.custom)
 </script>

@@ -55,7 +55,7 @@ export function useInputClasses (props: UseInputClassesProps): {
       ? 'text-green-700 dark:text-green-500'
       : vs === validationStatusMap.Error
         ? 'text-red-700 dark:text-red-500'
-        : 'text-gray-900 dark:text-gray-300'
+        : 'text-gray-900 dark:text-white'
 
     return twMerge(baseLabelClasses, classByStatus)
   })
