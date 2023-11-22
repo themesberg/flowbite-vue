@@ -1,5 +1,5 @@
 import { ref, type Ref, type ShallowRef } from 'vue'
-import { type ToastAlign, type ToastType } from '@/components/FwbToast/types'
+import { type ToastAlign, type ToastColor } from '@/components/FwbToast/types'
 import { nanoid } from 'nanoid'
 import { useTimeoutFn } from '@vueuse/core'
 
@@ -9,7 +9,7 @@ interface ToastItem {
     time: number,
     component?: ShallowRef
     componentAttrs: {
-        type: ToastType,
+        type: ToastColor,
         alignment: ToastAlign,
         closable: boolean,
         divide: boolean,
