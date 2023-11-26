@@ -7,9 +7,7 @@
       :is="`h${headerLevel}`"
       :class="headerClassesComputed"
     >
-      <slot name="headerContent">
-        {{ headerText }}
-      </slot>
+      {{ headerText }}
     </component>
     <div
       :class="subTextClassesComputed"
@@ -49,7 +47,6 @@ const props = withDefaults(defineProps<IAlertProps>(), {
 defineSlots<{
   /* eslint-disable @typescript-eslint/no-explicit-any */
   default: any
-  'headerContent': any
   /* eslint-enable @typescript-eslint/no-explicit-any */
 }>()
 
