@@ -3,10 +3,13 @@
     class="vp-raw"
   >
     <fwb-jumbotron
+      class="lg:py-8 px-4 "
+      header-classes="text-left"
+      sub-text-classes="lg:px-0"
       header-text="We invest in the world’s potential"
       sub-text="Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth."
     >
-      <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+      <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 mb-8">
         <a
           href="#"
           class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
@@ -34,6 +37,16 @@
         >
           Learn more
         </a>
+      </div>
+      <div>
+        <iframe
+          class="mx-auto w-full h-64 rounded-lg sm:h-96 shadow-xl"
+          src="https://www.youtube.com/embed/KaLxCiilHns"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        />
       </div>
     </fwb-jumbotron>
   </div>
