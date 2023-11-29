@@ -193,7 +193,6 @@ Use this component to show a sign in or register form as the first section of yo
 ```vue
 <template>
   <div
-    class="vp-raw"
   >
     <fwb-jumbotron
       class="lg:py-8 px-4 text-start "
