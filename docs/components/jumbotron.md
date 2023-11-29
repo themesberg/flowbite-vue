@@ -24,7 +24,6 @@ Use this default example to show a title, description, and two CTA buttons for t
 ```vue
 <template>
   <div
-    class="vp-raw"
   >
     <fwb-jumbotron
       header-text="We invest in the world’s potential"
