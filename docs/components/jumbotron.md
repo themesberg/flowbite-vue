@@ -75,7 +75,6 @@ Use this jumbotron to apply a background image with a darkening opacity effect t
 ```vue
 <template>
   <div
-    class="vp-raw"
   >
     <fwb-jumbotron
       class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] dark:bg-gray-700 bg-gray-700 bg-blend-multiply"
