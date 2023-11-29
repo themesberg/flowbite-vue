@@ -129,7 +129,6 @@ This component can be used to feature a video together with a heading title, des
 ```vue
 <template>
   <div
-    class="vp-raw"
   >
     <fwb-jumbotron
       class="lg:py-8 px-4 "
