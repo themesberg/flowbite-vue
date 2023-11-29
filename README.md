@@ -49,7 +49,7 @@ Documentation for `flowbite-vue` is not yet finished.
 
 If you want to browse the components, visit [flowbite.com](https://flowbite.com/).
 
-If you want to learn more about Flowbite, visit [Flowbite docs](https://flowbite.com/getting-started/introduction/).
+If you want to learn more about Flowbite, visit [Flowbite docs](https://flowbite.com/docs/getting-started/introduction/).
 
 ## Getting started
 
