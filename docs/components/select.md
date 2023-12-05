@@ -1,8 +1,10 @@
 <script setup>
 import FwbSelectExample from './select/examples/FwbSelectExample.vue'
 import FwbSelectExampleDisabled from './select/examples/FwbSelectExampleDisabled.vue'
+import FwbSelectExampleHelper from './select/examples/FwbSelectExampleHelper.vue'
 import FwbSelectExampleSize from './select/examples/FwbSelectExampleSize.vue'
 import FwbSelectExampleUnderlined from './select/examples/FwbSelectExampleUnderlined.vue'
+import FwbSelectExampleValidation from './select/examples/FwbSelectExampleValidation.vue'
 </script>
 
 # Vue Select - Flowbite
@@ -118,6 +120,78 @@ const countries = [
     label="Select a country"
     size="lg"
   />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbSelect } from 'flowbite-vue'
+
+const selected = ref('')
+const countries = [
+  { value: 'us', name: 'United States' },
+  { value: 'ca', name: 'Canada' },
+  { value: 'fr', name: 'France' },
+]
+</script>
+```
+
+## Slot - Helper
+
+<fwb-select-example-helper />
+```vue
+<template>
+  <fwb-select
+    v-model="selected"
+    :options="countries"
+    label="Select a country"
+  >
+    <template #helper>
+      We'll never share your details. Read our
+      <fwb-a href="#" color="text-blue-600 dark:text-blue-500">
+        Privacy Policy
+      </fwb-a>.
+    </template>
+  </fwb-input>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { FwbA, FwbSelect } from 'flowbite-vue'
+
+const selected = ref('')
+const countries = [
+  { value: 'us', name: 'United States' },
+  { value: 'ca', name: 'Canada' },
+  { value: 'fr', name: 'France' },
+]
+</script>
+```
+
+## Slot - Validation
+
+- Set validation status via `validationStatus` prop, which accepts `'success'` or `'error'`.
+- Add validation message via `validationMessage` slot.
+
+<fwb-select-example-validation />
+```vue
+<template>
+  <fwb-select
+    v-model="selected"
+    :options="countries"
+    label="Select a country"
+    validation-status="success"
+  />
+  <hr class="mt-4 border-0">
+  <fwb-select
+    v-model="selected"
+    :options="countries"
+    label="Select a country"
+    validation-status="error"
+  >
+    <template #validationMessage>
+      Please select a country
+    </template>
+  </fwb-select>
 </template>
 
 <script setup>
