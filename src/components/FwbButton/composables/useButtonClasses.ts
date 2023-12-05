@@ -1,5 +1,4 @@
 import { computed, type Ref, useSlots } from 'vue'
-import { twMerge } from 'tailwind-merge'
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>; default: Record<T, string> }
@@ -146,6 +145,7 @@ const buttonShadowClasses: Record<ButtonMonochromeGradient, string> = {
 }
 
 export type UseButtonClassesProps = {
+  class: Ref<string>
   pill: Ref<boolean>
   disabled: Ref<boolean>
   loading: Ref<boolean>
@@ -160,7 +160,7 @@ export type UseButtonClassesProps = {
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
 const alternativeColors = ['alternative', 'light']
 
-export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasses: Ref<string>; spanClasses: Ref<string> } {
+export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasses: string; spanClasses: string } {
   const slots = useSlots()
 
   const sizeClasses = computed(() => {
@@ -223,7 +223,7 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
       }
     }
 
-    return twMerge(
+    return [
       backgroundClass,
       hoverClass,
       shadowClass,
@@ -231,23 +231,24 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
       props.disabled.value && 'cursor-not-allowed opacity-50',
       isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
       (slots.prefix || slots.suffix || props.loading.value) && 'inline-flex items-center',
-    )
+      props.class.value,
+    ].filter((str) => (str)).join(' ')
   })
 
   const spanClasses = computed(() => {
     if (!!props.gradient.value && props.outline.value) {
       // ONLY FOR GRADIENT OUTLINE BUTTON
-      return twMerge(
+      return [
         'relative bg-white dark:bg-gray-900 rounded-md inline-flex items-center',
         sizeClasses.value,
         !props.disabled.value ? 'group-hover:bg-opacity-0 transition-all ease-in duration-75' : '',
-      )
+      ].filter((str) => (str)).join(' ')
     }
     return ''
   })
 
   return {
-    wrapperClasses: bindClasses,
-    spanClasses,
+    wrapperClasses: bindClasses.value,
+    spanClasses: spanClasses.value,
   }
 }
