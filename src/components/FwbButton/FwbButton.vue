@@ -76,7 +76,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, resolveComponent, toRefs, useAttrs } from 'vue'
+import { computed, resolveComponent, toRefs } from 'vue'
 import { useMergeClasses } from '@/composables/useMergeClasses'
 import FwbSpinner from '../FwbSpinner/FwbSpinner.vue'
 import { useButtonClasses } from './composables/useButtonClasses'
@@ -84,6 +84,7 @@ import { useButtonSpinner } from './composables/useButtonSpinner'
 import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
 
 interface IButtonProps {
+  class?: string
   color?: ButtonVariant
   gradient?: ButtonGradient | null
   size?: ButtonSize
@@ -98,6 +99,7 @@ interface IButtonProps {
   tag?: string
 }
 const props = withDefaults(defineProps<IButtonProps>(), {
+  class: '',
   color: 'default',
   gradient: null,
   size: 'md',
@@ -112,17 +114,9 @@ const props = withDefaults(defineProps<IButtonProps>(), {
   tag: 'a',
 })
 
-const attributes = useAttrs()
-
-const userClasses: string = String(attributes.class)
 const buttonClasses = useButtonClasses(toRefs(props))
-const wrapperClasses = computed(() => useMergeClasses([
-  buttonClasses.wrapperClasses,
-  userClasses,
-]))
-const spanClasses = computed(() => useMergeClasses([
-  buttonClasses.spanClasses,
-]))
+const wrapperClasses = computed(() => useMergeClasses(buttonClasses.wrapperClasses))
+const spanClasses = computed(() => useMergeClasses(buttonClasses.spanClasses))
 
 const isOutlineGradient = computed(() => props.outline && props.gradient)
 
