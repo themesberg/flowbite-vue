@@ -15,7 +15,7 @@ Use this example of a paragraph element to use inside article content or a landi
 
 ```vue
 <template>
-  <fwb-p class="mb-2">
+  <fwb-p>
     Track work across the enterprise through an open, collaborative platform.
     Link issues across Jira and ingest data from other software development
     tools, so your IT support and operations teams have richer contextual
@@ -42,7 +42,7 @@ Use `weight` prop to set the text-weight.
 
 ```vue
 <template>
-  <fwb-p class="mb-2" weight="light">
+  <fwb-p weight="light">
     Track work across the enterprise through an open, collaborative platform.
     Link issues across Jira and ingest data from other software development
     tools, so your IT support and operations teams have richer contextual
@@ -69,19 +69,19 @@ Use `align` prop to set the text alignment.
 
 ```vue
 <template>
-  <fwb-p  align="left" class="mb-2">
+  <fwb-p  align="left">
     Deliver great service experiences fast - without the complexityof
     traditional ITSM solutions. Accelerate critical development work,
     eliminate toil, and deploy changes with ease, with a complete
     audit trail for every change.
   </fwb-p>
-  <fwb-p align="center" class="mb-2">
+  <fwb-p align="center">
     Deliver great service experiences fast - without the complexityof
     traditional ITSM solutions. Accelerate critical development work,
     eliminate toil, and deploy changes with ease, with a complete
     audit trail for every change.
   </fwb-p>
-  <fwb-p align="right" class="mb-2">
+  <fwb-p align="right">
     Deliver great service experiences fast - without the complexityof
     traditional ITSM solutions. Accelerate critical development work,
     eliminate toil, and deploy changes with ease, with a complete
