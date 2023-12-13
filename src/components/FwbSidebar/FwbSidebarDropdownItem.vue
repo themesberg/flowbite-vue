@@ -64,9 +64,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, defineExpose } from 'vue'
 const isOpen = ref(false)
 function toggleDropdown () {
   isOpen.value = !isOpen.value
 }
+
+defineExpose({
+	isOpen,
+});
 </script>
