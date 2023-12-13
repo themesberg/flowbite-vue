@@ -1,27 +1,32 @@
 <template>
-  <p :class="[color, sizes[size], heights[height], weights[weight], whitespaces[whitespace], aligns[align]]">
+  <p :class="componentClasses">
     <slot />
   </p>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useMergeClasses } from '@/composables/useMergeClasses'
+
 interface ParagraphProps {
+  align?: string
+  class?: string
   height?: 'normal' | 'relaxed' | 'loose'
-  color?: string
   size?: string
   weight?: string
   whitespace?: string
-  align?: string
 }
 
-withDefaults(defineProps<ParagraphProps>(), {
+const props = withDefaults(defineProps<ParagraphProps>(), {
+  align: '',
+  class: '',
   height: 'normal',
-  color: 'text-gray-900 dark:text-white',
   size: '',
   weight: '',
   whitespace: '',
-  align: '',
 })
+
+const defaultClasses = 'mb-3 last:mb-0 text-gray-900 dark:text-white'
 
 const sizes: Record<string, string> = {
   xs: 'text-xs',
@@ -62,4 +67,14 @@ const whitespaces: Record<string, string> = {
   preline: 'whitespace-pre-line',
   prewrap: 'whitespace-pre-wrap',
 }
+
+const componentClasses = computed(() => useMergeClasses([
+  defaultClasses,
+  aligns[props.align],
+  heights[props.height],
+  sizes[props.size],
+  weights[props.weight],
+  whitespaces[props.whitespace],
+  props.class,
+]))
 </script>
