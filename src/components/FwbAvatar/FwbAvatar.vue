@@ -10,6 +10,12 @@
         :src="img"
         @error="setImageError"
       >
+      <div
+        v-else-if="!initials && hasPlaceholder"
+        :class="avatarPlaceholderClasses"
+      >
+        <slot name="placeholder" />
+      </div>
       <svg
         v-else-if="!img && !initials"
         :class="avatarPlaceholderClasses"
@@ -23,12 +29,6 @@
           fill-rule="evenodd"
         />
       </svg>
-      <div
-        v-else-if="!initials && hasPlaceholder"
-        :class="avatarPlaceholderClasses"
-      >
-        <slot name="placeholder" />
-      </div>
       <div
         v-else
         :class="avatarPlaceholderInitialsClasses"
