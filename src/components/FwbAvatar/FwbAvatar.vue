@@ -1,18 +1,17 @@
 <template>
   <div class="relative">
-    <img
-      v-if="img && !imageError"
-      :alt="alt"
-      :class="avatarClasses"
-      :src="img"
-      @error="setImageError"
-    >
     <div
-      v-else
       :class="avatarPlaceholderWrapperClasses"
     >
+      <img
+        v-if="img && !imageError"
+        :alt="alt"
+        :class="avatarClasses"
+        :src="img"
+        @error="setImageError"
+      >
       <svg
-        v-if="!initials && !hasPlaceholder"
+        v-else-if="!img && !initials"
         :class="avatarPlaceholderClasses"
         fill="currentColor"
         viewBox="0 0 20 20"
@@ -25,7 +24,7 @@
         />
       </svg>
       <div
-        v-if="!initials && hasPlaceholder"
+        v-else-if="!initials && hasPlaceholder"
         :class="avatarPlaceholderClasses"
       >
         <slot name="placeholder" />
@@ -36,12 +35,12 @@
       >
         {{ initials }}
       </div>
-      <span
-        v-if="status"
-        :class="avatarDotClasses"
-        :data-pos="statusPosition"
-      />
     </div>
+    <span
+      v-if="status"
+      :class="avatarDotClasses"
+      :data-pos="statusPosition"
+    />
   </div>
 </template>
 
