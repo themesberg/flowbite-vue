@@ -5,7 +5,8 @@
   "author": "themesberg",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "main": "./dist/flowbite-vue.umd.js",
   "module": "./dist/flowbite-vue.mjs",
