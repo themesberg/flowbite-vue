@@ -18,7 +18,7 @@
       eliminate toil, and deploy changes with ease, with a complete
       audit trail for every change.
     </fwb-p>
-    <fwb-p class="test-center">
+    <fwb-p class="text-center">
       Deliver great service experiences fast - without the complexityof
       traditional ITSM solutions. Accelerate critical development work,
       eliminate toil, and deploy changes with ease, with a complete
