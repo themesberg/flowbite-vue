@@ -105,5 +105,5 @@
 </template>
 
 <script setup>
-import FwbJumbotron from '@/components/FwbJumbotron/FwbJumbotron.vue'
+import { FwbJumbotron } from '../../../../src/index'
 </script>

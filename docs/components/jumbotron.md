@@ -10,6 +10,12 @@ import FwbJumbotronVideoExample from './jumbotron/examples/FwbJumbotronVideoExam
 
 #### Use the jumbotron component to show a marketing message to your users based on a headline and image inside of a card box based on Tailwind CSS
 
+---
+
+:::tip
+Original reference: [https://flowbite.com/docs/components/jumbotron/](https://flowbite.com/docs/components/jumbotron/)
+:::
+
 The Jumbotron (hero) component can be used as the first section of your website with a focus on a marketing message to increase the likelihood of the user to continue browsing your website.
 
 This UI component features a heading title, a short description, an optional CTA button, background image, gradient or solid background color and it’s generally inside of a card element.
