@@ -7,7 +7,7 @@ const nonFlushHeaderClasses = 'hover:bg-gray-100 dark:hover:bg-gray-800 focus:ri
 
 const baseArrowClasses = 'w-6 h-6 shrink-0'
 
-export function useAccordionHeaderClasses(headerRef: Ref) {
+export function useAccordionHeaderClasses (headerRef: Ref) {
   const accordionId = computed(() => headerRef.value.parentElement.parentElement.dataset.accordionId)
   const panelId = computed(() => headerRef.value.parentElement.dataset.panelId)
   const { accordionsStates } = useAccordionState()

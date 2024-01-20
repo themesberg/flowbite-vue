@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge'
 
 const baseContentClasses = 'p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900'
 
-export function useAccordionContentClasses(contentRef: Ref) {
+export function useAccordionContentClasses (contentRef: Ref) {
   const accordionId = computed(() => contentRef.value.parentElement.parentElement.dataset.accordionId)
   const panelId = computed(() => contentRef.value.parentElement.dataset.panelId)
   const { accordionsStates } = useAccordionState()
