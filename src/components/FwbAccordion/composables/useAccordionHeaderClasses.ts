@@ -20,7 +20,7 @@ export function useAccordionHeaderClasses (headerRef: Ref) {
   const headerClasses = computed(() => {
     return twMerge(
       baseHeaderClasses,
-      panelState.value.isVisible ? 'text-gray-900 dark:white' : 'text-gray-500 dark:text-gray-400',
+      panelState.value.isVisible ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400',
       panelState.value.isVisible && !accordionState.value.flush && 'bg-gray-100 dark:bg-gray-800',
       isFirstPanel.value && !accordionState.value.flush && 'rounded-t-xl',
       isFirstPanel.value && accordionState.value.flush && 'border-t-0',
