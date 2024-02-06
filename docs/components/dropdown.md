@@ -98,3 +98,31 @@ import { FwbDropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
 import { FwbDropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
 </script>
 ```
+
+## Dropdown - close inside
+
+<fwb-dropdown-example-trigger />
+```vue
+<template>
+  <fwb-dropdown text="Bottom" close-inside>
+    <list-group>
+      <list-group-item>
+        Profile
+      </list-group-item>
+      <list-group-item>
+        Settings
+      </list-group-item>
+      <list-group-item>
+        Messages
+      </list-group-item>
+      <list-group-item>
+        Download
+      </list-group-item>
+    </list-group>
+  </fwb-dropdown>
+</template>
+
+<script setup>
+import { FwbDropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
+</script>
+```
