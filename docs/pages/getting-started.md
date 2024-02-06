@@ -46,7 +46,7 @@ import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 </script>
 ```
 
-> Make sure you have tailwind css imported
+> Make sure you have tailwind css imported. https://tailwindcss.com/docs/guides/vite
 
 ```
 @tailwind base;
