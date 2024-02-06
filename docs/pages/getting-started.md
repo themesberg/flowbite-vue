@@ -45,3 +45,11 @@ module.exports = {
 import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 </script>
 ```
+
+> Make sure you have tailwind css imported
+
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
