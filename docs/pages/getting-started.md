@@ -36,7 +36,7 @@ import '../node_modules/flowbite-vue/dist/index.css'
 ```
 ```css
 /* or in your `app.css` file */
-@import 'node_modules/flowbite-vue/dist/index.css';
+@import '/node_modules/flowbite-vue/dist/index.css';
 ```
 
 4. Now you can use `flowbite-vue` anywhere in your project and build awesome interfaces:
