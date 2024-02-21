@@ -114,9 +114,9 @@ const props = withDefaults(defineProps<IButtonProps>(), {
   tag: 'a',
 })
 
-const buttonClasses = useButtonClasses(toRefs(props))
-const wrapperClasses = computed(() => useMergeClasses(buttonClasses.wrapperClasses))
-const spanClasses = computed(() => useMergeClasses(buttonClasses.spanClasses))
+const buttonClasses = computed(() => useButtonClasses(toRefs(props)))
+const wrapperClasses = computed(() => useMergeClasses(buttonClasses.value.wrapperClasses))
+const spanClasses = computed(() => useMergeClasses(buttonClasses.value.spanClasses))
 
 const isOutlineGradient = computed(() => props.outline && props.gradient)
 
