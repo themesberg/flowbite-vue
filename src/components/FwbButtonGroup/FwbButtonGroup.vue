@@ -8,7 +8,7 @@
 </template>
 
 <!-- TODO: maybe use provide/inject to control styles -->
-<style>
+<style scoped>
 @tailwind components;
 
 @layer components {

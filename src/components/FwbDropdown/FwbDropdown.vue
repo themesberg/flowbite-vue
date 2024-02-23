@@ -68,7 +68,7 @@ const props = withDefaults(
     placement: 'bottom',
     text: '',
     transition: '',
-    closeInside: false
+    closeInside: false,
   },
 )
 
