@@ -287,12 +287,12 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/forms">
+        <a href="https://flowbite-vue.com/components/input">
             <img alt="Tailwind CSS Input Field" src="https://flowbite.s3.amazonaws.com/github/input-field.jpg">
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/forms#fileUpload">
+        <a href="https://flowbite-vue.com/components/fileInput">
             <img alt="Tailwind CSS File Input" src="https://flowbite.s3.amazonaws.com/github/file-input.jpg">
         </a>
     </td>
@@ -309,17 +309,17 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/forms#select">
+        <a href="https://flowbite-vue.com/components/select">
             <img alt="Tailwind CSS Select" src="https://flowbite.s3.amazonaws.com/github/select.jpg">
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/forms#textarea">
+        <a href="https://flowbite-vue.com/components/textarea">
             <img alt="Tailwind CSS Textarea" src="https://flowbite.s3.amazonaws.com/github/textarea.jpg">
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/forms#checkbox">
+        <a href="https://flowbite-vue.com/components/checkbox">
             <img alt="Tailwind CSS Checkbox" src="https://flowbite.s3.amazonaws.com/github/checkbox.jpg">
         </a>
     </td>
@@ -331,12 +331,12 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/forms#radio">
+        <a href="https://flowbite-vue.com/components/radio">
             <img alt="Tailwind CSS Radio" src="https://flowbite.s3.amazonaws.com/github/radio.jpg">
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-react.com/forms#toggle">
+        <a href="https://flowbite-vue.com/components/toggle">
             <img alt="Tailwind CSS Toggle" src="https://flowbite.s3.amazonaws.com/github/toggle.jpg">
         </a>
     </td>
