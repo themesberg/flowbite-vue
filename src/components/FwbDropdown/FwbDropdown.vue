@@ -52,7 +52,9 @@ import FwbSlotListener from '@/components/utils/FwbSlotListener/FwbSlotListener.
 import { useDropdownClasses } from './composables/useDropdownClasses'
 
 const visible = ref(false)
-const onHide = () => (visible.value = false)
+const onHide = () => {
+  if (props.closeInside) visible.value = false
+}
 const onToggle = () => (visible.value = !visible.value)
 
 const props = withDefaults(
@@ -60,11 +62,13 @@ const props = withDefaults(
     placement?: DropdownPlacement
     text?: string
     transition?: string
+    closeInside: boolean
   }>(),
   {
     placement: 'bottom',
     text: '',
     transition: '',
+    closeInside: false,
   },
 )
 
