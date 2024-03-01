@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { nanoid } from 'nanoid'
 import { useAccordionState } from './composables/useAccordionState'
 
@@ -26,11 +26,16 @@ const accordionState = computed(() => {
 })
 
 onMounted(() => {
-  const panelsCount = Object.keys(accordionState?.value?.panels)?.length
+  const panelIndex = Array.from(panel.value.parentElement.children).indexOf(panel.value)
   accordionState.value.panels[panelId] = {
     id: panelId,
-    order: panelsCount,
-    isVisible: (accordionState.value.openFirstItem && panelsCount === 0) ?? false,
+    order: panelIndex,
+    isVisible: (accordionState.value.openFirstItem && panelIndex === 0) ?? false,
+  }
+})
+onUnmounted(() => {
+  if (accordionState.value.panels[panelId]) {
+    delete accordionState.value.panels[panelId]
   }
 })
 </script>

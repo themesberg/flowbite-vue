@@ -134,7 +134,7 @@ import {
 ```
 
 ## Flush accordion
-Flush prop removes side borders, and rounded corners
+Flush prop removes background color, side borders, and rounded corners
 
 <fwb-accordion-example-flush />
 ```vue
