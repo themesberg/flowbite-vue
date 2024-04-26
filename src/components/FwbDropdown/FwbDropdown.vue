@@ -62,13 +62,15 @@ const props = withDefaults(
     placement?: DropdownPlacement
     text?: string
     transition?: string
-    closeInside: boolean
+    closeInside?: boolean
+    alignToEnd?: boolean
   }>(),
   {
     placement: 'bottom',
     text: '',
     transition: '',
     closeInside: false,
+    alignToEnd: false,
   },
 )
 
@@ -89,6 +91,7 @@ const wrapper = ref<HTMLDivElement>()
 
 const { contentClasses, contentStyles } = useDropdownClasses({
   placement: toRef(props, 'placement'),
+  alignToEnd: toRef(props, 'alignToEnd'),
   visible,
   contentRef: content,
 })
