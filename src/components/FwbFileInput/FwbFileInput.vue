@@ -49,6 +49,7 @@
         <input
           :multiple="multiple"
           type="file"
+          :accept="accept"
           class="hidden"
         >
       </label>
