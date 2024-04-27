@@ -23,16 +23,68 @@ The dropdown component can be used to show a list of menu items when clicking on
 ```vue
 <template>
   <fwb-dropdown text="Bottom">
-    <p class="p-2">Dropdown content here</p>
+    <div class="w-52">
+      <p class="p-2">
+        Dropdown content line one
+      </p>
+      <p class="p-2">
+        Dropdown content line two
+      </p>
+      <p class="p-2">
+        Dropdown content line three
+      </p>
+      <p class="p-2">
+        Dropdown content line four
+      </p>
+    </div>
   </fwb-dropdown>
   <fwb-dropdown placement="top" text="Top">
-    <p class="p-2">Dropdown content here</p>
+    <div class="w-52">
+      <p class="p-2">
+        Dropdown content line one
+      </p>
+      <p class="p-2">
+        Dropdown content line two
+      </p>
+      <p class="p-2">
+        Dropdown content line three
+      </p>
+      <p class="p-2">
+        Dropdown content line four
+      </p>
+    </div>
   </fwb-dropdown>
   <fwb-dropdown placement="right" text="Right">
-    <p class="p-2">Dropdown content here</p>
+    <div class="w-52">
+      <p class="p-2">
+        Dropdown content line one
+      </p>
+      <p class="p-2">
+        Dropdown content line two
+      </p>
+      <p class="p-2">
+        Dropdown content line three
+      </p>
+      <p class="p-2">
+        Dropdown content line four
+      </p>
+    </div>
   </fwb-dropdown>
   <fwb-dropdown placement="left" text="Left">
-    <p class="p-2">Dropdown content here</p>
+    <div class="w-52">
+      <p class="p-2">
+        Dropdown content line one
+      </p>
+      <p class="p-2">
+        Dropdown content line two
+      </p>
+      <p class="p-2">
+        Dropdown content line three
+      </p>
+      <p class="p-2">
+        Dropdown content line four
+      </p>
+    </div>
   </fwb-dropdown>
 </template>
 
@@ -49,16 +101,68 @@ The property controls how the dropdown is aligned with the trigger
 ```vue
 <template>
   <fwb-dropdown text="Bottom" align-to-end>
-    <p class="p-2">Dropdown content here</p>
+    <div class="w-52">
+      <p class="p-2">
+        Dropdown content line one
+      </p>
+      <p class="p-2">
+        Dropdown content line two
+      </p>
+      <p class="p-2">
+        Dropdown content line three
+      </p>
+      <p class="p-2">
+        Dropdown content line four
+      </p>
+    </div>
   </fwb-dropdown>
   <fwb-dropdown placement="top" text="Top" align-to-end>
-    <p class="p-2">Dropdown content here</p>
+    <div class="w-52">
+      <p class="p-2">
+        Dropdown content line one
+      </p>
+      <p class="p-2">
+        Dropdown content line two
+      </p>
+      <p class="p-2">
+        Dropdown content line three
+      </p>
+      <p class="p-2">
+        Dropdown content line four
+      </p>
+    </div>
   </fwb-dropdown>
   <fwb-dropdown placement="right" text="Right" align-to-end>
-    <p class="p-2">Dropdown content here</p>
+    <div class="w-52">
+      <p class="p-2">
+        Dropdown content line one
+      </p>
+      <p class="p-2">
+        Dropdown content line two
+      </p>
+      <p class="p-2">
+        Dropdown content line three
+      </p>
+      <p class="p-2">
+        Dropdown content line four
+      </p>
+    </div>
   </fwb-dropdown>
   <fwb-dropdown placement="left" text="Left" align-to-end>
-    <p class="p-2">Dropdown content here</p>
+    <div class="w-52">
+      <p class="p-2">
+        Dropdown content line one
+      </p>
+      <p class="p-2">
+        Dropdown content line two
+      </p>
+      <p class="p-2">
+        Dropdown content line three
+      </p>
+      <p class="p-2">
+        Dropdown content line four
+      </p>
+    </div>
   </fwb-dropdown>
 </template>
 
