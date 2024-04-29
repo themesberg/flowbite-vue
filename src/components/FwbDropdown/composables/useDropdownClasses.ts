@@ -53,6 +53,26 @@ export function useDropdownClasses (props: UseDropdownClassesProps): {
     placementStyles.value = placementCalculators[props.placement.value](boundingRect)
   }
 
+  // Watch for changes in the content element, and recalculate placement classes
+  // to ensure the dropdown is always positioned correctly
+  const observer = new MutationObserver(() => {
+    calculatePlacementClasses()
+  })
+
+  watch(
+    props.contentRef,
+    (value) => {
+      if (value) {
+        observer.observe(value, {
+          childList: true,
+          subtree: true,
+        })
+      } else {
+        observer.disconnect()
+      }
+    },
+  )
+
   const contentClasses = computed(() => {
     return classNames(
       defaultDropdownClasses,
