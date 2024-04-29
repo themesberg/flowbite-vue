@@ -3,6 +3,7 @@
     <fwb-dropdown
       placement="top"
       text="Top"
+      align-to-end
     >
       <div class="w-52">
         <p class="p-2">
@@ -22,6 +23,7 @@
     <fwb-dropdown
       placement="right"
       text="Right"
+      align-to-end
     >
       <div class="w-52">
         <p class="p-2">
@@ -38,7 +40,10 @@
         </p>
       </div>
     </fwb-dropdown>
-    <fwb-dropdown text="Bottom">
+    <fwb-dropdown
+      text="Bottom"
+      align-to-end
+    >
       <div class="w-52">
         <p class="p-2">
           Dropdown content line one
@@ -57,6 +62,7 @@
     <fwb-dropdown
       placement="left"
       text="Left"
+      align-to-end
     >
       <div class="w-52">
         <p class="p-2">
