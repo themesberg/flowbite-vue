@@ -39,7 +39,7 @@ const theme = computed(() => {
 })
 </script>
 
-<style scoped>
+<style>
 .v-popper--theme-tooltip-dark .v-popper__wrapper .v-popper__inner {
   background: rgba(0, 0, 0);
   color: #fff;
