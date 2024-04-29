@@ -7,6 +7,7 @@
           :class="fileInpClasses"
           :multiple="multiple"
           type="file"
+          :accept="accept"
           @change="handleChange"
         >
       </label>
@@ -48,6 +49,7 @@
         <input
           :multiple="multiple"
           type="file"
+          :accept="accept"
           class="hidden"
         >
       </label>
@@ -65,7 +67,8 @@ interface FileInputProps {
   label?: string
   modelValue?: File | File[] | null
   multiple?: boolean
-  size?: string
+  size?: string,
+  accept?:string,
 }
 
 const props = withDefaults(defineProps<FileInputProps>(), {
@@ -74,6 +77,7 @@ const props = withDefaults(defineProps<FileInputProps>(), {
   modelValue: null,
   multiple: false,
   size: 'sm',
+  accept: ''
 })
 
 const dropZoneText = computed(() => {
