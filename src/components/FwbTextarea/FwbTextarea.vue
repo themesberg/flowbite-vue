@@ -8,6 +8,7 @@
         :class="textareaClasses"
         :rows="rows"
         :placeholder="placeholder"
+        :autocomplete="autocomplete"
       />
       <span
         v-if="$slots.footer"
@@ -29,6 +30,7 @@ interface TextareaProps {
   rows?: number
   custom?: boolean
   placeholder?: string
+  autocomplete?: AutoFill
 }
 
 defineOptions({

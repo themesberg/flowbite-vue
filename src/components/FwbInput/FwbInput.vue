@@ -17,6 +17,7 @@
         :disabled="disabled"
         :type="type"
         :required="required"
+        :autocomplete="autocomplete"
         :class="[inputClasses, $slots.prefix ? 'pl-10' : '']"
       >
       <div
@@ -60,6 +61,7 @@ interface InputProps {
   required?: boolean
   size?: InputSize
   type?: InputType
+  autocomplete?: AutoFill
   validationStatus?: ValidationStatus
 }
 
