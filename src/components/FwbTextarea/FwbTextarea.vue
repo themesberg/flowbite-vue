@@ -43,6 +43,7 @@ const props = withDefaults(defineProps<TextareaProps>(), {
   rows: 4,
   custom: false,
   placeholder: 'Write your message here...',
+  autocomplete: 'off',
 })
 
 const emit = defineEmits(['update:modelValue'])

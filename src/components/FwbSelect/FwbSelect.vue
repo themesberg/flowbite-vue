@@ -71,6 +71,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   disabled: false,
   underline: false,
   size: 'md',
+  autocomplete: 'off',
   validationStatus: undefined,
 })
 const emit = defineEmits(['update:modelValue'])

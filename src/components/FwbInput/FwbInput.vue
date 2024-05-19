@@ -72,6 +72,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   required: false,
   size: 'md',
   type: 'text',
+  autocomplete: 'off',
   validationStatus: undefined,
 })
 
