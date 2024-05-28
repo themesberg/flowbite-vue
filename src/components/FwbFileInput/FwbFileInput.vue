@@ -77,7 +77,7 @@ const props = withDefaults(defineProps<FileInputProps>(), {
   modelValue: null,
   multiple: false,
   size: 'sm',
-  accept: ''
+  accept: '',
 })
 
 const dropZoneText = computed(() => {
