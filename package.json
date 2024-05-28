@@ -39,7 +39,8 @@
     "format": "prettier .  --write",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "prepublishOnly": "npm run build:production"
   },
   "peerDependencies": {
     "tailwindcss": "^3",
