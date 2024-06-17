@@ -1,7 +1,10 @@
 {
   "name": "flowbite-vue",
-  "version": "0.1.4",
-  "repository": "https://github.com/themesberg/flowbite-vue.git",
+  "version": "0.1.5",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themesberg/flowbite-vue.git"
+  },
   "author": "themesberg",
   "license": "MIT",
   "files": [
@@ -36,48 +39,49 @@
     "format": "prettier .  --write",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "prepublishOnly": "npm run build:production"
   },
   "peerDependencies": {
     "tailwindcss": "^3",
-    "vue": "^3.3.x"
+    "vue": "^3.4.x"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "1.4.0",
-    "@types/lodash-es": "4.17.9",
-    "@types/node": "20.6.0",
-    "@vitejs/plugin-vue": "4.3.4",
-    "@vitest/coverage-v8": "0.34.4",
-    "@vue/eslint-config-typescript": "12.0.0",
-    "@vue/test-utils": "2.4.1",
-    "@vue/tsconfig": "0.4.0",
-    "eslint": "8.49.0",
+    "@rushstack/eslint-patch": "1.10.3",
+    "@types/lodash-es": "4.17.12",
+    "@types/node": "20.12.12",
+    "@vitejs/plugin-vue": "5.0.4",
+    "@vitest/coverage-v8": "1.6.0",
+    "@vue/eslint-config-typescript": "13.0.0",
+    "@vue/test-utils": "2.4.6",
+    "@vue/tsconfig": "0.5.1",
+    "eslint": "8.57.0",
     "eslint-config-standard": "17.1.0",
-    "eslint-plugin-vue": "9.17.0",
-    "eslint-plugin-vue-scoped-css": "2.5.0",
-    "jsdom": "22.1.0",
-    "postcss": "8.4.31",
-    "postcss-prefix-selector": "1.16.0",
-    "prettier": "3.0.3",
-    "tsc-alias": "1.8.7",
-    "typescript": "5.2.2",
-    "vite": "4.4.9",
-    "vitepress": "1.0.0-rc.13",
-    "vitest": "0.34.4",
-    "vue-tsc": "1.8.6"
+    "eslint-plugin-vue": "9.26.0",
+    "eslint-plugin-vue-scoped-css": "2.8.0",
+    "jsdom": "24.1.0",
+    "postcss": "8.4.38",
+    "postcss-prefix-selector": "1.16.1",
+    "prettier": "3.2.5",
+    "tsc-alias": "1.8.10",
+    "typescript": "5.4.5",
+    "vite": "5.2.12",
+    "vitepress": "1.2.2",
+    "vitest": "1.6.0",
+    "vue-tsc": "2.0.19"
   },
   "dependencies": {
-    "@vueuse/core": "9.3.0",
-    "classnames": "2.3.2",
-    "floating-vue": "2.0.0-beta.24",
-    "flowbite": "1.5.4",
+    "@vueuse/core": "10.10.0",
+    "classnames": "2.5.1",
+    "floating-vue": "^5.2.2",
+    "flowbite": "2.3.0",
     "lodash-es": "4.17.21",
-    "nanoid": "4.0.0",
-    "tailwind-merge": "^1.14.0",
+    "nanoid": "5.0.7",
+    "tailwind-merge": "2.3.0",
     "tailwindcss": "^3"
   },
   "engines": {
-    "node": ">=14.x",
-    "npm": ">=6.x"
+    "node": ">=18.x",
+    "npm": ">=10.x"
   }
 }
