@@ -11,6 +11,7 @@
         v-model="model"
         :disabled="disabled"
         :class="selectClasses"
+        :autocomplete="autocomplete"
       >
         <option
           disabled
@@ -52,13 +53,14 @@ import type { InputSize } from './../FwbInput/types'
 import { type OptionsType, type ValidationStatus, validationStatusMap } from './types'
 
 interface InputProps {
-  modelValue?: string;
-  label?: string;
-  options?: OptionsType[];
-  placeholder?: string;
-  disabled?: boolean;
-  underline?: boolean;
-  size?: InputSize;
+  modelValue?: string
+  label?: string
+  options?: OptionsType[]
+  placeholder?: string
+  disabled?: boolean
+  underline?: boolean
+  size?: InputSize
+  autocomplete?: AutoFill
   validationStatus?: ValidationStatus
 }
 const props = withDefaults(defineProps<InputProps>(), {
@@ -69,6 +71,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   disabled: false,
   underline: false,
   size: 'md',
+  autocomplete: 'off',
   validationStatus: undefined,
 })
 const emit = defineEmits(['update:modelValue'])
