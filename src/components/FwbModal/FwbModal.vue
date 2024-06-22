@@ -80,7 +80,7 @@ const props = withDefaults(defineProps<ModalProps>(), {
 })
 
 const emit = defineEmits(['close', 'click:outside'])
-const modalSizeClasses = {
+const modalSizeClasses: Record<ModalSize, string> = {
   xs: 'max-w-xs',
   sm: 'max-w-sm',
   md: 'max-w-md',
@@ -94,7 +94,7 @@ const modalSizeClasses = {
   '7xl': 'max-w-7xl',
 }
 
-const modalPositionClasses = {
+const modalPositionClasses: Record<ModalPosition, string> = {
   'top-start': 'self-start justify-self-start',
   'top-center': 'self-start justify-self-center',
   'top-end': 'self-start justify-self-end',
