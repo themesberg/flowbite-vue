@@ -3,6 +3,7 @@ import FwbModalExample from './modal/examples/FwbModalExample.vue'
 import FwbModalExampleSize from './modal/examples/FwbModalExampleSize.vue'
 import FwbModalExampleEscapable from './modal/examples/FwbModalExampleEscapable.vue'
 import FwbModalExamplePersistent from './modal/examples/FwbModalExamplePersistent.vue'
+import FwbModalExamplePosition from './modal/examples/FwbModalExamplePosition.vue'
 </script>
 # Vue Modal - Flowbite
 
@@ -84,6 +85,33 @@ The default value is: `2xl`
   <fwb-modal size="md" />
   <fwb-modal size="xl" />
   <fwb-modal size="5xl" />
+</template>
+
+<script setup>
+import { FwbModal } from 'flowbite-vue'
+</script>
+```
+
+## Position
+
+The `position` prop allows you to control the placement of the modal on the screen, taking into account RTL (Right-to-Left) mode. You can choose from the following options:
+
+`top-start`, `top-center`, `top-end`, `center-start`, `center`, `center-end`, `bottom-start`, `bottom-center`, `bottom-end`
+
+The default value is: `center`
+
+<fwb-modal-example-position />
+```vue
+<template>
+  <fwb-modal position="top-start" />
+  <fwb-modal position="top-center" />
+  <fwb-modal position="top-end" />
+  <fwb-modal position="center-start" />
+  <fwb-modal position="center" />
+  <fwb-modal position="center-end" />
+  <fwb-modal position="bottom-start" />
+  <fwb-modal position="bottom-center" />
+  <fwb-modal position="bottom-end" />
 </template>
 
 <script setup>
