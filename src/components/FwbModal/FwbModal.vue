@@ -3,14 +3,14 @@
     <div class="bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40" />
     <div
       ref="modalRef"
-      class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex"
+      class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full grid"
       tabindex="0"
       @click.self="clickOutside"
       @keyup.esc="closeWithEsc"
     >
       <div
-        :class="`${modalSizeClasses[size]}`"
-        class="relative p-4 w-full h-full"
+        :class="`${modalSizeClasses[size]} ${modalPositionClasses[position]}`"
+        class="relative p-4 w-full"
       >
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -63,18 +63,20 @@
 
 <script lang="ts" setup>
 import { onMounted, ref, type Ref } from 'vue'
-import type { ModalSize } from './types'
+import type { ModalPosition, ModalSize } from './types'
 
 interface ModalProps {
   notEscapable?: boolean,
   persistent?: boolean
   size?: ModalSize,
+  position?: ModalPosition
 }
 
 const props = withDefaults(defineProps<ModalProps>(), {
   notEscapable: false,
   persistent: false,
   size: '2xl',
+  position: 'center',
 })
 
 const emit = defineEmits(['close', 'click:outside'])
@@ -90,6 +92,18 @@ const modalSizeClasses = {
   '5xl': 'max-w-5xl',
   '6xl': 'max-w-6xl',
   '7xl': 'max-w-7xl',
+}
+
+const modalPositionClasses = {
+  'top-start': 'self-start justify-self-start',
+  'top-center': 'self-start justify-self-center',
+  'top-end': 'self-start justify-self-end',
+  'center-start': 'self-center justify-self-start',
+  center: 'self-center justify-self-center',
+  'center-end': 'self-center justify-self-end',
+  'bottom-start': 'self-end justify-self-start',
+  'bottom-center': 'self-end justify-self-center',
+  'bottom-end': 'self-end justify-self-end',
 }
 
 function closeModal () {
