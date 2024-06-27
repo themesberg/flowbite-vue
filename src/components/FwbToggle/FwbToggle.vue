@@ -1,5 +1,5 @@
 <template>
-  <label :class="labelClasses">
+  <label :class="[labelClasses, labelOrder]">
     <input
       v-model="model"
       :disabled="disabled"
@@ -7,7 +7,7 @@
       type="checkbox"
     >
     <span :class="[toggleClasses, toggleSize, toggleColor]" />
-    <span :class="toggleBallClasses">{{ label }}</span>
+    <span :class="[toggleBallClasses, toggleBallOrder]">{{ label }}</span>
   </label>
 </template>
 
@@ -22,6 +22,7 @@ interface ToggleProps {
   label?: string;
   modelValue?: boolean;
   size?: InputSize;
+  reverse?: boolean;
 }
 
 const props = withDefaults(defineProps<ToggleProps>(), {
@@ -30,6 +31,7 @@ const props = withDefaults(defineProps<ToggleProps>(), {
   label: '',
   modelValue: false,
   size: 'md',
+  reverse: false,
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -48,5 +50,7 @@ const {
   toggleClasses,
   toggleColor,
   toggleBallClasses,
+  toggleBallOrder,
+  labelOrder,
 } = useToggleClasses(toRefs(props))
 </script>
