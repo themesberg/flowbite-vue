@@ -15,11 +15,12 @@
     </div>
     <div
       v-else
-      class="flex items-center justify-center"
+      class="flex flex-col items-start justify-center"
       @change="handleChange"
       @dragover="dragOverHandler"
       @drop="dropFileHandler"
     >
+    <span v-if="label !== ''" :class="labelClasses">{{ label }}</span>
       <label :class="dropzoneLabelClasses">
         <div :class="dropzoneWrapClasses">
           <svg
