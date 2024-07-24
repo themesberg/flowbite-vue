@@ -8,6 +8,8 @@
         :class="textareaClasses"
         :rows="rows"
         :placeholder="placeholder"
+        :maxlength="maxLength"
+        :minlength="minLength"
       />
       <span
         v-if="$slots.footer"
@@ -29,6 +31,8 @@ interface TextareaProps {
   rows?: number
   custom?: boolean
   placeholder?: string
+  maxLength?: number,
+  minLength?: number,
 }
 
 defineOptions({
@@ -41,6 +45,8 @@ const props = withDefaults(defineProps<TextareaProps>(), {
   rows: 4,
   custom: false,
   placeholder: 'Write your message here...',
+  maxLength: 10000,
+  minLength: 0,
 })
 
 const emit = defineEmits(['update:modelValue'])
