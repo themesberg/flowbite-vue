@@ -6,8 +6,8 @@
     <fwb-textarea
       v-model="message"
       label="Textarea with minlength 10 and maxlength 20"
-      minlength="10"
-      maxlength="20"
+      min-length="10"
+      max-length="20"
       required
     />
     <fwb-textarea

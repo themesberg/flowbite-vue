@@ -106,6 +106,13 @@ const message = ref('')
       v-model="message"
       label="Your message"
       placeholder="Write your message..."
+      max-length="20"
+      min-length="10"
+    />
+    <fwb-textarea
+      v-model="message"
+      label="Your message"
+      placeholder="Write your message..."
       disabled
     />
     <fwb-textarea
