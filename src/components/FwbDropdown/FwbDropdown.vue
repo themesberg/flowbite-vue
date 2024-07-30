@@ -75,8 +75,8 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  (e: 'show'): void,
-  (e: 'hide'): void,
+  'show': []
+  'hide': []
 }>()
 
 watch(
