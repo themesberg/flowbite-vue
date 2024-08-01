@@ -22,7 +22,7 @@ The dropdown component can be used to show a list of menu items when clicking on
 <fwb-dropdown-example-placement />
 ```vue
 <template>
-  <fwb-dropdown text="Top">
+  <fwb-dropdown placement="top" text="Top">
     <div class="w-52">
       <p class="p-2">
         Dropdown content line one
@@ -54,7 +54,7 @@ The dropdown component can be used to show a list of menu items when clicking on
       </p>
     </div>
   </fwb-dropdown>
-  <fwb-dropdown placement="bottom" text="Bottom">
+  <fwb-dropdown text="Bottom">
     <div class="w-52">
       <p class="p-2">
         Dropdown content line one
@@ -100,7 +100,7 @@ The property controls how the dropdown is aligned with the trigger
 <fwb-dropdown-example-alignment />
 ```vue
 <template>
-  <fwb-dropdown text="Top" align-to-end>
+  <fwb-dropdown placement="top" text="Top" align-to-end>
     <div class="w-52">
       <p class="p-2">
         Dropdown content line one
@@ -132,7 +132,7 @@ The property controls how the dropdown is aligned with the trigger
       </p>
     </div>
   </fwb-dropdown>
-  <fwb-dropdown placement="bottom" text="Bottom" align-to-end>
+  <fwb-dropdown text="Bottom" align-to-end>
     <div class="w-52">
       <p class="p-2">
         Dropdown content line one
