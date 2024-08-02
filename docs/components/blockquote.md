@@ -12,7 +12,7 @@ import FwbBlockquoteSizeExample from './typography/blockquote/FwbBlockquoteSizeE
 Original reference: [https://flowbite.com/docs/typography/blockquote/](https://flowbite.com/docs/typography/blockquote/)
 :::
 
-#### Get started with a collection of blockquote components when quoting external sources such as quotes inside an article, user reviews, and testimonials based on multiple examples of layouts, styles, and contexts.
+## Get started with a collection of blockquote components when quoting external sources such as quotes inside an article, user reviews, and testimonials based on multiple examples of layouts, styles, and contexts.
 
 ## Default blockquote
 

@@ -22,13 +22,13 @@ const props = withDefaults(defineProps<BlockquoteProps>(), {
     class: '',
 })
 
-const defaultBlockquoteClasses = "font-semibold text-lg italic text-gray-900 dark:text-white";
-const solidBlockquoteClasses = "bg-gray-100 dark:bg-gray-800 border-l-4 border-gray-300 p-4 dark:border-gray-500"
+const defaultBlockquoteClasses = 'font-semibold text-lg italic text-gray-900 dark:text-white'
+const solidBlockquoteClasses = 'bg-gray-100 dark:bg-gray-800 border-l-4 border-gray-300 p-4 dark:border-gray-500'
 
 const blockquoteClasses = computed(() => useMergeClasses([
     defaultBlockquoteClasses,
     props.type === 'solid' ? solidBlockquoteClasses : '',
     props.class
-]));
+]))
 
 </script>
