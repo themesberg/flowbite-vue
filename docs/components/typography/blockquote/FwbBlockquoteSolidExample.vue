@@ -1,8 +1,8 @@
 <template>
     <div class="vp-raw flex">
-        <FwbBlockquote type="solid">
-            "Flowbite is just awesome. Perfect choice for your next SaaS application."
-        </FwbBlockquote>
+        <fwb-blockquote type="solid">
+            "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+        </fwb-blockquote>
     </div>
 </template>
 

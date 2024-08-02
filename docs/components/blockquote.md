@@ -12,76 +12,62 @@ import FwbBlockquoteSizeExample from './typography/blockquote/FwbBlockquoteSizeE
 Original reference: [https://flowbite.com/docs/typography/blockquote/](https://flowbite.com/docs/typography/blockquote/)
 :::
 
-#### Get started with a collection of blockquote components when quoting external sources such as quotes inside an article, user reviews, and testimonials based on multiple examples of layouts, styles, and contexts. Each example will demonstrate different ways to customize the blockquote using props like `size`, `align`, `type`, and `cite`.
+#### Get started with a collection of blockquote components when quoting external sources such as quotes inside an article, user reviews, and testimonials based on multiple examples of layouts, styles, and contexts.
 
 ## Default blockquote
 
-Use this example to quote an external source inside a `<FwbBlockquote>` component.
+Use this example to quote an external source inside a `<fwb-blockquote>` component.
 
-<FwbBlockquoteExample/>
+<fwb-blockquote-example/>
 
 ```vue
-<FwbBlockquote>
+<fwb-blockquote>
     "Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. 
     Perfect choice for your next SaaS application."
-</FwbBlockquote>
+</fwb-blockquote>
 ```
 
 ## Solid background
 This example can be used as an alternative style to the default style by applying a solid background color with `type="solid"`.
 
-<FwbBlockquoteSolidExample />
+<fwb-blockquote-solid-example />
 
 ```vue
-<FwbBlockquote type="solid">
-    "Flowbite is just awesome.Perfect choice for your next SaaS application."
-</FwbBlockquote>
+<fwb-blockquote type="solid">
+    "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+</fwb-blockquote>
 ```
 
 ## Alignment
 
-From the examples below, select the blockquote text alignment based on the `align`prop, starting from the left and moving from middle to right.
+Choose from the following examples the blockquote text alignment from starting from left, center to right based on the utility classes from Tailwind CSS.
 
-<FwbBlockquoteAlignExample align="left" />
-<hr />
-<br/>
-<FwbBlockquoteAlignExample align="center" />
-<hr />
-<br/>
-<FwbBlockquoteAlignExample align="right" />
-
+<fwb-blockquote-align-example />
 ```vue
-<FwbBlockquote align="left">
-    "Flowbite is just awesome. Perfect choice for your next SaaS application."
-</FwbBlockquote>
-<FwbBlockquote align="center">
-    "Flowbite is just awesome. Perfect choice for your next SaaS application."
-</FwbBlockquote>
-<FwbBlockquote align="right">
-    "Flowbite is just awesome. Perfect choice for your next SaaS application."
-</FwbBlockquote>
+<fwb-blockquote class="text-left">
+    "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+</fwb-blockquote>
+<fwb-blockquote class="text-center">
+    "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+</fwb-blockquote>
+<fwb-blockquote class="text-right">
+    "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+</fwb-blockquote>
 ```
 
 ## Size
 
-Choose from multiple sizes with the `size` prop for the default blockquote component based on surrounding elements and dimensions.
+Choose from one of the multiple sizes for the default blockquote component based on the surrounding elements and sizes.
 
-<FwbBlockquoteSizeExample size="sm" />
-<hr />
-<br/>
-<FwbBlockquoteSizeExample size="md" />
-<hr />
-<br/>
-<FwbBlockquoteSizeExample size="lg" />
-
+<fwb-blockquote-size-example />
 ```vue
-<FwbBlockquote size="sm">
-    "Flowbite is just awesome. Perfect choice for your next SaaS application."
-</FwbBlockquote>
-<FwbBlockquote size="md">
-    "Flowbite is just awesome. Perfect choice for your next SaaS application."
-</FwbBlockquote>
-<FwbBlockquote size="lg">
-    "Flowbite is just awesome. Perfect choice for your next SaaS application."
-</FwbBlockquote>
+<fwb-blockquote class="text-lg">
+    "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+</fwb-blockquote>
+<fwb-blockquote class="text-xl">
+    "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+</fwb-blockquote>
+<fwb-blockquote class="text-2xl">
+    "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+</fwb-blockquote>
 ```
