@@ -90,7 +90,6 @@ function getTypography() {
     { text: 'Paragraph', link: '/components/paragraph' },
     { text: 'Image', link: '/components/image' },
     { text: 'Link', link: '/components/link' }
-
   ]
 }
 
