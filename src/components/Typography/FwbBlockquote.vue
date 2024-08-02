@@ -11,15 +11,15 @@ import { useMergeClasses } from '@/composables/useMergeClasses'
 type BlockquoteType = 'default' | 'solid'
 
 interface BlockquoteProps {
-    type?: BlockquoteType;
-    cite?: string;
-    class?: string;
+  type?: BlockquoteType;
+  cite?: string;
+  class?: string;
 }
 
 const props = withDefaults(defineProps<BlockquoteProps>(), {
-    type: 'default',
-    cite: '',
-    class: '',
+  type: 'default',
+  cite: '',
+  class: '',
 })
 
 const defaultBlockquoteClasses = 'font-semibold text-lg italic text-gray-900 dark:text-white'
@@ -28,7 +28,8 @@ const solidBlockquoteClasses = 'bg-gray-100 dark:bg-gray-800 border-l-4 border-g
 const blockquoteClasses = computed(() => useMergeClasses([
     defaultBlockquoteClasses,
     props.type === 'solid' ? solidBlockquoteClasses : '',
-    props.class
+    props.class,
 ]))
+
 
 </script>
