@@ -3,33 +3,15 @@
     <div v-if="!dropzone">
       <label>
         <span :class="labelClasses">{{ label }}</span>
-        <input
-          :class="fileInpClasses"
-          :multiple="multiple"
-          type="file"
-          :accept="accept"
-          @change="handleChange"
-        >
+        <input :class="fileInpClasses" :multiple="multiple" type="file" :accept="accept" @change="handleChange" />
       </label>
       <slot />
     </div>
-    <div
-      v-else
-      class="flex flex-col items-start justify-center"
-      @change="handleChange"
-      @dragover="dragOverHandler"
-      @drop="dropFileHandler"
-    >
-    <span v-if="label !== ''" :class="labelClasses">{{ label }}</span>
+    <div v-else class="flex flex-col items-start justify-center" @change="handleChange" @dragover="dragOverHandler" @drop="dropFileHandler">
+      <span v-if="label !== ''" :class="labelClasses">{{ label }}</span>
       <label :class="dropzoneLabelClasses">
         <div :class="dropzoneWrapClasses">
-          <svg
-            aria-hidden="true"
-            class="w-8 h-8 text-gray-500 dark:text-gray-400"
-            fill="none"
-            viewBox="0 0 20 16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg aria-hidden="true" class="w-8 h-8 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
               stroke-linecap="round"
@@ -47,12 +29,7 @@
           </div>
           <p v-else>File: {{ dropZoneText }}</p>
         </div>
-        <input
-          :multiple="multiple"
-          type="file"
-          :accept="accept"
-          class="hidden"
-        >
+        <input :multiple="multiple" type="file" :accept="accept" class="hidden" />
       </label>
     </div>
   </div>
@@ -68,8 +45,8 @@ interface FileInputProps {
   label?: string
   modelValue?: File | File[] | null
   multiple?: boolean
-  size?: string,
-  accept?:string,
+  size?: string
+  accept?: string
 }
 
 const props = withDefaults(defineProps<FileInputProps>(), {
@@ -97,10 +74,10 @@ const dropZoneText = computed(() => {
 
 const emit = defineEmits(['update:modelValue'])
 const model = computed({
-  get () {
+  get() {
     return props.modelValue
   },
-  set (val) {
+  set(val) {
     emit('update:modelValue', val)
   },
 })
@@ -139,11 +116,5 @@ const dragOverHandler = (event: Event) => {
   event.preventDefault()
 }
 
-const {
-  fileInpClasses,
-  labelClasses,
-  dropzoneLabelClasses,
-  dropzoneWrapClasses,
-  dropzoneTextClasses,
-} = useFileInputClasses(props.size)
+const { fileInpClasses, labelClasses, dropzoneLabelClasses, dropzoneWrapClasses, dropzoneTextClasses } = useFileInputClasses(props.size)
 </script>
