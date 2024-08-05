@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, toRef } from 'vue'
+import { computed, ref, toRef, watch } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import type { DropdownPlacement } from './types'
 import FwbButton from '@/components/FwbButton/FwbButton.vue'
@@ -71,6 +71,22 @@ const props = withDefaults(
     transition: '',
     closeInside: false,
     alignToEnd: false,
+  },
+)
+
+const emit = defineEmits<{
+  'show': []
+  'hide': []
+}>()
+
+watch(
+  visible,
+  (isVisible: boolean) => {
+    if (isVisible) {
+      emit('show')
+    } else {
+      emit('hide')
+    }
   },
 )
 

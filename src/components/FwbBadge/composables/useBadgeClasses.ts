@@ -8,7 +8,7 @@ const onlyIconClasses = 'p-1 rounded-full mr-2'
 
 const badgeTextClasses: Record<BadgeType, string> = {
   default: 'text-blue-800 dark:text-blue-800',
-  dark: 'text-gray-800 dark:bg-gray-700',
+  dark: 'text-gray-800 dark:text-gray-300',
   red: 'text-red-800 dark:text-red-900',
   green: 'text-green-800 dark:text-green-900',
   yellow: 'text-yellow-800 dark:text-yellow-900',

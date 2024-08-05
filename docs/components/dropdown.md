@@ -22,22 +22,6 @@ The dropdown component can be used to show a list of menu items when clicking on
 <fwb-dropdown-example-placement />
 ```vue
 <template>
-  <fwb-dropdown text="Bottom">
-    <div class="w-52">
-      <p class="p-2">
-        Dropdown content line one
-      </p>
-      <p class="p-2">
-        Dropdown content line two
-      </p>
-      <p class="p-2">
-        Dropdown content line three
-      </p>
-      <p class="p-2">
-        Dropdown content line four
-      </p>
-    </div>
-  </fwb-dropdown>
   <fwb-dropdown placement="top" text="Top">
     <div class="w-52">
       <p class="p-2">
@@ -55,6 +39,22 @@ The dropdown component can be used to show a list of menu items when clicking on
     </div>
   </fwb-dropdown>
   <fwb-dropdown placement="right" text="Right">
+    <div class="w-52">
+      <p class="p-2">
+        Dropdown content line one
+      </p>
+      <p class="p-2">
+        Dropdown content line two
+      </p>
+      <p class="p-2">
+        Dropdown content line three
+      </p>
+      <p class="p-2">
+        Dropdown content line four
+      </p>
+    </div>
+  </fwb-dropdown>
+  <fwb-dropdown text="Bottom">
     <div class="w-52">
       <p class="p-2">
         Dropdown content line one
@@ -100,22 +100,6 @@ The property controls how the dropdown is aligned with the trigger
 <fwb-dropdown-example-alignment />
 ```vue
 <template>
-  <fwb-dropdown text="Bottom" align-to-end>
-    <div class="w-52">
-      <p class="p-2">
-        Dropdown content line one
-      </p>
-      <p class="p-2">
-        Dropdown content line two
-      </p>
-      <p class="p-2">
-        Dropdown content line three
-      </p>
-      <p class="p-2">
-        Dropdown content line four
-      </p>
-    </div>
-  </fwb-dropdown>
   <fwb-dropdown placement="top" text="Top" align-to-end>
     <div class="w-52">
       <p class="p-2">
@@ -133,6 +117,22 @@ The property controls how the dropdown is aligned with the trigger
     </div>
   </fwb-dropdown>
   <fwb-dropdown placement="right" text="Right" align-to-end>
+    <div class="w-52">
+      <p class="p-2">
+        Dropdown content line one
+      </p>
+      <p class="p-2">
+        Dropdown content line two
+      </p>
+      <p class="p-2">
+        Dropdown content line three
+      </p>
+      <p class="p-2">
+        Dropdown content line four
+      </p>
+    </div>
+  </fwb-dropdown>
+  <fwb-dropdown text="Bottom" align-to-end>
     <div class="w-52">
       <p class="p-2">
         Dropdown content line one
@@ -257,3 +257,26 @@ import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 import { FwbDropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
 </script>
 ```
+
+## API
+
+### Props
+| Name     | Values | Default |
+|----------|--------|---------|
+| placement | `DropdownPlacement` | `'bottom'`  |
+| text | `string` | `''` |
+| transition | `string` | `''` |
+| closeInside | `boolean` | `false` |
+| alignToEnd | `boolean` | `false` |
+
+### Events
+| Name | Description            |
+|------|------------------------|
+| show | the dropdown is opened |
+| hide | the dropdown is closed |
+
+### Slots
+| Name       | Description       |
+|------------|-------------------|
+| default    | dropdown content  |
+| suffix     | button suffix     |
