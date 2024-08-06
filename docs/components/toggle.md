@@ -4,6 +4,7 @@
   import FwbToggleExampleColors from './toggle/examples/FwbToggleExampleColors.vue'
   import FwbToggleExampleDisabled from './toggle/examples/FwbToggleExampleDisabled.vue'
   import FwbToggleExampleSize from './toggle/examples/FwbToggleExampleSize.vue'
+  import FwbToggleExampleOrder from './toggle/examples/FwbToggleExampleOrder.vue'
 </script>
 
 # Vue Toggle - Flowbite
@@ -88,6 +89,20 @@ const toggle = ref(false)
   <fwb-toggle label="Small" size="sm" />
   <fwb-toggle label="Medium" size="md" />
   <fwb-toggle label="Large" size="lg" />
+</template>
+
+<script setup>
+import { FwbToggle } from 'flowbite-vue'
+</script>
+```
+
+## Label position
+
+<fwb-toggle-example-order />
+```vue
+<template>
+  <fwb-toggle label="Toggle me" />
+  <fwb-toggle label="Toggle me" reverse />
 </template>
 
 <script setup>
