@@ -1,15 +1,15 @@
 <template>
-<div class="vp-raw flex flex-col gap-6">
+  <div class="vp-raw flex flex-col gap-6">
     <fwb-blockquote class="text-lg">
-        "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+      "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
     </fwb-blockquote>
     <fwb-blockquote class="text-xl">
-        "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+      "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
     </fwb-blockquote>
     <fwb-blockquote class="text-2xl">
-        "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
+      "Flowbite is just awesome. Perfect choice for your next SaaS application.Perfect choice for your next SaaS application."
     </fwb-blockquote>
-</div>
+  </div>
 </template>
 
 <script setup>

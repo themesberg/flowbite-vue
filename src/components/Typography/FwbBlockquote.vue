@@ -1,7 +1,10 @@
 <template>
-    <blockquote :class="blockquoteClasses" :cite="cite">
-        <slot></slot>
-    </blockquote>
+  <blockquote
+    :class="blockquoteClasses"
+    :cite="cite"
+  >
+    <slot />
+  </blockquote>
 </template>
 
 <script lang="ts" setup>

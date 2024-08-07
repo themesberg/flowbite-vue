@@ -17,6 +17,7 @@
         :disabled="disabled"
         :type="type"
         :required="required"
+        :autocomplete="autocomplete"
         :class="[inputClasses, $slots.prefix ? 'pl-10' : '']"
       >
       <div
@@ -47,6 +48,7 @@ import { useVModel } from '@vueuse/core'
 import { twMerge } from 'tailwind-merge'
 import { useInputClasses } from './composables/useInputClasses'
 import {
+  type CommonAutoFill,
   type InputSize,
   type InputType,
   type ValidationStatus,
@@ -60,6 +62,7 @@ interface InputProps {
   required?: boolean
   size?: InputSize
   type?: InputType
+  autocomplete?: CommonAutoFill
   validationStatus?: ValidationStatus
 }
 
@@ -70,6 +73,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   required: false,
   size: 'md',
   type: 'text',
+  autocomplete: 'off',
   validationStatus: undefined,
 })
 
