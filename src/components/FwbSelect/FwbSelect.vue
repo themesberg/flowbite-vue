@@ -49,7 +49,7 @@ import { computed, toRefs } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { twMerge } from 'tailwind-merge'
 import { useSelectClasses } from './composables/useSelectClasses'
-import type { InputSize } from './../FwbInput/types'
+import type { CommonAutoFill, InputSize } from './../FwbInput/types'
 import { type OptionsType, type ValidationStatus, validationStatusMap } from './types'
 
 interface InputProps {
@@ -60,7 +60,7 @@ interface InputProps {
   disabled?: boolean
   underline?: boolean
   size?: InputSize
-  autocomplete?: AutoFill
+  autocomplete?: CommonAutoFill
   validationStatus?: ValidationStatus
 }
 const props = withDefaults(defineProps<InputProps>(), {

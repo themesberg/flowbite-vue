@@ -22,6 +22,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { CommonAutoFill } from './../FwbInput/types'
 import { useTextareaClasses } from './composables/useTextareaClasses'
 
 interface TextareaProps {
@@ -30,7 +31,7 @@ interface TextareaProps {
   rows?: number
   custom?: boolean
   placeholder?: string
-  autocomplete?: AutoFill
+  autocomplete?: CommonAutoFill
 }
 
 defineOptions({

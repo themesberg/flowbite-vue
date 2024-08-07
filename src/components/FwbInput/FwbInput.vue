@@ -48,6 +48,7 @@ import { useVModel } from '@vueuse/core'
 import { twMerge } from 'tailwind-merge'
 import { useInputClasses } from './composables/useInputClasses'
 import {
+  type CommonAutoFill,
   type InputSize,
   type InputType,
   type ValidationStatus,
@@ -61,7 +62,7 @@ interface InputProps {
   required?: boolean
   size?: InputSize
   type?: InputType
-  autocomplete?: AutoFill
+  autocomplete?: CommonAutoFill
   validationStatus?: ValidationStatus
 }
 
