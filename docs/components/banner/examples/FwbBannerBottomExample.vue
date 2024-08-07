@@ -42,6 +42,7 @@
         support for TypeScript.
       </p>
       <iframe
+        sandbox="allow-same-origin allow-scripts"
         width="100%"
         height="500px"
         class="my-8 rounded-lg shadow-lg yt-video"
@@ -56,9 +57,9 @@
       class="sticky bottom-0 left-0"
       position="bottom"
     >
-      <div className="flex w-full justify-between bg-gray-50 p-4 dark:bg-gray-700">
-        <div className="mx-auto flex items-center">
-          <p className="flex items-center gap-2 text-sm font-normal text-gray-500 dark:text-gray-400">
+      <div class="flex w-full justify-between bg-gray-50 p-4 dark:bg-gray-700">
+        <div class="mx-auto flex items-center">
+          <p class="flex items-center gap-2 text-sm font-normal text-gray-500 dark:text-gray-400">
             <svg
               class="w-6 h-6 text-gray-800 dark:text-gray-400"
               aria-hidden="true"
@@ -75,11 +76,11 @@
               />
             </svg>
 
-            <span className="[&_p]:inline">
+            <span class="[&_p]:inline">
               New brand identity has been launched for the&nbsp;
               <a
                 href="https://flowbite.com"
-                className="inline font-medium text-cyan-600 underline decoration-solid underline-offset-2 hover:no-underline dark:text-cyan-500"
+                class="inline font-medium text-cyan-600 underline decoration-solid underline-offset-2 hover:no-underline dark:text-cyan-500"
               >
                 Flowbite Library
               </a>
