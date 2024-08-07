@@ -19,7 +19,7 @@
 import { resolveComponent } from 'vue'
 const props = withDefaults(
   defineProps<{
-    link?: string
+    link?: string | { name: string }
     tag?: string
   }>(),
   {
