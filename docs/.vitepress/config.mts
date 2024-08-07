@@ -39,6 +39,7 @@ function getComponents() {
     { text: 'Alert', link: '/components/alert' },
     { text: 'Avatar', link: '/components/avatar' },
     { text: 'Badge', link: '/components/badge' },
+    { text: 'Banner', link: '/components/banner' },
     { text: 'Breadcrumb', link: '/components/breadcrumb' },
     { text: 'Button', link: '/components/button' },
     { text: 'Button Group', link: '/components/button-group' },
