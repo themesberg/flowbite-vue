@@ -8,6 +8,7 @@
         :class="textareaClasses"
         :rows="rows"
         :placeholder="placeholder"
+        :autocomplete="autocomplete"
       />
       <span
         v-if="$slots.footer"
@@ -21,6 +22,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { CommonAutoFill } from './../FwbInput/types'
 import { useTextareaClasses } from './composables/useTextareaClasses'
 
 interface TextareaProps {
@@ -29,6 +31,7 @@ interface TextareaProps {
   rows?: number
   custom?: boolean
   placeholder?: string
+  autocomplete?: CommonAutoFill
 }
 
 defineOptions({
@@ -41,6 +44,7 @@ const props = withDefaults(defineProps<TextareaProps>(), {
   rows: 4,
   custom: false,
   placeholder: 'Write your message here...',
+  autocomplete: 'off',
 })
 
 const emit = defineEmits(['update:modelValue'])
