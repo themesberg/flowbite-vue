@@ -279,7 +279,7 @@ function getPageButtonClasses (active: boolean) {
 function getNavigationButtonClasses (toPage: number) {
   const baseClasses =
     'flex items-center justify-center first:rounded-l-lg last:rounded-r-lg px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-  const disabledClasses = 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-white cursor-not-allowed'
+  const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed'
   const largeClasses = 'px-4 h-10'
   const tableClasses =
     'border-none text-white hover:text-white bg-gray-800 rounded-none first:rounded-l last:rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
