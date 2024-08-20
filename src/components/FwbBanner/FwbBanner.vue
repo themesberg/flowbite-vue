@@ -1,11 +1,13 @@
 <template>
-  <div
-    :class="bannerClasses"
-    tabindex="-1"
-    role="banner"
-    aria-label="Banner"
-  >
+  <div :class="bannerClasses" tabindex="-1" role="banner" aria-label="Banner">
     <slot />
+    <button v-if="closable" :class="defaultCollapseButtonClass" aria-label="Collapse" type="button" @click="handleCollapse">
+      <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+        viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M6 18 17.94 6M18 18 6.06 6" />
+      </svg>
+    </button>
   </div>
 </template>
 
@@ -16,23 +18,36 @@ import { useMergeClasses } from '@/composables/useMergeClasses'
 type BannerPosition = 'top' | 'bottom'
 
 type BannerProps = {
-    class?: string
-    position?: BannerPosition
+  class?: string
+  position?: BannerPosition
+  closable?: boolean
 }
 
 const props: BannerProps = withDefaults(defineProps<BannerProps>(), {
   class: '',
   position: 'top',
+  closable: false,
 })
 
-const defaultBannerClass = 'fixed start-0 z-50 flex justify-between w-full p-4 bg-gray-50 dark:bg-gray-700 dark:border-gray-600'
+const defaultBannerClass = 'fixed start-0 z-50 flex justify-between items-center w-full p-4 bg-gray-50 dark:bg-gray-700'
 const positionDefaultClass = 'top-0 border-b border-gray-200 dark:border-gray-600'
 const positionBottomClass = 'bottom-0 border-t border-gray-200 dark:border-gray-600'
+
+const defaultCollapseButtonClass = 'flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 border-none hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 dark:hover:bg-gray-600 dark:hover:text-white'
 
 const bannerClasses = computed(() => useMergeClasses([
   defaultBannerClass,
   props.position === 'top' ? positionDefaultClass : positionBottomClass,
   props.class ?? '',
 ]))
+
+const handleCollapse = (e: MouseEvent) => {
+  const collapseButton = e.target as HTMLElement
+  const banner = collapseButton.closest('[role="banner"]') as HTMLElement | null
+
+  if (banner) {
+    banner.remove()
+  }
+}
 
 </script>

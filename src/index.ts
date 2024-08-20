@@ -8,7 +8,6 @@ export { default as FwbAvatarStack } from './components/FwbAvatar/FwbAvatarStack
 export { default as FwbAvatarStackCounter } from './components/FwbAvatar/FwbAvatarStackCounter.vue'
 export { default as FwbBadge } from './components/FwbBadge/FwbBadge.vue'
 export { default as FwbBanner } from './components/FwbBanner/FwbBanner.vue'
-export { default as FwbBannerCollapseButton } from './components/FwbBanner/FwbBannerCollapseButton.vue'
 export { default as FwbBreadcrumb } from './components/FwbBreadcrumb/FwbBreadcrumb.vue'
 export { default as FwbBreadcrumbItem } from './components/FwbBreadcrumb/FwbBreadcrumbItem.vue'
 export { default as FwbButton } from './components/FwbButton/FwbButton.vue'
