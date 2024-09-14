@@ -44,7 +44,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="m17 16-4-4 4-4m-6 8-4-4 4-4"
+                d="m17 14-4-4 4-4m-6 8-4-4 4-4"
               />
             </svg>
           </slot>
@@ -170,7 +170,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="m7 16 4-4-4-4m6 8 4-4-4-4"
+                d="m7 14 4-4-4-4m6 8 4-4-4-4"
               />
             </svg>
           </slot>
