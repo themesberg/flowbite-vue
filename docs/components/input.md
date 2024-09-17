@@ -3,6 +3,7 @@ import FwbInputExample from './input/examples/FwbInputExample.vue'
 import FwbInputExampleSize from './input/examples/FwbInputExampleSize.vue'
 import FwbInputExampleDisabled from './input/examples/FwbInputExampleDisabled.vue'
 import FwbInputExampleHelper from './input/examples/FwbInputExampleHelper.vue'
+import FwbInputExampleBlockClasses from './input/examples/FwbInputExampleBlockClasses.vue'
 import FwbInputExamplePrefix from './input/examples/FwbInputExamplePrefix.vue'
 import FwbInputExampleSuffix from './input/examples/FwbInputExampleSuffix.vue'
 import FwbInputExampleRequired from './input/examples/FwbInputExampleRequired.vue'
@@ -92,6 +93,33 @@ const name = ref('')
     label="First name"
     placeholder="enter your first name"
     required
+  />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbInput } from 'flowbite-vue'
+
+const name = ref('')
+</script>
+```
+
+## Extra CSS classes
+
+Sometimes it is required to add some customization to the input or the input wrapper.
+By default `class` attibute is bind to the input element. To customize the input wrapper you an use `block-classes` property.
+It accepts the values as `class` attribute
+
+<fwb-input-example-block-classes />
+```vue
+<template>
+  <fwb-input
+    v-model="name"
+    label="First name"
+    placeholder="enter your first name"
+    required
+    class="bg-green-200"
+    block-classes="border-2 border-green-500 p-2 rounded-lg"
   />
 </template>
 
