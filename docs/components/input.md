@@ -107,8 +107,8 @@ const name = ref('')
 ## Extra CSS classes
 
 Sometimes it is required to add some customization to the input or the input wrapper.
-By default `class` attibute is bind to the input element. To customize the input wrapper you an use `block-classes` property.
-It accepts the values as `class` attribute
+By default, `class` attribute is bound to the input element. To customize the input wrapper you can use the `block-classes` property.
+It accepts the values as the `class` attribute
 
 <fwb-input-example-block-classes />
 ```vue
