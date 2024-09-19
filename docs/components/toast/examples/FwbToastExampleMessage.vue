@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw">
+  <div class="vp-raw flex justify-center">
     <fwb-toast
       alignment="start"
       closable
