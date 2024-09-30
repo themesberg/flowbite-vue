@@ -5,6 +5,13 @@
     label-progress
     size="lg"
   />
+
+  <fwb-progress
+    :progress="0"
+    label-position="inside"
+    label-progress
+    size="lg"
+  />
 </template>
 
 <script setup>
