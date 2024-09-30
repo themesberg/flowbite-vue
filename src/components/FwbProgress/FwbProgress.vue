@@ -19,8 +19,8 @@
     >
       <div
         :class="innerClasses"
-        :style="{ width: progress + '%' }"
-        class="rounded-full font-medium text-blue-100 text-center p-0.5 min-w-max"
+        :style="{ width: safeProgress + '%' }"
+        class="rounded-full font-medium text-blue-100 text-center p-0.5 min-w-max box-border"
       >
         <template v-if="labelProgress && labelPosition === 'inside'">
           {{ progress }}%
@@ -31,8 +31,8 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue'
-import { useProgressClasses } from './composables/useProgressClasses'
+import { computed, toRefs } from 'vue'
+import { progressSafeSizes, useProgressClasses } from './composables/useProgressClasses'
 import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from './types'
 
 interface IProgressProps {
@@ -51,6 +51,11 @@ const props = withDefaults(defineProps<IProgressProps>(), {
   labelProgress: false,
   progress: 0,
   size: 'md',
+})
+
+const safeProgress = computed(() => {
+  const size = progressSafeSizes[props.size]
+  return props.progress <= size ? size : props.progress
 })
 
 const {

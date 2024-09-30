@@ -31,6 +31,13 @@ const progressSizeClasses: Record<ProgressSize, string> = {
   xl: 'h-6 text-base leading-tight',
 }
 
+export const progressSafeSizes: Record<ProgressSize, number> = {
+  sm: 1,
+  md: 2,
+  lg: 3,
+  xl: 4,
+}
+
 export type UseProgressClassesProps = {
   color: Ref<ProgressVariant>
   size: Ref<ProgressSize>
