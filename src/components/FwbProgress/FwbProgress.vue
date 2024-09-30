@@ -32,7 +32,7 @@
 
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
-import { progressSafeSizes, useProgressClasses } from './composables/useProgressClasses'
+import { useProgressClasses } from './composables/useProgressClasses'
 import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from './types'
 
 interface IProgressProps {
@@ -42,6 +42,13 @@ interface IProgressProps {
   labelProgress?: boolean
   progress?: number
   size?: ProgressSize
+}
+
+const progressSafeSizes: Record<ProgressSize, number> = {
+  sm: 1,
+  md: 2,
+  lg: 3,
+  xl: 4,
 }
 
 const props = withDefaults(defineProps<IProgressProps>(), {
