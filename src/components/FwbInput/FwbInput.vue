@@ -58,7 +58,7 @@ import {
 interface InputProps {
   disabled?: boolean
   label?: string
-  modelValue: string
+  modelValue: string | number
   required?: boolean
   size?: InputSize
   type?: InputType
