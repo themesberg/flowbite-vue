@@ -10,6 +10,7 @@
       <select
         v-model="model"
         :disabled="disabled"
+        :required="required"
         :class="selectClasses"
         :autocomplete="autocomplete"
       >
@@ -58,6 +59,7 @@ interface InputProps {
   options?: OptionsType[]
   placeholder?: string
   disabled?: boolean
+  required?: boolean
   underline?: boolean
   size?: InputSize
   autocomplete?: CommonAutoFill
@@ -69,6 +71,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   options: () => [],
   placeholder: 'Please select one',
   disabled: false,
+  required: false,
   underline: false,
   size: 'md',
   autocomplete: 'off',
