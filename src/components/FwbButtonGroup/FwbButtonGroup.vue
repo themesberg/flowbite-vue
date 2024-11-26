@@ -8,13 +8,18 @@
 </template>
 
 <style>
-.fwb-button-group > button {
+.fwb-button-group > button,
+.fwb-button-group > .fwb-dropdown button {
   @apply rounded-none;
 }
-.fwb-button-group > button:first-child {
+
+.fwb-button-group > button:first-child,
+.fwb-button-group > .fwb-dropdown:first-child button {
   @apply rounded-l-lg;
 }
-.fwb-button-group > button:last-child {
+
+.fwb-button-group > button:last-child,
+.fwb-button-group > .fwb-dropdown:last-child button {
   @apply rounded-r-lg;
 }
 </style>
