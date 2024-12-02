@@ -1,7 +1,7 @@
 <template>
   <div
     ref="wrapper"
-    class="inline-flex relative"
+    class="fwb-dropdown inline-flex relative"
   >
     <div class="inline-flex items-center">
       <fwb-slot-listener @click="onToggle">
