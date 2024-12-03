@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="blockClasses">
     <label
       v-if="label"
       :class="labelClasses"
@@ -64,7 +64,12 @@ interface InputProps {
   type?: InputType
   autocomplete?: CommonAutoFill
   validationStatus?: ValidationStatus
+  blockClasses?: string | string[] | Record<string, unknown>
 }
+
+defineOptions({
+  inheritAttrs: false,
+})
 
 const props = withDefaults(defineProps<InputProps>(), {
   disabled: false,
@@ -75,6 +80,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   type: 'text',
   autocomplete: 'off',
   validationStatus: undefined,
+  blockClasses: undefined,
 })
 
 const model = useVModel(props, 'modelValue')
