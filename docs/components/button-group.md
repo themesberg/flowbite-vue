@@ -1,7 +1,7 @@
 <script setup>
-import FwbButtonGroupExample from './buttonGroup/examples/FwbButtonGroupExample.vue';
-import FwbButtonGroupExampleIcon from './buttonGroup/examples/FwbButtonGroupExampleIcon.vue';
-import FwbButtonGroupExampleDropdown from './buttonGroup/examples/FwbButtonGroupExampleDropdown.vue';
+import FwbButtonGroupExample from './buttonGroup/examples/FwbButtonGroupExample.vue'
+import FwbButtonGroupExampleIcon from './buttonGroup/examples/FwbButtonGroupExampleIcon.vue'
+import FwbButtonGroupExampleDropdown from './buttonGroup/examples/FwbButtonGroupExampleDropdown.vue'
 </script>
 
 # Vue Button Group - Flowbite
