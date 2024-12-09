@@ -1,8 +1,9 @@
 <script setup>
-import FwbDropdownExamplePlacement from './dropdown/examples/FwbDropdownExamplePlacement.vue';
-import FwbDropdownExampleAlignment from './dropdown/examples/FwbDropdownExampleAlignment.vue';
-import FwbDropdownExampleListGroup from './dropdown/examples/FwbDropdownExampleListGroup.vue';
-import FwbDropdownExampleTrigger from './dropdown/examples/FwbDropdownExampleTrigger.vue';
+import FwbDropdownExamplePlacement from './dropdown/examples/FwbDropdownExamplePlacement.vue'
+import FwbDropdownExampleAlignment from './dropdown/examples/FwbDropdownExampleAlignment.vue'
+import FwbDropdownExampleListGroup from './dropdown/examples/FwbDropdownExampleListGroup.vue'
+import FwbDropdownExampleColors from './dropdown/examples/FwbDropdownExampleColors.vue'
+import FwbDropdownExampleTrigger from './dropdown/examples/FwbDropdownExampleTrigger.vue'
 </script>
 
 # Vue Dropdown - Flowbite
@@ -300,13 +301,14 @@ import { FwbDropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
 ## API
 
 ### Props
-| Name        | Values              | Default    |
-|-------------|---------------------|------------|
-| placement   | `DropdownPlacement` | `'bottom'` |
-| text        | `string`            | `''`       |
-| transition  | `string`            | `''`       |
-| closeInside | `boolean`           | `false`    |
-| alignToEnd  | `boolean`           | `false`    |
+| Name        | Values              | Default     |
+|-------------|---------------------|-------------|
+| placement   | `DropdownPlacement` | `'bottom'`  |
+| text        | `string`            | `''`        |
+| color       | `ButtonVariant`     | `'default'` |
+| transition  | `string`            | `''`        |
+| closeInside | `boolean`           | `false`     |
+| alignToEnd  | `boolean`           | `false`     |
 
 ### Events
 | Name | Description            |
