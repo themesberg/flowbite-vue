@@ -6,7 +6,7 @@
     <div class="inline-flex items-center">
       <fwb-slot-listener @click="onToggle">
         <slot name="trigger">
-          <fwb-button>
+          <fwb-button :color="color">
             {{ text }}
             <template #suffix>
               <svg
@@ -50,6 +50,7 @@ import type { DropdownPlacement } from './types'
 import FwbButton from '@/components/FwbButton/FwbButton.vue'
 import FwbSlotListener from '@/components/utils/FwbSlotListener/FwbSlotListener.vue'
 import { useDropdownClasses } from './composables/useDropdownClasses'
+import type { ButtonVariant } from '@/components/FwbButton/types'
 
 const visible = ref(false)
 const onHide = () => {
@@ -61,6 +62,7 @@ const props = withDefaults(
   defineProps<{
     placement?: DropdownPlacement
     text?: string
+    color?: ButtonVariant
     transition?: string
     closeInside?: boolean
     alignToEnd?: boolean
@@ -68,6 +70,7 @@ const props = withDefaults(
   {
     placement: 'bottom',
     text: '',
+    color: 'default',
     transition: '',
     closeInside: false,
     alignToEnd: false,
@@ -75,20 +78,17 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  'show': []
-  'hide': []
+  show: []
+  hide: []
 }>()
 
-watch(
-  visible,
-  (isVisible: boolean) => {
-    if (isVisible) {
-      emit('show')
-    } else {
-      emit('hide')
-    }
-  },
-)
+watch(visible, (isVisible: boolean) => {
+  if (isVisible) {
+    emit('show')
+  } else {
+    emit('hide')
+  }
+})
 
 const placementTransitionMap: Record<DropdownPlacement, string> = {
   bottom: 'to-bottom',
@@ -132,41 +132,53 @@ onClickOutside(wrapper, () => {
 }
 
 /* to top */
-.to-top-enter-active, .to-top-leave-to {
+.to-top-enter-active,
+.to-top-leave-to {
   opacity: 0;
   transform: translateY(10px);
 }
-.to-top-leave, .to-top-enter-to {
+
+.to-top-leave,
+.to-top-enter-to {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* to right */
-.to-right-enter-active, .to-right-leave-to {
+.to-right-enter-active,
+.to-right-leave-to {
   opacity: 0;
   transform: translateX(-10px);
 }
-.to-right-leave, .to-right-enter-to {
+
+.to-right-leave,
+.to-right-enter-to {
   opacity: 1;
   transform: translateX(0);
 }
 
 /* to bottom */
-.to-bottom-enter-active, .to-bottom-leave-to {
+.to-bottom-enter-active,
+.to-bottom-leave-to {
   opacity: 0;
   transform: translateY(-10px);
 }
-.to-bottom-leave, .to-bottom-enter-to {
+
+.to-bottom-leave,
+.to-bottom-enter-to {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* to left */
-.to-left-enter-active, .to-left-leave-to {
+.to-left-enter-active,
+.to-left-leave-to {
   opacity: 0;
   transform: translateX(10px);
 }
-.to-left-leave, .to-left-enter-to {
+
+.to-left-leave,
+.to-left-enter-to {
   opacity: 1;
   transform: translateX(0);
 }
