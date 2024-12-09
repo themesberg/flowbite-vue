@@ -1,9 +1,9 @@
 <script setup>
-import FwbDropdownExamplePlacement from './dropdown/examples/FwbDropdownExamplePlacement.vue';
-import FwbDropdownExampleAlignment from './dropdown/examples/FwbDropdownExampleAlignment.vue';
-import FwbDropdownExampleListGroup from './dropdown/examples/FwbDropdownExampleListGroup.vue';
-import FwbDropdownExampleTrigger from './dropdown/examples/FwbDropdownExampleTrigger.vue';
-import FwbDropdownExampleCloseInside from './dropdown/examples/FwbDropdownExampleCloseInside.vue';
+import FwbDropdownExamplePlacement from './dropdown/examples/FwbDropdownExamplePlacement.vue'
+import FwbDropdownExampleAlignment from './dropdown/examples/FwbDropdownExampleAlignment.vue'
+import FwbDropdownExampleListGroup from './dropdown/examples/FwbDropdownExampleListGroup.vue'
+import FwbDropdownExampleTrigger from './dropdown/examples/FwbDropdownExampleTrigger.vue'
+import FwbDropdownExampleCloseInside from './dropdown/examples/FwbDropdownExampleCloseInside.vue'
 </script>
 
 # Vue Dropdown - Flowbite
