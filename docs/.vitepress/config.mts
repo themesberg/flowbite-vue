@@ -21,14 +21,17 @@ function buildSidebar() {
     {
       text: 'Typography',
       collapsible: true,
-      items: [
-        ...getTypography(),
-      ]
+      items: [...getTypography()],
     },
     {
       text: 'Utils',
       collapsible: true,
       items: [...getUtils()],
+    },
+    {
+      text: 'Plugins',
+      collapsible: true,
+      items: [...getPlugins()],
     },
   ]
 }
@@ -89,7 +92,13 @@ function getTypography() {
     { text: 'Heading', link: '/components/heading' },
     { text: 'Paragraph', link: '/components/paragraph' },
     { text: 'Image', link: '/components/image' },
-    { text: 'Link', link: '/components/link' }
+    { text: 'Link', link: '/components/link' },
+  ]
+}
+
+function getPlugins() {
+  return [
+    { text: 'Datepicker', link: '/components/datepicker' },
   ]
 }
 
