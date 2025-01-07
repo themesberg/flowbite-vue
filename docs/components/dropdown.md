@@ -4,6 +4,7 @@ import FwbDropdownExampleAlignment from './dropdown/examples/FwbDropdownExampleA
 import FwbDropdownExampleListGroup from './dropdown/examples/FwbDropdownExampleListGroup.vue'
 import FwbDropdownExampleColors from './dropdown/examples/FwbDropdownExampleColors.vue'
 import FwbDropdownExampleTrigger from './dropdown/examples/FwbDropdownExampleTrigger.vue'
+import FwbDropdownExampleCloseInside from './dropdown/examples/FwbDropdownExampleCloseInside.vue'
 </script>
 
 # Vue Dropdown - Flowbite
@@ -272,7 +273,7 @@ import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 
 ## Dropdown - close inside
 
-<fwb-dropdown-example-trigger />
+<fwb-dropdown-example-close-inside />
 ```vue
 <template>
   <fwb-dropdown text="Bottom" close-inside>
@@ -317,7 +318,7 @@ import { FwbDropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
 | hide | the dropdown is closed |
 
 ### Slots
-| Name       | Description       |
-|------------|-------------------|
-| default    | dropdown content  |
-| suffix     | button suffix     |
+| Name    | Description                                |
+|---------|--------------------------------------------|
+| default | dropdown content                           |
+| trigger | replace button with custom trigger element |
