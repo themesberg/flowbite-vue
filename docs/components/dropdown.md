@@ -2,6 +2,7 @@
 import FwbDropdownExamplePlacement from './dropdown/examples/FwbDropdownExamplePlacement.vue'
 import FwbDropdownExampleAlignment from './dropdown/examples/FwbDropdownExampleAlignment.vue'
 import FwbDropdownExampleListGroup from './dropdown/examples/FwbDropdownExampleListGroup.vue'
+import FwbDropdownExampleColors from './dropdown/examples/FwbDropdownExampleColors.vue'
 import FwbDropdownExampleTrigger from './dropdown/examples/FwbDropdownExampleTrigger.vue'
 import FwbDropdownExampleCloseInside from './dropdown/examples/FwbDropdownExampleCloseInside.vue'
 </script>
@@ -200,6 +201,45 @@ import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 </script>
 ```
 
+## Dropdown - Button colors
+<fwb-dropdown-example-colors />
+```vue
+<template>
+  <fwb-dropdown text="Default" color="default">
+    ...
+  </fwb-dropdown>
+  <fwb-dropdown text="Alternative" color="alternative">
+    ...
+  </fwb-dropdown>
+  <fwb-dropdown text="Dark" color="dark">
+    ...
+  </fwb-dropdown>
+  <fwb-dropdown text="Light" color="light">
+    ...
+  </fwb-dropdown>
+  <fwb-dropdown text="Green" color="green">
+    ...
+  </fwb-dropdown>
+  <fwb-dropdown text="Red" color="red">
+    ...
+  </fwb-dropdown>
+  <fwb-dropdown text="Yellow" color="yellow">
+    ...
+  </fwb-dropdown>
+  <fwb-dropdown text="Purple" color="purple">
+    ...
+  </fwb-dropdown>
+  <fwb-dropdown text="Pink" color="pink">
+    ...
+  </fwb-dropdown>
+</template>
+
+<script setup>
+import { FwbDropdown } from 'flowbite-vue'
+</script>
+```
+
+
 ## Dropdown - trigger
 
 <fwb-dropdown-example-trigger />
@@ -266,6 +306,7 @@ import { FwbDropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
 |-------------|---------------------|-------------|
 | placement   | `DropdownPlacement` | `'bottom'`  |
 | text        | `string`            | `''`        |
+| color       | `ButtonVariant`     | `'default'` |
 | transition  | `string`            | `''`        |
 | closeInside | `boolean`           | `false`     |
 | alignToEnd  | `boolean`           | `false`     |

@@ -89,7 +89,7 @@ const file = ref(null)
 </script>
 ```
 
-## Dropone
+## Dropzone
 
 
 <fwb-file-input-example-drop-zone />
