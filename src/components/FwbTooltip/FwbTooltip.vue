@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-start">
+  <div class="fwb-tooltip flex items-start">
     <tooltip
       :placement="placement"
       :triggers="[trigger]"
