@@ -4,7 +4,7 @@
       v-model="name"
       label="First name"
       placeholder="enter your first name"
-      class="bg-green-200 dark:bg-green:700"
+      class="bg-green-200 dark:bg-green-700"
       block-classes="border-2 border-green-500 p-2 rounded-lg"
     />
   </div>
