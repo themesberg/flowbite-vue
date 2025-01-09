@@ -10,7 +10,7 @@
     >
       <div
         v-if="$slots.prefix"
-        class="flex items-center ms-3 pointer-events-none overflow-hidden flex-shrink-0"
+        class="flex items-center ms-2 flex-shrink-0"
       >
         <slot name="prefix" />
       </div>
@@ -25,7 +25,7 @@
       >
       <div
         v-if="$slots.suffix"
-        class="flex items-center me-3 flex-shrink-0"
+        class="flex items-center me-2 flex-shrink-0"
       >
         <slot name="suffix" />
       </div>

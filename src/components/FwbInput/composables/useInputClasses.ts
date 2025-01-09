@@ -14,7 +14,7 @@ const defaultInputClasses = 'block flex-grow w-full p-0 bg-transparent text-inhe
 
 // BLOCK
 const defaultBlockClasses =
-  'focus-within:ring-offset-0 focus-within:ring-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus-within:ring-blue-500 focus-within:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-within:ring-blue-500 dark:focus-within:border-blue-500'
+  'has-[input:focus]:ring-offset-0 has-[input:focus]:ring-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg has-[input:focus]:ring-blue-500 has-[input:focus]:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:has-[input:focus]:ring-blue-500 dark:has-[input:focus]:border-blue-500'
 
 const disabledInputClasses = 'cursor-not-allowed bg-gray-100'
 const inputSizeClasses: Record<InputSize, string> = {
@@ -23,8 +23,8 @@ const inputSizeClasses: Record<InputSize, string> = {
   sm: 'p-2 text-sm',
 }
 
-const successInputClasses = 'bg-green-50 border-green-500 dark:border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus-within:ring-green-500 focus-within:border-green-500'
-const errorInputClasses = 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus-within:ring-red-500 focus-within:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500'
+const successInputClasses = 'bg-green-50 border-green-500 dark:border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 has-[input:focus]:ring-green-500 has-[input:focus]:border-green-500'
+const errorInputClasses = 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 has-[input:focus]:ring-red-500 has-[input:focus]:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500'
 
 export type UseInputClassesProps = {
   size: Ref<InputSize>
