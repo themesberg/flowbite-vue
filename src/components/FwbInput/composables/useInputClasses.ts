@@ -10,8 +10,12 @@ import {
 const baseLabelClasses = 'block mb-2 text-sm font-medium'
 
 // INPUT
-const defaultInputClasses =
-  'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+const defaultInputClasses = 'block flex-grow w-full p-0 bg-transparent text-inherit ring-offset-0 ring-0 border-0 focus:ring-offset-0 focus:ring-0 focus:border-0'
+
+// BLOCK
+const defaultBlockClasses =
+  'has-[input:focus]:ring-offset-0 has-[input:focus]:ring-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg has-[input:focus]:ring-blue-500 has-[input:focus]:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:has-[input:focus]:ring-blue-500 dark:has-[input:focus]:border-blue-500'
+
 const disabledInputClasses = 'cursor-not-allowed bg-gray-100'
 const inputSizeClasses: Record<InputSize, string> = {
   lg: 'p-4',
@@ -19,8 +23,8 @@ const inputSizeClasses: Record<InputSize, string> = {
   sm: 'p-2 text-sm',
 }
 
-const successInputClasses = 'bg-green-50 border-green-500 dark:border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus:ring-green-500 focus:border-green-500'
-const errorInputClasses = 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500'
+const successInputClasses = 'bg-green-50 border-green-500 dark:border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 has-[input:focus]:ring-green-500 has-[input:focus]:border-green-500'
+const errorInputClasses = 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 has-[input:focus]:ring-red-500 has-[input:focus]:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500'
 
 export type UseInputClassesProps = {
   size: Ref<InputSize>
@@ -29,10 +33,11 @@ export type UseInputClassesProps = {
 }
 
 export function useInputClasses (props: UseInputClassesProps): {
+  inputBlockClasses: Ref<string>
   inputClasses: Ref<string>
   labelClasses: Ref<string>
 } {
-  const inputClasses = computed(() => {
+  const inputBlockClasses = computed(() => {
     const vs = props.validationStatus.value
 
     const classByStatus = vs === validationStatusMap.Success
@@ -42,11 +47,14 @@ export function useInputClasses (props: UseInputClassesProps): {
         : ''
 
     return twMerge(
-      defaultInputClasses,
+      defaultBlockClasses,
       classByStatus,
-      inputSizeClasses[props.size.value],
       props.disabled.value ? disabledInputClasses : '',
     )
+  })
+
+  const inputClasses = computed(() => {
+    return twMerge(defaultInputClasses, inputSizeClasses[props.size.value])
   })
 
   const labelClasses = computed(() => {
@@ -61,6 +69,7 @@ export function useInputClasses (props: UseInputClassesProps): {
   })
 
   return {
+    inputBlockClasses,
     inputClasses,
     labelClasses,
   }

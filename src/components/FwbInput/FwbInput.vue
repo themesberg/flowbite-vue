@@ -4,10 +4,13 @@
       v-if="label"
       :class="labelClasses"
     >{{ label }}</label>
-    <div class="flex relative">
+    <div
+      class="flex relative items-center"
+      :class="[inputBlockClasses]"
+    >
       <div
         v-if="$slots.prefix"
-        class="w-10 flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none overflow-hidden"
+        class="flex items-center ms-2 flex-shrink-0"
       >
         <slot name="prefix" />
       </div>
@@ -18,11 +21,11 @@
         :type="type"
         :required="required"
         :autocomplete="autocomplete"
-        :class="[inputClasses, $slots.prefix ? 'pl-10' : '']"
+        :class="[inputClasses]"
       >
       <div
         v-if="$slots.suffix"
-        class="absolute right-2.5 bottom-2.5"
+        class="flex items-center me-2 flex-shrink-0"
       >
         <slot name="suffix" />
       </div>
@@ -85,7 +88,7 @@ const props = withDefaults(defineProps<InputProps>(), {
 
 const model = useVModel(props, 'modelValue')
 
-const { inputClasses, labelClasses } = useInputClasses(toRefs(props))
+const { inputClasses, inputBlockClasses, labelClasses } = useInputClasses(toRefs(props))
 
 const validationWrapperClasses = computed(() => twMerge(
   'mt-2 text-sm',
