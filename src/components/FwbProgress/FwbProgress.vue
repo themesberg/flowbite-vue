@@ -18,6 +18,7 @@
       class="w-full bg-gray-200 rounded-full dark:bg-gray-700"
     >
       <div
+        v-if="displayBar"
         :class="innerClasses"
         :style="{ width: safeProgress + '%' }"
         class="rounded-full font-medium text-blue-100 text-center p-0.5 min-w-max box-border"
@@ -63,6 +64,10 @@ const props = withDefaults(defineProps<IProgressProps>(), {
 const safeProgress = computed(() => {
   const size = progressSafeSizes[props.size]
   return props.progress <= size ? size : props.progress
+})
+
+const displayBar = computed(() => {
+  return props.labelPosition === 'inside' || props.progress > 0
 })
 
 const {
