@@ -6,7 +6,7 @@
     <div class="inline-flex items-center">
       <fwb-slot-listener @click="onToggle">
         <slot name="trigger">
-          <fwb-button :color="color">
+          <fwb-button :disabled="disabled" :color="color">
             {{ text }}
             <template #suffix>
               <svg
@@ -66,6 +66,7 @@ const props = withDefaults(
     transition?: string
     closeInside?: boolean
     alignToEnd?: boolean
+    disabled?: boolean
   }>(),
   {
     placement: 'bottom',
