@@ -69,4 +69,8 @@ const isOpen = ref(false)
 function toggleDropdown () {
   isOpen.value = !isOpen.value
 }
+
+defineExpose({
+  isOpen,
+})
 </script>
