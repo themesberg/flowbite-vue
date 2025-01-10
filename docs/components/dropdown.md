@@ -3,6 +3,7 @@ import FwbDropdownExamplePlacement from './dropdown/examples/FwbDropdownExampleP
 import FwbDropdownExampleAlignment from './dropdown/examples/FwbDropdownExampleAlignment.vue'
 import FwbDropdownExampleListGroup from './dropdown/examples/FwbDropdownExampleListGroup.vue'
 import FwbDropdownExampleColors from './dropdown/examples/FwbDropdownExampleColors.vue'
+import FwbDropdownExampleDisabled from './dropdown/examples/FwbDropdownExampleDisabled.vue'
 import FwbDropdownExampleTrigger from './dropdown/examples/FwbDropdownExampleTrigger.vue'
 import FwbDropdownExampleCloseInside from './dropdown/examples/FwbDropdownExampleCloseInside.vue'
 </script>
@@ -231,6 +232,25 @@ import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
   </fwb-dropdown>
   <fwb-dropdown text="Pink" color="pink">
     ...
+  </fwb-dropdown>
+</template>
+
+<script setup>
+import { FwbDropdown } from 'flowbite-vue'
+</script>
+```
+
+## Dropdown - Disabled
+Please note that this has to be manually implemented when using a custom trigger (see below)
+
+<fwb-dropdown-example-disabled />
+```vue
+<template>
+  <fwb-dropdown text="Normal state">
+    Access this content by clicking the dropdown's trigger button
+  </fwb-dropdown>
+  <fwb-dropdown text="Disabled state" disabled>
+    You cannot access this content, since the dropdown's trigger button is disabled
   </fwb-dropdown>
 </template>
 
