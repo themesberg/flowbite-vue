@@ -5,7 +5,7 @@
     >
       <div class="w-52">
         <p class="p-4">
-          Access this content by clicking the dropdown's trigger button
+          Dropdown content
         </p>
       </div>
     </fwb-dropdown>
@@ -15,7 +15,7 @@
     >
       <div class="w-52">
         <p class="p-4">
-          You cannot access this content, since the dropdown's trigger button is disabled
+          Disabled dropdown content
         </p>
       </div>
     </fwb-dropdown>
