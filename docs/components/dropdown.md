@@ -241,7 +241,7 @@ import { FwbDropdown } from 'flowbite-vue'
 ```
 
 ## Dropdown - Disabled
-Please note that this has to be manually implemented when using a custom trigger (see below)
+Please note that when using a custom trigger (via the trigger slot), you'll need to also implement the disabled state manually by passing the disabled prop to your trigger element. You should still use the disabled prop here to ensure correct handling of the disabled state in the dropdown click handler.
 
 <fwb-dropdown-example-disabled />
 ```vue
