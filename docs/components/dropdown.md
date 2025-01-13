@@ -247,10 +247,10 @@ Please note that this has to be manually implemented when using a custom trigger
 ```vue
 <template>
   <fwb-dropdown text="Normal state">
-    Access this content by clicking the dropdown's trigger button
+    Dropdown content
   </fwb-dropdown>
   <fwb-dropdown text="Disabled state" disabled>
-    You cannot access this content, since the dropdown's trigger button is disabled
+    Disabled dropdown content
   </fwb-dropdown>
 </template>
 
@@ -327,6 +327,7 @@ import { FwbDropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
 | placement   | `DropdownPlacement` | `'bottom'`  |
 | text        | `string`            | `''`        |
 | color       | `ButtonVariant`     | `'default'` |
+| disabled    | `boolean`           | `false`     |
 | transition  | `string`            | `''`        |
 | closeInside | `boolean`           | `false`     |
 | alignToEnd  | `boolean`           | `false`     |
