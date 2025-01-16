@@ -1,16 +1,21 @@
 <template>
   <div
-    ref="wrapper"
-    class="inline-flex relative"
+    ref="dropdownWrapper"
+    :class="wrapperClasses"
   >
-    <div class="inline-flex items-center">
+    <div :class="triggerWrapperClasses">
       <fwb-slot-listener @click="onToggle">
         <slot name="trigger">
-          <fwb-button :color="color">
+          <fwb-button
+            :class="{'flex-row-reverse': placement === 'left', 'pl-2': placement === 'left'}"
+            :color="color"
+            :disabled="disabled"
+          >
             {{ text }}
             <template #suffix>
               <svg
-                class="w-4 h-4 ml-2"
+                :class="triggerSuffixClass"
+                class="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -30,9 +35,9 @@
     </div>
     <transition :name="transitionName">
       <div
-        v-if="visible"
-        ref="content"
-        :class="[contentClasses]"
+        v-if="isContentVisible"
+        ref="contentWrapper"
+        :class="contentWrapperClasses"
         :style="contentStyles"
       >
         <fwb-slot-listener @click="onHide">
@@ -44,37 +49,55 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, toRef, watch } from 'vue'
+
+import { computed, ref, watch } from 'vue'
 import { onClickOutside } from '@vueuse/core'
-import type { DropdownPlacement } from './types'
+import { useDropdownClasses } from './composables/useDropdownClasses'
 import FwbButton from '@/components/FwbButton/FwbButton.vue'
 import FwbSlotListener from '@/components/utils/FwbSlotListener/FwbSlotListener.vue'
-import { useDropdownClasses } from './composables/useDropdownClasses'
 import type { ButtonVariant } from '@/components/FwbButton/types'
+import type { DropdownPlacement } from './types'
 
-const visible = ref(false)
-const onHide = () => {
-  if (props.closeInside) visible.value = false
+export interface DropdownProps {
+  alignToEnd?: boolean
+  class?: string
+  closeInside?: boolean
+  color?: ButtonVariant
+  contentWrapperClass?: string
+  disabled?: boolean
+  placement?: DropdownPlacement
+  text?: string
+  transition?: string
+  triggerClass?: string
+  triggerWrapperClass?: string
 }
-const onToggle = () => (visible.value = !visible.value)
 
 const props = withDefaults(
-  defineProps<{
-    placement?: DropdownPlacement
-    text?: string
-    color?: ButtonVariant
-    transition?: string
-    closeInside?: boolean
-    alignToEnd?: boolean
-  }>(),
+  defineProps<DropdownProps>(),
   {
-    placement: 'bottom',
-    text: '',
-    color: 'default',
-    transition: '',
-    closeInside: false,
     alignToEnd: false,
+    class: '',
+    closeInside: false,
+    color: 'default',
+    contentWrapperClass: '',
+    disabled: false,
+    placement: 'bottom',
+    text: 'Dropdown',
+    transition: '',
+    triggerClass: '',
+    triggerWrapperClass: '',
   },
+)
+
+const dropdownWrapper = ref<HTMLDivElement>()
+const contentWrapper = ref<HTMLDivElement>()
+const isContentVisible = ref(false)
+
+const onToggle = () => (isContentVisible.value = !isContentVisible.value)
+const onHide = () => props.closeInside && (isContentVisible.value = false)
+
+onClickOutside(dropdownWrapper, () =>
+  isContentVisible.value && (isContentVisible.value = false),
 )
 
 const emit = defineEmits<{
@@ -82,12 +105,10 @@ const emit = defineEmits<{
   hide: []
 }>()
 
-watch(visible, (isVisible: boolean) => {
-  if (isVisible) {
-    emit('show')
-  } else {
-    emit('hide')
-  }
+watch(isContentVisible, () => {
+  isContentVisible.value
+    ? emit('show')
+    : emit('hide')
 })
 
 const placementTransitionMap: Record<DropdownPlacement, string> = {
@@ -97,89 +118,86 @@ const placementTransitionMap: Record<DropdownPlacement, string> = {
   top: 'to-top',
 }
 
-const transitionName = computed(() => {
-  if (props.transition === null) return placementTransitionMap[props.placement]
-  return props.transition
-})
+const transitionName = computed(() =>
+  (!props.transition)
+    ? placementTransitionMap[props.placement]
+    : props.transition,
+)
 
-const content = ref<HTMLDivElement>()
-const wrapper = ref<HTMLDivElement>()
+const {
+  contentStyles,
+  contentWrapperClasses,
+  triggerSuffixClass,
+  triggerWrapperClasses,
+  wrapperClasses,
+} = useDropdownClasses({ contentWrapper, isContentVisible, props })
 
-const { contentClasses, contentStyles } = useDropdownClasses({
-  placement: toRef(props, 'placement'),
-  alignToEnd: toRef(props, 'alignToEnd'),
-  visible,
-  contentRef: content,
-})
-
-onClickOutside(wrapper, () => {
-  if (!visible.value) return
-  visible.value = false
-})
 </script>
 
-<style scoped>
-/* transitions */
-.to-bottom-enter-active,
-.to-bottom-leave-active,
-.to-left-enter-active,
-.to-left-leave-active,
-.to-right-enter-active,
-.to-right-leave-active,
-.to-top-enter-active,
-.to-top-leave-active {
-  transition: all 250ms;
-}
+<style>
+.fwb-dropdown {
+  /* transitions */
+  .to-bottom-enter-active,
+  .to-bottom-leave-active,
+  .to-left-enter-active,
+  .to-left-leave-active,
+  .to-right-enter-active,
+  .to-right-leave-active,
+  .to-top-enter-active,
+  .to-top-leave-active {
+    transition: all 250ms;
+  }
 
-/* to top */
-.to-top-enter-active,
-.to-top-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
-}
+  /* to top */
+  .to-top-enter-active,
+  .to-top-leave-to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 
-.to-top-leave,
-.to-top-enter-to {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .to-top-leave,
+  .to-top-enter-to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-/* to right */
-.to-right-enter-active,
-.to-right-leave-to {
-  opacity: 0;
-  transform: translateX(-10px);
-}
+  /* to right */
+  .to-right-enter-active,
+  .to-right-leave-to {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
 
-.to-right-leave,
-.to-right-enter-to {
-  opacity: 1;
-  transform: translateX(0);
-}
+  .to-right-leave,
+  .to-right-enter-to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-/* to bottom */
-.to-bottom-enter-active,
-.to-bottom-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
-}
+  /* to bottom */
+  .to-bottom-enter-active,
+  .to-bottom-leave-to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 
-.to-bottom-leave,
-.to-bottom-enter-to {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .to-bottom-leave,
+  .to-bottom-enter-to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-/* to left */
-.to-left-enter-active,
-.to-left-leave-to {
-  opacity: 0;
-  transform: translateX(10px);
-}
+  /* to left */
+  .to-left-enter-active,
+  .to-left-leave-to {
+    opacity: 0;
+    transform: translateX(10px);
+  }
 
-.to-left-leave,
-.to-left-enter-to {
-  opacity: 1;
-  transform: translateX(0);
+  .to-left-leave,
+  .to-left-enter-to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 </style>
