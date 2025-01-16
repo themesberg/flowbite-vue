@@ -1,83 +1,99 @@
 <template>
   <div class="vp-raw flex gap-2 flex-wrap">
     <fwb-dropdown
+      align-to-end
       placement="top"
       text="Top"
-      align-to-end
     >
-      <div class="w-52">
-        <p class="p-2">
-          Dropdown content line one
-        </p>
-        <p class="p-2">
-          Dropdown content line two
-        </p>
-        <p class="p-2">
-          Dropdown content line three
-        </p>
-        <p class="p-2">
-          Dropdown content line four
-        </p>
-      </div>
+      <nav class="py-2 text-sm text-gray-700 dark:text-gray-200">
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Dashboard</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Settings</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Earnings</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Sign out</a>
+      </nav>
     </fwb-dropdown>
     <fwb-dropdown
+      align-to-end
       placement="right"
       text="Right"
-      align-to-end
     >
-      <div class="w-52">
-        <p class="p-2">
-          Dropdown content line one
-        </p>
-        <p class="p-2">
-          Dropdown content line two
-        </p>
-        <p class="p-2">
-          Dropdown content line three
-        </p>
-        <p class="p-2">
-          Dropdown content line four
-        </p>
-      </div>
+      <nav class="py-2 text-sm text-gray-700 dark:text-gray-200">
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Dashboard</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Settings</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Earnings</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Sign out</a>
+      </nav>
     </fwb-dropdown>
     <fwb-dropdown
+      align-to-end
       text="Bottom"
-      align-to-end
     >
-      <div class="w-52">
-        <p class="p-2">
-          Dropdown content line one
-        </p>
-        <p class="p-2">
-          Dropdown content line two
-        </p>
-        <p class="p-2">
-          Dropdown content line three
-        </p>
-        <p class="p-2">
-          Dropdown content line four
-        </p>
-      </div>
+      <nav class="py-2 text-sm text-gray-700 dark:text-gray-200">
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Dashboard</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Settings</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Earnings</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Sign out</a>
+      </nav>
     </fwb-dropdown>
     <fwb-dropdown
+      align-to-end
       placement="left"
       text="Left"
-      align-to-end
     >
-      <div class="w-52">
-        <p class="p-2">
-          Dropdown content line one
-        </p>
-        <p class="p-2">
-          Dropdown content line two
-        </p>
-        <p class="p-2">
-          Dropdown content line three
-        </p>
-        <p class="p-2">
-          Dropdown content line four
-        </p>
-      </div>
+      <nav class="py-2 text-sm text-gray-700 dark:text-gray-200">
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Dashboard</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Settings</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Earnings</a>
+        <a
+          href="#"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        >Sign out</a>
+      </nav>
     </fwb-dropdown>
   </div>
 </template>

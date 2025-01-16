@@ -4,24 +4,16 @@
       close-inside
       text="Closes after click on child"
     >
-      <fwb-list-group>
-        <fwb-list-group-item hover>
-          Profile
-        </fwb-list-group-item>
-        <fwb-list-group-item hover>
-          Settings
-        </fwb-list-group-item>
-        <fwb-list-group-item hover>
-          Messages
-        </fwb-list-group-item>
-        <fwb-list-group-item hover>
-          Download
-        </fwb-list-group-item>
-      </fwb-list-group>
+      <nav class="py-2 text-sm text-gray-700 dark:text-gray-200 flex flex-col">
+        <span class="cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</span>
+        <span class="cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</span>
+        <span class="cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</span>
+        <span class="cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</span>
+      </nav>
     </fwb-dropdown>
   </div>
 </template>
 
 <script setup>
-import { FwbDropdown, FwbListGroup, FwbListGroupItem } from '../../../../src/index'
+import { FwbDropdown } from '../../../../src/index'
 </script>
