@@ -314,19 +314,19 @@ import { FwbDropdown } from 'flowbite-vue'
 ## API
 
 ### Props
-| Name                | Description                                                                    | Values                                                                                        | Default                                 |
-| ------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------- |
-| alignToEnd          | Reverses the alignment of the dropdown content                                 | Boolean                                                                                       | `false`                                 |
-| class               | Allows to add or override classes to main dropdown wrapper                     | String                                                                                        | `''`                                    |
-| closeInside         | Allows to colse dropdown on click inside the contentWrapper                    | Boolean                                                                                       | `false`                                 |
-| color               | Button Variant<br>_(for default trigger)_                                      | `default`, `alternative`, `dark`, `light`, `green`, `red`, `yellow`, `purple`, `pink`, `blue` | `default`                               |
-| contentWrapperClass | Allows to add or override classes to content wrapper                           | String                                                                                        | `''`                                    |
-| disabled            | Button state<br>_(for default trigger)_                                        | Boolean                                                                                       | `false`                                 |
-| placement           | Alignment of dropdown contnet                                                  | `top`, `right`, `bottom`, `left`                                                              | `bottom`                                |
-| text                | Button label<br>_(for default trigger)_                                        | String                                                                                        | `Dropdown`                              |
-| transition          | Custom transition name<br>_(requires custom transitions in CSS)_               | String                                                                                        | Calculated based on current `placement` |
-| triggerClass        | Allows to add or override classes to trigger Button<br>_(for default trigger)_ | String                                                                                        | `''`                                    |
-| triggerWrapperClass | Allows to add or override classes to trigger wrapper                           | String                                                                                        | `''`                                    |
+| Name                | Description                                                                          | Values                                                                                        | Default                                 |
+| ------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------- |
+| alignToEnd          | Reverses the alignment of the dropdown content                                       | Boolean                                                                                       | `false`                                 |
+| class               | Allows adding or overriding classes on the main dropdown wrapper                     | String                                                                                        | `''`                                    |
+| closeInside         | Allows closing the dropdown when clicking inside the contentWrapper                  | Boolean                                                                                       | `false`                                 |
+| color               | Button Variant<br>_(for default trigger)_                                            | `default`, `alternative`, `dark`, `light`, `green`, `red`, `yellow`, `purple`, `pink`, `blue` | `default`                               |
+| contentWrapperClass | Allows adding or overriding classes on the content wrapper                           | String                                                                                        | `''`                                    |
+| disabled            | Button state<br>_(for default trigger)_                                              | Boolean                                                                                       | `false`                                 |
+| placement           | Alignment of dropdown contnet                                                        | `top`, `right`, `bottom`, `left`                                                              | `bottom`                                |
+| text                | Button label<br>_(for default trigger)_                                              | String                                                                                        | `Dropdown`                              |
+| transition          | Custom transition name<br>_(requires custom transitions in CSS)_                     | String                                                                                        | Calculated based on current `placement` |
+| triggerClass        | Allows adding or overriding classes on the trigger Button<br>_(for default trigger)_ | String                                                                                        | `''`                                    |
+| triggerWrapperClass | Allows adding or overriding classes on the trigger wrapper                           | String                                                                                        | `''`                                    |
 
 
 
