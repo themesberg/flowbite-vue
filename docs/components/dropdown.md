@@ -119,7 +119,7 @@ import { FwbDropdown } from 'flowbite-vue'
 </script>
 ```
 
-## Dropdown - with List Group
+## Dropdown - with list group
 
 <fwb-dropdown-example-list-group />
 ```vue
