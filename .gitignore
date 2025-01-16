@@ -74,6 +74,9 @@ jspm_packages/
 .vuepress/dist
 docs/.vitepress/cache
 
+# VSCode custom configs
+.vscode
+
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
