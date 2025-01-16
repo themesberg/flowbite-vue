@@ -6,7 +6,10 @@
     <div class="inline-flex items-center">
       <fwb-slot-listener @click="onToggle">
         <slot name="trigger">
-          <fwb-button :color="color">
+          <fwb-button
+            :disabled="disabled"
+            :color="color"
+          >
             {{ text }}
             <template #suffix>
               <svg
@@ -56,7 +59,10 @@ const visible = ref(false)
 const onHide = () => {
   if (props.closeInside) visible.value = false
 }
-const onToggle = () => (visible.value = !visible.value)
+const onToggle = () => {
+  if (props.disabled) return
+  visible.value = !visible.value
+}
 
 const props = withDefaults(
   defineProps<{
@@ -66,6 +72,7 @@ const props = withDefaults(
     transition?: string
     closeInside?: boolean
     alignToEnd?: boolean
+    disabled?: boolean
   }>(),
   {
     placement: 'bottom',

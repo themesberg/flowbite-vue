@@ -3,6 +3,7 @@ import FwbDropdownExamplePlacement from './dropdown/examples/FwbDropdownExampleP
 import FwbDropdownExampleAlignment from './dropdown/examples/FwbDropdownExampleAlignment.vue'
 import FwbDropdownExampleListGroup from './dropdown/examples/FwbDropdownExampleListGroup.vue'
 import FwbDropdownExampleColors from './dropdown/examples/FwbDropdownExampleColors.vue'
+import FwbDropdownExampleDisabled from './dropdown/examples/FwbDropdownExampleDisabled.vue'
 import FwbDropdownExampleTrigger from './dropdown/examples/FwbDropdownExampleTrigger.vue'
 import FwbDropdownExampleCloseInside from './dropdown/examples/FwbDropdownExampleCloseInside.vue'
 </script>
@@ -239,6 +240,25 @@ import { FwbDropdown } from 'flowbite-vue'
 </script>
 ```
 
+## Dropdown - Disabled
+Please note that when using a custom trigger (via the trigger slot), you'll need to also implement the disabled state manually by passing the disabled prop to your trigger element. You should still use the disabled prop here to ensure correct handling of the disabled state in the dropdown click handler.
+
+<fwb-dropdown-example-disabled />
+```vue
+<template>
+  <fwb-dropdown text="Normal state">
+    Dropdown content
+  </fwb-dropdown>
+  <fwb-dropdown text="Disabled state" disabled>
+    Disabled dropdown content
+  </fwb-dropdown>
+</template>
+
+<script setup>
+import { FwbDropdown } from 'flowbite-vue'
+</script>
+```
+
 
 ## Dropdown - trigger
 
@@ -307,6 +327,7 @@ import { FwbDropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
 | placement   | `DropdownPlacement` | `'bottom'`  |
 | text        | `string`            | `''`        |
 | color       | `ButtonVariant`     | `'default'` |
+| disabled    | `boolean`           | `false`     |
 | transition  | `string`            | `''`        |
 | closeInside | `boolean`           | `false`     |
 | alignToEnd  | `boolean`           | `false`     |
