@@ -7,9 +7,12 @@
       <fwb-slot-listener @click="onToggle">
         <slot name="trigger">
           <fwb-button
+            :aria-expanded="isContentVisible"
             :class="[placement === 'left' ? ['flex-row-reverse', 'pl-2'] : '', triggerClass]"
             :color="color"
             :disabled="disabled"
+            aria-haspopup="true"
+            role="button"
           >
             {{ text }}
             <template #suffix>
