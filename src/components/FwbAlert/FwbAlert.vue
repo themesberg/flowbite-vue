@@ -58,7 +58,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, useAttrs } from 'vue'
+import { computed, ref, useAttrs } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import type { AlertType } from './types'
 
@@ -112,7 +112,7 @@ const closeButtonClasses: Record<AlertType, string> = {
   success: 'text-green-500 dark:text-green-400 bg-green-50 hover:bg-green-200 focus:ring-green-400',
   warning: 'text-yellow-500 dark:text-yellow-300 bg-yellow-50 hover:bg-yellow-200 focus:ring-yellow-400',
 }
-const closeBtnClasses = twMerge(defaultCloseButtonClasses, closeButtonClasses[props.type])
+const closeBtnClasses = computed(() => twMerge(defaultCloseButtonClasses, closeButtonClasses[props.type]))
 const borderColor: Record<AlertType, string> = {
   danger: 'border-red-500 dark:text-red-400',
   dark: 'border-gray-500 dark:text-gray-400',
@@ -127,14 +127,14 @@ const colors = {
   success: [alertTextClasses.success, alertTypeClasses.success].join(' '),
   warning: [alertTextClasses.warning, alertTypeClasses.warning].join(' '),
 }
-const wrapperClasses = twMerge(
+const wrapperClasses = computed(() => twMerge(
   'p-4 gap-3 text-sm dark:bg-gray-800 rounded-lg',
   colors[props.type],
   (props.icon || props.closable) && 'flex items-center',
   borderColor[props.type],
   props.border && 'border',
   attrs.class as string,
-)
+))
 const visible = ref(true)
 
 function onCloseClick () {
