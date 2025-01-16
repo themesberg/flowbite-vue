@@ -144,8 +144,8 @@ const buttonShadowClasses: Record<ButtonMonochromeGradient, string> = {
   teal: 'shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80',
 }
 
-export type UseButtonClassesProps = {
-  class: Ref<string>
+interface UseButtonClassesProps {
+  class: Ref<string|object>
   pill: Ref<boolean>
   disabled: Ref<boolean>
   loading: Ref<boolean>
