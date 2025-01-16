@@ -7,7 +7,7 @@
       <fwb-slot-listener @click="onToggle">
         <slot name="trigger">
           <fwb-button
-            :class="{'flex-row-reverse': placement === 'left', 'pl-2': placement === 'left', triggerClass}"
+            :class="[placement === 'left' ? ['flex-row-reverse', 'pl-2'] : '', triggerClass]"
             :color="color"
             :disabled="disabled"
           >
