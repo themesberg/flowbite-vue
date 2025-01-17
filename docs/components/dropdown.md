@@ -150,7 +150,7 @@ import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 ## Dropdown - button colors
 
 ::: tip
-Use `triggerClass` prop if you need more controll over default trigger button.
+Use `triggerClass` prop if you need more control over default trigger button.
 :::
 
 <fwb-dropdown-example-button-colors />
@@ -256,7 +256,7 @@ Please note that when using a custom trigger (via the trigger slot), you'll need
 
 ## Dropdown - trigger
 
-Use dedicated `#trigger` slot to change trigger element accodding to your needs.
+Use dedicated `#trigger` slot to change trigger element according to your needs.
 
 ::: tip
 You can use `triggerWrapperClass` prop if you need to change classes on the trigger wrapper element.
@@ -322,10 +322,10 @@ import { FwbDropdown } from 'flowbite-vue'
 | color               | Button Variant<br>_(for default trigger)_                                            | `default`, `alternative`, `dark`, `light`, `green`, `red`, `yellow`, `purple`, `pink`, `blue` | `default`                               |
 | contentWrapperClass | Allows adding or overriding classes on the content wrapper                           | String                                                                                        | `''`                                    |
 | disabled            | Button state<br>_(for default trigger)_                                              | Boolean                                                                                       | `false`                                 |
-| placement           | Alignment of dropdown contnet                                                        | `top`, `right`, `bottom`, `left`                                                              | `bottom`                                |
+| placement           | Alignment of dropdown content                                                        | `top`, `right`, `bottom`, `left`                                                              | `bottom`                                |
 | text                | Button label<br>_(for default trigger)_                                              | String                                                                                        | `Dropdown`                              |
 | transition          | Custom transition name<br>_(requires custom transitions in CSS)_                     | String                                                                                        | Calculated based on current `placement` |
-| triggerClass        | Allows adding or overriding classes on the trigger Button<br>_(for default trigger)_ | String                                                                                        | `''`                                    |
+| triggerClass        | Allows adding or overriding classes on the trigger button<br>_(for default trigger)_ | String                                                                                        | `''`                                    |
 | triggerWrapperClass | Allows adding or overriding classes on the trigger wrapper                           | String                                                                                        | `''`                                    |
 
 
