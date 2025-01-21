@@ -50,7 +50,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "1.10.5",
     "@types/lodash-es": "4.17.12",
-    "@types/node": "20.17.14",
+    "@types/node": "^22.10.7",
     "@vitejs/plugin-vue": "5.2.1",
     "@vitest/coverage-v8": "1.6.0",
     "@vue/eslint-config-typescript": "13.0.0",
