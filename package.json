@@ -11,6 +11,7 @@
     "dist",
     "src"
   ],
+  "type": "module",
   "main": "./dist/flowbite-vue.umd.js",
   "module": "./dist/flowbite-vue.mjs",
   "types": "./dist/index.d.ts",
