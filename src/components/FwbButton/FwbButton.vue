@@ -84,7 +84,7 @@ import { useButtonSpinner } from './composables/useButtonSpinner'
 import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
 
 interface IButtonProps {
-  class?: string
+  class?: string | object
   color?: ButtonVariant
   gradient?: ButtonGradient | null
   size?: ButtonSize
