@@ -79,4 +79,7 @@ export { default as FlowbiteThemable } from './components/utils/FlowbiteThemable
 export { default as FlowbiteThemableChild } from './components/utils/FlowbiteThemable/FlowbiteThemableChild.vue'
 export { default as FwbSlotListener } from './components/utils/FwbSlotListener/FwbSlotListener.vue'
 
+// plugins
+export { default as FwbDatepicker } from './components/FwbDatepicker/FwbDatepicker.vue'
+
 export * from './composables'

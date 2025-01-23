@@ -75,6 +75,7 @@
     "classnames": "2.5.1",
     "floating-vue": "^5.2.2",
     "flowbite": "2.3.0",
+    "flowbite-datepicker": "^1.2.6",
     "lodash-es": "4.17.21",
     "nanoid": "5.0.9",
     "tailwind-merge": "2.3.0",
