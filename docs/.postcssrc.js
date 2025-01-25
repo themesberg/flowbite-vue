@@ -3,14 +3,16 @@
 // here we add :not(:where(.vp-raw *)) selector to use it inside component examples
 // to prevent component style pollution from .vp-doc styles
 
-export const plugins = {
+export default {
+  plugins: {
     'tailwindcss': {},
     'postcss-prefix-selector': {
-        prefix: ':not(:where(.vp-raw *))',
-        includeFiles: [/vp-doc\.css/],
-        transform(prefix, _selector) {
-            const [selector, pseudo = ''] = _selector.split(/(:\S*)$/)
-            return selector + prefix + pseudo
-        }
+      prefix: ':not(:where(.vp-raw *))',
+      includeFiles: [/vp-doc\.css/],
+      transform (prefix, _selector) {
+        const [selector, pseudo = ''] = _selector.split(/(:\S*)$/)
+        return selector + prefix + pseudo
+      },
     },
+  },
 }
