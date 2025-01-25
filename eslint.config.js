@@ -153,19 +153,9 @@ const stylisticConfig = [
     },
     rules: {
       '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
-      // '@stylistic/quote-props': ['error', 'as-needed'],
+      '@stylistic/comma-dangle': ['error', 'always-multiline'],
+      '@stylistic/quote-props': ['error', 'consistent-as-needed'],
       '@stylistic/space-before-function-paren': ['error', 'always'],
-      // '@stylistic/object-curly-spacing': ['error', 'always', {
-      //   arraysInObjects: true,
-      //   objectsInObjects: true,
-      // }],
-      // '@stylistic/comma-dangle': ['error', {
-      //   arrays: 'always-multiline',
-      //   objects: 'always-multiline',
-      //   imports: 'always-multiline',
-      //   exports: 'always-multiline',
-      //   functions: 'never',
-      // }],
     },
   },
 ]
@@ -179,14 +169,6 @@ const typeScriptConfig = [
 
     languageOptions: {
       parser: vueParser,
-      // parserOptions: {
-      //   ecmaVersion: 'latest',
-      //   extraFileExtensions: ['.vue'],
-      //   parser: tseslint.parser,
-      //   // project: ['./tsconfig.json', './src/FrontEnd.Shared/tsconfig.json'],
-      //   // sourceType: 'module',
-      //   // tsconfigRootDir: import.meta.dirname,
-      // },
     },
   },
   {
