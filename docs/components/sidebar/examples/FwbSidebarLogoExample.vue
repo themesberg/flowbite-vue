@@ -148,6 +148,7 @@
     </fwb-sidebar>
   </div>
 </template>
-<script setup>
+
+<script lang="ts" setup>
 import { FwbSidebar, FwbSidebarItem, FwbSidebarLogo } from '../../../../src/index'
 </script>

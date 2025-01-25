@@ -70,6 +70,7 @@
     </fwb-sidebar>
   </div>
 </template>
-<script setup>
+
+<script lang="ts" setup>
 import { FwbSidebar, FwbSidebarDropdownItem, FwbSidebarItem } from '../../../../src/index'
 </script>

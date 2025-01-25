@@ -23,7 +23,7 @@ import { useSpinnerClasses } from './composables/useSpinnerClasses'
 import type { SpinnerColor, SpinnerSize } from './types'
 
 interface ISpinnerProps {
-  color?: SpinnerColor,
+  color?: SpinnerColor
   size?: SpinnerSize
 }
 

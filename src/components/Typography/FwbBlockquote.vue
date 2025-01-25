@@ -14,9 +14,9 @@ import { useMergeClasses } from '@/composables/useMergeClasses'
 type BlockquoteType = 'default' | 'solid'
 
 interface BlockquoteProps {
-  type?: BlockquoteType;
-  cite?: string;
-  class?: string;
+  type?: BlockquoteType
+  cite?: string
+  class?: string
 }
 
 const props = withDefaults(defineProps<BlockquoteProps>(), {

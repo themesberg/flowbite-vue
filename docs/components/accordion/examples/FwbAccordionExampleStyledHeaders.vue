@@ -55,6 +55,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbAccordion, FwbAccordionContent, FwbAccordionHeader, FwbAccordionPanel } from '../../../../src/index'
 </script>

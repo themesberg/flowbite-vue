@@ -43,7 +43,7 @@ withDefaults(
   },
 )
 
-const emit = defineEmits<{(e: 'close'): void }>()
+const emit = defineEmits<{ (e: 'close'): void }>()
 
 function close () {
   emit('close')

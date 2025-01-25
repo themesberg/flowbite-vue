@@ -46,8 +46,8 @@ export function useBadgeClasses (
   props: UseBadgeClassesProps,
   options: UseBadgeClassesOptions,
 ): {
-  badgeClasses: Ref<string>
-} {
+    badgeClasses: Ref<string>
+  } {
   const attrs = useAttrs()
   const badgeClasses = computed<string>(() => {
     return twMerge(
@@ -56,7 +56,7 @@ export function useBadgeClasses (
       props.href ? '' : badgeTextClasses[props.type],
       props.href ? badgeLinkClasses : '',
       options.isContentEmpty.value ? onlyIconClasses : defaultBadgeClasses,
-        attrs.class as string,
+      attrs.class as string,
     )
   })
   return {

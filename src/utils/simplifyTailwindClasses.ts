@@ -30,13 +30,17 @@ export function simplifyTailwindClasses (...classes: (string | string[])[]): str
     const newTypes = [...typesToReplace, ...typesToAdd]
 
     const types = [...new Set([...acc.types, ...newTypes])]
-    const classes = types.map(type => {
+    const classes = types.map((type) => {
       if (newTypes.includes(type)) {
         const classIndex = currentTypes.indexOf(type)
-        if (classIndex >= 0) { return currentClasses[classIndex] || '' }
+        if (classIndex >= 0) {
+          return currentClasses[classIndex] || ''
+        }
       }
       const classIndex = acc.types.indexOf(type)
-      if (classIndex >= 0) { return acc.classes[classIndex] || '' }
+      if (classIndex >= 0) {
+        return acc.classes[classIndex] || ''
+      }
       return ''
     }).filter(_ => !!_)
 

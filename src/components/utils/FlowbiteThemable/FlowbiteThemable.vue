@@ -8,7 +8,7 @@ import type { FlowbiteTheme } from './types'
 import { FLOWBITE_THEMABLE_INJECTION_KEY } from './injection/config'
 
 interface IFlowbiteThemableProps {
-  theme?: FlowbiteTheme,
+  theme?: FlowbiteTheme
 }
 
 const props = withDefaults(defineProps<IFlowbiteThemableProps>(), {

@@ -80,14 +80,12 @@ const props = withDefaults(defineProps<IAlertProps>(), {
   border: false,
 })
 defineSlots<{
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  default: any
+  'default': any
   'close-icon': any
-  icon: any
-  title: any
-  /* eslint-enable @typescript-eslint/no-explicit-any */
+  'icon': any
+  'title': any
 }>()
-const emits = defineEmits<{(e: 'close'): void}>()
+const emits = defineEmits<{ (e: 'close'): void }>()
 
 const attrs = useAttrs()
 const alertTextClasses: Record<AlertType, string> = {

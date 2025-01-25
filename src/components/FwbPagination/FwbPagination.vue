@@ -175,8 +175,7 @@ const props = withDefaults(defineProps<IPaginationProps>(), {
   large: false,
 })
 defineSlots<{
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  start: any
+  'start': any
   'first-button': any
   'prev-button': any
   'prev-icon': any
@@ -184,8 +183,7 @@ defineSlots<{
   'next-button': any
   'next-icon': any
   'last-button': any
-  end: any
-  /* eslint-enable @typescript-eslint/no-explicit-any */
+  'end': any
 }>()
 function setPage (index: number) {
   emit('update:model-value', index)
@@ -270,19 +268,19 @@ const isFirstPage = computed(() => props.modelValue === 1)
 const isLastPage = computed(() => props.modelValue === computedTotalPages.value)
 
 function getPageButtonClasses (active: boolean) {
-  const baseClasses =
-    'flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+  const baseClasses
+    = 'flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
   const activeClasses = 'text-blue-600 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:bg-gray-700 dark:text-white'
   const largeClasses = 'px-4 h-10'
   return twMerge(baseClasses, active && activeClasses, props.large && largeClasses)
 }
 function getNavigationButtonClasses (toPage: number) {
-  const baseClasses =
-    'flex items-center justify-center first:rounded-l-lg last:rounded-r-lg px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+  const baseClasses
+    = 'flex items-center justify-center first:rounded-l-lg last:rounded-r-lg px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
   const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed'
   const largeClasses = 'px-4 h-10'
-  const tableClasses =
-    'border-none text-white hover:text-white bg-gray-800 rounded-none first:rounded-l last:rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+  const tableClasses
+    = 'border-none text-white hover:text-white bg-gray-800 rounded-none first:rounded-l last:rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
   return twMerge(
     baseClasses,
     toPage === props.modelValue && disabledClasses,

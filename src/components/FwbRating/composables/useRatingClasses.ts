@@ -12,7 +12,7 @@ export type UseRatingClassesProps = {
   size: Ref<RatingSize>
 }
 
-export function useRatingClasses (props: UseRatingClassesProps):{
+export function useRatingClasses (props: UseRatingClassesProps): {
   sizeClasses: Ref<string>
 } {
   const sizeClasses = computed(() => classNames(

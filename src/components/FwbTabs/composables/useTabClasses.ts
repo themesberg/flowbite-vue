@@ -5,8 +5,8 @@ import type { TabsVariant } from './../types'
 
 export type TabClassMap = {
   active: string
-  default: string,
-  disabled: string,
+  default: string
+  disabled: string
 }
 
 export type UseTabClassesProps = {
@@ -32,7 +32,7 @@ const pillsTabClasses: TabClassMap = {
 }
 
 export function useTabClasses (props: UseTabClassesProps): {
-  tabClasses: Ref<string>,
+  tabClasses: Ref<string>
 } {
   const theme = useFlowbiteThemable()
 

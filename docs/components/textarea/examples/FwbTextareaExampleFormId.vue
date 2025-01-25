@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue'
 import { FwbButton, FwbInput, FwbTextarea } from '../../../../src/index'
 

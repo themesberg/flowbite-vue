@@ -15,6 +15,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbToast } from '../../../../src/index'
 </script>

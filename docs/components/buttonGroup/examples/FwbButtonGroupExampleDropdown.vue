@@ -31,6 +31,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbButton, FwbButtonGroup, FwbDropdown, FwbListGroup, FwbListGroupItem } from '../../../../src/index'
 </script>

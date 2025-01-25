@@ -88,7 +88,7 @@ interface IButtonProps {
   color?: ButtonVariant
   gradient?: ButtonGradient | null
   size?: ButtonSize
-  shadow?: ButtonMonochromeGradient | null
+  shadow?: ButtonMonochromeGradient | boolean
   pill?: boolean
   square?: boolean
   outline?: boolean
@@ -103,7 +103,7 @@ const props = withDefaults(defineProps<IButtonProps>(), {
   color: 'default',
   gradient: null,
   size: 'md',
-  shadow: null,
+  shadow: false,
   pill: false,
   square: false,
   outline: false,

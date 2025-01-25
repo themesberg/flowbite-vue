@@ -13,8 +13,8 @@ export function useAccordionState (
   id?: string,
   options?: AccordionProps,
 ): {
-  accordionsStates: tState
-} {
+    accordionsStates: tState
+  } {
   onBeforeMount(() => {
     if (!id) return
     accordionsStates[id] = {
@@ -27,6 +27,7 @@ export function useAccordionState (
   })
   onBeforeUnmount(() => {
     if (!id) return
+    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
     delete accordionsStates[id]
   })
 

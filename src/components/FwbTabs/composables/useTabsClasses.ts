@@ -7,8 +7,8 @@ export type UseTabsClassesProps = {
 }
 
 export function useTabsClasses (props: UseTabsClassesProps): {
-  divClasses: Ref<string>,
-  ulClasses: Ref<string>,
+  divClasses: Ref<string>
+  ulClasses: Ref<string>
 } {
   const ulClasses = computed(() => {
     const baseClasses = 'flex flex-wrap font-medium text-center text-gray-500 dark:text-gray-400 text-sm'

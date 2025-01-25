@@ -4,6 +4,6 @@
   </fwb-heading>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbHeading } from '../../../../src/'
 </script>

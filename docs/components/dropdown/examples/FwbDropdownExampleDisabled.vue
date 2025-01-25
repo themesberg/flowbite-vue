@@ -46,6 +46,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbDropdown } from '../../../../src/index'
 </script>

@@ -39,6 +39,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbJumbotron } from '../../../../src/index'
 </script>

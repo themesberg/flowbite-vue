@@ -8,6 +8,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbToggle } from '../../../../src/index'
 </script>

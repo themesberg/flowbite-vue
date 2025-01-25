@@ -7,7 +7,7 @@ export type UseCardsClassesProps = {
 }
 
 export function useCardsClasses (props: UseCardsClassesProps): {
-  cardClasses: Ref<string>,
+  cardClasses: Ref<string>
   horizontalImageClasses: Ref<string>
 } {
   const cardClasses = computed(() => {
