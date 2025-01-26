@@ -109,26 +109,26 @@ const standardConfig = [
       // Enforce consistent import ordering by grouping imports into categories:
       // Node built-ins first, followed by external packages, internal modules,
       // relative imports, and finally type imports
-      // 'import/order': [
-      //   'error', {
-      //     'newlines-between': 'never',
-      //     alphabetize: {
-      //       order: 'asc',
-      //       caseInsensitive: true,
-      //       orderImportKind: 'asc',
-      //     },
-      //     groups: [
-      //       'builtin',
-      //       'external',
-      //       'internal',
-      //       'parent',
-      //       'sibling',
-      //       'index',
-      //       'object',
-      //       'type',
-      //     ],
-      //   }
-      // ],
+      'import/order': [
+        'error', {
+          'alphabetize': {
+            caseInsensitive: true,
+            order: 'asc',
+            orderImportKind: 'asc',
+          },
+          'groups': [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+            'object',
+            'type',
+          ],
+          'newlines-between': 'always',
+        },
+      ],
 
       // Sort named imports within each import declaration
       // e.g. import { aaa, bbb, ccc } from 'module'
