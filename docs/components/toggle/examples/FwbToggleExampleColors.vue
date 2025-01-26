@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw flex justify-between flex-wrap gap-2">
+  <div class="vp-raw flex flex-wrap justify-between gap-2">
     <fwb-toggle
       v-model="toggle1"
       label="Red"

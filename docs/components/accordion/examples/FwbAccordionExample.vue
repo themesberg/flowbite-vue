@@ -10,7 +10,7 @@
             </p>
             <p class="text-gray-500 dark:text-gray-400">
               Check out this guide to learn how to <a
-                class="text-blue-600 dark:text-blue-500 hover:underline"
+                class="text-blue-600 hover:underline dark:text-blue-500"
                 href="/docs/getting-started/introduction/"
               >get started</a> and start developing websites
               even faster with components on top of Tailwind CSS.
@@ -27,7 +27,7 @@
             </p>
             <p class="text-gray-500 dark:text-gray-400">
               Check out the <a
-                class="text-blue-600 dark:text-blue-500 hover:underline"
+                class="text-blue-600 hover:underline dark:text-blue-500"
                 href="https://flowbite.com/figma/"
               >Figma design system</a> based on the utility classes from Tailwind CSS and
               components from Flowbite.
@@ -44,7 +44,7 @@
             </p>
             <p class="text-gray-500 dark:text-gray-400">
               Check out the <a
-                class="text-blue-600 dark:text-blue-500 hover:underline"
+                class="text-blue-600 hover:underline dark:text-blue-500"
                 href="https://flowbite.com/figma/"
               >Figma design system</a> based on the utility classes from Tailwind CSS and
               components from Flowbite.

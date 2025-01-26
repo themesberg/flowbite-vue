@@ -3,7 +3,7 @@
     <fwb-avatar>
       <template #placeholder>
         <svg
-          class="w-12 h-12"
+          class="size-12"
           fill="none"
           stroke-width="1.5"
           stroke="currentColor"
@@ -21,7 +21,7 @@
     <fwb-avatar rounded>
       <template #placeholder>
         <svg
-          class="w-12 h-12"
+          class="size-12"
           fill="none"
           stroke-width="1.5"
           stroke="currentColor"

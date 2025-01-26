@@ -7,7 +7,7 @@
       >
         <template #home-icon>
           <svg
-            class="w-4 h-4 mr-2"
+            class="mr-2 size-4"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -24,7 +24,7 @@
       <fwb-breadcrumb-item href="#">
         <template #arrow-icon>
           <svg
-            class="w-4 h-4 text-gray-400 mr-2"
+            class="mr-2 size-4 text-gray-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -41,7 +41,7 @@
       <fwb-breadcrumb-item>
         <template #arrow-icon>
           <svg
-            class="w-4 h-4 text-gray-400 mr-2"
+            class="mr-2 size-4 text-gray-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

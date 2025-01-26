@@ -4,7 +4,7 @@
       <template #icon>
         <svg
           aria-hidden="true"
-          class="mr-1 w-3 h-3"
+          class="mr-1 size-3"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@
       <template #icon>
         <svg
           aria-hidden="true"
-          class="mr-1 w-3 h-3"
+          class="mr-1 size-3"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"

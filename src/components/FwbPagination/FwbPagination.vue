@@ -2,7 +2,7 @@
   <nav aria-label="Navigation">
     <div
       v-if="layout === 'table'"
-      class="text-gray-700 dark:text-gray-400 mb-2"
+      class="mb-2 text-gray-700 dark:text-gray-400"
       :class="large ? 'text-base' : 'text-sm'"
     >
       Showing
@@ -49,7 +49,7 @@
               stroke-width="0"
               viewBox="0 0 20 20"
               aria-hidden="true"
-              class="h-5 w-5"
+              class="size-5"
               height="1em"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@
               stroke-width="0"
               viewBox="0 0 20 20"
               aria-hidden="true"
-              class="h-5 w-5"
+              class="size-5"
               height="1em"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"

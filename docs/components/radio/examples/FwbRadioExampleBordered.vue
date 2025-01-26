@@ -1,6 +1,6 @@
 <template>
   <div class="vp-raw grid grid-cols-2 gap-6">
-    <div class="flex items-center p-2 border border-gray-200 rounded dark:border-gray-700">
+    <div class="flex items-center rounded border border-gray-200 p-2 dark:border-gray-700">
       <fwb-radio
         v-model="picked"
         label="Radio 1"
@@ -8,7 +8,7 @@
         value="one"
       />
     </div>
-    <div class="flex items-center p-2 border border-gray-200 rounded dark:border-gray-700">
+    <div class="flex items-center rounded border border-gray-200 p-2 dark:border-gray-700">
       <fwb-radio
         v-model="picked"
         label="Radio 2"

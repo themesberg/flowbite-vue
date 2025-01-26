@@ -7,7 +7,7 @@
       <template #icon>
         <img
           alt="Jese Leos image"
-          class="w-8 h-8 rounded-full shadow-lg"
+          class="size-8 rounded-full shadow-lg"
           src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
         >
       </template>

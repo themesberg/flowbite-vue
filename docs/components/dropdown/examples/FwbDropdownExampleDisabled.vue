@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw flex gap-2 flex-wrap">
+  <div class="vp-raw flex flex-wrap gap-2">
     <fwb-dropdown text="Normal State">
       <nav class="py-2 text-sm text-gray-700 dark:text-gray-200">
         <a

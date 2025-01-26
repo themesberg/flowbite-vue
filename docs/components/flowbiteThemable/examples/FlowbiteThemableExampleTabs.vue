@@ -1,7 +1,7 @@
 <template>
   <div class="vp-raw">
     <span class="">Select theme:</span>
-    <div class="grid xs:grid-cols-5 md:grid-cols-7 mb-5 mt-2">
+    <div class="xs:grid-cols-5 mb-5 mt-2 grid md:grid-cols-7">
       <fwb-radio
         v-model="activeTheme"
         value="blue"

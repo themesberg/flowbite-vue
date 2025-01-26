@@ -3,7 +3,7 @@
     <fwb-alert type="info">
       <template #icon>
         <svg
-          class="flex-shrink-0 w-4 h-4 mr-2"
+          class="mr-2 size-4 shrink-0"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -19,16 +19,16 @@
         </h3>
       </template>
       <template #default="{ onCloseClick }">
-        <div class="mt-2 mb-4 text-sm">
+        <div class="mb-4 mt-2 text-sm">
           More info about this info alert goes here. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
         </div>
         <div class="flex">
           <button
             type="button"
-            class="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="mr-2 inline-flex items-center rounded-lg bg-blue-800 px-3 py-1.5 text-center text-xs font-medium text-white hover:bg-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             <svg
-              class="-ml-0.5 mr-2 h-3 w-3"
+              class="-ml-0.5 mr-2 size-3"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -40,7 +40,7 @@
           </button>
           <button
             type="button"
-            class="text-blue-800 bg-transparent border border-blue-800 hover:bg-blue-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-blue-600 dark:border-blue-600 dark:text-blue-400 dark:hover:text-white dark:focus:ring-blue-800"
+            class="rounded-lg border border-blue-800 bg-transparent px-3 py-1.5 text-center text-xs font-medium text-blue-800 hover:bg-blue-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-200 dark:border-blue-600 dark:text-blue-400 dark:hover:bg-blue-600 dark:hover:text-white dark:focus:ring-blue-800"
             data-dismiss-target="#alert-additional-content-1"
             aria-label="Close"
             @click="onCloseClick"

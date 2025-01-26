@@ -9,7 +9,7 @@
       :alt="alt"
       class="mr-3 h-6 sm:h-10"
     >
-    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+    <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
       <slot />
     </span>
   </component>

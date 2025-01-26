@@ -2,14 +2,14 @@
   <component
     :is="component"
     :[linkAttr]="link"
-    class="flex items-center mb-5 pl-2.5"
+    class="mb-5 flex items-center pl-2.5"
   >
     <img
       :src="logo"
-      class="h-6 mr-3 sm:h-7"
+      class="mr-3 h-6 sm:h-7"
       :alt="alt ?? name"
     >
-    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ name }}</span>
+    <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">{{ name }}</span>
   </component>
 </template>
 

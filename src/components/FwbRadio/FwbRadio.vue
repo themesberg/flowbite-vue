@@ -1,5 +1,5 @@
 <template>
-  <label class="flex w-[100%] items-center">
+  <label class="flex w-full items-center">
     <input
       v-model="model"
       type="radio"
