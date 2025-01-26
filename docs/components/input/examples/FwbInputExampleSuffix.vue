@@ -100,6 +100,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbButton, FwbInput } from '../../../../src/index'
 
 const name = ref('')

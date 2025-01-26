@@ -15,8 +15,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
 import { Tooltip } from 'floating-vue'
+import { computed } from 'vue'
+
 import type { TooltipPlacement, TooltipStyle, TooltipTrigger } from './types'
 import 'floating-vue/dist/style.css'
 

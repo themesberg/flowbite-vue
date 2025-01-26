@@ -34,6 +34,7 @@
 
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
+
 import { useBreadcrumbItemClasses } from './composables/useBreadcrumbItemClasses'
 
 const props = defineProps({

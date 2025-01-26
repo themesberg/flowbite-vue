@@ -4,8 +4,10 @@
 
 <script lang="ts" setup>
 import { provide, toRef } from 'vue'
-import type { FlowbiteTheme } from './types'
+
 import { FLOWBITE_THEMABLE_INJECTION_KEY } from './injection/config'
+
+import type { FlowbiteTheme } from './types'
 
 interface IFlowbiteThemableProps {
   theme?: FlowbiteTheme

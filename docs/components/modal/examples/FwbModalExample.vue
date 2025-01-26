@@ -45,8 +45,10 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbButton, FwbModal } from '../../../../src/index'
-import { type ModalPosition, type ModalSize } from '../../../../src/components/FwbModal/types'
+
+import type { ModalPosition, ModalSize } from '../../../../src/components/FwbModal/types'
 
 interface ModalProps {
   size?: ModalSize

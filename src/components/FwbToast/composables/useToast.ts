@@ -1,6 +1,8 @@
 import { inject } from 'vue'
-import type { ToastItem, UseToastInjection } from '../types'
+
 import { FLOWBITE_TOAST_INJECTION_KEY } from '../injection/config'
+
+import type { ToastItem, UseToastInjection } from '../types'
 
 export function useToast (): UseToastInjection {
   const injection = inject<UseToastInjection | null>(FLOWBITE_TOAST_INJECTION_KEY, null)

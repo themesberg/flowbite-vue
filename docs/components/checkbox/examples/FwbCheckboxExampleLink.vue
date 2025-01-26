@@ -8,6 +8,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbA, FwbCheckbox } from '../../../../src/index'
 
 const check = ref(false)

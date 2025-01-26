@@ -87,8 +87,11 @@
 
 <script lang="ts" setup>
 import { type PropType, ref, toRefs } from 'vue'
-import type { ToastAlign, ToastType } from './types'
+
 import { useToastClasses } from './composables/useToastClasses'
+
+import type { ToastAlign, ToastType } from './types'
+
 import FlowbiteThemableChild from '@/components/utils/FlowbiteThemable/FlowbiteThemableChild.vue'
 
 const props = defineProps({

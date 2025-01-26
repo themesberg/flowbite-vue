@@ -63,6 +63,7 @@
 
 <script lang="ts" setup>
 import { onMounted, ref, type Ref } from 'vue'
+
 import type { ModalPosition, ModalSize } from './types'
 
 interface ModalProps {

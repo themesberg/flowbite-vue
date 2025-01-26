@@ -46,12 +46,14 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { twMerge } from 'tailwind-merge'
+import { computed, toRefs } from 'vue'
+
 import { useSelectClasses } from './composables/useSelectClasses'
-import type { CommonAutoFill, InputSize } from './../FwbInput/types'
 import { type OptionsType, type ValidationStatus, validationStatusMap } from './types'
+
+import type { CommonAutoFill, InputSize } from './../FwbInput/types'
 
 interface InputProps {
   modelValue?: string

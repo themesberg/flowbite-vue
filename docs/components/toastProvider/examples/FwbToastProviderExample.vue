@@ -31,9 +31,11 @@
 </template>
 
 <script lang="ts" setup>
-import { FwbToastProvider } from '../../../../src/index'
-import FwbToastProviderExampleChild from './FwbToastProviderExampleChild.vue'
 import { ref } from 'vue'
+
+import { FwbToastProvider } from '../../../../src/index'
+
+import FwbToastProviderExampleChild from './FwbToastProviderExampleChild.vue'
 
 const transition = ref('slide-left')
 </script>

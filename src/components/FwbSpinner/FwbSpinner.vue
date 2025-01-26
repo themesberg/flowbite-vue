@@ -19,7 +19,9 @@
 
 <script lang="ts" setup>
 import { toRefs } from 'vue'
+
 import { useSpinnerClasses } from './composables/useSpinnerClasses'
+
 import type { SpinnerColor, SpinnerSize } from './types'
 
 interface ISpinnerProps {

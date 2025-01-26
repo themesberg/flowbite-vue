@@ -20,6 +20,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbA, FwbInput } from '../../../../src/index'
 
 const name = ref('')

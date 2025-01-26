@@ -15,9 +15,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 import { FlowbiteThemable, FwbButton } from '../../../../src/index'
+
 import type { FlowbiteTheme } from '../../../../src/components/utils/FlowbiteThemable/types'
+import type { PropType } from 'vue'
 
 const themes: FlowbiteTheme[] = ['blue', 'green', 'red', 'pink', 'purple']
 

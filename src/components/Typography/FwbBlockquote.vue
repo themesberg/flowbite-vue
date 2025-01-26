@@ -9,6 +9,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 type BlockquoteType = 'default' | 'solid'

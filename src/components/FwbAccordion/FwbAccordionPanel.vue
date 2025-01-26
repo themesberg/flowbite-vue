@@ -8,8 +8,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue'
 import { nanoid } from 'nanoid'
+import { computed, onMounted, ref } from 'vue'
+
 import { useAccordionState } from './composables/useAccordionState'
 
 const { accordionsStates } = useAccordionState()

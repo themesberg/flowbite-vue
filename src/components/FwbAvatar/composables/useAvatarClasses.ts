@@ -1,4 +1,5 @@
 import { computed, type Ref } from 'vue'
+
 import type {
   avatarDotIndicatorPositionClasses,
   AvatarSize,
@@ -6,6 +7,7 @@ import type {
   AvatarStatusPosition,
   AvatarType,
 } from '@/components/FwbAvatar/types'
+
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const avatarSizeClasses: Record<AvatarSize, string> = {

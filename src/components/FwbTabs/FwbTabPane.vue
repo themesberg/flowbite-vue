@@ -11,12 +11,14 @@
 
 <script lang="ts" setup>
 import { inject, toRef } from 'vue'
-import type { TabsVariant } from './types'
+
 import { useTabClasses } from './composables/useTabClasses'
 import {
   TAB_ACTIVATE_INJECTION_KEY,
   TAB_STYLE_INJECTION_KEY,
 } from './injection/config'
+
+import type { TabsVariant } from './types'
 
 const props = defineProps({
   name: {

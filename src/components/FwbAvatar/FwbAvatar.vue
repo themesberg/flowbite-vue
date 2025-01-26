@@ -46,7 +46,9 @@
 
 <script lang="ts" setup>
 import { computed, type PropType, ref, toRefs, useSlots } from 'vue'
+
 import type { AvatarSize, AvatarStatus, AvatarStatusPosition } from './types'
+
 import { useAvatarClasses } from '@/components/FwbAvatar/composables/useAvatarClasses'
 
 const imageError = ref(false)

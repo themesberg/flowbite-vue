@@ -1,14 +1,16 @@
 <script lang="ts">
 import { useTimeoutFn } from '@vueuse/core'
 import { defineComponent, h, type PropType, provide, ref, TransitionGroup } from 'vue'
+
+import FwbToast from './FwbToast.vue'
 import { FLOWBITE_TOAST_INJECTION_KEY } from './injection/config'
+
 import type {
   ToastItem,
   ToastItemWithId,
   ToastTransition,
   UseToastInjection,
 } from './types'
-import FwbToast from './FwbToast.vue'
 
 export default defineComponent({
   components: {

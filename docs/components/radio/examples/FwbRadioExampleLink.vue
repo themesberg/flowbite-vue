@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbA, FwbRadio } from '../../../../src/index'
 
 const picked = ref()

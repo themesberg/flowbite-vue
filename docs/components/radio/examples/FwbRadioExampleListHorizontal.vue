@@ -42,6 +42,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbP, FwbRadio } from '../../../../src/index'
 
 const picked = ref('svelte')

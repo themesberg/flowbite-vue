@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
 import { type ComputedRef, onMounted, ref } from 'vue'
+
 import { useAccordionContentClasses } from './composables/useAccordionContentClasses'
 
 const isLoaded = ref(false)

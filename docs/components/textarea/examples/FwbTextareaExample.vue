@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbTextarea } from '../../../../src/index'
 
 const message = ref('')

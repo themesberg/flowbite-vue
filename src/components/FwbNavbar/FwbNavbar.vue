@@ -39,8 +39,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, useSlots } from 'vue'
 import { breakpointsTailwind, useBreakpoints, useToggle } from '@vueuse/core'
+import { computed, ref, useSlots } from 'vue'
+
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const props = defineProps({

@@ -1,6 +1,8 @@
 import { computed, type Ref } from 'vue'
-import type { FlowbiteTheme, ThemableChildrenApply } from '../types'
+
 import { useFlowbiteThemable } from './useFlowbiteThemable'
+
+import type { FlowbiteTheme, ThemableChildrenApply } from '../types'
 
 type UseFlowbiteThemableChildReturns = {
   classes: Ref<string>

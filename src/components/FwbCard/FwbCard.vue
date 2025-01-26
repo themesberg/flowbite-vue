@@ -19,7 +19,9 @@
 
 <script lang="ts" setup>
 import { computed, type PropType, toRefs } from 'vue'
+
 import { useCardsClasses } from './composables/useCardClasses'
+
 import type { CardsVariant } from './types'
 
 const props = defineProps({

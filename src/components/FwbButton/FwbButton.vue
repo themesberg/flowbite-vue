@@ -77,11 +77,14 @@
 
 <script lang="ts" setup>
 import { computed, resolveComponent, toRefs } from 'vue'
-import { useMergeClasses } from '@/composables/useMergeClasses'
-import FwbSpinner from '../FwbSpinner/FwbSpinner.vue'
+
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
+
 import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
+
+import FwbSpinner from '@/components/FwbSpinner/FwbSpinner.vue'
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 interface IButtonProps {
   class?: string | object

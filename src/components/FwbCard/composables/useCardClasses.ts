@@ -1,4 +1,5 @@
 import { computed, type Ref } from 'vue'
+
 import type { CardsVariant } from '../types'
 
 export type UseCardsClassesProps = {

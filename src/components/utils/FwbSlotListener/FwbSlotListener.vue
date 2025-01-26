@@ -1,7 +1,9 @@
 <script lang="ts">
-import { defineComponent, type PropType, type VNode } from 'vue'
 import { pick } from 'lodash-es'
+import { defineComponent, type PropType, type VNode } from 'vue'
+
 import type { SlotListenerTrigger, TriggerEventHandlers } from '@/components/utils/FwbSlotListener/types'
+
 import { getFirstSlotVNode } from '@/utils/getFirstSlotNode'
 
 // inspired from https://github.com/TuSimple/naive-ui/blob/main/src/popover/src/Popover.tsx

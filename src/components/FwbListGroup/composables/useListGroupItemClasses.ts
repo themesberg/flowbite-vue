@@ -1,4 +1,5 @@
 import { computed, type Ref } from 'vue'
+
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 
 const defaultItemClasses = 'inline-flex items-center w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600'

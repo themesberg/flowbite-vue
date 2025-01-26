@@ -22,8 +22,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { CommonAutoFill } from './../FwbInput/types'
+
 import { useTextareaClasses } from './composables/useTextareaClasses'
+
+import type { CommonAutoFill } from './../FwbInput/types'
 
 interface TextareaProps {
   modelValue?: string

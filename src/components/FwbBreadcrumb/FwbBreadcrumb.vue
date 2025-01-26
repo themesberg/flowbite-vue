@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
 import { toRefs } from 'vue'
+
 import { useBreadcrumbClasses } from './composables/useBreadcrumbClasses'
 
 const props = defineProps({

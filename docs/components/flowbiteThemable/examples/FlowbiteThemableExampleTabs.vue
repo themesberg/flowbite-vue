@@ -70,9 +70,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue'
-import { ref } from 'vue'
+import { type PropType, ref } from 'vue'
+
 import { FlowbiteThemable, FwbRadio, FwbTab, FwbTabs } from '../../../../src/index'
+
 import type { TabsVariant } from '../../../../src/components/FwbTabs/types'
 import type { FlowbiteTheme } from '../../../../src/components/utils/FlowbiteThemable/types'
 

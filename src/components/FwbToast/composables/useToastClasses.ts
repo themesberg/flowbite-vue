@@ -1,5 +1,7 @@
 import { computed, type Ref } from 'vue'
+
 import type { ToastAlign, ToastType } from '../types'
+
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 type UseToastClassesReturns = {

@@ -1,20 +1,15 @@
-import neostandard, { resolveIgnoresFromGitignore } from 'neostandard'
 import pluginJs from '@eslint/js'
-import globals from 'globals'
-import tailwind from 'eslint-plugin-tailwindcss'
 import stylistic from '@stylistic/eslint-plugin'
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
 import importPlugin from 'eslint-plugin-import'
+import tailwind from 'eslint-plugin-tailwindcss'
 import unusedImports from 'eslint-plugin-unused-imports'
 import pluginVue from 'eslint-plugin-vue'
+import * as pluginVueScopedCss from 'eslint-plugin-vue-scoped-css'
+import globals from 'globals'
+import neostandard, { resolveIgnoresFromGitignore } from 'neostandard'
 import tseslint from 'typescript-eslint'
 import vueParser from 'vue-eslint-parser'
-
-import {
-  defineConfigWithVueTs,
-  vueTsConfigs,
-} from '@vue/eslint-config-typescript'
-
-import * as pluginVueScopedCss from 'eslint-plugin-vue-scoped-css'
 
 const baseConfig = [
   {
@@ -98,6 +93,7 @@ const standardConfig = [
     },
     rules: {
       'unused-imports/no-unused-imports': 'error',
+      'import/no-duplicates': ['error', { 'prefer-inline': true }],
     },
   },
   {

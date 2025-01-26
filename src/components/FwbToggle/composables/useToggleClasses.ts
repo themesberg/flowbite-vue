@@ -1,4 +1,5 @@
 import { computed, type Ref } from 'vue'
+
 import type { InputSize } from '@/components/FwbInput/types'
 
 // Toggle Background

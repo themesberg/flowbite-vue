@@ -19,16 +19,19 @@
 
 <script lang="ts" setup>
 import { computed, provide, toRef, useSlots } from 'vue'
+
 import { flatten } from '../../utils/flatten'
+
 import { useTabsClasses } from './composables/useTabsClasses'
 import FwbTabPane from './FwbTabPane.vue'
-import type { TabsVariant } from './types'
 import {
   TAB_ACTIVATE_INJECTION_KEY,
   TAB_ACTIVE_NAME_INJECTION_KEY,
   TAB_STYLE_INJECTION_KEY,
   TAB_VISIBILITY_DIRECTIVE_INJECTION_KEY,
 } from './injection/config'
+
+import type { TabsVariant } from './types'
 
 defineOptions({
   inheritAttrs: false,

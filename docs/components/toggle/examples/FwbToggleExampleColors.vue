@@ -35,6 +35,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbToggle } from '../../../../src/index'
 
 const toggle1 = ref(true)

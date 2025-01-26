@@ -1,6 +1,8 @@
 import { computed, inject, ref, type Ref } from 'vue'
-import type { FlowbiteTheme } from '../types'
+
 import { FLOWBITE_THEMABLE_INJECTION_KEY } from '../injection/config'
+
+import type { FlowbiteTheme } from '../types'
 
 type UseFlowbiteThemableReturns = {
   backgroundClasses: Ref<string>
