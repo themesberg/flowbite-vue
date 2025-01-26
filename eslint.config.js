@@ -41,11 +41,13 @@ const baseConfig = [
 const tailwindConfig = [
   ...tailwind.configs['flat/recommended'],
   {
-    rules: {
-      // Include 'cva' (class-variance-authority) function calls when checking
-      // Tailwind class ordering to ensure consistent class name arrangement
-      // in component variants and conditional styles
-      'tailwindcss/classnames-order': ['error', { callees: ['cva'] }],
+    settings: {
+      tailwindcss: {
+        whitelist: [
+          'vp-raw',
+          '^fwb\\-.*$', // Whitelist all classnames that start with "fwb-"
+        ],
+      },
     },
   },
 ]
@@ -181,7 +183,7 @@ const typeScriptConfig = [
 
 export default [
   ...baseConfig,
-  // ...tailwindConfig,
+  ...tailwindConfig,
   ...vueConfig,
   ...vueScopedCssConfig,
   ...standardConfig,
