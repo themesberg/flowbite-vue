@@ -23,9 +23,9 @@ const successInputClasses = 'bg-green-50 border-green-500 dark:border-green-500 
 const errorInputClasses = 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500'
 
 export type UseSelectClassesProps = {
-  size: Ref<InputSize>,
+  size: Ref<InputSize>
   disabled: Ref<boolean>
-  underline: Ref<boolean>,
+  underline: Ref<boolean>
   validationStatus: Ref<ValidationStatus | undefined>
 }
 

@@ -17,6 +17,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbCard } from '../../../../src/index'
 </script>

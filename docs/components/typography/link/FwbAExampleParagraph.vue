@@ -11,6 +11,6 @@
   </fwb-p>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbA, FwbP } from '../../../../src/'
 </script>

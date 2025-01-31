@@ -49,7 +49,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, shallowRef } from 'vue'
 import { FwbButton, useToast } from '../../../../src/index'
 import UpdateToast from './UpdateToast.vue'

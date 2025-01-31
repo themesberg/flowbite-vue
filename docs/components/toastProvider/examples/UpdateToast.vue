@@ -38,7 +38,7 @@
   </flowbite-themable>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FlowbiteThemable, FwbButton, FwbToast } from '../../../../src/index'
 
 defineEmits(['close'])

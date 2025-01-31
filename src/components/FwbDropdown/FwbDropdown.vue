@@ -109,9 +109,11 @@ const emit = defineEmits<{
 }>()
 
 watch(isContentVisible, () => {
-  isContentVisible.value
-    ? emit('show')
-    : emit('hide')
+  if (isContentVisible.value) {
+    emit('show')
+  } else {
+    emit('hide')
+  }
 })
 
 const placementTransitionMap: Record<DropdownPlacement, string> = {

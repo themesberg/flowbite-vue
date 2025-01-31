@@ -49,9 +49,9 @@ import { FwbButton, FwbModal } from '../../../../src/index'
 import { type ModalPosition, type ModalSize } from '../../../../src/components/FwbModal/types'
 
 interface ModalProps {
-  size?: ModalSize,
-  notEscapable?: boolean,
-  persistent?: boolean,
+  size?: ModalSize
+  notEscapable?: boolean
+  persistent?: boolean
   triggerText?: string
   position?: ModalPosition
 }

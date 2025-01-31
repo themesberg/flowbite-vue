@@ -12,6 +12,7 @@
     />
   </div>
 </template>
+
 <script lang="ts" setup>
 import { FwbPagination } from '../../../../src/index'
 import { ref } from 'vue'

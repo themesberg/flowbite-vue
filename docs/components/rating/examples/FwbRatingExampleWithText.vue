@@ -10,6 +10,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbRating } from '../../../../src/index'
 </script>

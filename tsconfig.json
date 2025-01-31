@@ -1,6 +1,7 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
+    "allowImportingTsExtensions": false,
     "noEmit": false,
     "baseUrl": ".",
     "outDir": "dist",

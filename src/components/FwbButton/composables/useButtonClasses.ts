@@ -1,7 +1,7 @@
 import { computed, type Ref, useSlots } from 'vue'
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
 
-export type ButtonClassMap<T extends string> = { hover: Record<T, string>; default: Record<T, string> }
+export type ButtonClassMap<T extends string> = { hover: Record<T, string>, default: Record<T, string> }
 
 const buttonColorClasses: ButtonClassMap<ButtonVariant> = {
   default: {
@@ -68,14 +68,14 @@ const buttonGradientClasses: ButtonClassMap<ButtonGradient> = {
     'purple-pink': 'hover:bg-gradient-to-l',
     'red-yellow': 'hover:bg-gradient-to-bl',
     'teal-lime': 'hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200',
-    blue: 'hover:bg-gradient-to-br',
-    cyan: 'hover:bg-gradient-to-br',
-    green: 'hover:bg-gradient-to-br',
-    lime: 'hover:bg-gradient-to-br',
-    pink: 'hover:bg-gradient-to-br',
-    purple: 'hover:bg-gradient-to-br',
-    red: 'hover:bg-gradient-to-br',
-    teal: 'hover:bg-gradient-to-br',
+    'blue': 'hover:bg-gradient-to-br',
+    'cyan': 'hover:bg-gradient-to-br',
+    'green': 'hover:bg-gradient-to-br',
+    'lime': 'hover:bg-gradient-to-br',
+    'pink': 'hover:bg-gradient-to-br',
+    'purple': 'hover:bg-gradient-to-br',
+    'red': 'hover:bg-gradient-to-br',
+    'teal': 'hover:bg-gradient-to-br',
   },
   default: {
     'cyan-blue': 'text-white bg-gradient-to-r from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg',
@@ -85,14 +85,14 @@ const buttonGradientClasses: ButtonClassMap<ButtonGradient> = {
     'purple-pink': 'text-white bg-gradient-to-r from-purple-500 to-pink-500 focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg',
     'red-yellow': 'text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg',
     'teal-lime': 'text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg',
-    blue: 'text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg',
-    cyan: 'text-white bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 rounded-lg',
-    green: 'text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 rounded-lg',
-    lime: 'text-gray-900 bg-gradient-to-r from-lime-500 via-lime-600 to-lime-700 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 rounded-lg',
-    pink: 'text-white bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 rounded-lg',
-    purple: 'text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 rounded-lg',
-    red: 'text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 rounded-lg',
-    teal: 'text-white bg-gradient-to-r from-teal-500 via-teal-600 to-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 rounded-lg',
+    'blue': 'text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg',
+    'cyan': 'text-white bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 rounded-lg',
+    'green': 'text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 rounded-lg',
+    'lime': 'text-gray-900 bg-gradient-to-r from-lime-500 via-lime-600 to-lime-700 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 rounded-lg',
+    'pink': 'text-white bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 rounded-lg',
+    'purple': 'text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 rounded-lg',
+    'red': 'text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 rounded-lg',
+    'teal': 'text-white bg-gradient-to-r from-teal-500 via-teal-600 to-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 rounded-lg',
   },
 }
 
@@ -145,7 +145,7 @@ const buttonShadowClasses: Record<ButtonMonochromeGradient, string> = {
 }
 
 interface UseButtonClassesProps {
-  class: Ref<string|object>
+  class: Ref<string | object>
   pill: Ref<boolean>
   disabled: Ref<boolean>
   loading: Ref<boolean>
@@ -154,13 +154,13 @@ interface UseButtonClassesProps {
   square: Ref<boolean>
   color: Ref<ButtonVariant>
   gradient: Ref<ButtonGradient | null>
-  shadow: Ref<ButtonMonochromeGradient | '' | null>
+  shadow: Ref<ButtonMonochromeGradient | '' | boolean | null>
 }
 
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
 const alternativeColors = ['alternative', 'light']
 
-export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasses: string; spanClasses: string } {
+export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasses: string, spanClasses: string } {
   const slots = useSlots()
 
   const sizeClasses = computed(() => {
@@ -178,18 +178,18 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
 
     if (isGradient && isOutline) {
       // GRADIENT AND OUTLINE
-      if (!simpleGradients.includes(props.gradient.value!)) {
+      if (props.gradient.value && !simpleGradients.includes(props.gradient.value)) {
         backgroundClass = buttonOutlineGradientClasses.default[props.gradient.value as unknown as keyof typeof buttonOutlineGradientClasses.default]
 
         if (!props.disabled.value) hoverClass = buttonOutlineGradientClasses.hover[props.gradient.value as unknown as keyof typeof buttonOutlineGradientClasses.hover]
       } else {
         console.warn(`cannot use outline prop with "${props.gradient.value}" gradient`) // TODO: prettify
       }
-    } else if (isGradient) {
+    } else if (props.gradient.value && isGradient) {
       // JUST GRADIENT
-      backgroundClass = buttonGradientClasses.default[props.gradient.value!]
+      backgroundClass = buttonGradientClasses.default[props.gradient.value]
 
-      if (!props.disabled.value) hoverClass = buttonGradientClasses.hover[props.gradient.value!]
+      if (!props.disabled.value) hoverClass = buttonGradientClasses.hover[props.gradient.value]
     } else if (isColor && isOutline) {
       // COLOR AND OUTLINE
       if (!alternativeColors.includes(props.color.value)) {
@@ -213,7 +213,7 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
     let shadowClass = ''
     if (props.shadow.value === '') {
       // if shadow prop passed without value - try to find color for shadow by gradient
-      if (props.gradient.value && simpleGradients.includes(props.gradient.value!)) {
+      if (props.gradient.value && simpleGradients.includes(props.gradient.value)) {
         shadowClass = buttonShadowClasses[props.gradient.value as unknown as keyof typeof buttonShadowClasses]
       }
     } else if (typeof props.shadow.value === 'string') {
@@ -232,7 +232,7 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
       isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
       (slots.prefix || slots.suffix || props.loading.value) && 'inline-flex items-center',
       props.class.value,
-    ].filter((str) => (str)).join(' ')
+    ].filter(str => (str)).join(' ')
   })
 
   const spanClasses = computed(() => {
@@ -242,7 +242,7 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
         'relative bg-white dark:bg-gray-900 rounded-md inline-flex items-center',
         sizeClasses.value,
         !props.disabled.value ? 'group-hover:bg-opacity-0 transition-all ease-in duration-75' : '',
-      ].filter((str) => (str)).join(' ')
+      ].filter(str => (str)).join(' ')
     }
     return ''
   })

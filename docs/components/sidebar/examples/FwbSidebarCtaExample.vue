@@ -157,7 +157,8 @@
     </fwb-sidebar>
   </div>
 </template>
-<script setup>
+
+<script lang="ts" setup>
 import { FwbSidebar, FwbSidebarCta, FwbSidebarItem } from '../../../../src/index'
 import { ref } from 'vue'
 

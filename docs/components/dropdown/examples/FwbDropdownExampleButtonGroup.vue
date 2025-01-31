@@ -97,6 +97,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbButtonGroup, FwbDropdown } from '../../../../src/index'
 </script>

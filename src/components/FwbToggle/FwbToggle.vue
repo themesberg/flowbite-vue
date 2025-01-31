@@ -17,12 +17,12 @@ import { useToggleClasses } from './composables/useToggleClasses'
 import type { InputSize } from '@/components/FwbInput/types'
 
 interface ToggleProps {
-  color?: string;
-  disabled?: boolean;
-  label?: string;
-  modelValue?: boolean;
-  size?: InputSize;
-  reverse?: boolean;
+  color?: string
+  disabled?: boolean
+  label?: string
+  modelValue?: boolean
+  size?: InputSize
+  reverse?: boolean
 }
 
 const props = withDefaults(defineProps<ToggleProps>(), {

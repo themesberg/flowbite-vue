@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbCarousel } from '../../../../src/index'
 
 const pictures = [

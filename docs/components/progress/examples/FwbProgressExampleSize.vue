@@ -23,6 +23,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbProgress } from '../../../../src/index'
 </script>

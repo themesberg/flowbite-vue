@@ -31,7 +31,7 @@
   </fwb-toast-provider>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbToastProvider } from '../../../../src/index'
 import FwbToastProviderExampleChild from './FwbToastProviderExampleChild.vue'
 import { ref } from 'vue'

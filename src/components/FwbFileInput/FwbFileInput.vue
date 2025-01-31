@@ -67,8 +67,8 @@ interface FileInputProps {
   label?: string
   modelValue?: File | File[] | null
   multiple?: boolean
-  size?: string,
-  accept?:string,
+  size?: string
+  accept?: string
 }
 
 const props = withDefaults(defineProps<FileInputProps>(), {
@@ -82,10 +82,10 @@ const props = withDefaults(defineProps<FileInputProps>(), {
 
 const dropZoneText = computed(() => {
   if (isArray(props.modelValue)) {
-    return props.modelValue.map((el) => el.name).join(', ')
+    return props.modelValue.map(el => el.name).join(', ')
   } else if (props.modelValue instanceof FileList) {
     return Array.from(props.modelValue)
-      .map((el) => el.name)
+      .map(el => el.name)
       .join(',')
   } else if (props.modelValue instanceof File) {
     return props.modelValue.name || ''

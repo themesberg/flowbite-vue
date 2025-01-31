@@ -51,22 +51,22 @@ const avatarPlaceholderSizes = {
 }
 
 export type UseAvatarClassesProps = {
-    status: Ref<AvatarStatus>
-    bordered: Ref<boolean>
-    img: Ref<string>
-    alt: Ref<string>
-    rounded: Ref<boolean>
-    size: Ref<AvatarSize>
-    stacked: Ref<boolean>
-    statusPosition: Ref<AvatarStatusPosition>
+  status: Ref<AvatarStatus>
+  bordered: Ref<boolean>
+  img: Ref<string>
+  alt: Ref<string>
+  rounded: Ref<boolean>
+  size: Ref<AvatarSize>
+  stacked: Ref<boolean>
+  statusPosition: Ref<AvatarStatusPosition>
 }
 
 export function useAvatarClasses (props: UseAvatarClassesProps): {
-    avatarClasses: Ref<string>
-    avatarDotClasses: Ref<string>
-    avatarPlaceholderClasses: Ref<string>
-    avatarPlaceholderWrapperClasses: Ref<string>
-    avatarPlaceholderInitialsClasses: Ref<string>
+  avatarClasses: Ref<string>
+  avatarDotClasses: Ref<string>
+  avatarPlaceholderClasses: Ref<string>
+  avatarPlaceholderWrapperClasses: Ref<string>
+  avatarPlaceholderInitialsClasses: Ref<string>
 } {
   const avatarClasses = computed<string>(() =>
     useMergeClasses([

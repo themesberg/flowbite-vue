@@ -18,6 +18,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbButton, FwbButtonGroup, FwbTooltip } from '../../../../src/index'
 </script>

@@ -66,9 +66,9 @@ import { onMounted, ref, type Ref } from 'vue'
 import type { ModalPosition, ModalSize } from './types'
 
 interface ModalProps {
-  notEscapable?: boolean,
+  notEscapable?: boolean
   persistent?: boolean
-  size?: ModalSize,
+  size?: ModalSize
   position?: ModalPosition
 }
 
@@ -81,11 +81,11 @@ const props = withDefaults(defineProps<ModalProps>(), {
 
 const emit = defineEmits(['close', 'click:outside'])
 const modalSizeClasses: Record<ModalSize, string> = {
-  xs: 'max-w-xs',
-  sm: 'max-w-sm',
-  md: 'max-w-md',
-  lg: 'max-w-lg',
-  xl: 'max-w-xl',
+  'xs': 'max-w-xs',
+  'sm': 'max-w-sm',
+  'md': 'max-w-md',
+  'lg': 'max-w-lg',
+  'xl': 'max-w-xl',
   '2xl': 'max-w-2xl',
   '3xl': 'max-w-3xl',
   '4xl': 'max-w-4xl',
@@ -99,7 +99,7 @@ const modalPositionClasses: Record<ModalPosition, string> = {
   'top-center': 'self-start justify-self-center',
   'top-end': 'self-start justify-self-end',
   'center-start': 'self-center justify-self-start',
-  center: 'self-center justify-self-center',
+  'center': 'self-center justify-self-center',
   'center-end': 'self-center justify-self-end',
   'bottom-start': 'self-end justify-self-start',
   'bottom-center': 'self-end justify-self-center',

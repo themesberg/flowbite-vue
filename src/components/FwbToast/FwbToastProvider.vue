@@ -52,7 +52,7 @@ export default defineComponent({
     }
 
     const removeToast = (id: string) => {
-      const index = toasts.value.findIndex((_) => _.id === id)
+      const index = toasts.value.findIndex(toast => toast.id === id)
       if (index >= 0) {
         toasts.value.splice(index, 1)
       }
