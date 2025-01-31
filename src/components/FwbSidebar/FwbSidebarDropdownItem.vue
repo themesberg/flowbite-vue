@@ -2,13 +2,13 @@
   <div class="overflow-hidden">
     <button
       type="button"
-      class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 z-10"
+      class="group z-10 flex w-full items-center rounded-lg p-2 text-base text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
       aria-controls="dropdown-content"
       @click="toggleDropdown"
     >
       <slot name="icon">
         <svg
-          class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+          class="size-5 shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -19,7 +19,7 @@
           />
         </svg>
       </slot>
-      <span class="flex-1 ml-3 text-left whitespace-nowrap">
+      <span class="ml-3 flex-1 whitespace-nowrap text-left">
         <slot name="trigger" />
       </span>
       <slot
@@ -27,7 +27,7 @@
         :toggle-dropdown="toggleDropdown"
       >
         <svg
-          class="w-3 h-3 transition-all duration-300"
+          class="size-3 transition-all duration-300"
           :class="isOpen && 'rotate-180'"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@
       </slot>
     </button>
 
-    <div class="py-2 space-y-2 z-0 overflow-hidden">
+    <div class="z-0 space-y-2 overflow-hidden py-2">
       <transition
         :duration="150"
         enter-from-class="-translate-y-full"

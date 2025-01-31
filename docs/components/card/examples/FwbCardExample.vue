@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw inline-flex align-center gap-2 flex-wrap">
+  <div class="vp-raw inline-flex flex-wrap gap-2">
     <fwb-card href="#">
       <div class="p-5">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

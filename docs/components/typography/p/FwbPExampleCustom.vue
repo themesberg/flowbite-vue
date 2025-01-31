@@ -30,7 +30,7 @@
       eliminate toil, and deploy changes with ease, with a complete
       audit trail for every change.
     </fwb-p>
-    <fwb-p class="text-green-600 dark:text-green-400 italic">
+    <fwb-p class="italic text-green-600 dark:text-green-400">
       Deliver great service experiences fast - without the complexityof
       traditional ITSM solutions. Accelerate critical development work,
       eliminate toil, and deploy changes with ease, with a complete

@@ -9,9 +9,9 @@
           src="https://flowbite.com/docs/images/logo.svg"
         />
 
-        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
           <div>
-            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+            <h2 class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
               Resources
             </h2>
             <fwb-footer-link-group class="flex flex-col items-start">
@@ -69,17 +69,17 @@
           </div>
         </div>
       </div>
-      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
+      <hr class="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8">
       <div class="sm:flex sm:items-center sm:justify-between">
         <fwb-footer-copyright
           by="Flowbite™"
           href="/"
         />
-        <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+        <div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
           <fwb-footer-icon href="/">
             <svg
               aria-hidden="true"
-              class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              class="size-4 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -93,7 +93,7 @@
           <fwb-footer-icon href="/">
             <svg
               aria-hidden="true"
-              class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              class="size-4 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white"
               fill="currentColor"
               viewBox="0 0 21 16"
               xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +106,7 @@
           <fwb-footer-icon href="/">
             <svg
               aria-hidden="true"
-              class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              class="size-4 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white"
               fill="currentColor"
               viewBox="0 0 20 17"
               xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@
           <fwb-footer-icon href="/">
             <svg
               aria-hidden="true"
-              class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              class="size-4 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +136,7 @@
           <fwb-footer-icon href="/">
             <svg
               aria-hidden="true"
-              class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              class="size-4 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"

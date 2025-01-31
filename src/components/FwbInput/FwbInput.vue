@@ -5,12 +5,12 @@
       :class="labelClasses"
     >{{ label }}</label>
     <div
-      class="flex relative items-center"
+      class="relative flex items-center"
       :class="[inputBlockClasses]"
     >
       <div
         v-if="$slots.prefix"
-        class="flex items-center ms-2 flex-shrink-0"
+        class="ms-2 flex shrink-0 items-center"
       >
         <slot name="prefix" />
       </div>
@@ -25,7 +25,7 @@
       >
       <div
         v-if="$slots.suffix"
-        class="flex items-center me-2 flex-shrink-0"
+        class="me-2 flex shrink-0 items-center"
       >
         <slot name="suffix" />
       </div>

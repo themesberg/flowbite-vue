@@ -1,11 +1,11 @@
 <template>
   <nav :class="navbarClasses">
-    <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <div class="container mx-auto flex flex-wrap items-center justify-between">
       <slot name="logo" />
       <button
         aria-controls="navbar-default"
         aria-expanded="false"
-        class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        class="ml-3 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
         type="button"
         @click="toggleMobileMenu()"
       >
@@ -13,7 +13,7 @@
         <slot name="menu-icon">
           <svg
             aria-hidden="true"
-            class="w-6 h-6"
+            class="size-6"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"

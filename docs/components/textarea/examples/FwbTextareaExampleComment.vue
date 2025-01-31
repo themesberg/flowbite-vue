@@ -19,7 +19,7 @@
               square
             >
               <svg
-                class="w-6 h-6"
+                class="size-6"
                 fill="none"
                 stroke-width="1.5"
                 stroke="currentColor"
@@ -39,7 +39,7 @@
               square
             >
               <svg
-                class="w-6 h-6"
+                class="size-6"
                 fill="none"
                 stroke-width="1.5"
                 stroke="currentColor"
@@ -64,7 +64,7 @@
               square
             >
               <svg
-                class="w-6 h-6"
+                class="size-6"
                 fill="none"
                 stroke-width="1.5"
                 stroke="currentColor"

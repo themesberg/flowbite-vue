@@ -4,7 +4,7 @@
       <template #trigger>
         <fwb-button color="light">
           <svg
-            class="w-5 h-5"
+            class="size-5"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 4 15"

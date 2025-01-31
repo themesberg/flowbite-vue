@@ -1,6 +1,6 @@
 <template>
   <div class="vp-raw">
-    <div class="flex align-center gap-2 flex-wrap">
+    <div class="flex flex-wrap gap-2">
       <flowbite-themable
         v-for="themeName in themes"
         :key="themeName"

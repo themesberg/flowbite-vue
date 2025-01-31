@@ -1,35 +1,35 @@
 <template>
   <div>
-    <div class="bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40" />
+    <div class="fixed inset-0 z-40 bg-gray-900/50 dark:bg-gray-900/80" />
     <div
       ref="modalRef"
-      class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full grid"
+      class="fixed inset-x-0 top-0 z-50 grid h-modal w-full overflow-y-auto overflow-x-hidden md:inset-0 md:h-full"
       tabindex="0"
       @click.self="clickOutside"
       @keyup.esc="closeWithEsc"
     >
       <div
         :class="`${modalSizeClasses[size]} ${modalPositionClasses[position]}`"
-        class="relative p-4 w-full"
+        class="relative w-full p-4"
       >
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
           <!-- Modal header -->
           <div
             :class="$slots.header ? 'border-b border-gray-200 dark:border-gray-600' : ''"
-            class="p-4 rounded-t flex justify-between items-center"
+            class="flex items-center justify-between rounded-t p-4"
           >
             <slot name="header" />
             <button
               v-if="!persistent"
               aria-label="close"
-              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ms-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              class="ms-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
               type="button"
               @click="closeModal"
             >
               <slot name="close-icon">
                 <svg
-                  class="w-5 h-5"
+                  class="size-5"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@
           <!-- Modal footer -->
           <div
             v-if="$slots.footer"
-            class="p-6 rounded-b border-gray-200 border-t dark:border-gray-600"
+            class="rounded-b border-t border-gray-200 p-6 dark:border-gray-600"
           >
             <slot name="footer" />
           </div>

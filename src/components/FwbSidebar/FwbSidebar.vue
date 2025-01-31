@@ -4,7 +4,7 @@
     :class="wrapperClasses"
     aria-label="Sidebar"
   >
-    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+    <div class="h-full overflow-y-auto bg-gray-50 px-3 py-4 dark:bg-gray-800">
       <div class="space-y-2 font-medium">
         <slot />
       </div>

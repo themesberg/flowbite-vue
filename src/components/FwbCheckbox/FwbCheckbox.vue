@@ -1,5 +1,5 @@
 <template>
-  <label class="flex gap-3 items-center justify-start">
+  <label class="flex items-center justify-start gap-3">
     <input
       v-model="model"
       :class="checkboxClasses"

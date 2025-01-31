@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw inline-flex align-center gap-2 flex-wrap">
+  <div class="vp-raw inline-flex flex-wrap gap-2">
     <fwb-card
       img-alt="Desk"
       img-src="https://flowbite.com/docs/images/blog/image-4.jpg"

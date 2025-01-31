@@ -3,7 +3,7 @@
     class="vp-raw"
   >
     <fwb-jumbotron
-      class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] dark:bg-gray-700 bg-gray-700 bg-blend-multiply"
+      class="bg-gray-700 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-center bg-no-repeat bg-blend-multiply dark:bg-gray-700"
       header-classes="text-white"
       sub-text-classes="text-gray-300 dark:text-gray-300"
       header-text="We invest in the world’s potential"
@@ -12,11 +12,11 @@
       <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
         <a
           href="#"
-          class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+          class="inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
         >
           Get started
           <svg
-            class="w-3.5 h-3.5 ml-2 rtl:rotate-180"
+            class="ml-2 size-3.5 rtl:rotate-180"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -33,7 +33,7 @@
         </a>
         <a
           href="#"
-          class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ml-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
+          class="inline-flex items-center justify-center rounded-lg border border-white px-5 py-3 text-center text-base font-medium text-white hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-400 sm:ml-4"
         >
           Learn more
         </a>
