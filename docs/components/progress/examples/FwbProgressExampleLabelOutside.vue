@@ -5,6 +5,15 @@
     label-progress
     label="Flowbite Vue 3"
   />
+
+  <div class="mb-4" />
+
+  <fwb-progress
+    :progress="0"
+    label-position="outside"
+    label-progress
+    label="Flowbite Vue 3"
+  />
 </template>
 
 <script lang="ts" setup>
