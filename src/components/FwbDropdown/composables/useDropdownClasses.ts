@@ -1,7 +1,9 @@
 import { computed, nextTick, type Ref, ref, watch } from 'vue'
+
 import type { DropdownProps } from '../FwbDropdown.vue'
-import { useMergeClasses } from '@/composables/useMergeClasses'
 import type { DropdownAlignment, DropdownPlacement } from '../types'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const defaultWrapperClasses = 'fwb-dropdown inline-flex relative'
 const defaultContentWrapperClasses = 'absolute z-10 bg-white rounded shadow dark:bg-gray-700'

@@ -1,6 +1,7 @@
-import { computed, type Ref } from 'vue'
-import type { TabsVariant } from '../types'
 import { twMerge } from 'tailwind-merge'
+import { computed, type Ref } from 'vue'
+
+import type { TabsVariant } from '../types'
 
 export type UseTabsClassesProps = {
   variant: TabsVariant

@@ -1,4 +1,5 @@
 import { computed, type Ref, useSlots } from 'vue'
+
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>, default: Record<T, string> }

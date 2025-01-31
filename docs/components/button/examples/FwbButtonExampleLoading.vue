@@ -62,6 +62,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbButton } from '../../../../src/index'
 
 const loading = ref(false)

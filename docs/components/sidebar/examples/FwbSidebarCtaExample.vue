@@ -159,8 +159,9 @@
 </template>
 
 <script lang="ts" setup>
-import { FwbSidebar, FwbSidebarCta, FwbSidebarItem } from '../../../../src/index'
 import { ref } from 'vue'
+
+import { FwbSidebar, FwbSidebarCta, FwbSidebarItem } from '../../../../src/index'
 
 const isShowCta = ref(true)
 function toggleCta () {

@@ -1,5 +1,6 @@
-import type { Slots, VNode } from 'vue'
 import { flatten } from './flatten'
+
+import type { Slots, VNode } from 'vue'
 
 // ref: https://github.com/TuSimple/naive-ui/blob/main/src/popover/src/Popover.tsx
 

@@ -25,8 +25,9 @@
 
 <script lang="ts" setup>
 import { computed, type ComputedRef, onMounted, ref } from 'vue'
-import { useAccordionState } from './composables/useAccordionState'
+
 import { useAccordionHeaderClasses } from './composables/useAccordionHeaderClasses'
+import { useAccordionState } from './composables/useAccordionState'
 
 const isLoaded = ref(false)
 const header = ref()

@@ -45,7 +45,9 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FlowbiteThemable, FwbDropdown, FwbRadio } from '../../../../src/index'
+
 import type { FlowbiteTheme } from '../../../../src/components/utils/FlowbiteThemable/types'
 
 const activeTheme = ref<FlowbiteTheme>('blue')

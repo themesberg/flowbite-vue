@@ -13,7 +13,9 @@
 
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
+
 import { useToggleClasses } from './composables/useToggleClasses'
+
 import type { InputSize } from '@/components/FwbInput/types'
 
 interface ToggleProps {

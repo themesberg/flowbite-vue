@@ -7,9 +7,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import classNames from 'classnames'
+import { computed } from 'vue'
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isMobile = breakpoints.smaller('md')

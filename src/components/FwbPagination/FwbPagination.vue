@@ -137,9 +137,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import type { PaginationLayout } from './types'
 import { twMerge } from 'tailwind-merge'
+import { computed } from 'vue'
+
+import type { PaginationLayout } from './types'
 
 const emit = defineEmits<{
   'update:model-value': [page: number]

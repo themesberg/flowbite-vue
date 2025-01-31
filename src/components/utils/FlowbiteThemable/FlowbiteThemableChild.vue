@@ -9,8 +9,11 @@
 
 <script lang="ts" setup>
 import { computed, type PropType, toRefs, useAttrs } from 'vue'
-import type { FlowbiteTheme, ThemableChildrenApply } from '@/components/utils/FlowbiteThemable/types'
+
 import { useFlowbiteThemableChildClasses } from './composables/useFlowbiteThemableChildClasses'
+
+import type { FlowbiteTheme, ThemableChildrenApply } from '@/components/utils/FlowbiteThemable/types'
+
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 
 const attrs = useAttrs()

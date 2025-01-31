@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, provide } from 'vue'
 import classNames from 'classnames'
+import { computed, provide } from 'vue'
 
 const props = defineProps({
   horizontal: {

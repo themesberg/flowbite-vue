@@ -1,4 +1,5 @@
 import { computed, type Ref } from 'vue'
+
 import type { ButtonGradient, ButtonSize, ButtonVariant } from '../types'
 import type { SpinnerColor, SpinnerSize } from './../../FwbSpinner/types'
 

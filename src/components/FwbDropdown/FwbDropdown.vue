@@ -52,14 +52,16 @@
 </template>
 
 <script lang="ts" setup>
-
-import { computed, ref, watch } from 'vue'
 import { onClickOutside } from '@vueuse/core'
+import { computed, ref, watch } from 'vue'
+
 import { useDropdownClasses } from './composables/useDropdownClasses'
+
+import type { DropdownPlacement } from './types'
+import type { ButtonVariant } from '@/components/FwbButton/types'
+
 import FwbButton from '@/components/FwbButton/FwbButton.vue'
 import FwbSlotListener from '@/components/utils/FwbSlotListener/FwbSlotListener.vue'
-import type { ButtonVariant } from '@/components/FwbButton/types'
-import type { DropdownPlacement } from './types'
 
 export interface DropdownProps {
   alignToEnd?: boolean

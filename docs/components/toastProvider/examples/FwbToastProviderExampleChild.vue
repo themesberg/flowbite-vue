@@ -51,7 +51,9 @@
 
 <script lang="ts" setup>
 import { ref, shallowRef } from 'vue'
+
 import { FwbButton, useToast } from '../../../../src/index'
+
 import UpdateToast from './UpdateToast.vue'
 
 const ms = ref(5000)
@@ -60,7 +62,7 @@ const toast = useToast()
 
 const addUpdate = () => {
   toast.add({
-    time: parseInt(ms.value) || 0,
+    time: ms.value || 0,
     text: 'A new software version is available for download.',
     component: shallowRef(UpdateToast),
     componentProps: {
@@ -70,14 +72,15 @@ const addUpdate = () => {
   })
 }
 
-const add = (type) => {
+const add = (type: string) => {
   if (type === 'update') return addUpdate()
   toast.add({
     type,
-    time: parseInt(ms.value) || 0,
+    time: ms.value || 0,
     text: `${type} alert! Hello world!`,
   })
 }
+
 const remove = () => {
   toast.pop()
 }

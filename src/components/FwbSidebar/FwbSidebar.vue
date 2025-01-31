@@ -13,8 +13,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useAttrs } from 'vue'
 import { twMerge } from 'tailwind-merge'
+import { useAttrs } from 'vue'
 
 defineOptions({
   inheritAttrs: false,

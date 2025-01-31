@@ -36,6 +36,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbTab, FwbTabs } from '../../../../src/index'
 
 const activeTab = ref('first')

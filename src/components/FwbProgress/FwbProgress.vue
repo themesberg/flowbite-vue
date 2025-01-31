@@ -32,7 +32,9 @@
 
 <script lang="ts" setup>
 import { toRefs } from 'vue'
+
 import { useProgressClasses } from './composables/useProgressClasses'
+
 import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from './types'
 
 interface IProgressProps {

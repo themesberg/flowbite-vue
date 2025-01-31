@@ -30,6 +30,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbButton, FwbTextarea } from '../../../../src/index'
 
 const message = ref('Edit me!')

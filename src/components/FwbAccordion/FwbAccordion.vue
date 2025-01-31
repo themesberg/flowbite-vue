@@ -6,6 +6,7 @@
 
 <script lang="ts" setup>
 import { nanoid } from 'nanoid'
+
 import { useAccordionState } from './composables/useAccordionState'
 
 interface AccordionProps {

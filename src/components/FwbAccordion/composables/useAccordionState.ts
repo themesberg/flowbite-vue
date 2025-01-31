@@ -1,4 +1,5 @@
 import { onBeforeMount, onBeforeUnmount, reactive } from 'vue'
+
 import type { tState } from '../types'
 
 interface AccordionProps {

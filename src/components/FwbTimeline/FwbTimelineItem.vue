@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, inject } from 'vue'
 import classNames from 'classnames'
+import { computed, inject } from 'vue'
 
 const isHorizontal = inject('horizontal')
 

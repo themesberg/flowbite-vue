@@ -58,8 +58,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { isArray } from 'lodash-es'
+import { computed } from 'vue'
+
 import { useFileInputClasses } from './composables/useFileInputClasses'
 
 interface FileInputProps {
