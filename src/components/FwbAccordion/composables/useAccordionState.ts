@@ -1,12 +1,6 @@
 import { onBeforeMount, onBeforeUnmount, reactive } from 'vue'
 
-import type { tState } from '../types'
-
-interface AccordionProps {
-  alwaysOpen?: boolean
-  openFirstItem?: boolean
-  flush?: boolean
-}
+import type { AccordionProps, tState } from '@/components/FwbAccordion/types'
 
 const accordionsStates = reactive<tState>({})
 
@@ -22,7 +16,7 @@ export function useAccordionState (
       id,
       flush: options?.flush ?? false,
       alwaysOpen: options?.alwaysOpen ?? false,
-      openFirstItem: options?.openFirstItem ?? true,
+      fullyCollapsed: options?.fullyCollapsed ?? false,
       panels: {},
     }
   })

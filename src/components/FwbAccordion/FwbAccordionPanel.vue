@@ -11,12 +11,13 @@
 import { nanoid } from 'nanoid'
 import { computed, onMounted, ref } from 'vue'
 
-import { useAccordionState } from './composables/useAccordionState'
+import { useAccordionState } from '@/components/FwbAccordion/composables/useAccordionState'
 
 const { accordionsStates } = useAccordionState()
 
-const panelId = nanoid()
 const panel = ref()
+const panelId = nanoid()
+
 const accordionId = computed(() => {
   if (panel.value) return panel.value.parentElement.dataset.accordionId
   return null
@@ -28,6 +29,7 @@ const accordionState = computed(() => {
 
 onMounted(() => {
   const panelIndex = Array.from(panel.value.parentElement.children).indexOf(panel.value)
+
   accordionState.value.panels[panelId] = {
     id: panelId,
     order: panelIndex,

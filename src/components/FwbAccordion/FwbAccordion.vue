@@ -7,20 +7,19 @@
 <script lang="ts" setup>
 import { nanoid } from 'nanoid'
 
-import { useAccordionState } from './composables/useAccordionState'
+import type { AccordionProps } from '@/components/FwbAccordion/types'
 
-interface AccordionProps {
-  alwaysOpen?: boolean
-  openFirstItem?: boolean
-  flush?: boolean
-}
-
-const props = withDefaults(defineProps<AccordionProps>(), {
-  alwaysOpen: false,
-  openFirstItem: true,
-  flush: false,
-})
+import { useAccordionState } from '@/components/FwbAccordion/composables/useAccordionState'
 
 const accordionId = nanoid()
+
+const props = withDefaults(
+  defineProps<AccordionProps>(), {
+    alwaysOpen: false,
+    fullyCollapsed: false,
+    flush: false,
+  },
+)
+
 useAccordionState(accordionId, { ...props })
 </script>

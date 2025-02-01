@@ -6,7 +6,7 @@ import { useAccordionState } from './useAccordionState'
 const baseHeaderClasses = 'flex items-center p-5 w-full font-medium text-left border border-gray-200 dark:border-gray-700'
 const nonFlushHeaderClasses = 'hover:bg-gray-100 dark:hover:bg-gray-800 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800'
 
-const baseArrowClasses = 'w-6 h-6 shrink-0'
+const baseArrowClasses = 'size-6 shrink-0'
 
 export function useAccordionHeaderClasses (headerRef: Ref) {
   const accordionId = computed(() => headerRef.value.parentElement.parentElement.dataset.accordionId)
