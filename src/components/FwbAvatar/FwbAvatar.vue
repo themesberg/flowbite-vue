@@ -18,7 +18,7 @@
       </div>
       <svg
         v-else-if="!img && !initials"
-        :class="avatarPlaceholderClasses"
+        :class="avatarPlaceholderIconClasses"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -103,6 +103,7 @@ const {
   avatarClasses,
   avatarDotClasses,
   avatarPlaceholderClasses,
+  avatarPlaceholderIconClasses,
   avatarPlaceholderInitialsClasses,
   avatarPlaceholderWrapperClasses,
 } = useAvatarClasses(toRefs(props))
