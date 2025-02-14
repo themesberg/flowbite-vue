@@ -40,7 +40,8 @@ const avatarStatusDotPositionClasses: Record<avatarDotIndicatorPositionClasses, 
   'bottom-left-default': '-bottom-1.5 left-0 transform -translate-x-1/2 ',
 }
 
-const avatarPlaceholderDefaultClasses = 'absolute w-auto h-auto text-gray-400'
+const avatarPlaceholderDefaultClasses = 'w-auto h-auto text-gray-400'
+const avatarPlaceholderDefaultIconClasses = 'absolute'
 const avatarPlaceholderWrapperDefaultClasses = 'flex overflow-hidden relative justify-center items-center'
 const avatarPlaceholderWrapperBackgroundClasses = 'bg-gray-100 dark:bg-gray-600'
 const avatarPlaceholderInitialsDefaultClasses = 'font-medium text-gray-600 dark:text-gray-300'
@@ -67,6 +68,7 @@ export function useAvatarClasses (props: UseAvatarClassesProps): {
   avatarClasses: Ref<string>
   avatarDotClasses: Ref<string>
   avatarPlaceholderClasses: Ref<string>
+  avatarPlaceholderIconClasses: Ref<string>
   avatarPlaceholderWrapperClasses: Ref<string>
   avatarPlaceholderInitialsClasses: Ref<string>
 } {
@@ -89,9 +91,17 @@ export function useAvatarClasses (props: UseAvatarClassesProps): {
   const avatarPlaceholderClasses = computed<string>(() =>
     useMergeClasses([
       avatarPlaceholderDefaultClasses,
+    ]),
+  )
+
+  const avatarPlaceholderIconClasses = computed<string>(() =>
+    useMergeClasses([
+      avatarPlaceholderDefaultClasses,
+      avatarPlaceholderDefaultIconClasses,
       avatarPlaceholderSizes[props.size.value],
     ]),
   )
+
   const avatarPlaceholderWrapperClasses = computed<string>(() =>
     useMergeClasses([
       avatarPlaceholderWrapperDefaultClasses,
@@ -111,6 +121,7 @@ export function useAvatarClasses (props: UseAvatarClassesProps): {
     avatarClasses,
     avatarDotClasses,
     avatarPlaceholderClasses,
+    avatarPlaceholderIconClasses,
     avatarPlaceholderInitialsClasses,
     avatarPlaceholderWrapperClasses,
   }
