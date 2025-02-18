@@ -1,29 +1,75 @@
-export interface AccordionProps {
-  alwaysOpen?: boolean
-  fullyCollapsed?: boolean
-  flush?: boolean
+import type { Ref } from 'vue'
+
+interface AccordionProps {
+  allowMultiple?: boolean
+  class?: string | object
+  collapsed?: boolean
+  flushed?: boolean
 }
 
-export type tAccordionMode = 'flush' | 'alwaysOpen' | 'default'
+interface AccordionState extends AccordionProps {
+  id: string
+  panels: AccordionPanel[]
+}
 
-export type tAccordionPanel = {
-  order: number
+interface AccordionStates {
+  [key: string]: AccordionState
+}
+
+interface AccordionPanelProps {
+  activeClass?: string | object
+}
+
+interface AccordionPanel {
   id: string
   isVisible: boolean
+  order: number
 }
 
-type tAccordionPanels = {
-  [key: string]: tAccordionPanel
+interface GetAccordionStateAttributes {
+  element: Ref<HTMLElement | undefined>
 }
 
-type tStateElement = {
-  id: string
-  flush: boolean
-  alwaysOpen: boolean
-  fullyCollapsed: boolean
-  panels: tAccordionPanels
+interface GetAccordionState {
+  (attributes: GetAccordionStateAttributes): AccordionState | null
 }
 
-export type tState = {
-  [key: string]: tStateElement
+interface GetAccordionPanelStateAttributes {
+  accordionState: Ref<AccordionState>
+  panelId: string
+}
+
+interface GetAccordionPanelState {
+  ({ accordionState, panelId }: GetAccordionPanelStateAttributes): AccordionPanel | null
+}
+
+interface UseAccordionState {
+  (accordionId?: string, options?: AccordionProps): {
+    accordionStates: AccordionStates
+    getAccordionState: GetAccordionState
+    getAccordionPanelState: GetAccordionPanelState
+  }
+}
+
+interface AccordionHeaderProps {
+  activeClass?: string | object
+  class?: string | object
+}
+
+interface AccordionContentProps {
+  activeClass?: string | object
+  class?: string | object
+}
+
+export type {
+  AccordionContentProps,
+  AccordionHeaderProps,
+  AccordionPanel,
+  AccordionPanelProps,
+  AccordionProps,
+  AccordionState,
+  AccordionStates,
+  GetAccordionPanelState,
+  GetAccordionState,
+  UseAccordionState,
 }
