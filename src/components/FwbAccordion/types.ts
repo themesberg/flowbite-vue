@@ -1,10 +1,10 @@
 import type { Ref } from 'vue'
 
 interface AccordionProps {
-  allowMultiple?: boolean
   class?: string | object
   collapsed?: boolean
   flushed?: boolean
+  persistent?: boolean
 }
 
 interface AccordionState extends AccordionProps {

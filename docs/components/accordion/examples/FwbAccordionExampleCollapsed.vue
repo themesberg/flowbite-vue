@@ -1,6 +1,6 @@
 <template>
   <div class="vp-raw">
-    <fwb-accordion>
+    <fwb-accordion collapsed>
       <fwb-accordion-panel>
         <fwb-accordion-header>What is Flowbite?</fwb-accordion-header>
         <fwb-accordion-content>
@@ -63,10 +63,5 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  FwbAccordion,
-  FwbAccordionContent,
-  FwbAccordionHeader,
-  FwbAccordionPanel,
-} from '../../../../src/index'
+import { FwbAccordion, FwbAccordionContent, FwbAccordionHeader, FwbAccordionPanel } from '../../../../src/index'
 </script>

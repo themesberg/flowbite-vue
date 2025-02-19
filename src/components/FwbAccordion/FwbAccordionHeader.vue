@@ -59,7 +59,7 @@ onMounted(() => {
 })
 
 const togglePanel = () => {
-  if (accordionState.value.allowMultiple) {
+  if (accordionState.value.persistent) {
     panelState.value.isVisible = !panelState.value?.isVisible
     return
   }

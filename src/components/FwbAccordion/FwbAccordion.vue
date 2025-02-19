@@ -20,10 +20,10 @@ const accordionId = nanoid()
 
 const props = withDefaults(
   defineProps<AccordionProps>(), {
-    allowMultiple: false,
     class: '',
     collapsed: false,
     flushed: false,
+    persistent: false,
   },
 )
 

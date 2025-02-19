@@ -19,9 +19,9 @@ const useAccordionState: UseAccordionState = (accordionId, options): {
     if (!accordionId) return
     accordionStates[accordionId] = {
       id: accordionId,
-      allowMultiple: options?.allowMultiple ?? false,
       collapsed: options?.collapsed ?? false,
       flushed: options?.flushed ?? false,
+      persistent: options?.persistent ?? false,
       panels: [],
     }
   })
