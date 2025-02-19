@@ -86,7 +86,7 @@ import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVarian
 import FwbSpinner from '@/components/FwbSpinner/FwbSpinner.vue'
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
-interface IButtonProps {
+interface ButtonProps {
   class?: string | object
   color?: ButtonVariant
   gradient?: ButtonGradient | null
@@ -101,7 +101,7 @@ interface IButtonProps {
   href?: string
   tag?: string
 }
-const props = withDefaults(defineProps<IButtonProps>(), {
+const props = withDefaults(defineProps<ButtonProps>(), {
   class: '',
   color: 'default',
   gradient: null,

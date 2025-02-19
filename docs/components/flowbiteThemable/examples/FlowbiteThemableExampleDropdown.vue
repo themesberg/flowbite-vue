@@ -35,8 +35,25 @@
     </div>
     <div class="inline-flex flex-wrap gap-2">
       <flowbite-themable :theme="activeTheme">
-        <fwb-dropdown text="Dropdown">
-          Dropdown content...
+        <fwb-dropdown>
+          <nav class="py-2 text-sm text-gray-700 dark:text-gray-200">
+            <a
+              href="#"
+              class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Dashboard</a>
+            <a
+              href="#"
+              class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Settings</a>
+            <a
+              href="#"
+              class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Earnings</a>
+            <a
+              href="#"
+              class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Sign out</a>
+          </nav>
         </fwb-dropdown>
       </flowbite-themable>
     </div>
