@@ -99,6 +99,7 @@ function getTypography () {
  */
 export default defineConfig({
   title: 'Flowbite Vue 3',
+  description: 'Flowbite Vue is an open-source UI component library built with Vue components, Tailwind CSS utility classes and based on the Flowbite design system and components.',
   cleanUrls: true,
   head: [
     ['link', { rel: 'icon', type: 'image/svg', href: '/assets/logo.svg' }],
@@ -136,7 +137,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023 Flowbite™',
+      copyright: `Copyright © ${new Date().getFullYear()} Flowbite™`,
     },
   },
 })

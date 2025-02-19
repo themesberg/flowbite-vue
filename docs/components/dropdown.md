@@ -1,12 +1,30 @@
 <script setup>
-import FwbDropdownExamplePlacement from './dropdown/examples/FwbDropdownExamplePlacement.vue'
-import FwbDropdownExampleAlignment from './dropdown/examples/FwbDropdownExampleAlignment.vue'
-import FwbDropdownExampleListGroup from './dropdown/examples/FwbDropdownExampleListGroup.vue'
-import FwbDropdownExampleButtonColors from './dropdown/examples/FwbDropdownExampleButtonColors.vue'
-import FwbDropdownExampleButtonGroup from './dropdown/examples/FwbDropdownExampleButtonGroup.vue'
-import FwbDropdownExampleDisabled from './dropdown/examples/FwbDropdownExampleDisabled.vue'
-import FwbDropdownExampleTrigger from './dropdown/examples/FwbDropdownExampleTrigger.vue'
-import FwbDropdownExampleCloseInside from './dropdown/examples/FwbDropdownExampleCloseInside.vue'
+import { defineClientComponent } from 'vitepress'
+
+const FwbDropdownExamplePlacement = defineClientComponent(() => {
+  return import('./dropdown/examples/FwbDropdownExamplePlacement.vue')
+})
+const FwbDropdownExampleAlignment = defineClientComponent(() => {
+  return import('./dropdown/examples/FwbDropdownExampleAlignment.vue')
+})
+const FwbDropdownExampleListGroup = defineClientComponent(() => {
+  return import('./dropdown/examples/FwbDropdownExampleListGroup.vue')
+})
+const FwbDropdownExampleButtonColors = defineClientComponent(() => {
+  return import('./dropdown/examples/FwbDropdownExampleButtonColors.vue')
+})
+const FwbDropdownExampleButtonGroup = defineClientComponent(() => {
+  return import('./dropdown/examples/FwbDropdownExampleButtonGroup.vue')
+})
+const FwbDropdownExampleDisabled = defineClientComponent(() => {
+  return import('./dropdown/examples/FwbDropdownExampleDisabled.vue')
+})
+const FwbDropdownExampleTrigger = defineClientComponent(() => {
+  return import('./dropdown/examples/FwbDropdownExampleTrigger.vue')
+})
+const FwbDropdownExampleCloseInside = defineClientComponent(() => {
+  return import('./dropdown/examples/FwbDropdownExampleCloseInside.vue')
+})
 </script>
 
 # Vue Dropdown - Flowbite
