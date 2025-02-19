@@ -77,7 +77,6 @@ import {
   FwbAccordionContent,
 } from 'flowbite-vue'
 </script>
-
 ```
 
 ## Persistent Accordion Items
