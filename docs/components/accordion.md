@@ -1,7 +1,7 @@
 <script setup>
 import FwbAccordionExample from './accordion/examples/FwbAccordionExample.vue'
 import FwbAccordionExampleCollapsed from './accordion/examples/FwbAccordionExampleCollapsed.vue'
-import FwbAccordionExampleFlush from './accordion/examples/FwbAccordionExampleFlush.vue'
+import FwbAccordionExampleFlushed from './accordion/examples/FwbAccordionExampleFlushed.vue'
 import FwbAccordionExamplePersistent from './accordion/examples/FwbAccordionExamplePersistent.vue'
 import FwbAccordionExampleStyling from './accordion/examples/FwbAccordionExampleStyling.vue'
 </script>
@@ -144,13 +144,13 @@ import {
 </script>
 ```
 
-## Flush Accordion
-The `flush` prop removes background color, side borders, and rounded corners, creating a flush appearance.
+## Flushed Accordion
+The `flushed` prop removes background color, side borders, and rounded corners, creating a flush appearance.
 
-<fwb-accordion-example-flush />
+<fwb-accordion-example-flushed />
 ```vue
 <template>
-  <fwb-accordion flush>
+  <fwb-accordion flushed>
     <fwb-accordion-panel>
       <fwb-accordion-header>What is Flowbite?</fwb-accordion-header>
       <fwb-accordion-content>
@@ -214,7 +214,7 @@ The `collapsed` prop allows you to set an accordion to be fully collapsed by def
 <fwb-accordion-example-collapsed />
 ```vue
 <template>
-  <fwb-accordion persistent>
+  <fwb-accordion collapsed>
     <fwb-accordion-panel>
       <fwb-accordion-header>What is Flowbite?</fwb-accordion-header>
       <fwb-accordion-content>
@@ -334,10 +334,10 @@ const panels = ref([
 | activeClass | String \| Object | `''`    |
 
 ### FwbAccordionPanel Events
-| Name | Description                                      |
-| ---- | ------------------------------------------------ |
-| show | Emitted when panel visibility changes to visible |
-| hide | Emitted when panel visibility changes to hidden  |
+| Name | Description                                       |
+| ---- | ------------------------------------------------- |
+| show | Emitted when panel visibility changes to visible. |
+| hide | Emitted when panel visibility changes to hidden.  |
 
 ### FwbAccordionHeader Props
 | Name        | Type             | Default |
