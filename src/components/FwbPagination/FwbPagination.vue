@@ -27,7 +27,30 @@
           :class="getNavigationButtonClasses(1)"
           @click="goToFirstPage"
         >
-          First
+          <slot name="first-icon">
+            <svg
+              stroke="currentColor"
+              fill="none"
+              stroke-width="0"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+              class="h-5 w-5"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m17 14-4-4 4-4m-6 8-4-4 4-4"
+              />
+            </svg>
+          </slot>
+          <template v-if="showLabels">
+            {{ firstLabel }}
+          </template>
         </button>
       </slot>
 
@@ -127,7 +150,30 @@
           :class="getNavigationButtonClasses(computedTotalPages)"
           @click="goToLastPage"
         >
-          Last
+          <template v-if="showLabels">
+            {{ lastLabel }}
+          </template>
+          <slot name="last-icon">
+            <svg
+              stroke="currentColor"
+              fill="none"
+              stroke-width="0"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+              class="h-5 w-5"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m7 14 4-4-4-4m6 8 4-4-4-4"
+              />
+            </svg>
+          </slot>
         </button>
       </slot>
 
@@ -156,6 +202,8 @@ interface IPaginationProps {
   sliceLength?: number
   previousLabel?: string
   nextLabel?: string
+  firstLabel?: string
+  lastLabel?: string
   enableFirstAndLastButtons?: boolean
   showLabels?: boolean
   large?: boolean
@@ -171,6 +219,8 @@ const props = withDefaults(defineProps<IPaginationProps>(), {
   sliceLength: 2,
   previousLabel: 'Prev',
   nextLabel: 'Next',
+  firstLabel: 'First',
+  lastLabel: 'Last',
   enableFirstAndLastButtons: false,
   showLabels: true,
   large: false,
