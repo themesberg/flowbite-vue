@@ -12,20 +12,19 @@
     "src"
   ],
   "type": "module",
-  "main": "./dist/flowbite-vue.umd.js",
-  "module": "./dist/flowbite-vue.mjs",
+  "main": "./dist/flowbite-vue.umd.cjs",
+  "module": "./dist/flowbite-vue.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/flowbite-vue.mjs",
-      "require": "./dist/flowbite-vue.umd.js"
+      "import": "./dist/flowbite-vue.js",
+      "require": "./dist/flowbite-vue.umd.cjs"
     },
-    "./dist/style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    },
-    "./*": "./dist/*"
+    "./style.css": {
+      "import": "./dist/index.css",
+      "require": "./dist/index.css"
+    }
   },
   "scripts": {
     "dev": "vitepress dev docs",
