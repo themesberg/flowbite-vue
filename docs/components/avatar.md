@@ -10,6 +10,7 @@ import FwbAvatarExampleStack from './avatar/examples/FwbAvatarExampleStack.vue'
 import FwbAvatarExampleStatus from './avatar/examples/FwbAvatarExampleStatus.vue'
 import FwbAvatarExampleStatusPosition from './avatar/examples/FwbAvatarExampleStatusPosition.vue'
 </script>
+
 # Vue Avatar - Flowbite
 Use the avatar component to show a visual representation of a user profile using an image element or SVG object based on multiple styles and sizes
 
@@ -165,25 +166,25 @@ Use this example if you want to stack a group of users by overlapping the avatar
 ```vue
 <template>
   <div class="grid gap-2">
-    <stacked-avatars>
+    <fwb-avatar-stack>
       <fwb-avatar img="/images/avatar-1.jpg" rounded stacked />
       <fwb-avatar img="/images/avatar-2.jpg" rounded stacked />
       <fwb-avatar img="/images/avatar-3.jpg" rounded stacked />
       <fwb-avatar img="/images/avatar-4.jpg" rounded stacked />
       <fwb-avatar img="/images/avatar-5.jpg" rounded stacked />
-    </stacked-avatars>
-    <stacked-avatars>
+    <fwb-avatar-stack>
+    </fwb-avatar-stack>
       <fwb-avatar img="/images/avatar-1.jpg" rounded stacked />
       <fwb-avatar img="/images/avatar-2.jpg" rounded stacked />
       <fwb-avatar img="/images/avatar-3.jpg" rounded stacked />
       <fwb-avatar img="/images/avatar-4.jpg" rounded stacked />
-      <stacked-avatars-counter href="#" total="99" />
-    </stacked-avatars>
+      <fwb-avatar-stack-counter href="#" total="99" />
+    </fwb-avatar-stack>
   </div>
 </template>
 
 <script setup>
-import { FwbAvatar } from 'flowbite-vue'
+import { FwbAvatar, FwbAvatarStack, FwbAvatarStackCounter } from 'flowbite-vue'
 </script>
 ```
 
