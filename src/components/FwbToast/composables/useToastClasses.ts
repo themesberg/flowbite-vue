@@ -28,7 +28,7 @@ const wrapperAlignmentClasses: Record<ToastAlign, string> = {
   end: 'items-end',
   start: 'items-start',
 }
-const defaultWrapperClasses = 'flex w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800'
+const defaultWrapperClasses = 'flex w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800'
 
 const defaultContentClasses = 'text-sm font-normal'
 

@@ -13,7 +13,7 @@
         class="relative w-full p-4"
       >
         <!-- Modal content -->
-        <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+        <div class="relative rounded-lg bg-white shadow-sm dark:bg-gray-700">
           <!-- Modal header -->
           <div
             :class="$slots.header ? 'border-b border-gray-200 dark:border-gray-600' : ''"

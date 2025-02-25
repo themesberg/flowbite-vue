@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fwb-button-group inline-flex rounded-md shadow-sm"
+    class="fwb-button-group inline-flex rounded-md shadow-xs"
     role="group"
   >
     <slot />
