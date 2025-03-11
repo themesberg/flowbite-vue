@@ -1,41 +1,79 @@
 <template>
   <div
-    ref="panel"
+    ref="panelRef"
     :data-panel-id="panelId"
+    :class="accordionPanelClasses"
   >
     <slot v-if="accordionId" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { nanoid } from 'nanoid'
-import { useAccordionState } from './composables/useAccordionState'
+import { computed, onMounted, type Ref, ref, watch } from 'vue'
 
-const { accordionsStates } = useAccordionState()
+import { useAccordionPanelClasses } from './composables/useAccordionPanelClasses'
 
+import type { AccordionPanelProps, AccordionState } from '@/components/FwbAccordion/types'
+
+import { useAccordionState } from '@/components/FwbAccordion/composables/useAccordionState'
+
+const props = withDefaults(
+  defineProps<AccordionPanelProps>(), {
+    activeClass: '',
+  },
+)
+
+const {
+  getAccordionState,
+  getAccordionPanelState,
+} = useAccordionState()
+
+const panelRef = ref<HTMLDivElement>()
 const panelId = nanoid()
-const panel = ref()
-const accordionId = computed(() => {
-  if (panel.value) return panel.value.parentElement.dataset.accordionId
-  return null
-})
 
-const accordionState = computed(() => {
-  return accordionsStates[accordionId.value]
+const accordionId = ref()
+const accordionState = ref()
+const accordionPanelState = computed(() =>
+  (accordionState.value)
+    ? getAccordionPanelState({ accordionState: accordionState as Ref<AccordionState>, panelId })
+    : null,
+)
+const accordionPanelClasses = computed(() =>
+  useAccordionPanelClasses({
+    isVisible: accordionPanelState.value?.isVisible ?? false,
+    props,
+  }),
+)
+
+const isPanelVisible = computed(() => accordionPanelState.value?.isVisible)
+
+const emit = defineEmits<{
+  show: []
+  hide: []
+}>()
+
+watch(isPanelVisible, () => {
+  if (isPanelVisible.value) {
+    emit('show')
+  } else {
+    emit('hide')
+  }
 })
 
 onMounted(() => {
-  const panelIndex = Array.from(panel.value.parentElement.children).indexOf(panel.value)
-  accordionState.value.panels[panelId] = {
+  accordionState.value = getAccordionState({ element: panelRef })
+
+  accordionId.value = accordionState.value.id
+
+  const panelIndex = panelRef.value && panelRef.value.parentElement
+    ? Array.from(panelRef.value.parentElement.children).indexOf(panelRef.value)
+    : -1
+
+  accordionState.value.panels.push({
     id: panelId,
+    isVisible: (!accordionState.value.collapsed && panelIndex === 0) ?? false,
     order: panelIndex,
-    isVisible: (accordionState.value.openFirstItem && panelIndex === 0) ?? false,
-  }
-})
-onUnmounted(() => {
-  if (accordionState.value.panels[panelId]) {
-    delete accordionState.value.panels[panelId]
-  }
+  })
 })
 </script>

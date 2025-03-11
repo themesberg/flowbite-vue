@@ -1,6 +1,8 @@
 import { computed, type Ref } from 'vue'
+
 import type { ToastAlign, ToastType } from '../types'
-import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 type UseToastClassesReturns = {
   typeClasses: Ref<string>
@@ -36,15 +38,15 @@ export function useToastClasses (props: UseToastClassesProps): UseToastClassesRe
   const wrapperClasses = computed(() => {
     const alignmentClass = wrapperAlignmentClasses[props.alignment.value]
     if (props.divide.value) {
-      return simplifyTailwindClasses(defaultWrapperClasses, 'dark:divide-gray-700 divide-x divide-gray-200', alignmentClass)
+      return useMergeClasses([defaultWrapperClasses, 'dark:divide-gray-700 divide-x divide-gray-200', alignmentClass])
     }
 
-    return simplifyTailwindClasses(defaultWrapperClasses, alignmentClass)
+    return useMergeClasses([defaultWrapperClasses, alignmentClass])
   })
 
   const contentClasses = computed(() => {
     if (props.type.value !== 'empty' && props.divide.value) {
-      return simplifyTailwindClasses(defaultContentClasses, 'pl-3')
+      return useMergeClasses([defaultContentClasses, 'pl-3'])
     }
 
     return defaultContentClasses

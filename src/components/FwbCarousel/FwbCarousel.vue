@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <!-- Carousel wrapper -->
-    <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+    <div class="relative h-56 overflow-hidden rounded-lg sm:h-64 xl:h-80 2xl:h-96">
       <!-- Item 1 -->
       <!-- duration-700 ease-in-out-->
       <div
@@ -13,14 +13,14 @@
         <img
           :alt="picture.alt"
           :src="picture.src"
-          class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
         >
       </div>
     </div>
     <!-- Slider indicators -->
     <div
       v-if="!noIndicators"
-      class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2"
+      class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3"
     >
       <button
         v-for="(picture, index) in pictures"
@@ -28,7 +28,7 @@
         :aria-label="'Slide ' + index"
         :class="index === currentPicture ? 'bg-white' : 'bg-white/50'"
         aria-current="false"
-        class="w-3 h-3 rounded-full bg-white"
+        class="size-3 rounded-full bg-white"
         type="button"
         @click.prevent="slideTo(index)"
       />
@@ -36,14 +36,14 @@
     <!-- Slider controls -->
     <template v-if="!noControls">
       <button
-        class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+        class="group absolute left-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
         data-carousel-prev
         type="button"
         @click.prevent="previousPicture"
       >
-        <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <span class="inline-flex size-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70 sm:size-10">
           <svg
-            class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+            class="size-5 text-white dark:text-gray-800 sm:size-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -58,14 +58,14 @@
         </span>
       </button>
       <button
-        class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+        class="group absolute right-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
         data-carousel-next
         type="button"
         @click.prevent="nextPicture"
       >
-        <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <span class="inline-flex size-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70 sm:size-10">
           <svg
-            class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+            class="size-5 text-white dark:text-gray-800 sm:size-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -85,6 +85,7 @@
 
 <script lang="ts" setup>
 import { onMounted, type PropType, ref } from 'vue'
+
 import type { PictureItem } from '@/components/FwbCarousel/types'
 
 const props = defineProps({

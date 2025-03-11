@@ -1,12 +1,12 @@
 <template>
   <div class="vp-raw">
     <fwb-footer footer-type="sitemap">
-      <div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
+      <div class="grid grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
         <div>
-          <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">
+          <h2 class="mb-6 text-sm font-semibold uppercase text-gray-400">
             Company
           </h2>
-          <fwb-footer-link-group class="text-gray-300 flex flex-col items-start">
+          <fwb-footer-link-group class="flex flex-col items-start text-gray-300">
             <fwb-footer-link
               class="mb-4"
               href="/"
@@ -37,7 +37,7 @@
           <h2 class="mb-6 text-sm font-semibold uppercase text-gray-400">
             Download
           </h2>
-          <fwb-footer-link-group class="text-gray-300 flex flex-col items-start">
+          <fwb-footer-link-group class="flex flex-col items-start text-gray-300">
             <fwb-footer-link
               class="mb-4"
               href="/"
@@ -68,7 +68,7 @@
           <h2 class="mb-6 text-sm font-semibold uppercase text-gray-400">
             Legal
           </h2>
-          <fwb-footer-link-group class="text-gray-300 flex flex-col items-start">
+          <fwb-footer-link-group class="flex flex-col items-start text-gray-300">
             <fwb-footer-link
               class="mb-4"
               href="/"
@@ -93,7 +93,7 @@
           <h2 class="mb-6 text-sm font-semibold uppercase text-gray-400">
             Download
           </h2>
-          <fwb-footer-link-group class="text-gray-300 flex flex-col items-start">
+          <fwb-footer-link-group class="flex flex-col items-start text-gray-300">
             <fwb-footer-link
               class="mb-4"
               href="/"
@@ -121,20 +121,20 @@
           </fwb-footer-link-group>
         </div>
       </div>
-      <div class="py-6 px-4 bg-gray-700 md:flex md:items-center md:justify-between">
+      <div class="bg-gray-700 px-4 py-6 md:flex md:items-center md:justify-between">
         <fwb-footer-copyright
           by="Flowbite™"
           class="text-sm text-gray-300 sm:text-center"
           href="/"
         />
-        <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0">
+        <div class="mt-4 flex space-x-6 sm:justify-center md:mt-0">
           <fwb-footer-icon
             href="/"
             sr-text="Facebook page"
           >
             <svg
               aria-hidden="true"
-              class="w-4 h-4"
+              class="size-4"
               fill="currentColor"
               viewBox="0 0 8 19"
               xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +152,7 @@
           >
             <svg
               aria-hidden="true"
-              class="w-4 h-4"
+              class="size-4"
               fill="currentColor"
               viewBox="0 0 21 16"
               xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +168,7 @@
           >
             <svg
               aria-hidden="true"
-              class="w-4 h-4"
+              class="size-4"
               fill="currentColor"
               viewBox="0 0 20 17"
               xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +186,7 @@
           >
             <svg
               aria-hidden="true"
-              class="w-4 h-4"
+              class="size-4"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -204,7 +204,7 @@
           >
             <svg
               aria-hidden="true"
-              class="w-4 h-4"
+              class="size-4"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -222,7 +222,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import {
   FwbFooter,
   FwbFooterCopyright,

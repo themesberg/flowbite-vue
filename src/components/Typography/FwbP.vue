@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 interface ParagraphProps {

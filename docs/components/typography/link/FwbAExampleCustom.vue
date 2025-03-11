@@ -1,7 +1,7 @@
 <template>
   <div class="vp-raw">
     <fwb-a
-      class="text-orange-500 italic"
+      class="italic text-orange-500"
       href="#"
     >
       Flowbite-vue
@@ -9,6 +9,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbA } from '../../../../src/'
 </script>

@@ -77,18 +77,21 @@
 
 <script lang="ts" setup>
 import { computed, resolveComponent, toRefs } from 'vue'
-import { useMergeClasses } from '@/composables/useMergeClasses'
-import FwbSpinner from '../FwbSpinner/FwbSpinner.vue'
+
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
+
 import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
 
-interface IButtonProps {
-  class?: string
+import FwbSpinner from '@/components/FwbSpinner/FwbSpinner.vue'
+import { useMergeClasses } from '@/composables/useMergeClasses'
+
+interface ButtonProps {
+  class?: string | object
   color?: ButtonVariant
   gradient?: ButtonGradient | null
   size?: ButtonSize
-  shadow?: ButtonMonochromeGradient | null
+  shadow?: ButtonMonochromeGradient | boolean
   pill?: boolean
   square?: boolean
   outline?: boolean
@@ -98,12 +101,12 @@ interface IButtonProps {
   href?: string
   tag?: string
 }
-const props = withDefaults(defineProps<IButtonProps>(), {
+const props = withDefaults(defineProps<ButtonProps>(), {
   class: '',
   color: 'default',
   gradient: null,
   size: 'md',
-  shadow: null,
+  shadow: false,
   pill: false,
   square: false,
   outline: false,

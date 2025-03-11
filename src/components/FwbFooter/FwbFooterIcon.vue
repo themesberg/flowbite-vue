@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import { useAttrs } from 'vue'
 import { twMerge } from 'tailwind-merge'
+import { useAttrs } from 'vue'
 
 interface IFooterIconProps {
   href?: string

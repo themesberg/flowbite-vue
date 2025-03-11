@@ -5,7 +5,7 @@
         <fwb-timeline-point>
           <svg
             aria-hidden="true"
-            class="w-3 h-3 text-blue-600 dark:text-blue-400"
+            class="size-3 text-blue-600 dark:text-blue-400"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@
         <fwb-timeline-point>
           <svg
             aria-hidden="true"
-            class="w-3 h-3 text-blue-600 dark:text-blue-400"
+            class="size-3 text-blue-600 dark:text-blue-400"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@
         <fwb-timeline-point>
           <svg
             aria-hidden="true"
-            class="w-3 h-3 text-blue-600 dark:text-blue-400"
+            class="size-3 text-blue-600 dark:text-blue-400"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import {
   FwbTimeline,
   FwbTimelineBody,

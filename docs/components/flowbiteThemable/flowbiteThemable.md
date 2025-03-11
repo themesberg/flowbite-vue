@@ -1,7 +1,12 @@
 <script setup>
+import { defineClientComponent } from 'vitepress'
+
 import FlowbiteThemableExampleTabs from './examples/FlowbiteThemableExampleTabs.vue'
 import FlowbiteThemableExampleButton from './examples/FlowbiteThemableExampleButton.vue'
-import FlowbiteThemableExampleDropdown from './examples/FlowbiteThemableExampleDropdown.vue'
+
+const FlowbiteThemableExampleDropdown = defineClientComponent(() => {
+  return import('./examples/FlowbiteThemableExampleDropdown.vue')
+})
 </script>
 
 # Vue Themable Configuration - Flowbite

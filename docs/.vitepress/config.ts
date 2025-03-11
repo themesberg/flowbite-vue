@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 
-function buildSidebar() {
+function buildSidebar () {
   return [
     {
       items: [
@@ -23,7 +23,7 @@ function buildSidebar() {
       collapsible: true,
       items: [
         ...getTypography(),
-      ]
+      ],
     },
     {
       text: 'Utils',
@@ -33,7 +33,7 @@ function buildSidebar() {
   ]
 }
 
-function getComponents() {
+function getComponents () {
   return [
     { text: 'Accordion', link: '/components/accordion' },
     { text: 'Alert', link: '/components/alert' },
@@ -63,7 +63,7 @@ function getComponents() {
   ]
 }
 
-function getFormComponents() {
+function getFormComponents () {
   return [
     { text: 'Input', link: '/components/input' },
     { text: 'File Input', link: '/components/fileInput' },
@@ -76,19 +76,20 @@ function getFormComponents() {
   ]
 }
 
-function getUtils() {
+function getUtils () {
   return [
     { text: 'Flowbite Themable', link: '/components/flowbiteThemable/flowbiteThemable.md' },
     { text: 'Toast Provider', link: '/components/toastProvider/toastProvider.md' },
   ]
 }
 
-function getTypography() {
+function getTypography () {
   return [
+    { text: 'Blockquote', link: '/components/blockquote' },
     { text: 'Heading', link: '/components/heading' },
     { text: 'Paragraph', link: '/components/paragraph' },
     { text: 'Image', link: '/components/image' },
-    { text: 'Link', link: '/components/link' }
+    { text: 'Link', link: '/components/link' },
   ]
 }
 
@@ -98,6 +99,7 @@ function getTypography() {
  */
 export default defineConfig({
   title: 'Flowbite Vue 3',
+  description: 'Flowbite Vue is an open-source UI component library built with Vue components, Tailwind CSS utility classes and based on the Flowbite design system and components.',
   cleanUrls: true,
   head: [
     ['link', { rel: 'icon', type: 'image/svg', href: '/assets/logo.svg' }],
@@ -135,7 +137,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023 Flowbite™',
+      copyright: `Copyright © ${new Date().getFullYear()} Flowbite™`,
     },
   },
 })

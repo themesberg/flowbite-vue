@@ -1,7 +1,7 @@
 <template>
   <div class="vp-raw">
     <span class="">Select theme:</span>
-    <div class="grid xs:grid-cols-5 md:grid-cols-7 mb-5 mt-2">
+    <div class="xs:grid-cols-5 mb-5 mt-2 grid md:grid-cols-7">
       <fwb-radio
         v-model="activeTheme"
         value="blue"
@@ -70,9 +70,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue'
-import { ref } from 'vue'
+import { type PropType, ref } from 'vue'
+
 import { FlowbiteThemable, FwbRadio, FwbTab, FwbTabs } from '../../../../src/index'
+
 import type { TabsVariant } from '../../../../src/components/FwbTabs/types'
 import type { FlowbiteTheme } from '../../../../src/components/utils/FlowbiteThemable/types'
 

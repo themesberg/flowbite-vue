@@ -18,7 +18,7 @@
       </div>
       <svg
         v-else-if="!img && !initials"
-        :class="avatarPlaceholderClasses"
+        :class="avatarPlaceholderIconClasses"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,9 @@
 
 <script lang="ts" setup>
 import { computed, type PropType, ref, toRefs, useSlots } from 'vue'
+
 import type { AvatarSize, AvatarStatus, AvatarStatusPosition } from './types'
+
 import { useAvatarClasses } from '@/components/FwbAvatar/composables/useAvatarClasses'
 
 const imageError = ref(false)
@@ -101,6 +103,7 @@ const {
   avatarClasses,
   avatarDotClasses,
   avatarPlaceholderClasses,
+  avatarPlaceholderIconClasses,
   avatarPlaceholderInitialsClasses,
   avatarPlaceholderWrapperClasses,
 } = useAvatarClasses(toRefs(props))

@@ -8,6 +8,7 @@
       :not-escapable="notEscapable"
       :persistent="persistent"
       :size="size"
+      :position="position"
       @close="closeModal"
     >
       <template #header>
@@ -44,14 +45,17 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbButton, FwbModal } from '../../../../src/index'
-import { type ModalSize } from '../../../../src/components/FwbModal/types'
+
+import type { ModalPosition, ModalSize } from '../../../../src/components/FwbModal/types'
 
 interface ModalProps {
-  size?: ModalSize,
-  notEscapable?: boolean,
-  persistent?: boolean,
+  size?: ModalSize
+  notEscapable?: boolean
+  persistent?: boolean
   triggerText?: string
+  position?: ModalPosition
 }
 
 withDefaults(defineProps<ModalProps>(), {
@@ -59,6 +63,7 @@ withDefaults(defineProps<ModalProps>(), {
   notEscapable: false,
   persistent: false,
   triggerText: 'Open Modal',
+  position: 'center',
 })
 
 const isShowModal = ref(false)

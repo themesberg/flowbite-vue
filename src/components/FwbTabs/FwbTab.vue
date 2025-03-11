@@ -13,6 +13,7 @@
 
 <script lang="ts" setup>
 import { inject } from 'vue'
+
 import {
   TAB_ACTIVE_NAME_INJECTION_KEY,
   TAB_VISIBILITY_DIRECTIVE_INJECTION_KEY,

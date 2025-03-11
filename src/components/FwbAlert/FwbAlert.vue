@@ -11,7 +11,7 @@
         name="icon"
       >
         <svg
-          class="flex-shrink-0 w-5 h-5"
+          class="size-5 shrink-0"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@
       >
         <span class="sr-only">Dismiss</span>
         <svg
-          class="w-5 h-5"
+          class="size-5"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -58,8 +58,9 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, useAttrs } from 'vue'
 import { twMerge } from 'tailwind-merge'
+import { computed, ref, useAttrs } from 'vue'
+
 import type { AlertType } from './types'
 
 interface IAlertProps {
@@ -80,14 +81,12 @@ const props = withDefaults(defineProps<IAlertProps>(), {
   border: false,
 })
 defineSlots<{
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  default: any
+  'default': any
   'close-icon': any
-  icon: any
-  title: any
-  /* eslint-enable @typescript-eslint/no-explicit-any */
+  'icon': any
+  'title': any
 }>()
-const emits = defineEmits<{(e: 'close'): void}>()
+const emits = defineEmits<{ (e: 'close'): void }>()
 
 const attrs = useAttrs()
 const alertTextClasses: Record<AlertType, string> = {
@@ -112,7 +111,7 @@ const closeButtonClasses: Record<AlertType, string> = {
   success: 'text-green-500 dark:text-green-400 bg-green-50 hover:bg-green-200 focus:ring-green-400',
   warning: 'text-yellow-500 dark:text-yellow-300 bg-yellow-50 hover:bg-yellow-200 focus:ring-yellow-400',
 }
-const closeBtnClasses = twMerge(defaultCloseButtonClasses, closeButtonClasses[props.type])
+const closeBtnClasses = computed(() => twMerge(defaultCloseButtonClasses, closeButtonClasses[props.type]))
 const borderColor: Record<AlertType, string> = {
   danger: 'border-red-500 dark:text-red-400',
   dark: 'border-gray-500 dark:text-gray-400',
@@ -127,14 +126,14 @@ const colors = {
   success: [alertTextClasses.success, alertTypeClasses.success].join(' '),
   warning: [alertTextClasses.warning, alertTypeClasses.warning].join(' '),
 }
-const wrapperClasses = twMerge(
+const wrapperClasses = computed(() => twMerge(
   'p-4 gap-3 text-sm dark:bg-gray-800 rounded-lg',
   colors[props.type],
   (props.icon || props.closable) && 'flex items-center',
   borderColor[props.type],
   props.border && 'border',
   attrs.class as string,
-)
+))
 const visible = ref(true)
 
 function onCloseClick () {

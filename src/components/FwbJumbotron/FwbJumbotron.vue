@@ -21,8 +21,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue'
 import { twMerge } from 'tailwind-merge'
+import { computed, useAttrs } from 'vue'
+
 import type { HeaderLevel } from './types'
 
 interface IAlertProps {

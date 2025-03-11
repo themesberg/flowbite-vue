@@ -1,25 +1,39 @@
 <template>
-  <div :data-accordion-id="accordionId">
+  <div
+    :data-accordion-id="accordionId"
+    :class="accordionClasses"
+  >
     <slot />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { nanoid } from 'nanoid'
-import { useAccordionState } from './composables/useAccordionState'
+import { computed } from 'vue'
 
-interface AccordionProps {
-  alwaysOpen?: boolean
-  openFirstItem?: boolean
-  flush?: boolean
-}
+import type { AccordionProps } from '@/components/FwbAccordion/types'
 
-const props = withDefaults(defineProps<AccordionProps>(), {
-  alwaysOpen: false,
-  openFirstItem: true,
-  flush: false,
-})
+import { useAccordionState } from '@/components/FwbAccordion/composables/useAccordionState'
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const accordionId = nanoid()
+
+const props = withDefaults(
+  defineProps<AccordionProps>(), {
+    class: '',
+    collapsed: false,
+    flushed: false,
+    persistent: false,
+  },
+)
+
+const accordionDefaultClasses = 'w-full'
+const userClasses = computed(() => props.class ?? '')
+
+const accordionClasses = computed(() => useMergeClasses([
+  accordionDefaultClasses,
+  userClasses.value as string,
+]))
+
 useAccordionState(accordionId, { ...props })
 </script>

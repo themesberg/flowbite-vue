@@ -4,7 +4,7 @@
       <fwb-list-group-item>
         <template #prefix>
           <svg
-            class="w-4 h-4 fill-current"
+            class="size-4 fill-current"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@
       <fwb-list-group-item>
         <template #prefix>
           <svg
-            class="w-4 h-4 fill-current"
+            class="size-4 fill-current"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@
       <fwb-list-group-item>
         <template #prefix>
           <svg
-            class="w-4 h-4 fill-current"
+            class="size-4 fill-current"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@
       <fwb-list-group-item disabled>
         <template #prefix>
           <svg
-            class="w-4 h-4 fill-current"
+            class="size-4 fill-current"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +61,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbListGroup, FwbListGroupItem } from '../../../../src/index'
 </script>

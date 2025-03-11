@@ -1,6 +1,6 @@
 <template>
   <div class="vp-raw">
-    <div class="flex align-center gap-2 flex-wrap">
+    <div class="flex flex-wrap gap-2">
       <flowbite-themable
         v-for="themeName in themes"
         :key="themeName"
@@ -15,9 +15,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 import { FlowbiteThemable, FwbButton } from '../../../../src/index'
+
 import type { FlowbiteTheme } from '../../../../src/components/utils/FlowbiteThemable/types'
+import type { PropType } from 'vue'
 
 const themes: FlowbiteTheme[] = ['blue', 'green', 'red', 'pink', 'purple']
 

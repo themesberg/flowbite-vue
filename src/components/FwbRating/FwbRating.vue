@@ -28,7 +28,7 @@
     <slot name="besideText" />
     <!-- review link -->
     <template v-if="(reviewText && reviewLink)">
-      <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400" />
+      <span class="mx-1.5 size-1 rounded-full bg-gray-500 dark:bg-gray-400" />
       <a
         :href="reviewLink"
         class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white"
@@ -41,7 +41,9 @@
 
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
+
 import { useRatingClasses } from './composables/useRatingClasses'
+
 import type { RatingSize } from './types'
 
 interface IRatingProps {

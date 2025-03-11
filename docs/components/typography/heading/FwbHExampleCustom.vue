@@ -1,9 +1,9 @@
 <template>
-  <fwb-heading class="underline italic !text-xl">
+  <fwb-heading class="!text-xl italic underline">
     Custom heading
   </fwb-heading>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbHeading } from '../../../../src/'
 </script>

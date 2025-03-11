@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { resolveComponent, useAttrs } from 'vue'
 import { twMerge } from 'tailwind-merge'
+import { resolveComponent, useAttrs } from 'vue'
 
 interface IFooterLinkProps {
   href: string

@@ -2,6 +2,7 @@
 import FwbTooltipExample from './tooltip/examples/FwbTooltipExample.vue'
 import FwbTooltipExamplePosition from './tooltip/examples/FwbTooltipExamplePosition.vue'
 import FwbTooltipExampleStyle from './tooltip/examples/FwbTooltipExampleStyle.vue'
+import FwbTooltipExampleGroup from './tooltip/examples/FwbTooltipExampleGroup.vue'
 import FwbTooltipExampleTrigger from './tooltip/examples/FwbTooltipExampleTrigger.vue'
 </script>
 # Vue Tooltip - Flowbite
@@ -117,6 +118,34 @@ import { FwbButton, FwbTooltip } from 'flowbite-vue'
 </script>
 ```
 
+## Inside of Button Group
+
+You can use the tooltip component inside of the button group component.
+
+<fwb-tooltip-example-group />
+```vue
+<template>
+  <fwb-button-group>
+    <fwb-button>
+      Normal Button
+    </fwb-button>
+    <fwb-tooltip>
+      <template #trigger>
+        <fwb-button>
+          Button With Tooltip
+        </fwb-button>
+      </template>
+      <template #content>
+        Tooltip content
+      </template>
+    </fwb-tooltip>
+  </fwb-button-group>
+</template>
+
+<script setup>
+import { FwbButton, FwbButtonGroup, FwbTooltip } from '../../../../src/index'
+</script>
+```
 
 
 ## triggerType
