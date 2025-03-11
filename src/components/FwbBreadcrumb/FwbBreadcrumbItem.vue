@@ -3,7 +3,7 @@
     <slot name="arrow-icon">
       <svg
         v-if="!home"
-        class="w-6 h-6 text-gray-400 mr-1"
+        class="mr-1 size-6 text-gray-400"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@
       <slot name="home-icon">
         <svg
           v-if="home"
-          class="w-4 h-4 mr-2"
+          class="mr-2 size-4"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -34,6 +34,7 @@
 
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
+
 import { useBreadcrumbItemClasses } from './composables/useBreadcrumbItemClasses'
 
 const props = defineProps({

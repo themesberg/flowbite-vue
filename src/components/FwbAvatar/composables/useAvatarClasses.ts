@@ -1,4 +1,5 @@
 import { computed, type Ref } from 'vue'
+
 import type {
   avatarDotIndicatorPositionClasses,
   AvatarSize,
@@ -6,6 +7,7 @@ import type {
   AvatarStatusPosition,
   AvatarType,
 } from '@/components/FwbAvatar/types'
+
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const avatarSizeClasses: Record<AvatarSize, string> = {
@@ -38,7 +40,8 @@ const avatarStatusDotPositionClasses: Record<avatarDotIndicatorPositionClasses, 
   'bottom-left-default': '-bottom-1.5 left-0 transform -translate-x-1/2 ',
 }
 
-const avatarPlaceholderDefaultClasses = 'absolute w-auto h-auto text-gray-400'
+const avatarPlaceholderDefaultClasses = 'w-auto h-auto text-gray-400'
+const avatarPlaceholderDefaultIconClasses = 'absolute'
 const avatarPlaceholderWrapperDefaultClasses = 'flex overflow-hidden relative justify-center items-center'
 const avatarPlaceholderWrapperBackgroundClasses = 'bg-gray-100 dark:bg-gray-600'
 const avatarPlaceholderInitialsDefaultClasses = 'font-medium text-gray-600 dark:text-gray-300'
@@ -51,22 +54,23 @@ const avatarPlaceholderSizes = {
 }
 
 export type UseAvatarClassesProps = {
-    status: Ref<AvatarStatus>
-    bordered: Ref<boolean>
-    img: Ref<string>
-    alt: Ref<string>
-    rounded: Ref<boolean>
-    size: Ref<AvatarSize>
-    stacked: Ref<boolean>
-    statusPosition: Ref<AvatarStatusPosition>
+  status: Ref<AvatarStatus>
+  bordered: Ref<boolean>
+  img: Ref<string>
+  alt: Ref<string>
+  rounded: Ref<boolean>
+  size: Ref<AvatarSize>
+  stacked: Ref<boolean>
+  statusPosition: Ref<AvatarStatusPosition>
 }
 
 export function useAvatarClasses (props: UseAvatarClassesProps): {
-    avatarClasses: Ref<string>
-    avatarDotClasses: Ref<string>
-    avatarPlaceholderClasses: Ref<string>
-    avatarPlaceholderWrapperClasses: Ref<string>
-    avatarPlaceholderInitialsClasses: Ref<string>
+  avatarClasses: Ref<string>
+  avatarDotClasses: Ref<string>
+  avatarPlaceholderClasses: Ref<string>
+  avatarPlaceholderIconClasses: Ref<string>
+  avatarPlaceholderWrapperClasses: Ref<string>
+  avatarPlaceholderInitialsClasses: Ref<string>
 } {
   const avatarClasses = computed<string>(() =>
     useMergeClasses([
@@ -87,9 +91,17 @@ export function useAvatarClasses (props: UseAvatarClassesProps): {
   const avatarPlaceholderClasses = computed<string>(() =>
     useMergeClasses([
       avatarPlaceholderDefaultClasses,
+    ]),
+  )
+
+  const avatarPlaceholderIconClasses = computed<string>(() =>
+    useMergeClasses([
+      avatarPlaceholderDefaultClasses,
+      avatarPlaceholderDefaultIconClasses,
       avatarPlaceholderSizes[props.size.value],
     ]),
   )
+
   const avatarPlaceholderWrapperClasses = computed<string>(() =>
     useMergeClasses([
       avatarPlaceholderWrapperDefaultClasses,
@@ -109,6 +121,7 @@ export function useAvatarClasses (props: UseAvatarClassesProps): {
     avatarClasses,
     avatarDotClasses,
     avatarPlaceholderClasses,
+    avatarPlaceholderIconClasses,
     avatarPlaceholderInitialsClasses,
     avatarPlaceholderWrapperClasses,
   }

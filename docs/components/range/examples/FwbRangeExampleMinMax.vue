@@ -10,8 +10,9 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbRange } from '../../../../src/index'
 
 const value = ref(10)

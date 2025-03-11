@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw flex justify-center items-center space-x-4">
+  <div class="vp-raw flex items-center justify-center space-x-4">
     <fwb-avatar
       size="xs"
       img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
@@ -23,6 +23,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbAvatar } from '../../../../src/index'
 </script>

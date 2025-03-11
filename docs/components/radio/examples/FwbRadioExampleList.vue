@@ -41,8 +41,9 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbListGroup, FwbListGroupItem, FwbP, FwbRadio } from '../../../../src/index'
 
 const picked = ref('Vue JS')

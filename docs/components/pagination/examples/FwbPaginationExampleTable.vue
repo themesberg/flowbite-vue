@@ -19,6 +19,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbPagination } from '../../../../src/index'
 
 const currentPageA = ref<number>(1)

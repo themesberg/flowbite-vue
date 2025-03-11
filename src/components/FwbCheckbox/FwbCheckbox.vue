@@ -1,5 +1,5 @@
 <template>
-  <label class="flex gap-3 items-center justify-start">
+  <label class="flex items-center justify-start gap-3">
     <input
       v-model="model"
       :class="checkboxClasses"
@@ -16,12 +16,13 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+
 import { useCheckboxClasses } from './composables/useCheckboxClasses'
 
 interface CheckboxProps {
-  disabled?: boolean,
-  label?: string,
-  modelValue?: boolean,
+  disabled?: boolean
+  label?: string
+  modelValue?: boolean
 }
 const props = withDefaults(defineProps<CheckboxProps>(), {
   disabled: false,

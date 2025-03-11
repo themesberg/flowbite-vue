@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import {
   FwbFooter,
   FwbFooterCopyright,

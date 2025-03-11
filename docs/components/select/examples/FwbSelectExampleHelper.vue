@@ -20,6 +20,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbA, FwbSelect } from '../../../../src/index'
 
 const selected = ref('')

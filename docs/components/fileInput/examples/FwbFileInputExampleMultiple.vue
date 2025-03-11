@@ -7,7 +7,7 @@
     />
     <div
       v-if="files.length !== 0"
-      class="mt-4 border-[1px] border-gray-300 dark:border-gray-600 p-2 rounded-md"
+      class="mt-4 rounded-md border border-gray-300 p-2 dark:border-gray-600"
     >
       <div
         v-for="file in files"
@@ -19,8 +19,9 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbFileInput } from '../../../../src/index'
 
 const files = ref([])

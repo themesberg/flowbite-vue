@@ -1,27 +1,30 @@
 <template>
-  <label :class="labelClasses">
+  <label :class="[labelClasses, labelOrder]">
     <input
       v-model="model"
       :disabled="disabled"
-      class="sr-only peer"
+      class="peer sr-only"
       type="checkbox"
     >
     <span :class="[toggleClasses, toggleSize, toggleColor]" />
-    <span :class="toggleBallClasses">{{ label }}</span>
+    <span :class="[toggleBallClasses, toggleBallOrder]">{{ label }}</span>
   </label>
 </template>
 
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
+
 import { useToggleClasses } from './composables/useToggleClasses'
+
 import type { InputSize } from '@/components/FwbInput/types'
 
 interface ToggleProps {
-  color?: string;
-  disabled?: boolean;
-  label?: string;
-  modelValue?: boolean;
-  size?: InputSize;
+  color?: string
+  disabled?: boolean
+  label?: string
+  modelValue?: boolean
+  size?: InputSize
+  reverse?: boolean
 }
 
 const props = withDefaults(defineProps<ToggleProps>(), {
@@ -30,6 +33,7 @@ const props = withDefaults(defineProps<ToggleProps>(), {
   label: '',
   modelValue: false,
   size: 'md',
+  reverse: false,
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -48,5 +52,7 @@ const {
   toggleClasses,
   toggleColor,
   toggleBallClasses,
+  toggleBallOrder,
+  labelOrder,
 } = useToggleClasses(toRefs(props))
 </script>

@@ -10,7 +10,9 @@
       <select
         v-model="model"
         :disabled="disabled"
+        :required="required"
         :class="selectClasses"
+        :autocomplete="autocomplete"
       >
         <option
           disabled
@@ -44,21 +46,25 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { twMerge } from 'tailwind-merge'
+import { computed, toRefs } from 'vue'
+
 import { useSelectClasses } from './composables/useSelectClasses'
-import type { InputSize } from './../FwbInput/types'
 import { type OptionsType, type ValidationStatus, validationStatusMap } from './types'
 
+import type { CommonAutoFill, InputSize } from './../FwbInput/types'
+
 interface InputProps {
-  modelValue?: string;
-  label?: string;
-  options?: OptionsType[];
-  placeholder?: string;
-  disabled?: boolean;
-  underline?: boolean;
-  size?: InputSize;
+  modelValue?: string
+  label?: string
+  options?: OptionsType[]
+  placeholder?: string
+  disabled?: boolean
+  required?: boolean
+  underline?: boolean
+  size?: InputSize
+  autocomplete?: CommonAutoFill
   validationStatus?: ValidationStatus
 }
 const props = withDefaults(defineProps<InputProps>(), {
@@ -67,8 +73,10 @@ const props = withDefaults(defineProps<InputProps>(), {
   options: () => [],
   placeholder: 'Please select one',
   disabled: false,
+  required: false,
   underline: false,
   size: 'md',
+  autocomplete: 'off',
   validationStatus: undefined,
 })
 const emit = defineEmits(['update:modelValue'])

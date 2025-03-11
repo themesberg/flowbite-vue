@@ -18,6 +18,7 @@
 
 <script lang="ts" setup>
 import { toRefs } from 'vue'
+
 import { useListGroupItemClasses } from './composables/useListGroupItemClasses'
 
 const props = defineProps({

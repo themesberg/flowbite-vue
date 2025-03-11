@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, inject, useSlots } from 'vue'
 import classNames from 'classnames'
+import { computed, inject, useSlots } from 'vue'
 
 const slots = useSlots()
 const hasSlot = computed(() => !!slots.default)

@@ -8,6 +8,6 @@
   />
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbImg } from '../../../../src/'
 </script>

@@ -1,5 +1,6 @@
-import { computed, type Ref } from 'vue'
 import classNames from 'classnames'
+import { computed, type Ref } from 'vue'
+
 import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from '../types'
 
 const barColorClasses: Record<ProgressVariant, string> = {
@@ -37,7 +38,7 @@ export type UseProgressClassesProps = {
   labelPosition: Ref<ProgressLabelPosition>
 }
 
-export function useProgressClasses (props: UseProgressClassesProps): { innerClasses: Ref<string>, outerClasses: Ref<string>, outsideLabelClasses: Ref<string>} {
+export function useProgressClasses (props: UseProgressClassesProps): { innerClasses: Ref<string>, outerClasses: Ref<string>, outsideLabelClasses: Ref<string> } {
   const bindClasses = computed(() => {
     return classNames(
       barColorClasses[props.color.value],

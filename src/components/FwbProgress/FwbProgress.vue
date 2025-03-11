@@ -1,7 +1,7 @@
 <template>
   <div>
     <template v-if="label || (labelProgress && labelPosition === 'outside')">
-      <div class="flex justify-between mb-1">
+      <div class="mb-1 flex justify-between">
         <span
           :class="outsideLabelClasses"
           class="text-base font-medium"
@@ -15,12 +15,12 @@
     </template>
     <div
       :class="outerClasses"
-      class="w-full bg-gray-200 rounded-full dark:bg-gray-700"
+      class="w-full rounded-full bg-gray-200 dark:bg-gray-700"
     >
       <div
         :class="innerClasses"
         :style="{ width: progress + '%' }"
-        class="rounded-full font-medium text-blue-100 text-center p-0.5"
+        class="rounded-full p-0.5 text-center font-medium text-blue-100"
       >
         <template v-if="labelProgress && labelPosition === 'inside'">
           {{ progress }}%
@@ -32,7 +32,9 @@
 
 <script lang="ts" setup>
 import { toRefs } from 'vue'
+
 import { useProgressClasses } from './composables/useProgressClasses'
+
 import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from './types'
 
 interface IProgressProps {

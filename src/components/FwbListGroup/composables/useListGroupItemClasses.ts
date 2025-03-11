@@ -1,4 +1,5 @@
 import { computed, type Ref } from 'vue'
+
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 
 const defaultItemClasses = 'inline-flex items-center w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600'
@@ -6,12 +7,12 @@ const hoverItemClasses = 'block w-full px-4 py-2 cursor-pointer hover:bg-gray-10
 const disabledItemClasses = 'bg-gray-100 cursor-not-allowed dark:bg-gray-600 dark:text-gray-400'
 
 export type UseListGroupItemClassesProps = {
-  hover: Ref<boolean>,
-  disabled: Ref<boolean>,
+  hover: Ref<boolean>
+  disabled: Ref<boolean>
 }
 
 export function useListGroupItemClasses (props: UseListGroupItemClassesProps): {
-    itemClasses: Ref<string>,
+  itemClasses: Ref<string>
 } {
   const itemClasses = computed<string>(() => {
     return simplifyTailwindClasses(

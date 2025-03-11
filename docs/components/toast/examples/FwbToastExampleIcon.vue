@@ -1,10 +1,12 @@
 <template>
   <div class="vp-raw grid gap-2">
-    <fwb-toast closable>
+    <fwb-toast
+      closable
+      type="danger"
+    >
       <template #icon>
         <svg
-          class="bi bi-mouse"
-          fill="#fff"
+          fill="currentColor"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -15,11 +17,13 @@
       </template>
       Scroll down to see more examples.
     </fwb-toast>
-    <fwb-toast closable>
+    <fwb-toast
+      closable
+      type="warning"
+    >
       <template #icon>
         <svg
-          class="bi bi-person-plus"
-          fill="#fff"
+          fill="currentColor"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -40,7 +44,6 @@
     >
       <template #icon>
         <svg
-          class="bi bi-earbuds"
           fill="currentColor"
           height="16"
           viewBox="0 0 16 16"
@@ -58,6 +61,6 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { FwbToast } from '../../../../src/index'
 </script>

@@ -8,8 +8,9 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue'
+
 import { FwbCheckbox } from '../../../../src/index'
 
 const check = ref(false)

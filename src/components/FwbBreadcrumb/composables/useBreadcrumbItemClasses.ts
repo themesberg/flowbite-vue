@@ -1,5 +1,5 @@
-import { computed, type Ref } from 'vue'
 import classNames from 'classnames'
+import { computed, type Ref } from 'vue'
 
 const breadcrumbItemDefaultClasses = 'ml-1 inline-flex items-center text-sm font-medium dark:text-gray-400'
 const breadcrumbItemLinkClasses = 'text-gray-700 hover:text-gray-900 dark:hover:text-white'

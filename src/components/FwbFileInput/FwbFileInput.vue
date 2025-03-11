@@ -28,7 +28,7 @@
         <div :class="dropzoneWrapClasses">
           <svg
             aria-hidden="true"
-            class="w-8 h-8 text-gray-500 dark:text-gray-400"
+            class="size-8 text-gray-500 dark:text-gray-400"
             fill="none"
             viewBox="0 0 20 16"
             xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +62,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { isArray } from 'lodash-es'
+import { computed } from 'vue'
+
 import { useFileInputClasses } from './composables/useFileInputClasses'
 
 interface FileInputProps {
@@ -86,10 +87,10 @@ const props = withDefaults(defineProps<FileInputProps>(), {
 
 const dropZoneText = computed(() => {
   if (isArray(props.modelValue)) {
-    return props.modelValue.map((el) => el.name).join(', ')
+    return props.modelValue.map(el => el.name).join(', ')
   } else if (props.modelValue instanceof FileList) {
     return Array.from(props.modelValue)
-      .map((el) => el.name)
+      .map(el => el.name)
       .join(',')
   } else if (props.modelValue instanceof File) {
     return props.modelValue.name || ''

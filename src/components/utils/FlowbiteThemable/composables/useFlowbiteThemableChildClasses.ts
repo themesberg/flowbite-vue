@@ -1,15 +1,16 @@
 import { computed, type Ref } from 'vue'
-import type { ThemableChildrenApply } from '../types'
+
 import { useFlowbiteThemable } from './useFlowbiteThemable'
-import type { FlowbiteTheme } from '@/components/utils/FlowbiteThemable/types'
+
+import type { FlowbiteTheme, ThemableChildrenApply } from '../types'
 
 type UseFlowbiteThemableChildReturns = {
-    classes: Ref<string>
+  classes: Ref<string>
 }
 
 type UseFlowbiteThemableChildProps = {
-    apply: Ref<ThemableChildrenApply[]>
-    theme?: Ref<FlowbiteTheme | undefined>
+  apply: Ref<ThemableChildrenApply[]>
+  theme?: Ref<FlowbiteTheme | undefined>
 }
 
 export function useFlowbiteThemableChildClasses (props: UseFlowbiteThemableChildProps): UseFlowbiteThemableChildReturns {

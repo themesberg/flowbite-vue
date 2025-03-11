@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+
 import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
 
 // LABEL

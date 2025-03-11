@@ -1,23 +1,75 @@
-export type tAccordionMode = 'flush' | 'alwaysOpen' | 'default'
+import type { Ref } from 'vue'
 
-export type tAccordionPanel = {
-  order: number
+interface AccordionProps {
+  class?: string | object
+  collapsed?: boolean
+  flushed?: boolean
+  persistent?: boolean
+}
+
+interface AccordionState extends AccordionProps {
+  id: string
+  panels: AccordionPanel[]
+}
+
+interface AccordionStates {
+  [key: string]: AccordionState
+}
+
+interface AccordionPanelProps {
+  activeClass?: string | object
+}
+
+interface AccordionPanel {
   id: string
   isVisible: boolean
+  order: number
 }
 
-type tAccordionPanels = {
-  [key: string]: tAccordionPanel
+interface GetAccordionStateAttributes {
+  element: Ref<HTMLElement | undefined>
 }
 
-type tStateElement = {
-  id: string
-  flush: boolean
-  alwaysOpen: boolean
-  openFirstItem: boolean
-  panels: tAccordionPanels
+interface GetAccordionState {
+  (attributes: GetAccordionStateAttributes): AccordionState | null
 }
 
-export type tState = {
-  [key: string]: tStateElement
+interface GetAccordionPanelStateAttributes {
+  accordionState: Ref<AccordionState>
+  panelId: string
+}
+
+interface GetAccordionPanelState {
+  ({ accordionState, panelId }: GetAccordionPanelStateAttributes): AccordionPanel | null
+}
+
+interface UseAccordionState {
+  (accordionId?: string, options?: AccordionProps): {
+    accordionStates: AccordionStates
+    getAccordionState: GetAccordionState
+    getAccordionPanelState: GetAccordionPanelState
+  }
+}
+
+interface AccordionHeaderProps {
+  activeClass?: string | object
+  class?: string | object
+}
+
+interface AccordionContentProps {
+  activeClass?: string | object
+  class?: string | object
+}
+
+export type {
+  AccordionContentProps,
+  AccordionHeaderProps,
+  AccordionPanel,
+  AccordionPanelProps,
+  AccordionProps,
+  AccordionState,
+  AccordionStates,
+  GetAccordionPanelState,
+  GetAccordionState,
+  UseAccordionState,
 }

@@ -17,7 +17,9 @@
 
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
+
 import { useRangeClasses } from './composables/useRangeClasses'
+
 import type { InputSize } from '@/components/FwbInput/types'
 
 interface RangeProps {

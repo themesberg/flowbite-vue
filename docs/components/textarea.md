@@ -96,12 +96,19 @@ const message = ref('')
 </script>
 ```
 
-## Disabled / Readonly Textarea
+## Disabled / Readonly Textarea / Max-Min Length
 
 <fwb-textarea-example-disabled />
 ```vue
 <template>
   <div>
+    <fwb-textarea
+      v-model="message"
+      label="Textarea with minlength 10 and maxlength 20"
+      minlength="10"
+      maxlength="20"
+      required
+    />
     <fwb-textarea
       v-model="message"
       label="Your message"

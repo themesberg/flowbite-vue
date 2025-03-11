@@ -1,5 +1,6 @@
-import { computed, type Ref } from 'vue'
 import classNames from 'classnames'
+import { computed, type Ref } from 'vue'
+
 import type { RatingSize } from '../types'
 
 const ratingSizeClasses: Record<RatingSize, string> = {
@@ -12,7 +13,7 @@ export type UseRatingClassesProps = {
   size: Ref<RatingSize>
 }
 
-export function useRatingClasses (props: UseRatingClassesProps):{
+export function useRatingClasses (props: UseRatingClassesProps): {
   sizeClasses: Ref<string>
 } {
   const sizeClasses = computed(() => classNames(
