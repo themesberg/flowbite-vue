@@ -2,13 +2,18 @@
   <div class="vp-raw flex flex-col items-center gap-4">
     <fwb-pagination
       v-model="currentPage"
-      :total-items="100"
+      :layout="'navigation'"
+      :total-pages="100"
+      show-icons
     />
     <fwb-pagination
       v-model="currentPage"
-      :total-items="100"
+      :layout="'navigation'"
+      :total-pages="100"
+      show-icons
       large
     />
+    <span class="" />
   </div>
 </template>
 

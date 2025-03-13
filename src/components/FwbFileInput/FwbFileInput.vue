@@ -4,10 +4,10 @@
       <label>
         <span :class="labelClasses">{{ label }}</span>
         <input
+          :accept="accept"
           :class="fileInpClasses"
           :multiple="multiple"
           type="file"
-          :accept="accept"
           @change="handleChange"
         >
       </label>
@@ -15,11 +15,15 @@
     </div>
     <div
       v-else
-      class="flex items-center justify-center"
+      class="flex flex-col items-start justify-center"
       @change="handleChange"
       @dragover="dragOverHandler"
       @drop="dropFileHandler"
     >
+      <span
+        v-if="label !== ''"
+        :class="labelClasses"
+      >{{ label }}</span>
       <label :class="dropzoneLabelClasses">
         <div :class="dropzoneWrapClasses">
           <svg
@@ -47,10 +51,10 @@
           <p v-else>File: {{ dropZoneText }}</p>
         </div>
         <input
-          :multiple="multiple"
-          type="file"
           :accept="accept"
+          :multiple="multiple"
           class="hidden"
+          type="file"
         >
       </label>
     </div>
@@ -64,21 +68,21 @@ import { computed } from 'vue'
 import { useFileInputClasses } from './composables/useFileInputClasses'
 
 interface FileInputProps {
+  accept?: string
   dropzone?: boolean
   label?: string
   modelValue?: File | File[] | null
   multiple?: boolean
   size?: string
-  accept?: string
 }
 
 const props = withDefaults(defineProps<FileInputProps>(), {
+  accept: '',
   dropzone: false,
   label: '',
   modelValue: null,
   multiple: false,
   size: 'sm',
-  accept: '',
 })
 
 const dropZoneText = computed(() => {
@@ -118,20 +122,22 @@ const dropFileHandler = (event: DragEvent) => {
   event.preventDefault()
   const arr: File[] = []
   if (event.dataTransfer?.items) {
-    Object.values(event.dataTransfer.items).forEach((item: DataTransferItem) => {
-      if (item.kind === 'file') {
-        arr.push(item.getAsFile() as File)
-      }
-    })
+    Object.values(event.dataTransfer.items)
+      .forEach((item: DataTransferItem) => {
+        if (item.kind === 'file') {
+          arr.push(item.getAsFile() as File)
+        }
+      })
     if (props.multiple) {
       model.value = arr
     } else {
       model.value = arr[0]
     }
   } else if (event.dataTransfer?.files) {
-    Object.values(event.dataTransfer.files).forEach((file: File) => {
-      model.value = file
-    })
+    Object.values(event.dataTransfer.files)
+      .forEach((file: File) => {
+        model.value = file
+      })
   }
 }
 
@@ -140,10 +146,10 @@ const dragOverHandler = (event: Event) => {
 }
 
 const {
+  dropzoneLabelClasses,
+  dropzoneTextClasses,
+  dropzoneWrapClasses,
   fileInpClasses,
   labelClasses,
-  dropzoneLabelClasses,
-  dropzoneWrapClasses,
-  dropzoneTextClasses,
 } = useFileInputClasses(props.size)
 </script>
