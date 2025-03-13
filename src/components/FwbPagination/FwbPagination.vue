@@ -19,7 +19,7 @@
       <slot name="start" />
 
       <slot
-        v-if="enableFirstAndLastButtons"
+        v-if="enableFirstLast"
         name="first-button"
       >
         <button
@@ -48,7 +48,7 @@
               />
             </svg>
           </slot>
-          <template v-if="showLabels">
+          <template v-if="!hideLabels">
             {{ firstLabel }}
           </template>
         </button>
@@ -84,7 +84,7 @@
               />
             </svg>
           </slot>
-          <template v-if="showLabels">
+          <template v-if="!hideLabels">
             {{ previousLabel }}
           </template>
         </button>
@@ -115,7 +115,7 @@
           :class="getNavigationButtonClasses(modelValue + 1)"
           @click="increasePage"
         >
-          <template v-if="showLabels">
+          <template v-if="!hideLabels">
             {{ nextLabel }}
           </template>
           <slot name="next-icon">
@@ -142,7 +142,7 @@
       </slot>
 
       <slot
-        v-if="enableFirstAndLastButtons"
+        v-if="enableFirstLast"
         name="last-button"
       >
         <button
@@ -150,7 +150,7 @@
           :class="getNavigationButtonClasses(computedTotalPages)"
           @click="goToLastPage"
         >
-          <template v-if="showLabels">
+          <template v-if="!hideLabels">
             {{ lastLabel }}
           </template>
           <slot name="last-icon">
@@ -204,8 +204,8 @@ interface IPaginationProps {
   nextLabel?: string
   firstLabel?: string
   lastLabel?: string
-  enableFirstAndLastButtons?: boolean
-  showLabels?: boolean
+  enableFirstLast?: boolean
+  hideLabels?: boolean
   large?: boolean
 }
 
@@ -221,8 +221,8 @@ const props = withDefaults(defineProps<IPaginationProps>(), {
   nextLabel: 'Next',
   firstLabel: 'First',
   lastLabel: 'Last',
-  enableFirstAndLastButtons: false,
-  showLabels: true,
+  enableFirstLast: false,
+  hideLabels: false,
   large: false,
 })
 defineSlots<{
