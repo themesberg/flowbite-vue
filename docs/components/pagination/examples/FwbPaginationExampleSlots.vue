@@ -3,7 +3,7 @@
     <fwb-pagination
       v-model="currentPage"
       :total-items="100"
-      :show-labels="false"
+      hide-labels
     >
       <template #prev-icon>
         ⬅️

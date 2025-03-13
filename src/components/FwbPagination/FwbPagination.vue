@@ -19,7 +19,7 @@
       <slot name="start" />
 
       <slot
-        v-if="enableFirstAndLastButtons"
+        v-if="enableFirstLast"
         name="first-button"
       >
         <button
@@ -34,7 +34,7 @@
               stroke-width="0"
               viewBox="0 0 20 20"
               aria-hidden="true"
-              class="h-5 w-5"
+              class="size-5"
               height="1em"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@
               />
             </svg>
           </slot>
-          <template v-if="showLabels">
+          <template v-if="!hideLabels">
             {{ firstLabel }}
           </template>
         </button>
@@ -84,7 +84,7 @@
               />
             </svg>
           </slot>
-          <template v-if="showLabels">
+          <template v-if="!hideLabels">
             {{ previousLabel }}
           </template>
         </button>
@@ -115,7 +115,7 @@
           :class="getNavigationButtonClasses(modelValue + 1)"
           @click="increasePage"
         >
-          <template v-if="showLabels">
+          <template v-if="!hideLabels">
             {{ nextLabel }}
           </template>
           <slot name="next-icon">
@@ -142,7 +142,7 @@
       </slot>
 
       <slot
-        v-if="enableFirstAndLastButtons"
+        v-if="enableFirstLast"
         name="last-button"
       >
         <button
@@ -150,7 +150,7 @@
           :class="getNavigationButtonClasses(computedTotalPages)"
           @click="goToLastPage"
         >
-          <template v-if="showLabels">
+          <template v-if="!hideLabels">
             {{ lastLabel }}
           </template>
           <slot name="last-icon">
@@ -160,7 +160,7 @@
               stroke-width="0"
               viewBox="0 0 20 20"
               aria-hidden="true"
-              class="h-5 w-5"
+              class="size-5"
               height="1em"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -183,10 +183,11 @@
 </template>
 
 <script lang="ts" setup>
-import { twMerge } from 'tailwind-merge'
 import { computed } from 'vue'
 
 import type { PaginationLayout } from './types'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const emit = defineEmits<{
   'update:model-value': [page: number]
@@ -204,8 +205,8 @@ interface IPaginationProps {
   nextLabel?: string
   firstLabel?: string
   lastLabel?: string
-  enableFirstAndLastButtons?: boolean
-  showLabels?: boolean
+  enableFirstLast?: boolean
+  hideLabels?: boolean
   large?: boolean
 }
 
@@ -221,19 +222,21 @@ const props = withDefaults(defineProps<IPaginationProps>(), {
   nextLabel: 'Next',
   firstLabel: 'First',
   lastLabel: 'Last',
-  enableFirstAndLastButtons: false,
-  showLabels: true,
+  enableFirstLast: false,
+  hideLabels: false,
   large: false,
 })
 defineSlots<{
   'start': any
+  'first-icon': any
   'first-button': any
-  'prev-button': any
   'prev-icon': any
+  'prev-button': any
   'page-button': any
   'next-button': any
   'next-icon': any
   'last-button': any
+  'last-icon': any
   'end': any
 }>()
 function setPage (index: number) {
@@ -258,13 +261,10 @@ function goToLastPage () {
   emit('page-changed', lastPage)
 }
 
-const computedTotalPages = computed(() => {
-  if (props.totalPages) return props.totalPages
-  return Math.ceil(props.totalItems / props.perPage)
-})
-
+const computedTotalPages = computed(() => props.totalPages ? props.totalPages : Math.ceil(props.totalItems / props.perPage))
 const isDecreaseDisabled = computed(() => props.modelValue <= 1)
 const isIncreaseDisabled = computed(() => props.modelValue >= computedTotalPages.value)
+
 const isSetPageDisabled = (index: number) => index === props.modelValue
 
 const pagesToDisplay = computed(() => {
@@ -318,28 +318,31 @@ const computedTotalItems = computed(() => {
 const isFirstPage = computed(() => props.modelValue === 1)
 const isLastPage = computed(() => props.modelValue === computedTotalPages.value)
 
-function getPageButtonClasses (active: boolean) {
-  const baseClasses
-    = 'flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-  const activeClasses = 'text-blue-600 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:bg-gray-700 dark:text-white'
-  const largeClasses = 'px-4 h-10'
-  return twMerge(baseClasses, active && activeClasses, props.large && largeClasses)
-}
-function getNavigationButtonClasses (toPage: number) {
-  const baseClasses
-    = 'flex items-center justify-center first:rounded-l-lg last:rounded-r-lg px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-  const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed'
-  const largeClasses = 'px-4 h-10'
-  const tableClasses
-    = 'border-none text-white hover:text-white bg-gray-800 rounded-none first:rounded-l last:rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-  return twMerge(
-    baseClasses,
-    toPage === props.modelValue && disabledClasses,
-    props.large && largeClasses,
-    (toPage > computedTotalPages.value || toPage < 1) && disabledClasses,
-    props.layout === 'navigation' && 'first:mr-3',
-    (props.layout === 'navigation' || props.layout === 'table') && 'rounded-lg',
-    props.layout === 'table' && tableClasses,
+const pageButtonClasses = 'flex h-8 items-center justify-center border border-r-0 border-gray-300 bg-white px-3 text-sm leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+const navigationButtonClasses = 'ml-0 flex h-8 items-center justify-center gap-1 border border-gray-300 bg-white px-3 leading-tight text-gray-500 first:rounded-l-lg last:rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+const tableLayoutClasses = 'rounded-none border-none bg-gray-800 text-white first:rounded-l last:rounded-r hover:bg-gray-900 hover:text-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+
+const activeClasses = 'bg-blue-50 text-blue-600 hover:bg-blue-100 hover:text-blue-700 dark:bg-gray-700 dark:text-white'
+const disabledClasses = 'disabled:cursor-not-allowed disabled:opacity-50'
+const largeClasses = 'h-10 px-4'
+
+const getPageButtonClasses = (active: boolean) =>
+  useMergeClasses(
+    [
+      pageButtonClasses,
+      active ? activeClasses : '',
+      props.large ? largeClasses : '',
+    ],
   )
-}
+
+const getNavigationButtonClasses = (toPage: number) =>
+  useMergeClasses(
+    [
+      navigationButtonClasses,
+      props.layout === 'table' ? tableLayoutClasses : '',
+      props.layout === 'navigation' ? '[&:not(:last-child)]:mr-3 rounded-lg' : '[&:not(:last-child)]:border-r-0',
+      (toPage === props.modelValue || toPage > computedTotalPages.value || toPage < 1) ? disabledClasses : '',
+      props.large ? largeClasses : '',
+    ],
+  )
 </script>
