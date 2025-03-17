@@ -5,7 +5,7 @@
 
 export default {
   plugins: {
-    'tailwindcss': {},
+    '@tailwindcss/postcss': {},
     'postcss-prefix-selector': {
       prefix: ':not(:where(.vp-raw *))',
       includeFiles: [/vp-doc\.css/],

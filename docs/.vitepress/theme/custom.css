@@ -1,0 +1,11 @@
+/* .vitepress/theme/custom.css */
+@layer theme, base, components, utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import 'tailwindcss/theme.css' layer(theme) source(none);
+@import 'tailwindcss/utilities.css';
+
+@source '../../../';
+
+@import './clear.css';

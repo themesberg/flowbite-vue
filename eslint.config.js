@@ -2,7 +2,6 @@ import pluginJs from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
 import importPlugin from 'eslint-plugin-import'
-import tailwind from 'eslint-plugin-tailwindcss'
 import unusedImports from 'eslint-plugin-unused-imports'
 import pluginVue from 'eslint-plugin-vue'
 import * as pluginVueScopedCss from 'eslint-plugin-vue-scoped-css'
@@ -31,20 +30,6 @@ const baseConfig = [
     },
   },
   pluginJs.configs.recommended,
-]
-
-const tailwindConfig = [
-  ...tailwind.configs['flat/recommended'],
-  {
-    settings: {
-      tailwindcss: {
-        whitelist: [
-          'vp-raw',
-          '^fwb\\-.*$', // Whitelist all classnames that start with "fwb-"
-        ],
-      },
-    },
-  },
 ]
 
 const vueConfig = [
@@ -179,7 +164,6 @@ const typeScriptConfig = [
 
 export default [
   ...baseConfig,
-  ...tailwindConfig,
   ...vueConfig,
   ...vueScopedCssConfig,
   ...standardConfig,

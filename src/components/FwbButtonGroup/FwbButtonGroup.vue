@@ -8,6 +8,8 @@
 </template>
 
 <style>
+@reference "../../style.css";
+
 .fwb-button-group > button,
 .fwb-button-group > .fwb-dropdown button,
 .fwb-button-group > .fwb-tooltip button {
