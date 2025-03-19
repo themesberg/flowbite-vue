@@ -6,7 +6,7 @@ import type { DropdownAlignment, DropdownPlacement } from '../types'
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const defaultWrapperClasses = 'fwb-dropdown inline-flex relative'
-const defaultContentWrapperClasses = 'absolute z-10 bg-white rounded shadow dark:bg-gray-700'
+const defaultContentWrapperClasses = 'absolute z-10 bg-white rounded shadow-sm dark:bg-gray-700'
 const defaultGapInPx = 8
 
 const contentWrapperAlignmentClasses: Record<DropdownAlignment, string> = {

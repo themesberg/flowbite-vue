@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fwb-button-group inline-flex rounded-md shadow-sm"
+    class="fwb-button-group inline-flex rounded-md shadow-xs"
     role="group"
   >
     <slot />
@@ -8,6 +8,8 @@
 </template>
 
 <style>
+@reference "../../style.css";
+
 .fwb-button-group > button,
 .fwb-button-group > .fwb-dropdown button,
 .fwb-button-group > .fwb-tooltip button {
