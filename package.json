@@ -21,10 +21,7 @@
       "import": "./dist/flowbite-vue.js",
       "require": "./dist/flowbite-vue.umd.cjs"
     },
-    "./style.css": {
-      "import": "./dist/index.css",
-      "require": "./dist/index.css"
-    }
+    "./index.css": "./dist/index.css"
   },
   "scripts": {
     "dev": "vitepress dev docs",
