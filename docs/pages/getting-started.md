@@ -1,5 +1,5 @@
 <script setup>
-import { FwbAlert } from 'flowbite-vue'
+import { FwbAlert } from '../../src/index'
 </script>
 
 # Flowbite Vue - Quickstart
