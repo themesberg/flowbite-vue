@@ -104,6 +104,75 @@ const name = ref('')
 </script>
 ```
 
+## Error Messages
+
+- Set validation status via `validationStatus` prop, which accepts `'success'` or `'error'`.
+- Add error messages directly via `error-message` prop.
+- Add success messages directly via `success-message` prop.
+- Control visibility of messages with the `hide-details` prop.
+
+<fwb-input-example-error-message />
+```vue
+<template>
+  <!-- Direct error message prop -->
+  <fwb-input
+    v-model="username"
+    label="Username"
+    placeholder="Enter your username"
+    validation-status="error"
+    error-message="This username is already taken"
+  />
+  
+  <!-- Direct success message prop -->
+  <fwb-input
+    v-model="email"
+    label="Email"
+    placeholder="Enter your email"
+    validation-status="success"
+    success-message="Email format is valid"
+  />
+  
+  <!-- Form validation example -->
+  <fwb-input
+    v-model="password"
+    type="password"
+    label="Password"
+    placeholder="Enter your password"
+    :validation-status="passwordError ? 'error' : 'success'"
+    :error-message="passwordError"
+    :success-message="passwordError ? '' : 'Password meets requirements'"
+  />
+  
+  <!-- Hide details example -->
+  <fwb-input
+    v-model="phone"
+    label="Phone Number"
+    placeholder="Enter your phone number"
+    validation-status="error"
+    error-message="Please enter a valid phone number"
+    hide-details
+  />
+</template>
+
+<script lang="ts" setup>
+import { computed, ref } from 'vue'
+import { FwbInput } from 'flowbite-vue'
+
+// Form values
+const username = ref('')
+const email = ref('')
+const password = ref('')
+const phone = ref('')
+
+// Form validation
+const passwordError = computed(() => {
+  if (!password.value) return 'Password is required'
+  if (password.value.length < 8) return 'Password must be at least 8 characters'
+  return ''
+})
+</script>
+```
+
 ## Extra CSS classes
 
 Sometimes it is required to add some customization to the input or the input wrapper.
@@ -243,73 +312,5 @@ import { ref } from 'vue'
 import { FwbInput } from 'flowbite-vue'
 
 const email = ref('')
-</script>
-```
-## Error Messages
-
-- Set validation status via `validationStatus` prop, which accepts `'success'` or `'error'`.
-- Add error messages directly via `error-message` prop.
-- Add success messages directly via `success-message` prop.
-- Control visibility of messages with the `hide-details` prop.
-
-<fwb-input-example-error-message />
-```vue
-<template>
-  <!-- Direct error message prop -->
-  <fwb-input
-    v-model="username"
-    label="Username"
-    placeholder="Enter your username"
-    validation-status="error"
-    error-message="This username is already taken"
-  />
-  
-  <!-- Direct success message prop -->
-  <fwb-input
-    v-model="email"
-    label="Email"
-    placeholder="Enter your email"
-    validation-status="success"
-    success-message="Email format is valid"
-  />
-  
-  <!-- Form validation example -->
-  <fwb-input
-    v-model="password"
-    type="password"
-    label="Password"
-    placeholder="Enter your password"
-    :validation-status="passwordError ? 'error' : 'success'"
-    :error-message="passwordError"
-    :success-message="passwordError ? '' : 'Password meets requirements'"
-  />
-  
-  <!-- Hide details example -->
-  <fwb-input
-    v-model="phone"
-    label="Phone Number"
-    placeholder="Enter your phone number"
-    validation-status="error"
-    error-message="Please enter a valid phone number"
-    hide-details
-  />
-</template>
-
-<script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { FwbInput } from 'flowbite-vue'
-
-// Form values
-const username = ref('')
-const email = ref('')
-const password = ref('')
-const phone = ref('')
-
-// Form validation
-const passwordError = computed(() => {
-  if (!password.value) return 'Password is required'
-  if (password.value.length < 8) return 'Password must be at least 8 characters'
-  return ''
-})
 </script>
 ```
