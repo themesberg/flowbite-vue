@@ -7,6 +7,7 @@ import FwbPaginationExampleSlots from './pagination/examples/FwbPaginationExampl
 import FwbPaginationExampleTable from './pagination/examples/FwbPaginationExampleTable.vue';
 import FwbPaginationExampleCustomLength from './pagination/examples/FwbPaginationExampleCustomLength.vue';
 import FwbPaginationExampleCustomLabels from './pagination/examples/FwbPaginationExampleCustomLabels.vue';
+import FwbPaginationExampleFirstLast from './pagination/examples/FwbPaginationExampleFirstLast.vue';
 </script>
 
 # Vue Pagination - Flowbite
@@ -144,6 +145,40 @@ import { ref } from 'vue'
 const currentPage = ref(1)
 </script>
 ```
+
+## First and last
+
+<fwb-pagination-example-first-last />
+```vue
+<template>
+  <fwb-pagination
+    v-model="currentPage"
+    :total-pages="100"
+    enable-first-last
+  />
+  <fwb-pagination
+    v-model="currentPage"
+    :total-pages="100"
+    large
+    enable-first-last
+  />
+  <fwb-pagination
+    v-model="currentPage"
+    :total-pages="100"
+    large
+    enable-first-last
+    show-icons
+  />
+</template>
+
+<script setup>
+import { FwbPagination } from 'flowbite-vue'
+import { ref } from 'vue'
+
+const currentPage = ref(1)
+</script>
+```
+
 
 ## Table data pagination
 You can use the following markup to show the number of data shown inside a table element and also the previous and next action buttons.
