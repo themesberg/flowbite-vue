@@ -1,12 +1,12 @@
 <script setup>
 import FwbInputExample from './input/examples/FwbInputExample.vue'
-import FwbInputExampleSize from './input/examples/FwbInputExampleSize.vue'
 import FwbInputExampleDisabled from './input/examples/FwbInputExampleDisabled.vue'
 import FwbInputExampleHelper from './input/examples/FwbInputExampleHelper.vue'
-import FwbInputExampleBlockClasses from './input/examples/FwbInputExampleBlockClasses.vue'
 import FwbInputExamplePrefix from './input/examples/FwbInputExamplePrefix.vue'
-import FwbInputExampleSuffix from './input/examples/FwbInputExampleSuffix.vue'
 import FwbInputExampleRequired from './input/examples/FwbInputExampleRequired.vue'
+import FwbInputExampleSize from './input/examples/FwbInputExampleSize.vue'
+import FwbInputExampleStyling from './input/examples/FwbInputExampleStyling.vue'
+import FwbInputExampleSuffix from './input/examples/FwbInputExampleSuffix.vue'
 import FwbInputExampleValidation from './input/examples/FwbInputExampleValidation.vue'
 </script>
 
@@ -93,33 +93,6 @@ const name = ref('')
     label="First name"
     placeholder="enter your first name"
     required
-  />
-</template>
-
-<script setup>
-import { ref } from 'vue'
-import { FwbInput } from 'flowbite-vue'
-
-const name = ref('')
-</script>
-```
-
-## Extra CSS classes
-
-Sometimes it is required to add some customization to the input or the input wrapper.
-By default, `class` attribute is bound to the input element. To customize the input wrapper you can use the `block-classes` property.
-It accepts the values as the `class` attribute
-
-<fwb-input-example-block-classes />
-```vue
-<template>
-  <fwb-input
-    v-model="name"
-    label="First name"
-    placeholder="enter your first name"
-    required
-    class="bg-green-200"
-    block-classes="border-2 border-green-500 p-2 rounded-lg"
   />
 </template>
 
@@ -218,22 +191,26 @@ const query = ref('')
 ```vue
 <template>
   <fwb-input
-    v-model="email"
+    v-model="name"
+    label="Your name"
+    placeholder="Success input"
     required
-    placeholder="enter your email address"
-    label="Email"
     validation-status="success"
-  />
+  >
+    <template #validationMessage>
+      <span class="font-medium">Well done!</span> Some success message.
+    </template>
+  </fwb-input>
   <hr class="mt-4 border-0">
   <fwb-input
-    v-model="email"
+    v-model="name"
+    label="Your name"
+    placeholder="Error input"
     required
-    placeholder="enter your email address"
-    label="Email"
     validation-status="error"
   >
     <template #validationMessage>
-      Please enter a valid email address
+      <span class="font-medium">Oh, snapp!</span> Some error message.
     </template>
   </fwb-input>
 </template>
@@ -245,3 +222,41 @@ import { FwbInput } from 'flowbite-vue'
 const email = ref('')
 </script>
 ```
+
+## Styling Inputs
+
+Use dedicated props to pass classes to individual elements.
+
+
+<fwb-input-example-styling />
+```vue
+<template>
+  <fwb-input
+    v-model="name"
+    class="p-2 border border-black rounded-none italic text-a"
+    input-class="p-0 text-center text-gray-700 dark:text-gray-200"
+    label-class="text-center text-gray-200 dark:text-gray-400 p-2 m-0"
+    label="First name"
+    placeholder="enter your first name"
+    wrapper-class=" background-gray-100 dark:bg-gray-800"
+  />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbInput } from 'flowbite-vue'
+
+const name = ref('')
+</script>
+```
+
+
+## Input component API
+
+### FwbInput Props
+| Name         | Type             | Default | Description                                                  |
+| ------------ | ---------------- | ------- | ------------------------------------------------------------ |
+| wrapperClass | String \| Object | `''`    | Added to main component wrapper                              |
+| labelClass   | String \| Object | `''`    | Added to `<label>` element.                                  |
+| class        | String \| Object | `''`    | Added to wrapper around `<input>` element and prefix/suffix. |
+| inputClass   | String \| Object | `''`    | Added to `<input>` element.                                  |
