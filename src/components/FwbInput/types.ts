@@ -6,8 +6,8 @@ export type InputType = 'button' | 'checkbox' | 'color' | 'date' | 'datetime-loc
 export type CommonAutoFill = 'on' | 'off' | 'email' | 'tel' | 'name' | 'username' | 'current-password' | 'country' | 'postal-code' | 'language' | 'bday'
 
 export const validationStatusMap = {
-  Success: 'success',
   Error: 'error',
+  Success: 'success',
 } as const
 
 export type ValidationStatus = typeof validationStatusMap[keyof typeof validationStatusMap]

@@ -1,13 +1,10 @@
 <template>
-  <div :class="blockClasses">
+  <div :class="wrapperClass">
     <label
       v-if="label"
-      :class="labelClasses"
+      :class="labelClass"
     >{{ label }}</label>
-    <div
-      class="relative flex items-center"
-      :class="[inputBlockClasses]"
-    >
+    <div :class="inputWrapperClass">
       <div
         v-if="$slots.prefix"
         class="ms-2 flex shrink-0 items-center"
@@ -17,11 +14,11 @@
       <input
         v-bind="$attrs"
         v-model="model"
-        :disabled="disabled"
-        :type="type"
-        :required="required"
         :autocomplete="autocomplete"
-        :class="[inputClasses]"
+        :class="inputClass"
+        :disabled="disabled"
+        :required="required"
+        :type="type"
       >
       <div
         v-if="$slots.suffix"
@@ -32,13 +29,14 @@
     </div>
     <p
       v-if="$slots.validationMessage"
-      :class="validationWrapperClasses"
+      :class="validationMessageClass"
     >
       <slot name="validationMessage" />
     </p>
     <p
       v-if="$slots.helper"
-      class="mt-2 text-sm text-gray-500 dark:text-gray-400"
+      :class="helperMessageClass"
+      class=""
     >
       <slot name="helper" />
     </p>
@@ -46,29 +44,26 @@
 </template>
 
 <script lang="ts" setup>
-import { useVModel } from '@vueuse/core'
-import { twMerge } from 'tailwind-merge'
-import { computed, toRefs } from 'vue'
+
+import { toRefs } from 'vue'
 
 import { useInputClasses } from './composables/useInputClasses'
-import {
-  type CommonAutoFill,
-  type InputSize,
-  type InputType,
-  type ValidationStatus,
-  validationStatusMap,
-} from './types'
+
+import type { CommonAutoFill, InputSize, InputType, ValidationStatus } from './types'
 
 interface InputProps {
+  autocomplete?: CommonAutoFill
+  class?: string | Record<string, boolean>
   disabled?: boolean
+  inputClass?: string | Record<string, boolean>
   label?: string
+  labelClass?: string | Record<string, boolean>
   modelValue?: string | number
   required?: boolean
   size?: InputSize
   type?: InputType
-  autocomplete?: CommonAutoFill
   validationStatus?: ValidationStatus
-  blockClasses?: string | string[] | Record<string, unknown>
+  wrapperClass?: string | Record<string, boolean>
 }
 
 defineOptions({
@@ -76,25 +71,28 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<InputProps>(), {
+  autocomplete: 'off',
+  class: '',
   disabled: false,
+  inputClass: '',
   label: '',
+  labelClass: '',
   modelValue: '',
   required: false,
   size: 'md',
   type: 'text',
-  autocomplete: 'off',
   validationStatus: undefined,
-  blockClasses: undefined,
+  wrapperClass: '',
 })
 
-const model = useVModel(props, 'modelValue')
+const model = defineModel({ type: String })
 
-const { inputClasses, inputBlockClasses, labelClasses } = useInputClasses(toRefs(props))
-
-const validationWrapperClasses = computed(() => twMerge(
-  'mt-2 text-sm',
-  props.validationStatus === validationStatusMap.Success ? 'text-green-600 dark:text-green-500' : '',
-  props.validationStatus === validationStatusMap.Error ? 'text-red-600 dark:text-red-500' : '',
-
-))
+const {
+  wrapperClass,
+  helperMessageClass,
+  validationMessageClass,
+  labelClass,
+  inputWrapperClass,
+  inputClass,
+} = useInputClasses(toRefs(props))
 </script>
