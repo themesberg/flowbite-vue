@@ -1,22 +1,26 @@
 <template>
   <div class="vp-raw">
     <fwb-input
-      v-model="email"
+      v-model="name"
+      label="Your name"
+      placeholder="Success input"
       required
-      placeholder="enter your email address"
-      label="Email"
       validation-status="success"
-    />
+    >
+      <template #validationMessage>
+        <span class="font-medium">Well done!</span> Some success message.
+      </template>
+    </fwb-input>
     <hr class="mt-4 border-0">
     <fwb-input
-      v-model="email"
+      v-model="name"
+      label="Your name"
+      placeholder="Error input"
       required
-      placeholder="enter your email address"
-      label="Email"
       validation-status="error"
     >
       <template #validationMessage>
-        Please enter a valid email address
+        <span class="font-medium">Oh, snapp!</span> Some error message.
       </template>
     </fwb-input>
   </div>
@@ -27,5 +31,5 @@ import { ref } from 'vue'
 
 import { FwbInput } from '../../../../src/index'
 
-const email = ref('')
+const name = ref('')
 </script>
