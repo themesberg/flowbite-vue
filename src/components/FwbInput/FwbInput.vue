@@ -36,7 +36,6 @@
     <p
       v-if="$slots.helper"
       :class="helperMessageClass"
-      class=""
     >
       <slot name="helper" />
     </p>

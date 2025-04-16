@@ -219,7 +219,7 @@ const query = ref('')
 import { ref } from 'vue'
 import { FwbInput } from 'flowbite-vue'
 
-const email = ref('')
+const name = ref('')
 </script>
 ```
 
@@ -233,12 +233,12 @@ Use dedicated props to pass classes to individual elements.
 <template>
   <fwb-input
     v-model="name"
-    class="p-2 border border-black rounded-none italic text-a"
+    class="p-2 border border-black rounded-none text-a italic"
     input-class="p-0 text-center text-gray-700 dark:text-gray-200"
-    label-class="text-center text-gray-200 dark:text-gray-400 p-2 m-0"
+    label-class="text-center p-2 m-0 text-gray-900 dark:text-gray-200"
     label="First name"
     placeholder="enter your first name"
-    wrapper-class=" background-gray-100 dark:bg-gray-800"
+    wrapper-class="bg-gray-100 dark:bg-gray-800"
   />
 </template>
 

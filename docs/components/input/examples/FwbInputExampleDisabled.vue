@@ -1,10 +1,12 @@
 <template>
-  <fwb-input
-    v-model="name"
-    disabled
-    label="First name"
-    placeholder="enter your first name"
-  />
+  <div class="vp-raw">
+    <fwb-input
+      v-model="name"
+      disabled
+      label="First name"
+      placeholder="enter your first name"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>

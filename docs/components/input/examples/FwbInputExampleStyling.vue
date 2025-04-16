@@ -2,12 +2,12 @@
   <div class="vp-raw">
     <fwb-input
       v-model="name"
-      class="p-2 border border-black rounded-none italic text-a"
+      class="p-2 border border-gray-900 rounded-none"
       input-class="p-0 text-center text-gray-700 dark:text-gray-200"
-      label-class="text-center text-gray-200 dark:text-gray-400 p-2 m-0"
+      label-class="text-center p-2 m-0 text-gray-900 dark:text-gray-200 italic"
       label="First name"
       placeholder="enter your first name"
-      wrapper-class=" background-gray-100 dark:bg-gray-800"
+      wrapper-class="bg-gray-100 dark:bg-gray-800"
     />
   </div>
 </template>
