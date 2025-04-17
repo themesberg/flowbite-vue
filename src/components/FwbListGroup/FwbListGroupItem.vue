@@ -30,6 +30,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  active: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const { itemClasses } = useListGroupItemClasses(toRefs(props))
