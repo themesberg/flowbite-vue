@@ -21,14 +21,18 @@
       <slot
         v-if="enableFirstLast"
         name="first-button"
+        :set-page="goToFirstPage"
+        :disabled="isFirstPage"
       >
         <button
+          v-if="!$slots['first-button']"
           :disabled="isFirstPage"
           :class="getNavigationButtonClasses(1)"
           @click="goToFirstPage"
         >
           <slot name="first-icon">
             <svg
+              v-if="showIcons || $slots['first-icon']"
               stroke="currentColor"
               fill="none"
               stroke-width="0"
@@ -60,6 +64,7 @@
         :decrease-page="decreasePage"
       >
         <button
+          v-if="!$slots['prev-button']"
           :disabled="isDecreaseDisabled"
           :class="getNavigationButtonClasses(modelValue - 1)"
           @click="decreasePage"
@@ -98,6 +103,7 @@
         :disabled="isSetPageDisabled(index)"
       >
         <button
+          v-if="!$slots['page-button']"
           :disabled="isSetPageDisabled(index)"
           :class="getPageButtonClasses(index === modelValue)"
           @click="setPage(index)"
@@ -111,6 +117,7 @@
         :increase-page="increasePage"
       >
         <button
+          v-if="!$slots['next-button']"
           :disabled="isIncreaseDisabled"
           :class="getNavigationButtonClasses(modelValue + 1)"
           @click="increasePage"
@@ -144,8 +151,12 @@
       <slot
         v-if="enableFirstLast"
         name="last-button"
+        :page="computedTotalPages"
+        :set-page="goToLastPage"
+        :disabled="isLastPage"
       >
         <button
+          v-if="!$slots['last-button']"
           :disabled="isLastPage"
           :class="getNavigationButtonClasses(computedTotalPages)"
           @click="goToLastPage"
@@ -155,6 +166,7 @@
           </template>
           <slot name="last-icon">
             <svg
+              v-if="showIcons || $slots['last-icon']"
               stroke="currentColor"
               fill="none"
               stroke-width="0"
