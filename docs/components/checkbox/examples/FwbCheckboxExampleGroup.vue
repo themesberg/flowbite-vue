@@ -2,14 +2,14 @@
   <div class="vp-raw">
     <div class="space-y-2">
       <fwb-checkbox
-        v-for="fruit in fruits"
-        :key="fruit"
+        v-for="fruit, i in fruits"
+        :key="i"
         v-model="selectedFruits"
         :label="fruit"
         :value="fruit"
         name="fruits"
       />
-      <p class="mb-4 text-sm text-gray-500">
+      <p class="mb-4 text-gray-500 text-sm">
         Selected fruits: {{ selectedFruits }}
       </p>
       <fwb-checkbox
@@ -20,7 +20,7 @@
         :value="id"
         name="planets"
       />
-      <p class="text-sm text-gray-500">
+      <p class="text-gray-500 text-sm">
         Selected planets: {{ selectedPlanets }}
       </p>
     </div>

@@ -94,8 +94,8 @@ When using the checkbox with `arrays` or `objects`, the selected values will be 
 <template>
   <div class="space-y-2">
     <fwb-checkbox
-      v-for="fruit in fruits"
-      :key="fruit"
+      v-for="fruit, i in fruits"
+      :key="i"
       v-model="selectedFruits"
       :label="fruit"
       :value="fruit"
@@ -130,7 +130,7 @@ const fruits = [
   'Strawberry'
   ]
 
-const selectedPlanets = ref(['3'])
+const selectedPlanets = ref([3])
 const planets = {
   1: 'Mercury',
   2: 'Venus',
