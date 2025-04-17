@@ -147,10 +147,9 @@ const planets = {
 
 ## Checkbox component API
 
-### FwbInput Props
+### FwbCheckbox Props
 | Name         | Type             | Default | Description                     |
 | ------------ | ---------------- | ------- | ------------------------------- |
 | wrapperClass | String \| Object | `''`    | Added to main component wrapper |
 | labelClass   | String \| Object | `''`    | Added to `<label>` element.     |
 | class        | String \| Object | `''`    | Added to `<input>` element.     |
-| inputClass   | String \| Object | `''`    | Added to `<input>` element.     |
