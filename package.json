@@ -32,7 +32,7 @@
     "build:production": "npm run build:package && npm run build:types",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "clear": "rm -fr ./dist && rm -fr ./dist_types",
+    "clear": "rm -fr ./dist && rm -fr ./dist_types && rm -fr ./docs/.vitepress/dist && rm -fr ./docs/.vitepress/cache",
     "format": "npm run lint-fix",
     "test": "vitest",
     "coverage": "vitest run --coverage",
