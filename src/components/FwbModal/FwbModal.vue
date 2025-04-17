@@ -62,7 +62,8 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, type Ref } from 'vue'
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
+import { nextTick, onBeforeUnmount, onMounted, ref, type Ref } from 'vue'
 
 import type { ModalPosition, ModalSize } from './types'
 
@@ -71,6 +72,7 @@ interface ModalProps {
   persistent?: boolean
   size?: ModalSize
   position?: ModalPosition
+  focusTrap?: boolean
 }
 
 const props = withDefaults(defineProps<ModalProps>(), {
@@ -78,6 +80,7 @@ const props = withDefaults(defineProps<ModalProps>(), {
   persistent: false,
   size: '2xl',
   position: 'center',
+  focusTrap: false,
 })
 
 const emit = defineEmits(['close', 'click:outside'])
@@ -120,10 +123,23 @@ function clickOutside () {
 function closeWithEsc () {
   if (!props.notEscapable && !props.persistent) closeModal()
 }
+
 const modalRef: Ref<HTMLElement | null> = ref(null)
-onMounted(() => {
+const { activate, deactivate } = useFocusTrap(modalRef, {
+  immediate: false,
+  initialFocus: () => modalRef.value?.querySelector('button[aria-label="close"]') || modalRef.value,
+})
+
+onMounted(async () => {
   if (modalRef.value) {
-    modalRef.value.focus()
+    if (props.focusTrap) {
+      await nextTick()
+      activate()
+    }
   }
+})
+
+onBeforeUnmount(() => {
+  deactivate()
 })
 </script>
