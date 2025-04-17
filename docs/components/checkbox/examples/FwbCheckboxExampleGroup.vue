@@ -2,7 +2,7 @@
   <div class="vp-raw">
     <div class="space-y-2">
       <fwb-checkbox
-        v-for="fruit, i in fruits"
+        v-for="(fruit, i) in fruits"
         :key="i"
         v-model="selectedFruits"
         :label="fruit"
