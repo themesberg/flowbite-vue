@@ -22,7 +22,7 @@ import { ref } from 'vue'
 import { FwbCheckbox } from 'flowbite-vue'
 
 const check = ref(false)
-const checked = ref(false)
+const checked = ref(true)
 </script>
 ```
 
