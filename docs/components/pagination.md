@@ -4,6 +4,7 @@ import FwbPaginationExampleIcons from './pagination/examples/FwbPaginationExampl
 import FwbPaginationExampleNavigation from './pagination/examples/FwbPaginationExampleNavigation.vue';
 import FwbPaginationExampleNavigationIcons from './pagination/examples/FwbPaginationExampleNavigationIcons.vue';
 import FwbPaginationExampleSlots from './pagination/examples/FwbPaginationExampleSlots.vue';
+import FwbPaginationExampleSlotsAdvanced from './pagination/examples/FwbPaginationExampleSlotsAdvanced.vue';
 import FwbPaginationExampleTable from './pagination/examples/FwbPaginationExampleTable.vue';
 import FwbPaginationExampleCustomLength from './pagination/examples/FwbPaginationExampleCustomLength.vue';
 import FwbPaginationExampleCustomLabels from './pagination/examples/FwbPaginationExampleCustomLabels.vue';
@@ -266,6 +267,84 @@ import { ref } from 'vue'
 
 const currentPage = ref(1)
 </script>
+```
+
+## Advanced slots example
+
+<fwb-pagination-example-slots-advanced />
+
+```vue
+<template>
+  <fwb-pagination
+    v-model="currentPage"
+    :total-items="100"
+    enable-first-last
+  >
+    <template #first-button="{ disabled, setPage }">
+      <button
+        class="disabled:cursor-not-allowed ml-0 flex h-8 items-center justify-center border border-purple-300 bg-purple-200 px-3 leading-tight text-gray-500 first:rounded-l-lg last:rounded-r-lg hover:bg-purple-300 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        :disabled="disabled"
+        @click="setPage()"
+      >
+        First page
+      </button>
+    </template>
+
+    <template #last-button="{ disabled, setPage, page }">
+      <button
+        class="disabled:cursor-not-allowed ml-0 flex h-8 items-center justify-center border border-purple-300 bg-purple-200 px-3 leading-tight text-gray-500 first:rounded-l-lg last:rounded-r-lg hover:bg-purple-300 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        :disabled="disabled"
+        @click="setPage()"
+      >
+        Last page ({{ page }})
+      </button>
+    </template>
+
+    <template #prev-button="{ disabled, decreasePage }">
+      <button
+        class="disabled:cursor-not-allowed ml-0 flex h-8 items-center justify-center border border-purple-300 bg-purple-200 px-3 leading-tight text-gray-500 first:rounded-l-lg last:rounded-r-lg hover:bg-purple-300 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        :disabled="disabled"
+        @click="decreasePage()"
+      >
+        Prev page
+      </button>
+    </template>
+
+    <template #next-button="{ disabled, increasePage }">
+      <button
+        class="disabled:cursor-not-allowed ml-0 flex h-8 items-center justify-center border border-purple-300 bg-purple-200 px-3 leading-tight text-gray-500 first:rounded-l-lg last:rounded-r-lg hover:bg-purple-300 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        :disabled="disabled"
+        @click="increasePage()"
+      >
+        Next page
+      </button>
+    </template>
+
+    <template #page-button="{ disabled, page, setPage }">
+      <button
+        class="disabled:cursor-not-allowed ml-0 flex h-8 items-center justify-center border border-purple-300 px-3 leading-tight text-gray-500 first:rounded-l-lg last:rounded-r-lg  hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        :class="{
+          'bg-purple-200 hover:bg-purple-300': !disabled,
+          'bg-purple-300': disabled
+        }"
+        :disabled="disabled"
+        @click="setPage(page)"
+      >
+        {{ page }}
+      </button>
+    </template>
+  </fwb-pagination>
+  Current page: {{ currentPage }}
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+import { FwbPagination } from '../../../../src/index'
+
+const currentPage = ref<number>(1)
+</script>
+
 ```
 
 ## API

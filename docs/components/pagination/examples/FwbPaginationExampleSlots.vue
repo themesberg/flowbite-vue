@@ -4,12 +4,19 @@
       v-model="currentPage"
       :total-items="100"
       hide-labels
+      enable-first-last
     >
+      <template #first-icon>
+        ⏪
+      </template>
       <template #prev-icon>
         ⬅️
       </template>
       <template #next-icon>
         ➡️
+      </template>
+      <template #last-icon>
+        ⏩
       </template>
       <template #page-button="{ page, setPage }">
         <button
