@@ -1,47 +1,66 @@
 <template>
-  <label class="flex items-center justify-start gap-3">
-    <input
-      v-model="model"
-      :class="checkboxClasses"
-      :disabled="disabled"
-      type="checkbox"
+  <div :class="wrapperClass">
+    <label class="flex justify-start items-center">
+      <input
+        v-model="model"
+        :class="checkboxClass"
+        :disabled="disabled"
+        :name="name"
+        :value="value"
+        type="checkbox"
+      >
+      <span
+        v-if="label"
+        :class="labelClass"
+      >
+        {{ label }}
+      </span>
+      <span :class="labelClass">
+        <slot />
+      </span>
+    </label>
+    <p
+      v-if="$slots.helper"
+      :class="helperMessageClass"
     >
-    <span
-      v-if="label"
-      :class="labelClasses"
-    >{{ label }}</span>
-    <slot />
-  </label>
+      <slot name="helper" />
+    </p>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { toRefs } from 'vue'
 
 import { useCheckboxClasses } from './composables/useCheckboxClasses'
 
 interface CheckboxProps {
+  class?: string | Record<string, boolean>
   disabled?: boolean
   label?: string
-  modelValue?: boolean
+  labelClass?: string | Record<string, boolean>
+  name?: string
+  value?: string | number | boolean | object
+  wrapperClass?: string | Record<string, boolean>
 }
+
 const props = withDefaults(defineProps<CheckboxProps>(), {
+  class: '',
   disabled: false,
   label: '',
-  modelValue: false,
+  labelClass: '',
+  name: undefined,
+  value: undefined,
+  wrapperClass: '',
 })
 
-const emit = defineEmits(['update:modelValue'])
-const model = computed({
-  get () {
-    return props.modelValue
-  },
-  set (val) {
-    emit('update:modelValue', val)
-  },
+const model = defineModel<boolean | (string | number | boolean | object)[]>({
+  default: false,
 })
 
 const {
-  checkboxClasses,
-  labelClasses,
-} = useCheckboxClasses()
+  checkboxClass,
+  helperMessageClass,
+  labelClass,
+  wrapperClass,
+} = useCheckboxClasses(toRefs(props))
 </script>

@@ -4,6 +4,7 @@ import FwbModalExampleSize from './modal/examples/FwbModalExampleSize.vue'
 import FwbModalExampleEscapable from './modal/examples/FwbModalExampleEscapable.vue'
 import FwbModalExamplePersistent from './modal/examples/FwbModalExamplePersistent.vue'
 import FwbModalExamplePosition from './modal/examples/FwbModalExamplePosition.vue'
+import FwbModalExampleFocusTrap from './modal/examples/FwbModalExampleFocusTrap.vue'
 </script>
 # Vue Modal - Flowbite
 
@@ -158,15 +159,33 @@ import { FwbModal } from 'flowbite-vue'
 </script>
 ```
 
+## Focus Trap
+
+You can enable focus trapping by setting the `focus-trap` prop to `true`. This keeps the focus within the modal, preventing users from tabbing to elements outside of it, which improves accessibility.
+
+<fwb-modal-example-focus-trap />
+```vue
+<template>
+  <fwb-modal />
+  <fwb-modal focus-trap />
+</template>
+
+<script setup>
+import { FwbModal } from 'flowbite-vue'
+</script>
+```
+
 ## API
 
 ### Props:
 
-| Name         | Values                                                    | Default |
-|--------------|-----------------------------------------------------------|---------|
-| size         | `md`,`lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl` | 2xl     |
-| notEscapable | `true`, `false`                                           | `false` |
-| persistent   | `true`, `false`                                           | `true`  |
+| Name         | Values                                                                                                                            | Default |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------|---------|
+| size         | `xs`, `sm`, `md`,`lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`                                                               | `2xl`   |
+| position     | `top-start`, `top-center`, `top-end`, `center-start`, `center`, `center-end`, `bottom-start`, `bottom-center`, `bottom-end` | `center`|
+| notEscapable | `true`, `false`                                                                                                                   | `false` |
+| persistent   | `true`, `false`                                                                                                                   | `false` |
+| focusTrap    | `true`, `false`                                                                                                                   | `false` |
 
 ### Events:
 | Name            | Type                                                                             |

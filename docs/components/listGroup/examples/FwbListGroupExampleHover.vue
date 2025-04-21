@@ -1,7 +1,10 @@
 <template>
   <div class="vp-raw flex flex-col">
     <fwb-list-group>
-      <fwb-list-group-item hover>
+      <fwb-list-group-item
+        active
+        hover
+      >
         Item 1
       </fwb-list-group-item>
       <fwb-list-group-item hover>

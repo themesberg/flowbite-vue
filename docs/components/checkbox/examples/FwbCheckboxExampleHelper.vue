@@ -1,13 +1,13 @@
 <template>
-  <div class="flex flex-col gap-2 vp-raw">
+  <div class="vp-raw">
     <fwb-checkbox
       v-model="check"
-      label="Default checkbox"
-    />
-    <fwb-checkbox
-      v-model="checked"
-      label="Checked state"
-    />
+      label="Free shipping via Flowbite"
+    >
+      <template #helper>
+        For orders shipped from $25 in books or $29 in other categories.
+      </template>
+    </fwb-checkbox>
   </div>
 </template>
 
@@ -17,5 +17,4 @@ import { ref } from 'vue'
 import { FwbCheckbox } from '../../../../src/index'
 
 const check = ref(false)
-const checked = ref(true)
 </script>

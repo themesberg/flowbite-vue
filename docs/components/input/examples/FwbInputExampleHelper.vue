@@ -8,8 +8,8 @@
       <template #helper>
         We'll never share your details. Read our
         <fwb-a
-          href="#"
           color="text-blue-600 dark:text-blue-500"
+          href="#"
         >
           Privacy Policy
         </fwb-a>.

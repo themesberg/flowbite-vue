@@ -9,6 +9,7 @@
       :persistent="persistent"
       :size="size"
       :position="position"
+      :focus-trap="focusTrap"
       @close="closeModal"
     >
       <template #header>
@@ -56,6 +57,7 @@ interface ModalProps {
   persistent?: boolean
   triggerText?: string
   position?: ModalPosition
+  focusTrap?: boolean
 }
 
 withDefaults(defineProps<ModalProps>(), {
@@ -64,6 +66,7 @@ withDefaults(defineProps<ModalProps>(), {
   persistent: false,
   triggerText: 'Open Modal',
   position: 'center',
+  focusTrap: false,
 })
 
 const isShowModal = ref(false)
