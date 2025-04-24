@@ -57,7 +57,6 @@ interface InputProps {
   inputClass?: string | Record<string, boolean>
   label?: string
   labelClass?: string | Record<string, boolean>
-  modelValue?: string | number
   required?: boolean
   size?: InputSize
   type?: InputType
@@ -76,7 +75,6 @@ const props = withDefaults(defineProps<InputProps>(), {
   inputClass: '',
   label: '',
   labelClass: '',
-  modelValue: '',
   required: false,
   size: 'md',
   type: 'text',
@@ -84,7 +82,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   wrapperClass: '',
 })
 
-const model = defineModel({ type: String })
+const model = defineModel<string | number>({ default: '' })
 
 const {
   wrapperClass,
