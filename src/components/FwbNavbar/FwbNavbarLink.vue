@@ -37,12 +37,10 @@ const defaultClasses = 'block py-2 pr-4 pl-3 rounded md:p-0'
 const componentName = computed(() => {
   return props.component !== 'a' ? resolveComponent(props.component) : 'a'
 })
-const linkClasses = computed(() => {
-    return twMerge(
-        defaultClasses,
-	props.isActive ? currentPageClasses: defaultStateClasses,
-    )
-})
+const linkClasses = computed(() => twMerge(
+  defaultClasses,
+  props.isActive ? currentPageClasses : defaultStateClasses,
+))
 const handleClick = (event: Event) => {
   if (props.disabled) {
     return
