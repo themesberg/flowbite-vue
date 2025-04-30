@@ -30,8 +30,7 @@ function appendEvents (
       else {
         vNode.props[eventName] = (...args: unknown[]) => {
           originalHandler(...args)
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          ;(handler as any)(...args)
+          if (handler) (handler as any)(...args)
         }
       }
     })
