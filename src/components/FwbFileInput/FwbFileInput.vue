@@ -55,6 +55,7 @@
           :multiple="multiple"
           class="hidden"
           type="file"
+          @change="handleChange"
         >
       </label>
     </div>
@@ -112,7 +113,12 @@ const model = computed({
 const handleChange = (event: Event) => {
   const target = event.target as HTMLInputElement
   if (props.multiple) {
-    model.value = Array.from(target.files ?? [])
+    const newFiles = Array.from(target.files ?? [])
+    if (Array.isArray(model.value) && model.value.length > 0) {
+      model.value = [...model.value, ...newFiles]
+    } else {
+      model.value = newFiles
+    }
   } else {
     model.value = target.files?.[0] ?? null
   }
@@ -129,15 +135,25 @@ const dropFileHandler = (event: DragEvent) => {
         }
       })
     if (props.multiple) {
-      model.value = arr
+      if (Array.isArray(model.value) && model.value.length > 0) {
+        model.value = [...model.value, ...arr]
+      } else {
+        model.value = arr
+      }
     } else {
-      model.value = arr[0]
+      model.value = arr[0] || null
     }
   } else if (event.dataTransfer?.files) {
-    Object.values(event.dataTransfer.files)
-      .forEach((file: File) => {
-        model.value = file
-      })
+    const files = Array.from(event.dataTransfer.files)
+    if (props.multiple) {
+      if (Array.isArray(model.value) && model.value.length > 0) {
+        model.value = [...model.value, ...files]
+      } else {
+        model.value = files
+      }
+    } else {
+      model.value = files[0] || null
+    }
   }
 }
 
