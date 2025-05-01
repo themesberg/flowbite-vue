@@ -59,5 +59,5 @@
 </template>
 
 <script lang="ts" setup>
-import { FwbAlert, FwbButton } from '../../../../src/index';
+import { FwbAlert, FwbButton } from '../../../../src/index'
 </script>
