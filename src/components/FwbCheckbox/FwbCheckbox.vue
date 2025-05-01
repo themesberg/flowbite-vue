@@ -1,6 +1,6 @@
 <template>
   <div :class="wrapperClass">
-    <label class="flex justify-start items-center">
+    <label class="flex justify-start items-center select-none">
       <input
         v-model="model"
         :class="checkboxClass"
