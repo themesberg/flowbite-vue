@@ -3,22 +3,20 @@
     <fwb-list-group>
       <fwb-list-group-item
         active
-        hover
+        href="#"
       >
-        Item 1
+        Link with href (active)
       </fwb-list-group-item>
-      <fwb-list-group-item hover>
-        Item 2
+      <fwb-list-group-item
+        href="https://flowbite.com"
+        target="__blank"
+      >
+        External link
       </fwb-list-group-item>
-      <fwb-list-group-item hover>
-        Item 3
+      <fwb-list-group-item to="#">
+        Router link
       </fwb-list-group-item>
-      <fwb-list-group-item hover>
-        Item 4
-      </fwb-list-group-item>
-      <fwb-list-group-item hover>
-        Item 5
-      </fwb-list-group-item>
+      <fwb-list-group-item> Regular item (no hover) </fwb-list-group-item>
     </fwb-list-group>
   </div>
 </template>

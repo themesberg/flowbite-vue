@@ -5,16 +5,16 @@
       content-wrapper-class="rounded-lg"
     >
       <fwb-list-group class="text-sm text-gray-700 dark:text-gray-200">
-        <fwb-list-group-item class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+        <fwb-list-group-item to="#">
           Dashboard
         </fwb-list-group-item>
-        <fwb-list-group-item class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+        <fwb-list-group-item href="#">
           Settings
         </fwb-list-group-item>
-        <fwb-list-group-item class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+        <fwb-list-group-item href="#">
           Earnings
         </fwb-list-group-item>
-        <fwb-list-group-item class="cursor-pointer border-b-0 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+        <fwb-list-group-item @click="signOut">
           Sign out
         </fwb-list-group-item>
       </fwb-list-group>
@@ -24,4 +24,5 @@
 
 <script lang="ts" setup>
 import { FwbDropdown, FwbListGroup, FwbListGroupItem } from '../../../../src/index'
+const signOut = () => {}
 </script>

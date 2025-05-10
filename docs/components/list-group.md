@@ -1,7 +1,7 @@
 <script setup>
 import FwbListGroupExample from './listGroup/examples/FwbListGroupExample.vue'
 import FwbListGroupExampleDisabled from './listGroup/examples/FwbListGroupExampleDisabled.vue'
-import FwbListGroupExampleHover from './listGroup/examples/FwbListGroupExampleHover.vue'
+import FwbListGroupExampleLink from './listGroup/examples/FwbListGroupExampleLink.vue'
 import FwbListGroupExampleIcon from './listGroup/examples/FwbListGroupExampleIcon.vue'
 </script>
 
@@ -36,17 +36,27 @@ import { FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 </script>
 ```
 
-## Hover
+## Links
 
-<fwb-list-group-example-hover />
+:::tip
+`href` prop is used for external links. `to` prop is used for internal links. `target` prop is used to set the target attribute for external links, the hover effect is automatically enabled.
+:::
+<fwb-list-group-example-link />
 ```vue
 <template>
   <fwb-list-group>
-    <fwb-list-group-item active hover>Item 1</fwb-list-group-item>
-    <fwb-list-group-item hover>Item 2</fwb-list-group-item>
-    <fwb-list-group-item hover>Item 3</fwb-list-group-item>
-    <fwb-list-group-item hover>Item 4</fwb-list-group-item>
-    <fwb-list-group-item hover>Item 5</fwb-list-group-item>
+    <fwb-list-group-item active href="#">
+      Link with href (active)
+    </fwb-list-group-item>
+    <fwb-list-group-item href="https://flowbite.com" target="__blank">
+      External link (target blank)
+    </fwb-list-group-item>
+    <fwb-list-group-item to="#">
+      Router link
+    </fwb-list-group-item>
+    <fwb-list-group-item>
+      Regular item (no hover)
+    </fwb-list-group-item>
   </fwb-list-group>
 </template>
 
