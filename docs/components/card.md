@@ -20,7 +20,7 @@ Use these responsive card components to show data entries and information to you
 <fwb-card-example />
 ```vue
 <template>
-    <fwb-card href="#">
+    <fwb-card href="#" class="w-sm">
       <div class="p-5">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Noteworthy technology acquisitions 2021
@@ -46,6 +46,7 @@ import { FwbCard } from 'flowbite-vue'
       img-alt="Desk"
       img-src="https://flowbite.com/docs/images/blog/image-1.jpg"
       variant="image"
+      class="w-md"
     >
       <div class="p-5">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -72,6 +73,7 @@ import { FwbCard } from 'flowbite-vue'
       img-alt="Desk"
       img-src="https://flowbite.com/docs/images/blog/image-4.jpg"
       variant="horizontal"
+      class="w-lg"
     >
       <div class="p-5">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
