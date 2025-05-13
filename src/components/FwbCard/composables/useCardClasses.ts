@@ -14,7 +14,7 @@ export function useCardsClasses (props: UseCardsClassesProps): {
 } {
   const cardClasses = computed(() => {
     let computedClasses = ''
-    
+
     if (props.variant.value === 'image') {
       computedClasses = 'max-w-sm rounded-lg border border-gray-200 shadow-md dark:border-gray-700'
     } else if (props.variant.value === 'default') {
@@ -24,7 +24,7 @@ export function useCardsClasses (props: UseCardsClassesProps): {
     }
 
     if (!props.class?.value || (!props.class.value.includes('bg-'))) {
-      computedClasses += ' bg-white dark:bg-gray-800';
+      computedClasses += ' bg-white dark:bg-gray-800'
     }
 
     if (props.href?.value && !props.class?.value) {
