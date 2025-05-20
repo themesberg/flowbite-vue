@@ -1,6 +1,6 @@
 <template>
   <label>
-    <span :class="labelClasses">{{ label }}</span>
+    <span v-if="label" :class="labelClasses">{{ label }}</span>
     <span :class="wrapperClasses">
       <textarea
         v-model="model"
@@ -42,7 +42,7 @@ defineOptions({
 
 const props = withDefaults(defineProps<TextareaProps>(), {
   modelValue: '',
-  label: 'Your message',
+  label: '',
   rows: 4,
   custom: false,
   placeholder: 'Write your message here...',
