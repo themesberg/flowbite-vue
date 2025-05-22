@@ -86,14 +86,15 @@ You can also apply color.
 ```vue
 <template>
   <div class="grid gap-2">
-    <fwb-progress :progress="12.5" label="Default"  />
-    <fwb-progress :progress="25" color="dark" label="Dark"  />
-    <fwb-progress :progress="37.5" color="blue" label="Blue"  />
-    <fwb-progress :progress="50" color="red" label="Red"  />
-    <fwb-progress :progress="62.5" color="green" label="Green"  />
-    <fwb-progress :progress="75" color="yellow" label="Yellow"  />
-    <fwb-progress :progress="87.5" color="indigo" label="Indigo"  />
-    <fwb-progress :progress="100" color="purple" label="Purple"  />
+    <fwb-progress :progress="11" label="Default"  />
+    <fwb-progress :progress="22" color="dark" label="Dark"  />
+    <fwb-progress :progress="33" color="blue" label="Blue"  />
+    <fwb-progress :progress="44" color="red" label="Red"  />
+    <fwb-progress :progress="55" color="green" label="Green"  />
+    <fwb-progress :progress="66" color="yellow" label="Yellow"  />
+    <fwb-progress :progress="77" color="indigo" label="Indigo"  />
+    <fwb-progress :progress="88" color="purple" label="Purple"  />
+    <fwb-progress :progress="99" color="#3fb984" label="Custom color"  />
   </div>
 </template>
 
@@ -101,3 +102,15 @@ You can also apply color.
 import { FwbProgress } from 'flowbite-vue'
 </script>
 ```
+
+## API
+
+### Props
+| Name           | Values                                                                                | Default   |
+|----------------|---------------------------------------------------------------------------------------|-----------|
+| color          | `default`, `dark`, `green`, `red`, `yellow`, `purple`, `blue`, `indigo`, any hex code | `default` |
+| label          | `string`                                                                              | `''`      |
+| labelPosition  | `inside`, `outside`, `none`                                                           | `none`    |
+| labelProgress  | `boolean`                                                                             | `false`   |
+| progress       | `number` (0-100)                                                                      | `0`       |
+| size           | `sm`, `md`, `lg`, `xl`                                                                | `md`      |

@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { computed, type Ref } from 'vue'
 
-import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from '../types'
+import type { CustomColor, ProgressLabelPosition, ProgressSize, ProgressVariant } from '../types'
 
 const barColorClasses: Record<ProgressVariant, string> = {
   default: 'bg-blue-600 dark:bg-blue-600',
@@ -38,10 +38,18 @@ export type UseProgressClassesProps = {
   labelPosition: Ref<ProgressLabelPosition>
 }
 
-export function useProgressClasses (props: UseProgressClassesProps): { innerClasses: Ref<string>, outerClasses: Ref<string>, outsideLabelClasses: Ref<string> } {
+export function useProgressClasses (props: UseProgressClassesProps): {
+  innerClasses: Ref<string>
+  outerClasses: Ref<string>
+  outsideLabelClasses: Ref<string>
+  customColor: Ref<CustomColor | null>
+} {
+  const customColor = computed(() => {
+    return barColorClasses[props.color.value] ? null : (props.color.value as CustomColor)
+  })
   const bindClasses = computed(() => {
     return classNames(
-      barColorClasses[props.color.value],
+      customColor.value ? '' : barColorClasses[props.color.value],
       progressSizeClasses[props.size.value],
     )
   })
@@ -51,14 +59,17 @@ export function useProgressClasses (props: UseProgressClassesProps): { innerClas
     )
   })
   const outsideLabelClasses = computed(() => {
-    return classNames(
-      outsideTextColorClasses[props.color.value],
-    )
+    return customColor.value
+      ? ''
+      : classNames(
+        outsideTextColorClasses[props.color.value],
+      )
   })
 
   return {
     innerClasses: bindClasses,
     outerClasses,
     outsideLabelClasses,
+    customColor,
   }
 }

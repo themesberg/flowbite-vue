@@ -38,9 +38,12 @@ export type UseSpinnerClassesProps = {
   size: Ref<SpinnerSize>
 }
 
-export function useSpinnerClasses (props: UseSpinnerClassesProps): { spinnerClasses: Ref<string> } {
+export function useSpinnerClasses (props: UseSpinnerClassesProps): { spinnerClasses: Ref<string>, customColor: Ref<string | null> } {
   const sizeClasses = computed(() => sizes[props.size.value])
-  const colorClasses = computed(() => colors[props.color.value])
+
+  const colorClasses = computed(() => colors[props.color.value as SpinnerColor] ?? '')
+  const customColor = computed(() => colorClasses.value ? null : (props.color.value as string))
+
   const bgColorClasses = computed(() => 'text-gray-200 dark:text-gray-600')
   const animateClasses = computed(() => 'animate-spin')
   const spinnerClasses = computed(() => classNames(
@@ -50,5 +53,5 @@ export function useSpinnerClasses (props: UseSpinnerClassesProps): { spinnerClas
     sizeClasses.value,
   ))
 
-  return { spinnerClasses }
+  return { spinnerClasses, customColor }
 }

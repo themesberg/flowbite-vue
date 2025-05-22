@@ -4,11 +4,13 @@
       <div class="mb-1 flex justify-between">
         <span
           :class="outsideLabelClasses"
+          :style="customColor ? { color: customColor } : {}"
           class="text-base font-medium"
         >{{ label }}</span>
         <span
           v-if="labelProgress && labelPosition === 'outside'"
           :class="outsideLabelClasses"
+          :style="customColor ? { color: customColor } : {}"
           class="text-sm font-medium"
         >{{ progress }}%</span>
       </div>
@@ -19,7 +21,9 @@
     >
       <div
         :class="innerClasses"
-        :style="{ width: progress + '%' }"
+        :style="customColor
+          ? { width: progress + '%', backgroundColor: customColor }
+          : { width: progress + '%' }"
         class="rounded-full p-0.5 text-center font-medium text-blue-100"
       >
         <template v-if="labelProgress && labelPosition === 'inside'">
@@ -59,5 +63,6 @@ const {
   innerClasses,
   outerClasses,
   outsideLabelClasses,
+  customColor,
 } = useProgressClasses(toRefs(props))
 </script>

@@ -59,6 +59,7 @@ import { FwbSpinner } from 'flowbite-vue'
   <fwb-spinner color="red" />
   <fwb-spinner color="white" />
   <fwb-spinner color="yellow" />
+  <fwb-spinner color="#3fb984" /> <!-- Custom color -->
 </template>
 
 <script setup>
@@ -71,5 +72,5 @@ import { FwbSpinner } from 'flowbite-vue'
 ### Props
 | Name  | Values                                                                                  | Default |
 |-------|-----------------------------------------------------------------------------------------|---------|
-| color | `blue`, `gray`, `green`, `pink`, `purple`, `red`, `white`, `yellow`                     | `blue`  |
+| color | `blue`, `gray`, `green`, `pink`, `purple`, `red`, `white`, `yellow`, any hex code       | `blue`  |
 | size  | `0`, `0.5`, `1`, `1.5`, `10`, `11`, `12`, `2`, `2.5`, `3`, `4`, `5`, `6`, `7`, `8`, `9` | `4`     |
