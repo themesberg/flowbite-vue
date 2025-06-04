@@ -105,3 +105,25 @@ import { FwbFileInput } from 'flowbite-vue'
 const file = ref(null)
 </script>
 ```
+
+## Dropzone with custom placeholder
+
+You can customize the dropzone placeholder text using the `dropzonePlaceholder` slot:
+
+```vue
+<template>
+  <fwb-file-input v-model="file" dropzone>
+    <template #dropzonePlaceholder>
+      <span class="font-semibold">Choose your file</span>
+      or drop it here
+    </template>
+  </fwb-file-input>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbFileInput } from 'flowbite-vue'
+
+const file = ref(null)
+</script>
+```
