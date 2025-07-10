@@ -79,6 +79,34 @@ module.exports = {
 };
 ```
 
+
+
+
+
+Run locally
+If you want to work on the library itself or preview the documentation on your machine, follow these steps:
+
+# 1. Clone the repository
+git clone https://github.com/themesberg/flowbite-vue.git
+cd flowbite-vue
+
+# 2. Install dependencies (requires Node.js 18+ and npm 10+)
+npm install
+
+# 3. Start the VitePress development server
+npm run dev
+After the server starts, open the URL shown in the terminal (usually http://localhost:5173) to view the documentation site.
+
+Common additional commands:
+
+Purpose	Command
+Build documentation site      	npm run build
+Run unit tests	      npm run test
+Lint and fix files      	npm run lint-fix
+Clear build and cache artifacts     	npm run clear
+
+
+
 ## Components
 
 <table>
