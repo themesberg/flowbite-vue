@@ -303,31 +303,69 @@ describe('FwbAutocomplete', () => {
     expect(displayFn).toHaveBeenCalledWith(mockOptions[0])
   })
 
-  it('generates correct option keys with valueField', () => {
+  it('renders and selects options correctly with valueField', async () => {
     const wrapper = mount(FwbAutocomplete, {
       props: {
         options: mockOptions,
         searchFields: ['name'],
+        display: 'name',
         valueField: 'id',
       },
     })
 
-    const vm = wrapper.vm as any
-    expect(vm.getOptionKey(mockOptions[0])).toBe('1')
-    expect(vm.getOptionKey(mockOptions[1])).toBe('2')
+    const input = wrapper.find('input')
+    await input.trigger('focus')
+    await nextTick()
+
+    // Verify all options render in dropdown
+    expect(wrapper.find('[data-testid="fwb-autocomplete-dropdown"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-option-0"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-option-1"]').exists()).toBe(true)
+
+    // Verify option content is displayed correctly
+    expect(wrapper.text()).toContain('United States')
+    expect(wrapper.text()).toContain('Canada')
+
+    // Select an option and verify the selection works
+    const firstOption = wrapper.find('[data-testid="fwb-autocomplete-option-0"]')
+    await firstOption.trigger('click')
+
+    expect(wrapper.emitted('update:modelValue')).toBeTruthy()
+    expect(wrapper.emitted('select')).toBeTruthy()
+    const selectedValue = wrapper.emitted('update:modelValue')?.[0]?.[0]
+    expect(selectedValue).toEqual(mockOptions[0])
   })
 
-  it('generates JSON keys when no valueField provided', () => {
+  it('renders and selects options correctly without valueField', async () => {
     const wrapper = mount(FwbAutocomplete, {
       props: {
         options: mockOptions,
         searchFields: ['name'],
+        display: 'name',
       },
     })
 
-    const vm = wrapper.vm as any
-    const key = vm.getOptionKey(mockOptions[0])
-    expect(key).toBe(JSON.stringify(mockOptions[0]))
+    const input = wrapper.find('input')
+    await input.trigger('focus')
+    await nextTick()
+
+    // Verify all options render in dropdown
+    expect(wrapper.find('[data-testid="fwb-autocomplete-dropdown"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-option-0"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-option-1"]').exists()).toBe(true)
+
+    // Verify option content is displayed correctly
+    expect(wrapper.text()).toContain('United States')
+    expect(wrapper.text()).toContain('Canada')
+
+    // Select an option and verify the selection works
+    const secondOption = wrapper.find('[data-testid="fwb-autocomplete-option-1"]')
+    await secondOption.trigger('click')
+
+    expect(wrapper.emitted('update:modelValue')).toBeTruthy()
+    expect(wrapper.emitted('select')).toBeTruthy()
+    const selectedValue = wrapper.emitted('update:modelValue')?.[0]?.[0]
+    expect(selectedValue).toEqual(mockOptions[1])
   })
 
   it('emits search event on focus', async () => {
