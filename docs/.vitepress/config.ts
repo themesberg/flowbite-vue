@@ -65,6 +65,7 @@ function getComponents () {
 
 function getFormComponents () {
   return [
+    { text: 'Autocomplete', link: '/components/autocomplete' },
     { text: 'Input', link: '/components/input' },
     { text: 'File Input', link: '/components/fileInput' },
     { text: 'Select', link: '/components/select' },
