@@ -1,5 +1,5 @@
 <template>
-  <div ref="rootEl" :class="wrapperClasses">
+  <div ref="rootEl" :class="wrapperClasses" data-testid="fwb-autocomplete-wrapper">
     <div class="relative">
       <fwb-input
         v-model="inputValue"
@@ -9,6 +9,7 @@
         :disabled="disabled"
         :size="size"
         :validation-status="validationStatus"
+        data-testid="fwb-autocomplete-input"
         @input="handleInput"
         @focus="handleFocus"
         @keydown="handleKeydown"
@@ -18,6 +19,7 @@
             <div
               v-if="loading"
               class="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"
+              data-testid="fwb-autocomplete-loading-spinner"
             />
             <svg
               v-else-if="inputValue"
@@ -25,6 +27,7 @@
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              data-testid="fwb-autocomplete-clear-button"
               @click="clear"
             >
               <path
@@ -40,6 +43,7 @@
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              data-testid="fwb-autocomplete-search-icon"
             >
               <path
                 stroke-linecap="round"
@@ -55,10 +59,12 @@
       <div
         v-if="dropdownOpen && (filteredOptions.length > 0 || loading || noResultsFound)"
         :class="dropdownClasses"
+        data-testid="fwb-autocomplete-dropdown"
       >
         <div
           v-if="loading"
           :class="messageClasses"
+          data-testid="fwb-autocomplete-loading-message"
         >
           <div class="flex items-center justify-center gap-2">
             <div
@@ -71,6 +77,7 @@
         <div
           v-else-if="noResultsFound"
           :class="messageClasses"
+          data-testid="fwb-autocomplete-no-results"
         >
           {{ noResultsText }}
         </div>
@@ -80,6 +87,8 @@
           v-else
           :key="getOptionKey(option)"
           :class="getDropdownItemClasses(highlightedIndex === index)"
+          :data-testid="`fwb-autocomplete-option-${index}`"
+          class="fwb-autocomplete-option"
           @click="select(option)"
           @mouseenter="highlightedIndex = index"
         >
@@ -97,12 +106,14 @@
     <p
       v-if="$slots.validationMessage"
       class="mt-2 text-sm text-red-600 dark:text-red-500"
+      data-testid="fwb-autocomplete-validation-message"
     >
       <slot name="validationMessage" />
     </p>
     <p
       v-if="$slots.helper"
       class="mt-2 text-sm text-gray-500 dark:text-gray-400"
+      data-testid="fwb-autocomplete-helper-text"
     >
       <slot name="helper" />
     </p>

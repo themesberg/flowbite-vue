@@ -68,7 +68,7 @@ describe('FwbAutocomplete', () => {
     await input.trigger('focus')
     await nextTick()
 
-    expect(wrapper.find('.absolute.z-50').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-dropdown"]').exists()).toBe(true)
   })
 
   it('selects option on click', async () => {
@@ -84,10 +84,10 @@ describe('FwbAutocomplete', () => {
     await input.trigger('focus')
     await nextTick()
 
-    // Find the first dropdown option
-    const dropdownItems = wrapper.findAll('.px-4.py-3.cursor-pointer')
-    if (dropdownItems.length > 0) {
-      await dropdownItems[0].trigger('click')
+    // Find the first dropdown option using the new test ID
+    const firstOption = wrapper.find('[data-testid="fwb-autocomplete-option-0"]')
+    if (firstOption.exists()) {
+      await firstOption.trigger('click')
       expect(wrapper.emitted('update:modelValue')).toBeTruthy()
       expect(wrapper.emitted('select')).toBeTruthy()
     }
@@ -122,10 +122,9 @@ describe('FwbAutocomplete', () => {
       },
     })
 
-    // Find the clear button (X icon) by looking for the specific SVG path
-    const clearButton = wrapper.find('svg path[d="M6 18L18 6M6 6l12 12"]').element.parentElement
-    if (clearButton) {
-      await wrapper.find('svg').trigger('click')
+    const clearButton = wrapper.find('[data-testid="fwb-autocomplete-clear-button"]')
+    if (clearButton.exists()) {
+      await clearButton.trigger('click')
       expect(wrapper.emitted('update:modelValue')).toBeTruthy()
       const emittedEvents = wrapper.emitted('update:modelValue') as Array<any>
       expect(emittedEvents[emittedEvents.length - 1][0]).toBe(null)
@@ -147,7 +146,8 @@ describe('FwbAutocomplete', () => {
     await nextTick()
 
     expect(wrapper.text()).toContain('Loading...')
-    expect(wrapper.find('.animate-spin').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-loading-spinner"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-loading-message"]').exists()).toBe(true)
   })
 
   it('shows no results message', async () => {
@@ -165,6 +165,7 @@ describe('FwbAutocomplete', () => {
     await nextTick()
 
     expect(wrapper.text()).toContain('No results found')
+    expect(wrapper.find('[data-testid="fwb-autocomplete-no-results"]').exists()).toBe(true)
   })
 
   it('handles remote search with debounce', async () => {
@@ -205,7 +206,7 @@ describe('FwbAutocomplete', () => {
     })
 
     expect(wrapper.text()).toContain('This field is required')
-    expect(wrapper.find('.text-red-600').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-validation-message"]').exists()).toBe(true)
   })
 
   it('renders helper text slot', () => {
@@ -220,7 +221,7 @@ describe('FwbAutocomplete', () => {
     })
 
     expect(wrapper.text()).toContain('Choose your country')
-    expect(wrapper.find('.text-gray-500').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-helper-text"]').exists()).toBe(true)
   })
 
   it('handles different sizes', () => {
@@ -261,12 +262,12 @@ describe('FwbAutocomplete', () => {
     await input.trigger('focus')
     await nextTick()
 
-    expect(wrapper.find('.absolute.z-50').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-dropdown"]').exists()).toBe(true)
 
     await input.trigger('keydown', { key: 'Escape' })
     await nextTick()
 
-    expect(wrapper.find('.absolute.z-50').exists()).toBe(false)
+    expect(wrapper.find('[data-testid="fwb-autocomplete-dropdown"]').exists()).toBe(false)
   })
 
   it('searches multiple fields', async () => {
@@ -356,13 +357,13 @@ describe('FwbAutocomplete', () => {
     await input.trigger('focus')
     await nextTick()
 
-    const dropdownItems = wrapper.findAll('.px-4.py-3.cursor-pointer')
-    if (dropdownItems.length > 0) {
-      await dropdownItems[1].trigger('mouseenter')
+    const secondOption = wrapper.find('[data-testid="fwb-autocomplete-option-1"]')
+    if (secondOption.exists()) {
+      await secondOption.trigger('mouseenter')
 
-      // Check that highlighting is updated (this would be internal state)
+      // Check that the option is highlighted (this would be internal state)
       // We can verify by checking classes or other visual indicators
-      expect(dropdownItems[1].classes()).toContain('cursor-pointer')
+      expect(secondOption.classes()).toContain('fwb-autocomplete-option')
     }
   })
 
@@ -379,9 +380,9 @@ describe('FwbAutocomplete', () => {
     await input.trigger('focus')
     await nextTick()
 
-    const dropdownItems = wrapper.findAll('.px-4.py-3.cursor-pointer')
-    if (dropdownItems.length > 0) {
-      await dropdownItems[0].trigger('click')
+    const firstOption = wrapper.find('[data-testid="fwb-autocomplete-option-0"]')
+    if (firstOption.exists()) {
+      await firstOption.trigger('click')
 
       // Input should show the selected option's display value
       expect(input.element.value).toBe('United States')
