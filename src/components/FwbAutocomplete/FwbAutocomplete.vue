@@ -1,5 +1,5 @@
 <template>
-  <div :class="wrapperClasses">
+  <div ref="rootEl" :class="wrapperClasses">
     <div class="relative">
       <fwb-input
         v-model="inputValue"
