@@ -5,7 +5,6 @@
         v-model="inputValue"
         :label="label"
         :label-class="labelClass"
-        :wrapper-class="''"
         :placeholder="placeholder"
         :disabled="disabled"
         :size="size"
