@@ -1,6 +1,9 @@
 <template>
   <label>
-    <span v-if="label" :class="labelClasses">{{ label }}</span>
+    <span
+      v-if="label"
+      :class="labelClasses"
+    >{{ label }}</span>
     <span :class="wrapperClasses">
       <textarea
         v-model="model"
