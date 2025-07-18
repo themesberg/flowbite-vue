@@ -8,7 +8,7 @@
     >
     <span :class="[toggleClasses, toggleSize, toggleColor]" />
     <span
-      v-if="label" 
+      v-if="label"
       :class="[toggleBallClasses, toggleBallOrder]"
     >{{ label }}</span>
   </label>
