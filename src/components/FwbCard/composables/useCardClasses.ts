@@ -16,11 +16,11 @@ export function useCardsClasses (props: UseCardsClassesProps): {
     let computedClasses = ''
 
     if (props.variant.value === 'image') {
-      computedClasses = 'max-w-sm rounded-lg border border-gray-200 shadow-md dark:border-gray-700'
+      computedClasses = 'min-w-sm rounded-lg border border-gray-200 shadow-md dark:border-gray-700'
     } else if (props.variant.value === 'default') {
-      computedClasses = 'block max-w-sm rounded-lg border border-gray-200 shadow-md dark:border-gray-700'
+      computedClasses = 'block min-w-sm rounded-lg border border-gray-200 shadow-md dark:border-gray-700 '
     } else if (props.variant.value === 'horizontal') {
-      computedClasses = 'flex flex-col items-center rounded-lg border shadow-md md:flex-row md:max-w-xl dark:border-gray-700'
+      computedClasses = 'flex flex-col items-center rounded-lg border shadow-md md:flex-row md:min-w-xl dark:border-gray-700'
     }
 
     if (!props.class?.value || (!props.class.value.includes('bg-'))) {
