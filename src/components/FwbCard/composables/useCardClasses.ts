@@ -5,6 +5,7 @@ import type { CardsVariant } from '../types'
 export type UseCardsClassesProps = {
   variant: Ref<CardsVariant>
   href?: Ref<string>
+  class?: Ref<string>
 }
 
 export function useCardsClasses (props: UseCardsClassesProps): {
@@ -13,17 +14,20 @@ export function useCardsClasses (props: UseCardsClassesProps): {
 } {
   const cardClasses = computed(() => {
     let computedClasses = ''
+
     if (props.variant.value === 'image') {
-      computedClasses = 'min-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
-    }
-
-    if (props.variant.value === 'default') {
-      computedClasses = 'block min-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 '
+      computedClasses = 'min-w-sm rounded-lg border border-gray-200 shadow-md dark:border-gray-700'
+    } else if (props.variant.value === 'default') {
+      computedClasses = 'block min-w-sm rounded-lg border border-gray-200 shadow-md dark:border-gray-700 '
     } else if (props.variant.value === 'horizontal') {
-      computedClasses = 'flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:min-w-xl dark:border-gray-700 dark:bg-gray-800'
+      computedClasses = 'flex flex-col items-center rounded-lg border shadow-md md:flex-row md:min-w-xl dark:border-gray-700'
     }
 
-    if (props.href?.value) {
+    if (!props.class?.value || (!props.class.value.includes('bg-'))) {
+      computedClasses += ' bg-white dark:bg-gray-800'
+    }
+
+    if (props.href?.value && !props.class?.value) {
       computedClasses += ' hover:bg-gray-100 dark:hover:bg-gray-700'
     }
 
