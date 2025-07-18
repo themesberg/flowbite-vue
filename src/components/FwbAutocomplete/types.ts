@@ -1,4 +1,5 @@
 import type { InputSize, ValidationStatus } from '../FwbInput/types'
+import type { Component } from 'vue'
 
 export type AutocompleteSize = InputSize
 export type { ValidationStatus }
@@ -24,6 +25,8 @@ export interface AutocompleteProps<T = Record<string, any>> {
   label?: string
   labelClass?: string | Record<string, boolean>
   dropdownClass?: string | Record<string, boolean>
+  inputComponent?: Component
+  inputProps?: Record<string, any>
 }
 
 export interface AutocompleteEmits<T = Record<string, any>> {

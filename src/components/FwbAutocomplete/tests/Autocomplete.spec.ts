@@ -426,4 +426,39 @@ describe('FwbAutocomplete', () => {
       expect(input.element.value).toBe('United States')
     }
   })
+
+  it('passes inputProps to input component', () => {
+    const wrapper = mount(FwbAutocomplete, {
+      props: {
+        options: mockOptions,
+        searchFields: ['name'],
+        inputProps: {
+          size: 'lg',
+          class: 'custom-styling',
+        },
+      },
+    })
+
+    // Since we're using default FwbInput, check if props are passed
+    const inputWrapper = wrapper.findComponent({ name: 'FwbInput' })
+    expect(inputWrapper.exists()).toBe(true)
+    // The class should be merged through inputProps
+    expect(inputWrapper.props()).toMatchObject({
+      size: 'lg',
+      class: 'custom-styling',
+    })
+  })
+
+  it('uses FwbInput as default input component', () => {
+    const wrapper = mount(FwbAutocomplete, {
+      props: {
+        options: mockOptions,
+        searchFields: ['name'],
+      },
+    })
+
+    // Should use FwbInput by default
+    const fwbInput = wrapper.findComponent({ name: 'FwbInput' })
+    expect(fwbInput.exists()).toBe(true)
+  })
 })

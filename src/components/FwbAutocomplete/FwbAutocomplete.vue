@@ -1,13 +1,22 @@
 <template>
-  <div ref="rootEl" :class="wrapperClasses" data-testid="fwb-autocomplete-wrapper">
+  <div
+    ref="rootEl"
+    :class="wrapperClasses"
+    data-testid="fwb-autocomplete-wrapper"
+  >
     <div class="relative">
-      <fwb-input
+      <component
+        :is="inputComponent"
         v-model="inputValue"
-        :label="label"
+        v-bind="{
+          placeholder,
+          disabled,
+          size,
+          label,
+          ...inputProps,
+          ...$attrs,
+        }"
         :label-class="labelClass"
-        :placeholder="placeholder"
-        :disabled="disabled"
-        :size="size"
         :validation-status="validationStatus"
         data-testid="fwb-autocomplete-input"
         @input="handleInput"
@@ -15,49 +24,58 @@
         @keydown="handleKeydown"
       >
         <template #suffix>
-          <div class="flex items-center">
-            <div
-              v-if="loading"
-              class="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"
-              data-testid="fwb-autocomplete-loading-spinner"
-            />
-            <svg
-              v-else-if="inputValue"
-              class="w-5 h-5 cursor-pointer text-gray-400 hover:text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              data-testid="fwb-autocomplete-clear-button"
-              @click="clear"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
+          <slot
+            name="suffix"
+            :loading="loading"
+            :clear="clear"
+          >
+            <div class="flex items-center">
+              <div
+                v-if="loading"
+                class="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"
+                data-testid="fwb-autocomplete-loading-spinner"
               />
-            </svg>
-            <svg
-              v-else
-              class="w-5 h-5 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              data-testid="fwb-autocomplete-search-icon"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </div>
+              <svg
+                v-else-if="inputValue"
+                class="w-5 h-5 cursor-pointer text-gray-400 hover:text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                data-testid="fwb-autocomplete-clear-button"
+                @click="clear"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+              <svg
+                v-else
+                class="w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                data-testid="fwb-autocomplete-search-icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+          </slot>
         </template>
-      </fwb-input>
+      </component>
 
       <div
-        v-if="dropdownOpen && (filteredOptions.length > 0 || loading || noResultsFound)"
+        v-if="
+          dropdownOpen &&
+            (filteredOptions.length > 0 || loading || noResultsFound)
+        "
         :class="dropdownClasses"
         data-testid="fwb-autocomplete-dropdown"
       >
@@ -121,36 +139,49 @@
 </template>
 
 <script setup lang="ts" generic="T extends Record<string, any>">
-import { computed, onMounted, onUnmounted, ref, toRefs, watch } from 'vue'
+import {
+  type Component,
+  computed,
+  onMounted,
+  onUnmounted,
+  ref,
+  toRefs,
+  watch,
+} from 'vue'
 
 import FwbInput from '../FwbInput/FwbInput.vue'
 
 import { useAutocompleteClasses } from './composables/useAutocompleteClasses'
 
-import type {
-  AutocompleteEmits,
-  AutocompleteProps,
-} from './types'
+import type { AutocompleteEmits, AutocompleteProps } from './types'
 
-defineOptions({
-  inheritAttrs: false,
-})
+defineOptions({ inheritAttrs: true })
 
-const props = withDefaults(defineProps<AutocompleteProps<T>>(), {
-  placeholder: 'Search...',
-  disabled: false,
-  searchFields: () => [],
-  loadingText: 'Loading...',
-  noResultsText: 'No results found',
-  minChars: 0,
-  remote: false,
-  debounce: 300,
-  size: 'md',
-  class: '',
-  wrapperClass: '',
-  labelClass: '',
-  dropdownClass: '',
-})
+const props = withDefaults(
+  defineProps<
+    AutocompleteProps<T> & {
+      inputComponent?: Component
+      inputProps?: Record<string, any>
+    }
+  >(),
+  {
+    placeholder: 'Search...',
+    disabled: false,
+    searchFields: () => [],
+    loadingText: 'Loading...',
+    noResultsText: 'No results found',
+    minChars: 0,
+    remote: false,
+    debounce: 300,
+    size: 'md',
+    class: '',
+    wrapperClass: '',
+    labelClass: '',
+    dropdownClass: '',
+    inputComponent: FwbInput,
+    inputProps: () => ({}),
+  },
+)
 
 const emit = defineEmits<AutocompleteEmits<T>>()
 
