@@ -2,8 +2,8 @@
   <component
     :is="componentTag"
     :class="itemClasses"
-    :[linkAttr]="linkTarget"
     :target="showTarget ? target : undefined"
+    v-bind="linkAttr ? { [linkAttr]: linkTarget } : {}"
   >
     <div
       v-if="$slots.prefix"
