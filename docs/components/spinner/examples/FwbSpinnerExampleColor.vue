@@ -8,6 +8,7 @@
     <fwb-spinner color="red" />
     <fwb-spinner color="white" />
     <fwb-spinner color="yellow" />
+    <fwb-spinner color="#3fb984" />
   </div>
 </template>
 
