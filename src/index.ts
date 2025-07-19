@@ -3,6 +3,7 @@ export { default as FwbAccordionContent } from '@/components/FwbAccordion/FwbAcc
 export { default as FwbAccordionHeader } from '@/components/FwbAccordion/FwbAccordionHeader.vue'
 export { default as FwbAccordionPanel } from '@/components/FwbAccordion/FwbAccordionPanel.vue'
 export { default as FwbAlert } from '@/components/FwbAlert/FwbAlert.vue'
+export { default as FwbAutocomplete } from '@/components/FwbAutocomplete/FwbAutocomplete.vue'
 export { default as FwbAvatar } from '@/components/FwbAvatar/FwbAvatar.vue'
 export { default as FwbAvatarStack } from '@/components/FwbAvatar/FwbAvatarStack.vue'
 export { default as FwbAvatarStackCounter } from '@/components/FwbAvatar/FwbAvatarStackCounter.vue'
