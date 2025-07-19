@@ -7,7 +7,10 @@
       type="checkbox"
     >
     <span :class="[toggleClasses, toggleSize, toggleColor]" />
-    <span :class="[toggleBallClasses, toggleBallOrder]">{{ label }}</span>
+    <span
+      v-if="label"
+      :class="[toggleBallClasses, toggleBallOrder]"
+    >{{ label }}</span>
   </label>
 </template>
 

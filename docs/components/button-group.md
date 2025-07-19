@@ -80,21 +80,11 @@ You can also mix buttons with dropdowns inside the button group.
     </fwb-dropdown>
     <fwb-dropdown text="Dropdown with list">
       <fwb-list-group>
-        <fwb-list-group-item hover>
-          <a href="#">These</a>
-        </fwb-list-group-item>
-        <fwb-list-group-item hover>
-          <a href="#">are</a>
-        </fwb-list-group-item>
-        <fwb-list-group-item hover>
-          <a href="#">some</a>
-        </fwb-list-group-item>
-        <fwb-list-group-item hover>
-          <a href="#">list</a>
-        </fwb-list-group-item>
-        <fwb-list-group-item hover>
-          <a href="#">items</a>
-        </fwb-list-group-item>
+        <fwb-list-group-item href="#"> These </fwb-list-group-item>
+        <fwb-list-group-item href="#"> are </fwb-list-group-item>
+        <fwb-list-group-item href="#"> some </fwb-list-group-item>
+        <fwb-list-group-item href="#"> list </fwb-list-group-item>
+        <fwb-list-group-item href="#"> items </fwb-list-group-item>
       </fwb-list-group>
     </fwb-dropdown>
   </fwb-button-group>
