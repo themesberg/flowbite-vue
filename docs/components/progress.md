@@ -94,6 +94,13 @@ You can also apply color.
     <fwb-progress :progress="75" color="yellow" label="Yellow"  />
     <fwb-progress :progress="87.5" color="indigo" label="Indigo"  />
     <fwb-progress :progress="100" color="purple" label="Purple"  />
+    <fwb-progress
+      :progress="50"
+      :inner-classes="'rounded-xs bg-teal-900 dark:bg-teal-200'"
+      :outer-classes="'bg-teal-200 dark:bg-teal-900'"
+      :outside-label-classes="'italic text-sky-800 dark:text-sky-200'"
+      label="Custom"
+    />
   </div>
 </template>
 
