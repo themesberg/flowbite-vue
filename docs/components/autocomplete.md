@@ -325,6 +325,7 @@ const countries = [
 | `label` | `string` | `undefined` | Label text for the input field |
 | `inputComponent` | `Component` | `FwbInput` | Vue component to use as the input field |
 | `inputProps` | `Record<string, any>` | `{}` | Additional props to pass to the input component |
+| `zIndex` | `number` | `100` | Z-index value for the dropdown overlay |
 
 ### Input Component Props
 

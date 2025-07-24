@@ -185,6 +185,7 @@ const props = withDefaults(
     dropdownClass: '',
     inputComponent: FwbInput,
     inputProps: () => ({}),
+    zIndex: 100,
   },
 )
 

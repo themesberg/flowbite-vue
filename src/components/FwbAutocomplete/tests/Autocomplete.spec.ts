@@ -484,4 +484,41 @@ describe('FwbAutocomplete', () => {
     const fwbInput = wrapper.findComponent({ name: 'FwbInput' })
     expect(fwbInput.exists()).toBe(true)
   })
+
+  it('applies custom z-index to dropdown', async () => {
+    const wrapper = mount(FwbAutocomplete, {
+      props: {
+        options: mockOptions,
+        searchFields: ['name'],
+        display: 'name',
+        zIndex: 200,
+      },
+    })
+
+    const input = wrapper.find('input')
+    await input.trigger('focus')
+    await nextTick()
+
+    const dropdown = wrapper.find('[data-testid="fwb-autocomplete-dropdown"]')
+    expect(dropdown.exists()).toBe(true)
+    expect(dropdown.classes()).toContain('z-[200]')
+  })
+
+  it('uses default z-index when not specified', async () => {
+    const wrapper = mount(FwbAutocomplete, {
+      props: {
+        options: mockOptions,
+        searchFields: ['name'],
+        display: 'name',
+      },
+    })
+
+    const input = wrapper.find('input')
+    await input.trigger('focus')
+    await nextTick()
+
+    const dropdown = wrapper.find('[data-testid="fwb-autocomplete-dropdown"]')
+    expect(dropdown.exists()).toBe(true)
+    expect(dropdown.classes()).toContain('z-[100]')
+  })
 })

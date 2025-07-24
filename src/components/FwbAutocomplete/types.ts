@@ -27,6 +27,7 @@ export interface AutocompleteProps<T = Record<string, any>> {
   dropdownClass?: string | Record<string, boolean>
   inputComponent?: Component
   inputProps?: Record<string, any>
+  zIndex?: number
 }
 
 export interface AutocompleteEmits<T = Record<string, any>> {
