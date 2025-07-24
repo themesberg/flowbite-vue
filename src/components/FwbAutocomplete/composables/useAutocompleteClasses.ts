@@ -1,4 +1,4 @@
-import { twMerge } from 'tailwind-merge'
+import { useMergeClasses } from '@/composables/useMergeClasses'
 import { computed, type Ref } from 'vue'
 
 const baseWrapperClasses = 'relative w-full'
@@ -17,24 +17,24 @@ export interface UseAutocompleteClassesProps {
 
 export function useAutocompleteClasses (props: UseAutocompleteClassesProps) {
   const wrapperClasses = computed(() => {
-    return twMerge(
+    return useMergeClasses([
       baseWrapperClasses,
       typeof props.wrapperClass?.value === 'string' ? props.wrapperClass.value : '',
-    )
+    ])
   })
 
   const dropdownClasses = computed(() => {
-    return twMerge(
+    return useMergeClasses([
       baseDropdownClasses,
       typeof props.dropdownClass?.value === 'string' ? props.dropdownClass.value : '',
-    )
+    ])
   })
 
   const getDropdownItemClasses = (isHighlighted: boolean) => {
-    return twMerge(
+    return useMergeClasses([
       baseDropdownItemClasses,
       isHighlighted ? highlightedDropdownItemClasses : hoverDropdownItemClasses,
-    )
+    ])
   }
 
   const messageClasses = computed(() => baseMessageClasses)
