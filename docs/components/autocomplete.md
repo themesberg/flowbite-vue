@@ -27,7 +27,7 @@ The autocomplete component supports real-time filtering, keyboard navigation, re
   <fwb-autocomplete
     v-model="selectedCountry"
     :options="countries"
-    search-fields="name"
+    :search-fields="['name']"
     display="name"
     label="Select a country"
     placeholder="Search countries..."
@@ -58,7 +58,7 @@ const countries = [
     v-model="selectedCountry"
     :options="countries"
     :loading="loading"
-    search-fields="name"
+    :search-fields="['name']"
     display="name"
     label="Search countries"
     placeholder="Type to search countries..."
@@ -160,7 +160,7 @@ The component automatically passes through standard props like `placeholder`, `d
   <fwb-autocomplete
     v-model="selectedUser"
     :options="users"
-    search-fields="name,email"
+    :search-fields="['name', 'email']"
     display="name"
     label="Select user"
     placeholder="Search users..."
@@ -211,7 +211,7 @@ const users = [
   <fwb-autocomplete
     v-model="selectedCountry"
     :options="countries"
-    search-fields="name"
+    :search-fields="['name']"
     display="name"
     label="Country *"
     placeholder="Select a country..."
@@ -252,7 +252,7 @@ const validationStatus = computed(() => {
     <fwb-autocomplete
       v-model="selected1"
       :options="countries"
-      search-fields="name"
+      :search-fields="['name']"
       display="name"
       label="Small"
       size="sm"
@@ -262,7 +262,7 @@ const validationStatus = computed(() => {
     <fwb-autocomplete
       v-model="selected2"
       :options="countries"
-      search-fields="name"
+      :search-fields="['name']"
       display="name"
       label="Medium (default)"
       size="md"
@@ -272,7 +272,7 @@ const validationStatus = computed(() => {
     <fwb-autocomplete
       v-model="selected3"
       :options="countries"
-      search-fields="name"
+      :search-fields="['name']"
       display="name"
       label="Large"
       size="lg"
@@ -366,7 +366,7 @@ You can also pass additional props via the `inputProps` prop or use a completely
 <fwb-autocomplete
   v-model="selected"
   :options="countries"
-  search-fields="name"
+  :search-fields="['name']"
   display="name"
   placeholder="Search countries..."
 />
@@ -378,7 +378,7 @@ You can also pass additional props via the `inputProps` prop or use a completely
   v-model="selected"
   :options="users"
   :loading="loading"
-  search-fields="name,email"
+  :search-fields="['name', 'email']"
   display="name"
   remote
   :debounce="500"
