@@ -21,6 +21,7 @@
         data-testid="fwb-autocomplete-input"
         @input="handleInput"
         @focus="handleFocus"
+        @blur="handleBlur"
         @keydown="handleKeydown"
       >
         <template #suffix>
@@ -107,6 +108,9 @@
           :class="getDropdownItemClasses(highlightedIndex === index)"
           :data-testid="`fwb-autocomplete-option-${index}`"
           class="fwb-autocomplete-option"
+          @mousedown="isSelectingOption = true"
+          @mouseup="isSelectingOption = false"
+          @mouseleave="isSelectingOption = false"
           @click="select(option)"
           @mouseenter="highlightedIndex = index"
         >
@@ -190,6 +194,7 @@ const inputValue = ref('')
 const dropdownOpen = ref(false)
 const highlightedIndex = ref(-1)
 const debounceTimer = ref<ReturnType<typeof setTimeout> | null>(null)
+const isSelectingOption = ref(false)
 
 const {
   wrapperClasses,
@@ -258,6 +263,13 @@ const handleInput = () => {
 const handleFocus = () => {
   dropdownOpen.value = true
   emit('search', inputValue.value)
+}
+
+const handleBlur = () => {
+  if (!isSelectingOption.value) {
+    dropdownOpen.value = false
+    highlightedIndex.value = -1
+  }
 }
 
 const handleKeydown = (event: KeyboardEvent) => {

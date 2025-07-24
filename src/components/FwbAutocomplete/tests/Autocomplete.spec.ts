@@ -427,6 +427,29 @@ describe('FwbAutocomplete', () => {
     }
   })
 
+  it('closes dropdown on blur event', async () => {
+    const wrapper = mount(FwbAutocomplete, {
+      props: {
+        options: mockOptions,
+        searchFields: ['name'],
+        display: 'name',
+      },
+    })
+
+    const input = wrapper.find('input')
+    await input.trigger('focus')
+    await nextTick()
+
+    expect(wrapper.find('[data-testid="fwb-autocomplete-dropdown"]').exists()).toBe(true)
+
+    // Blur to close dropdown
+    await input.trigger('blur')
+    await nextTick()
+
+    expect(wrapper.find('[data-testid="fwb-autocomplete-dropdown"]').exists()).toBe(false)
+  })
+  
+
   it('passes inputProps to input component', () => {
     const wrapper = mount(FwbAutocomplete, {
       props: {
