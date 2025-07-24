@@ -146,6 +146,7 @@
 import {
   type Component,
   computed,
+  nextTick,
   onMounted,
   onUnmounted,
   ref,
@@ -286,6 +287,7 @@ const handleKeydown = (event: KeyboardEvent) => {
       if (filteredOptions.value.length > 0) {
         highlightedIndex.value
           = (highlightedIndex.value + 1) % filteredOptions.value.length
+        scrollToHighlightedOption()
       }
       break
     case 'ArrowUp':
@@ -294,6 +296,7 @@ const handleKeydown = (event: KeyboardEvent) => {
         highlightedIndex.value
           = (highlightedIndex.value - 1 + filteredOptions.value.length)
           % filteredOptions.value.length
+        scrollToHighlightedOption()
       }
       break
     case 'Enter':
@@ -321,6 +324,22 @@ const clear = () => {
   inputValue.value = ''
   dropdownOpen.value = false
   emit('update:modelValue', null)
+}
+
+const scrollToHighlightedOption = async () => {
+  await nextTick()
+  if (highlightedIndex.value >= 0 && rootEl.value) {
+    const highlightedElement = rootEl.value.querySelector(
+      `[data-testid="fwb-autocomplete-option-${highlightedIndex.value}"]`,
+    ) as HTMLElement
+
+    if (highlightedElement && typeof highlightedElement.scrollIntoView === 'function') {
+      highlightedElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      })
+    }
+  }
 }
 
 const handleClickOutside = (event: Event) => {
