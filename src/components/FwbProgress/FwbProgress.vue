@@ -4,23 +4,19 @@
       <div class="mb-1 flex justify-between">
         <span
           :class="outsideLabelClasses"
-          class="text-base font-medium"
         >{{ label }}</span>
         <span
           v-if="labelProgress && labelPosition === 'outside'"
           :class="outsideLabelClasses"
-          class="text-sm font-medium"
         >{{ progress }}%</span>
       </div>
     </template>
     <div
       :class="outerClasses"
-      class="w-full rounded-full bg-gray-200 dark:bg-gray-700"
     >
       <div
         :class="innerClasses"
         :style="{ width: progress + '%' }"
-        class="rounded-full p-0.5 text-center font-medium text-blue-100"
       >
         <template v-if="labelProgress && labelPosition === 'inside'">
           {{ progress }}%
@@ -44,6 +40,9 @@ interface IProgressProps {
   labelProgress?: boolean
   progress?: number
   size?: ProgressSize
+  innerClasses?: string | Record<string, boolean>
+  outerClasses?: string | Record<string, boolean>
+  outsideLabelClasses?: string | Record<string, boolean>
 }
 
 const props = withDefaults(defineProps<IProgressProps>(), {
@@ -53,6 +52,9 @@ const props = withDefaults(defineProps<IProgressProps>(), {
   labelProgress: false,
   progress: 0,
   size: 'md',
+  innerClasses: '',
+  outerClasses: '',
+  outsideLabelClasses: '',
 })
 
 const {

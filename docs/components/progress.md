@@ -1,6 +1,7 @@
 <script setup>
 import FwbProgressExample from './progress/examples/FwbProgressExample.vue'
 import FwbProgressExampleColor from './progress/examples/FwbProgressExampleColor.vue'
+import FwbProgressExampleCustom from './progress/examples/FwbProgressExampleCustom.vue'
 import FwbProgressExampleLabelInside from './progress/examples/FwbProgressExampleLabelInside.vue'
 import FwbProgressExampleLabelOutside from './progress/examples/FwbProgressExampleLabelOutside.vue'
 import FwbProgressExampleSize from './progress/examples/FwbProgressExampleSize.vue'
@@ -95,6 +96,34 @@ You can also apply color.
     <fwb-progress :progress="87.5" color="indigo" label="Indigo"  />
     <fwb-progress :progress="100" color="purple" label="Purple"  />
   </div>
+</template>
+
+<script setup>
+import { FwbProgress } from 'flowbite-vue'
+</script>
+```
+
+## Custom
+You can fully customize the appearance of the progress bar using TailwindCSS utility classes via the following props:
+
+| Prop                  | Description                                                      |
+|-----------------------|------------------------------------------------------------------|
+| `inner-classes`       | Custom classes for the inner progress bar                        |
+| `outer-classes`       | Custom classes for the outer progress bar container              |
+| `outside-label-classes` | Custom classes for the label outside the progress bar        |
+
+These props allow you to override or extend the default styling for each part of the component, enabling advanced use cases such as gradients, custom colors, rounded corners, and more.
+
+<fwb-progress-example-custom />
+```vue
+<template>
+  <fwb-progress
+    :progress="50"
+    :inner-classes="'rounded-xs bg-teal-900 dark:bg-teal-200'"
+    :outer-classes="'bg-teal-200 dark:bg-teal-900'"
+    :outside-label-classes="'italic text-sky-800 dark:text-sky-200'"
+    label="Custom"
+  />
 </template>
 
 <script setup>

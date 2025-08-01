@@ -1,7 +1,12 @@
-import classNames from 'classnames'
 import { computed, type Ref } from 'vue'
 
 import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from '../types'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
+
+const defaultInnerClasses = 'rounded-full p-0.5 text-center font-medium text-blue-100'
+const defaultOuterClasses = 'w-full rounded-full bg-gray-200 dark:bg-gray-700'
+const defaultOutsideLabelClasses = 'text-base font-medium'
 
 const barColorClasses: Record<ProgressVariant, string> = {
   default: 'bg-blue-600 dark:bg-blue-600',
@@ -36,28 +41,37 @@ export type UseProgressClassesProps = {
   color: Ref<ProgressVariant>
   size: Ref<ProgressSize>
   labelPosition: Ref<ProgressLabelPosition>
+  innerClasses?: Ref<string | Record<string, boolean>>
+  outerClasses?: Ref<string | Record<string, boolean>>
+  outsideLabelClasses?: Ref<string | Record<string, boolean>>
 }
 
-export function useProgressClasses (props: UseProgressClassesProps): { innerClasses: Ref<string>, outerClasses: Ref<string>, outsideLabelClasses: Ref<string> } {
-  const bindClasses = computed(() => {
-    return classNames(
-      barColorClasses[props.color.value],
-      progressSizeClasses[props.size.value],
-    )
-  })
-  const outerClasses = computed(() => {
-    return classNames(
-      progressSizeClasses[props.size.value],
-    )
-  })
-  const outsideLabelClasses = computed(() => {
-    return classNames(
-      outsideTextColorClasses[props.color.value],
-    )
-  })
+export function useProgressClasses (props: UseProgressClassesProps): {
+  innerClasses: Ref<string>
+  outerClasses: Ref<string>
+  outsideLabelClasses: Ref<string>
+} {
+  const innerClasses = computed(() => useMergeClasses([
+    defaultInnerClasses,
+    barColorClasses[props.color.value],
+    progressSizeClasses[props.size.value],
+    props.innerClasses?.value || '',
+  ]))
+
+  const outerClasses = computed(() => useMergeClasses([
+    defaultOuterClasses,
+    progressSizeClasses[props.size.value],
+    props.outerClasses?.value || '',
+  ]))
+
+  const outsideLabelClasses = computed(() => useMergeClasses([
+    defaultOutsideLabelClasses,
+    outsideTextColorClasses[props.color.value],
+    props.outsideLabelClasses?.value || '',
+  ]))
 
   return {
-    innerClasses: bindClasses,
+    innerClasses,
     outerClasses,
     outsideLabelClasses,
   }
