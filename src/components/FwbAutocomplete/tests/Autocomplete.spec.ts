@@ -448,7 +448,6 @@ describe('FwbAutocomplete', () => {
 
     expect(wrapper.find('[data-testid="fwb-autocomplete-dropdown"]').exists()).toBe(false)
   })
-  
 
   it('passes inputProps to input component', () => {
     const wrapper = mount(FwbAutocomplete, {
