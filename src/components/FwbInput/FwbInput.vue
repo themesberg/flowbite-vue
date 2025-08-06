@@ -2,6 +2,7 @@
   <div :class="wrapperClass">
     <label
       v-if="label"
+      :for="inputId"
       :class="labelClass"
     >{{ label }}</label>
     <div :class="inputWrapperClass">
@@ -12,7 +13,7 @@
         <slot name="prefix" />
       </div>
       <input
-        v-bind="$attrs"
+        v-bind="inputAttributes"
         v-model="model"
         :autocomplete="autocomplete"
         :class="inputClass"
@@ -46,23 +47,10 @@
 
 import { toRefs } from 'vue'
 
+import { useInputAttributes } from './composables/useInputAttributes'
 import { useInputClasses } from './composables/useInputClasses'
 
-import type { CommonAutoFill, InputSize, InputType, ValidationStatus } from './types'
-
-interface InputProps {
-  autocomplete?: CommonAutoFill
-  class?: string | Record<string, boolean>
-  disabled?: boolean
-  inputClass?: string | Record<string, boolean>
-  label?: string
-  labelClass?: string | Record<string, boolean>
-  required?: boolean
-  size?: InputSize
-  type?: InputType
-  validationStatus?: ValidationStatus
-  wrapperClass?: string | Record<string, boolean>
-}
+import type { InputProps } from './types'
 
 defineOptions({
   inheritAttrs: false,
@@ -92,4 +80,6 @@ const {
   inputWrapperClass,
   inputClass,
 } = useInputClasses(toRefs(props))
+
+const { inputId, inputAttributes } = useInputAttributes(props)
 </script>
