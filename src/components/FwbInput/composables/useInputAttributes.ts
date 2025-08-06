@@ -20,7 +20,7 @@ export const useInputAttributes = (props: InputProps) => {
     if (inputId.value !== '') {
       return {
         ...attrs,
-        id: inputId,
+        id: inputId.value,
       }
     } else {
       return attrs
