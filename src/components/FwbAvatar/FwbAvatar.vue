@@ -6,6 +6,7 @@
       <img
         v-if="img && !imageError"
         :alt="alt"
+        class="object-cover"
         :class="avatarClasses"
         :src="img"
         @error="setImageError"
