@@ -128,6 +128,7 @@ const modalRef: Ref<HTMLElement | null> = ref(null)
 const { activate, deactivate } = useFocusTrap(modalRef, {
   immediate: false,
   initialFocus: () => modalRef.value?.querySelector('button[aria-label="close"]') || modalRef.value,
+  escapeDeactivates: false,
 })
 
 onMounted(async () => {

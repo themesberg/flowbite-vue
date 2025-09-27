@@ -161,7 +161,7 @@ import { FwbModal } from 'flowbite-vue'
 
 ## Focus Trap
 
-You can enable focus trapping by setting the `focus-trap` prop to `true`. This keeps the focus within the modal, preventing users from tabbing to elements outside of it, which improves accessibility.
+You can enable focus trapping by setting the `focus-trap` prop to `true`. This keeps the focus within the modal, preventing users from tabbing to elements outside of it, which improves accessibility. esc key will still close the modal.
 
 <fwb-modal-example-focus-trap />
 ```vue
