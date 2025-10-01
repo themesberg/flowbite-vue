@@ -51,21 +51,21 @@ export function useTabClasses (props: UseTabClassesProps): {
     if (props.variant === 'default') {
       return useMergeClasses([
         defaultTabClasses[tabClassType],
-        (isActiveTheme && tabClassType) === 'active'
+        (isActiveTheme && tabClassType === 'active')
           ? theme.textClasses.value
           : '',
       ])
     } else if (props.variant === 'underline') {
       return useMergeClasses([
         underlineTabClasses[tabClassType],
-        (isActiveTheme && tabClassType) === 'active'
+        (isActiveTheme && tabClassType === 'active')
           ? `${theme.borderClasses.value} ${theme.textClasses.value}`
           : '',
       ])
     } else if (props.variant === 'pills') {
       return useMergeClasses([
         pillsTabClasses[tabClassType],
-        (isActiveTheme && tabClassType) === 'active'
+        (isActiveTheme && tabClassType === 'active')
           ? `${theme.backgroundClasses.value} text-white`
           : '',
       ])
