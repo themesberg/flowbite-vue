@@ -17,7 +17,7 @@ export function getFirstSlotVNode (
   const slotContent = flatten(slot(props))
   // vue will normalize the slot, so slot must be an array
   if (slotContent.length === 1) {
-    return slotContent[0]
+    return slotContent[0] ?? null
   } else {
     console.warn('getFirstSlotVNode', `slot[${slotName}] should have exactly one child`)
     return null

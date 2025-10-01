@@ -47,7 +47,8 @@ export default defineComponent({
         return ''
       }
 
-      const lastId = toasts.value[toasts.value.length - 1].id
+      const lastToast = toasts.value[toasts.value.length - 1]
+      const lastId = lastToast ? lastToast.id : ''
       toasts.value.pop()
 
       return lastId
