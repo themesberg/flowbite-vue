@@ -1,6 +1,6 @@
 <template>
   <form
-    class="vp-raw"
+    class="gap-2 grid vp-raw"
     @submit.prevent
   >
     <fwb-textarea
@@ -22,7 +22,10 @@
       placeholder="Cannot be edited"
       readonly
     />
-    <fwb-button type="submit">
+    <fwb-button
+      class="justify-self-start"
+      type="submit"
+    >
       Validate
     </fwb-button>
   </form>
