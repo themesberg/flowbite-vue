@@ -1,7 +1,7 @@
 <template>
   <component
     :is="tag"
-    :class="simplifyTailwindClasses(classAttr, classes)"
+    :class="useMergeClasses([classAttr, classes])"
   >
     <slot />
   </component>
@@ -14,7 +14,7 @@ import { useFlowbiteThemableChildClasses } from './composables/useFlowbiteThemab
 
 import type { FlowbiteTheme, ThemableChildrenApply } from '@/components/utils/FlowbiteThemable/types'
 
-import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const attrs = useAttrs()
 

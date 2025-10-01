@@ -35,7 +35,8 @@ const useAccordionState: UseAccordionState = (accordionId, options): {
   const getAccordionState: GetAccordionState = ({ element }) => {
     const accordionId = element.value && (element.value.closest('[data-accordion-id]') as HTMLElement)?.dataset.accordionId
 
-    return accordionId ? accordionStates[accordionId] : null
+    if (!accordionId) return null
+    return accordionStates[accordionId] ?? null
   }
 
   const getAccordionPanelState: GetAccordionPanelState = ({ accordionState, panelId }) =>

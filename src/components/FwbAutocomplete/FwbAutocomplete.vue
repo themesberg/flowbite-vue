@@ -33,12 +33,12 @@
             <div class="flex items-center">
               <div
                 v-if="loading"
-                class="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"
+                class="border-2 border-t-transparent border-blue-600 rounded-full w-4 h-4 animate-spin"
                 data-testid="fwb-autocomplete-loading-spinner"
               />
               <svg
                 v-else-if="inputValue"
-                class="w-5 h-5 cursor-pointer text-gray-400 hover:text-gray-600"
+                class="w-5 h-5 text-gray-400 hover:text-gray-600 cursor-pointer"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -85,9 +85,9 @@
           :class="messageClasses"
           data-testid="fwb-autocomplete-loading-message"
         >
-          <div class="flex items-center justify-center gap-2">
+          <div class="flex justify-center items-center gap-2">
             <div
-              class="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"
+              class="border-2 border-t-transparent border-blue-600 rounded-full w-4 h-4 animate-spin"
             />
             {{ loadingText }}
           </div>
@@ -127,14 +127,14 @@
 
     <p
       v-if="$slots.validationMessage"
-      class="mt-2 text-sm text-red-600 dark:text-red-500"
+      class="mt-2 text-red-600 dark:text-red-500 text-sm"
       data-testid="fwb-autocomplete-validation-message"
     >
       <slot name="validationMessage" />
     </p>
     <p
       v-if="$slots.helper"
-      class="mt-2 text-sm text-gray-500 dark:text-gray-400"
+      class="mt-2 text-gray-500 dark:text-gray-400 text-sm"
       data-testid="fwb-autocomplete-helper-text"
     >
       <slot name="helper" />
@@ -303,7 +303,10 @@ const handleKeydown = (event: KeyboardEvent) => {
     case 'Enter':
       event.preventDefault()
       if (highlightedIndex.value >= 0) {
-        select(filteredOptions.value[highlightedIndex.value])
+        const option = filteredOptions.value[highlightedIndex.value]
+        if (option !== undefined) {
+          select(option)
+        }
       }
       break
     case 'Escape':
