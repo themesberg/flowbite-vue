@@ -15,7 +15,8 @@
       "Bash(npm run build:*)",
       "Bash(npm run lint:*)",
       "Bash(git checkout:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []

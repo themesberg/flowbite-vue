@@ -18,7 +18,7 @@ import { twMerge } from 'tailwind-merge'
 import { resolveComponent, useAttrs } from 'vue'
 
 interface IFooterLinkProps {
-  href: string
+  href?: string
   aClass?: string
   component?: string
 }
