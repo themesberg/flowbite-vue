@@ -126,8 +126,10 @@ describe('FwbAutocomplete', () => {
     if (clearButton.exists()) {
       await clearButton.trigger('click')
       expect(wrapper.emitted('update:modelValue')).toBeTruthy()
-      const emittedEvents = wrapper.emitted('update:modelValue') as Array<any>
-      expect(emittedEvents[emittedEvents.length - 1][0]).toBe(null)
+      const emittedEvents = wrapper.emitted('update:modelValue')
+      if (emittedEvents && emittedEvents.length > 0) {
+        expect(emittedEvents[emittedEvents.length - 1]?.[0]).toBe(null)
+      }
     }
   })
 
@@ -288,7 +290,7 @@ describe('FwbAutocomplete', () => {
   })
 
   it('handles custom display function', async () => {
-    const displayFn = vi.fn((option: any) => `${option.name} (${option.code})`)
+    const displayFn = vi.fn((option: Record<string, unknown>) => `${(option as any).name} (${(option as any).code})`)
 
     const wrapper = mount(FwbAutocomplete, {
       props: {

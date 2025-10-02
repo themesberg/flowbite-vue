@@ -61,7 +61,7 @@
     "tsc-alias": "1.8.16",
     "typescript": "5.9.3",
     "vite": "7.1.7",
-    "vitepress": "1.6.4",
+    "vitepress": "^2.0.0-alpha.12",
     "vitest": "3.2.4",
     "vue-tsc": "3.1.0"
   },
@@ -77,7 +77,7 @@
     "nanoid": "5.1.6",
     "postcss-prefix-selector": "^2.1.1",
     "tailwind-merge": "3.3.1",
-    "tailwindcss": "^4.1.14"
+    "tailwindcss": "^4"
   },
   "engines": {
     "node": ">=20.x",
