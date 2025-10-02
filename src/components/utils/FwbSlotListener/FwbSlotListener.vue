@@ -30,7 +30,7 @@ function appendEvents (
       else {
         vNode.props[eventName] = (...args: unknown[]) => {
           originalHandler(...args)
-          if (handler) (handler as any)(...args)
+          if (handler) (handler as (...args: unknown[]) => void)(...args)
         }
       }
     })

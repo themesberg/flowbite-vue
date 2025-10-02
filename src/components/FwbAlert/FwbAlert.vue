@@ -81,10 +81,10 @@ const props = withDefaults(defineProps<IAlertProps>(), {
   border: false,
 })
 defineSlots<{
-  'default': any
-  'close-icon': any
-  'icon': any
-  'title': any
+  'default'?: { onCloseClick: () => void }
+  'close-icon'?: { onCloseClick: () => void }
+  'icon'?: Record<string, never>
+  'title'?: Record<string, never>
 }>()
 const emits = defineEmits<{ (e: 'close'): void }>()
 
