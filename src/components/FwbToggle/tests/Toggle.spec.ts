@@ -149,7 +149,7 @@ describe('FwbToggle', () => {
   it('supports v-model functionality', async () => {
     const wrapper = mount(FwbToggle, {
       props: {
-        modelValue: false,
+        'modelValue': false,
         'onUpdate:modelValue': (value: boolean) => wrapper.setProps({ modelValue: value }),
       },
     })
