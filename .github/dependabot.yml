@@ -1,0 +1,53 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "audit-brands/maintainers"
+    assignees:
+      - "audit-brands/maintainers"
+    commit-message:
+      prefix: "chore(deps):"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "javascript"
+    # Group minor and patch updates
+    groups:
+      development-dependencies:
+        patterns:
+          - "@types/*"
+          - "@vue/*"
+          - "@vitejs/*"
+          - "eslint*"
+          - "vitest*"
+          - "typescript"
+          - "vite"
+        update-types:
+          - "minor"
+          - "patch"
+      production-dependencies:
+        patterns:
+          - "@vueuse/*"
+          - "vue"
+          - "tailwindcss"
+          - "@tailwindcss/*"
+        update-types:
+          - "patch"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "chore(ci):"
+    labels:
+      - "github-actions"
+      - "ci"

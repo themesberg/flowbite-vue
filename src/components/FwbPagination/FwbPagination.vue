@@ -239,17 +239,17 @@ const props = withDefaults(defineProps<IPaginationProps>(), {
   large: false,
 })
 defineSlots<{
-  'start': any
-  'first-icon': any
-  'first-button': any
-  'prev-icon': any
-  'prev-button': any
-  'page-button': any
-  'next-button': any
-  'next-icon': any
-  'last-button': any
-  'last-icon': any
-  'end': any
+  'start': Record<string, never>
+  'first-icon': Record<string, never>
+  'first-button': { setPage: () => void, disabled: boolean }
+  'prev-icon': Record<string, never>
+  'prev-button': { decreasePage: () => void, disabled: boolean }
+  'page-button': { page: number, setPage: (page: number) => void, disabled: boolean }
+  'next-button': { increasePage: () => void, disabled: boolean }
+  'next-icon': Record<string, never>
+  'last-button': { page: number, setPage: () => void, disabled: boolean }
+  'last-icon': Record<string, never>
+  'end': Record<string, never>
 }>()
 function setPage (index: number) {
   emit('update:model-value', index)
