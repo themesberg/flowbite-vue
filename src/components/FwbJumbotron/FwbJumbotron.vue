@@ -46,7 +46,7 @@ const props = withDefaults(defineProps<IAlertProps>(), {
   headerClasses: '',
 })
 defineSlots<{
-  default: any
+  default: Record<string, never>
 }>()
 
 const attrs = useAttrs()
