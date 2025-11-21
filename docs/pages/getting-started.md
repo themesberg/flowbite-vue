@@ -79,9 +79,11 @@ npm i flowbite flowbite-vue
 /* import Flowbite plugin */
 @plugin "flowbite/plugin";
 
-/* add Flowbite Vue directory using @source directive */
+/* add Flowbite Vue directory using @source directive. */
 @source "../node_modules/flowbite-vue";
 ```
+
+Make sure to update the relative path prefix (`../`) for the `@source` directive to your case.
 
 4. Now you can use **Flowbite Vue** anywhere in your project and build awesome interfaces:
 
