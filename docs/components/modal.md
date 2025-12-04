@@ -6,6 +6,7 @@ import FwbModalExamplePersistent from './modal/examples/FwbModalExamplePersisten
 import FwbModalExamplePosition from './modal/examples/FwbModalExamplePosition.vue'
 import FwbModalExampleFocusTrap from './modal/examples/FwbModalExampleFocusTrap.vue'
 </script>
+
 # Vue Modal - Flowbite
 
 #### Use the modal component to show interactive dialogs and notifications to your website users available in multiple sizes, colors, and styles
@@ -179,16 +180,24 @@ import { FwbModal } from 'flowbite-vue'
 
 ### Props:
 
-| Name         | Values                                                                                                                            | Default |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------------|---------|
-| size         | `xs`, `sm`, `md`,`lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`                                                               | `2xl`   |
-| position     | `top-start`, `top-center`, `top-end`, `center-start`, `center`, `center-end`, `bottom-start`, `bottom-center`, `bottom-end` | `center`|
-| notEscapable | `true`, `false`                                                                                                                   | `false` |
-| persistent   | `true`, `false`                                                                                                                   | `false` |
-| focusTrap    | `true`, `false`                                                                                                                   | `false` |
+| Name         | Values                                                                                                                      | Default  |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------- | -------- |
+| size         | `xs`, `sm`, `md`,`lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`                                                       | `2xl`    |
+| position     | `top-start`, `top-center`, `top-end`, `center-start`, `center`, `center-end`, `bottom-start`, `bottom-center`, `bottom-end` | `center` |
+| notEscapable | `true`, `false`                                                                                                             | `false`  |
+| persistent   | `true`, `false`                                                                                                             | `false`  |
+| focusTrap    | `true`, `false`                                                                                                             | `false`  |
+| overlayClass | String \| Object                                                                                                            | `''`     |
+| layoutClass  | String \| Object                                                                                                            | `''`     |
+| wrapperClass | String \| Object                                                                                                            | `''`     |
+| headerClass  | String \| Object                                                                                                            | `''`     |
+| bodyClass    | String \| Object                                                                                                            | `''`     |
+| footerClass  | String \| Object                                                                                                            | `''`     |
+
 
 ### Events:
+
 | Name            | Type                                                                             |
-|-----------------|----------------------------------------------------------------------------------|
+| --------------- | -------------------------------------------------------------------------------- |
 | `close`         | Clicked on the close button, pressed `Esc`, or clicked outside the modal content |
 | `click:outside` | Clicked outside the modal content                                                |
