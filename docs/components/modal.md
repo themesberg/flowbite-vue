@@ -188,6 +188,7 @@ import { FwbModal } from 'flowbite-vue'
 | persistent   | `true`, `false`                                                                                                             | `false`  |
 | focusTrap    | `true`, `false`                                                                                                             | `false`  |
 | overlayClass | String \| Object                                                                                                            | `''`     |
+| layoutClass  | String \| Object                                                                                                            | `''`     |
 | wrapperClass | String \| Object                                                                                                            | `''`     |
 | headerClass  | String \| Object                                                                                                            | `''`     |
 | bodyClass    | String \| Object                                                                                                            | `''`     |
