@@ -195,6 +195,7 @@ import { FwbModal } from 'flowbite-vue'
 
 
 ### Events:
+
 | Name            | Type                                                                             |
 | --------------- | -------------------------------------------------------------------------------- |
 | `close`         | Clicked on the close button, pressed `Esc`, or clicked outside the modal content |
