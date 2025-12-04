@@ -4,6 +4,8 @@ import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, B
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>, default: Record<T, string> }
 
+const buttonDefaultClasses = 'inline-block'
+
 const buttonColorClasses: ButtonClassMap<ButtonVariant> = {
   default: {
     default: 'text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800',
@@ -225,6 +227,7 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
     }
 
     return [
+      buttonDefaultClasses,
       backgroundClass,
       hoverClass,
       shadowClass,
