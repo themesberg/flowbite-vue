@@ -51,6 +51,15 @@ describe('FwbButton', () => {
 
       xlButtonSizeClasses.forEach(cl => expect(classes).toContain(cl))
     })
+
+    it('should not emit empty link attributes when no navigation props are provided', () => {
+      const wrapper = mount(FwbButton, {
+        slots: { default: 'Button' },
+      })
+
+      expect(wrapper.find('button').attributes('href')).toBeUndefined()
+      expect(wrapper.find('button').attributes('to')).toBeUndefined()
+    })
   })
 
   describe('Router Navigation', () => {
@@ -248,7 +257,7 @@ describe('FwbButton', () => {
       const wrapper = mount(FwbButton, {
         props: {
           outline: true,
-          gradient: 'blue',
+          gradient: 'purple-blue',
         },
         slots: {
           default: 'Button',

@@ -1,8 +1,8 @@
 <template>
   <component
     :is="buttonComponent"
-    :[linkAttr]="linkValue"
     :class="wrapperClasses"
+    v-bind="linkAttr ? { [linkAttr]: linkValue } : {}"
     :disabled="buttonComponent === 'button' && disabled"
   >
     <div
@@ -131,6 +131,7 @@ const loadingSuffix = computed(() => props.loading && props.loadingPosition === 
 const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(toRefs(props))
 
 const linkComponent = props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
+
 const buttonComponent = computed(() => {
   if (props.to) {
     try {
@@ -142,9 +143,16 @@ const buttonComponent = computed(() => {
   }
   return props.href ? linkComponent : 'button'
 })
+
 const linkAttr = computed(() => {
   if (props.to) return 'to'
-  return props.tag === 'router-link' || props.tag === 'nuxt-link' ? 'to' : 'href'
+  if (props.href) return props.tag === 'router-link' || props.tag === 'nuxt-link' ? 'to' : 'href'
+  return undefined
 })
-const linkValue = computed(() => props.to || props.href)
+
+const linkValue = computed(() => {
+  if (props.to) return props.to
+  if (props.href) return props.href
+  return undefined
+})
 </script>
