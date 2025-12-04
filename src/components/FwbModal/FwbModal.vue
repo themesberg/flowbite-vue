@@ -53,7 +53,7 @@
 
 <script lang="ts" setup>
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
-import { nextTick, onBeforeUnmount, onMounted, type Ref, ref, toRefs, useSlots } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, type Ref, ref, toRefs, useSlots } from 'vue'
 
 import { useModalClasses } from './composables/useModalClasses'
 
@@ -91,7 +91,7 @@ const $slots = useSlots()
 
 const emit = defineEmits(['close', 'click:outside'])
 
-const isHeaderSlotProvided = ref(!!($slots.header))
+const isHeaderSlotProvided = computed(() => !!$slots.header)
 
 const {
   bodyClass,
