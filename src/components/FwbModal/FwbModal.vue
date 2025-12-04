@@ -6,7 +6,6 @@
       class="top-0 z-50 fixed inset-x-0 md:inset-0 grid w-full h-modal md:h-full overflow-x-hidden overflow-y-auto"
       tabindex="0"
       @click.self="clickOutside"
-      @keyup.esc="closeWithEsc"
     >
       <div :class="layoutClass">
         <!-- Modal wrapper -->
@@ -61,16 +60,17 @@ import { useModalClasses } from './composables/useModalClasses'
 import type { ModalPosition, ModalSize } from './types'
 
 interface ModalProps {
-  notEscapable?: boolean
-  persistent?: boolean
-  size?: ModalSize
-  position?: ModalPosition
-  focusTrap?: boolean
   bodyClass?: string | Record<string, boolean>
-  wrapperClass?: string | Record<string, boolean>
-  overlayClass?: string | Record<string, boolean>
-  headerClass?: string | Record<string, boolean>
+  focusTrap?: boolean
   footerClass?: string | Record<string, boolean>
+  headerClass?: string | Record<string, boolean>
+  layoutClass?: string | Record<string, boolean>
+  notEscapable?: boolean
+  overlayClass?: string | Record<string, boolean>
+  persistent?: boolean
+  position?: ModalPosition
+  size?: ModalSize
+  wrapperClass?: string | Record<string, boolean>
 }
 
 const props = withDefaults(defineProps<ModalProps>(), {
@@ -78,6 +78,7 @@ const props = withDefaults(defineProps<ModalProps>(), {
   focusTrap: false,
   footerClass: '',
   headerClass: '',
+  layoutClass: '',
   notEscapable: false,
   overlayClass: '',
   persistent: false,
@@ -116,6 +117,12 @@ function closeWithEsc () {
   if (!props.notEscapable && !props.persistent) closeModal()
 }
 
+function handleGlobalKeydown (event: KeyboardEvent) {
+  if (event.key === 'Escape') {
+    closeWithEsc()
+  }
+}
+
 const modalRef: Ref<HTMLElement | null> = ref(null)
 const { activate, deactivate } = useFocusTrap(modalRef, {
   immediate: false,
@@ -124,6 +131,8 @@ const { activate, deactivate } = useFocusTrap(modalRef, {
 })
 
 onMounted(async () => {
+  document.addEventListener('keydown', handleGlobalKeydown)
+
   if (modalRef.value) {
     if (props.focusTrap) {
       await nextTick()
@@ -133,6 +142,8 @@ onMounted(async () => {
 })
 
 onBeforeUnmount(() => {
+  document.removeEventListener('keydown', handleGlobalKeydown)
+
   deactivate()
 })
 </script>
