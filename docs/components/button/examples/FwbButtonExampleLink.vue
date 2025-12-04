@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw flex flex-wrap gap-2">
+  <div class="flex flex-wrap gap-2 vp-raw">
     <fwb-button
       href="https://google.com"
       target="_blank"

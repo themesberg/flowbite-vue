@@ -4,57 +4,53 @@ import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, B
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>, default: Record<T, string> }
 
+const buttonDefaultClasses = 'inline-block'
+
 const buttonColorClasses: ButtonClassMap<ButtonVariant> = {
   default: {
-    default: 'text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800',
+    alternative: 'font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600',
     blue: 'text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800',
-    alternative:
-      'font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600',
     dark: 'text-white bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg dark:bg-gray-800 dark:focus:ring-gray-700 dark:border-gray-700',
-    light:
-      'text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:focus:ring-gray-700',
+    default: 'text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800',
     green: 'focus:outline-none text-white bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg dark:bg-green-600 dark:focus:ring-green-800',
+    light: 'text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:focus:ring-gray-700',
+    pink: 'focus:outline-none text-white bg-pink-700 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg dark:bg-pink-600 dark:focus:ring-pink-900',
+    purple: 'focus:outline-none text-white bg-purple-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg dark:bg-purple-600 dark:focus:ring-purple-900',
     red: 'focus:outline-none text-white bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg dark:bg-red-600 dark:focus:ring-red-900',
     yellow: 'focus:outline-none text-white bg-yellow-400 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg dark:focus:ring-yellow-900',
-    purple: 'focus:outline-none text-white bg-purple-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg dark:bg-purple-600 dark:focus:ring-purple-900',
-    pink: 'focus:outline-none text-white bg-pink-700 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg dark:bg-pink-600 dark:focus:ring-pink-900',
   },
   hover: {
-    default: 'hover:bg-blue-800 dark:hover:bg-blue-700',
-    blue: 'hover:bg-blue-800 dark:hover:bg-blue-700',
     alternative: 'hover:bg-gray-100 hover:text-blue-700 dark:hover:text-white dark:hover:bg-gray-700',
+    blue: 'hover:bg-blue-800 dark:hover:bg-blue-700',
     dark: 'hover:bg-gray-900 dark:hover:bg-gray-700',
-    light: 'hover:bg-gray-100 dark:hover:border-gray-600 dark:hover:bg-gray-700',
+    default: 'hover:bg-blue-800 dark:hover:bg-blue-700',
     green: 'hover:bg-green-800 dark:hover:bg-green-700',
+    light: 'hover:bg-gray-100 dark:hover:border-gray-600 dark:hover:bg-gray-700',
+    pink: 'hover:bg-pink-800 dark:hover:bg-pink-700',
+    purple: 'hover:bg-purple-800 dark:hover:bg-purple-700',
     red: 'hover:bg-red-800 dark:hover:bg-red-700',
     yellow: 'hover:bg-yellow-500',
-    purple: 'hover:bg-purple-800 dark:hover:bg-purple-700',
-    pink: 'hover:bg-pink-800 dark:hover:bg-pink-700',
   },
 }
 
 const buttonOutlineColorClasses: ButtonClassMap<Exclude<ButtonVariant, 'light' | 'alternative'>> = {
   default: {
-    dark: 'text-gray-900 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm text-center dark:border-gray-600 dark:text-gray-400 dark:focus:ring-gray-800',
-    default:
-      'text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800',
     blue: 'text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800',
-    green:
-      'text-green-700 border border-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center dark:border-green-500 dark:text-green-500 dark:focus:ring-green-800',
-    purple:
-      'text-purple-700 border border-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm text-center dark:border-purple-400 dark:text-purple-400 dark:focus:ring-purple-900',
+    dark: 'text-gray-900 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm text-center dark:border-gray-600 dark:text-gray-400 dark:focus:ring-gray-800',
+    default: 'text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800',
+    green: 'text-green-700 border border-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center dark:border-green-500 dark:text-green-500 dark:focus:ring-green-800',
     pink: 'text-pink-700 border border-pink-700 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm text-center dark:border-pink-400 dark:text-pink-400 dark:focus:ring-pink-900',
+    purple: 'text-purple-700 border border-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm text-center dark:border-purple-400 dark:text-purple-400 dark:focus:ring-purple-900',
     red: 'text-red-700 border border-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm text-center dark:border-red-500 dark:text-red-500 dark:focus:ring-red-900',
-    yellow:
-      'text-yellow-400 border border-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm text-center dark:border-yellow-300 dark:text-yellow-300 dark:focus:ring-yellow-900',
+    yellow: 'text-yellow-400 border border-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm text-center dark:border-yellow-300 dark:text-yellow-300 dark:focus:ring-yellow-900',
   },
   hover: {
+    blue: 'hover:text-white hover:bg-blue-800 dark:hover:text-white dark:hover:bg-blue-600',
     dark: 'hover:text-white hover:bg-gray-900 dark:hover:text-white dark:hover:bg-gray-600',
     default: 'hover:text-white hover:bg-blue-800 dark:hover:text-white dark:hover:bg-blue-600',
-    blue: 'hover:text-white hover:bg-blue-800 dark:hover:text-white dark:hover:bg-blue-600',
     green: 'hover:text-white hover:bg-green-800 dark:hover:text-white dark:hover:bg-green-600',
-    purple: 'hover:text-white hover:bg-purple-800 dark:hover:text-white dark:hover:bg-purple-500',
     pink: 'hover:text-white hover:bg-pink-800 dark:hover:text-white dark:hover:bg-pink-500',
+    purple: 'hover:text-white hover:bg-purple-800 dark:hover:text-white dark:hover:bg-purple-500',
     red: 'hover:text-white hover:bg-red-800 dark:hover:text-white dark:hover:bg-red-600',
     yellow: 'hover:text-white hover:bg-yellow-500 dark:hover:text-white dark:hover:bg-yellow-400',
   },
@@ -62,37 +58,37 @@ const buttonOutlineColorClasses: ButtonClassMap<Exclude<ButtonVariant, 'light' |
 
 const buttonGradientClasses: ButtonClassMap<ButtonGradient> = {
   hover: {
-    'cyan-blue': 'hover:bg-gradient-to-bl',
-    'green-blue': 'hover:bg-gradient-to-bl',
-    'pink-orange': 'hover:bg-gradient-to-bl',
-    'purple-blue': 'hover:bg-gradient-to-bl',
-    'purple-pink': 'hover:bg-gradient-to-l',
-    'red-yellow': 'hover:bg-gradient-to-bl',
-    'teal-lime': 'hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200',
     'blue': 'hover:bg-gradient-to-br',
+    'cyan-blue': 'hover:bg-gradient-to-bl',
     'cyan': 'hover:bg-gradient-to-br',
+    'green-blue': 'hover:bg-gradient-to-bl',
     'green': 'hover:bg-gradient-to-br',
     'lime': 'hover:bg-gradient-to-br',
+    'pink-orange': 'hover:bg-gradient-to-bl',
     'pink': 'hover:bg-gradient-to-br',
+    'purple-blue': 'hover:bg-gradient-to-bl',
+    'purple-pink': 'hover:bg-gradient-to-l',
     'purple': 'hover:bg-gradient-to-br',
+    'red-yellow': 'hover:bg-gradient-to-bl',
     'red': 'hover:bg-gradient-to-br',
+    'teal-lime': 'hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200',
     'teal': 'hover:bg-gradient-to-br',
   },
   default: {
-    'cyan-blue': 'text-white bg-gradient-to-r from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg',
-    'green-blue': 'text-white bg-gradient-to-br from-green-400 to-blue-600 focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg',
-    'pink-orange': 'text-white bg-gradient-to-br from-pink-500 to-orange-400 focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg',
-    'purple-blue': 'text-white bg-gradient-to-br from-purple-600 to-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg',
-    'purple-pink': 'text-white bg-gradient-to-r from-purple-500 to-pink-500 focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg',
-    'red-yellow': 'text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg',
-    'teal-lime': 'text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg',
     'blue': 'text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg',
+    'cyan-blue': 'text-white bg-gradient-to-r from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg',
     'cyan': 'text-white bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 rounded-lg',
+    'green-blue': 'text-white bg-gradient-to-br from-green-400 to-blue-600 focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg',
     'green': 'text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 rounded-lg',
     'lime': 'text-gray-900 bg-gradient-to-r from-lime-500 via-lime-600 to-lime-700 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 rounded-lg',
+    'pink-orange': 'text-white bg-gradient-to-br from-pink-500 to-orange-400 focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg',
     'pink': 'text-white bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 rounded-lg',
+    'purple-blue': 'text-white bg-gradient-to-br from-purple-600 to-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg',
+    'purple-pink': 'text-white bg-gradient-to-r from-purple-500 to-pink-500 focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg',
     'purple': 'text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 rounded-lg',
+    'red-yellow': 'text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg',
     'red': 'text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 rounded-lg',
+    'teal-lime': 'text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg',
     'teal': 'text-white bg-gradient-to-r from-teal-500 via-teal-600 to-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 rounded-lg',
   },
 }
@@ -147,15 +143,15 @@ const buttonShadowClasses: Record<ButtonMonochromeGradient, string> = {
 
 interface UseButtonClassesProps {
   class: Ref<string | object>
-  pill: Ref<boolean>
+  color: Ref<ButtonVariant>
   disabled: Ref<boolean>
+  gradient: Ref<ButtonGradient | null>
   loading: Ref<boolean>
   outline: Ref<boolean>
+  pill: Ref<boolean>
+  shadow: Ref<ButtonMonochromeGradient | '' | boolean | null>
   size: Ref<ButtonSize>
   square: Ref<boolean>
-  color: Ref<ButtonVariant>
-  gradient: Ref<ButtonGradient | null>
-  shadow: Ref<ButtonMonochromeGradient | '' | boolean | null>
 }
 
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
@@ -225,6 +221,7 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
     }
 
     return [
+      buttonDefaultClasses,
       backgroundClass,
       hoverClass,
       shadowClass,
