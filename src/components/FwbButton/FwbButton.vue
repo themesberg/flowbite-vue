@@ -2,7 +2,7 @@
   <component
     :is="buttonComponent"
     :class="wrapperClasses"
-    :[linkAttr]="href"
+    v-bind="linkAttr ? { [linkAttr]: linkValue } : {}"
     :disabled="buttonComponent === 'button' && disabled"
   >
     <div
@@ -89,32 +89,34 @@ import { useMergeClasses } from '@/composables/useMergeClasses'
 interface ButtonProps {
   class?: string | object
   color?: ButtonVariant
+  disabled?: boolean
   gradient?: ButtonGradient | null
-  size?: ButtonSize
-  shadow?: ButtonMonochromeGradient | boolean
-  pill?: boolean
-  square?: boolean
-  outline?: boolean
+  href?: string
   loading?: boolean
   loadingPosition?: 'suffix' | 'prefix'
-  disabled?: boolean
-  href?: string
+  outline?: boolean
+  pill?: boolean
+  shadow?: ButtonMonochromeGradient | boolean
+  size?: ButtonSize
+  square?: boolean
   tag?: string
+  to?: string | object
 }
 const props = withDefaults(defineProps<ButtonProps>(), {
   class: '',
   color: 'default',
+  disabled: false,
   gradient: null,
-  size: 'md',
-  shadow: false,
-  pill: false,
-  square: false,
-  outline: false,
+  href: '',
   loading: false,
   loadingPosition: 'prefix',
-  disabled: false,
-  href: '',
+  outline: false,
+  pill: false,
+  shadow: false,
+  size: 'md',
+  square: false,
   tag: 'a',
+  to: undefined,
 })
 
 const buttonClasses = computed(() => useButtonClasses(toRefs(props)))
@@ -129,6 +131,28 @@ const loadingSuffix = computed(() => props.loading && props.loadingPosition === 
 const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(toRefs(props))
 
 const linkComponent = props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
-const buttonComponent = props.href ? linkComponent : 'button'
-const linkAttr = props.tag === 'router-link' || props.tag === 'nuxt-link' ? 'to' : 'href'
+
+const buttonComponent = computed(() => {
+  if (props.to) {
+    try {
+      return resolveComponent('router-link')
+    } catch {
+      console.warn('router-link component not found. Make sure vue-router is installed and properly configured.')
+      return 'a'
+    }
+  }
+  return props.href ? linkComponent : 'button'
+})
+
+const linkAttr = computed(() => {
+  if (props.to) return 'to'
+  if (props.href) return props.tag === 'router-link' || props.tag === 'nuxt-link' ? 'to' : 'href'
+  return undefined
+})
+
+const linkValue = computed(() => {
+  if (props.to) return props.to
+  if (props.href) return props.href
+  return undefined
+})
 </script>
