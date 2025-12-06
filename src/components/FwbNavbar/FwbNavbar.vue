@@ -85,7 +85,7 @@ const navbarClasses = computed(() => useMergeClasses(
   ].join(' '),
 ))
 
-const isShowMenu = computed(() => (!isMobile)
+const isShowMenu = computed(() => (!isMobile.value)
   ? true
   : isShowMenuOnMobile.value,
 )
