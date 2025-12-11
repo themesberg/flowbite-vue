@@ -1,0 +1,92 @@
+name: Dependency Updates
+
+on:
+  schedule:
+    # Run weekly on Mondays at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: Check for updates
+      id: updates
+      run: |
+        npm outdated --json > outdated.json || true
+        if [ -s outdated.json ] && [ "$(cat outdated.json)" != "{}" ]; then
+          echo "has_updates=true" >> $GITHUB_OUTPUT
+          echo "Updates available:"
+          cat outdated.json
+        else
+          echo "has_updates=false" >> $GITHUB_OUTPUT
+          echo "No updates available"
+        fi
+
+    - name: Create dependency update issue
+      if: steps.updates.outputs.has_updates == 'true'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const outdated = JSON.parse(fs.readFileSync('outdated.json', 'utf8'));
+
+          let body = '# Dependency Updates Available\n\n';
+          body += 'The following dependencies have updates available:\n\n';
+          body += '| Package | Current | Wanted | Latest |\n';
+          body += '|---------|---------|--------|--------|\n';
+
+          for (const [name, info] of Object.entries(outdated)) {
+            body += `| ${name} | ${info.current} | ${info.wanted} | ${info.latest} |\n`;
+          }
+
+          body += '\n## Next Steps\n';
+          body += '1. Review the changes for each package\n';
+          body += '2. Test updates in a development environment\n';
+          body += '3. Update dependencies with `npm update`\n';
+          body += '4. Run tests to ensure compatibility\n';
+          body += '\n*This issue was automatically created by the dependency update workflow.*';
+
+          // Check if an issue already exists
+          const issues = await github.rest.issues.listForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'open',
+            labels: ['dependencies']
+          });
+
+          const existingIssue = issues.data.find(issue =>
+            issue.title.includes('Dependency Updates Available')
+          );
+
+          if (existingIssue) {
+            // Update existing issue
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: existingIssue.number,
+              body: body
+            });
+            console.log(`Updated existing issue #${existingIssue.number}`);
+          } else {
+            // Create new issue
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Dependency Updates Available',
+              body: body,
+              labels: ['dependencies', 'maintenance']
+            });
+            console.log(`Created new issue #${issue.data.number}`);
+          }

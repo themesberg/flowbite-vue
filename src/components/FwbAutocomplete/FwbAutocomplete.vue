@@ -142,7 +142,7 @@
   </div>
 </template>
 
-<script setup lang="ts" generic="T extends Record<string, any>">
+<script setup lang="ts" generic="T extends Record<string, unknown>">
 import {
   type Component,
   computed,
@@ -166,7 +166,7 @@ const props = withDefaults(
   defineProps<
     AutocompleteProps<T> & {
       inputComponent?: Component
-      inputProps?: Record<string, any>
+      inputProps?: Record<string, unknown>
     }
   >(),
   {
