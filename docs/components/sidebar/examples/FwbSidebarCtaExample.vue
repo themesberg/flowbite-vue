@@ -1,6 +1,6 @@
 <template>
   <div class="vp-raw relative flex flex-col">
-    <fwb-sidebar class="relative !h-full">
+    <fwb-sidebar class="relative h-full!">
       <fwb-sidebar-item>
         <template #icon>
           <svg

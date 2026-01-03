@@ -40,7 +40,6 @@
     "prepublishOnly": "npm run build:production"
   },
   "peerDependencies": {
-    "tailwindcss": "^4",
     "vue": "^3.5.x"
   },
   "devDependencies": {

@@ -4,7 +4,7 @@
       Technology {{ picked }}
     </fwb-p>
     <ul class="w-full items-center rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:flex">
-      <li class="!m-0 flex w-full rounded-t-lg border-gray-200 pl-3 dark:border-gray-600">
+      <li class="m-0! flex w-full rounded-t-lg border-gray-200 pl-3 dark:border-gray-600">
         <fwb-radio
           v-model="picked"
           label="Svelte"
@@ -12,7 +12,7 @@
           value="Svelte"
         />
       </li>
-      <li class="!m-0 flex w-full rounded-t-lg border-gray-200 pl-3 dark:border-gray-600">
+      <li class="m-0! flex w-full rounded-t-lg border-gray-200 pl-3 dark:border-gray-600">
         <fwb-radio
           v-model="picked"
           label="Vue JS"
@@ -20,7 +20,7 @@
           value="Vue JS"
         />
       </li>
-      <li class="!m-0 flex w-full rounded-t-lg border-gray-200 pl-3 dark:border-gray-600">
+      <li class="m-0! flex w-full rounded-t-lg border-gray-200 pl-3 dark:border-gray-600">
         <fwb-radio
           v-model="picked"
           label="React"
@@ -28,7 +28,7 @@
           value="React"
         />
       </li>
-      <li class="!m-0 flex w-full rounded-t-lg border-gray-200 pl-3 dark:border-gray-600">
+      <li class="m-0! flex w-full rounded-t-lg border-gray-200 pl-3 dark:border-gray-600">
         <fwb-radio
           v-model="picked"
           label="Angular"

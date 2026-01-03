@@ -116,7 +116,7 @@ Use the `img-class` prop to apply tailwind classes.
 <template>
   <fwb-img
     alt="flowbite-vue"
-    img-class="rounded-lg border-[1px]"
+    img-class="rounded-lg border"
     size="max-w-lg"
     src="/images/examples/image.png"
   />

@@ -207,7 +207,7 @@ The following alert components can be used if you wish to disclose more informat
   <fwb-alert type="info">
     <template #icon>
       <svg
-        class="flex-shrink-0 w-4 h-4 mr-2"
+        class="shrink-0 w-4 h-4 mr-2"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
