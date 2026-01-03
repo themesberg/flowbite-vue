@@ -311,7 +311,7 @@ describe('FwbButton', () => {
         slots: { default: 'Pill Button' },
       })
 
-      // The pill styling uses !rounded-full which might not appear in the classes array
+      // The pill styling uses rounded-full! which might not appear in the classes array
       // Let's check the actual class string instead
       expect(wrapper.attributes('class')).toContain('rounded-full')
     })
@@ -344,7 +344,7 @@ describe('FwbButton', () => {
       })
 
       const classes = wrapper.classes()
-      expect(classes.some(c => c.includes('gradient') || c.includes('bg-gradient'))).toBe(true)
+      expect(classes.some(c => c.includes('bg-linear'))).toBe(true)
     })
 
     it('should apply shadow styling correctly', () => {

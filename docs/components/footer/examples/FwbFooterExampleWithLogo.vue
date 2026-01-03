@@ -1,7 +1,7 @@
 <template>
   <div class="vp-raw">
     <fwb-footer footer-type="logo">
-      <div class="mx-auto w-full max-w-screen-xl p-4 md:py-8">
+      <div class="mx-auto w-full max-w-(--breakpoint-xl) p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
           <fwb-footer-brand
             alt="Flowbite Logo"

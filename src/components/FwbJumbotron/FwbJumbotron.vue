@@ -52,7 +52,7 @@ defineSlots<{
 const attrs = useAttrs()
 
 const wrapperClasses = computed(() => twMerge(
-  'bg-white dark:bg-gray-900 mx-auto px-4 py-8 lg:py-16 max-w-screen-xl text-center',
+  'bg-white dark:bg-gray-900 mx-auto px-4 py-8 lg:py-16 max-w-(--breakpoint-xl) text-center',
   attrs.class as string))
 
 const headerClassesComputed = computed(() => twMerge('mb-4 font-extrabold text-gray-900 dark:text-white text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight', props.headerClasses))

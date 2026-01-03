@@ -40,7 +40,7 @@
           </button>
         </div>
       </form>
-      <div class="absolute left-0 top-0 z-0 size-full bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900" />
+      <div class="absolute left-0 top-0 z-0 size-full bg-linear-to-b from-blue-50 to-transparent dark:from-blue-900" />
     </fwb-jumbotron>
   </div>
 </template>
