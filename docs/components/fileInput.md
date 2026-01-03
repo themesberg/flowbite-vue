@@ -36,7 +36,7 @@ const file = ref(null)
 ```vue
 <template>
   <fwb-file-input v-model="files" label="Upload file" multiple />
-  <div v-if="files.length !== 0" class="mt-4 border-[1px] border-gray-300 dark:border-gray-600 p-2 rounded-md">
+  <div v-if="files.length !== 0" class="mt-4 border border-gray-300 dark:border-gray-600 p-2 rounded-md">
     <div v-for="file in files" :key="file">
       {{ file.name }}
     </div>
@@ -57,7 +57,7 @@ const files = ref([])
 ```vue
 <template>
   <fwb-file-input v-model="file" label="Upload file">
-    <p class="!mt-1 text-sm text-gray-500 dark:text-gray-300">
+    <p class="mt-1! text-sm text-gray-500 dark:text-gray-300">
       SVG, PNG, JPG or GIF (MAX. 800x400px).
     </p>
   </fwb-file-input>

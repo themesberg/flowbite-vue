@@ -352,7 +352,7 @@ const getNavigationButtonClasses = (toPage: number) =>
     [
       navigationButtonClasses,
       props.layout === 'table' ? tableLayoutClasses : '',
-      props.layout === 'navigation' ? '[&:not(:last-child)]:mr-3 rounded-lg' : '[&:not(:last-child)]:border-r-0',
+      props.layout === 'navigation' ? 'not-last:mr-3 rounded-lg' : 'not-last:border-r-0',
       (toPage === props.modelValue || toPage > computedTotalPages.value || toPage < 1) ? disabledClasses : '',
       props.large ? largeClasses : '',
     ],
