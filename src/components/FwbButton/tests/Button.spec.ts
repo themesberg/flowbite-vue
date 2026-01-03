@@ -344,7 +344,7 @@ describe('FwbButton', () => {
       })
 
       const classes = wrapper.classes()
-      expect(classes.some(c => c.includes('gradient') || c.includes('bg-linear'))).toBe(true)
+      expect(classes.some(c => c.includes('bg-linear'))).toBe(true)
     })
 
     it('should apply shadow styling correctly', () => {
