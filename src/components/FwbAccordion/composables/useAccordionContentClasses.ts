@@ -9,7 +9,7 @@ export const useAccordionContentClasses = (
   panelState: Ref<AccordionPanel | null>,
   props: AccordionContentProps,
 ): string => {
-  const baseContentClasses = 'p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900'
+  const baseContentClasses = 'p-5 border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900'
 
   const userClass = computed(() => props.class)
   const userActiveClass = computed(() => props.activeClass)
