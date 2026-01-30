@@ -3,6 +3,7 @@ import FwbFileInputExample from './fileInput/examples/FwbFileInputExample.vue'
 import FwbFileInputExampleHelper from './fileInput/examples/FwbFileInputExampleHelper.vue'
 import FwbFileInputExampleSize from './fileInput/examples/FwbFileInputExampleSize.vue'
 import FwbFileInputExampleDropZone from './fileInput/examples/FwbFileInputExampleDropZone.vue'
+import FwbFileInputExampleDropZoneMultiple from './fileInput/examples/FwbFileInputExampleDropZoneMultiple.vue'
 import FwbFileInputExampleMultiple from './fileInput/examples/FwbFileInputExampleMultiple.vue'
 </script>
 
@@ -103,5 +104,22 @@ import { ref } from 'vue'
 import { FwbFileInput } from 'flowbite-vue'
 
 const file = ref(null)
+</script>
+```
+
+## Dropzone multiple
+
+
+<fwb-file-input-example-drop-zone-multiple />
+```vue
+<template>
+  <fwb-file-input v-model="files" dropzone multiple />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbFileInput } from 'flowbite-vue'
+
+const files = ref([])
 </script>
 ```

@@ -16,7 +16,6 @@
     <div
       v-else
       class="flex flex-col items-start justify-center"
-      @change="handleChange"
       @dragover="dragOverHandler"
       @drop="dropFileHandler"
     >
@@ -55,7 +54,7 @@
           :multiple="multiple"
           class="hidden"
           type="file"
-          @change="handleChange"
+          @change.stop="handleChange"
         >
       </label>
     </div>
