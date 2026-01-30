@@ -3,6 +3,7 @@ import FwbFileInputExample from './fileInput/examples/FwbFileInputExample.vue'
 import FwbFileInputExampleHelper from './fileInput/examples/FwbFileInputExampleHelper.vue'
 import FwbFileInputExampleSize from './fileInput/examples/FwbFileInputExampleSize.vue'
 import FwbFileInputExampleDropZone from './fileInput/examples/FwbFileInputExampleDropZone.vue'
+import FwbFileInputExampleDropZoneText from './fileInput/examples/FwbFileInputExampleDropZoneText.vue'
 import FwbFileInputExampleMultiple from './fileInput/examples/FwbFileInputExampleMultiple.vue'
 </script>
 
@@ -96,6 +97,27 @@ const file = ref(null)
 ```vue
 <template>
   <fwb-file-input v-model="file" dropzone />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbFileInput } from 'flowbite-vue'
+
+const file = ref(null)
+</script>
+```
+
+## Dropzone with custom text
+
+<fwb-file-input-example-drop-zone-text />
+```vue
+<template>
+  <fwb-file-input v-model="file" dropzone>
+    <template #dropzone-text>
+      <span class="font-semibold">Klicken Sie zum Hochladen</span>
+       oder ziehen Sie die Datei hierher
+    </template>
+  </fwb-file-input>
 </template>
 
 <script setup>
