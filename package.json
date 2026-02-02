@@ -21,6 +21,9 @@
       "import": "./dist/flowbite-vue.js",
       "require": "./dist/flowbite-vue.umd.cjs"
     },
+    "./components/*/types": {
+      "types": "./dist/components/*/types.d.ts"
+    },
     "./index.css": "./dist/index.css"
   },
   "scripts": {
