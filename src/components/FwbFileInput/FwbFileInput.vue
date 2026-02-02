@@ -54,7 +54,7 @@
           :multiple="multiple"
           class="hidden"
           type="file"
-          @change.stop="handleChange"
+          @change="handleChange"
         >
       </label>
     </div>
