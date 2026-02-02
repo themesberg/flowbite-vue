@@ -7,7 +7,7 @@
     />
     <div
       v-if="files.length !== 0"
-      class="mt-4 rounded-md border border-gray-300 p-2 dark:border-gray-600"
+      class="mt-4 p-2 border border-gray-300 dark:border-gray-600 rounded-md"
     >
       <div
         v-for="file in files"

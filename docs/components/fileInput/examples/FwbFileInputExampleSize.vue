@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw grid gap-2">
+  <div class="gap-2 grid vp-raw">
     <fwb-file-input
       v-model="file"
       size="xs"

@@ -15,7 +15,7 @@
     </div>
     <div
       v-else
-      class="flex flex-col items-start justify-center"
+      class="flex flex-col justify-center items-start"
       @dragover="dragOverHandler"
       @drop="dropFileHandler"
     >
