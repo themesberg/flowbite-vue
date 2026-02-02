@@ -58,7 +58,7 @@
     "eslint-plugin-unused-imports": "^4.3.0",
     "eslint-plugin-vue": "10.7.0",
     "eslint-plugin-vue-scoped-css": "^2.12.0",
-    "jsdom": "27.4.0",
+    "jsdom": "28.0.0",
     "neostandard": "^0.12.2",
     "tsc-alias": "1.8.16",
     "typescript": "5.9.3",
