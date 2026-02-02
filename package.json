@@ -52,7 +52,7 @@
     "@vitest/coverage-v8": "4.0.18",
     "@vue/eslint-config-typescript": "14.6.0",
     "@vue/test-utils": "2.4.6",
-    "@vue/tsconfig": "0.8.1",
+    "@vue/tsconfig": "^0.8.1",
     "eslint": "9.39.2",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-unused-imports": "^4.3.0",
