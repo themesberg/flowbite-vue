@@ -133,7 +133,7 @@ Use the `class` attribute to apply the tailwind classes.
 
 ```vue
 <template>
-  <fwb-heading class="!text-xl italic underline">Custom heading</fwb-heading>
+  <fwb-heading class="text-xl! italic underline">Custom heading</fwb-heading>
 </template>
 
 <script setup>

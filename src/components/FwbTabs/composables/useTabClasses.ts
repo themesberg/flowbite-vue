@@ -1,9 +1,10 @@
 import { computed, type Ref } from 'vue'
 
-import { simplifyTailwindClasses } from '../../../utils/simplifyTailwindClasses'
 import { useFlowbiteThemable } from '../../utils/FlowbiteThemable/composables/useFlowbiteThemable'
 
 import type { TabsVariant } from './../types'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 export type TabClassMap = {
   active: string
@@ -48,26 +49,26 @@ export function useTabClasses (props: UseTabClassesProps): {
         : 'default'
 
     if (props.variant === 'default') {
-      return simplifyTailwindClasses(
+      return useMergeClasses([
         defaultTabClasses[tabClassType],
-        (isActiveTheme && tabClassType) === 'active'
+        (isActiveTheme && tabClassType === 'active')
           ? theme.textClasses.value
           : '',
-      )
+      ])
     } else if (props.variant === 'underline') {
-      return simplifyTailwindClasses(
+      return useMergeClasses([
         underlineTabClasses[tabClassType],
-        (isActiveTheme && tabClassType) === 'active'
-          ? [theme.borderClasses.value, theme.textClasses.value]
+        (isActiveTheme && tabClassType === 'active')
+          ? `${theme.borderClasses.value} ${theme.textClasses.value}`
           : '',
-      )
+      ])
     } else if (props.variant === 'pills') {
-      return simplifyTailwindClasses(
+      return useMergeClasses([
         pillsTabClasses[tabClassType],
-        (isActiveTheme && tabClassType) === 'active'
-          ? [theme.backgroundClasses.value, 'text-white']
+        (isActiveTheme && tabClassType === 'active')
+          ? `${theme.backgroundClasses.value} text-white`
           : '',
-      )
+      ])
     }
 
     return ''

@@ -8,7 +8,7 @@
         v-for="(picture, index) in pictures"
         :key="index"
         :class="index === currentPicture ? 'z-30' : 'z-0'"
-        class="absolute inset-0 -translate-y-0"
+        class="absolute inset-0 translate-y-0"
       >
         <img
           :alt="picture.alt"

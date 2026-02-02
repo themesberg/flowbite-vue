@@ -1,7 +1,7 @@
 <template>
   <component
     :is="wrapperType"
-    :class="cardClasses"
+    :class="[cardClasses, props.class]"
     :href="href"
   >
     <img
@@ -40,6 +40,10 @@ const props = defineProps({
   variant: {
     type: String as PropType<CardsVariant>,
     default: 'default',
+  },
+  class: {
+    type: String,
+    default: '',
   },
 })
 

@@ -3,6 +3,7 @@ import FwbFileInputExample from './fileInput/examples/FwbFileInputExample.vue'
 import FwbFileInputExampleHelper from './fileInput/examples/FwbFileInputExampleHelper.vue'
 import FwbFileInputExampleSize from './fileInput/examples/FwbFileInputExampleSize.vue'
 import FwbFileInputExampleDropZone from './fileInput/examples/FwbFileInputExampleDropZone.vue'
+import FwbFileInputExampleDropZoneMultiple from './fileInput/examples/FwbFileInputExampleDropZoneMultiple.vue'
 import FwbFileInputExampleMultiple from './fileInput/examples/FwbFileInputExampleMultiple.vue'
 </script>
 
@@ -36,7 +37,7 @@ const file = ref(null)
 ```vue
 <template>
   <fwb-file-input v-model="files" label="Upload file" multiple />
-  <div v-if="files.length !== 0" class="mt-4 border-[1px] border-gray-300 dark:border-gray-600 p-2 rounded-md">
+  <div v-if="files.length !== 0" class="mt-4 border border-gray-300 dark:border-gray-600 p-2 rounded-md">
     <div v-for="file in files" :key="file">
       {{ file.name }}
     </div>
@@ -57,7 +58,7 @@ const files = ref([])
 ```vue
 <template>
   <fwb-file-input v-model="file" label="Upload file">
-    <p class="!mt-1 text-sm text-gray-500 dark:text-gray-300">
+    <p class="mt-1! text-sm text-gray-500 dark:text-gray-300">
       SVG, PNG, JPG or GIF (MAX. 800x400px).
     </p>
   </fwb-file-input>
@@ -118,6 +119,13 @@ You can customize the dropzone placeholder text using the `dropzonePlaceholder` 
       or drop it here
     </template>
   </fwb-file-input>
+## Dropzone multiple
+
+
+<fwb-file-input-example-drop-zone-multiple />
+```vue
+<template>
+  <fwb-file-input v-model="files" dropzone multiple />
 </template>
 
 <script setup>
@@ -125,5 +133,6 @@ import { ref } from 'vue'
 import { FwbFileInput } from 'flowbite-vue'
 
 const file = ref(null)
+const files = ref([])
 </script>
 ```

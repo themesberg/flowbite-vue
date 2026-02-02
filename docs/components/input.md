@@ -254,9 +254,10 @@ const name = ref('')
 ## Input component API
 
 ### FwbInput Props
-| Name         | Type             | Default | Description                                                  |
-| ------------ | ---------------- | ------- | ------------------------------------------------------------ |
-| wrapperClass | String \| Object | `''`    | Added to main component wrapper                              |
-| labelClass   | String \| Object | `''`    | Added to `<label>` element.                                  |
-| class        | String \| Object | `''`    | Added to wrapper around `<input>` element and prefix/suffix. |
-| inputClass   | String \| Object | `''`    | Added to `<input>` element.                                  |
+| Name         | Type                     | Default | Description                                                  |
+| ------------ | ------------------------ | ------- | ------------------------------------------------------------ |
+| autocomplete | String \| CommonAutoFill | 'off'   | Sets the autocomplete for forms.                             | 
+| wrapperClass | String \| Object         | `''`    | Added to main component wrapper                              |
+| labelClass   | String \| Object         | `''`    | Added to `<label>` element.                                  |
+| class        | String \| Object         | `''`    | Added to wrapper around `<input>` element and prefix/suffix. |
+| inputClass   | String \| Object         | `''`    | Added to `<input>` element.                                  |

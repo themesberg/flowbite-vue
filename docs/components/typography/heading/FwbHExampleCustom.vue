@@ -1,5 +1,5 @@
 <template>
-  <fwb-heading class="!text-xl italic underline">
+  <fwb-heading class="text-xl! italic underline">
     Custom heading
   </fwb-heading>
 </template>

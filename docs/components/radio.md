@@ -126,7 +126,7 @@ const picked = ref('Vue JS')
     Technology {{ picked }}
   </fwb-p>
   <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-    <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
+    <li class="w-full m-0! pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
       <fwb-radio
         v-model="picked"
         label="Svelte"
@@ -134,7 +134,7 @@ const picked = ref('Vue JS')
         value="Svelte"
       />
     </li>
-    <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
+    <li class="w-full m-0! pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
       <fwb-radio
         v-model="picked"
         label="Vue JS"
@@ -142,7 +142,7 @@ const picked = ref('Vue JS')
         value="Vue JS"
       />
     </li>
-    <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
+    <li class="w-full m-0! pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
       <fwb-radio
         v-model="picked"
         label="React"
@@ -150,7 +150,7 @@ const picked = ref('Vue JS')
         value="React"
       />
     </li>
-    <li class="w-full !m-0 pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
+    <li class="w-full m-0! pl-3 flex border-gray-200 rounded-t-lg dark:border-gray-600">
       <fwb-radio
         v-model="picked"
         label="Angular"

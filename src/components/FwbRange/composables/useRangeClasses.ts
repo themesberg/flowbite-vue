@@ -2,7 +2,7 @@ import { computed, type Ref } from 'vue'
 
 import type { InputSize } from '@/components/FwbInput/types'
 
-import { simplifyTailwindClasses } from '@/utils/simplifyTailwindClasses'
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const rangeDefaultClasses = 'w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700'
 const rangeLabelClasses = 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -19,10 +19,10 @@ export type UseRangeClassesProps = {
 }
 
 export function useRangeClasses (props: UseRangeClassesProps) {
-  const rangeClasses = computed(() => simplifyTailwindClasses(
+  const rangeClasses = computed(() => useMergeClasses([
     rangeDefaultClasses,
     rangeSizeClasses[props.size.value],
-  ))
+  ]))
 
   const labelClasses = computed(() => rangeLabelClasses)
 

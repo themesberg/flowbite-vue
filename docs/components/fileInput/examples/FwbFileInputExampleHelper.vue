@@ -4,7 +4,7 @@
       v-model="file"
       label="Upload file"
     >
-      <p class="!mt-1 text-sm text-gray-500 dark:text-gray-300">
+      <p class="mt-1! text-sm text-gray-500 dark:text-gray-300">
         SVG, PNG, JPG or GIF (MAX. 800x400px).
       </p>
     </fwb-file-input>
