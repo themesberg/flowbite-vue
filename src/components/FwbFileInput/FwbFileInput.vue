@@ -42,8 +42,10 @@
           </svg>
           <div v-if="!model">
             <p :class="dropzoneTextClasses">
-              <span class="font-semibold">Click to upload</span>
-              or drag and drop
+              <slot name="dropzonePlaceholder">
+                <span class="font-semibold">Click to upload</span>
+                or drag and drop
+              </slot>
             </p>
             <slot />
           </div>
