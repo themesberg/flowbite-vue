@@ -40,7 +40,7 @@
               stroke="currentColor"
             />
           </svg>
-          <div v-if="!model">
+          <div v-if="(!model || (Array.isArray(model) && model.length === 0))">
             <p :class="dropzoneTextClasses">
               <slot name="dropzonePlaceholder">
                 <span class="font-semibold">Click to upload</span>
