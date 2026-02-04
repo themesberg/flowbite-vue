@@ -15,7 +15,7 @@
     </div>
     <div
       v-else
-      class="flex flex-col items-start justify-center"
+      class="flex flex-col justify-center items-center"
       @dragover="dragOverHandler"
       @drop="dropFileHandler"
     >
@@ -40,14 +40,19 @@
               stroke="currentColor"
             />
           </svg>
-          <div v-if="!model">
+          <div v-if="(!model || (Array.isArray(model) && model.length === 0))">
             <p :class="dropzoneTextClasses">
-              <span class="font-semibold">Click to upload</span>
-              or drag and drop
+              <slot name="dropzonePlaceholder">
+                <span class="font-semibold">Click to upload</span>
+                or drag and drop
+              </slot>
             </p>
             <slot />
           </div>
-          <p v-else>File: {{ dropZoneText }}</p>
+          <p
+            v-else
+            class="text-center"
+          >File: {{ dropZoneText }}</p>
         </div>
         <input
           :accept="accept"

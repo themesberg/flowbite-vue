@@ -2,11 +2,12 @@
   <div class="vp-raw">
     <fwb-file-input
       v-model="file"
-      label="Upload file"
+      dropzone
     >
-      <p class="mt-1! text-gray-500 dark:text-gray-300 text-sm">
-        SVG, PNG, JPG or GIF (MAX. 800x400px).
-      </p>
+      <template #dropzonePlaceholder>
+        <span class="font-semibold">Choose your file</span>
+        or drop it here
+      </template>
     </fwb-file-input>
   </div>
 </template>

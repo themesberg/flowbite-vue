@@ -3,6 +3,7 @@ import FwbFileInputExample from './fileInput/examples/FwbFileInputExample.vue'
 import FwbFileInputExampleHelper from './fileInput/examples/FwbFileInputExampleHelper.vue'
 import FwbFileInputExampleSize from './fileInput/examples/FwbFileInputExampleSize.vue'
 import FwbFileInputExampleDropZone from './fileInput/examples/FwbFileInputExampleDropZone.vue'
+import FwbFileInputExampleDropZonePlaceholder from './fileInput/examples/FwbFileInputExampleDropZonePlaceholder.vue'
 import FwbFileInputExampleDropZoneMultiple from './fileInput/examples/FwbFileInputExampleDropZoneMultiple.vue'
 import FwbFileInputExampleMultiple from './fileInput/examples/FwbFileInputExampleMultiple.vue'
 </script>
@@ -31,6 +32,7 @@ const file = ref(null)
 </script>
 ```
 
+
 ## Multiple File upload
 
 <fwb-file-input-example-multiple />
@@ -52,6 +54,7 @@ const files = ref([])
 </script>
 ```
 
+
 ## Helper text
 
 <fwb-file-input-example-helper />
@@ -72,6 +75,7 @@ const file = ref(null)
 </script>
 ```
 
+
 ## Sizes
 
 <fwb-file-input-example-size />
@@ -90,8 +94,8 @@ const file = ref(null)
 </script>
 ```
 
-## Dropzone
 
+## Dropzone
 
 <fwb-file-input-example-drop-zone />
 ```vue
@@ -107,8 +111,32 @@ const file = ref(null)
 </script>
 ```
 
-## Dropzone multiple
 
+## Dropzone with custom placeholder
+
+You can customize the dropzone placeholder text using the `dropzonePlaceholder` slot:
+
+<fwb-file-input-example-drop-zone-placeholder />
+```vue
+<template>
+  <fwb-file-input v-model="file" dropzone>
+    <template #dropzonePlaceholder>
+      <span class="font-semibold">Choose your file</span>
+      or drop it here
+    </template>
+  </fwb-file-input>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbFileInput } from 'flowbite-vue'
+
+const file = ref(null)
+</script>
+```
+
+
+## Dropzone multiple
 
 <fwb-file-input-example-drop-zone-multiple />
 ```vue
@@ -120,6 +148,7 @@ const file = ref(null)
 import { ref } from 'vue'
 import { FwbFileInput } from 'flowbite-vue'
 
+const file = ref(null)
 const files = ref([])
 </script>
 ```
