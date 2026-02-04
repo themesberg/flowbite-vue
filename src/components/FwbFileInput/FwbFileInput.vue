@@ -15,7 +15,7 @@
     </div>
     <div
       v-else
-      class="flex flex-col justify-center items-start"
+      class="flex flex-col justify-center items-center"
       @dragover="dragOverHandler"
       @drop="dropFileHandler"
     >
@@ -49,7 +49,10 @@
             </p>
             <slot />
           </div>
-          <p v-else>File: {{ dropZoneText }}</p>
+          <p
+            v-else
+            class="text-center"
+          >File: {{ dropZoneText }}</p>
         </div>
         <input
           :accept="accept"
