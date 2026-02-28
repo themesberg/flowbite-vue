@@ -14,9 +14,10 @@ const disabledInputWrapperClasses = 'bg-gray-100'
 const disabledInputClasses = 'cursor-not-allowed'
 
 const inputSizeClasses: Record<InputSize, string> = {
-  sm: 'p-2 text-sm',
-  md: 'p-2.5 text-sm',
-  lg: 'p-4',
+  sm: 'px-2.5 py-2 text-sm',
+  md: 'px-3 py-2.5 text-sm',
+  lg: 'px-3.5 py-3 text-base',
+  xl: 'px-4 py-3.5 text-base',
 }
 
 const errorInputWrapperClasses = 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 has-[input:focus]:ring-red-500 has-[input:focus]:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500'

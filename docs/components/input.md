@@ -49,9 +49,30 @@ const name = ref('')
 <fwb-input-example-size />
 ```vue
 <template>
-  <fwb-input v-model="name" label="Small" placeholder="enter your name" size="sm" />
-  <fwb-input v-model="name" label="Medium" placeholder="enter your name" size="md" />
-  <fwb-input v-model="name" label="Large" placeholder="enter your name" size="lg" />
+<fwb-input
+    v-model="name"
+    label="Small"
+    placeholder="enter your first name"
+    size="sm"
+  />
+  <fwb-input
+    v-model="name"
+    label="Medium (default)"
+    placeholder="enter your first name"
+    size="md"
+  />
+  <fwb-input
+    v-model="name"
+    label="Large"
+    placeholder="enter your first name"
+    size="lg"
+  />
+  <fwb-input
+    v-model="name"
+    label="Extra Large"
+    placeholder="enter your first name"
+    size="xl"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -256,7 +277,7 @@ const name = ref('')
 ### FwbInput Props
 | Name         | Type                     | Default | Description                                                  |
 | ------------ | ------------------------ | ------- | ------------------------------------------------------------ |
-| autocomplete | String \| CommonAutoFill | 'off'   | Sets the autocomplete for forms.                             | 
+| autocomplete | String \| CommonAutoFill | 'off'   | Sets the autocomplete for forms.                             |
 | wrapperClass | String \| Object         | `''`    | Added to main component wrapper                              |
 | labelClass   | String \| Object         | `''`    | Added to `<label>` element.                                  |
 | class        | String \| Object         | `''`    | Added to wrapper around `<input>` element and prefix/suffix. |
