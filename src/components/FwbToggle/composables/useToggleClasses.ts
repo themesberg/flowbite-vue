@@ -21,40 +21,40 @@ const toggleSizeClasses: Record<FormElementSize, string> = {
   sm: 'w-9 h-5 after:top-[2px] after:start-[2px] after:h-4 after:w-4',
   md: 'w-11 h-6 after:top-[2px] after:start-[2px] after:h-5 after:w-5',
   lg: 'w-14 h-7 after:top-0.5 after:start-[4px] after:h-6 after:w-6',
-  xl: 'w-14 h-7 after:top-0.5 after:start-[4px] after:h-6 after:w-6', // intentionally reuses lg until xl is designed
+  xl: 'w-16 h-8 after:top-0.5 after:start-[4px] after:h-7 after:w-7',
 }
 
 const toggleColorClasses: Record<string, string> = {
-  red: 'peer-focus:ring-red-300 dark:peer-focus:ring-red-800 peer-checked:bg-red-600',
   green: 'peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:bg-green-600',
-  purple: 'peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 peer-checked:bg-purple-600',
-  yellow: 'peer-focus:ring-yellow-300 dark:peer-focus:ring-yellow-800 peer-checked:bg-yellow-400',
-  teal: 'peer-focus:ring-teal-300 dark:peer-focus:ring-teal-800 peer-checked:bg-teal-600',
   orange: 'peer-focus:ring-orange-300 dark:peer-focus:ring-orange-800 peer-checked:bg-orange-500',
+  purple: 'peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 peer-checked:bg-purple-600',
+  red: 'peer-focus:ring-red-300 dark:peer-focus:ring-red-800 peer-checked:bg-red-600',
+  teal: 'peer-focus:ring-teal-300 dark:peer-focus:ring-teal-800 peer-checked:bg-teal-600',
+  yellow: 'peer-focus:ring-yellow-300 dark:peer-focus:ring-yellow-800 peer-checked:bg-yellow-400',
 }
 
 export type UseToggleClassesProps = {
-  size: Ref<FormElementSize>
   color: Ref<string>
   reverse: Ref<boolean>
+  size: Ref<FormElementSize>
 }
 
 export function useToggleClasses (props: UseToggleClassesProps) {
   const labelClasses = computed(() => defaultLabelClasses)
-  const toggleClasses = computed(() => defaultToggleBackgroundClasses)
-  const toggleSize = computed(() => toggleSizeClasses[props.size.value])
-  const toggleColor = computed(() => toggleColorClasses[props.color.value])
+  const labelOrder = computed(() => labelOrderClasses[props.reverse.value ? 'reverse' : 'direct'])
   const toggleBallClasses = computed(() => defaultToggleBallClasses)
   const toggleBallOrder = computed(() => toggleBallOrderClasses[props.reverse.value ? 'reverse' : 'direct'])
-  const labelOrder = computed(() => labelOrderClasses[props.reverse.value ? 'reverse' : 'direct'])
+  const toggleClasses = computed(() => defaultToggleBackgroundClasses)
+  const toggleColor = computed(() => toggleColorClasses[props.color.value])
+  const toggleSize = computed(() => toggleSizeClasses[props.size.value])
 
   return {
     labelClasses,
-    toggleSize,
-    toggleClasses,
-    toggleColor,
+    labelOrder,
     toggleBallClasses,
     toggleBallOrder,
-    labelOrder,
+    toggleClasses,
+    toggleColor,
+    toggleSize,
   }
 }
