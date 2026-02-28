@@ -1,8 +1,6 @@
 <template>
   <label class="flex flex-col">
-    <span
-      :class="labelClasses"
-    >{{ label }}</span>
+    <span :class="labelClasses">{{ label }}</span>
     <input
       v-model="model"
       :step="steps"
@@ -56,13 +54,19 @@ const model = computed({
 const { rangeClasses, labelClasses } = useRangeClasses(toRefs(props))
 </script>
 
-<style scoped>
-input[type="range"].range-lg::-moz-range-thumb {
-  height: 1.5rem;
-  width: 1.5rem;
+<style lang="css">
+@reference '@/style.css';
+
+.fwb-range-input::-moz-range-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  @apply bg-blue-500 border-none rounded-full;
 }
-input[type="range"].range-sm::-moz-range-thumb {
-  height: 1rem;
-  width: 1rem;
+.fwb-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  @apply bg-blue-500 border-none rounded-full;
 }
 </style>

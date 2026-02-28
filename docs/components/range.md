@@ -28,7 +28,7 @@ Original reference: [https://flowbite.com/docs/forms/range/](https://flowbite.co
 import { ref } from 'vue'
 import { FwbRange } from 'flowbite-vue'
 
-const value = ref(10)
+const value = ref(50)
 </script>
 ```
 
@@ -37,7 +37,11 @@ const value = ref(10)
 <fwb-range-example-disabled />
 ```vue
 <template>
-  <fwb-range v-model="value" disabled label="Disabled range" />
+  <fwb-range
+    v-model="value"
+    disabled
+    label="Disabled range"
+  />
 </template>
 ```
 
@@ -46,7 +50,12 @@ const value = ref(10)
 <fwb-range-example-min-max />
 ```vue
 <template>
-  <fwb-range v-model="value" :max="15" :min="5" label="Min-max range" />
+  <fwb-range
+    v-model="value"
+    :min="5"
+    :max="15"
+    label="Min-Max range"
+  />
 </template>
 ```
 
@@ -55,7 +64,11 @@ const value = ref(10)
 <fwb-range-example-steps />
 ```vue
 <template>
-  <fwb-range v-model="value" :steps="5" label="Steps range" />
+  <fwb-range
+    v-model="value"
+    :steps="5"
+    label="Steps range"
+  />
 </template>
 ```
 
@@ -64,8 +77,25 @@ const value = ref(10)
 <fwb-range-example-size />
 ```vue
 <template>
-  <fwb-range v-model="value1" label="Small range" size="sm" />
-  <fwb-range v-model="value2" label="Medium range" size="md" />
-  <fwb-range v-model="value3" label="Large range" size="lg" />
+  <fwb-range
+    v-model.number="value"
+    label="Small"
+    size="sm"
+  />
+  <fwb-range
+    v-model.number="value"
+    label="Medium"
+    size="md"
+  />
+  <fwb-range
+    v-model.number="value"
+    label="Large"
+    size="lg"
+  />
+  <fwb-range
+    v-model.number="value"
+    label="Extra Large"
+    size="xl"
+  />
 </template>
 ```

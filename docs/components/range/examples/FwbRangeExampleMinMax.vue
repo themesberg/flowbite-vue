@@ -4,7 +4,7 @@
       v-model.number="value"
       :max="15"
       :min="5"
-      label="Min-max range"
+      label="Min-Max range"
     />
     <pre>Selected value: {{ value }}</pre>
   </div>

@@ -1,19 +1,24 @@
 <template>
-  <div class="vp-raw grid gap-3">
+  <div class="gap-3 grid vp-raw">
     <fwb-range
-      v-model.number="value1"
-      label="Small range"
+      v-model.number="value"
+      label="Small"
       size="sm"
     />
     <fwb-range
-      v-model.number="value2"
-      label="Medium range"
+      v-model.number="value"
+      label="Medium"
       size="md"
     />
     <fwb-range
-      v-model.number="value3"
-      label="Large range"
+      v-model.number="value"
+      label="Large"
       size="lg"
+    />
+    <fwb-range
+      v-model.number="value"
+      label="Extra Large"
+      size="xl"
     />
   </div>
 </template>
@@ -23,7 +28,5 @@ import { ref } from 'vue'
 
 import { FwbRange } from '../../../../src/index'
 
-const value1 = ref(10)
-const value2 = ref(10)
-const value3 = ref(10)
+const value = ref(50)
 </script>
