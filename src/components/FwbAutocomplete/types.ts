@@ -5,33 +5,33 @@ export type AutocompleteSize = FormElementSize
 export type { ValidationStatus }
 
 export interface AutocompleteProps<T = Record<string, any>> {
-  modelValue?: T | null
-  options: T[]
-  loading?: boolean
-  placeholder?: string
-  disabled?: boolean
-  valueField?: string
-  searchFields?: string[]
-  loadingText?: string
-  noResultsText?: string
-  minChars?: number
-  remote?: boolean
-  debounce?: number
-  display?: string | ((option: T) => string)
-  size?: AutocompleteSize
-  validationStatus?: ValidationStatus
   class?: string | Record<string, boolean>
-  wrapperClass?: string | Record<string, boolean>
-  label?: string
-  labelClass?: string | Record<string, boolean>
+  debounce?: number
+  disabled?: boolean
+  display?: string | ((option: T) => string)
   dropdownClass?: string | Record<string, boolean>
   inputComponent?: Component
   inputProps?: Record<string, any>
+  label?: string
+  labelClass?: string | Record<string, boolean>
+  loading?: boolean
+  loadingText?: string
+  minChars?: number
+  modelValue?: T | null
+  noResultsText?: string
+  options: T[]
+  placeholder?: string
+  remote?: boolean
+  searchFields?: string[]
+  size?: AutocompleteSize
+  validationStatus?: ValidationStatus
+  valueField?: string
+  wrapperClass?: string | Record<string, boolean>
   zIndex?: number
 }
 
 export interface AutocompleteEmits<T = Record<string, any>> {
-  (e: 'update:modelValue', value: T | null): void
-  (e: 'select', option: T): void
   (e: 'search', query: string): void
+  (e: 'select', option: T): void
+  (e: 'update:modelValue', value: T | null): void
 }

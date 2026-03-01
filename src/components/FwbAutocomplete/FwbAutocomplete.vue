@@ -11,8 +11,7 @@
         v-bind="{
           placeholder,
           disabled,
-          size,
-          label,
+          ...(inputComponent === FwbInput ? { size, label } : {}),
           ...inputProps,
           ...$attrs,
         }"
@@ -33,7 +32,7 @@
             <div class="flex items-center">
               <div
                 v-if="loading"
-                class="border-2 border-t-transparent border-blue-600 rounded-full w-4 h-4 animate-spin"
+                class="border-2 border-blue-600 border-t-transparent rounded-full w-4 h-4 animate-spin"
                 data-testid="fwb-autocomplete-loading-spinner"
               />
               <svg
@@ -87,7 +86,7 @@
         >
           <div class="flex justify-center items-center gap-2">
             <div
-              class="border-2 border-t-transparent border-blue-600 rounded-full w-4 h-4 animate-spin"
+              class="border-2 border-blue-600 border-t-transparent rounded-full w-4 h-4 animate-spin"
             />
             {{ loadingText }}
           </div>
@@ -105,7 +104,7 @@
           v-for="(option, index) in filteredOptions"
           v-else
           :key="getOptionKey(option)"
-          :class="getDropdownItemClasses(highlightedIndex === index)"
+          :class="getDropdownItemClasses(highlightedIndex === index, props.size)"
           :data-testid="`fwb-autocomplete-option-${index}`"
           class="fwb-autocomplete-option"
           @mousedown="isSelectingOption = true"
@@ -166,7 +165,7 @@ const props = withDefaults(
   defineProps<
     AutocompleteProps<T> & {
       inputComponent?: Component
-      inputProps?: Record<string, any>
+      inputProps?: Record<string, unknown>
     }
   >(),
   {
