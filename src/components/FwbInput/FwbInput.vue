@@ -8,7 +8,7 @@
     <div :class="inputWrapperClass">
       <div
         v-if="$slots.prefix"
-        class="ms-2 flex shrink-0 items-center"
+        class="flex items-center ms-2 shrink-0"
       >
         <slot name="prefix" />
       </div>
@@ -23,7 +23,7 @@
       >
       <div
         v-if="$slots.suffix"
-        class="me-2 flex shrink-0 items-center"
+        class="flex items-center me-2 shrink-0"
       >
         <slot name="suffix" />
       </div>
