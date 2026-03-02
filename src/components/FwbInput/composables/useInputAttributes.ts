@@ -1,13 +1,10 @@
-import { computed, useAttrs, useId } from 'vue'
+import { useElementAttributes } from '@/composables/useElementAttributes'
 
 export const useInputAttributes = () => {
-  const attrs = useAttrs()
-  const inputId = useId()
-
-  const inputAttributes = computed(() => ({
-    ...attrs,
-    id: inputId,
-  }))
+  const {
+    elementId: inputId,
+    elementAttributes: inputAttributes,
+  } = useElementAttributes()
 
   return { inputId, inputAttributes }
 }
