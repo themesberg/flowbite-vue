@@ -1,8 +1,7 @@
 import { computed, type Ref } from 'vue'
 
-import { type InputSize, type ValidationStatus, validationStatusMap } from '../types'
-
 import { useMergeClasses } from '@/composables/useMergeClasses'
+import { type FormElementSize, type ValidationStatus, validationStatusMap } from '@/types/form'
 
 const defaultWrapperClasses = ''
 const defaultLabelClasses = 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -13,7 +12,7 @@ const defaultHelperClasses = 'mt-2 text-sm text-gray-500 dark:text-gray-400'
 const disabledInputWrapperClasses = 'bg-gray-100'
 const disabledInputClasses = 'cursor-not-allowed'
 
-const inputSizeClasses: Record<InputSize, string> = {
+const inputSizeClasses: Record<FormElementSize, string> = {
   sm: 'px-2.5 py-2 text-sm',
   md: 'px-3 py-2.5 text-sm',
   lg: 'px-3.5 py-3 text-base',
@@ -32,7 +31,7 @@ export type UseInputClassesProps = {
   disabled: Ref<boolean>
   inputClass: Ref<string | Record<string, boolean>>
   labelClass: Ref<string | Record<string, boolean>>
-  size: Ref<InputSize>
+  size: Ref<FormElementSize>
   validationStatus: Ref<ValidationStatus | undefined>
   wrapperClass: Ref<string | Record<string, boolean>>
 }

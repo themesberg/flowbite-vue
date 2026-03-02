@@ -57,7 +57,6 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<InputProps>(), {
-  autocomplete: 'off',
   class: '',
   disabled: false,
   inputClass: '',
