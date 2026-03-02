@@ -81,5 +81,5 @@ const {
   inputClass,
 } = useInputClasses(toRefs(props))
 
-const { inputId, inputAttributes } = useInputAttributes(props)
+const { inputId, inputAttributes } = useInputAttributes()
 </script>

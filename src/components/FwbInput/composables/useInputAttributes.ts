@@ -1,31 +1,13 @@
-import { computed, useAttrs } from 'vue'
+import { computed, useAttrs, useId } from 'vue'
 
-import type { InputProps } from '../types'
-
-export const useInputAttributes = (props: InputProps) => {
+export const useInputAttributes = () => {
   const attrs = useAttrs()
-  const inputId = computed(() => {
-    if (!props?.label || props.label.trim() === '') {
-      return `input-${Math.random().toString(36).slice(2, 9)}`
-    }
-    return props.label
-      .toLowerCase()
-      .trim()
-      .replace(/[^\w\s-]/g, '') // Remove special characters
-      .replace(/\s+/g, '-')     // Replace spaces with hyphens
-      .replace(/-+/g, '-')      // Collapse multiple hyphens
-  })
+  const inputId = useId()
 
-  const inputAttributes = computed(() => {
-    if (inputId.value !== '') {
-      return {
-        ...attrs,
-        id: inputId.value,
-      }
-    } else {
-      return attrs
-    }
-  })
+  const inputAttributes = computed(() => ({
+    ...attrs,
+    id: inputId,
+  }))
 
   return { inputId, inputAttributes }
 }
