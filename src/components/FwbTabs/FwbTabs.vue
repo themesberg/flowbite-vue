@@ -39,12 +39,14 @@ defineOptions({
 
 interface ITabsProps {
   variant?: TabsVariant
+  tabsClass?: string
   modelValue?: string
   directive?: 'if' | 'show'
 }
 
 const props = withDefaults(defineProps<ITabsProps>(), {
   variant: 'default',
+  tabsClass: '',
   modelValue: '',
   directive: 'if',
 })
