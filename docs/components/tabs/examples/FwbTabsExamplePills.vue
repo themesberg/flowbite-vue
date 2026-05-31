@@ -4,7 +4,6 @@
       v-model="activeTab"
       variant="pills"
       class="p-5"
-      tabsClass="m-1"
     >
       <fwb-tab
         name="first"

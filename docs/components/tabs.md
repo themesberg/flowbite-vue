@@ -177,5 +177,6 @@ const handlePaneClick = () => { console.log('Click!') }
 |------------|--------------------------------|-----------|
 | directive  | `if`, `show`                   | `if`      |
 | modelValue | `string`                       | `''`      |
-| tabsClass  | `string`                       | `''`      |
+| ulClass    | `string`                       | `''`      |
+| divClass   | `string`                       | `''`      |
 | variant    | `default`, `underline`, `pill` | `default` |
