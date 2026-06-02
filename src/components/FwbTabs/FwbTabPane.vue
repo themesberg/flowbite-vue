@@ -1,7 +1,7 @@
 <template>
   <li>
     <div
-      :class="tabClasses"
+      :class="twMerge(tabClasses, props?.class)"
       @click="tryActivateTab"
     >
       {{ title }}
@@ -19,6 +19,7 @@ import {
 } from './injection/config'
 
 import type { TabsVariant } from './types'
+import { twMerge } from 'tailwind-merge'
 
 const props = defineProps({
   name: {
@@ -36,6 +37,10 @@ const props = defineProps({
   active: {
     type: Boolean,
     default: false,
+  },
+  class: {
+    type: String,
+    default: '',
   },
 })
 
