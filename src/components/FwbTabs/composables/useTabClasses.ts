@@ -5,6 +5,7 @@ import { useFlowbiteThemable } from '../../utils/FlowbiteThemable/composables/us
 import type { TabsVariant } from './../types'
 
 import { useMergeClasses } from '@/composables/useMergeClasses'
+import { twMerge } from 'tailwind-merge'
 
 export type TabClassMap = {
   active: string
@@ -16,6 +17,7 @@ export type UseTabClassesProps = {
   active: Ref<boolean>
   disabled: Ref<boolean>
   variant?: TabsVariant
+  class? : string
 }
 
 const defaultTabClasses: TabClassMap = {
@@ -41,6 +43,7 @@ export function useTabClasses (props: UseTabClassesProps): {
 
   const tabClasses = computed(() => {
     const isActiveTheme = theme.isActive.value
+    let ret = ""
 
     const tabClassType: keyof TabClassMap = props.active.value
       ? 'active'
@@ -49,21 +52,21 @@ export function useTabClasses (props: UseTabClassesProps): {
         : 'default'
 
     if (props.variant === 'default') {
-      return useMergeClasses([
+      ret = useMergeClasses([
         defaultTabClasses[tabClassType],
         (isActiveTheme && tabClassType === 'active')
           ? theme.textClasses.value
           : '',
       ])
     } else if (props.variant === 'underline') {
-      return useMergeClasses([
+      ret = useMergeClasses([
         underlineTabClasses[tabClassType],
         (isActiveTheme && tabClassType === 'active')
           ? `${theme.borderClasses.value} ${theme.textClasses.value}`
           : '',
       ])
     } else if (props.variant === 'pills') {
-      return useMergeClasses([
+      ret = useMergeClasses([
         pillsTabClasses[tabClassType],
         (isActiveTheme && tabClassType === 'active')
           ? `${theme.backgroundClasses.value} text-white`
@@ -71,7 +74,7 @@ export function useTabClasses (props: UseTabClassesProps): {
       ])
     }
 
-    return ''
+    return twMerge(ret, props?.class)
   })
 
   return { tabClasses }
