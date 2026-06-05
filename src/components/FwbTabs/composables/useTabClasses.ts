@@ -17,7 +17,7 @@ export type UseTabClassesProps = {
   active: Ref<boolean>
   disabled: Ref<boolean>
   variant?: TabsVariant
-  class? : string
+  class? : Ref<string>
 }
 
 const defaultTabClasses: TabClassMap = {
@@ -74,7 +74,7 @@ export function useTabClasses (props: UseTabClassesProps): {
       ])
     }
 
-    return twMerge(ret, props?.class)
+    return twMerge(ret, props.class?.value)
   })
 
   return { tabClasses }

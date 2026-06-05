@@ -63,6 +63,6 @@ const { tabClasses } = useTabClasses({
   active: toRef(props, 'active'),
   disabled: toRef(props, 'disabled'),
   variant,
-  class : props?.class
+  class: toRef(props, 'class')
 })
 </script>
