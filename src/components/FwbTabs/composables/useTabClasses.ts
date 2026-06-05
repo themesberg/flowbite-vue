@@ -74,7 +74,7 @@ export function useTabClasses (props: UseTabClassesProps): {
       ])
     }
 
-    return twMerge(ret, props.class?.value)
+    return twMerge(ret, props?.class?.value)
   })
 
   return { tabClasses }
