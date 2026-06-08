@@ -28,6 +28,7 @@ export type UseSelectClassesProps = {
   disabled: Ref<boolean>
   underline: Ref<boolean>
   validationStatus: Ref<ValidationStatus | undefined>
+  selectClass:  Ref<string>
 }
 
 export function useSelectClasses (props: UseSelectClassesProps): {
@@ -56,6 +57,7 @@ export function useSelectClasses (props: UseSelectClassesProps): {
       props.disabled.value && disabledSelectClasses,
       props.underline.value ? underlineSelectClasses : 'border border-gray-300 rounded-lg',
       props.underline.value && underlineByStatus,
+      props.selectClass.value
     )
   })
 
