@@ -4,7 +4,9 @@ import { computed, type Ref } from 'vue'
 import type { TabsVariant } from '../types'
 
 export type UseTabsClassesProps = {
-  variant: TabsVariant
+  variant: TabsVariant,
+  ulClass: string,
+  divClass: string
 }
 
 export function useTabsClasses (props: UseTabsClassesProps): {
@@ -18,15 +20,15 @@ export function useTabsClasses (props: UseTabsClassesProps): {
       baseClasses,
       props.variant === 'underline' && '-mb-px',
       props.variant === 'default' && 'border-b border-gray-200 dark:border-gray-700',
+      props.ulClass
     )
   })
 
   const divClasses = computed(() => {
-    if (props.variant === 'underline') {
-      return 'border-b border-gray-200 dark:border-gray-700 font-medium text-center text-gray-500 dark:text-gray-400 text-sm'
-    }
-
-    return ''
+    return twMerge(
+      props.variant === 'underline' && 'border-b border-gray-200 dark:border-gray-700 font-medium text-center text-gray-500 dark:text-gray-400 text-sm',
+      props.divClass
+    )
   })
 
   return {

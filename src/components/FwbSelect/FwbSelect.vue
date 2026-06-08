@@ -65,7 +65,8 @@ interface InputProps {
   underline?: boolean
   size?: InputSize
   autocomplete?: CommonAutoFill
-  validationStatus?: ValidationStatus
+  validationStatus?: ValidationStatus,
+  selectClass?: string
 }
 const props = withDefaults(defineProps<InputProps>(), {
   modelValue: '',
@@ -78,6 +79,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   size: 'md',
   autocomplete: 'off',
   validationStatus: undefined,
+  selectClass: ""
 })
 const emit = defineEmits(['update:modelValue'])
 
@@ -88,6 +90,6 @@ const { selectClasses, labelClasses } = useSelectClasses(toRefs(props))
 const validationWrapperClasses = computed(() => twMerge(
   'mt-2 text-sm',
   props.validationStatus === validationStatusMap.Success ? 'text-green-600 dark:text-green-500' : '',
-  props.validationStatus === validationStatusMap.Error ? 'text-red-600 dark:text-red-500' : '',
+  props.validationStatus === validationStatusMap.Error ? 'text-red-600 dark:text-red-500' : ''
 ))
 </script>

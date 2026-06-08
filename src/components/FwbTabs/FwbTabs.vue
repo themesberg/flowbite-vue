@@ -9,6 +9,7 @@
         :name="item.props?.name"
         :title="item.props?.title"
         @click="emitClick"
+        :class="props.buttonClass"
       />
     </ul>
   </div>
@@ -39,12 +40,18 @@ defineOptions({
 
 interface ITabsProps {
   variant?: TabsVariant
+  ulClass?: string
+  divClass?: string
+  buttonClass?: string
   modelValue?: string
   directive?: 'if' | 'show'
 }
 
 const props = withDefaults(defineProps<ITabsProps>(), {
   variant: 'default',
+  ulClass: '',
+  divClass: '',
+  buttonClass: '',
   modelValue: '',
   directive: 'if',
 })

@@ -37,6 +37,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  class: {
+    type: String,
+    default: '',
+  },
 })
 
 const variant = inject<TabsVariant>(TAB_STYLE_INJECTION_KEY)
@@ -59,5 +63,6 @@ const { tabClasses } = useTabClasses({
   active: toRef(props, 'active'),
   disabled: toRef(props, 'disabled'),
   variant,
+  class: toRef(props, 'class')
 })
 </script>
