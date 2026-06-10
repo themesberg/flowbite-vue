@@ -1,15 +1,5 @@
 <template>
-  <form
-    class="gap-2 grid vp-raw"
-    @submit.prevent
-  >
-    <fwb-textarea
-      v-model="message"
-      label="Textarea with minlength 10 and maxlength 20"
-      minlength="10"
-      maxlength="20"
-      required
-    />
+  <div class="flex flex-col gap-4 vp-raw">
     <fwb-textarea
       v-model="message"
       label="Disabled textarea"
@@ -22,19 +12,13 @@
       placeholder="Cannot be edited"
       readonly
     />
-    <fwb-button
-      class="justify-self-start"
-      type="submit"
-    >
-      Validate
-    </fwb-button>
-  </form>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { FwbButton, FwbTextarea } from '../../../../src/index'
+import { FwbTextarea } from '../../../../src/index'
 
-const message = ref('Edit me!')
+const message = ref('Some content')
 </script>

@@ -1,8 +1,11 @@
 <script setup>
 import FwbTextareaExample from './textarea/examples/FwbTextareaExample.vue'
 import FwbTextareaExampleComment from './textarea/examples/FwbTextareaExampleComment.vue'
+import FwbTextareaExampleConstraints from './textarea/examples/FwbTextareaExampleConstraints.vue'
 import FwbTextareaExampleDisabled from './textarea/examples/FwbTextareaExampleDisabled.vue'
-import FwbTextareaExampleFormId from './textarea/examples/FwbTextareaExampleFormId.vue'
+import FwbTextareaExampleSize from './textarea/examples/FwbTextareaExampleSize.vue'
+import FwbTextareaExampleStyling from './textarea/examples/FwbTextareaExampleStyling.vue'
+import FwbTextareaExampleValidation from './textarea/examples/FwbTextareaExampleValidation.vue'
 </script>
 
 # Vue Textarea - Flowbite
@@ -11,20 +14,22 @@ import FwbTextareaExampleFormId from './textarea/examples/FwbTextareaExampleForm
 
 ---
 
-:::tip
+:::tip Textarea - Flowbite
 Original reference: [https://flowbite.com/docs/forms/textarea/](https://flowbite.com/docs/forms/textarea/)
 :::
+
+The textarea component is a multi-line text field that can be used to receive longer chunks of text from the user in the form of a comment box, description field, and more.
 
 ## Textarea example
 
 Get started with the default example of a textarea component below.
 
 <fwb-textarea-example />
+
 ```vue
 <template>
   <fwb-textarea
     v-model="message"
-    :rows="4"
     label="Your message"
     placeholder="Write your message..."
   />
@@ -38,119 +43,235 @@ const message = ref('')
 </script>
 ```
 
-## Comment box
+## Sizes
 
-Most often the textarea component is used as the main text field input element in comment sections. Use this example to also apply a helper text and buttons below the textarea itself.
+Use the `size` prop to control the padding and font size of the textarea.
 
-<fwb-textarea-example-comment />
+<fwb-textarea-example-size />
+
 ```vue
 <template>
-  <div>
-    <form>
-      <fwb-textarea
-        v-model="message"
-        :rows="3"
-        custom
-        label="Your message"
-        placeholder="Write your message..."
-      >
-        <template #footer>
-          <div class="flex items-center justify-between">
-            <fwb-button type="submit">
-              Post comment
-            </fwb-button>
-            <div class="flex">
-              <fwb-button class="rounded-lg hover:bg-gray-200 hover:dark:bg-gray-600" color square>
-                <svg class="w-6 h-6" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </fwb-button>
-              <fwb-button class="rounded-lg hover:bg-gray-200 hover:dark:bg-gray-600" color="" square >
-                <svg class="w-6 h-6" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </fwb-button>
-              <fwb-button class="rounded-lg hover:bg-gray-200 hover:dark:bg-gray-600" color="" square>
-                <svg class="w-6 h-6" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </fwb-button>
-            </div>
-          </div>
-        </template>
-      </Textarea>
-    </form>
-    <p class="ml-auto text-xs text-gray-500 dark:text-gray-400">
-      Remember, contributions to this topic should follow our
-      <fwb-a href="#">Community Guidelines</fwb-a>.
-    </p>
+  <div class="flex flex-col gap-4">
+    <fwb-textarea v-model="message" size="sm" label="Small" placeholder="Small textarea..." />
+    <fwb-textarea v-model="message" size="md" label="Medium (default)" placeholder="Medium textarea..." />
+    <fwb-textarea v-model="message" size="lg" label="Large" placeholder="Large textarea..." />
+    <fwb-textarea v-model="message" size="xl" label="Extra large" placeholder="Extra large textarea..." />
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { FwbA, FwbButton, FwbTextarea } from 'flowbite-vue'
+import { FwbTextarea } from 'flowbite-vue'
 
 const message = ref('')
 </script>
 ```
 
-## Disabled / Readonly Textarea / Max-Min Length
+## Disabled / Readonly
 
 <fwb-textarea-example-disabled />
+
 ```vue
 <template>
-  <div>
+  <div class="flex flex-col gap-4">
     <fwb-textarea
       v-model="message"
-      label="Textarea with minlength 10 and maxlength 20"
-      minlength="10"
-      maxlength="20"
-      required
-    />
-    <fwb-textarea
-      v-model="message"
-      label="Your message"
-      placeholder="Write your message..."
+      label="Disabled textarea"
+      placeholder="Cannot be edited"
       disabled
     />
     <fwb-textarea
       v-model="message"
-      label="Your message"
-      placeholder="Write your message..."
+      label="Readonly textarea"
+      placeholder="Cannot be edited"
       readonly
     />
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbTextarea } from 'flowbite-vue'
+
+const message = ref('Some content')
+</script>
 ```
 
-## Textarea with form ID
+## Validation
 
-<fwb-textarea-example-form-id />
+Set `validation-status` to `'success'` or `'error'` and use the `validationMessage` or `helper` slots to display contextual feedback.
+
+<fwb-textarea-example-validation />
+
 ```vue
 <template>
-  <div>
-    <form id="my-form" @submit.prevent="handleSubmit">
-      <!-- Inside the form -->
-      <fwb-textarea
-        v-model="message"
-        label="Your message"
-        placeholder="Write your message..."
-      />
-      <fwb-button type="submit">
-        Submit
-      </fwb-button>
-    </form>
-
-    <!-- Outside the form -->
+  <div class="flex flex-col gap-4">
     <fwb-textarea
       v-model="message"
+      validation-status="error"
       label="Your message"
       placeholder="Write your message..."
-      form="my-form"
-      required
-    />
+    >
+      <template #validationMessage>
+        This field is required.
+      </template>
+    </fwb-textarea>
+    <fwb-textarea
+      v-model="message"
+      validation-status="success"
+      label="Your message"
+      placeholder="Write your message..."
+    >
+      <template #helper>
+        Looks good!
+      </template>
+    </fwb-textarea>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbTextarea } from 'flowbite-vue'
+
+const message = ref('')
+</script>
 ```
+
+## Native Constraints
+
+Use `required`, `minlength`, and `maxlength` as native attributes. Pair them with `validation-status` to surface feedback using the component's styled states.
+
+<fwb-textarea-example-constraints />
+
+```vue
+<template>
+  <form class="flex flex-col gap-4" @submit.prevent="submitted = true">
+    <fwb-textarea
+      v-model="message"
+      :validation-status="validationStatus"
+      label="Message (10–15 characters)"
+      minlength="10"
+      maxlength="15"
+      required
+    >
+      <template v-if="validationStatus === 'error'" #validationMessage>
+        {{ message.length === 0 ? 'This field is required.' : `Too short — ${message.length}/10 characters minimum.` }}
+      </template>
+      <template v-if="validationStatus === 'success'" #helper>
+        Looks good!
+      </template>
+    </fwb-textarea>
+    <fwb-button class="self-start" type="submit">Validate</fwb-button>
+  </form>
+</template>
+
+<script setup>
+import { computed, ref } from 'vue'
+import { FwbButton, FwbTextarea } from 'flowbite-vue'
+
+const message = ref('')
+const submitted = ref(false)
+
+const validationStatus = computed(() => {
+  if (!submitted.value) return undefined
+  return message.value.length >= 10 ? 'success' : 'error'
+})
+</script>
+```
+
+## Slot - Footer
+
+Use the `footer` slot to render actions or metadata below the textarea content — commonly used for submit buttons in comment forms.
+
+<fwb-textarea-example-comment />
+
+```vue
+<template>
+  <form>
+    <fwb-textarea
+      v-model="message"
+      :rows="3"
+      label="Your message"
+      placeholder="Write your message..."
+    >
+      <template #footer>
+        <div class="flex items-center justify-between">
+          <fwb-button type="submit">
+            Post comment
+          </fwb-button>
+        </div>
+      </template>
+    </fwb-textarea>
+  </form>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbButton, FwbTextarea } from 'flowbite-vue'
+
+const message = ref('')
+</script>
+```
+
+## Styling Textareas
+
+Use dedicated props to pass classes to individual elements.
+
+<fwb-textarea-example-styling />
+
+```vue
+<template>
+  <fwb-textarea
+    v-model="message"
+    label="Your story"
+    placeholder="Start typing something..."
+    class="bg-amber-100 dark:bg-green-900 border-2 border-amber-500 has-[textarea:focus]:border-amber-900 dark:border-green-600 dark:has-[textarea:focus]:border-green-400 has-[textarea:focus]:ring-amber-300 dark:has-[textarea:focus]:ring-green-800"
+    label-class="text-xl font-bold text-amber-900 dark:text-green-200"
+    :rows="3"
+    textarea-class="text-amber-900 dark:text-green-100 placeholder:text-amber-500 dark:placeholder:text-green-500"
+    wrapper-class="border-2 border-amber-700 dark:border-green-400 bg-amber-300 dark:bg-green-800 rounded-lg p-3"
+  />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbTextarea } from 'flowbite-vue'
+
+const message = ref('')
+</script>
+```
+
+## Textarea component API
+
+### FwbTextarea Props
+
+:::tip Native attribute passthrough
+`FwbTextarea` sets `inheritAttrs: false` and forwards all extra attributes (e.g. `placeholder`, `readonly`, `minlength`, `maxlength`) directly to the `<textarea>` element.
+:::
+
+| Name             | Type                                  | Default     | Description                                           |
+| ---------------- | ------------------------------------- | ----------- | ----------------------------------------------------- |
+| autocomplete     | `String \| Autocomplete`              | `'off'`     | Sets the autocomplete attribute on the textarea.      |
+| class            | `String \| Object`                    | `''`        | Added to the wrapper `<div>` around the `<textarea>`. |
+| disabled         | `Boolean`                             | `false`     | Disables the textarea.                                |
+| footerClass      | `String \| Object`                    | `''`        | Added to the footer slot container.                   |
+| label            | `String`                              | `''`        | Label text rendered above the textarea.               |
+| labelClass       | `String \| Object`                    | `''`        | Added to the `<label>` element.                       |
+| required         | `Boolean`                             | `false`     | Marks the textarea as required.                       |
+| rows             | `Number`                              | `4`         | Number of visible text rows.                          |
+| size             | `'sm' \| 'md' \| 'lg' \| 'xl'`        | `'md'`      | Controls padding and font size.                       |
+| textareaClass    | `String \| Object`                    | `''`        | Added to the `<textarea>` element.                    |
+| validationStatus | `'success' \| 'error'`                | `undefined` | Sets the validation state of the textarea.            |
+| wrapperClass     | `String \| Object`                    | `''`        | Added to the outermost wrapper `<div>`.               |
+
+:::tip Accessibility
+`aria-invalid="true"` is set automatically on the native textarea when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute.
+:::
+
+### FwbTextarea Slots
+
+| Name              | Description                                                                            |
+| ----------------- | -------------------------------------------------------------------------------------- |
+| footer            | Content rendered inside the textarea wrapper below the text area (e.g. submit button). |
+| validationMessage | Validation feedback shown below the wrapper. Linked via `aria-describedby`.            |
+| helper            | Helper text shown below the wrapper. Linked via `aria-describedby`.                    |
