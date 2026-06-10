@@ -11,7 +11,7 @@
     >
       <div
         v-for="file in files"
-        :key="file.lastModified"
+        :key="`${file.name}-${file.size}-${file.lastModified}`"
       >
         {{ file.name }}
       </div>

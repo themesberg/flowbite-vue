@@ -158,7 +158,7 @@ const dropFileHandler = (event: DragEvent) => {
   event.preventDefault()
   const arr: File[] = []
   if (event.dataTransfer?.items) {
-    Object.values(event.dataTransfer.items).forEach((item: DataTransferItem) => {
+    Array.from(event.dataTransfer.items).forEach((item: DataTransferItem) => {
       if (item.kind === 'file') arr.push(item.getAsFile() as File)
     })
     if (props.multiple) {

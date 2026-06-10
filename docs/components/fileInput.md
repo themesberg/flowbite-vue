@@ -93,7 +93,7 @@ Apply the `multiple` prop to allow more files to be selected at once.
 <template>
   <fwb-file-input v-model="files" label="Upload files" multiple />
   <div v-if="files.length" class="mt-4 border border-gray-300 dark:border-gray-600 p-2 rounded-md">
-    <div v-for="file in files" :key="file.lastModified">{{ file.name }}</div>
+    <div v-for="file in files" :key="`${file.name}-${file.size}-${file.lastModified}`">{{ file.name }}</div>
   </div>
 </template>
 
@@ -151,7 +151,7 @@ Set `validation-status` to `'success'` or `'error'` and use the `validationMessa
       validation-status="success"
       label="Upload file"
     >
-      <template #helper>
+      <template #validationMessage>
         File looks good!
       </template>
     </fwb-file-input>
