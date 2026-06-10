@@ -14,7 +14,7 @@
       validation-status="success"
       label="Upload file"
     >
-      <template #helper>
+      <template #validationMessage>
         File looks good!
       </template>
     </fwb-file-input>

@@ -36,7 +36,7 @@
   </div>
   <div
     v-else
-    class="flex flex-col justify-center items-center"
+    :class="['flex flex-col justify-center items-center', wrapperClass]"
     @dragover="dragOverHandler"
     @drop="dropFileHandler"
   >
@@ -78,7 +78,9 @@
         </p>
       </div>
       <input
+        v-bind="inputAttributes"
         :accept="accept"
+        :disabled="disabled"
         :multiple="multiple"
         class="hidden"
         type="file"
@@ -132,8 +134,6 @@ const model = defineModel<File | File[] | null>({ default: null })
 const dropZoneText = computed(() => {
   if (isArray(model.value)) {
     return model.value.map(el => el.name).join(', ')
-  } else if (model.value instanceof FileList) {
-    return Array.from(model.value).map(el => el.name).join(', ')
   } else if (model.value instanceof File) {
     return model.value.name || ''
   }
@@ -159,7 +159,10 @@ const dropFileHandler = (event: DragEvent) => {
   const arr: File[] = []
   if (event.dataTransfer?.items) {
     Array.from(event.dataTransfer.items).forEach((item: DataTransferItem) => {
-      if (item.kind === 'file') arr.push(item.getAsFile() as File)
+      if (item.kind === 'file') {
+        const file = item.getAsFile()
+        if (file) arr.push(file)
+      }
     })
     if (props.multiple) {
       model.value = Array.isArray(model.value) && model.value.length > 0
