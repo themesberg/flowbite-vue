@@ -3,7 +3,6 @@
     <fwb-textarea
       v-model="message"
       :rows="3"
-      custom
       label="Your message"
       placeholder="Write your message..."
     >

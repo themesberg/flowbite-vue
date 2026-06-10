@@ -49,12 +49,14 @@
 
 <script lang="ts" setup>
 
-import { Comment, computed, Text, toRefs, useAttrs, useSlots } from 'vue'
+import { Comment, computed, Text, toRefs, useSlots } from 'vue'
 
 import { useInputAttributes } from './composables/useInputAttributes'
 import { useInputClasses } from './composables/useInputClasses'
 
 import type { InputProps } from './types'
+
+import { useFormFieldIds } from '@/composables/useFormFieldIds'
 
 defineOptions({
   inheritAttrs: false,
@@ -78,19 +80,9 @@ const props = withDefaults(defineProps<InputProps>(), {
 const model = defineModel<string | number>({ default: '' })
 
 const { inputId, inputAttributes } = useInputAttributes()
-const attrs = useAttrs()
 const slots = useSlots()
 
-const validationMessageId = computed(() => `${inputId.value}-validation`)
-const helperId = computed(() => `${inputId.value}-helper`)
-
-const ariaDescribedby = computed(() => {
-  const ids: string[] = []
-  if (attrs['aria-describedby']) ids.push(String(attrs['aria-describedby']))
-  if (slots.validationMessage) ids.push(validationMessageId.value)
-  if (slots.helper) ids.push(helperId.value)
-  return ids.length ? ids.join(' ') : undefined
-})
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(inputId)
 
 const isTextSlot = (name: string) => {
   const vnodes = slots[name]?.()
