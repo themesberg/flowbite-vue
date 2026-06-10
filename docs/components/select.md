@@ -3,6 +3,7 @@ import FwbSelectExample from './select/examples/FwbSelectExample.vue'
 import FwbSelectExampleDisabled from './select/examples/FwbSelectExampleDisabled.vue'
 import FwbSelectExampleHelper from './select/examples/FwbSelectExampleHelper.vue'
 import FwbSelectExampleSize from './select/examples/FwbSelectExampleSize.vue'
+import FwbSelectExampleStyling from './select/examples/FwbSelectExampleStyling.vue'
 import FwbSelectExampleUnderlined from './select/examples/FwbSelectExampleUnderlined.vue'
 import FwbSelectExampleValidation from './select/examples/FwbSelectExampleValidation.vue'
 </script>
@@ -206,3 +207,58 @@ const countries = [
 ]
 </script>
 ```
+
+## Styling
+
+Use dedicated props to pass classes to individual elements.
+
+<fwb-select-example-styling />
+```vue
+<template>
+  <fwb-select
+    v-model="selected"
+    :options="countries"
+    class="rounded-none border-2 border-gray-900 dark:border-gray-200"
+    label="Select a country"
+    label-class="italic text-gray-900 dark:text-gray-200"
+    wrapper-class="bg-gray-100 dark:bg-gray-800 p-4"
+  />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbSelect } from 'flowbite-vue'
+
+const selected = ref('')
+const countries = [
+  { value: 'us', name: 'United States' },
+  { value: 'ca', name: 'Canada' },
+  { value: 'fr', name: 'France' },
+]
+</script>
+```
+
+## FwbSelect Props
+
+| Name             | Type                     | Default               | Description                                  |
+|------------------|--------------------------|-----------------------|----------------------------------------------|
+| autocomplete     | String                   | `undefined`           | Sets the `autocomplete` attribute.           |
+| class            | String \| Object         | `''`                  | Added to the `<select>` element.             |
+| clearable        | Boolean                  | `false`               | Shows an empty option that clears the value. |
+| disabled         | Boolean                  | `false`               | Disables the select.                         |
+| label            | String                   | `''`                  | Label text rendered above the select.        |
+| labelClass       | String \| Object         | `''`                  | Added to the `<label>` element.              |
+| options          | OptionsType[]            | `[]`                  | Array of `{ value, name }` option objects.   |
+| placeholder      | String                   | `'Please select one'` | Placeholder option text.                     |
+| required         | Boolean                  | `false`               | Sets the `required` attribute.               |
+| size             | `'sm'\|'md'\|'lg'\|'xl'` | `'md'`                | Controls padding and font size.              |
+| underline        | Boolean                  | `false`               | Uses the underline style variant.            |
+| validationStatus | `'success'\|'error'`     | `undefined`           | Applies validation colour styles.            |
+| wrapperClass     | String \| Object         | `''`                  | Added to the outer root `<div>`.             |
+
+## FwbSelect Slots
+
+| Name              | Description                                   |
+|-------------------|-----------------------------------------------|
+| helper            | Help text rendered below the select.          |
+| validationMessage | Validation message rendered below the select. |

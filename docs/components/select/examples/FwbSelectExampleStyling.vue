@@ -1,15 +1,12 @@
 <template>
-  <div class="gap-2 grid vp-raw">
+  <div class="vp-raw">
     <fwb-select
       v-model="selected"
       :options="countries"
+      class="border-2 border-gray-900 dark:border-gray-200 rounded-none"
       label="Select a country"
-    />
-    <fwb-select
-      v-model="selected"
-      :options="countries"
-      label="Select a country"
-      clearable
+      label-class="italic text-gray-900 dark:text-gray-200"
+      wrapper-class="bg-gray-100 dark:bg-gray-800 p-4"
     />
   </div>
 </template>
