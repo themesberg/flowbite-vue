@@ -1,14 +1,15 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
+import { defineComponent, h } from 'vue'
 
 import FwbButton from '../FwbButton.vue'
 
 // Mock router-link component for testing
-const RouterLinkStub = {
+const RouterLinkStub = defineComponent({
   name: 'RouterLink',
   props: ['to'],
-  template: '<a><slot /></a>',
-}
+  render () { return h('a', this.$slots.default?.()) },
+})
 
 describe('FwbButton', () => {
   describe('Basic Rendering', () => {

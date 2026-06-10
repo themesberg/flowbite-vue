@@ -130,8 +130,6 @@ const loadingSuffix = computed(() => props.loading && props.loadingPosition === 
 
 const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(toRefs(props))
 
-const linkComponent = props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
-
 const buttonComponent = computed(() => {
   if (props.to) {
     try {
@@ -141,7 +139,10 @@ const buttonComponent = computed(() => {
       return 'a'
     }
   }
-  return props.href ? linkComponent : 'button'
+  if (props.href) {
+    return props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
+  }
+  return 'button'
 })
 
 const linkAttr = computed(() => {
