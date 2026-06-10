@@ -23,7 +23,7 @@ const textareaSizeClasses: Record<FormElementSize, string> = {
 const errorTextareaWrapperClasses = 'bg-rose-50 border-rose-200 has-[textarea:focus]:border-rose-500 dark:border-rose-500 has-[textarea:focus]:ring-rose-500 text-rose-900 dark:text-rose-500'
 const errorTextClasses = 'text-rose-900 dark:text-rose-500'
 const successTextareaWrapperClasses = 'bg-emerald-50 border-emerald-200 has-[textarea:focus]:border-emerald-500 dark:border-emerald-500 has-[textarea:focus]:ring-emerald-500 text-emerald-900 dark:text-emerald-400'
-const successTextClasses = 'text-emerald-900 dark:text-emerald-400'
+const successTextClasses = 'text-emerald-900 dark:text-emerald-500'
 const errorTextareaClasses = 'text-rose-900 placeholder:text-rose-900 dark:placeholder:text-rose-500'
 const successTextareaClasses = 'text-emerald-900 dark:text-emerald-400 placeholder:text-emerald-900 dark:placeholder:text-emerald-500'
 
