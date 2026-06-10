@@ -19,14 +19,14 @@ import { computed, toRefs } from 'vue'
 
 import { useToggleClasses } from './composables/useToggleClasses'
 
-import type { InputSize } from '@/components/FwbInput/types'
+import type { FormElementSize } from '@/types/form'
 
 interface ToggleProps {
   color?: string
   disabled?: boolean
   label?: string
   modelValue?: boolean
-  size?: InputSize
+  size?: FormElementSize
   reverse?: boolean
 }
 

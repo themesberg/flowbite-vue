@@ -1,11 +1,7 @@
 import { twMerge } from 'tailwind-merge'
 import { computed, type Ref } from 'vue'
 
-import {
-  type InputSize,
-  type ValidationStatus,
-  validationStatusMap,
-} from '../types'
+import { type FormElementSize, type ValidationStatus, validationStatusMap } from '@/types/form'
 
 // LABEL
 const baseLabelClasses = 'block mb-2 text-sm font-medium'
@@ -14,17 +10,18 @@ const baseLabelClasses = 'block mb-2 text-sm font-medium'
 const defaultSelectClasses = 'w-full text-gray-900 bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
 const disabledSelectClasses = 'cursor-not-allowed bg-gray-100'
 const underlineSelectClasses = 'bg-transparent dark:bg-transparent dark:text-gray-500 border-b-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer'
-const selectSizeClasses: Record<InputSize, string> = {
-  lg: 'p-4',
-  md: 'p-2.5 text-sm',
+const selectSizeClasses: Record<FormElementSize, string> = {
   sm: 'p-2 text-sm',
+  md: 'p-2.5 text-sm',
+  lg: 'p-4',
+  xl: 'p-5 text-base',
 }
 
 const successInputClasses = 'bg-green-50 border-green-500 dark:border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus:ring-green-500 focus:border-green-500'
 const errorInputClasses = 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500'
 
 export type UseSelectClassesProps = {
-  size: Ref<InputSize>
+  size: Ref<FormElementSize>
   disabled: Ref<boolean>
   underline: Ref<boolean>
   validationStatus: Ref<ValidationStatus | undefined>

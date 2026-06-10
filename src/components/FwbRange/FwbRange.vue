@@ -20,7 +20,7 @@ import { computed, toRefs } from 'vue'
 
 import { useRangeClasses } from './composables/useRangeClasses'
 
-import type { InputSize } from '@/components/FwbInput/types'
+import type { FormElementSize } from '@/types/form'
 
 interface RangeProps {
   disabled?: boolean
@@ -28,7 +28,7 @@ interface RangeProps {
   max?: number
   min?: number
   modelValue?: number
-  size?: InputSize
+  size?: FormElementSize
   steps?: number
 }
 

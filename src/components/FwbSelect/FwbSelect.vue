@@ -53,7 +53,7 @@ import { computed, toRefs } from 'vue'
 import { useSelectClasses } from './composables/useSelectClasses'
 import { type OptionsType, type ValidationStatus, validationStatusMap } from './types'
 
-import type { CommonAutoFill, InputSize } from './../FwbInput/types'
+import type { Autocomplete, FormElementSize } from '@/types/form'
 
 interface InputProps {
   modelValue?: string
@@ -63,8 +63,8 @@ interface InputProps {
   disabled?: boolean
   required?: boolean
   underline?: boolean
-  size?: InputSize
-  autocomplete?: CommonAutoFill
+  size?: FormElementSize
+  autocomplete?: Autocomplete
   validationStatus?: ValidationStatus
 }
 const props = withDefaults(defineProps<InputProps>(), {

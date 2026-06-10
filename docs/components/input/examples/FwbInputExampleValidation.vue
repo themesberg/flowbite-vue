@@ -20,7 +20,7 @@
       validation-status="error"
     >
       <template #validationMessage>
-        <span class="font-medium">Oh, snapp!</span> Some error message.
+        <span class="font-medium">Oh, snap!</span> Some error message.
       </template>
     </fwb-input>
   </div>
