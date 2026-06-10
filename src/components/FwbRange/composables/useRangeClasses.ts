@@ -1,20 +1,21 @@
 import { computed, type Ref } from 'vue'
 
-import type { InputSize } from '@/components/FwbInput/types'
+import type { FormElementSize } from '@/types/form'
 
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const rangeDefaultClasses = 'w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700'
 const rangeLabelClasses = 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'
 
-const rangeSizeClasses: Record<InputSize, string> = {
-  lg: 'h-3 range-lg',
-  md: 'h-2 range-md',
+const rangeSizeClasses: Record<FormElementSize, string> = {
   sm: 'h-1 range-sm',
+  md: 'h-2 range-md',
+  lg: 'h-3 range-lg',
+  xl: 'h-3 range-lg',
 }
 
 export type UseRangeClassesProps = {
-  size: Ref<InputSize>
+  size: Ref<FormElementSize>
   disabled: Ref<boolean>
 }
 

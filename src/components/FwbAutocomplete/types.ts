@@ -1,7 +1,7 @@
-import type { InputSize, ValidationStatus } from '../FwbInput/types'
+import type { FormElementSize, ValidationStatus } from '@/types/form'
 import type { Component } from 'vue'
 
-export type AutocompleteSize = InputSize
+export type AutocompleteSize = FormElementSize
 export type { ValidationStatus }
 
 export interface AutocompleteProps<T = Record<string, any>> {
