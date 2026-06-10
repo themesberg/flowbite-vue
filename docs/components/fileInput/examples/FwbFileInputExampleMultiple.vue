@@ -11,7 +11,7 @@
     >
       <div
         v-for="file in files"
-        :key="file"
+        :key="file.lastModified"
       >
         {{ file.name }}
       </div>
@@ -24,5 +24,5 @@ import { ref } from 'vue'
 
 import { FwbFileInput } from '../../../../src/index'
 
-const files = ref([])
+const files = ref<File[]>([])
 </script>

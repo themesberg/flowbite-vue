@@ -3,11 +3,8 @@
     <fwb-file-input
       v-model="file"
       label="Upload file"
-    >
-      <template #helper>
-        SVG, PNG, JPG or GIF (MAX. 800x400px).
-      </template>
-    </fwb-file-input>
+      disabled
+    />
   </div>
 </template>
 
