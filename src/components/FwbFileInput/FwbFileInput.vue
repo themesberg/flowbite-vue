@@ -189,7 +189,6 @@ const dropFileHandler = (event: DragEvent) => {
 
 const dragOverHandler = (event: Event) => {
   event.preventDefault()
-  if (props.disabled) return
 }
 
 const { elementId: inputId, elementAttributes: inputAttributes } = useElementAttributes()
