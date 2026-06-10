@@ -8,13 +8,15 @@
     <div :class="inputWrapperClass">
       <div
         v-if="$slots.prefix"
-        class="flex items-center ms-2 shrink-0"
+        :class="prefixContainerClass"
       >
         <slot name="prefix" />
       </div>
       <input
         v-bind="inputAttributes"
         v-model="model"
+        :aria-describedby="ariaDescribedby"
+        :aria-invalid="validationStatus === 'error' ? true : undefined"
         :autocomplete="autocomplete"
         :class="inputClass"
         :disabled="disabled"
@@ -23,19 +25,21 @@
       >
       <div
         v-if="$slots.suffix"
-        class="flex items-center me-2 shrink-0"
+        :class="suffixContainerClass"
       >
         <slot name="suffix" />
       </div>
     </div>
     <p
       v-if="$slots.validationMessage"
+      :id="validationMessageId"
       :class="validationMessageClass"
     >
       <slot name="validationMessage" />
     </p>
     <p
       v-if="$slots.helper"
+      :id="helperId"
       :class="helperMessageClass"
     >
       <slot name="helper" />
@@ -45,7 +49,7 @@
 
 <script lang="ts" setup>
 
-import { toRefs } from 'vue'
+import { Comment, computed, Text, toRefs, useAttrs, useSlots } from 'vue'
 
 import { useInputAttributes } from './composables/useInputAttributes'
 import { useInputClasses } from './composables/useInputClasses'
@@ -62,14 +66,43 @@ const props = withDefaults(defineProps<InputProps>(), {
   inputClass: '',
   label: '',
   labelClass: '',
+  prefixClass: '',
   required: false,
   size: 'md',
+  suffixClass: '',
   type: 'text',
   validationStatus: undefined,
   wrapperClass: '',
 })
 
 const model = defineModel<string | number>({ default: '' })
+
+const { inputId, inputAttributes } = useInputAttributes()
+const attrs = useAttrs()
+const slots = useSlots()
+
+const validationMessageId = `${inputId}-validation`
+const helperId = `${inputId}-helper`
+
+const ariaDescribedby = computed(() => {
+  const ids: string[] = []
+  if (attrs['aria-describedby']) ids.push(String(attrs['aria-describedby']))
+  if (slots.validationMessage) ids.push(validationMessageId)
+  if (slots.helper) ids.push(helperId)
+  return ids.length ? ids.join(' ') : undefined
+})
+
+const isTextSlot = (name: string) => {
+  const vnodes = slots[name]?.()
+  if (!vnodes?.length) return false
+  const meaningful = vnodes.filter(v =>
+    v.type !== Comment && !(v.type === Text && !String(v.children).trim()),
+  )
+  return meaningful.length > 0 && meaningful.every(v => v.type === Text)
+}
+
+const prefixIsText = computed(() => isTextSlot('prefix'))
+const suffixIsText = computed(() => isTextSlot('suffix'))
 
 const {
   wrapperClass,
@@ -78,7 +111,7 @@ const {
   labelClass,
   inputWrapperClass,
   inputClass,
-} = useInputClasses(toRefs(props))
-
-const { inputId, inputAttributes } = useInputAttributes()
+  prefixContainerClass,
+  suffixContainerClass,
+} = useInputClasses({ ...toRefs(props), prefixIsText, suffixIsText })
 </script>
