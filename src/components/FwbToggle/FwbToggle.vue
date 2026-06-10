@@ -3,7 +3,7 @@
     <input
       v-model="model"
       :disabled="disabled"
-      class="peer sr-only"
+      class="sr-only peer"
       type="checkbox"
     >
     <span :class="[toggleClasses, toggleSize, toggleColor]" />
