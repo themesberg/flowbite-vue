@@ -19,9 +19,9 @@ const inputSizeClasses: Record<FormElementSize, string> = {
   xl: 'px-4 py-3.5 text-base',
 }
 
-const errorInputWrapperClasses = 'bg-rose-50 border-rose-200 has-[input:focus]:border-rose-500 dark:border-rose-500 has-[input:focus]:ring-rose-500 text-rose-900 dark:text-rose-500 placeholder-rose-700 dark:placeholder-rose-500'
+const errorInputWrapperClasses = 'bg-rose-50 border-rose-200 has-[input:focus]:border-rose-500 dark:border-rose-500 has-[input:focus]:ring-rose-500 text-rose-900 dark:text-rose-500'
 const errorTextClasses = 'text-rose-900 dark:text-rose-500'
-const successInputWrapperClasses = 'bg-emerald-50 border-emerald-200 has-[input:focus]:border-emerald-500 dark:border-emerald-500 has-[input:focus]:ring-emerald-500 text-emerald-900 dark:text-emerald-400 placeholder-emerald-700 dark:placeholder-emerald-500'
+const successInputWrapperClasses = 'bg-emerald-50 border-emerald-200 has-[input:focus]:border-emerald-500 dark:border-emerald-500 has-[input:focus]:ring-emerald-500 text-emerald-900 dark:text-emerald-400'
 const successTextClasses = 'text-emerald-900 dark:text-emerald-500'
 const errorInputClasses = 'text-rose-900 placeholder-rose-900 dark:placeholder-rose-500'
 const successInputClasses = 'text-emerald-900 dark:text-emerald-400 placeholder-emerald-900 dark:placeholder-emerald-500'

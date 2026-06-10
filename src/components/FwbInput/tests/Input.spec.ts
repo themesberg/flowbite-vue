@@ -13,6 +13,12 @@ describe('FwbInput', () => {
       expect(labelFor).toBe(inputId)
     })
 
+    it('uses a user-provided id for both the input and the label', () => {
+      const wrapper = mount(FwbInput, { props: { label: 'Email' }, attrs: { id: 'custom-id' } })
+      expect(wrapper.find('input').attributes('id')).toBe('custom-id')
+      expect(wrapper.find('label').attributes('for')).toBe('custom-id')
+    })
+
     it('renders no label when label prop is empty', () => {
       const wrapper = mount(FwbInput)
       expect(wrapper.find('label').exists()).toBe(false)
