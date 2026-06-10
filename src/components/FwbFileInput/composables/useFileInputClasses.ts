@@ -25,7 +25,7 @@ const successTextClasses = 'text-emerald-900 dark:text-emerald-500'
 
 const dropzoneLabelDefaultClasses = 'flex flex-col justify-center items-center bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 border-2 border-gray-300 dark:border-gray-600 dark:hover:border-gray-500 border-dashed rounded-lg w-full h-64 cursor-pointer'
 const dropzoneWrapDefaultClasses = 'flex flex-col justify-center items-center pt-5 pb-6'
-const dropzoneTextDefaultClasses = '-mb-2! text-gray-500 dark:text-gray-400 text-sm'
+const dropzoneTextDefaultClasses = '!-mb-2 text-gray-500 dark:text-gray-400 text-sm'
 
 export type UseFileInputClassesProps = {
   class: Ref<string | Record<string, boolean>>

@@ -33,6 +33,7 @@
     >
       <slot name="helper" />
     </p>
+    <slot />
   </div>
   <div
     v-else
@@ -155,6 +156,7 @@ const handleChange = (event: Event) => {
 }
 
 const dropFileHandler = (event: DragEvent) => {
+  if (props.disabled) return
   event.preventDefault()
   const arr: File[] = []
   if (event.dataTransfer?.items) {
@@ -184,6 +186,7 @@ const dropFileHandler = (event: DragEvent) => {
 }
 
 const dragOverHandler = (event: Event) => {
+  if (props.disabled) return
   event.preventDefault()
 }
 
