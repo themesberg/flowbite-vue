@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import FwbFileInput from '../FwbFileInput.vue'
 
@@ -129,6 +129,32 @@ describe('FwbFileInput', () => {
     it('success state adds emerald-colored classes to the input', () => {
       const wrapper = mount(FwbFileInput, { props: { validationStatus: 'success' } })
       expect(wrapper.find('input[type="file"]').classes().join(' ')).toContain('emerald')
+    })
+  })
+
+  describe('disabled dropzone', () => {
+    it('calls preventDefault on dragover even when disabled', () => {
+      const wrapper = mount(FwbFileInput, { props: { dropzone: true, disabled: true } })
+      const event = new Event('dragover', { bubbles: true, cancelable: true })
+      const spy = vi.spyOn(event, 'preventDefault')
+      wrapper.element.dispatchEvent(event)
+      expect(spy).toHaveBeenCalled()
+    })
+
+    it('calls preventDefault on drop even when disabled', () => {
+      const wrapper = mount(FwbFileInput, { props: { dropzone: true, disabled: true } })
+      const event = new Event('drop', { bubbles: true, cancelable: true })
+      const spy = vi.spyOn(event, 'preventDefault')
+      wrapper.element.dispatchEvent(event)
+      expect(spy).toHaveBeenCalled()
+    })
+
+    it('does not update model on drop when disabled', async () => {
+      const wrapper = mount(FwbFileInput, { props: { dropzone: true, disabled: true } })
+      const event = new Event('drop', { bubbles: true, cancelable: true })
+      wrapper.element.dispatchEvent(event)
+      await wrapper.vm.$nextTick()
+      expect(wrapper.emitted('update:modelValue')).toBeUndefined()
     })
   })
 })

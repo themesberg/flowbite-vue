@@ -187,7 +187,7 @@ const file = ref(null)
 
 ## Dropzone with custom placeholder
 
-Use the `dropzonePlaceholder` slot to customise the upload prompt text inside the dropzone.
+Use the `dropzonePlaceholder` slot to customize the upload prompt text inside the dropzone.
 
 <fwb-file-input-example-drop-zone-placeholder />
 

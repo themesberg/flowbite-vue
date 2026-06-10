@@ -43,6 +43,7 @@
   >
     <span
       v-if="label"
+      :id="`${inputId}-label`"
       :class="labelClass"
     >{{ label }}</span>
     <label :class="dropzoneLabelClass">
@@ -81,6 +82,7 @@
       <input
         v-bind="inputAttributes"
         :accept="accept"
+        :aria-labelledby="label ? `${inputId}-label` : undefined"
         :disabled="disabled"
         :multiple="multiple"
         class="hidden"
@@ -156,8 +158,8 @@ const handleChange = (event: Event) => {
 }
 
 const dropFileHandler = (event: DragEvent) => {
-  if (props.disabled) return
   event.preventDefault()
+  if (props.disabled) return
   const arr: File[] = []
   if (event.dataTransfer?.items) {
     Array.from(event.dataTransfer.items).forEach((item: DataTransferItem) => {
@@ -186,8 +188,8 @@ const dropFileHandler = (event: DragEvent) => {
 }
 
 const dragOverHandler = (event: Event) => {
-  if (props.disabled) return
   event.preventDefault()
+  if (props.disabled) return
 }
 
 const { elementId: inputId, elementAttributes: inputAttributes } = useElementAttributes()
