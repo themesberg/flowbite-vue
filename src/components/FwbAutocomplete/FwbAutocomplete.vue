@@ -11,6 +11,7 @@
         v-bind="{
           placeholder,
           disabled,
+          class: props.class,
           ...(inputComponent === FwbInput ? { size, label } : {}),
           ...inputProps,
           ...$attrs,
@@ -32,12 +33,12 @@
             <div class="flex items-center">
               <div
                 v-if="loading"
-                class="border-2 border-blue-600 border-t-transparent rounded-full w-4 h-4 animate-spin"
+                class="border-2 border-current border-t-transparent rounded-full w-4 h-4 animate-spin opacity-60"
                 data-testid="fwb-autocomplete-loading-spinner"
               />
               <svg
                 v-else-if="inputValue"
-                class="w-5 h-5 text-gray-400 hover:text-gray-600 cursor-pointer"
+                class="w-5 h-5 opacity-40 hover:opacity-70 cursor-pointer"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -53,7 +54,7 @@
               </svg>
               <svg
                 v-else
-                class="w-5 h-5 text-gray-400"
+                class="w-5 h-5 opacity-40"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -86,7 +87,7 @@
         >
           <div class="flex justify-center items-center gap-2">
             <div
-              class="border-2 border-blue-600 border-t-transparent rounded-full w-4 h-4 animate-spin"
+              class="border-2 border-current border-t-transparent rounded-full w-4 h-4 animate-spin opacity-60"
             />
             {{ loadingText }}
           </div>
@@ -126,14 +127,14 @@
 
     <p
       v-if="$slots.validationMessage"
-      class="mt-2 text-red-600 dark:text-red-500 text-sm"
+      :class="validationMessageClass"
       data-testid="fwb-autocomplete-validation-message"
     >
       <slot name="validationMessage" />
     </p>
     <p
       v-if="$slots.helper"
-      class="mt-2 text-gray-500 dark:text-gray-400 text-sm"
+      :class="helperMessageClass"
       data-testid="fwb-autocomplete-helper-text"
     >
       <slot name="helper" />
@@ -182,6 +183,7 @@ const props = withDefaults(
     wrapperClass: '',
     labelClass: '',
     dropdownClass: '',
+    validationStatus: undefined,
     inputComponent: FwbInput,
     inputProps: () => ({}),
     zIndex: 100,
@@ -201,7 +203,9 @@ const {
   wrapperClasses,
   dropdownClasses,
   getDropdownItemClasses,
+  helperMessageClass,
   messageClasses,
+  validationMessageClass,
 } = useAutocompleteClasses(toRefs(props))
 
 const filteredOptions = computed(() => {
