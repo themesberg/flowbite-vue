@@ -1,9 +1,7 @@
 import { twMerge } from 'tailwind-merge'
 import { computed, type Ref } from 'vue'
 
-import { type ValidationStatus, validationStatusMap } from '../types'
-
-import type { FormElementSize } from '@/types/form'
+import { type FormElementSize, type ValidationStatus, validationStatusMap } from '@/types/form'
 
 // LABEL
 const baseLabelClasses = 'block mb-2 text-sm font-medium'

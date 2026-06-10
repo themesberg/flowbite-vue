@@ -11,7 +11,7 @@ const rangeSizeClasses: Record<FormElementSize, string> = {
   sm: 'h-1 range-sm',
   md: 'h-2 range-md',
   lg: 'h-3 range-lg',
-  xl: 'h-3 range-lg',
+  xl: 'h-3 range-lg', // intentionally reuses lg until xl is designed
 }
 
 export type UseRangeClassesProps = {
