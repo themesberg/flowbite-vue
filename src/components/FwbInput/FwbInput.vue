@@ -81,14 +81,14 @@ const { inputId, inputAttributes } = useInputAttributes()
 const attrs = useAttrs()
 const slots = useSlots()
 
-const validationMessageId = `${inputId}-validation`
-const helperId = `${inputId}-helper`
+const validationMessageId = computed(() => `${inputId.value}-validation`)
+const helperId = computed(() => `${inputId.value}-helper`)
 
 const ariaDescribedby = computed(() => {
   const ids: string[] = []
   if (attrs['aria-describedby']) ids.push(String(attrs['aria-describedby']))
-  if (slots.validationMessage) ids.push(validationMessageId)
-  if (slots.helper) ids.push(helperId)
+  if (slots.validationMessage) ids.push(validationMessageId.value)
+  if (slots.helper) ids.push(helperId.value)
   return ids.length ? ids.join(' ') : undefined
 })
 
