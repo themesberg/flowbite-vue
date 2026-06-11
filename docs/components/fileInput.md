@@ -273,8 +273,12 @@ const file = ref(null)
 | validationStatus | `'success' \| 'error'`                | `undefined` | Sets the validation state of the input.                                                         |
 | wrapperClass     | `String \| Object`                    | `''`        | Added to the outermost wrapper `<div>`.                                                         |
 
+:::warning Dropzone mode limitations
+`class`, `size`, and `validationStatus` (input styling, validation messages) have no effect in dropzone mode. `helper` and `validationMessage` slots are also not rendered in dropzone mode.
+:::
+
 :::tip Accessibility
-`aria-invalid="true"` is set automatically on the native input when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute.
+`aria-invalid="true"` is set automatically on the native input when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute. These apply to the default (non-dropzone) rendering only.
 :::
 
 ### FwbFileInput Slots
