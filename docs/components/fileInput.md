@@ -267,14 +267,14 @@ const file = ref(null)
 | disabled         | `Boolean`                             | `false`     | Disables the file input.                                                                        |
 | dropzone         | `Boolean`                             | `false`     | Renders a drag-and-drop dropzone instead of the default file input.                             |
 | label            | `String`                              | `''`        | Label text rendered above the input.                                                            |
-| labelClass       | `String \| Object`                    | `''`        | Added to the `<label>` element.                                                                 |
+| labelClass       | `String \| Object`                    | `''`        | Added to the label element (`<label>` in default mode, `<span>` in dropzone mode).              |
 | multiple         | `Boolean`                             | `false`     | Allows selecting multiple files.                                                                |
 | size             | `'sm' \| 'md' \| 'lg' \| 'xl'`        | `'md'`      | Controls the padding and font size of the file selector button.                                 |
 | validationStatus | `'success' \| 'error'`                | `undefined` | Sets the validation state of the input.                                                         |
 | wrapperClass     | `String \| Object`                    | `''`        | Added to the outermost wrapper `<div>`.                                                         |
 
 :::warning Dropzone mode limitations
-`class`, `size`, and `validationStatus` (input styling, validation messages) have no effect in dropzone mode. `helper` and `validationMessage` slots are also not rendered in dropzone mode.
+`class` and `size` have no effect in dropzone mode. `validationStatus` changes the label color only — input styling and validation messages are not rendered. `helper` and `validationMessage` slots are not rendered in dropzone mode.
 :::
 
 :::tip Accessibility
