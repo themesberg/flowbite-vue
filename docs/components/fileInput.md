@@ -13,7 +13,7 @@ import FwbFileInputExampleDropZoneMultiple from './fileInput/examples/FwbFileInp
 
 # Vue FileInput - Flowbite
 
-#### Get started with the file input component to let the user to upload one or more files from their device storage based on multiple styles and sizes
+#### Get started with the file input component to let users upload one or more files from their device storage based on multiple styles and sizes
 
 ---
 
@@ -21,11 +21,11 @@ import FwbFileInputExampleDropZoneMultiple from './fileInput/examples/FwbFileInp
 Original reference: [https://flowbite.com/docs/forms/file-input/](https://flowbite.com/docs/forms/file-input/)
 :::
 
-The file input component can be used to upload one or more files from the device storage of the user available in multiple sizes, styles, and variants and built with the utility-first classes from Tailwind CSS including support for dark mode.
+The file input component can be used to upload one or more files from a device, with multiple sizes, styles, and variants built using the utility-first classes from Tailwind CSS including support for dark mode.
 
 ## File upload example
 
-Get started with a simple file input component to let users upload one single file.
+Get started with a simple file input component to let users upload a single file.
 
 <fwb-file-input-example />
 
