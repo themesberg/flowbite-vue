@@ -6,7 +6,7 @@ import { type FormElementSize, type ValidationStatus, validationStatusMap } from
 const defaultWrapperClasses = ''
 const defaultLabelClasses = 'block mb-2 font-medium text-gray-900 dark:text-white text-sm'
 const defaultInputClasses = 'bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg w-full text-gray-900 dark:text-white cursor-pointer shadow-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500'
-const defaultFileButtonClasses = 'file:cursor-pointer file:border-0 file:border-r file:border-gray-300 file:rounded-none file:bg-gray-200 file:text-gray-900 file:transition-colors file:duration-150 hover:file:bg-gray-100 dark:file:bg-gray-700 dark:file:border-gray-600 dark:file:text-white dark:hover:file:bg-gray-600 dark:hover:file:border-gray-500'
+const defaultFileButtonClasses = 'file:cursor-pointer file:border-0 file:border-r file:border-gray-300 file:rounded-none file:bg-gray-200 file:text-gray-900 file:transition-colors file:duration-150 enabled:hover:file:bg-gray-100 dark:file:bg-gray-700 dark:file:border-gray-600 dark:file:text-white dark:enabled:hover:file:bg-gray-600 dark:enabled:hover:file:border-gray-500'
 const defaultHelperClasses = 'mt-2 text-gray-500 dark:text-gray-400 text-sm'
 
 const disabledInputClasses = 'cursor-not-allowed opacity-50'
