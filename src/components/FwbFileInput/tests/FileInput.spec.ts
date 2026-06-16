@@ -114,21 +114,20 @@ describe('FwbFileInput', () => {
     it('sm and xl apply different padding to the input', () => {
       const sm = mount(FwbFileInput, { props: { size: 'sm' } })
       const xl = mount(FwbFileInput, { props: { size: 'xl' } })
-      const smClasses = sm.find('input[type="file"]').classes().join(' ')
-      const xlClasses = xl.find('input[type="file"]').classes().join(' ')
-      expect(smClasses).not.toBe(xlClasses)
+      expect(sm.find('input[type="file"]').classes()).toContain('file:px-2.5')
+      expect(xl.find('input[type="file"]').classes()).toContain('file:px-4')
     })
   })
 
   describe('validation status classes', () => {
     it('error state adds rose-colored classes to the input', () => {
       const wrapper = mount(FwbFileInput, { props: { validationStatus: 'error' } })
-      expect(wrapper.find('input[type="file"]').classes().join(' ')).toContain('rose')
+      expect(wrapper.find('input[type="file"]').classes()).toContain('bg-rose-50')
     })
 
     it('success state adds emerald-colored classes to the input', () => {
       const wrapper = mount(FwbFileInput, { props: { validationStatus: 'success' } })
-      expect(wrapper.find('input[type="file"]').classes().join(' ')).toContain('emerald')
+      expect(wrapper.find('input[type="file"]').classes()).toContain('bg-emerald-50')
     })
   })
 
