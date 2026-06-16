@@ -2,18 +2,23 @@
   <div class="gap-2 grid vp-raw">
     <fwb-file-input
       v-model="file"
-      size="xs"
+      size="sm"
       label="Small size"
     />
     <fwb-file-input
       v-model="file"
-      size="sm"
+      size="md"
       label="Default size"
     />
     <fwb-file-input
       v-model="file"
       size="lg"
       label="Large size"
+    />
+    <fwb-file-input
+      v-model="file"
+      size="xl"
+      label="Extra large size"
     />
   </div>
 </template>
