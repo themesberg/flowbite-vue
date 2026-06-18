@@ -51,7 +51,7 @@ const countries = [
 
 ## Clearable
 
-Use the `clearable` prop to add an empty first option that resets the selection. Without `clearable`, the placeholder option is disabled and hidden once the user makes a choice.
+Use the `clearable` prop to add an empty first option that resets the selection. Without `clearable`, the placeholder option is always disabled and hidden.
 
 <fwb-select-example-clearable />
 ```vue

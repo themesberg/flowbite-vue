@@ -7,9 +7,9 @@ const defaultWrapperClasses = ''
 const defaultLabelClasses = 'block mb-2 font-medium text-gray-900 dark:text-white text-sm'
 const defaultHelperClasses = 'mt-2 text-gray-500 dark:text-gray-400 text-sm'
 
-const defaultSelectClasses = 'w-full appearance-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white shadow-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500'
+const defaultSelectClasses = 'w-full appearance-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white shadow-xs focus:outline-hidden focus:ring-1 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500'
 const borderSelectClasses = 'border border-gray-300 dark:border-gray-600 rounded-lg'
-const underlineSelectClasses = 'bg-transparent dark:bg-transparent border-b-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer'
+const underlineSelectClasses = 'bg-transparent dark:bg-transparent border-b-2 border-gray-200 dark:border-gray-700 focus:outline-hidden focus:ring-0 focus:border-gray-200 peer'
 const disabledSelectClasses = 'cursor-not-allowed bg-gray-100'
 
 const selectSizeClasses: Record<FormElementSize, string> = {
