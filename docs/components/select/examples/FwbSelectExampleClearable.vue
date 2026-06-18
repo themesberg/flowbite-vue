@@ -3,6 +3,7 @@
     <fwb-select
       v-model="selected"
       :options="countries"
+      clearable
       label="Select a country"
     />
   </div>

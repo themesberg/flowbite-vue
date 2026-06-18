@@ -5,7 +5,11 @@
       :options="countries"
       label="Select a country"
       validation-status="success"
-    />
+    >
+      <template #validationMessage>
+        <span class="font-medium">Well done!</span> Your selection looks good.
+      </template>
+    </fwb-select>
     <hr class="mt-4 border-0">
     <fwb-select
       v-model="selected"
@@ -14,7 +18,7 @@
       validation-status="error"
     >
       <template #validationMessage>
-        Please select a country
+        <span class="font-medium">Oh, snap!</span> Please select a country.
       </template>
     </fwb-select>
   </div>
