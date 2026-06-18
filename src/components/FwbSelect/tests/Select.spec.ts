@@ -55,10 +55,9 @@ describe('FwbSelect', () => {
   describe('options', () => {
     it('renders all options from the options prop plus the placeholder', () => {
       const wrapper = mount(FwbSelect, { props: { options: countries } })
-      const options = wrapper.findAll('option')
-      expect(options).toHaveLength(3)
-      expect(options[1]!.text()).toBe('United States')
-      expect(options[2]!.text()).toBe('Canada')
+      expect(wrapper.findAll('option')).toHaveLength(3)
+      expect(wrapper.find('option[value="us"]').text()).toBe('United States')
+      expect(wrapper.find('option[value="ca"]').text()).toBe('Canada')
     })
   })
 
@@ -183,6 +182,28 @@ describe('FwbSelect', () => {
       const classes = wrapper.find('select').classes().join(' ')
       expect(classes).not.toContain('rose')
       expect(classes).not.toContain('emerald')
+    })
+  })
+
+  describe('class passthrough props', () => {
+    it('wrapperClass is applied to the root div', () => {
+      const wrapper = mount(FwbSelect, { props: { wrapperClass: 'my-wrapper' } })
+      expect(wrapper.classes()).toContain('my-wrapper')
+    })
+
+    it('labelClass is applied to the label element', () => {
+      const wrapper = mount(FwbSelect, { props: { label: 'Country', labelClass: 'my-label' } })
+      expect(wrapper.find('label').classes()).toContain('my-label')
+    })
+
+    it('class is applied to the select element', () => {
+      const wrapper = mount(FwbSelect, { props: { class: 'my-select' } })
+      expect(wrapper.find('select').classes()).toContain('my-select')
+    })
+
+    it('chevronClass is applied to the chevron container', () => {
+      const wrapper = mount(FwbSelect, { props: { chevronClass: 'my-chevron' } })
+      expect(wrapper.find('.pointer-events-none').classes()).toContain('my-chevron')
     })
   })
 
