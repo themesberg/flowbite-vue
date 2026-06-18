@@ -15,6 +15,8 @@
           ...(inputComponent === FwbInput ? { size, label } : {}),
           ...inputProps,
           ...$attrs,
+          inputClass,
+          'aria-describedby': ariaDescribedby,
         }"
         :label-class="labelClass"
         :validation-status="validationStatus"
@@ -127,6 +129,7 @@
 
     <p
       v-if="$slots.validationMessage"
+      :id="validationMessageId"
       :class="validationMessageClass"
       data-testid="fwb-autocomplete-validation-message"
     >
@@ -134,6 +137,7 @@
     </p>
     <p
       v-if="$slots.helper"
+      :id="helperId"
       :class="helperMessageClass"
       data-testid="fwb-autocomplete-helper-text"
     >
@@ -144,13 +148,13 @@
 
 <script setup lang="ts" generic="T extends Record<string, any>">
 import {
-  type Component,
   computed,
   nextTick,
   onMounted,
   onUnmounted,
   ref,
   toRefs,
+  useId,
   watch,
 } from 'vue'
 
@@ -160,15 +164,12 @@ import { useAutocompleteClasses } from './composables/useAutocompleteClasses'
 
 import type { AutocompleteEmits, AutocompleteProps } from './types'
 
-defineOptions({ inheritAttrs: true })
+import { useFormFieldIds } from '@/composables/useFormFieldIds'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(
-  defineProps<
-    AutocompleteProps<T> & {
-      inputComponent?: Component
-      inputProps?: Record<string, unknown>
-    }
-  >(),
+  defineProps<AutocompleteProps<T>>(),
   {
     placeholder: 'Search...',
     disabled: false,
@@ -180,9 +181,11 @@ const props = withDefaults(
     debounce: 300,
     size: 'md',
     class: '',
+    inputClass: '',
     wrapperClass: '',
     labelClass: '',
     dropdownClass: '',
+    loading: false,
     validationStatus: undefined,
     inputComponent: FwbInput,
     inputProps: () => ({}),
@@ -207,6 +210,10 @@ const {
   messageClasses,
   validationMessageClass,
 } = useAutocompleteClasses(toRefs(props))
+
+const _id = useId()
+const autocompleteId = computed(() => _id)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(autocompleteId)
 
 const filteredOptions = computed(() => {
   if (props.remote || inputValue.value.length < props.minChars) {

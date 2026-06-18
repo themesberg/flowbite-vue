@@ -7,6 +7,7 @@ export type { ValidationStatus }
 export interface AutocompleteProps<T = Record<string, any>> {
   class?: string | Record<string, boolean>
   debounce?: number
+  inputClass?: string | Record<string, boolean>
   disabled?: boolean
   display?: string | ((option: T) => string)
   dropdownClass?: string | Record<string, boolean>
