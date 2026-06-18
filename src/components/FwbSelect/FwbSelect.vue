@@ -9,6 +9,8 @@
       <select
         v-bind="selectAttributes"
         v-model="model"
+        :aria-describedby="ariaDescribedby"
+        :aria-invalid="validationStatus === 'error' ? true : undefined"
         :autocomplete="autocomplete"
         :class="selectClass"
         :disabled="disabled"
@@ -31,7 +33,7 @@
         </option>
       </select>
       <div
-        class="pointer-events-none absolute inset-y-0 right-3 flex items-center"
+        class="right-3 absolute inset-y-0 flex items-center pointer-events-none"
         :class="chevronClass"
       >
         <slot name="chevron">
@@ -55,12 +57,14 @@
     </div>
     <p
       v-if="$slots.validationMessage"
+      :id="validationMessageId"
       :class="validationMessageClass"
     >
       <slot name="validationMessage" />
     </p>
     <p
       v-if="$slots.helper"
+      :id="helperId"
       :class="helperMessageClass"
     >
       <slot name="helper" />
@@ -75,6 +79,8 @@ import { useSelectAttributes } from './composables/useSelectAttributes'
 import { useSelectClasses } from './composables/useSelectClasses'
 
 import type { SelectProps } from './types'
+
+import { useFormFieldIds } from '@/composables/useFormFieldIds'
 
 defineOptions({
   inheritAttrs: false,
@@ -98,6 +104,7 @@ const props = withDefaults(defineProps<SelectProps>(), {
 
 const model = defineModel<string>({ default: '' })
 const { selectId, selectAttributes } = useSelectAttributes()
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(selectId)
 
 const {
   chevronClass,
