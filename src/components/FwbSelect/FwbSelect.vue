@@ -1,22 +1,25 @@
 <template>
-  <div>
-    <label>
-      <span
-        v-if="label"
-        :class="labelClasses"
-      >
-        {{ label }}
-      </span>
+  <div :class="wrapperClass">
+    <label
+      v-if="label"
+      :class="labelClass"
+      :for="selectId"
+    >{{ label }}</label>
+    <div class="relative">
       <select
+        v-bind="selectAttributes"
         v-model="model"
+        :aria-describedby="ariaDescribedby"
+        :aria-invalid="validationStatus === 'error' ? true : undefined"
+        :autocomplete="autocomplete"
+        :class="selectClass"
         :disabled="disabled"
         :required="required"
-        :class="selectClasses"
-        :autocomplete="autocomplete"
       >
         <option
-          disabled
-          selected
+          :disabled="!clearable"
+          :hidden="!clearable"
+          class="text-gray-500 dark:text-gray-400"
           value=""
         >
           {{ placeholder }}
@@ -29,16 +32,40 @@
           {{ option.name }}
         </option>
       </select>
-    </label>
+      <div
+        class="right-3 absolute inset-y-0 flex items-center pointer-events-none"
+        :class="chevronClass"
+      >
+        <slot name="chevron">
+          <svg
+            aria-hidden="true"
+            class="size-2.5"
+            fill="none"
+            viewBox="0 0 10 6"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m1 1 4 4 4-4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </slot>
+      </div>
+    </div>
     <p
       v-if="$slots.validationMessage"
-      :class="validationWrapperClasses"
+      :id="validationMessageId"
+      :class="validationMessageClass"
     >
       <slot name="validationMessage" />
     </p>
     <p
       v-if="$slots.helper"
-      class="mt-2 text-sm text-gray-500 dark:text-gray-400"
+      :id="helperId"
+      :class="helperMessageClass"
     >
       <slot name="helper" />
     </p>
@@ -46,48 +73,45 @@
 </template>
 
 <script lang="ts" setup>
-import { useVModel } from '@vueuse/core'
-import { twMerge } from 'tailwind-merge'
-import { computed, toRefs } from 'vue'
+import { toRefs } from 'vue'
 
+import { useSelectAttributes } from './composables/useSelectAttributes'
 import { useSelectClasses } from './composables/useSelectClasses'
-import { type OptionsType, type ValidationStatus, validationStatusMap } from './types'
 
-import type { Autocomplete, FormElementSize } from '@/types/form'
+import type { SelectProps } from './types'
 
-interface InputProps {
-  modelValue?: string
-  label?: string
-  options?: OptionsType[]
-  placeholder?: string
-  disabled?: boolean
-  required?: boolean
-  underline?: boolean
-  size?: FormElementSize
-  autocomplete?: Autocomplete
-  validationStatus?: ValidationStatus
-}
-const props = withDefaults(defineProps<InputProps>(), {
-  modelValue: '',
+import { useFormFieldIds } from '@/composables/useFormFieldIds'
+
+defineOptions({
+  inheritAttrs: false,
+})
+
+const props = withDefaults(defineProps<SelectProps>(), {
+  chevronClass: '',
+  class: '',
+  clearable: false,
+  disabled: false,
   label: '',
+  labelClass: '',
   options: () => [],
   placeholder: 'Please select one',
-  disabled: false,
   required: false,
-  underline: false,
   size: 'md',
-  autocomplete: 'off',
+  underline: false,
   validationStatus: undefined,
+  wrapperClass: '',
 })
-const emit = defineEmits(['update:modelValue'])
 
-const model = useVModel(props, 'modelValue', emit)
+const model = defineModel<string>({ default: '' })
+const { selectId, selectAttributes } = useSelectAttributes()
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(selectId)
 
-const { selectClasses, labelClasses } = useSelectClasses(toRefs(props))
-
-const validationWrapperClasses = computed(() => twMerge(
-  'mt-2 text-sm',
-  props.validationStatus === validationStatusMap.Success ? 'text-green-600 dark:text-green-500' : '',
-  props.validationStatus === validationStatusMap.Error ? 'text-red-600 dark:text-red-500' : '',
-))
+const {
+  chevronClass,
+  wrapperClass,
+  labelClass,
+  selectClass,
+  validationMessageClass,
+  helperMessageClass,
+} = useSelectClasses(toRefs(props))
 </script>

@@ -1,22 +1,28 @@
 <template>
-  <div class="vp-raw grid gap-2">
+  <div class="gap-2 grid vp-raw">
     <fwb-select
       v-model="selected"
       :options="countries"
-      label="Select a country"
+      label="Small"
       size="sm"
     />
     <fwb-select
       v-model="selected"
       :options="countries"
-      label="Select a country"
+      label="Medium (default)"
       size="md"
     />
     <fwb-select
       v-model="selected"
       :options="countries"
-      label="Select a country"
+      label="Large"
       size="lg"
+    />
+    <fwb-select
+      v-model="selected"
+      :options="countries"
+      label="Extra Large"
+      size="xl"
     />
   </div>
 </template>
