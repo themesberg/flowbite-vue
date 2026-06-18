@@ -123,12 +123,11 @@ describe('FwbAutocomplete', () => {
     })
 
     const clearButton = wrapper.find('[data-testid="fwb-autocomplete-clear-button"]')
-    if (clearButton.exists()) {
-      await clearButton.trigger('click')
-      expect(wrapper.emitted('update:modelValue')).toBeTruthy()
-      const emittedEvents = wrapper.emitted('update:modelValue') as Array<any>
-      expect(emittedEvents[emittedEvents.length - 1][0]).toBe(null)
-    }
+    expect(clearButton.exists()).toBe(true)
+    await clearButton.trigger('click')
+    expect(wrapper.emitted('update:modelValue')).toBeTruthy()
+    const emittedEvents = wrapper.emitted('update:modelValue') as Array<[unknown]>
+    expect(emittedEvents[emittedEvents.length - 1]?.[0]).toBe(null)
   })
 
   it('shows loading state', async () => {
@@ -288,9 +287,9 @@ describe('FwbAutocomplete', () => {
   })
 
   it('handles custom display function', async () => {
-    const displayFn = vi.fn((option: any) => `${option.name} (${option.code})`)
+    const displayFn = vi.fn((option: Record<string, unknown>) => `${String(option['name'])} (${String(option['code'])})`)
 
-    const wrapper = mount(FwbAutocomplete, {
+    mount(FwbAutocomplete, {
       props: {
         options: mockOptions,
         searchFields: ['name'],
@@ -500,7 +499,7 @@ describe('FwbAutocomplete', () => {
 
     const dropdown = wrapper.find('[data-testid="fwb-autocomplete-dropdown"]')
     expect(dropdown.exists()).toBe(true)
-    expect(dropdown.classes()).toContain('z-[200]')
+    expect((dropdown.element as HTMLElement).style.zIndex).toBe('200')
   })
 
   it('uses default z-index when not specified', async () => {
@@ -518,6 +517,69 @@ describe('FwbAutocomplete', () => {
 
     const dropdown = wrapper.find('[data-testid="fwb-autocomplete-dropdown"]')
     expect(dropdown.exists()).toBe(true)
-    expect(dropdown.classes()).toContain('z-[100]')
+    expect((dropdown.element as HTMLElement).style.zIndex).toBe('100')
+  })
+
+  describe('native attribute passthrough', () => {
+    it('extra attrs land on the input, not on the root wrapper', () => {
+      const wrapper = mount(FwbAutocomplete, {
+        attrs: { name: 'country', form: 'my-form' },
+        props: { options: mockOptions, searchFields: ['name'] },
+      })
+      expect(wrapper.find('input').attributes('name')).toBe('country')
+      expect(wrapper.find('input').attributes('form')).toBe('my-form')
+      expect(wrapper.element.getAttribute('name')).toBeNull()
+    })
+  })
+
+  describe('aria-describedby', () => {
+    it('is absent when no helper or validationMessage slot is provided', () => {
+      const wrapper = mount(FwbAutocomplete, {
+        props: { options: mockOptions, searchFields: ['name'] },
+      })
+      expect(wrapper.find('input').attributes('aria-describedby')).toBeUndefined()
+    })
+
+    it('points to the helper paragraph id when the helper slot is provided', () => {
+      const wrapper = mount(FwbAutocomplete, {
+        props: { options: mockOptions, searchFields: ['name'] },
+        slots: { helper: 'Some help text' },
+      })
+      const helperP = wrapper.find('[data-testid="fwb-autocomplete-helper-text"]')
+      expect(wrapper.find('input').attributes('aria-describedby')).toBe(helperP.attributes('id'))
+    })
+
+    it('points to the validationMessage paragraph id when that slot is provided', () => {
+      const wrapper = mount(FwbAutocomplete, {
+        props: { options: mockOptions, searchFields: ['name'], validationStatus: 'error' },
+        slots: { validationMessage: 'Please select a country' },
+      })
+      const msgP = wrapper.find('[data-testid="fwb-autocomplete-validation-message"]')
+      expect(wrapper.find('input').attributes('aria-describedby')).toBe(msgP.attributes('id'))
+    })
+
+    it('includes both IDs space-joined when both slots are rendered', () => {
+      const wrapper = mount(FwbAutocomplete, {
+        props: { options: mockOptions, searchFields: ['name'], validationStatus: 'error' },
+        slots: { validationMessage: 'Required', helper: 'Help text' },
+      })
+      const describedby = wrapper.find('input').attributes('aria-describedby') ?? ''
+      const ids = describedby.split(' ')
+      expect(ids).toHaveLength(2)
+      ids.forEach(id => expect(wrapper.find(`#${id}`).exists()).toBe(true))
+    })
+
+    it('preserves external aria-describedby merged with slot IDs', () => {
+      const wrapper = mount(FwbAutocomplete, {
+        attrs: { 'aria-describedby': 'external-id' },
+        props: { options: mockOptions, searchFields: ['name'], validationStatus: 'error' },
+        slots: { validationMessage: 'Required', helper: 'Help text' },
+      })
+      const describedby = wrapper.find('input').attributes('aria-describedby') ?? ''
+      const ids = describedby.split(' ')
+      expect(ids).toHaveLength(3)
+      expect(ids).toContain('external-id')
+      ids.filter(id => id !== 'external-id').forEach(id => expect(wrapper.find(`#${id}`).exists()).toBe(true))
+    })
   })
 })

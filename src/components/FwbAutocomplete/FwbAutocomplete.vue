@@ -11,10 +11,12 @@
         v-bind="{
           placeholder,
           disabled,
-          size,
-          label,
+          class: props.class,
+          ...(inputComponent === FwbInput ? { size, label } : {}),
           ...inputProps,
           ...$attrs,
+          ...(inputClass ? { inputClass } : {}),
+          'aria-describedby': ariaDescribedby,
         }"
         :label-class="labelClass"
         :validation-status="validationStatus"
@@ -33,28 +35,35 @@
             <div class="flex items-center">
               <div
                 v-if="loading"
-                class="border-2 border-t-transparent border-blue-600 rounded-full w-4 h-4 animate-spin"
+                class="border-2 border-current border-t-transparent rounded-full w-4 h-4 animate-spin opacity-60"
                 data-testid="fwb-autocomplete-loading-spinner"
               />
-              <svg
+              <button
                 v-else-if="inputValue"
-                class="w-5 h-5 text-gray-400 hover:text-gray-600 cursor-pointer"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+                type="button"
+                aria-label="Clear selection"
+                class="opacity-40 hover:opacity-70 cursor-pointer"
                 data-testid="fwb-autocomplete-clear-button"
                 @click="clear"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
               <svg
                 v-else
-                class="w-5 h-5 text-gray-400"
+                class="w-5 h-5 opacity-40"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -78,6 +87,7 @@
             (filteredOptions.length > 0 || loading || noResultsFound)
         "
         :class="dropdownClasses"
+        :style="{ zIndex: props.zIndex }"
         data-testid="fwb-autocomplete-dropdown"
       >
         <div
@@ -87,7 +97,7 @@
         >
           <div class="flex justify-center items-center gap-2">
             <div
-              class="border-2 border-t-transparent border-blue-600 rounded-full w-4 h-4 animate-spin"
+              class="border-2 border-current border-t-transparent rounded-full w-4 h-4 animate-spin opacity-60"
             />
             {{ loadingText }}
           </div>
@@ -105,7 +115,7 @@
           v-for="(option, index) in filteredOptions"
           v-else
           :key="getOptionKey(option)"
-          :class="getDropdownItemClasses(highlightedIndex === index)"
+          :class="getDropdownItemClasses(highlightedIndex === index, props.size)"
           :data-testid="`fwb-autocomplete-option-${index}`"
           class="fwb-autocomplete-option"
           @mousedown="isSelectingOption = true"
@@ -127,14 +137,16 @@
 
     <p
       v-if="$slots.validationMessage"
-      class="mt-2 text-red-600 dark:text-red-500 text-sm"
+      :id="validationMessageId"
+      :class="validationMessageClass"
       data-testid="fwb-autocomplete-validation-message"
     >
       <slot name="validationMessage" />
     </p>
     <p
       v-if="$slots.helper"
-      class="mt-2 text-gray-500 dark:text-gray-400 text-sm"
+      :id="helperId"
+      :class="helperMessageClass"
       data-testid="fwb-autocomplete-helper-text"
     >
       <slot name="helper" />
@@ -144,13 +156,13 @@
 
 <script setup lang="ts" generic="T extends Record<string, any>">
 import {
-  type Component,
   computed,
   nextTick,
   onMounted,
   onUnmounted,
   ref,
   toRefs,
+  useId,
   watch,
 } from 'vue'
 
@@ -160,15 +172,12 @@ import { useAutocompleteClasses } from './composables/useAutocompleteClasses'
 
 import type { AutocompleteEmits, AutocompleteProps } from './types'
 
-defineOptions({ inheritAttrs: true })
+import { useFormFieldIds } from '@/composables/useFormFieldIds'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(
-  defineProps<
-    AutocompleteProps<T> & {
-      inputComponent?: Component
-      inputProps?: Record<string, any>
-    }
-  >(),
+  defineProps<AutocompleteProps<T>>(),
   {
     placeholder: 'Search...',
     disabled: false,
@@ -180,9 +189,12 @@ const props = withDefaults(
     debounce: 300,
     size: 'md',
     class: '',
+    inputClass: '',
     wrapperClass: '',
     labelClass: '',
     dropdownClass: '',
+    loading: false,
+    validationStatus: undefined,
     inputComponent: FwbInput,
     inputProps: () => ({}),
     zIndex: 100,
@@ -202,8 +214,14 @@ const {
   wrapperClasses,
   dropdownClasses,
   getDropdownItemClasses,
+  helperMessageClass,
   messageClasses,
+  validationMessageClass,
 } = useAutocompleteClasses(toRefs(props))
+
+const _id = useId()
+const autocompleteId = computed(() => _id)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(autocompleteId)
 
 const filteredOptions = computed(() => {
   if (props.remote || inputValue.value.length < props.minChars) {

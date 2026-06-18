@@ -1,36 +1,41 @@
 <template>
-  <div class="vp-raw">
-    <div class="space-y-4">
-      <fwb-autocomplete
-        v-model="selected1"
-        :options="countries"
-        :search-fields="['name']"
-        display="name"
-        label="Small"
-        size="sm"
-        placeholder="Small autocomplete..."
-      />
-
-      <fwb-autocomplete
-        v-model="selected2"
-        :options="countries"
-        :search-fields="['name']"
-        display="name"
-        label="Medium (default)"
-        size="md"
-        placeholder="Medium autocomplete..."
-      />
-
-      <fwb-autocomplete
-        v-model="selected3"
-        :options="countries"
-        :search-fields="['name']"
-        display="name"
-        label="Large"
-        size="lg"
-        placeholder="Large autocomplete..."
-      />
-    </div>
+  <div class="gap-2 grid vp-raw">
+    <fwb-autocomplete
+      v-model="selected1"
+      :options="countries"
+      :search-fields="['name']"
+      display="name"
+      label="Small"
+      placeholder="Small autocomplete..."
+      size="sm"
+    />
+    <fwb-autocomplete
+      v-model="selected2"
+      :options="countries"
+      :search-fields="['name']"
+      display="name"
+      label="Medium (default)"
+      placeholder="Medium autocomplete..."
+      size="md"
+    />
+    <fwb-autocomplete
+      v-model="selected3"
+      :options="countries"
+      :search-fields="['name']"
+      display="name"
+      label="Large"
+      placeholder="Large autocomplete..."
+      size="lg"
+    />
+    <fwb-autocomplete
+      v-model="selected4"
+      :options="countries"
+      :search-fields="['name']"
+      display="name"
+      label="Extra Large"
+      placeholder="Extra Large autocomplete..."
+      size="xl"
+    />
   </div>
 </template>
 
@@ -50,4 +55,5 @@ const countries = [
 const selected1 = ref<typeof countries[0] | null>(null)
 const selected2 = ref<typeof countries[0] | null>(null)
 const selected3 = ref<typeof countries[0] | null>(null)
+const selected4 = ref<typeof countries[0] | null>(null)
 </script>

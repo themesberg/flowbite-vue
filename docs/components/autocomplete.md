@@ -1,27 +1,28 @@
 <script setup>
 import FwbAutocompleteExample from './autocomplete/examples/FwbAutocompleteExample.vue'
-import FwbAutocompleteExampleRemote from './autocomplete/examples/FwbAutocompleteExampleRemote.vue'
-import FwbAutocompleteExampleCustom from './autocomplete/examples/FwbAutocompleteExampleCustom.vue'
-import FwbAutocompleteExampleCustomInput from './autocomplete/examples/FwbAutocompleteExampleCustomInput.vue'
-import FwbAutocompleteExampleValidation from './autocomplete/examples/FwbAutocompleteExampleValidation.vue'
 import FwbAutocompleteExampleSize from './autocomplete/examples/FwbAutocompleteExampleSize.vue'
+import FwbAutocompleteExampleDisabled from './autocomplete/examples/FwbAutocompleteExampleDisabled.vue'
+import FwbAutocompleteExampleValidation from './autocomplete/examples/FwbAutocompleteExampleValidation.vue'
+import FwbAutocompleteExampleHelper from './autocomplete/examples/FwbAutocompleteExampleHelper.vue'
+import FwbAutocompleteExampleSuffix from './autocomplete/examples/FwbAutocompleteExampleSuffix.vue'
+import FwbAutocompleteExampleCustom from './autocomplete/examples/FwbAutocompleteExampleCustom.vue'
+import FwbAutocompleteExampleRemote from './autocomplete/examples/FwbAutocompleteExampleRemote.vue'
+import FwbAutocompleteExampleCustomInput from './autocomplete/examples/FwbAutocompleteExampleCustomInput.vue'
+import FwbAutocompleteExampleStyling from './autocomplete/examples/FwbAutocompleteExampleStyling.vue'
 </script>
 
-# Vue Autocomplete - Flowbite
+# Autocomplete - Flowbite Vue
 
-Get started with the autocomplete component to allow users to search and select from a list of options with real-time filtering and keyboard navigation.
+#### Get started with the autocomplete component to allow users to search and select from a list of options with real-time filtering and keyboard navigation
 
 ---
-
-:::tip
-Based on the Flowbite design system: [https://flowbite.com/docs/forms/input-field/](https://flowbite.com/docs/forms/input-field/)
-:::
 
 The autocomplete component supports real-time filtering, keyboard navigation, remote data loading, and custom option rendering. Built with Tailwind CSS utility classes and fully compatible with dark mode.
 
 ## Default
 
 <fwb-autocomplete-example />
+
 ```vue
 <template>
   <fwb-autocomplete
@@ -47,11 +48,291 @@ const countries = [
   { id: 5, name: 'United Kingdom', code: 'UK' },
 ]
 </script>
+
 ```
 
-## Remote Data with Debounce
+## Sizes
+
+<fwb-autocomplete-example-size />
+
+```vue
+<template>
+  <fwb-autocomplete
+    v-model="selected1"
+    :options="countries"
+    :search-fields="['name']"
+    display="name"
+    label="Small"
+    size="sm"
+    placeholder="Small autocomplete..."
+  />
+  <fwb-autocomplete
+    v-model="selected2"
+    :options="countries"
+    :search-fields="['name']"
+    display="name"
+    label="Medium (default)"
+    size="md"
+    placeholder="Medium autocomplete..."
+  />
+  <fwb-autocomplete
+    v-model="selected3"
+    :options="countries"
+    :search-fields="['name']"
+    display="name"
+    label="Large"
+    size="lg"
+    placeholder="Large autocomplete..."
+  />
+  <fwb-autocomplete
+    v-model="selected4"
+    :options="countries"
+    :search-fields="['name']"
+    display="name"
+    label="Extra Large"
+    size="xl"
+    placeholder="Extra Large autocomplete..."
+  />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbAutocomplete } from 'flowbite-vue'
+
+const selected1 = ref(null)
+const selected2 = ref(null)
+const selected3 = ref(null)
+const selected4 = ref(null)
+
+const countries = [
+  { id: 1, name: 'United States', code: 'US' },
+  { id: 2, name: 'Canada', code: 'CA' },
+  { id: 3, name: 'France', code: 'FR' },
+]
+</script>
+
+```
+
+## Disabled
+
+<fwb-autocomplete-example-disabled />
+
+```vue
+<template>
+  <fwb-autocomplete
+    v-model="selected"
+    :options="countries"
+    :search-fields="['name']"
+    display="name"
+    disabled
+    label="Select a country"
+    placeholder="Search disabled..."
+  />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbAutocomplete } from 'flowbite-vue'
+
+const selected = ref(null)
+const countries = [
+  { id: 1, name: 'United States', code: 'US' },
+  { id: 2, name: 'Canada', code: 'CA' },
+  { id: 3, name: 'France', code: 'FR' },
+]
+</script>
+
+```
+
+## Validation
+
+- Set validation status via `validationStatus` prop, which accepts `'success'` or `'error'`.
+- Add validation message via `validationMessage` slot.
+
+<fwb-autocomplete-example-validation />
+
+```vue
+<template>
+  <fwb-autocomplete
+    v-model="selected1"
+    :options="countries"
+    :search-fields="['name']"
+    display="name"
+    label="Select a country"
+    validation-status="success"
+  >
+    <template #validationMessage>
+      <span class="font-medium">Well done!</span> Your selection looks good.
+    </template>
+  </fwb-autocomplete>
+  <hr class="mt-4 border-0">
+  <fwb-autocomplete
+    v-model="selected2"
+    :options="countries"
+    :search-fields="['name']"
+    display="name"
+    label="Select a country"
+    validation-status="error"
+  >
+    <template #validationMessage>
+      <span class="font-medium">Oh, snap!</span> Please select a country.
+    </template>
+  </fwb-autocomplete>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbAutocomplete } from 'flowbite-vue'
+
+const selected1 = ref(null)
+const selected2 = ref(null)
+const countries = [
+  { id: 1, name: 'United States', code: 'US' },
+  { id: 2, name: 'Canada', code: 'CA' },
+  { id: 3, name: 'France', code: 'FR' },
+]
+</script>
+
+```
+
+## Slot - Helper
+
+<fwb-autocomplete-example-helper />
+
+```vue
+<template>
+  <fwb-autocomplete
+    v-model="selected"
+    :options="countries"
+    :search-fields="['name']"
+    display="name"
+    label="Select a country"
+    placeholder="Search countries..."
+  >
+    <template #helper>
+      We'll never share your selection. Read our
+      <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">
+        Privacy Policy
+      </a>.
+    </template>
+  </fwb-autocomplete>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbAutocomplete } from 'flowbite-vue'
+
+const selected = ref(null)
+const countries = [
+  { id: 1, name: 'United States', code: 'US' },
+  { id: 2, name: 'Canada', code: 'CA' },
+  { id: 3, name: 'France', code: 'FR' },
+]
+</script>
+
+```
+
+## Slot - Suffix
+
+Replace the default search/clear/loading icons by providing content in the `suffix` slot.
+
+<fwb-autocomplete-example-suffix />
+
+```vue
+<template>
+  <fwb-autocomplete
+    v-model="selected"
+    :options="countries"
+    :search-fields="['name']"
+    display="name"
+    label="Select a country"
+    placeholder="Search countries..."
+  >
+    <template #suffix>
+      <svg
+        aria-hidden="true"
+        class="size-5 opacity-40"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </template>
+  </fwb-autocomplete>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbAutocomplete } from 'flowbite-vue'
+
+const selected = ref(null)
+const countries = [
+  { id: 1, name: 'United States', code: 'US' },
+  { id: 2, name: 'Canada', code: 'CA' },
+  { id: 3, name: 'France', code: 'FR' },
+]
+</script>
+
+```
+
+## Slot - Option
+
+Customise how each dropdown option is rendered using the `option` slot.
+
+<fwb-autocomplete-example-custom />
+
+```vue
+<template>
+  <fwb-autocomplete
+    v-model="selectedUser"
+    :options="users"
+    :search-fields="['name', 'email']"
+    display="name"
+    label="Select user"
+    placeholder="Search users..."
+  >
+    <template #option="{ option }">
+      <div class="flex items-center">
+        <img
+          :src="option.avatar"
+          :alt="option.name"
+          class="w-8 h-8 rounded-full mr-3"
+        >
+        <div>
+          <div class="font-medium">{{ option.name }}</div>
+          <div class="text-sm text-gray-500">{{ option.email }}</div>
+        </div>
+      </div>
+    </template>
+  </fwb-autocomplete>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbAutocomplete } from 'flowbite-vue'
+
+const selectedUser = ref(null)
+const users = [
+  { id: 1, name: 'John Doe', email: 'john@example.com', avatar: 'https://i.pravatar.cc/150?img=1' },
+  { id: 2, name: 'Jane Smith', email: 'jane@example.com', avatar: 'https://i.pravatar.cc/150?img=2' },
+]
+</script>
+
+```
+
+## Remote Data
+
+Use `remote` with `@search` and `debounce` to fetch options from an API as the user types. Local filtering is disabled in remote mode.
 
 <fwb-autocomplete-example-remote />
+
 ```vue
 <template>
   <fwb-autocomplete
@@ -92,34 +373,29 @@ const searchCountries = async (query) => {
   try {
     const response = await fetch(`https://restcountries.com/v3.1/name/${query}`)
     const data = await response.json()
-    
     countries.value = data.slice(0, 10).map(country => ({
       name: country.name.common,
-      capital: country.capital?.[0] || 'N/A',
       region: country.region,
-      population: country.population,
       flag: country.flag,
     }))
-  } catch (err) {
+  } catch {
     countries.value = []
   } finally {
     loading.value = false
   }
 }
 </script>
+
 ```
 
-## Custom Input Components
+## Custom Input
+
+Replace the default `FwbInput` with any Vue input component via the `inputComponent` prop. Extra props for the input component are forwarded via `inputProps`.
 
 <fwb-autocomplete-example-custom-input />
 
-The autocomplete component provides maximum flexibility by allowing you to use any Vue input component through the `inputComponent` and `inputProps` props.
-
-### Using Custom Input Components
-
 ```vue
 <template>
-  <!-- Use any Vue input component -->
   <fwb-autocomplete
     v-model="selected"
     :options="options"
@@ -130,273 +406,98 @@ The autocomplete component provides maximum flexibility by allowing you to use a
       class: 'custom-styling'
     }"
   />
+</template>
 
-  <!-- Customize FwbInput with props -->
+```
+
+## Styling
+
+Use dedicated props to pass classes to individual elements.
+
+<fwb-autocomplete-example-styling />
+
+```vue
+<template>
   <fwb-autocomplete
     v-model="selected"
-    :options="options"
-    :input-props="{
-      size: 'lg',
-      class: 'border-purple-300 focus:border-purple-500'
-    }"
-  />
-</template>
-```
-
-### Input Component Props
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `inputComponent` | `Component` | `FwbInput` | The Vue input component to use |
-| `inputProps` | `Record<string, any>` | `{}` | Additional props to pass to the input component |
-
-The component automatically passes through standard props like `placeholder`, `disabled`, `size`, `label`, etc., and you can provide additional props via `inputProps`.
-
-## Custom Option Template
-
-<fwb-autocomplete-example-custom />
-```vue
-<template>
-  <fwb-autocomplete
-    v-model="selectedUser"
-    :options="users"
-    :search-fields="['name', 'email']"
-    display="name"
-    label="Select user"
-    placeholder="Search users..."
-  >
-    <template #option="{ option }">
-      <div class="flex items-center">
-        <img
-          :src="option.avatar"
-          :alt="option.name"
-          class="w-8 h-8 rounded-full mr-3"
-        >
-        <div>
-          <div class="font-medium">{{ option.name }}</div>
-          <div class="text-sm text-gray-500">{{ option.email }}</div>
-        </div>
-      </div>
-    </template>
-  </fwb-autocomplete>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-import { FwbAutocomplete } from 'flowbite-vue'
-
-const selectedUser = ref(null)
-const users = [
-  {
-    id: 1,
-    name: 'John Doe',
-    email: 'john@example.com',
-    avatar: 'https://i.pravatar.cc/150?img=1'
-  },
-  {
-    id: 2,
-    name: 'Jane Smith',
-    email: 'jane@example.com',
-    avatar: 'https://i.pravatar.cc/150?img=2'
-  },
-]
-</script>
-```
-
-## Validation
-
-<fwb-autocomplete-example-validation />
-```vue
-<template>
-  <fwb-autocomplete
-    v-model="selectedCountry"
     :options="countries"
     :search-fields="['name']"
+    class="bg-amber-100 dark:bg-green-900 border-2 border-amber-500 has-[input:focus]:border-amber-900 dark:border-green-600 dark:has-[input:focus]:border-green-400 has-[input:focus]:ring-amber-300 dark:has-[input:focus]:ring-green-800"
     display="name"
-    label="Country *"
-    placeholder="Select a country..."
-    :validation-status="validationStatus"
-  >
-    <template #validationMessage>
-      Please select a country
-    </template>
-    <template #helper>
-      Choose the country where you reside
-    </template>
-  </fwb-autocomplete>
-</template>
-
-<script setup>
-import { ref, computed } from 'vue'
-import { FwbAutocomplete } from 'flowbite-vue'
-
-const selectedCountry = ref(null)
-const countries = [
-  { id: 1, name: 'United States', code: 'US' },
-  { id: 2, name: 'Canada', code: 'CA' },
-  { id: 3, name: 'France', code: 'FR' },
-]
-
-const validationStatus = computed(() => {
-  return selectedCountry.value ? 'success' : 'error'
-})
-</script>
-```
-
-## Sizes
-
-<fwb-autocomplete-example-size />
-```vue
-<template>
-  <div class="space-y-4">
-    <fwb-autocomplete
-      v-model="selected1"
-      :options="countries"
-      :search-fields="['name']"
-      display="name"
-      label="Small"
-      size="sm"
-      placeholder="Small autocomplete..."
-    />
-    
-    <fwb-autocomplete
-      v-model="selected2"
-      :options="countries"
-      :search-fields="['name']"
-      display="name"
-      label="Medium (default)"
-      size="md"
-      placeholder="Medium autocomplete..."
-    />
-    
-    <fwb-autocomplete
-      v-model="selected3"
-      :options="countries"
-      :search-fields="['name']"
-      display="name"
-      label="Large"
-      size="lg"
-      placeholder="Large autocomplete..."
-    />
-  </div>
+    dropdown-class="border-amber-300 dark:border-green-700"
+    input-class="text-amber-900 dark:text-green-100 placeholder:text-amber-500 dark:placeholder:text-green-500"
+    label="Select a country"
+    label-class="text-xl font-bold text-amber-900 dark:text-green-200"
+    placeholder="Search countries..."
+    wrapper-class="bg-amber-300 dark:bg-green-800 border-2 border-amber-700 dark:border-green-400 rounded-lg p-3"
+  />
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { FwbAutocomplete } from 'flowbite-vue'
 
-const selected1 = ref(null)
-const selected2 = ref(null)
-const selected3 = ref(null)
-
+const selected = ref(null)
 const countries = [
   { id: 1, name: 'United States', code: 'US' },
   { id: 2, name: 'Canada', code: 'CA' },
   { id: 3, name: 'France', code: 'FR' },
 ]
 </script>
+
 ```
 
-## API
+## Autocomplete component API
 
-### Props
+### FwbAutocomplete Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| `modelValue` | `T \| null` | `null` | The currently selected option |
-| `options` | `T[]` | `[]` | Array of options to display in dropdown |
-| `loading` | `boolean` | `false` | Shows loading indicator when true |
-| `placeholder` | `string` | `'Search...'` | Placeholder text for input field |
-| `disabled` | `boolean` | `false` | Disables the autocomplete component |
-| `valueField` | `string` | `undefined` | Field name to use as unique identifier for options |
-| `searchFields` | `string[]` | `[]` | Array of field names to search within each option |
-| `loadingText` | `string` | `'Loading...'` | Text to display when loading |
-| `noResultsText` | `string` | `'No results found'` | Text to display when no results match |
-| `minChars` | `number` | `0` | Minimum characters required before filtering |
-| `remote` | `boolean` | `false` | Whether to fetch data remotely (disables local filtering) |
-| `debounce` | `number` | `300` | Debounce delay in milliseconds for search events |
-| `display` | `string \| ((option: T) => string)` | `undefined` | Field name or function to generate display text for options |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Size of the input component |
-| `validationStatus` | `'success' \| 'error'` | `undefined` | Validation status for styling |
-| `class` | `string \| Record<string, boolean>` | `''` | Additional CSS classes for the component |
-| `wrapperClass` | `string \| Record<string, boolean>` | `''` | CSS classes for the wrapper element |
-| `labelClass` | `string \| Record<string, boolean>` | `''` | CSS classes for the label element |
-| `dropdownClass` | `string \| Record<string, boolean>` | `''` | CSS classes for the dropdown container |
-| `label` | `string` | `undefined` | Label text for the input field |
-| `inputComponent` | `Component` | `FwbInput` | Vue component to use as the input field |
-| `inputProps` | `Record<string, any>` | `{}` | Additional props to pass to the input component |
-| `zIndex` | `number` | `100` | Z-index value for the dropdown overlay |
+:::tip Native attribute passthrough
+`FwbAutocomplete` sets `inheritAttrs: false` and forwards all extra attributes (e.g. `name`, `form`, `autofocus`) directly to the underlying `<input>` element via `FwbInput`.
+:::
 
-### Input Component Props
+| Name             | Type                                | Default              | Description                                                            |
+| ---------------- | ----------------------------------- | -------------------- | ---------------------------------------------------------------------- |
+| options          | `T[]`                               | —                    | Array of options to display in the dropdown. Required.                 |
+| searchFields     | `string[]`                          | `[]`                 | Fields within each option to search against.                           |
+| display          | `string \| ((option: T) => string)` | `undefined`          | Field name or function to render an option label.                      |
+| valueField       | `string`                            | `undefined`          | Field name used as the unique key for each option.                     |
+| placeholder      | `string`                            | `'Search...'`        | Placeholder text for the input.                                        |
+| label            | `string`                            | `undefined`          | Label text rendered above the input.                                   |
+| disabled         | `boolean`                           | `false`              | Disables the autocomplete.                                             |
+| loading          | `boolean`                           | `false`              | Shows a loading indicator when `true`.                                 |
+| loadingText      | `string`                            | `'Loading...'`       | Text shown in the dropdown while loading.                              |
+| noResultsText    | `string`                            | `'No results found'` | Text shown when no options match the query.                            |
+| minChars         | `number`                            | `0`                  | Minimum characters typed before filtering begins.                      |
+| remote           | `boolean`                           | `false`              | Disables local filtering; relies on `@search` to populate `options`.   |
+| debounce         | `number`                            | `300`                | Delay in ms before emitting `search` when `remote` is `true`.          |
+| size             | `'sm' \| 'md' \| 'lg' \| 'xl'`      | `'md'`               | Controls padding and font size of the input.                           |
+| validationStatus | `'success' \| 'error'`              | `undefined`          | Applies success or error colour styles.                                |
+| class            | `String \| Object`                  | `''`                 | Added to the input wrapper element.                                    |
+| inputClass       | `String \| Object`                  | `''`                 | Added to the `<input>` element (use for text and placeholder colours). |
+| wrapperClass     | `String \| Object`                  | `''`                 | Added to the outer root `<div>`.                                       |
+| labelClass       | `String \| Object`                  | `''`                 | Added to the `<label>` element.                                        |
+| dropdownClass    | `String \| Object`                  | `''`                 | Added to the dropdown container.                                       |
+| inputComponent   | `Component`                         | `FwbInput`           | Vue component used as the input field.                                 |
+| inputProps       | `Record<string, any>`               | `{}`                 | Additional props forwarded to the input component.                     |
+| zIndex           | `number`                            | `100`                | Z-index of the dropdown overlay.                                       |
 
-The autocomplete component uses `FwbInput` by default and passes through all standard input props. For a complete list of available input props, see the [Input component documentation](./input.md#input-component-api).
+:::tip Accessibility
+`aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and merged with any `aria-describedby` value you pass as an attribute.
+:::
 
-Common input props that can be passed through:
-- `placeholder` - Input placeholder text
-- `disabled` - Disable the input
-- `size` - Input size (`'sm'` | `'md'` | `'lg'`)
-- `label` - Input label text
-- `class` - CSS classes for styling
-- `inputClass` - CSS classes for the input element
-- `wrapperClass` - CSS classes for the input wrapper
-- `labelClass` - CSS classes for the label
+### FwbAutocomplete Events
 
-You can also pass additional props via the `inputProps` prop or use a completely different input component via the `inputComponent` prop.
+| Event             | Parameters         | Description                                                |
+| ----------------- | ------------------ | ---------------------------------------------------------- |
+| update:modelValue | `value: T \| null` | Emitted when the selected value changes.                   |
+| select            | `option: T`        | Emitted when an option is clicked or confirmed with Enter. |
+| search            | `query: string`    | Emitted when the search query changes.                     |
 
-### Events
+### FwbAutocomplete Slots
 
-| Event | Parameters | Description |
-|-------|------------|-------------|
-| `update:modelValue` | `value: T \| null` | Emitted when the selected value changes |
-| `select` | `option: T` | Emitted when an option is selected |
-| `search` | `query: string` | Emitted when the search query changes |
-
-### Slots
-
-| Slot | Props | Description |
-|------|-------|-------------|
-| `option` | `{ option: T, index: number }` | Custom template for rendering dropdown options |
-| `suffix` | `{ loading: boolean, clear: () => void }` | Custom suffix content (overrides default loading/clear icons) |
-| `validationMessage` | - | Custom validation message content |
-| `helper` | - | Helper text content below the input |
-
-### Examples
-
-#### Basic Usage
-```vue
-<fwb-autocomplete
-  v-model="selected"
-  :options="countries"
-  :search-fields="['name']"
-  display="name"
-  placeholder="Search countries..."
-/>
-```
-
-#### Remote Data with Custom Input Props
-```vue
-<fwb-autocomplete
-  v-model="selected"
-  :options="users"
-  :loading="loading"
-  :search-fields="['name', 'email']"
-  display="name"
-  remote
-  :debounce="500"
-  :input-props="{
-    size: 'lg',
-    class: 'border-blue-300 focus:border-blue-500'
-  }"
-  @search="fetchUsers"
-/>
-```
-
-#### Custom Input Component
-```vue
-<fwb-autocomplete
-  v-model="selected"
-  :options="options"
-  :input-component="MyCustomInput"
-  :input-props="{ theme: 'rounded', prefixIcon: 'search' }"
-/>
-```
+| Name              | Props                                     | Description                                                   |
+| ----------------- | ----------------------------------------- | ------------------------------------------------------------- |
+| option            | `{ option: T, index: number }`            | Custom template for rendering each dropdown option.           |
+| suffix            | `{ loading: boolean, clear: () => void }` | Replaces the default search/clear/loading icons in the input. |
+| validationMessage | —                                         | Validation feedback rendered below the input.                 |
+| helper            | —                                         | Helper text rendered below the input.                         |
