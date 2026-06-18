@@ -15,7 +15,7 @@
           ...(inputComponent === FwbInput ? { size, label } : {}),
           ...inputProps,
           ...$attrs,
-          inputClass,
+          ...(inputClass ? { inputClass } : {}),
           'aria-describedby': ariaDescribedby,
         }"
         :label-class="labelClass"
@@ -38,22 +38,29 @@
                 class="border-2 border-current border-t-transparent rounded-full w-4 h-4 animate-spin opacity-60"
                 data-testid="fwb-autocomplete-loading-spinner"
               />
-              <svg
+              <button
                 v-else-if="inputValue"
-                class="w-5 h-5 opacity-40 hover:opacity-70 cursor-pointer"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+                type="button"
+                aria-label="Clear selection"
+                class="opacity-40 hover:opacity-70 cursor-pointer"
                 data-testid="fwb-autocomplete-clear-button"
                 @click="clear"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
               <svg
                 v-else
                 class="w-5 h-5 opacity-40"
@@ -80,6 +87,7 @@
             (filteredOptions.length > 0 || loading || noResultsFound)
         "
         :class="dropdownClasses"
+        :style="{ zIndex: props.zIndex }"
         data-testid="fwb-autocomplete-dropdown"
       >
         <div

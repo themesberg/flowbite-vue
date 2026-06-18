@@ -455,31 +455,31 @@ const countries = [
 `FwbAutocomplete` sets `inheritAttrs: false` and forwards all extra attributes (e.g. `name`, `form`, `autofocus`) directly to the underlying `<input>` element via `FwbInput`.
 :::
 
-| Name | Type | Default | Description |
-| ---------------- | ----------------------------------------- | ------------------- | --------------------------------------------------- |
-| options | `T[]` | — | Array of options to display in the dropdown. Required. |
-| searchFields | `string[]` | `[]` | Fields within each option to search against. |
-| display | `string \| ((option: T) => string)` | `undefined` | Field name or function to render an option label. |
-| valueField | `string` | `undefined` | Field name used as the unique key for each option. |
-| placeholder | `string` | `'Search...'` | Placeholder text for the input. |
-| label | `string` | `undefined` | Label text rendered above the input. |
-| disabled | `boolean` | `false` | Disables the autocomplete. |
-| loading | `boolean` | `false` | Shows a loading indicator when `true`. |
-| loadingText | `string` | `'Loading...'` | Text shown in the dropdown while loading. |
-| noResultsText | `string` | `'No results found'` | Text shown when no options match the query. |
-| minChars | `number` | `0` | Minimum characters typed before filtering begins. |
-| remote | `boolean` | `false` | Disables local filtering; relies on `@search` to populate `options`. |
-| debounce | `number` | `300` | Delay in ms before emitting `search` when `remote` is `true`. |
-| size | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Controls padding and font size of the input. |
-| validationStatus | `'success' \| 'error'` | `undefined` | Applies success or error colour styles. |
-| class | `String \| Object` | `''` | Added to the input wrapper element. |
-| inputClass | `String \| Object` | `''` | Added to the `<input>` element (use for text and placeholder colours). |
-| wrapperClass | `String \| Object` | `''` | Added to the outer root `<div>`. |
-| labelClass | `String \| Object` | `''` | Added to the `<label>` element. |
-| dropdownClass | `String \| Object` | `''` | Added to the dropdown container. |
-| inputComponent | `Component` | `FwbInput` | Vue component used as the input field. |
-| inputProps | `Record<string, any>` | `{}` | Additional props forwarded to the input component. |
-| zIndex | `number` | `100` | Z-index of the dropdown overlay. |
+| Name             | Type                                | Default              | Description                                                            |
+| ---------------- | ----------------------------------- | -------------------- | ---------------------------------------------------------------------- |
+| options          | `T[]`                               | —                    | Array of options to display in the dropdown. Required.                 |
+| searchFields     | `string[]`                          | `[]`                 | Fields within each option to search against.                           |
+| display          | `string \| ((option: T) => string)` | `undefined`          | Field name or function to render an option label.                      |
+| valueField       | `string`                            | `undefined`          | Field name used as the unique key for each option.                     |
+| placeholder      | `string`                            | `'Search...'`        | Placeholder text for the input.                                        |
+| label            | `string`                            | `undefined`          | Label text rendered above the input.                                   |
+| disabled         | `boolean`                           | `false`              | Disables the autocomplete.                                             |
+| loading          | `boolean`                           | `false`              | Shows a loading indicator when `true`.                                 |
+| loadingText      | `string`                            | `'Loading...'`       | Text shown in the dropdown while loading.                              |
+| noResultsText    | `string`                            | `'No results found'` | Text shown when no options match the query.                            |
+| minChars         | `number`                            | `0`                  | Minimum characters typed before filtering begins.                      |
+| remote           | `boolean`                           | `false`              | Disables local filtering; relies on `@search` to populate `options`.   |
+| debounce         | `number`                            | `300`                | Delay in ms before emitting `search` when `remote` is `true`.          |
+| size             | `'sm' \| 'md' \| 'lg' \| 'xl'`      | `'md'`               | Controls padding and font size of the input.                           |
+| validationStatus | `'success' \| 'error'`              | `undefined`          | Applies success or error colour styles.                                |
+| class            | `String \| Object`                  | `''`                 | Added to the input wrapper element.                                    |
+| inputClass       | `String \| Object`                  | `''`                 | Added to the `<input>` element (use for text and placeholder colours). |
+| wrapperClass     | `String \| Object`                  | `''`                 | Added to the outer root `<div>`.                                       |
+| labelClass       | `String \| Object`                  | `''`                 | Added to the `<label>` element.                                        |
+| dropdownClass    | `String \| Object`                  | `''`                 | Added to the dropdown container.                                       |
+| inputComponent   | `Component`                         | `FwbInput`           | Vue component used as the input field.                                 |
+| inputProps       | `Record<string, any>`               | `{}`                 | Additional props forwarded to the input component.                     |
+| zIndex           | `number`                            | `100`                | Z-index of the dropdown overlay.                                       |
 
 :::tip Accessibility
 `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and merged with any `aria-describedby` value you pass as an attribute.
@@ -487,17 +487,17 @@ const countries = [
 
 ### FwbAutocomplete Events
 
-| Event | Parameters | Description |
-| ------------------- | ------------------- | ----------------------------------------------- |
-| update:modelValue | `value: T \| null` | Emitted when the selected value changes. |
-| select | `option: T` | Emitted when an option is clicked or confirmed with Enter. |
-| search | `query: string` | Emitted when the search query changes. |
+| Event             | Parameters         | Description                                                |
+| ----------------- | ------------------ | ---------------------------------------------------------- |
+| update:modelValue | `value: T \| null` | Emitted when the selected value changes.                   |
+| select            | `option: T`        | Emitted when an option is clicked or confirmed with Enter. |
+| search            | `query: string`    | Emitted when the search query changes.                     |
 
 ### FwbAutocomplete Slots
 
-| Name | Props | Description |
-| ----------------- | ----------------------------------------- | --------------------------------------------------------------- |
-| option | `{ option: T, index: number }` | Custom template for rendering each dropdown option. |
-| suffix | `{ loading: boolean, clear: () => void }` | Replaces the default search/clear/loading icons in the input. |
-| validationMessage | — | Validation feedback rendered below the input. |
-| helper | — | Helper text rendered below the input. |
+| Name              | Props                                     | Description                                                   |
+| ----------------- | ----------------------------------------- | ------------------------------------------------------------- |
+| option            | `{ option: T, index: number }`            | Custom template for rendering each dropdown option.           |
+| suffix            | `{ loading: boolean, clear: () => void }` | Replaces the default search/clear/loading icons in the input. |
+| validationMessage | —                                         | Validation feedback rendered below the input.                 |
+| helper            | —                                         | Helper text rendered below the input.                         |

@@ -5,7 +5,7 @@ import { type FormElementSize, type ValidationStatus, validationStatusMap } from
 
 const baseWrapperClasses = 'relative w-full'
 
-const baseDropdownClasses = 'z-100 absolute bg-white dark:bg-gray-800 shadow-lg mt-1 border border-gray-300 dark:border-gray-600 rounded-lg w-full max-h-60 overflow-y-auto'
+const baseDropdownClasses = 'absolute bg-white dark:bg-gray-800 shadow-lg mt-1 border border-gray-300 dark:border-gray-600 rounded-lg w-full max-h-60 overflow-y-auto'
 const baseDropdownItemClasses = 'px-4 py-3 border-gray-200 dark:border-gray-600 border-b last:border-b-0 text-gray-900 dark:text-white transition-colors duration-150 cursor-pointer'
 const highlightedDropdownItemClasses = 'bg-blue-50 dark:bg-blue-900/20'
 const hoverDropdownItemClasses = 'hover:bg-gray-50 dark:hover:bg-gray-700'
@@ -28,7 +28,6 @@ export interface UseAutocompleteClassesProps {
   labelClass: Ref<string | Record<string, boolean>>
   validationStatus: Ref<ValidationStatus | undefined>
   wrapperClass: Ref<string | Record<string, boolean>>
-  zIndex: Ref<number>
 }
 
 export function useAutocompleteClasses (props: UseAutocompleteClassesProps): {
@@ -46,7 +45,6 @@ export function useAutocompleteClasses (props: UseAutocompleteClassesProps): {
 
   const dropdownClasses = computed(() => useMergeClasses([
     baseDropdownClasses,
-    `z-[${props.zIndex.value}]`,
     props.dropdownClass.value,
   ]))
 

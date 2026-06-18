@@ -123,12 +123,11 @@ describe('FwbAutocomplete', () => {
     })
 
     const clearButton = wrapper.find('[data-testid="fwb-autocomplete-clear-button"]')
-    if (clearButton.exists()) {
-      await clearButton.trigger('click')
-      expect(wrapper.emitted('update:modelValue')).toBeTruthy()
-      const emittedEvents = wrapper.emitted('update:modelValue') as Array<[unknown]>
-      expect(emittedEvents[emittedEvents.length - 1]?.[0]).toBe(null)
-    }
+    expect(clearButton.exists()).toBe(true)
+    await clearButton.trigger('click')
+    expect(wrapper.emitted('update:modelValue')).toBeTruthy()
+    const emittedEvents = wrapper.emitted('update:modelValue') as Array<[unknown]>
+    expect(emittedEvents[emittedEvents.length - 1]?.[0]).toBe(null)
   })
 
   it('shows loading state', async () => {
@@ -500,7 +499,7 @@ describe('FwbAutocomplete', () => {
 
     const dropdown = wrapper.find('[data-testid="fwb-autocomplete-dropdown"]')
     expect(dropdown.exists()).toBe(true)
-    expect(dropdown.classes()).toContain('z-[200]')
+    expect((dropdown.element as HTMLElement).style.zIndex).toBe('200')
   })
 
   it('uses default z-index when not specified', async () => {
@@ -518,7 +517,7 @@ describe('FwbAutocomplete', () => {
 
     const dropdown = wrapper.find('[data-testid="fwb-autocomplete-dropdown"]')
     expect(dropdown.exists()).toBe(true)
-    expect(dropdown.classes()).toContain('z-[100]')
+    expect((dropdown.element as HTMLElement).style.zIndex).toBe('100')
   })
 
   describe('native attribute passthrough', () => {
@@ -568,6 +567,19 @@ describe('FwbAutocomplete', () => {
       const ids = describedby.split(' ')
       expect(ids).toHaveLength(2)
       ids.forEach(id => expect(wrapper.find(`#${id}`).exists()).toBe(true))
+    })
+
+    it('preserves external aria-describedby merged with slot IDs', () => {
+      const wrapper = mount(FwbAutocomplete, {
+        attrs: { 'aria-describedby': 'external-id' },
+        props: { options: mockOptions, searchFields: ['name'], validationStatus: 'error' },
+        slots: { validationMessage: 'Required', helper: 'Help text' },
+      })
+      const describedby = wrapper.find('input').attributes('aria-describedby') ?? ''
+      const ids = describedby.split(' ')
+      expect(ids).toHaveLength(3)
+      expect(ids).toContain('external-id')
+      ids.filter(id => id !== 'external-id').forEach(id => expect(wrapper.find(`#${id}`).exists()).toBe(true))
     })
   })
 })
