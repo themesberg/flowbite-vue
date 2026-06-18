@@ -24,7 +24,7 @@ Original reference: [https://flowbite.com/docs/forms/range/](https://flowbite.co
 <fwb-range-example />
 ```vue
 <template>
-  <fwb-range v-model="value" />
+  <fwb-range v-model.number="value" />
   <pre>Current value: {{ value }}</pre>
 </template>
 
@@ -43,7 +43,7 @@ const value = ref(50)
 ```vue
 <template>
   <fwb-range
-    v-model="value"
+    v-model.number="value"
     disabled
     label="Disabled range"
   />
@@ -56,7 +56,7 @@ const value = ref(50)
 ```vue
 <template>
   <fwb-range
-    v-model="value"
+    v-model.number="value"
     :min="5"
     :max="15"
     label="Min-Max range"
@@ -70,7 +70,7 @@ const value = ref(50)
 ```vue
 <template>
   <fwb-range
-    v-model="value"
+    v-model.number="value"
     :steps="5"
     label="Steps range"
   />

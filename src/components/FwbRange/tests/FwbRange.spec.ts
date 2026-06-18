@@ -116,6 +116,23 @@ describe('FwbRange', () => {
     })
   })
 
+  describe('styling props', () => {
+    it('applies class prop classes to the input element', () => {
+      const wrapper = mount(FwbRange, { props: { class: 'bg-amber-200' } })
+      expect(wrapper.find('input[type="range"]').classes()).toContain('bg-amber-200')
+    })
+
+    it('applies wrapperClass prop classes to the root wrapper element', () => {
+      const wrapper = mount(FwbRange, { props: { wrapperClass: 'border-2' } })
+      expect(wrapper.element.classList).toContain('border-2')
+    })
+
+    it('applies labelClass prop classes to the label element', () => {
+      const wrapper = mount(FwbRange, { props: { label: 'Volume', labelClass: 'text-xl' } })
+      expect(wrapper.find('label').classes()).toContain('text-xl')
+    })
+  })
+
   describe('validation label colors', () => {
     it('applies error color to label when validationStatus is "error"', () => {
       const wrapper = mount(FwbRange, { props: { label: 'Volume', validationStatus: 'error' } })

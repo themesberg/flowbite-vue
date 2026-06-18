@@ -38,6 +38,7 @@
 import { toRefs } from 'vue'
 
 import { useRangeClasses } from './composables/useRangeClasses'
+
 import type { RangeProps } from './types'
 
 import { useElementAttributes } from '@/composables/useElementAttributes'

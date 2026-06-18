@@ -28,7 +28,7 @@ export type UseRangeClassesProps = {
   wrapperClass: Ref<string | Record<string, boolean>>
 }
 
-export function useRangeClasses(props: UseRangeClassesProps) {
+export function useRangeClasses (props: UseRangeClassesProps) {
   const wrapperClass = computed(() => useMergeClasses([props.wrapperClass.value]))
 
   const labelClass = computed(() => {
