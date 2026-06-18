@@ -13,5 +13,5 @@ import { ref } from 'vue'
 
 import { FwbRange } from '../../../../src/index'
 
-const value = ref(10)
+const value = ref(50)
 </script>

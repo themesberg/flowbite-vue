@@ -2,11 +2,12 @@
   <div class="vp-raw">
     <fwb-range
       v-model.number="value"
-      :max="15"
-      :min="5"
-      label="Min-Max range"
-    />
-    <pre>Selected value: {{ value }}</pre>
+      label="Brightness"
+    >
+      <template #helper>
+        Adjust screen brightness between 0 and 100.
+      </template>
+    </fwb-range>
   </div>
 </template>
 
@@ -15,5 +16,5 @@ import { ref } from 'vue'
 
 import { FwbRange } from '../../../../src/index'
 
-const value = ref(10)
+const value = ref(50)
 </script>

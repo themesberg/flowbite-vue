@@ -1,68 +1,93 @@
 <template>
-  <label class="flex flex-col">
-    <span
-      :class="labelClasses"
-    >{{ label }}</span>
+  <div :class="wrapperClass">
+    <label
+      v-if="label"
+      :for="rangeId"
+      :class="labelClass"
+    >{{ label }}</label>
     <input
+      v-bind="rangeAttributes"
       v-model="model"
-      :step="steps"
-      :min="min"
-      :max="max"
+      :aria-describedby="ariaDescribedby"
+      :aria-invalid="validationStatus === 'error' ? true : undefined"
+      :class="rangeClass"
       :disabled="disabled"
+      :max="max"
+      :min="min"
+      :step="steps"
       type="range"
-      :class="rangeClasses"
     >
-  </label>
+    <p
+      v-if="$slots.validationMessage"
+      :id="validationMessageId"
+      :class="validationMessageClass"
+    >
+      <slot name="validationMessage" />
+    </p>
+    <p
+      v-if="$slots.helper"
+      :id="helperId"
+      :class="helperMessageClass"
+    >
+      <slot name="helper" />
+    </p>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
+import { toRefs } from 'vue'
 
 import { useRangeClasses } from './composables/useRangeClasses'
 
-import type { FormElementSize } from '@/types/form'
+import type { RangeProps } from './types'
 
-interface RangeProps {
-  disabled?: boolean
-  label?: string
-  max?: number
-  min?: number
-  modelValue?: number
-  size?: FormElementSize
-  steps?: number
-}
+import { useElementAttributes } from '@/composables/useElementAttributes'
+import { useFormFieldIds } from '@/composables/useFormFieldIds'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<RangeProps>(), {
+  class: '',
   disabled: false,
-  label: 'Range slider',
+  label: '',
+  labelClass: '',
   max: 100,
   min: 0,
-  modelValue: 50,
   size: 'md',
   steps: 1,
+  validationStatus: undefined,
+  wrapperClass: '',
 })
 
-const emit = defineEmits(['update:modelValue'])
+const model = defineModel<number>({ default: 50 })
 
-const model = computed({
-  get () {
-    return props.modelValue
-  },
-  set (val) {
-    emit('update:modelValue', val)
-  },
-})
+const { elementId: rangeId, elementAttributes: rangeAttributes } = useElementAttributes()
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(rangeId)
 
-const { rangeClasses, labelClasses } = useRangeClasses(toRefs(props))
+const {
+  helperMessageClass,
+  labelClass,
+  rangeClass,
+  validationMessageClass,
+  wrapperClass,
+} = useRangeClasses(toRefs(props))
 </script>
 
-<style scoped>
-input[type="range"].range-lg::-moz-range-thumb {
-  height: 1.5rem;
-  width: 1.5rem;
+<style lang="css">
+.fwb-range-input::-moz-range-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--fwb-range-thumb-color, var(--color-blue-500));
+  border: none;
+  border-radius: 9999px;
 }
-input[type="range"].range-sm::-moz-range-thumb {
-  height: 1rem;
-  width: 1rem;
+.fwb-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--fwb-range-thumb-color, var(--color-blue-500));
+  border: none;
+  border-radius: 9999px;
 }
 </style>
