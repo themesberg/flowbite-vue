@@ -1,61 +1,73 @@
 <template>
-  <label :class="[labelClasses, labelOrder]">
-    <input
-      v-model="model"
-      :disabled="disabled"
-      class="sr-only peer"
-      type="checkbox"
+  <div :class="wrapperClass">
+    <label :class="toggleContainerClass">
+      <input
+        v-bind="toggleAttributes"
+        v-model="model"
+        :aria-describedby="ariaDescribedby"
+        :aria-invalid="validationStatus === 'error' ? true : undefined"
+        :disabled="disabled"
+        class="sr-only peer"
+        type="checkbox"
+      >
+      <span :class="toggleBackgroundClass" />
+      <span
+        v-if="label"
+        :class="labelTextClass"
+      >{{ label }}</span>
+    </label>
+    <p
+      v-if="$slots.validationMessage"
+      :id="validationMessageId"
+      :class="validationMessageClass"
     >
-    <span :class="[toggleClasses, toggleSize, toggleColor]" />
-    <span
-      v-if="label"
-      :class="[toggleBallClasses, toggleBallOrder]"
-    >{{ label }}</span>
-  </label>
+      <slot name="validationMessage" />
+    </p>
+    <p
+      v-if="$slots.helper"
+      :id="helperId"
+      :class="helperMessageClass"
+    >
+      <slot name="helper" />
+    </p>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
+import { toRefs } from 'vue'
 
 import { useToggleClasses } from './composables/useToggleClasses'
 
-import type { FormElementSize } from '@/types/form'
+import type { ToggleProps } from './types'
 
-interface ToggleProps {
-  color?: string
-  disabled?: boolean
-  label?: string
-  modelValue?: boolean
-  size?: FormElementSize
-  reverse?: boolean
-}
+import { useElementAttributes } from '@/composables/useElementAttributes'
+import { useFormFieldIds } from '@/composables/useFormFieldIds'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<ToggleProps>(), {
+  class: '',
   color: '',
   disabled: false,
   label: '',
-  modelValue: false,
-  size: 'md',
+  labelClass: '',
   reverse: false,
+  size: 'md',
+  validationStatus: undefined,
+  wrapperClass: '',
 })
 
-const emit = defineEmits(['update:modelValue'])
-const model = computed({
-  get () {
-    return props.modelValue
-  },
-  set (val) {
-    emit('update:modelValue', val)
-  },
-})
+const model = defineModel<boolean>({ default: false })
+
+const { elementId: toggleId, elementAttributes: toggleAttributes } = useElementAttributes()
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(toggleId)
 
 const {
-  labelClasses,
-  toggleSize,
-  toggleClasses,
-  toggleColor,
-  toggleBallClasses,
-  toggleBallOrder,
-  labelOrder,
+  helperMessageClass,
+  labelTextClass,
+  toggleBackgroundClass,
+  toggleContainerClass,
+  validationMessageClass,
+  wrapperClass,
 } = useToggleClasses(toRefs(props))
 </script>

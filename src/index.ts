@@ -65,6 +65,7 @@ export { default as FwbInput } from '@/components/FwbInput/FwbInput.vue'
 export { default as FwbRadio } from '@/components/FwbRadio/FwbRadio.vue'
 export { default as FwbRange } from '@/components/FwbRange/FwbRange.vue'
 export { default as FwbSelect } from '@/components/FwbSelect/FwbSelect.vue'
+export type { OptionsType } from '@/components/FwbSelect/types'
 export { default as FwbTextarea } from '@/components/FwbTextarea/FwbTextarea.vue'
 export { default as FwbToggle } from '@/components/FwbToggle/FwbToggle.vue'
 
