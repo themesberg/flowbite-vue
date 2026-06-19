@@ -13,4 +13,12 @@ export default defineConfig({
       '@': resolve(__dirname, '../src'), // to resolve @ inside docs
     },
   },
+  optimizeDeps: {
+    esbuildOptions: {
+      target: 'esnext',
+    },
+  },
+  build: {
+    target: 'esnext',
+  },
 })

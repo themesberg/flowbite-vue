@@ -1,5 +1,5 @@
 <template>
-  <div class="vp-raw grid gap-3">
+  <div class="gap-3 grid vp-raw">
     <fwb-toggle
       label="Small"
       size="sm"
@@ -11,6 +11,10 @@
     <fwb-toggle
       label="Large"
       size="lg"
+    />
+    <fwb-toggle
+      label="Extra Large"
+      size="xl"
     />
   </div>
 </template>
