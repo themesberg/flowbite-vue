@@ -2,10 +2,9 @@
   <div :class="wrapperClass">
     <label class="flex items-center">
       <input
-        v-bind="checkboxAttributes"
+        v-bind="inputAttributes"
         v-model="model"
         :aria-describedby="ariaDescribedby"
-        :aria-invalid="validationStatus === 'error' ? true : undefined"
         :disabled="disabled"
         class="shrink-0"
         :class="checkboxClass"
@@ -36,7 +35,7 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 
 import { useCheckboxClasses } from './composables/useCheckboxClasses'
 
@@ -60,6 +59,11 @@ const model = defineModel<boolean | (string | number | boolean | object)[]>({ de
 
 const { elementId: checkboxId, elementAttributes: checkboxAttributes } = useElementAttributes()
 const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(checkboxId)
+
+const inputAttributes = computed(() => ({
+  ...checkboxAttributes.value,
+  ...(props.validationStatus === 'error' ? { 'aria-invalid': true } : {}),
+}))
 
 const {
   checkboxClass,

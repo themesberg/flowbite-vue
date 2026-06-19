@@ -79,6 +79,11 @@ describe('FwbCheckbox', () => {
       const wrapper = mount(FwbCheckbox)
       expect(wrapper.find('input[type="checkbox"]').attributes('aria-invalid')).toBeUndefined()
     })
+
+    it('preserves a user-provided aria-invalid when validationStatus is not "error"', () => {
+      const wrapper = mount(FwbCheckbox, { attrs: { 'aria-invalid': 'grammar' } })
+      expect(wrapper.find('input[type="checkbox"]').attributes('aria-invalid')).toBe('grammar')
+    })
   })
 
   describe('aria-describedby', () => {
