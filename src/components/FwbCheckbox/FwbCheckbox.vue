@@ -1,26 +1,32 @@
 <template>
   <div :class="wrapperClass">
-    <label class="flex justify-start items-center select-none">
+    <label class="flex items-center">
       <input
+        v-bind="inputAttributes"
         v-model="model"
-        :class="checkboxClass"
+        :aria-describedby="ariaDescribedby"
         :disabled="disabled"
-        :name="name"
-        :value="value"
+        class="shrink-0"
+        :class="checkboxClass"
         type="checkbox"
       >
       <span
-        v-if="label"
-        :class="labelClass"
+        v-if="label || $slots.default"
+        :class="labelTextClass"
       >
-        {{ label }}
-      </span>
-      <span :class="labelClass">
-        <slot />
+        <slot>{{ label }}</slot>
       </span>
     </label>
     <p
+      v-if="$slots.validationMessage"
+      :id="validationMessageId"
+      :class="validationMessageClass"
+    >
+      <slot name="validationMessage" />
+    </p>
+    <p
       v-if="$slots.helper"
+      :id="helperId"
       :class="helperMessageClass"
     >
       <slot name="helper" />
@@ -29,38 +35,41 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 
 import { useCheckboxClasses } from './composables/useCheckboxClasses'
 
-interface CheckboxProps {
-  class?: string | Record<string, boolean>
-  disabled?: boolean
-  label?: string
-  labelClass?: string | Record<string, boolean>
-  name?: string
-  value?: string | number | boolean | object
-  wrapperClass?: string | Record<string, boolean>
-}
+import type { CheckboxProps } from './types'
+
+import { useElementAttributes } from '@/composables/useElementAttributes'
+import { useFormFieldIds } from '@/composables/useFormFieldIds'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<CheckboxProps>(), {
   class: '',
   disabled: false,
   label: '',
   labelClass: '',
-  name: undefined,
-  value: undefined,
+  validationStatus: undefined,
   wrapperClass: '',
 })
 
-const model = defineModel<boolean | (string | number | boolean | object)[]>({
-  default: false,
-})
+const model = defineModel<boolean | (string | number | boolean | object)[]>({ default: false })
+
+const { elementId: checkboxId, elementAttributes: checkboxAttributes } = useElementAttributes()
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(checkboxId)
+
+const inputAttributes = computed(() => ({
+  ...checkboxAttributes.value,
+  ...(props.validationStatus === 'error' ? { 'aria-invalid': true } : {}),
+}))
 
 const {
   checkboxClass,
   helperMessageClass,
-  labelClass,
+  labelTextClass,
+  validationMessageClass,
   wrapperClass,
 } = useCheckboxClasses(toRefs(props))
 </script>
