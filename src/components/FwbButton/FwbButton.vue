@@ -1,15 +1,16 @@
 <template>
   <component
     :is="buttonComponent"
+    :aria-busy="loading || undefined"
     :class="wrapperClasses"
+    :disabled="(buttonComponent === 'button' && disabled) || undefined"
+    :type="buttonComponent === 'button' ? 'button' : undefined"
     v-bind="linkAttr ? { [linkAttr]: linkValue } : {}"
-    :disabled="buttonComponent === 'button' && disabled"
   >
     <div
       v-if="!isOutlineGradient && ($slots.prefix || loadingPrefix)"
       class="mr-2"
     >
-      <!--automatically add mr class if slot provided or loading -->
       <fwb-spinner
         v-if="loadingPrefix"
         :color="spinnerColor"
@@ -26,7 +27,6 @@
         v-if="isOutlineGradient && ($slots.prefix || loadingPrefix)"
         class="mr-2"
       >
-        <!--if outline gradient - need to place slots inside span -->
         <fwb-spinner
           v-if="loadingPrefix"
           :color="spinnerColor"
@@ -44,7 +44,6 @@
         v-if="isOutlineGradient && ($slots.suffix || loadingSuffix)"
         class="ml-2"
       >
-        <!--if outline gradient - need to place slots inside span -->
         <fwb-spinner
           v-if="loadingSuffix"
           :color="spinnerColor"
@@ -61,7 +60,6 @@
       v-if="!isOutlineGradient && ($slots.suffix || loadingSuffix)"
       class="ml-2"
     >
-      <!--automatically add ml class if slot provided or loading -->
       <fwb-spinner
         v-if="loadingSuffix"
         :color="spinnerColor"
@@ -80,28 +78,10 @@ import { computed, resolveComponent, toRefs } from 'vue'
 
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
-
-import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
+import { type ButtonProps } from './types'
 
 import FwbSpinner from '@/components/FwbSpinner/FwbSpinner.vue'
-import { useMergeClasses } from '@/composables/useMergeClasses'
 
-interface ButtonProps {
-  class?: string | object
-  color?: ButtonVariant
-  disabled?: boolean
-  gradient?: ButtonGradient | null
-  href?: string
-  loading?: boolean
-  loadingPosition?: 'suffix' | 'prefix'
-  outline?: boolean
-  pill?: boolean
-  shadow?: ButtonMonochromeGradient | boolean
-  size?: ButtonSize
-  square?: boolean
-  tag?: string
-  to?: string | object
-}
 const props = withDefaults(defineProps<ButtonProps>(), {
   class: '',
   color: 'default',
@@ -119,9 +99,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   to: undefined,
 })
 
-const buttonClasses = computed(() => useButtonClasses(toRefs(props)))
-const wrapperClasses = computed(() => useMergeClasses(buttonClasses.value.wrapperClasses))
-const spanClasses = computed(() => useMergeClasses(buttonClasses.value.spanClasses))
+const { wrapperClasses, spanClasses } = useButtonClasses(toRefs(props))
 
 const isOutlineGradient = computed(() => props.outline && props.gradient)
 
