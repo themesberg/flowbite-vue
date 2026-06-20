@@ -67,7 +67,7 @@ describe('FwbButton', () => {
 
     for (const [size, expectedClasses] of Object.entries(sizeClassMap)) {
       it(`applies ${size} size classes`, () => {
-        const wrapper = mount(FwbButton, { props: { size } })
+        const wrapper = mount(FwbButton, { props: { size: size as ButtonSize } })
         expectedClasses.forEach(cls => expect(wrapper.classes()).toContain(cls))
       })
     }
