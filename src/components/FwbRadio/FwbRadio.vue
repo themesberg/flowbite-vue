@@ -1,54 +1,62 @@
 <template>
-  <label class="flex w-full items-center">
+  <label :class="wrapperClass">
     <input
+      v-bind="inputAttributes"
       v-model="model"
-      type="radio"
       :disabled="disabled"
-      :name="name"
+      :name="effectiveName || undefined"
       :value="value"
-      :class="radioClasses"
+      class="shrink-0"
+      :class="radioClass"
+      type="radio"
     >
-    <span :class="labelClasses">{{ label }}</span>
-    <slot />
+    <span
+      v-if="label || $slots.default"
+      :class="labelClass"
+    >
+      <slot>{{ label }}</slot>
+    </span>
   </label>
 </template>
 
-<script setup lang="ts">
-import { twMerge } from 'tailwind-merge'
-import { computed } from 'vue'
+<script lang="ts" setup>
+import { computed, inject, ref, toRefs } from 'vue'
 
-interface RadioProps {
-  modelValue?: string
-  name?: string
-  value?: string
-  label?: string
-  disabled?: boolean
-}
-const radioDefaultClasses = 'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
-const radioLabelClasses = 'm-2 mr-0 text-sm font-medium text-gray-900 dark:text-gray-300'
+import { useRadioClasses } from './composables/useRadioClasses'
+import { radioGroupNameKey, radioGroupValidationStatusKey } from './types'
+
+import type { RadioProps } from './types'
+
+import { useElementAttributes } from '@/composables/useElementAttributes'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<RadioProps>(), {
-  modelValue: '',
+  class: '',
+  disabled: false,
+  label: '',
+  labelClass: '',
   name: '',
   value: '',
-  label: '',
-  disabled: false,
+  wrapperClass: '',
 })
 
-const emit = defineEmits(['update:modelValue'])
-const model = computed({
-  get () {
-    return props.modelValue
-  },
-  set (val) {
-    emit('update:modelValue', val)
-  },
-})
-const radioClasses = computed(() => {
-  return radioDefaultClasses
-})
+const model = defineModel<string | number | boolean | null | undefined | (string | number | boolean | object)[]>()
 
-const labelClasses = computed(() => {
-  return twMerge(radioLabelClasses, props.disabled && 'text-gray-400 dark:text-gray-500')
+const { elementAttributes: radioAttributes } = useElementAttributes()
+
+const groupName = inject(radioGroupNameKey, undefined)
+const groupValidationStatus = inject(radioGroupValidationStatusKey, ref(undefined))
+
+const effectiveName = computed(() => props.name || groupName?.value || '')
+
+const inputAttributes = computed(() => ({
+  ...radioAttributes.value,
+  ...(groupValidationStatus.value === 'error' ? { 'aria-invalid': true } : {}),
+}))
+
+const { labelClass, radioClass, wrapperClass } = useRadioClasses({
+  ...toRefs(props),
+  validationStatus: groupValidationStatus,
 })
 </script>
