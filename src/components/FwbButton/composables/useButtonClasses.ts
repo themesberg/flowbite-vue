@@ -1,9 +1,9 @@
 import { computed, type ComputedRef, type Ref, useSlots } from 'vue'
 
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
+import type { ClassInput } from '@/types/global'
 
 import { useMergeClasses } from '@/composables/useMergeClasses'
-import type { ClassInput } from '@/types/global'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>, default: Record<T, string> }
 
