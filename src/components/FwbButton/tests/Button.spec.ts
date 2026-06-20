@@ -4,6 +4,8 @@ import { defineComponent, h } from 'vue'
 
 import FwbButton from '../FwbButton.vue'
 
+import type { ButtonSize } from '../types'
+
 const RouterLinkStub = defineComponent({
   name: 'RouterLink',
   props: { to: { type: [String, Object], required: true } },
@@ -55,7 +57,7 @@ describe('FwbButton', () => {
   })
 
   describe('sizes', () => {
-    const sizeClassMap: Record<string, string[]> = {
+    const sizeClassMap: Record<ButtonSize, string[]> = {
       xs: ['text-xs', 'px-2', 'py-1'],
       sm: ['text-sm', 'px-3', 'py-1.5'],
       md: ['text-sm', 'px-4', 'py-2'],

@@ -110,12 +110,12 @@ const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(toRefs(props
 
 const buttonComponent = computed(() => {
   if (props.to) {
-    try {
-      return resolveComponent('router-link')
-    } catch {
+    const resolved = resolveComponent('router-link')
+    if (typeof resolved === 'string') {
       console.warn('router-link component not found. Make sure vue-router is installed and properly configured.')
       return 'a'
     }
+    return resolved
   }
   if (props.href) {
     return props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
