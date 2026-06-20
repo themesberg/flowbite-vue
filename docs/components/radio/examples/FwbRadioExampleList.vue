@@ -1,40 +1,20 @@
 <template>
   <div class="vp-raw">
     <fwb-p class="mb-2">
-      Technology {{ picked }}
+      Selected: <em>{{ picked }}</em>
     </fwb-p>
 
     <fwb-list-group>
-      <fwb-list-group-item>
+      <fwb-list-group-item
+        v-for="option in options"
+        :key="option.value"
+      >
         <fwb-radio
           v-model="picked"
-          label="Svelte"
+          :label="option.label"
           name="list-radio"
-          value="Svelte"
-        />
-      </fwb-list-group-item>
-      <fwb-list-group-item>
-        <fwb-radio
-          v-model="picked"
-          label="Vue JS"
-          name="list-radio"
-          value="Vue JS"
-        />
-      </fwb-list-group-item>
-      <fwb-list-group-item>
-        <fwb-radio
-          v-model="picked"
-          label="React"
-          name="list-radio"
-          value="React"
-        />
-      </fwb-list-group-item>
-      <fwb-list-group-item>
-        <fwb-radio
-          v-model="picked"
-          label="Angular"
-          name="list-radio"
-          value="Angular"
+          :value="option.value"
+          wrapper-class="-mx-4 -my-2 w-full px-4 py-2"
         />
       </fwb-list-group-item>
     </fwb-list-group>
@@ -45,6 +25,13 @@
 import { ref } from 'vue'
 
 import { FwbListGroup, FwbListGroupItem, FwbP, FwbRadio } from '../../../../src/index'
+
+const options = [
+  { label: 'Angular', value: 'Angular' },
+  { label: 'React', value: 'React' },
+  { label: 'Svelte', value: 'Svelte' },
+  { label: 'Vue JS', value: 'Vue JS' },
+]
 
 const picked = ref('Vue JS')
 </script>

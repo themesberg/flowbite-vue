@@ -63,6 +63,7 @@ export { default as FwbCheckbox } from '@/components/FwbCheckbox/FwbCheckbox.vue
 export { default as FwbFileInput } from '@/components/FwbFileInput/FwbFileInput.vue'
 export { default as FwbInput } from '@/components/FwbInput/FwbInput.vue'
 export { default as FwbRadio } from '@/components/FwbRadio/FwbRadio.vue'
+export { default as FwbRadioGroup } from '@/components/FwbRadio/FwbRadioGroup.vue'
 export { default as FwbRange } from '@/components/FwbRange/FwbRange.vue'
 export { default as FwbSelect } from '@/components/FwbSelect/FwbSelect.vue'
 export { default as FwbTextarea } from '@/components/FwbTextarea/FwbTextarea.vue'
