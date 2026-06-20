@@ -47,7 +47,7 @@ describe('FwbRadio', () => {
 
   describe('native attribute passthrough', () => {
     it('passes extra attrs to the radio input, not the root label', () => {
-      const wrapper = mount(FwbRadio, { attrs: { form: 'signup', 'data-test': 'x' } })
+      const wrapper = mount(FwbRadio, { attrs: { 'form': 'signup', 'data-test': 'x' } })
       const radio = wrapper.find('input[type="radio"]')
       expect(radio.attributes('form')).toBe('signup')
       expect(radio.attributes('data-test')).toBe('x')

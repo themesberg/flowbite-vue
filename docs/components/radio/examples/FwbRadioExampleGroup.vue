@@ -1,6 +1,9 @@
 <template>
   <div class="vp-raw">
-    <fwb-radio-group name="fruit" label="Pick a fruit">
+    <fwb-radio-group
+      name="fruit"
+      label="Pick a fruit"
+    >
       <fwb-radio
         v-for="fruit in fruits"
         :key="fruit.value"

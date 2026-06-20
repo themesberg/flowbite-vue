@@ -23,9 +23,7 @@
 import { computed, inject, ref, toRefs } from 'vue'
 
 import { useRadioClasses } from './composables/useRadioClasses'
-import { radioGroupNameKey, radioGroupValidationStatusKey } from './types'
-
-import type { RadioProps } from './types'
+import { radioGroupNameKey, radioGroupValidationStatusKey, type RadioProps } from './types'
 
 import { useElementAttributes } from '@/composables/useElementAttributes'
 

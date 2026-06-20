@@ -1,6 +1,5 @@
-import type { InjectionKey, Ref } from 'vue'
-
 import type { ValidationStatus } from '@/types/form'
+import type { InjectionKey, Ref } from 'vue'
 
 export interface RadioProps {
   class?: string | Record<string, boolean>
@@ -8,7 +7,7 @@ export interface RadioProps {
   label?: string
   labelClass?: string | Record<string, boolean>
   name?: string
-  value?: string
+  value?: string | number | boolean | object
   wrapperClass?: string | Record<string, boolean>
 }
 

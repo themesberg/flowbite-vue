@@ -220,7 +220,7 @@ const picked = ref('vue')
 
 ## Bordered radio
 
-Wrap each `FwbRadio` in a bordered container to create a card-style selection option.
+Apply border styling directly to `FwbRadio` via `wrapper-class` to create a card-style selection option — no external wrapper element is needed.
 
 <fwb-radio-example-bordered />
 ```vue

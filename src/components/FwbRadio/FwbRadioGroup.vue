@@ -8,7 +8,9 @@
       v-if="label || $slots.legend"
       :class="legendClass"
     >
-      <slot name="legend">{{ label }}</slot>
+      <slot name="legend">
+        {{ label }}
+      </slot>
     </legend>
     <slot />
     <p
@@ -32,9 +34,7 @@
 import { provide, toRef, toRefs } from 'vue'
 
 import { useRadioGroupClasses } from './composables/useRadioGroupClasses'
-import { radioGroupNameKey, radioGroupValidationStatusKey } from './types'
-
-import type { RadioGroupProps } from './types'
+import { radioGroupNameKey, type RadioGroupProps, radioGroupValidationStatusKey } from './types'
 
 import { useElementAttributes } from '@/composables/useElementAttributes'
 import { useFormFieldIds } from '@/composables/useFormFieldIds'
