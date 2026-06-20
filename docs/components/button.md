@@ -26,7 +26,7 @@ import FwbButtonExampleSquare from './button/examples/FwbButtonExampleSquare.vue
 Original reference: [https://flowbite.com/docs/components/buttons/](https://flowbite.com/docs/components/buttons/)
 :::
 
-The button component is one of the most widely used elements in any user interface. Use `FwbButton` to trigger actions, submit forms, or navigate to other pages — with support for colors, sizes, gradients, outlines, loading states, and router-link integration.
+The button component is one of the most widely used elements in any user interface. Use `FwbButton` to trigger actions or navigate to other pages — with support for colors, sizes, gradients, outlines, loading states, and router-link integration. The component defaults to `type="button"` to prevent accidental form submission; pass `type="submit"` or `type="reset"` explicitly when form interaction is needed.
 
 ## Button colors
 

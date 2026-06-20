@@ -4,7 +4,7 @@
     :aria-busy="loading || undefined"
     :class="wrapperClasses"
     :disabled="(buttonComponent === 'button' && disabled) || undefined"
-    :type="buttonComponent === 'button' ? 'button' : undefined"
+    :type="buttonComponent === 'button' ? ((attrs.type as string) || 'button') : undefined"
     v-bind="linkAttr ? { [linkAttr]: linkValue } : {}"
   >
     <div
@@ -74,13 +74,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, resolveComponent, toRefs } from 'vue'
+import { computed, resolveComponent, toRefs, useAttrs } from 'vue'
 
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
 import { type ButtonProps } from './types'
 
 import FwbSpinner from '@/components/FwbSpinner/FwbSpinner.vue'
+
+const attrs = useAttrs()
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   class: '',
