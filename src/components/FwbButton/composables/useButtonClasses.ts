@@ -210,7 +210,7 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
     }
 
     let shadowClass = ''
-    if (props.shadow.value === '') {
+    if (props.shadow.value === '' || props.shadow.value === true) {
       // if shadow prop passed without value - try to find color for shadow by gradient
       if (props.gradient.value && simpleGradients.includes(props.gradient.value)) {
         shadowClass = buttonShadowClasses[props.gradient.value as unknown as keyof typeof buttonShadowClasses]

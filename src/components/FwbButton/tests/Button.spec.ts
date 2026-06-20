@@ -119,7 +119,7 @@ describe('FwbButton', () => {
   })
 
   describe('custom class', () => {
-    it('applies a custom string class and it wins over defaults via twMerge', () => {
+    it('applies a custom string class and it wins over defaults via useMergeClasses', () => {
       const wrapper = mount(FwbButton, { props: { class: 'bg-red-500' } })
       expect(wrapper.classes()).toContain('bg-red-500')
       expect(wrapper.classes()).not.toContain('bg-blue-700')
