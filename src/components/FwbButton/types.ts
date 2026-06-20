@@ -1,3 +1,5 @@
+import type { ClassInput } from '@/types/global'
+
 export type ButtonMonochromeGradient = 'blue' | 'green' | 'cyan' | 'teal' | 'lime' | 'red' | 'pink' | 'purple'
 export type ButtonDuotoneGradient = 'purple-blue' | 'cyan-blue' | 'green-blue' | 'purple-pink' | 'pink-orange' | 'teal-lime' | 'red-yellow'
 export type ButtonGradient = ButtonDuotoneGradient | ButtonMonochromeGradient
@@ -5,7 +7,7 @@ export type ButtonVariant = 'default' | 'alternative' | 'dark' | 'light' | 'gree
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 export interface ButtonProps {
-  class?: string | Record<string, boolean>
+  class?: ClassInput
   color?: ButtonVariant
   disabled?: boolean
   gradient?: ButtonGradient | null

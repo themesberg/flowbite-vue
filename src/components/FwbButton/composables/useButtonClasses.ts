@@ -3,6 +3,7 @@ import { computed, type ComputedRef, type Ref, useSlots } from 'vue'
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
 
 import { useMergeClasses } from '@/composables/useMergeClasses'
+import type { ClassInput } from '@/types/global'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>, default: Record<T, string> }
 
@@ -144,7 +145,7 @@ const buttonShadowClasses: Record<ButtonMonochromeGradient, string> = {
 }
 
 interface UseButtonClassesProps {
-  class: Ref<string | Record<string, boolean>>
+  class: Ref<ClassInput>
   color: Ref<ButtonVariant>
   disabled: Ref<boolean>
   gradient: Ref<ButtonGradient | null>
@@ -233,7 +234,8 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
       (slots.prefix || slots.suffix || props.loading.value) ? 'inline-flex items-center' : '',
     ].filter(Boolean).join(' ')
 
-    return useMergeClasses([baseClasses, props.class.value])
+    const userClass = useMergeClasses(props.class.value)
+    return useMergeClasses([baseClasses, userClass])
   })
 
   const spanClasses = computed(() => {

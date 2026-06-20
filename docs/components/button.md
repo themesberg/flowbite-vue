@@ -380,7 +380,7 @@ import { FwbButton } from 'flowbite-vue'
 
 | Name            | Type                                                                                                         | Default     | Description                                                                          |
 | --------------- | ------------------------------------------------------------------------------------------------------------ | ----------- | ------------------------------------------------------------------------------------ |
-| class           | `string \| Record<string, boolean>`                                                                          | `''`        | Additional classes merged onto the button via `useMergeClasses` — overrides default styles. |
+| class           | `string \| Record<string, boolean> \| Array<string \| Record<string, boolean>>`                              | `''`        | Additional classes merged onto the button via `useMergeClasses` — overrides default styles. |
 | color           | `'default' \| 'alternative' \| 'dark' \| 'light' \| 'green' \| 'red' \| 'yellow' \| 'purple' \| 'pink' \| 'blue'` | `'default'` | Button color variant. Ignored when `gradient` is set.                         |
 | disabled        | `Boolean`                                                                                                    | `false`     | Disables the button. Sets the `disabled` attribute on `<button>`; applies opacity on links. |
 | gradient        | `String`                                                                                                     | `null`      | Monochrome (`'blue'`, `'green'`, …) or duotone (`'purple-blue'`, …) gradient.        |
