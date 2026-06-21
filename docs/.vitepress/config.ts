@@ -45,35 +45,35 @@ function getComponents () {
     { text: 'Card', link: '/components/card.md' },
     { text: 'Carousel', link: '/components/carousel' },
     { text: 'Dropdown', link: '/components/dropdown' },
+    { text: 'Footer', link: '/components/footer' },
     { text: 'Jumbotron', link: '/components/jumbotron' },
-    { text: 'ListGroup', link: '/components/list-group' },
+    { text: 'List Group', link: '/components/list-group' },
+    { text: 'Modal', link: '/components/modal' },
+    { text: 'Navbar', link: '/components/navbar' },
     { text: 'Pagination', link: '/components/pagination' },
     { text: 'Progress', link: '/components/progress' },
     { text: 'Rating', link: '/components/rating' },
+    { text: 'Sidebar', link: '/components/sidebar' },
     { text: 'Spinner', link: '/components/spinner' },
     { text: 'Table', link: '/components/table' },
     { text: 'Tabs', link: '/components/tabs' },
     { text: 'Timeline', link: '/components/timeline' },
     { text: 'Toast', link: '/components/toast' },
     { text: 'Tooltip', link: '/components/tooltip' },
-    { text: 'Modal', link: '/components/modal' },
-    { text: 'Navbar', link: '/components/navbar' },
-    { text: 'Footer', link: '/components/footer' },
-    { text: 'Sidebar', link: '/components/sidebar' },
   ]
 }
 
 function getFormComponents () {
   return [
     { text: 'Autocomplete', link: '/components/autocomplete' },
-    { text: 'Input', link: '/components/input' },
+    { text: 'Checkbox', link: '/components/checkbox' },
     { text: 'File Input', link: '/components/fileInput' },
+    { text: 'Input', link: '/components/input' },
+    { text: 'Radio', link: '/components/radio' },
+    { text: 'Range', link: '/components/range' },
     { text: 'Select', link: '/components/select' },
     { text: 'Textarea', link: '/components/textarea' },
-    { text: 'Checkbox', link: '/components/checkbox' },
-    { text: 'Radio', link: '/components/radio' },
     { text: 'Toggle', link: '/components/toggle' },
-    { text: 'Range', link: '/components/range' },
   ]
 }
 
@@ -88,9 +88,9 @@ function getTypography () {
   return [
     { text: 'Blockquote', link: '/components/blockquote' },
     { text: 'Heading', link: '/components/heading' },
-    { text: 'Paragraph', link: '/components/paragraph' },
     { text: 'Image', link: '/components/image' },
     { text: 'Link', link: '/components/link' },
+    { text: 'Paragraph', link: '/components/paragraph' },
   ]
 }
 
