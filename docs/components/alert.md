@@ -11,12 +11,21 @@ import FwbAlertExampleType from './alert/examples/FwbAlertExampleType.vue'
 # Alert - Flowbite Vue
 
 #### Show contextual information to your users using alert elements based on Tailwind CSS
+
+---
+
+:::tip Alert - Flowbite
+Original reference: [https://flowbite.com/docs/components/alerts/](https://flowbite.com/docs/components/alerts/)
+:::
+
 The alert component can be used to provide information to your users such as success or error messages, but also highlighted information complementing the normal flow of paragraphs and headers on a page.
 
-## Default alert
-Use the following examples of alert components to show messages as feedback to your users.
+## Default Alert
+
+Use the `type` prop to set the alert color and intent. Available types are `info`, `warning`, `danger`, `dark`, and `success`.
 
 <fwb-alert-example-type />
+
 ```vue
 <template>
   <div class="grid gap-2">
@@ -43,10 +52,12 @@ import { FwbAlert } from 'flowbite-vue'
 </script>
 ```
 
-## Alerts with icon
-You can also include a descriptive icon to complement the message inside the alert component with the following example.
+## Alerts with Icon
+
+Add the `icon` prop to include a contextual icon that matches the alert type alongside the message.
 
 <fwb-alert-example-icon />
+
 ```vue
 <template>
   <div class="grid gap-2">
@@ -73,10 +84,12 @@ import { FwbAlert } from 'flowbite-vue'
 </script>
 ```
 
-## Bordered alerts
-Use this example to add a border accent to the alert component instead of just a plain background.
+## Bordered Alerts
+
+Add the `border` prop to apply a border accent to the alert instead of a plain background fill.
 
 <fwb-alert-example-border />
+
 ```vue
 <template>
   <div class="grid gap-2">
@@ -103,10 +116,12 @@ import { FwbAlert } from 'flowbite-vue'
 </script>
 ```
 
-## Border accent
-Use this example to add a border accent on top of the alert component for further visual distinction.
+## Border Accent
+
+Use Tailwind's `border-t-4` and `rounded-none` utility classes via the `class` prop to add a top border accent for additional visual distinction.
 
 <fwb-alert-example-border-accent />
+
 ```vue
 <template>
   <div class="vp-raw grid gap-2">
@@ -117,10 +132,10 @@ Use this example to add a border accent on top of the alert component for furthe
       Warning alert! Change a few things up and try submitting again.
     </fwb-alert>
     <fwb-alert class="border-t-4 rounded-none" icon type="danger">
-      Info Danger alert! Change a few things up and try submitting again.
+      Danger alert! Change a few things up and try submitting again.
     </fwb-alert>
     <fwb-alert class="border-t-4 rounded-none" icon type="dark">
-      Info Dark alert! Change a few things up and try submitting again.
+      Dark alert! Change a few things up and try submitting again.
     </fwb-alert>
     <fwb-alert class="border-t-4 rounded-none" icon type="success">
       Success alert! Change a few things up and try submitting again.
@@ -133,10 +148,12 @@ import { FwbAlert } from 'flowbite-vue'
 </script>
 ```
 
-## Alerts with list
-Use this example to show a list and a description inside an alert component.
+## Alerts with List
+
+Use the default slot to place structured content such as a heading and a list inside the alert component.
 
 <fwb-alert-example-list />
+
 ```vue
 <template>
   <div class="vp-raw grid gap-2">
@@ -165,13 +182,12 @@ import { FwbAlert } from 'flowbite-vue'
 ```
 
 ## Dismissing
-Use the following alert elements that are also dismissable.
+
+Add the `closable` prop to render a close button on the alert. Clicking it emits a `close` event that you can use to remove the alert from the DOM.
 
 <fwb-alert-example-dismissable />
+
 ```vue
-<script setup>
-import { Alert } from 'flowbite-vue'
-</script>
 <template>
   <div class="vp-raw grid gap-2">
     <fwb-alert closable icon type="info">
@@ -197,8 +213,9 @@ import { FwbAlert } from 'flowbite-vue'
 </script>
 ```
 
-## Additional content
-The following alert components can be used if you wish to disclose more information inside the element.
+## Additional Content
+
+Use the `icon`, `title`, and default slots together to build a richer alert layout with a heading, extended body text, and action buttons. The default slot exposes an `onCloseClick` handler for wiring up a dismiss button.
 
 <fwb-alert-example-custom-content />
 
@@ -264,25 +281,28 @@ import { FwbAlert, FwbButton } from 'flowbite-vue'
 </script>
 ```
 
-## API
+## Alert component API
 
-### Props
-| Name     | Values                                        | Default |
-|----------|-----------------------------------------------|---------|
-| type     | `info`, `danger`, `success`,`warning`, `dark` | `info`  |
-| closable | `boolean`                                     | `false` |
-| icon     | `boolean`                                     | `false` |
-| border   | `boolean`                                     | `false` |
+### FwbAlert Props
 
-### Events
-| Name  | Description          |
-|-------|----------------------|
-| close | Close button pressed |
+| Name     | Type                                                      | Default  | Description                                          |
+| -------- | --------------------------------------------------------- | -------- | ---------------------------------------------------- |
+| type     | `'info' \| 'danger' \| 'success' \| 'warning' \| 'dark'` | `'info'` | Sets the color scheme and semantic intent.           |
+| closable | `Boolean`                                                 | `false`  | Renders a close button on the alert.                 |
+| icon     | `Boolean`                                                 | `false`  | Renders a contextual icon matching the type.         |
+| border   | `Boolean`                                                 | `false`  | Adds a border accent instead of a plain background.  |
 
-### Slots
-| Name       | Description       |
-|------------|-------------------|
-| default    | alert content     |
-| close-icon | custom close icon |
-| icon       | custom icon       |
-| title      | title content     |
+### FwbAlert Events
+
+| Name  | Description                               |
+| ----- | ----------------------------------------- |
+| close | Emitted when the close button is clicked. |
+
+### FwbAlert Slots
+
+| Name       | Description                                                                  |
+| ---------- | ---------------------------------------------------------------------------- |
+| default    | Alert body content. Exposes `onCloseClick` for wiring up a dismiss button.   |
+| close-icon | Custom icon for the close button.                                            |
+| icon       | Custom icon replacing the default type icon.                                 |
+| title      | Title content rendered above the body.                                       |

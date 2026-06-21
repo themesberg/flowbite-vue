@@ -23,7 +23,7 @@ Original reference: [https://flowbite.com/docs/forms/file-input/](https://flowbi
 
 The file input component can be used to upload one or more files from a device, with multiple sizes, styles, and variants built using the utility-first classes from Tailwind CSS including support for dark mode.
 
-## File upload example
+## Default File Input
 
 Get started with a simple file input component to let users upload a single file.
 
@@ -67,6 +67,8 @@ const file = ref(null)
 ```
 
 ## Disabled
+
+Add the `disabled` prop to prevent the user from interacting with the file input.
 
 <fwb-file-input-example-disabled />
 
@@ -209,7 +211,9 @@ const file = ref(null)
 </script>
 ```
 
-## Dropzone multiple
+## Dropzone Multiple
+
+Use the `multiple` prop together with `dropzone` to allow uploading several files at once via drag-and-drop.
 
 <fwb-file-input-example-drop-zone-multiple />
 

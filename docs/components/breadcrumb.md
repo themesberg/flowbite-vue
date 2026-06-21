@@ -3,14 +3,25 @@ import FwbBreadcrumbExample from './breadcrumb/examples/FwbBreadcrumbExample.vue
 import FwbBreadcrumbExampleSolid from './breadcrumb/examples/FwbBreadcrumbExampleSolid.vue'
 import FwbBreadcrumbExampleCustomIcons from './breadcrumb/examples/FwbBreadcrumbExampleCustomIcons.vue'
 </script>
+
 # Breadcrumb - Flowbite Vue
-The breadcrumb component is an important part of any website or application that can be used to show the current location of a page in a hierarchical structure of pages.
 
-Flowbite includes two styles of breadcrumb elements, one that has a transparent background and a few more that come with a background in different colors.
+#### Show the location of the current page in a hierarchical structure using the Tailwind CSS breadcrumb components
 
-## Default breadcrumb
+---
+
+:::tip Breadcrumb - Flowbite
+Original reference: [https://flowbite.com/docs/components/breadcrumb/](https://flowbite.com/docs/components/breadcrumb/)
+:::
+
+The breadcrumb component is an important part of any website or application that can be used to show the current location of a page in a hierarchical structure of pages. Flowbite Vue includes two styles — one with a transparent background and one with a solid background color.
+
+## Default Breadcrumb
+
+Use `FwbBreadcrumb` as a wrapper and `FwbBreadcrumbItem` for each crumb. Add the `home` prop on the first item to show a home icon, and `href` to make any item a link.
 
 <fwb-breadcrumb-example />
+
 ```vue
 <template>
   <fwb-breadcrumb>
@@ -33,7 +44,10 @@ import { FwbBreadcrumb, FwbBreadcrumbItem } from 'flowbite-vue'
 
 ## Solid Breadcrumb
 
+Add the `solid` prop to `FwbBreadcrumb` to apply a filled background with a border and shadow, making the breadcrumb stand out from the page.
+
 <fwb-breadcrumb-example-solid />
+
 ```vue
 <template>
   <fwb-breadcrumb solid>
@@ -56,7 +70,10 @@ import { FwbBreadcrumb, FwbBreadcrumbItem } from 'flowbite-vue'
 
 ## Custom Icons
 
+Use the `#home-icon` slot to replace the default home icon, and the `#arrow-icon` slot to replace the default chevron separator between items.
+
 <fwb-breadcrumb-example-custom-icons />
+
 ```vue
 <template>
   <fwb-breadcrumb>
@@ -91,3 +108,26 @@ import { FwbBreadcrumb, FwbBreadcrumbItem } from 'flowbite-vue'
 import { FwbBreadcrumb, FwbBreadcrumbItem } from 'flowbite-vue'
 </script>
 ```
+
+## Breadcrumb component API
+
+### FwbBreadcrumb Props
+
+| Name  | Type      | Default | Description                                                              |
+| ----- | --------- | ------- | ------------------------------------------------------------------------ |
+| solid | `Boolean` | `false` | Applies a filled background, border, and shadow to the breadcrumb trail. |
+
+### FwbBreadcrumbItem Props
+
+| Name | Type      | Default | Description                                                        |
+| ---- | --------- | ------- | ------------------------------------------------------------------ |
+| href | `String`  | `null`  | When set, renders the item as an `<a>` element instead of `<span>`. |
+| home | `Boolean` | `false` | Marks this item as the home crumb and renders the home icon.        |
+
+### FwbBreadcrumbItem Slots
+
+| Name       | Description                                              |
+| ---------- | -------------------------------------------------------- |
+| default    | The crumb label text.                                    |
+| home-icon  | Custom icon shown when `home` is `true`.                 |
+| arrow-icon | Custom separator icon shown before non-home items.       |

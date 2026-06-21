@@ -8,17 +8,22 @@ import FwbAccordionExampleStyling from './accordion/examples/FwbAccordionExample
 
 # Accordion - Flowbite Vue
 
-#### Use Tailwind CSS accordion component to show expanding content
+#### Use the accordion component to show hidden information based on the collapse and expand state of the child elements using data attribute options
+
 ---
 
-:::tip
+:::tip Accordion - Flowbite
 Original reference: [https://flowbite.com/docs/components/accordion/](https://flowbite.com/docs/components/accordion/)
 :::
 
+The accordion component is built from four composable sub-components: `FwbAccordion` as the root wrapper, `FwbAccordionPanel` for each collapsible section, `FwbAccordionHeader` for the clickable trigger, and `FwbAccordionContent` for the body. By default the first panel opens on render and only one panel can be open at a time.
+
 ## Basic Accordion
-A simple accordion example.
+
+The default accordion opens the first panel and collapses all others when a new panel is activated.
 
 <fwb-accordion-example />
+
 ```vue
 <template>
   <fwb-accordion>
@@ -79,10 +84,12 @@ import {
 </script>
 ```
 
-## Persistent Accordion Items
-By default, only one accordion item can be open at a time.  Use the `persistent` prop to enable the opening of multiple items concurrently.
+## Always Open
+
+Add the `persistent` prop to `FwbAccordion` to allow multiple panels to remain open simultaneously instead of collapsing when another is activated.
 
 <fwb-accordion-example-persistent />
+
 ```vue
 <template>
   <fwb-accordion persistent>
@@ -143,10 +150,12 @@ import {
 </script>
 ```
 
-## Flushed Accordion
-The `flushed` prop removes background color, side borders, and rounded corners, creating a flush appearance.
+## Flush Accordion
+
+Add the `flushed` prop to remove the background color, side borders, and rounded corners so the accordion blends flush with its surrounding content.
 
 <fwb-accordion-example-flushed />
+
 ```vue
 <template>
   <fwb-accordion flushed>
@@ -207,10 +216,12 @@ import {
 </script>
 ```
 
-## Initialy Collapsed
-The `collapsed` prop allows you to set an accordion to be fully collapsed by default.
+## Initially Collapsed
+
+Add the `collapsed` prop to start all panels closed. Without it, the first panel opens by default on render.
 
 <fwb-accordion-example-collapsed />
+
 ```vue
 <template>
   <fwb-accordion collapsed>
@@ -261,7 +272,6 @@ The `collapsed` prop allows you to set an accordion to be fully collapsed by def
   </fwb-accordion>
 </template>
 
-
 <script setup>
 import {
   FwbAccordion,
@@ -272,11 +282,12 @@ import {
 </script>
 ```
 
-## Styling Accordions
-Use dedicated `class` and `activeClass` props to style accordion components with Tailwind CSS. The `FwbAccordionPanel` component emits `show` and `hide` events on visibility change.
+## Custom Styling
 
-_Advanced styling example:_
+Use the `class` and `activeClass` props on `FwbAccordionPanel`, `FwbAccordionHeader`, and `FwbAccordionContent` to override default Tailwind classes. `FwbAccordionPanel` also emits `show` and `hide` events whenever its visibility changes, which is useful for driving reactive state in the parent.
+
 <fwb-accordion-example-styling />
+
 ```vue
 <template>
   <fwb-accordion>
@@ -315,37 +326,44 @@ const panels = ref([
   { isVisible: false, content: 'Lorem ipsum...' },
   { isVisible: false, content: 'Lorem ipsum...' },
 ])
-
 </script>
 ```
 
-## Accordion components API
+## Accordion component API
 
 ### FwbAccordion Props
-| Name  | Type             | Default |
-| ----- | ---------------- | ------- |
-| class | String \| Object | `''`    |
+
+| Name       | Type               | Default | Description                                                  |
+| ---------- | ------------------ | ------- | ------------------------------------------------------------ |
+| class      | `String \| Object` | `''`    | Applied to the accordion wrapper element.                    |
+| collapsed  | `Boolean`          | `false` | Starts all panels closed instead of opening the first.       |
+| flushed    | `Boolean`          | `false` | Removes background color, side borders, and rounded corners. |
+| persistent | `Boolean`          | `false` | Allows multiple panels to be open simultaneously.            |
 
 ### FwbAccordionPanel Props
-| Name        | Type             | Default |
-| ----------- | ---------------- | ------- |
-| class       | String \| Object | `''`    |
-| activeClass | String \| Object | `''`    |
+
+| Name        | Type               | Default | Description                                       |
+| ----------- | ------------------ | ------- | ------------------------------------------------- |
+| class       | `String \| Object` | `''`    | Applied to the panel wrapper element.             |
+| activeClass | `String \| Object` | `''`    | Applied to the panel wrapper when it is expanded. |
 
 ### FwbAccordionPanel Events
+
 | Name | Description                                       |
 | ---- | ------------------------------------------------- |
 | show | Emitted when panel visibility changes to visible. |
 | hide | Emitted when panel visibility changes to hidden.  |
 
 ### FwbAccordionHeader Props
-| Name        | Type             | Default |
-| ----------- | ---------------- | ------- |
-| class       | String \| Object | `''`    |
-| activeClass | String \| Object | `''`    |
+
+| Name        | Type               | Default | Description                                               |
+| ----------- | ------------------ | ------- | --------------------------------------------------------- |
+| class       | `String \| Object` | `''`    | Applied to the header button element.                     |
+| activeClass | `String \| Object` | `''`    | Applied to the header button when its panel is expanded.  |
 
 ### FwbAccordionContent Props
-| Name        | Type             | Default |
-| ----------- | ---------------- | ------- |
-| class       | String \| Object | `''`    |
-| activeClass | String \| Object | `''`    |
+
+| Name        | Type               | Default | Description                                            |
+| ----------- | ------------------ | ------- | ------------------------------------------------------ |
+| class       | `String \| Object` | `''`    | Applied to the content wrapper element.                |
+| activeClass | `String \| Object` | `''`    | Applied to the content wrapper when its panel is open. |
