@@ -144,7 +144,7 @@ const activeTab = ref('first')
 
 ## Tab Pane Interaction
 
-Listen to the `click:pane` event on `FwbTabs` to intercept tab button clicks before the active tab changes.
+Listen to the `click:pane` event on `FwbTabs` to be notified when a tab button is clicked. The event carries no payload and fires after the active tab has already changed.
 
 <fwb-tabs-example-interaction />
 ```vue
@@ -190,7 +190,7 @@ const handlePaneClick = () => { console.log('Click!') }
 | Name               | Description                                                          |
 | ------------------ | -------------------------------------------------------------------- |
 | update:modelValue  | Emitted with the new tab name when the active tab changes.           |
-| click:pane         | Emitted with the tab name when a tab button is clicked.              |
+| click:pane         | Emitted when a tab button is clicked (no payload); fires after the active tab has changed. |
 
 ### FwbTabs Slots
 
