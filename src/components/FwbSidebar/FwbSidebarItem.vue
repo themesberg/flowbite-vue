@@ -1,7 +1,7 @@
 <template>
   <component
     :is="component"
-    :[linkAttr]="link"
+    :[linkAttr]="linkValue"
     class="group flex items-center rounded-lg p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
   >
     <slot name="icon" />
@@ -31,4 +31,5 @@ const props = withDefaults(
 const resolved = props.tag === 'a' ? 'a' : resolveComponent(props.tag)
 const component = typeof resolved === 'string' ? 'a' : resolved
 const linkAttr = component === 'a' ? 'href' : 'to'
+const linkValue = component === 'a' && typeof props.link !== 'string' ? '/' : props.link
 </script>

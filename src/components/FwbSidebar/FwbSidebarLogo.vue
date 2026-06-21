@@ -1,7 +1,7 @@
 <template>
   <component
     :is="component"
-    :[linkAttr]="link"
+    :[linkAttr]="linkValue"
     class="mb-5 flex items-center pl-2.5"
   >
     <img
@@ -36,4 +36,5 @@ const props = withDefaults(
 const resolved = props.tag === 'a' ? 'a' : resolveComponent(props.tag)
 const component = typeof resolved === 'string' ? 'a' : resolved
 const linkAttr = component === 'a' ? 'href' : 'to'
+const linkValue = component === 'a' && typeof props.link !== 'string' ? '/' : props.link
 </script>
