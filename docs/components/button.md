@@ -30,7 +30,7 @@ The button component is one of the most widely used elements in any user interfa
 
 ## Button colors
 
-Use the `color` prop to select from ten predefined color variants. The default color is blue.
+Use the `color` prop to select a color variant. The default is blue (`color="default"` and `color="blue"` produce identical styling).
 
 <fwb-button-example-color />
 ```vue
@@ -178,7 +178,7 @@ import { FwbButton } from 'flowbite-vue'
 
 ## Button shadows
 
-Use the `shadow` prop with a monochrome gradient color name to add a colored drop shadow beneath the button.
+Use the `shadow` prop to add a colored drop shadow beneath the button. Pass a monochrome gradient color name to set an explicit shadow color, or pass `shadow` as a boolean to infer the color from the active `gradient`.
 
 <fwb-button-example-shadow />
 ```vue
