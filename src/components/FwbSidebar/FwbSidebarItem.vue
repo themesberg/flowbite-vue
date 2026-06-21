@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { resolveComponent } from 'vue'
+import { computed, resolveComponent } from 'vue'
 const props = withDefaults(
   defineProps<{
     link?: string | Record<string, unknown>
@@ -28,8 +28,8 @@ const props = withDefaults(
   },
 )
 
-const resolved = props.tag === 'a' ? 'a' : resolveComponent(props.tag)
-const component = typeof resolved === 'string' ? 'a' : resolved
-const linkAttr = component === 'a' ? 'href' : 'to'
-const linkValue = component === 'a' && typeof props.link !== 'string' ? '/' : props.link
+const resolved = computed(() => props.tag === 'a' ? 'a' : resolveComponent(props.tag))
+const component = computed(() => typeof resolved.value === 'string' ? 'a' : resolved.value)
+const linkAttr = computed(() => component.value === 'a' ? 'href' : 'to')
+const linkValue = computed(() => component.value === 'a' && typeof props.link !== 'string' ? '/' : props.link)
 </script>
