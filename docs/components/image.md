@@ -7,13 +7,23 @@ import FwbImgExampleGrayscale from './typography/image/FwbImgExampleGrayscale.vu
 import FwbImgExampleCustom from './typography/image/FwbImgExampleCustom.vue'
 </script>
 
-# Vue Images - Flowbite
+# Images - Flowbite Vue
 
 #### The image component can be used to embed images inside the web page in articles and sections based on multiple styles, sizes, layouts and hover animations
 
-## Default image
+---
 
-Use this example to show the a responsive image that won’t grow beyond the maximum original width.
+:::tip Images - Flowbite
+Original reference: [https://flowbite.com/docs/typography/images/](https://flowbite.com/docs/typography/images/)
+:::
+
+The image component can be used to display responsive images with support for captions, custom sizes, alignment, grayscale filters, and hover effects — all styled with Tailwind CSS utility classes.
+
+## Default Image
+
+Use `FwbImg` to render a responsive image that won't grow beyond its original width. Provide `src` and `alt` for basic usage.
+
+<fwb-img-example />
 
 ```vue
 <template>
@@ -27,11 +37,12 @@ Use this example to show the a responsive image that won’t grow beyond the max
 import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-<fwb-img-example />
 
-## Image caption
+## Image Caption
 
-This example can be used to add a caption for the image often used inside articles. Use `caption-class` to override the cation.
+Use the `caption` prop to display a centered caption below the image, rendered inside a `<figcaption>` element. Use `captionClass` to override the caption styling.
+
+<fwb-img-example-caption />
 
 ```vue
 <template>
@@ -46,12 +57,12 @@ This example can be used to add a caption for the image often used inside articl
 import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-<fwb-img-example-caption />
-
 
 ## Sizes
 
-Set the size of the image using the `w-size` and `h-size` or `max-w-size` utility classes from Tailwind CSS to set the width and height of the element.
+Use the `size` prop to apply a Tailwind max-width or width utility and constrain the image dimensions.
+
+<fwb-img-example-size />
 
 ```vue
 <template>
@@ -66,11 +77,12 @@ Set the size of the image using the `w-size` and `h-size` or `max-w-size` utilit
 import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-<fwb-img-example-size />
 
 ## Alignment
 
-Align the image component to the center or right side of the document page using `mx-auto` and `ml-auto` margin styles.
+Use the `alignment` prop to apply a Tailwind margin utility such as `mx-auto` (center) or `ml-auto` (right) to position the image horizontally.
+
+<fwb-img-example-align />
 
 ```vue
 <template>
@@ -86,11 +98,12 @@ Align the image component to the center or right side of the document page using
 import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-<fwb-img-example-align />
 
 ## Grayscale
 
-Use the filter option and apply a grayscale to the image element using the grayscale class.
+Use `imgClass` to apply Tailwind filter utilities. The example below uses `grayscale` by default and removes it on hover.
+
+<fwb-img-example-grayscale />
 
 ```vue
 <template>
@@ -106,11 +119,12 @@ Use the filter option and apply a grayscale to the image element using the grays
 import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-<fwb-img-example-grayscale />
 
-## Custom classes
+## Custom Classes
 
-Use the `img-class` prop to apply tailwind classes.
+Use the `imgClass` prop to apply any Tailwind utility classes directly to the `<img>` element.
+
+<fwb-img-example-custom />
 
 ```vue
 <template>
@@ -126,4 +140,17 @@ Use the `img-class` prop to apply tailwind classes.
 import { FwbImg } from 'flowbite-vue'
 </script>
 ```
-<fwb-img-example-custom />
+
+## Image component API
+
+### FwbImg Props
+
+| Name         | Type     | Default                                                    | Description                                                                          |
+| ------------ | -------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| alt          | `String` | `''`                                                       | Alt text for the image element.                                                      |
+| alignment    | `String` | `''`                                                       | Tailwind margin utility for horizontal positioning (e.g. `mx-auto`, `ml-auto`).      |
+| caption      | `String` | `''`                                                       | When set, wraps the image in a `<figure>` and renders a `<figcaption>`.              |
+| captionClass | `String` | `'mt-2 text-sm text-center text-gray-500 dark:text-gray-400'` | Tailwind classes applied to the `<figcaption>` element.                          |
+| imgClass     | `String` | `'h-auto'`                                                 | Additional Tailwind classes applied directly to the `<img>` element.                 |
+| size         | `String` | `'max-w-full'`                                             | Tailwind size utility applied to both the image and the figure wrapper (if shown).   |
+| src          | `String` | `''`                                                       | URL of the image to display.                                                         |

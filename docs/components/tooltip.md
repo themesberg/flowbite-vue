@@ -5,11 +5,25 @@ import FwbTooltipExampleStyle from './tooltip/examples/FwbTooltipExampleStyle.vu
 import FwbTooltipExampleGroup from './tooltip/examples/FwbTooltipExampleGroup.vue'
 import FwbTooltipExampleTrigger from './tooltip/examples/FwbTooltipExampleTrigger.vue'
 </script>
-# Vue Tooltip - Flowbite
 
-## Demo
+# Tooltip - Flowbite Vue
+
+#### Use the tooltip component to show additional information when hovering over an element based on Tailwind CSS utility classes
+
+---
+
+:::tip Tooltip - Flowbite
+Original reference: [https://flowbite.com/docs/components/tooltips/](https://flowbite.com/docs/components/tooltips/)
+:::
+
+The tooltip component can be used to show additional information when hovering over an element, with support for multiple placement positions, light and dark styles, and custom trigger events.
+
+## Default
+
+Use `FwbTooltip` with a `trigger` slot (the element that opens the tooltip) and a `content` slot (the tooltip text). By default the tooltip appears on hover and is positioned above the trigger.
 
 <fwb-tooltip-example />
+
 ```vue
 <template>
   <fwb-tooltip>
@@ -29,11 +43,12 @@ import { FwbButton, FwbTooltip } from 'flowbite-vue'
 </script>
 ```
 
-## Tooltip styles
+## Styles
 
-You can use choose between dark and light version styles for the tooltip component by changing the utility classes from Tailwind CSS and by applying the `tooltip-light` or `tooltip-dark` attribute.
+Use the `theme` prop to switch between `'dark'` (default) and `'light'` tooltip backgrounds.
 
 <fwb-tooltip-example-style />
+
 ```vue
 <template>
   <fwb-tooltip theme="light">
@@ -65,10 +80,10 @@ import { FwbButton, FwbTooltip } from 'flowbite-vue'
 
 ## Placement
 
-The positioning of the tooltip element relative to the triggering element (eg. button, link) can be set using placement attribute with `top`, `top-start` , `top-end`, `bottom`, `bottom-start`, `bottom-end`, `right`, `right-start`, `right-end`, `left`, `left-start`, `left-end`, `auto`, `auto-start`,  `auto-end`.
-The default value is: `top`
+Use the `placement` prop to control where the tooltip appears relative to its trigger. Accepted values include `'top'`, `'bottom'`, `'left'`, `'right'`, and their `-start` / `-end` variants, as well as `'auto'`.
 
 <fwb-tooltip-example-position />
+
 ```vue
 <template>
   <fwb-tooltip placement="top">
@@ -120,9 +135,10 @@ import { FwbButton, FwbTooltip } from 'flowbite-vue'
 
 ## Inside of Button Group
 
-You can use the tooltip component inside of the button group component.
+`FwbTooltip` can be nested inside `FwbButtonGroup` — the trigger slot wraps any button in the group.
 
 <fwb-tooltip-example-group />
+
 ```vue
 <template>
   <fwb-button-group>
@@ -143,16 +159,16 @@ You can use the tooltip component inside of the button group component.
 </template>
 
 <script setup>
-import { FwbButton, FwbButtonGroup, FwbTooltip } from '../../../../src/index'
+import { FwbButton, FwbButtonGroup, FwbTooltip } from 'flowbite-vue'
 </script>
 ```
 
+## Trigger Type
 
-## triggerType
-
-You can choose the triggering event by using the `hover` or `click` attributes to choose whether you want to show the tooltip when hovering or clicking on the element. By default this option is set to `click`.
+Set `trigger="click"` to open the tooltip on click instead of the default hover behaviour.
 
 <fwb-tooltip-example-trigger />
+
 ```vue
 <template>
   <fwb-tooltip>
@@ -177,7 +193,24 @@ You can choose the triggering event by using the `hover` or `click` attributes t
   </fwb-tooltip>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { FwbButton, FwbTooltip } from 'flowbite-vue'
 </script>
 ```
+
+## Tooltip component API
+
+### FwbTooltip Props
+
+| Name      | Type                                                                                                                                                                        | Default  | Description                                                                  |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------- |
+| placement | `'auto' \| 'auto-start' \| 'auto-end' \| 'top' \| 'top-start' \| 'top-end' \| 'bottom' \| 'bottom-start' \| 'bottom-end' \| 'right' \| 'right-start' \| 'right-end' \| 'left' \| 'left-start' \| 'left-end'` | `'top'` | Where the tooltip appears relative to its trigger element. |
+| theme     | `'dark' \| 'light'`                                                                                                                                                         | `'dark'` | Visual style of the tooltip bubble.                                          |
+| trigger   | `'hover' \| 'click'`                                                                                                                                                        | `'hover'` | Event that opens the tooltip.                                                |
+
+### FwbTooltip Slots
+
+| Name    | Description                                      |
+| ------- | ------------------------------------------------ |
+| trigger | The element that opens and anchors the tooltip.  |
+| content | The text or markup shown inside the tooltip.     |

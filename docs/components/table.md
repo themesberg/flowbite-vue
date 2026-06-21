@@ -4,17 +4,22 @@ import FwbTableExampleHoverable from './table/examples/FwbTableExampleHoverable.
 import FwbTableExampleStriped from './table/examples/FwbTableExampleStriped.vue'
 import FwbTableExampleStripedColumns from './table/examples/FwbTableExampleStripedColumns.vue'
 </script>
-# Vue Table - Flowbite
 
-#### Button groups are a Tailwind CSS powered set of buttons sticked together in a horizontal line
+# Table - Flowbite Vue
+
+#### Use the table component to display structured data in rows and columns with support for striped rows, striped columns, and hoverable row highlights
 
 ---
 
-:::tip
+:::tip Table - Flowbite
 Original reference: [https://flowbite.com/docs/components/tables/](https://flowbite.com/docs/components/tables/)
 :::
 
-## Basic example
+The table component can be used to display structured data in rows and columns, with Tailwind CSS styling for striped rows, striped columns, and hoverable row highlights — all compatible with dark mode.
+
+## Default
+
+Use `FwbTable` with `FwbTableHead`, `FwbTableBody`, `FwbTableRow`, `FwbTableHeadCell`, and `FwbTableCell` to compose a structured data table.
 
 <fwb-table-example />
 ```vue
@@ -80,7 +85,9 @@ import {
 </script>
 ```
 
-## Striped example
+## Striped Rows
+
+Add the `striped` prop to apply alternating background colors to table rows, making the data easier to read.
 
 <fwb-table-example-striped />
 ```vue
@@ -147,7 +154,9 @@ import {
 
 ```
 
-## Striped columns example
+## Striped Columns
+
+Add the `striped-columns` prop to apply alternating background colors to columns instead of rows.
 
 <fwb-table-example-striped-columns />
 ```vue
@@ -211,7 +220,9 @@ import {
 </script>
 ```
 
-## Hoverable example
+## Hoverable
+
+Add the `hoverable` prop to highlight the row under the cursor, useful for interactive tables.
 
 <fwb-table-example-hoverable />
 ```vue
@@ -276,3 +287,49 @@ import {
 } from 'flowbite-vue'
 </script>
 ```
+
+## Table component API
+
+### FwbTable Props
+
+| Name           | Type      | Default | Description                                               |
+| -------------- | --------- | ------- | --------------------------------------------------------- |
+| hoverable      | `Boolean` | `false` | Highlights the row under the cursor on hover.             |
+| striped        | `Boolean` | `false` | Applies alternating background colors to rows.            |
+| stripedColumns | `Boolean` | `false` | Applies alternating background colors to columns.         |
+
+### FwbTable Slots
+
+| Name    | Description                                                        |
+| ------- | ------------------------------------------------------------------ |
+| default | Table content — `FwbTableHead` and `FwbTableBody` elements.       |
+
+### FwbTableHead Slots
+
+| Name    | Description                              |
+| ------- | ---------------------------------------- |
+| default | One or more `FwbTableHeadCell` elements. |
+
+### FwbTableHeadCell Slots
+
+| Name    | Description          |
+| ------- | -------------------- |
+| default | Header cell content. |
+
+### FwbTableBody Slots
+
+| Name    | Description                         |
+| ------- | ----------------------------------- |
+| default | One or more `FwbTableRow` elements. |
+
+### FwbTableRow Slots
+
+| Name    | Description                          |
+| ------- | ------------------------------------ |
+| default | One or more `FwbTableCell` elements. |
+
+### FwbTableCell Slots
+
+| Name    | Description        |
+| ------- | ------------------ |
+| default | Data cell content. |

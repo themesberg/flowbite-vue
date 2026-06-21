@@ -13,7 +13,7 @@ import FwbInputExampleTypes from './input/examples/FwbInputExampleTypes.vue'
 import FwbInputExampleValidation from './input/examples/FwbInputExampleValidation.vue'
 </script>
 
-# Vue Input Field - Flowbite
+# Input Field - Flowbite Vue
 
 #### Get started with a collection of input fields built with Tailwind CSS to start accepting data from the user based on multiple sizes, variants, and input types
 
@@ -27,7 +27,9 @@ The input field is an important part of the form element that can be used to cre
 
 On this page you will find all of the input types based on multiple variants, styles, colors, and sizes built with the utility classes from Tailwind CSS and components from Flowbite.
 
-## Input
+## Default Input
+
+Use `v-model` to bind the input value and the `label` prop to set the visible label text.
 
 <fwb-input-example />
 ```vue
@@ -48,7 +50,9 @@ const name = ref('')
 
 ```
 
-## Input sizes
+## Input Sizes
+
+Use the `size` prop to control the input's padding and font size. Available sizes are `sm`, `md` (default), `lg`, and `xl`.
 
 <fwb-input-example-size />
 ```vue
@@ -116,7 +120,9 @@ const url = ref('')
 
 ```
 
-## Disabled state
+## Disabled State
+
+Add the `disabled` prop to prevent the user from interacting with the input.
 
 <fwb-input-example-disabled />
 ```vue
@@ -212,6 +218,8 @@ const name = ref('')
 
 ## Slot - Helper
 
+Use the `helper` slot to render supplemental text below the input, such as privacy notices or format hints.
+
 <fwb-input-example-helper />
 ```vue
 <template>
@@ -263,6 +271,8 @@ const name = ref('')
 ```
 
 ## Slot - Suffix
+
+Use the `suffix` slot to place an icon or button on the right side of the input, such as a search button.
 
 <fwb-input-example-suffix />
 ```vue

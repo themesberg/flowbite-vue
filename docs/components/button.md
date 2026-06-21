@@ -16,13 +16,13 @@ import FwbButtonExampleSlotSuffix from './button/examples/FwbButtonExampleSlotSu
 import FwbButtonExampleSquare from './button/examples/FwbButtonExampleSquare.vue'
 </script>
 
-# Vue Button - Flowbite
+# Button - Flowbite Vue
 
 #### Use the button component inside forms, as links, social login, payment options with support for multiple styles, colors, sizes, gradients, and shadows
 
 ---
 
-:::tip
+:::tip Button - Flowbite
 Original reference: [https://flowbite.com/docs/components/buttons/](https://flowbite.com/docs/components/buttons/)
 :::
 
@@ -370,7 +370,7 @@ import { FwbButton } from 'flowbite-vue'
 </script>
 ```
 
-## FwbButton API
+## Button component API
 
 :::tip Native attribute passthrough
 `FwbButton` renders as `<button>`, `<a>`, or a router component depending on `href` and `to`. Extra attributes (e.g. `target`, `rel`, `aria-label`, `form`) fall through to the root element automatically.

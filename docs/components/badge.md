@@ -5,22 +5,25 @@ import FwbBadgeExampleLink from './badge/examples/FwbBadgeExampleLink.vue'
 import FwbBadgeExampleIcon from './badge/examples/FwbBadgeExampleIcon.vue'
 import FwbBadgeExampleIconOnly from './badge/examples/FwbBadgeExampleIconOnly.vue'
 </script>
-# Vue Badge - Flowbite
+
+# Badge - Flowbite Vue
 
 #### Use Tailwind CSS badges as elements to show counts or labels separately or inside other components
+
 ---
 
-:::tip
+:::tip Badge - Flowbite
 Original reference: [https://flowbite.com/docs/components/badge/](https://flowbite.com/docs/components/badge/)
 :::
 
-The badge component can be used to complement other elements such as buttons or text elements as a label or to show the count of a given data, such as the number of comments for an article or how much time has passed by since a comment has been made.
-Alternatively, badges can also be used as standalone elements that link to a certain page by using the anchor tag instead of a span element.
+The badge component can be used to complement other elements such as buttons or text elements as a label or to show the count of a given data, such as the number of comments for an article or how much time has passed by since a comment has been made. Badges can also be used as standalone elements that link to a page by setting the `href` prop, which renders an anchor tag instead of a span.
 
-## Default badge
-Prop – type
+## Default Badge
+
+Use the `type` prop to set the badge colour. Available types are `default`, `dark`, `red`, `green`, `yellow`, `indigo`, `purple`, and `pink`.
 
 <fwb-badge-example />
+
 ```vue
 <template>
   <fwb-badge>Default</fwb-badge>
@@ -38,10 +41,12 @@ import { FwbBadge } from 'flowbite-vue'
 </script>
 ```
 
-## Large badges
-Prop – size
+## Sizes
+
+Use the `size` prop to control badge dimensions. `xs` is the default (smaller) size and `sm` is the larger option.
 
 <fwb-badge-example-size />
+
 ```vue
 <template>
   <fwb-badge size="xs">Default</fwb-badge>
@@ -59,11 +64,12 @@ import { FwbBadge } from 'flowbite-vue'
 </script>
 ```
 
-## Badges as links
-You can also use badges as anchor elements to link to another page.
-Prop – href
+## Badges as Links
+
+Set the `href` prop to render the badge as an `<a>` element, making the entire badge a clickable link.
 
 <fwb-badge-example-link />
+
 ```vue
 <template>
   <fwb-badge href="#">
@@ -79,11 +85,12 @@ import { FwbBadge } from 'flowbite-vue'
 </script>
 ```
 
-## Badges with icon
-You can also use SVG icons inside the badge elements.
-slot icon
+## Badges with Icon
+
+Use the `#icon` slot to place an SVG icon before the badge label.
 
 <fwb-badge-example-icon />
+
 ```vue
 <template>
   <fwb-badge>
@@ -109,9 +116,12 @@ import { FwbBadge } from 'flowbite-vue'
 </script>
 ```
 
-## Badge with icon only
+## Badge with Icon Only
+
+Omit the default slot content and use only the `#icon` slot to render an icon-only badge.
 
 <fwb-badge-example-icon-only />
+
 ```vue
 <template>
   <fwb-badge>
@@ -141,3 +151,20 @@ import { FwbBadge } from 'flowbite-vue'
 import { FwbBadge } from 'flowbite-vue'
 </script>
 ```
+
+## Badge component API
+
+### FwbBadge Props
+
+| Name | Type                                                                        | Default     | Description                                                    |
+| ---- | --------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------- |
+| type | `'default' \| 'dark' \| 'red' \| 'green' \| 'yellow' \| 'indigo' \| 'purple' \| 'pink'` | `'default'` | Sets the badge colour scheme. |
+| size | `'xs' \| 'sm'`                                                              | `'xs'`      | Controls badge padding and font size.                          |
+| href | `String`                                                                    | `null`      | When set, renders an `<a>` element instead of `<span>`.        |
+
+### FwbBadge Slots
+
+| Name    | Description                                     |
+| ------- | ----------------------------------------------- |
+| default | Badge label text.                               |
+| icon    | Icon rendered before the label.                 |

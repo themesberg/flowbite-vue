@@ -8,7 +8,7 @@ import FwbTextareaExampleStyling from './textarea/examples/FwbTextareaExampleSty
 import FwbTextareaExampleValidation from './textarea/examples/FwbTextareaExampleValidation.vue'
 </script>
 
-# Vue Textarea - Flowbite
+# Textarea - Flowbite Vue
 
 #### Use the textarea component as a multi-line text field input and use it inside form elements available in multiple sizes, styles, and variants
 
@@ -20,9 +20,9 @@ Original reference: [https://flowbite.com/docs/forms/textarea/](https://flowbite
 
 The textarea component is a multi-line text field that can be used to receive longer chunks of text from the user in the form of a comment box, description field, and more.
 
-## Textarea example
+## Default
 
-Get started with the default example of a textarea component below.
+Use `FwbTextarea` with `v-model` to bind a multi-line text value. Add `label` for an accessible label above the field and `placeholder` for hint text inside.
 
 <fwb-textarea-example />
 
@@ -68,6 +68,8 @@ const message = ref('')
 ```
 
 ## Disabled / Readonly
+
+Use the `disabled` prop to prevent the user from editing the textarea entirely, or pass `readonly` as a native attribute to allow reading but not editing.
 
 <fwb-textarea-example-disabled />
 

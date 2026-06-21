@@ -1,7 +1,7 @@
 <template>
   <component
-    :is="component"
-    :[linkAttr]="link"
+    :is="tag"
+    :[linkAttr]="linkValue"
     class="group flex items-center rounded-lg p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
   >
     <slot name="icon" />
@@ -16,18 +16,18 @@
 </template>
 
 <script setup lang="ts">
-import { resolveComponent } from 'vue'
+import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
-    link?: string | { name: string }
+    link?: string | Record<string, unknown>
     tag?: string
   }>(),
   {
     link: '/',
-    tag: 'router-link',
+    tag: 'a',
   },
 )
 
-const component = props.tag === 'a' ? 'a' : resolveComponent(props.tag)
-const linkAttr = props.tag === 'a' ? 'href' : 'to'
+const linkAttr = computed(() => props.tag === 'a' ? 'href' : 'to')
+const linkValue = computed(() => props.tag === 'a' && typeof props.link !== 'string' ? '/' : props.link)
 </script>

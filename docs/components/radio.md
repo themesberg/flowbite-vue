@@ -12,19 +12,19 @@ import FwbRadioExampleStyling from './radio/examples/FwbRadioExampleStyling.vue'
 import FwbRadioExampleValidation from './radio/examples/FwbRadioExampleValidation.vue'
 </script>
 
-# Vue Radio - Flowbite
+# Radio - Flowbite Vue
 
 #### Get started with the radio component to let the user choose a single option from multiple options in the form of a circle based on multiple styles and colors
 
-The radio component can be used to allow the user to choose a single option from one or more available options coded with the utility classes from Tailwind CSS and available in multiple styles, variants, and colors and support dark mode.
-
 ---
 
-:::tip
+:::tip Radio - Flowbite
 Original reference: [https://flowbite.com/docs/forms/radio/](https://flowbite.com/docs/forms/radio/)
 :::
 
-## Default radio
+The radio component can be used to allow the user to choose a single option from one or more available options coded with the utility classes from Tailwind CSS and available in multiple styles, variants, and colors and support dark mode.
+
+## Default Radio
 
 Use `FwbRadio` with `v-model` and a `value` prop to let the user select a single option. Pass `name` directly on each radio when used standalone, or use `FwbRadioGroup` to share it automatically across child radios.
 
@@ -44,7 +44,7 @@ const picked = ref()
 
 ```
 
-## Disabled state
+## Disabled State
 
 Set the `disabled` prop to prevent the user from selecting the radio. Disabled styling is applied automatically to both the input and the label text.
 
@@ -63,7 +63,7 @@ const picked = ref('two')
 </script>
 ```
 
-## Radio group
+## Radio Group
 
 Use `FwbRadioGroup` to wrap related radio buttons. The `name` prop on the group is shared across all child radios automatically, so you don't need to repeat it on each one.
 
@@ -96,7 +96,7 @@ const picked = ref('banana')
 </script>
 ```
 
-## Inline radio
+## Inline Radio
 
 Place multiple `FwbRadio` components inside a flex wrapper to lay them out horizontally side by side.
 
@@ -120,7 +120,7 @@ const picked = ref('first')
 
 ```
 
-## Radio with a link
+## Radio with a Link
 
 Use the default slot instead of the `label` prop when the label contains rich content such as links.
 
@@ -142,7 +142,7 @@ const picked = ref()
 
 ```
 
-## Radio list group
+## Radio List Group
 
 Use `FwbListGroup` and `FwbListGroupItem` to display radio buttons inside a vertical grouped list.
 
@@ -178,7 +178,7 @@ const picked = ref('Vue JS')
 
 ```
 
-## Horizontal list group
+## Horizontal List Group
 
 Nest `FwbRadio` components inside a horizontal `<ul>` to create a full-width inline list selection.
 
@@ -352,7 +352,7 @@ const picked = ref('a')
 
 ```
 
-## FwbRadio component API
+## Radio component API
 
 ### FwbRadio Props
 
@@ -381,7 +381,7 @@ When a `FwbRadio` is inside a `FwbRadioGroup` with `validationStatus="error"`, `
 | ------- | --------------------------------------------------------------------------------- |
 | default | Rich label content rendered next to the radio (takes priority over `label` prop). |
 
-## FwbRadioGroup component API
+## RadioGroup component API
 
 ### FwbRadioGroup Props
 

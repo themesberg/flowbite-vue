@@ -1,7 +1,7 @@
 <template>
   <component
-    :is="component"
-    :[linkAttr]="link"
+    :is="tag"
+    :[linkAttr]="linkValue"
     class="mb-5 flex items-center pl-2.5"
   >
     <img
@@ -14,12 +14,12 @@
 </template>
 
 <script setup lang="ts">
-import { resolveComponent } from 'vue'
+import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
     name?: string
-    link?: string
+    link?: string | Record<string, unknown>
     logo?: string
     alt?: string
     tag?: string
@@ -28,11 +28,11 @@ const props = withDefaults(
     name: '',
     link: '/',
     logo: '',
-    tag: 'router-link',
-    alt: '',
+    tag: 'a',
+    alt: undefined,
   },
 )
 
-const component = props.tag === 'a' ? 'a' : resolveComponent(props.tag)
-const linkAttr = props.tag === 'a' ? 'href' : 'to'
+const linkAttr = computed(() => props.tag === 'a' ? 'href' : 'to')
+const linkValue = computed(() => props.tag === 'a' && typeof props.link !== 'string' ? '/' : props.link)
 </script>

@@ -7,23 +7,24 @@ import FwbModalExamplePosition from './modal/examples/FwbModalExamplePosition.vu
 import FwbModalExampleFocusTrap from './modal/examples/FwbModalExampleFocusTrap.vue'
 </script>
 
-# Vue Modal - Flowbite
+# Modal - Flowbite Vue
 
 #### Use the modal component to show interactive dialogs and notifications to your website users available in multiple sizes, colors, and styles
 
 ---
 
-:::tip
+:::tip Modal - Flowbite
 Original reference: [https://flowbite.com/docs/components/modal/](https://flowbite.com/docs/components/modal/)
 :::
 
-The modal component can be used as an interactive dialog on top of the main content area of the website to show notifications and gather information using form elements from your website users.
+The modal component can be used as an interactive dialog on top of the main content area to show notifications, confirmations, or gather input from your users. Use `v-if` to control visibility and listen to the `close` event to dismiss it.
 
-Get started with multiple sizes, colors, and styles built with the utility classes from Tailwind CSS and the components from Flowbite.
+## Default Modal
 
-## Default modal
+Use the `header`, `body`, and `footer` slots to compose the modal content. Wire up a reactive boolean and toggle it from a button to open and close the modal.
 
 <fwb-modal-example />
+
 ```vue
 <template>
   <fwb-button @click="showModal">
@@ -41,7 +42,7 @@ Get started with multiple sizes, colors, and styles built with the utility class
         With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
       </p>
       <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+        The European Union's General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
       </p>
     </template>
     <template #footer>
@@ -74,13 +75,10 @@ function showModal () {
 
 ## Size
 
-You can use four different modal sizing options starting from small to extra large, but keep in mind that the width of these modals will remain the same when browsing on smaller devices.
-
-`xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`
-
-The default value is: `2xl`
+Use the `size` prop to control the maximum width of the modal. Available values are `xs`, `sm`, `md`, `lg`, `xl`, `2xl` (default), `3xl`, `4xl`, `5xl`, `6xl`, and `7xl`.
 
 <fwb-modal-example-size />
+
 ```vue
 <template>
   <fwb-modal size="xs" />
@@ -96,13 +94,10 @@ import { FwbModal } from 'flowbite-vue'
 
 ## Position
 
-The `position` prop allows you to control the placement of the modal on the screen, taking into account RTL (Right-to-Left) mode. You can choose from the following options:
-
-`top-start`, `top-center`, `top-end`, `center-start`, `center`, `center-end`, `bottom-start`, `bottom-center`, `bottom-end`
-
-The default value is: `center`
+Use the `position` prop to control where on the screen the modal appears. The default is `center`. Available positions are `top-start`, `top-center`, `top-end`, `center-start`, `center`, `center-end`, `bottom-start`, `bottom-center`, and `bottom-end`. RTL direction is handled automatically.
 
 <fwb-modal-example-position />
+
 ```vue
 <template>
   <fwb-modal position="top-start" />
@@ -123,17 +118,10 @@ import { FwbModal } from 'flowbite-vue'
 
 ## Escapable
 
-The escapable property is true by default to improve user experience and accessibility.
-
-This means that you may close the modal by
-
- - Using the close button on the modal
- - Clicking outside of the modal
- - Pressing the escape key
-
-In some situations, your user may be required to interact with the modal content. If this is the case, you can set the `not-escapable` property to `true`. The developer can then choose when they want to close the modal.
+By default the modal can be dismissed by clicking the close button, clicking outside the modal content, or pressing the `Escape` key. Set `not-escapable` to `true` to disable the outside-click and Escape key behaviours — the developer then controls when to close it programmatically.
 
 <fwb-modal-example-escapable />
+
 ```vue
 <template>
   <fwb-modal />
@@ -147,9 +135,10 @@ import { FwbModal } from 'flowbite-vue'
 
 ## Persistent
 
-Clicking outside of the element or pressing esc key will not send `close` event.
+Set `persistent` to `true` to prevent the `close` event from firing when the user clicks outside the modal or presses Escape. The close button is also hidden. Use this when the user must interact with the modal content before it can be dismissed.
 
 <fwb-modal-example-persistent />
+
 ```vue
 <template>
   <fwb-modal persistent />
@@ -162,9 +151,10 @@ import { FwbModal } from 'flowbite-vue'
 
 ## Focus Trap
 
-You can enable focus trapping by setting the `focus-trap` prop to `true`. This keeps the focus within the modal, preventing users from tabbing to elements outside of it, which improves accessibility. esc key will still close the modal.
+Set `focus-trap` to `true` to keep keyboard focus inside the modal while it is open, preventing users from tabbing to elements in the background. The `Escape` key still closes the modal unless `not-escapable` or `persistent` is set.
 
 <fwb-modal-example-focus-trap />
+
 ```vue
 <template>
   <fwb-modal />
@@ -176,28 +166,36 @@ import { FwbModal } from 'flowbite-vue'
 </script>
 ```
 
-## API
+## Modal component API
 
-### Props:
+### FwbModal Props
 
-| Name         | Values                                                                                                                      | Default  |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------- | -------- |
-| size         | `xs`, `sm`, `md`,`lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`                                                       | `2xl`    |
-| position     | `top-start`, `top-center`, `top-end`, `center-start`, `center`, `center-end`, `bottom-start`, `bottom-center`, `bottom-end` | `center` |
-| notEscapable | `true`, `false`                                                                                                             | `false`  |
-| persistent   | `true`, `false`                                                                                                             | `false`  |
-| focusTrap    | `true`, `false`                                                                                                             | `false`  |
-| overlayClass | String \| Object                                                                                                            | `''`     |
-| layoutClass  | String \| Object                                                                                                            | `''`     |
-| wrapperClass | String \| Object                                                                                                            | `''`     |
-| headerClass  | String \| Object                                                                                                            | `''`     |
-| bodyClass    | String \| Object                                                                                                            | `''`     |
-| footerClass  | String \| Object                                                                                                            | `''`     |
+| Name         | Type                                                                                                                         | Default    | Description                                                                       |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------------------------------------- |
+| bodyClass    | `String \| Object`                                                                                                           | `''`       | Additional classes applied to the body wrapper.                                   |
+| focusTrap    | `Boolean`                                                                                                                    | `false`    | Traps keyboard focus inside the modal while it is open.                           |
+| footerClass  | `String \| Object`                                                                                                           | `''`       | Additional classes applied to the footer wrapper.                                 |
+| headerClass  | `String \| Object`                                                                                                           | `''`       | Additional classes applied to the header wrapper.                                 |
+| layoutClass  | `String \| Object`                                                                                                           | `''`       | Additional classes applied to the layout positioning wrapper.                     |
+| notEscapable | `Boolean`                                                                                                                    | `false`    | Disables closing via outside click or Escape key (close button still shown).      |
+| overlayClass | `String \| Object`                                                                                                           | `''`       | Additional classes applied to the overlay backdrop element.                       |
+| persistent   | `Boolean`                                                                                                                    | `false`    | Hides the close button and prevents all passive dismiss behaviours.               |
+| position     | `'top-start' \| 'top-center' \| 'top-end' \| 'center-start' \| 'center' \| 'center-end' \| 'bottom-start' \| 'bottom-center' \| 'bottom-end'` | `'center'` | Controls where the modal is positioned on screen. |
+| size         | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl' \| '3xl' \| '4xl' \| '5xl' \| '6xl' \| '7xl'`                              | `'2xl'`    | Controls the maximum width of the modal panel.                                    |
+| wrapperClass | `String \| Object`                                                                                                           | `''`       | Additional classes applied to the modal panel wrapper.                            |
 
+### FwbModal Events
 
-### Events:
+| Name          | Description                                                                             |
+| ------------- | --------------------------------------------------------------------------------------- |
+| close         | Emitted when the close button is clicked, Escape is pressed, or the overlay is clicked. |
+| click:outside | Emitted when the user clicks outside the modal content area.                            |
 
-| Name            | Type                                                                             |
-| --------------- | -------------------------------------------------------------------------------- |
-| `close`         | Clicked on the close button, pressed `Esc`, or clicked outside the modal content |
-| `click:outside` | Clicked outside the modal content                                                |
+### FwbModal Slots
+
+| Name       | Description                                                                          |
+| ---------- | ------------------------------------------------------------------------------------ |
+| header     | Content rendered inside the modal header bar, next to the close button.              |
+| body       | Main content area of the modal.                                                      |
+| footer     | Content rendered inside the modal footer. The footer is hidden when this slot is empty. |
+| close-icon | Replaces the default X icon inside the close button.                                 |

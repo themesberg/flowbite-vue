@@ -27,21 +27,24 @@ const FwbDropdownExampleCloseInside = defineClientComponent(() => {
 })
 </script>
 
-# Vue Dropdown - Flowbite
+# Dropdown - Flowbite Vue
 
 #### Get started with the dropdown component to show a list of menu items when clicking on the trigger element based on multiple layouts, styles, and placements
 
 ---
 
-:::tip
+:::tip Dropdown - Flowbite
 Original reference: [https://flowbite.com/docs/components/dropdowns/](https://flowbite.com/docs/components/dropdowns/)
 :::
 
-The dropdown component can be used to show a list of menu items when clicking on an element such as a button and hiding it when focusing outside of the triggering element.
+The dropdown component can be used to show a list of menu items when clicking on an element such as a button, and hiding it when clicking outside of the triggering element.
 
-## Dropdown - placement
+## Placement
+
+Use the `placement` prop to control which side of the trigger the dropdown panel opens on. Accepted values are `top`, `right`, `bottom` (default), and `left`.
 
 <fwb-dropdown-example-placement />
+
 ```vue
 <template>
   <fwb-dropdown placement="top" text="Top">
@@ -67,7 +70,7 @@ The dropdown component can be used to show a list of menu items when clicking on
     </nav>
   </fwb-dropdown>
 
-<fwb-dropdown text="Bottom">
+  <fwb-dropdown text="Bottom">
     <nav class="py-2 text-sm text-gray-700 dark:text-gray-200">
       ...
     </nav>
@@ -85,11 +88,12 @@ import { FwbDropdown } from 'flowbite-vue'
 </script>
 ```
 
-## Dropdown - alignment
+## Alignment
 
-The property controls how the dropdown is aligned with the trigger
+Add the `align-to-end` prop to align the dropdown panel to the far edge of the trigger instead of the near edge.
 
 <fwb-dropdown-example-alignment />
+
 ```vue
 <template>
   <fwb-dropdown align-to-end placement="top" text="Top">
@@ -137,41 +141,45 @@ import { FwbDropdown } from 'flowbite-vue'
 </script>
 ```
 
-## Dropdown - with list group
+## With List Group
+
+Use `FwbListGroup` and `FwbListGroupItem` inside the dropdown for a styled menu that supports links, router links, and click handlers.
 
 <fwb-dropdown-example-list-group />
+
 ```vue
 <template>
-    <fwb-dropdown text="Menu" content-class="rounded-lg">
-      <fwb-list-group class="text-sm text-gray-700 dark:text-gray-200">
-        <fwb-list-group-item to="#">
-          Dashboard
-        </fwb-list-group-item>
-        <fwb-list-group-item href="#">
-          Settings
-        </fwb-list-group-item>
-        <fwb-list-group-item href="#">
-          Earnings
-        </fwb-list-group-item>
-        <fwb-list-group-item @click="signOut">
-          Sign out
-        </fwb-list-group-item>
-      </fwb-list-group>
-    </fwb-dropdown>
+  <fwb-dropdown text="Menu" content-wrapper-class="rounded-lg">
+    <fwb-list-group class="text-sm text-gray-700 dark:text-gray-200">
+      <fwb-list-group-item to="#">
+        Dashboard
+      </fwb-list-group-item>
+      <fwb-list-group-item href="#">
+        Settings
+      </fwb-list-group-item>
+      <fwb-list-group-item href="#">
+        Earnings
+      </fwb-list-group-item>
+      <fwb-list-group-item @click="signOut">
+        Sign out
+      </fwb-list-group-item>
+    </fwb-list-group>
+  </fwb-dropdown>
 </template>
 
 <script setup>
 import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
+
+const signOut = () => {}
 </script>
 ```
 
-## Dropdown - button colors
+## Button Colors
 
-::: tip
-Use `triggerClass` prop if you need more control over default trigger button.
-:::
+Use the `color` prop to change the trigger button colour. Use `triggerClass` for more granular control over the trigger button's classes.
 
 <fwb-dropdown-example-button-colors />
+
 ```vue
 <template>
   <fwb-dropdown text="Default" color="default">
@@ -216,9 +224,12 @@ import { FwbDropdown } from 'flowbite-vue'
 </script>
 ```
 
-## Dropdown - button group
+## In a Button Group
+
+Place `FwbDropdown` inside `FwbButtonGroup` to mix dropdowns with regular buttons in a single joined control.
 
 <fwb-dropdown-example-button-group />
+
 ```vue
 <template>
   <fwb-button-group>
@@ -250,9 +261,16 @@ import { FwbDropdown, FwbButtonGroup } from 'flowbite-vue'
 </script>
 ```
 
-## Dropdown - disabled
+## Disabled
+
+Add the `disabled` prop to prevent the trigger button from opening the dropdown panel.
+
+:::warning
+When using a custom trigger via the `#trigger` slot, you must also apply `disabled` to your trigger element manually. The `disabled` prop still ensures correct handling of the click state in the dropdown logic.
+:::
 
 <fwb-dropdown-example-disabled />
+
 ```vue
 <template>
   <fwb-dropdown text="Normal state">
@@ -268,19 +286,13 @@ import { FwbDropdown, FwbButtonGroup } from 'flowbite-vue'
 import { FwbDropdown } from 'flowbite-vue'
 </script>
 ```
-::: warning
-Please note that when using a custom trigger (via the trigger slot), you'll need to also implement the disabled state manually by passing the disabled prop to your trigger element. You should still use the disabled prop here to ensure correct handling of the disabled state in the dropdown click handler.
-:::
 
-## Dropdown - trigger
+## Custom Trigger
 
-Use dedicated `#trigger` slot to change trigger element according to your needs.
-
-::: tip
-You can use `triggerWrapperClass` prop if you need to change classes on the trigger wrapper element.
-:::
+Use the `#trigger` slot to replace the default button with any element. Use `triggerWrapperClass` to style the wrapper around the trigger.
 
 <fwb-dropdown-example-trigger />
+
 ```vue
 <template>
   <fwb-dropdown>
@@ -302,11 +314,12 @@ import { FwbDropdown } from 'flowbite-vue'
 </script>
 ```
 
-## Dropdown - close inside
+## Close Inside
 
-Use `closeInside` prop if you want dropdown to close on click on it's child.
+Add the `close-inside` prop to close the dropdown automatically when the user clicks anywhere inside the content panel.
 
 <fwb-dropdown-example-close-inside />
+
 ```vue
 <template>
   <fwb-dropdown text="Bottom" close-inside>
@@ -329,33 +342,34 @@ import { FwbDropdown } from 'flowbite-vue'
 </script>
 ```
 
-## API
+## Dropdown component API
 
-### Props
-| Name                | Description                                                                          | Values                                                                                        | Default                                 |
-| ------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------- |
-| alignToEnd          | Reverses the alignment of the dropdown content                                       | Boolean                                                                                       | `false`                                 |
-| class               | Allows adding or overriding classes on the main dropdown wrapper                     | String                                                                                        | `''`                                    |
-| closeInside         | Allows closing the dropdown when clicking inside the contentWrapper                  | Boolean                                                                                       | `false`                                 |
-| color               | Button Variant<br>_(for default trigger)_                                            | `default`, `alternative`, `dark`, `light`, `green`, `red`, `yellow`, `purple`, `pink`, `blue` | `default`                               |
-| contentWrapperClass | Allows adding or overriding classes on the content wrapper                           | String                                                                                        | `''`                                    |
-| disabled            | Button state<br>_(for default trigger)_                                              | Boolean                                                                                       | `false`                                 |
-| placement           | Alignment of dropdown content                                                        | `top`, `right`, `bottom`, `left`                                                              | `bottom`                                |
-| text                | Button label<br>_(for default trigger)_                                              | String                                                                                        | `Dropdown`                              |
-| transition          | Custom transition name<br>_(requires custom transitions in CSS)_                     | String                                                                                        | Calculated based on current `placement` |
-| triggerClass        | Allows adding or overriding classes on the trigger button<br>_(for default trigger)_ | String                                                                                        | `''`                                    |
-| triggerWrapperClass | Allows adding or overriding classes on the trigger wrapper                           | String                                                                                        | `''`                                    |
+### FwbDropdown Props
 
+| Name                | Type                                                                                      | Default    | Description                                                                  |
+| ------------------- | ----------------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------------- |
+| alignToEnd          | `Boolean`                                                                                 | `false`    | Aligns the dropdown panel to the far edge of the trigger.                    |
+| class               | `String`                                                                                  | `''`       | Additional classes applied to the dropdown wrapper element.                  |
+| closeInside         | `Boolean`                                                                                 | `false`    | Closes the dropdown when clicking anywhere inside the content panel.         |
+| color               | `'default' \| 'alternative' \| 'dark' \| 'light' \| 'green' \| 'red' \| 'yellow' \| 'purple' \| 'pink' \| 'blue'` | `'default'` | Colour of the default trigger button. |
+| contentWrapperClass | `String`                                                                                  | `''`       | Additional classes applied to the content panel wrapper.                     |
+| disabled            | `Boolean`                                                                                 | `false`    | Disables the default trigger button and prevents the panel from opening.     |
+| placement           | `'top' \| 'right' \| 'bottom' \| 'left'`                                                 | `'bottom'` | Which side of the trigger the panel opens on.                                |
+| text                | `String`                                                                                  | `'Dropdown'` | Label text for the default trigger button.                                 |
+| transition          | `String`                                                                                  | `''`       | Custom Vue transition name. Defaults to a value calculated from `placement`. |
+| triggerClass        | `String`                                                                                  | `''`       | Additional classes applied to the default trigger button.                    |
+| triggerWrapperClass | `String`                                                                                  | `''`       | Additional classes applied to the trigger wrapper element.                   |
 
+### FwbDropdown Events
 
-### Events
-| Name | Description                 |
-| ---- | --------------------------- |
-| show | When the dropdown is opened |
-| hide | When the dropdown is closed |
+| Name | Description                       |
+| ---- | --------------------------------- |
+| show | Emitted when the dropdown opens.  |
+| hide | Emitted when the dropdown closes. |
 
-### Slots
-| Name    | Description                                |
-| ------- | ------------------------------------------ |
-| trigger | replace button with custom trigger element |
-| default | dropdown content                           |
+### FwbDropdown Slots
+
+| Name    | Description                                                    |
+| ------- | -------------------------------------------------------------- |
+| default | The dropdown panel content.                                    |
+| trigger | Custom trigger element that replaces the default button.       |

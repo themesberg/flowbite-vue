@@ -5,21 +5,24 @@ import FwbListGroupExampleLink from './listGroup/examples/FwbListGroupExampleLin
 import FwbListGroupExampleIcon from './listGroup/examples/FwbListGroupExampleIcon.vue'
 </script>
 
-# Vue List Group - Flowbite
+# List Group - Flowbite Vue
 
 #### Use the list group component to display a series of items, buttons or links inside a single element
 
 ---
 
-:::tip
+:::tip List Group - Flowbite
 Original reference: [https://flowbite.com/docs/components/list-group/](https://flowbite.com/docs/components/list-group/)
 :::
 
-The list group component can be used to display a series of elements, buttons or links inside a single card component similar to a sidebar.
+The list group component can be used to display a series of elements, buttons, or links inside a single card component — similar to a sidebar or menu.
 
-## Default
+## Default List Group
+
+Use `FwbListGroup` as a wrapper and place `FwbListGroupItem` elements inside it to render a basic bordered list.
 
 <fwb-list-group-example />
+
 ```vue
 <template>
   <fwb-list-group>
@@ -36,12 +39,12 @@ import { FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 </script>
 ```
 
-## Links
+## Link Items
 
-:::tip
-`href` prop is used for external links. `to` prop is used for internal links. `target` prop is used to set the target attribute for external links, the hover effect is automatically enabled.
-:::
+Use the `href` prop for external links or the `to` prop for Vue Router navigation. Items with either prop automatically receive hover styling. Use `target` to control the link target (e.g. `_blank`). Add the `active` prop to highlight the currently selected item.
+
 <fwb-list-group-example-link />
+
 ```vue
 <template>
   <fwb-list-group>
@@ -65,9 +68,12 @@ import { FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 </script>
 ```
 
-## Icon
+## Items with Icons
+
+Use the `prefix` slot to render an icon before the item label, or the `suffix` slot to render one after it.
 
 <fwb-list-group-example-icon />
+
 ```vue
 <template>
   <fwb-list-group>
@@ -111,9 +117,12 @@ import { FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 </script>
 ```
 
-## Disabled
+## Disabled Items
+
+Add the `disabled` prop to a `FwbListGroupItem` to apply muted styles and prevent interaction.
 
 <fwb-list-group-example-disabled />
+
 ```vue
 <template>
   <fwb-list-group>
@@ -156,3 +165,30 @@ import { FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 import { FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 </script>
 ```
+
+## List Group component API
+
+### FwbListGroup Slots
+
+| Name    | Description                                  |
+| ------- | -------------------------------------------- |
+| default | One or more `FwbListGroupItem` components.   |
+
+### FwbListGroupItem Props
+
+| Name     | Type              | Default  | Description                                                                         |
+| -------- | ----------------- | -------- | ----------------------------------------------------------------------------------- |
+| active   | `Boolean`         | `false`  | Highlights the item as the currently active entry.                                  |
+| disabled | `Boolean`         | `false`  | Applies muted styles and prevents interaction.                                      |
+| href     | `String`          | `null`   | Renders the item as an `<a>` and sets the `href` attribute.                         |
+| tag      | `String`          | `'li'`   | Override the root element tag (e.g. `'button'`, `'router-link'`, `'nuxt-link'`).   |
+| target   | `String`          | `'_self'` | Sets the `target` attribute when `href` is used.                                   |
+| to       | `String \| Object` | `null`  | Renders the item as a `<RouterLink>` and sets the `to` prop.                        |
+
+### FwbListGroupItem Slots
+
+| Name    | Description                                  |
+| ------- | -------------------------------------------- |
+| default | The item label content.                      |
+| prefix  | Icon or element rendered before the label.   |
+| suffix  | Icon or element rendered after the label.    |

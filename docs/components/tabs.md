@@ -6,19 +6,21 @@ import FwbTabsExamplePills from './tabs/examples/FwbTabsExamplePills.vue'
 import FwbTabsExampleUnderline from './tabs/examples/FwbTabsExampleUnderline.vue'
 </script>
 
-# Vue Tabs - Flowbite
+# Tabs - Flowbite Vue
 
 #### Use these responsive tabs components to create a secondary navigational hierarchy for your website or toggle content inside a container
 
 ---
 
-:::tip
+:::tip Tabs - Flowbite
 Original reference: [https://flowbite.com/docs/components/tabs/](https://flowbite.com/docs/components/tabs/)
 :::
 
 The tabs component can be used either as an extra navigational hierarchy complementing the main navbar or you can also use it to change content inside a container just below the tabs using the data attributes from Flowbite.
 
-## Prop - variant (default)
+## Default
+
+Use `FwbTabs` with `v-model` bound to a tab name and nest `FwbTab` components inside. Each `FwbTab` requires a unique `name` and a `title` for its button label.
 
 <fwb-tabs-example />
 ```vue
@@ -47,9 +49,11 @@ const activeTab = ref('first')
 </script>
 ```
 
-## Prop - variant (underline)
+## Underline
 
-<fwb-tabsExample-underline />
+Set `variant="underline"` to render tab buttons with an underline indicator instead of a bordered box.
+
+<fwb-tabs-example-underline />
 ```vue
 <template>
   <fwb-tabs v-model="activeTab" variant="underline" class="p-5">
@@ -76,13 +80,15 @@ const activeTab = ref('first')
 </script>
 ```
 
-## Prop - variant (pills)
+## Pills
+
+Set `variant="pills"` to render each tab button as a pill-shaped badge.
 
 <fwb-tabs-example-pills />
 ```vue
 <template>
   <fwb-tabs v-model="activeTab" variant="pills" class="p-5">
-    <fwb-tab name="first" title="First" >
+    <fwb-tab name="first" title="First">
       Lorem ipsum dolor...
     </fwb-tab>
     <fwb-tab name="second" title="Second">
@@ -95,7 +101,6 @@ const activeTab = ref('first')
       Lorem ipsum dolor...
     </fwb-tab>
   </fwb-tabs>
- </div>
 </template>
 
 <script setup>
@@ -106,9 +111,9 @@ const activeTab = ref('first')
 </script>
 ```
 
-## Prop - directive
+## Directive
 
-Use this props if you want to control which directive to use for rendering every tab content
+Set `directive="show"` to keep all tab content in the DOM and toggle visibility with `v-show`, instead of mounting/unmounting with `v-if` (the default).
 
 <fwb-tabs-example-directive />
 ```vue
@@ -137,9 +142,9 @@ const activeTab = ref('first')
 </script>
 ```
 
-## Tab pane interaction
+## Tab Pane Interaction
 
-You can add `@click:pane` to Tabs component to intercept click on tab pane.
+Listen to the `click:pane` event on `FwbTabs` to be notified when a tab button is clicked. The event carries no payload and fires after the active tab has already changed.
 
 <fwb-tabs-example-interaction />
 ```vue
@@ -170,11 +175,39 @@ const handlePaneClick = () => { console.log('Click!') }
 </script>
 ```
 
-## API
+## Tabs component API
 
-### Props
-| Name       | Values                         | Default   |
-|------------|--------------------------------|-----------|
-| directive  | `if`, `show`                   | `if`      |
-| modelValue | `string`                       | `''`      |
-| variant    | `default`, `underline`, `pill` | `default` |
+### FwbTabs Props
+
+| Name       | Type                                    | Default     | Description                                                                               |
+| ---------- | --------------------------------------- | ----------- | ----------------------------------------------------------------------------------------- |
+| directive  | `'if' \| 'show'`                        | `'if'`      | Controls how hidden tab content is rendered: `'if'` unmounts it, `'show'` hides it.      |
+| modelValue | `String`                                | `''`        | Name of the currently active tab (use with `v-model`).                                   |
+| variant    | `'default' \| 'underline' \| 'pills'`   | `'default'` | Visual style of the tab buttons.                                                          |
+
+### FwbTabs Events
+
+| Name               | Description                                                          |
+| ------------------ | -------------------------------------------------------------------- |
+| update:modelValue  | Emitted with the new tab name when the active tab changes.           |
+| click:pane         | Emitted when a tab button is clicked (no payload); fires after the active tab has changed. |
+
+### FwbTabs Slots
+
+| Name    | Description                          |
+| ------- | ------------------------------------ |
+| default | One or more `FwbTab` components.     |
+
+### FwbTab Props
+
+| Name     | Type      | Default | Description                                            |
+| -------- | --------- | ------- | ------------------------------------------------------ |
+| disabled | `Boolean` | `false` | Prevents the tab from being selected when clicked.     |
+| name     | `String`  | —       | **Required.** Unique identifier for this tab.          |
+| title    | `String`  | `''`    | Label text displayed in the tab button.                |
+
+### FwbTab Slots
+
+| Name    | Description              |
+| ------- | ------------------------ |
+| default | The tab panel content.   |

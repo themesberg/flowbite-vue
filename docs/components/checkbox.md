@@ -8,19 +8,24 @@ import FwbCheckboxExampleStyling from './checkbox/examples/FwbCheckboxExampleSty
 import FwbCheckboxExampleValidation from './checkbox/examples/FwbCheckboxExampleValidation.vue'
 </script>
 
-# Vue Checkbox - Flowbite
+# Checkbox - Flowbite Vue
 
 #### Use the checkbox component to allow users to select one or more options from a set, with support for validation, helper text, and accessible label linking
 
 ---
 
-:::tip
+:::tip Checkbox - Flowbite
 Original reference: [https://flowbite.com/docs/forms/checkbox/](https://flowbite.com/docs/forms/checkbox/)
 :::
 
-## Default checkbox
+The checkbox component can be used to allow users to select one or more options in the form of a square box. It supports helper text, validation feedback, rich label content via a slot, and attribute passthrough to the native `<input>` element.
+
+## Default Checkbox
+
+Use `v-model` to bind the checked state and the `label` prop to set the visible label text.
 
 <fwb-checkbox-example />
+
 ```vue
 <template>
   <fwb-checkbox v-model="check" label="Default checkbox" />
@@ -36,9 +41,12 @@ const checked = ref(true)
 </script>
 ```
 
-## Disabled state
+## Disabled State
+
+Add the `disabled` prop to prevent the user from interacting with the checkbox.
 
 <fwb-checkbox-example-disabled />
+
 ```vue
 <template>
   <fwb-checkbox v-model="check" disabled label="Disabled checkbox" />
@@ -52,11 +60,12 @@ const check = ref(false)
 </script>
 ```
 
-## Checkbox with link
+## Checkbox with Link
 
 Use the default slot instead of the `label` prop when the label contains rich content such as links.
 
 <fwb-checkbox-example-link />
+
 ```vue
 <template>
   <fwb-checkbox v-model="check">
@@ -73,11 +82,12 @@ const check = ref(false)
 </script>
 ```
 
-## Checkbox group
+## Checkbox Group
 
 When using `v-model` with an array, pass the `:value` attribute on each checkbox. Selected values are added to or removed from the array automatically.
 
 <fwb-checkbox-example-group />
+
 ```vue
 <template>
   <div class="space-y-2">
@@ -107,6 +117,7 @@ const fruits = ['Apple', 'Banana', 'Orange', 'Strawberry']
 Use `validationStatus` together with the `validationMessage` slot to show success or error feedback below the checkbox.
 
 <fwb-checkbox-example-validation />
+
 ```vue
 <template>
   <fwb-checkbox v-model="check1" label="Terms accepted (success)" validation-status="success">
@@ -122,11 +133,12 @@ Use `validationStatus` together with the `validationMessage` slot to show succes
 </template>
 ```
 
-## Helper text
+## Helper Text
 
 Use the `helper` slot to show a hint below the checkbox.
 
 <fwb-checkbox-example-helper />
+
 ```vue
 <template>
   <fwb-checkbox v-model="check" label="Free shipping via Flowbite">
@@ -139,9 +151,10 @@ Use the `helper` slot to show a hint below the checkbox.
 
 ## Styling
 
-Use dedicated props to pass classes to individual elements.
+Use dedicated props to pass classes to individual elements inside the checkbox.
 
 <fwb-checkbox-example-styling />
+
 ```vue
 <template>
   <fwb-checkbox
@@ -162,15 +175,15 @@ Use dedicated props to pass classes to individual elements.
 `FwbCheckbox` sets `inheritAttrs: false` and forwards all extra attributes (e.g. `name`, `value`, `form`, `aria-label`) directly to the `<input type="checkbox">` element. Pass `:value` and `name` as regular attributes when using the checkbox in a group.
 :::
 
-| Name             | Type                           | Default     | Description                                                                      |
-| ---------------- | ------------------------------ | ----------- | -------------------------------------------------------------------------------- |
-| class            | `String \| Object`             | `''`        | Added to the checkbox input element.                                             |
-| disabled         | `Boolean`                      | `false`     | Disables the checkbox.                                                           |
-| label            | `String`                       | `''`        | Label text rendered next to the checkbox. Ignored when the default slot is used. |
-| labelClass       | `String \| Object`             | `''`        | Added to the label text element.                                                 |
-| modelValue       | `Boolean \| Array`             | `false`     | The current value (use with `v-model`). Pass an array for group checkboxes.      |
-| validationStatus | `'success' \| 'error'`         | `undefined` | Applies success or error colour styles to the label text.                        |
-| wrapperClass     | `String \| Object`             | `''`        | Added to the outer root `<div>`.                                                 |
+| Name             | Type                   | Default     | Description                                                                      |
+| ---------------- | ---------------------- | ----------- | -------------------------------------------------------------------------------- |
+| class            | `String \| Object`     | `''`        | Added to the checkbox input element.                                             |
+| disabled         | `Boolean`              | `false`     | Disables the checkbox.                                                           |
+| label            | `String`               | `''`        | Label text rendered next to the checkbox. Ignored when the default slot is used. |
+| labelClass       | `String \| Object`     | `''`        | Added to the label text element.                                                 |
+| modelValue       | `Boolean \| Array`     | `false`     | The current value (use with `v-model`). Pass an array for group checkboxes.      |
+| validationStatus | `'success' \| 'error'` | `undefined` | Applies success or error colour styles to the label text.                        |
+| wrapperClass     | `String \| Object`     | `''`        | Added to the outer root `<div>`.                                                 |
 
 :::tip Accessibility
 `aria-invalid="true"` is set automatically on the native checkbox when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute. When no `label` prop or default slot is provided, pass `aria-label` as an attribute to maintain an accessible name — it is forwarded directly to the `<input>`.
@@ -178,8 +191,8 @@ Use dedicated props to pass classes to individual elements.
 
 ### FwbCheckbox Slots
 
-| Name              | Description                                                                        |
-| ----------------- | ---------------------------------------------------------------------------------- |
+| Name              | Description                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------ |
 | default           | Rich label content rendered next to the checkbox (takes priority over `label` prop). |
-| helper            | Helper text rendered below the checkbox.                                           |
-| validationMessage | Validation feedback rendered below the checkbox (styled by `validationStatus`).    |
+| helper            | Helper text rendered below the checkbox.                                             |
+| validationMessage | Validation feedback rendered below the checkbox (styled by `validationStatus`).      |

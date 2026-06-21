@@ -4,10 +4,22 @@ import FwbRatingExampleWithText from './rating/examples/FwbRatingExampleWithText
 import FwbRatingExampleCount from './rating/examples/FwbRatingExampleCount.vue'
 import FwbRatingExampleStarSizes from './rating/examples/FwbRatingExampleStarSizes.vue'
 </script>
-# Vue Rating - Flowbite
 
-## Default rating
-Use this simple example of a star rating component for showing review results.
+# Rating - Flowbite Vue
+
+#### Use the rating component to show star-based review scores and testimonials from your users based on Tailwind CSS utility classes
+
+---
+
+:::tip Rating - Flowbite
+Original reference: [https://flowbite.com/docs/components/rating/](https://flowbite.com/docs/components/rating/)
+:::
+
+The rating component can be used to show star-based review scores with support for partial ratings, review counts, and multiple star sizes.
+
+## Default Rating
+
+Use the `rating` prop to set how many stars are filled out of the `scale` (default 5). Fractional values render partial stars.
 
 <fwb-rating-example />
 ```vue
@@ -20,8 +32,9 @@ import { FwbRating } from 'flowbite-vue'
 </script>
 ```
 
-## Rating with text
-If you also want to show a text near the stars you can use this example as a reference.
+## Rating with Text
+
+Use the `besideText` slot to render additional content — such as a score label — next to the star row.
 
 <fwb-rating-example-with-text />
 ```vue
@@ -40,8 +53,9 @@ import { FwbRating } from 'flowbite-vue'
 </script>
 ```
 
-## Rating count
-Aggregate more results by using this example to show the amount of reviews and the average score.
+## Rating Count
+
+Combine the `besideText` slot with `reviewLink` and `reviewText` to display a linked review count alongside the stars.
 
 <fwb-rating-example-count />
 ```vue
@@ -65,8 +79,9 @@ import { FwbRating } from 'flowbite-vue'
 </script>
 ```
 
-## Star sizes
-Check out the different sizing options for the star review component from small, medium, and large.
+## Star Sizes
+
+Use the `size` prop to control the star dimensions. Available sizes are `sm`, `md` (default), and `lg`.
 
 <fwb-rating-example-star-sizes />
 ```vue
@@ -80,3 +95,21 @@ Check out the different sizing options for the star review component from small,
 import { FwbRating } from 'flowbite-vue'
 </script>
 ```
+
+## Rating component API
+
+### FwbRating Props
+
+| Name       | Type                    | Default | Description                                                                 |
+| ---------- | ----------------------- | ------- | --------------------------------------------------------------------------- |
+| rating     | `Number`                | `3`     | The score to display. Fractional values render partial stars.               |
+| reviewLink | `String`                | `''`    | URL applied to the review count text. Renders an `<a>` when set.           |
+| reviewText | `String`                | `''`    | Text displayed as the review count label next to the stars.                 |
+| scale      | `Number`                | `5`     | Total number of stars (the full-score denominator).                         |
+| size       | `'sm' \| 'md' \| 'lg'` | `'md'`  | Controls the size of each star icon.                                        |
+
+### FwbRating Slots
+
+| Name       | Description                                                                  |
+| ---------- | ---------------------------------------------------------------------------- |
+| besideText | Content rendered next to the stars (e.g. a score label or review summary).  |

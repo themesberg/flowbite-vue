@@ -9,14 +9,23 @@ import FwbHExampleColor from './typography/heading/FwbHExampleColor.vue'
 import FwbHExampleCustom from './typography/heading/FwbHExampleCustom.vue'
 </script>
 
-# Vue Heading - Flowbite
+# Heading - Flowbite Vue
 
 #### The heading component defines six levels of title elements from H1 to H6 that are used as titles and subtitles on a web page based on multiple styles and layouts
 
-## Heading one (H1)
+---
 
-Use the `tag="h1"` as the most important text element to indicate the title of your web page.
+:::tip Heading - Flowbite
+Original reference: [https://flowbite.com/docs/typography/headings/](https://flowbite.com/docs/typography/headings/)
+:::
 
+The heading component can be used to render H1–H6 title elements with Tailwind CSS utility classes, available in multiple colors and with support for custom class overrides.
+
+## Heading 1
+
+Use `tag="h1"` for the most important text element on a page, typically the page title. Each page should have only one H1.
+
+<fwb-h-example-level1 />
 
 ```vue
 <template>
@@ -27,12 +36,12 @@ Use the `tag="h1"` as the most important text element to indicate the title of y
 import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
-<fwb-h-example-level1 />
 
+## Heading 2
 
-## Heading two (H2)
+Use `tag="h2"` as the main subtitle for major page sections.
 
-The H2 tag can be used as subtitles of the page’s sections.
+<fwb-h-example-level2 />
 
 ```vue
 <template>
@@ -43,12 +52,12 @@ The H2 tag can be used as subtitles of the page’s sections.
 import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
-<fwb-h-example-level2 />
 
+## Heading 3
 
-## Heading three (H3)
+Use `tag="h3"` inside sections that already have an H2 to create a third level of hierarchy.
 
-Use the H3 tags inside sections that already have a H2 available.
+<fwb-h-example-level3 />
 
 ```vue
 <template>
@@ -59,12 +68,12 @@ Use the H3 tags inside sections that already have a H2 available.
 import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
-<fwb-h-example-level3 />
 
+## Heading 4
 
-## Heading four (H4)
+Use `tag="h4"` after H2 and H3 tags are already present and you need deeper nesting.
 
-The H4 can be generally used after H2 and H3 tags are already present and you need a more in-depth hierarchy.
+<fwb-h-example-level4 />
 
 ```vue
 <template>
@@ -75,12 +84,12 @@ The H4 can be generally used after H2 and H3 tags are already present and you ne
 import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
-<fwb-h-example-level4 />
 
+## Heading 5
 
-## Heading five (H5)
+Use `tag="h5"` in longer articles with multiple heading levels already in use, or in sidebars.
 
-The H5 tag is most often used in longer articles with other heading already available or in sidebars.
+<fwb-h-example-level5 />
 
 ```vue
 <template>
@@ -91,12 +100,12 @@ The H5 tag is most often used in longer articles with other heading already avai
 import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
-<fwb-h-example-level5 />
 
+## Heading 6
 
-## Heading six (H6)
+Use `tag="h6"` for the deepest heading level in a complex content hierarchy.
 
-Using the H6 tag is quite rare because it means that you’ve already used all heading from H1 to H5, but you can still use it if you have a very complex article with lots of headings.
+<fwb-h-example-level6 />
 
 ```vue
 <template>
@@ -107,29 +116,28 @@ Using the H6 tag is quite rare because it means that you’ve already used all h
 import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
-<fwb-h-example-level6 />
-
 
 ## Color
 
-Use the `color` prop to set the text color.
+Use the `color` prop to override the default text color with any Tailwind text color utility.
+
+<fwb-h-example-color />
 
 ```vue
 <template>
-  <fwb-heading color="text-green-400">Green eading</fwb-heading>
+  <fwb-heading color="text-green-400">Green heading</fwb-heading>
 </template>
 
 <script setup>
 import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
-<fwb-h-example-color />
 
+## Custom Classes
 
-## Custom classes
+Pass additional Tailwind utilities via the `class` attribute to further customize the heading appearance.
 
-Use the `class` attribute to apply the tailwind classes.
-
+<fwb-h-example-custom />
 
 ```vue
 <template>
@@ -140,4 +148,19 @@ Use the `class` attribute to apply the tailwind classes.
 import { FwbHeading } from 'flowbite-vue'
 </script>
 ```
-<fwb-h-example-custom />
+
+## Heading component API
+
+### FwbHeading Props
+
+| Name       | Type                                       | Default                          | Description                                                                              |
+| ---------- | ------------------------------------------ | -------------------------------- | ---------------------------------------------------------------------------------------- |
+| tag        | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6'` | `'h1'`                    | The HTML heading element to render.                                                      |
+| color      | `String`                                   | `'text-gray-900 dark:text-white'` | Tailwind text color utility applied to the heading.                                     |
+| customSize | `String`                                   | `''`                             | Overrides the default size and weight classes (e.g. `text-5xl font-extrabold` for H1).  |
+
+### FwbHeading Slots
+
+| Name    | Description              |
+| ------- | ------------------------ |
+| default | The heading text content. |

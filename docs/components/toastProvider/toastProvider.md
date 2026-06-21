@@ -2,7 +2,7 @@
 import FwbToastProviderExample from './examples/FwbToastProviderExample.vue'
 </script>
 
-# Vue Toast Provider - Flowbite
+# Toast Provider - Flowbite Vue
 
 :::warning
 WIP, Do not use it in production

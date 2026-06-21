@@ -3,11 +3,25 @@ import FwbTimelineExample from './timeline/examples/FwbTimelineExample.vue'
 import FwbTimelineExampleWithIcons from './timeline/examples/FwbTimelineExampleWithIcons.vue'
 import FwbTimelineExampleHorizontal from './timeline/examples/FwbTimelineExampleHorizontal.vue'
 </script>
-# Vue Timeline - Flowbite
 
-## Default timeline usage
+# Timeline - Flowbite Vue
+
+#### Use the timeline component to display a list of items and events in a chronological order based on Tailwind CSS utility classes
+
+---
+
+:::tip Timeline - Flowbite
+Original reference: [https://flowbite.com/docs/components/timeline/](https://flowbite.com/docs/components/timeline/)
+:::
+
+The timeline component can be used to display a list of events in chronological order with support for icons, dates, and a horizontal layout — built with `FwbTimeline`, `FwbTimelineItem`, `FwbTimelinePoint`, `FwbTimelineContent`, `FwbTimelineTime`, and `FwbTimelineTitle`.
+
+## Default
+
+Use `FwbTimeline` with nested `FwbTimelineItem` components. Each item contains a `FwbTimelinePoint` followed by `FwbTimelineContent` with optional `FwbTimelineTime`, `FwbTimelineTitle`, and `FwbTimelineBody`.
 
 <fwb-timeline-example />
+
 ```vue
 <template>
   <fwb-timeline>
@@ -72,10 +86,12 @@ import {
 </script>
 ```
 
-## Timeline with icons
-You can add icons by passing svg icons as slot to `<fwb-timeline-point>` component
+## Timeline with Icons
+
+Pass an SVG icon as the default slot of `<fwb-timeline-point>` to replace the default dot with a custom icon.
 
 <fwb-timeline-example-with-icons />
+
 ```vue
 <template>
   <fwb-timeline class="vp-raw">
@@ -181,11 +197,13 @@ import {
 } from 'flowbite-vue'
 </script>
 ```
-## Timeline with icons
-`horizontal` prop makes timeline horizontal
-<br>
+
+## Horizontal Timeline
+
+Add the `horizontal` prop to `FwbTimeline` to arrange items side by side instead of stacked vertically.
 
 <fwb-timeline-example-horizontal />
+
 ```vue
 <template>
   <fwb-timeline horizontal>
@@ -286,3 +304,53 @@ import {
 } from 'flowbite-vue'
 </script>
 ```
+
+## Timeline component API
+
+### FwbTimeline Props
+
+| Name       | Type      | Default | Description                                 |
+| ---------- | --------- | ------- | ------------------------------------------- |
+| horizontal | `Boolean` | `false` | Lays out the timeline items horizontally.   |
+
+### FwbTimeline Slots
+
+| Name    | Description                              |
+| ------- | ---------------------------------------- |
+| default | One or more `FwbTimelineItem` components. |
+
+### FwbTimelineItem Slots
+
+| Name    | Description                                           |
+| ------- | ----------------------------------------------------- |
+| default | `FwbTimelinePoint` and `FwbTimelineContent` elements. |
+
+### FwbTimelinePoint Slots
+
+| Name    | Description                                       |
+| ------- | ------------------------------------------------- |
+| default | Optional icon to replace the default dot marker.  |
+
+### FwbTimelineContent Slots
+
+| Name    | Description                                                            |
+| ------- | ---------------------------------------------------------------------- |
+| default | `FwbTimelineTime`, `FwbTimelineTitle`, and `FwbTimelineBody` elements. |
+
+### FwbTimelineTime Slots
+
+| Name    | Description                  |
+| ------- | ---------------------------- |
+| default | The date or time label text. |
+
+### FwbTimelineTitle Slots
+
+| Name    | Description           |
+| ------- | --------------------- |
+| default | The event title text. |
+
+### FwbTimelineBody Slots
+
+| Name    | Description                 |
+| ------- | --------------------------- |
+| default | The event description text. |

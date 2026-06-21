@@ -21,6 +21,8 @@ The autocomplete component supports real-time filtering, keyboard navigation, re
 
 ## Default
 
+Use `v-model` to bind the selected value, `options` to provide the list, `display` to control what text is shown, and `search-fields` to define which fields to filter against.
+
 <fwb-autocomplete-example />
 
 ```vue
@@ -52,6 +54,8 @@ const countries = [
 ```
 
 ## Sizes
+
+Use the `size` prop to control the input padding and font size. Accepts `'sm'`, `'md'` (default), `'lg'`, and `'xl'`.
 
 <fwb-autocomplete-example-size />
 
@@ -115,6 +119,8 @@ const countries = [
 
 ## Disabled
 
+Add the `disabled` prop to prevent user interaction and visually indicate the field is unavailable.
+
 <fwb-autocomplete-example-disabled />
 
 ```vue
@@ -146,8 +152,7 @@ const countries = [
 
 ## Validation
 
-- Set validation status via `validationStatus` prop, which accepts `'success'` or `'error'`.
-- Add validation message via `validationMessage` slot.
+Set `validationStatus` to `'success'` or `'error'` to apply the corresponding colour scheme. Use the `validationMessage` slot to render feedback text below the input.
 
 <fwb-autocomplete-example-validation />
 
@@ -196,6 +201,8 @@ const countries = [
 ```
 
 ## Slot - Helper
+
+Use the `helper` slot to render supplemental text below the input, such as a hint or privacy note.
 
 <fwb-autocomplete-example-helper />
 

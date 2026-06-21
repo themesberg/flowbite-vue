@@ -11,18 +11,29 @@ import FwbAvatarExampleStatus from './avatar/examples/FwbAvatarExampleStatus.vue
 import FwbAvatarExampleStatusPosition from './avatar/examples/FwbAvatarExampleStatusPosition.vue'
 </script>
 
-# Vue Avatar - Flowbite
-Use the avatar component to show a visual representation of a user profile using an image element or SVG object based on multiple styles and sizes
+# Avatar - Flowbite Vue
 
-## Default avatar
-Use this example to create a circle and rounded avatar on an image element.
+#### Use the avatar component to show a visual representation of a user profile using an image element or SVG object based on multiple styles and sizes
+
+---
+
+:::tip Avatar - Flowbite
+Original reference: [https://flowbite.com/docs/components/avatar/](https://flowbite.com/docs/components/avatar/)
+:::
+
+The avatar component can be used to display a user's profile picture, initials placeholder, icon fallback, or a stacked group of avatars — with support for sizing, border rings, and online/offline status indicators.
+
+## Default Avatar
+
+Use the `img` prop to display a profile image. Add `rounded` for a pill shape instead of the default circle.
 
 <fwb-avatar-example />
+
 ```vue
 <template>
   <div class="flex justify-center space-x-4">
-    <fwb-avatar img="/images/avatar-1.jpg" />
-    <fwb-avatar img="/images/avatar-1.jpg" rounded />
+    <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
+    <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" rounded />
   </div>
 </template>
 
@@ -32,32 +43,16 @@ import { FwbAvatar } from 'flowbite-vue'
 ```
 
 ## Bordered
-Use this example to create a circle and rounded avatar on an image element.
+
+Add the `bordered` prop to apply a ring around the avatar to make it stand out against surrounding content.
 
 <fwb-avatar-example-bordered />
+
 ```vue
 <template>
   <div class="flex justify-center space-x-4">
-    <fwb-avatar bordered img="/images/avatar-1.jpg" />
-    <fwb-avatar bordered img="/images/avatar-1.jpg" rounded />
-  </div></template>
-
-<script setup>
-import { FwbAvatar } from 'flowbite-vue'
-</script>
-```
-
-## Dot indicator
-Use a dot element relative to the avatar component as an indicator for the user (eg. online or offline status).
-
-<fwb-avatar-example-status />
-```vue
-<template>
-  <div class="flex justify-center space-x-4">
-    <fwb-avatar img="/images/avatar-1.jpg" status="online" />
-    <fwb-avatar img="/images/avatar-1.jpg" status="busy" />
-    <fwb-avatar img="/images/avatar-1.jpg" status="away" />
-    <fwb-avatar img="/images/avatar-1.jpg" status="offline" />
+    <fwb-avatar bordered img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
+    <fwb-avatar bordered img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" rounded />
   </div>
 </template>
 
@@ -66,56 +61,40 @@ import { FwbAvatar } from 'flowbite-vue'
 </script>
 ```
 
-## Dot indicator position
+## Dot Indicator
 
-<fwb-avatar-example-status-position />
+Use the `status` prop to show a coloured dot indicating the user's current availability — `online`, `busy`, `away`, or `offline`.
+
+<fwb-avatar-example-status />
+
 ```vue
 <template>
   <div class="flex justify-center space-x-4">
-    <fwb-avatar
-      img="/images/avatar-1.jpg"
-      status-position="top-left"
-      status="online"
-    />
-    <fwb-avatar
-      img="/images/avatar-1.jpg"
-      rounded
-      status-position="top-left"
-      status="online"
-    />
-    <fwb-avatar
-      img="/images/avatar-1.jpg"
-      status-position="top-right"
-      status="online"
-    />
-    <fwb-avatar
-      img="/images/avatar-1.jpg"
-      rounded
-      status-position="top-right"
-      status="online"
-    />
-    <fwb-avatar
-      img="/images/avatar-1.jpg"
-      status-position="bottom-left"
-      status="online"
-    />
-    <fwb-avatar
-      img="/images/avatar-1.jpg"
-      rounded
-      status-position="bottom-left"
-      status="online"
-    />
-    <fwb-avatar
-      img="/images/avatar-1.jpg"
-      status-position="bottom-right"
-      status="online"
-    />
-    <fwb-avatar
-      img="/images/avatar-1.jpg"
-      rounded
-      status-position="bottom-right"
-      status="online"
-    />
+    <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" status="online" />
+    <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" status="busy" />
+    <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" status="away" />
+    <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" status="offline" />
+  </div>
+</template>
+
+<script setup>
+import { FwbAvatar } from 'flowbite-vue'
+</script>
+```
+
+## Dot Indicator Position
+
+Use the `status-position` prop to control where the dot appears relative to the avatar. Accepts `top-right` (default), `top-left`, `bottom-right`, and `bottom-left`.
+
+<fwb-avatar-example-status-position />
+
+```vue
+<template>
+  <div class="flex justify-center space-x-4">
+    <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" status="online" status-position="top-left" />
+    <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" status="online" status-position="top-right" />
+    <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" status="online" status-position="bottom-left" />
+    <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" status="online" status-position="bottom-right" />
   </div>
 </template>
 
@@ -125,17 +104,19 @@ import { FwbAvatar } from 'flowbite-vue'
 ```
 
 ## Sizes
-Choose from multiple sizing options for the avatar component from this example.
+
+Use the `size` prop to control the avatar dimensions. Accepts `xs`, `sm`, `md` (default), `lg`, and `xl`.
 
 <fwb-avatar-example-size />
+
 ```vue
 <template>
   <div class="flex justify-center items-center space-x-4">
-    <fwb-avatar size="xs" img="/images/avatar-1.jpg" />
-    <fwb-avatar size="sm" img="/images/avatar-1.jpg" />
-    <fwb-avatar size="md" img="/images/avatar-1.jpg" />
-    <fwb-avatar size="lg" img="/images/avatar-1.jpg" />
-    <fwb-avatar size="xl" img="/images/avatar-1.jpg" />
+    <fwb-avatar size="xs" img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
+    <fwb-avatar size="sm" img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
+    <fwb-avatar size="md" img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
+    <fwb-avatar size="lg" img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
+    <fwb-avatar size="xl" img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
   </div>
 </template>
 
@@ -144,13 +125,16 @@ import { FwbAvatar } from 'flowbite-vue'
 </script>
 ```
 
-## Alternative text
+## Alternative Text
+
+Use the `alt` prop to set the image's alternative text for accessibility. Defaults to `'Avatar'`.
 
 <fwb-avatar-example-alt />
+
 ```vue
 <template>
   <div class="flex justify-center">
-    <fwb-avatar alt="Alternative text" img="/images/avatar-1.jpg" />
+    <fwb-avatar alt="User profile picture" img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
   </div>
 </template>
 
@@ -159,26 +143,28 @@ import { FwbAvatar } from 'flowbite-vue'
 </script>
 ```
 
-## Stacked avatars
-Use this example if you want to stack a group of users by overlapping the avatar components.
+## Stacked Avatars
+
+Wrap multiple `FwbAvatar` components in `FwbAvatarStack` with the `stacked` prop to create an overlapping group. Use `FwbAvatarStackCounter` to show a count of additional users that don't fit.
 
 <fwb-avatar-example-stack />
+
 ```vue
 <template>
   <div class="grid gap-2">
     <fwb-avatar-stack>
-      <fwb-avatar img="/images/avatar-1.jpg" rounded stacked />
-      <fwb-avatar img="/images/avatar-2.jpg" rounded stacked />
-      <fwb-avatar img="/images/avatar-3.jpg" rounded stacked />
-      <fwb-avatar img="/images/avatar-4.jpg" rounded stacked />
-      <fwb-avatar img="/images/avatar-5.jpg" rounded stacked />
-    <fwb-avatar-stack>
+      <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" rounded stacked />
+      <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-2.jpg" rounded stacked />
+      <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-3.jpg" rounded stacked />
+      <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-4.jpg" rounded stacked />
+      <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded stacked />
     </fwb-avatar-stack>
-      <fwb-avatar img="/images/avatar-1.jpg" rounded stacked />
-      <fwb-avatar img="/images/avatar-2.jpg" rounded stacked />
-      <fwb-avatar img="/images/avatar-3.jpg" rounded stacked />
-      <fwb-avatar img="/images/avatar-4.jpg" rounded stacked />
-      <fwb-avatar-stack-counter href="#" total="99" />
+    <fwb-avatar-stack>
+      <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-1.jpg" rounded stacked />
+      <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-2.jpg" rounded stacked />
+      <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-3.jpg" rounded stacked />
+      <fwb-avatar img="https://flowbite.com/docs/images/people/profile-picture-4.jpg" rounded stacked />
+      <fwb-avatar-stack-counter href="#" :total="99" />
     </fwb-avatar-stack>
   </div>
 </template>
@@ -188,9 +174,12 @@ import { FwbAvatar, FwbAvatarStack, FwbAvatarStackCounter } from 'flowbite-vue'
 </script>
 ```
 
-## Placeholder icon
+## Placeholder Icon
+
+When no `img` or `initials` prop is provided, a default person silhouette icon is shown as the avatar placeholder.
 
 <fwb-avatar-example-placeholder />
+
 ```vue
 <template>
   <div class="flex justify-center space-x-4">
@@ -204,9 +193,12 @@ import { FwbAvatar } from 'flowbite-vue'
 </script>
 ```
 
-## Placeholder initials
+## Placeholder Initials
+
+Use the `initials` prop to display text (typically one or two letters) as a placeholder instead of the default icon.
 
 <fwb-avatar-example-initials />
+
 ```vue
 <template>
   <div class="flex justify-center space-x-4">
@@ -220,13 +212,15 @@ import { FwbAvatar } from 'flowbite-vue'
 </script>
 ```
 
-## Alternative Placeholder Icon
-Use this example if you'd like to specify a different placeholder icon. Specify a `#placeholder` template slot to override the default placeholder icon. This has no effect if using initials.
+## Custom Placeholder Icon
+
+Use the `#placeholder` slot to replace the default silhouette with any SVG or element. The slot has no effect when `img` or `initials` is set — both take precedence and prevent the placeholder from rendering.
 
 <fwb-avatar-example-icon />
+
 ```vue
 <template>
-  <div class="vp-raw flex justify-center space-x-4">
+  <div class="flex justify-center space-x-4">
     <fwb-avatar>
       <template #placeholder>
         <svg class="w-12 h-12" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -248,3 +242,32 @@ Use this example if you'd like to specify a different placeholder icon. Specify 
 import { FwbAvatar } from 'flowbite-vue'
 </script>
 ```
+
+## Avatar component API
+
+### FwbAvatar Props
+
+| Name           | Type                                                         | Default       | Description                                                  |
+| -------------- | ------------------------------------------------------------ | ------------- | ------------------------------------------------------------ |
+| alt            | `String`                                                     | `'Avatar'`    | Alt text for the image element.                              |
+| bordered       | `Boolean`                                                    | `false`       | Applies a ring border around the avatar.                     |
+| img            | `String`                                                     | `''`          | URL of the profile image. Shows placeholder when empty.      |
+| initials       | `String`                                                     | `null`        | Text displayed as placeholder instead of the default icon.   |
+| rounded        | `Boolean`                                                    | `false`       | Uses a rounded (pill) shape instead of a circle.             |
+| size           | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                      | `'md'`        | Controls the avatar dimensions.                              |
+| stacked        | `Boolean`                                                    | `false`       | Adds negative margin for use inside `FwbAvatarStack`.        |
+| status         | `'online' \| 'busy' \| 'away' \| 'offline'`                  | `null`        | Shows a coloured dot indicator for user availability.        |
+| statusPosition | `'top-right' \| 'top-left' \| 'bottom-right' \| 'bottom-left'` | `'top-right'` | Controls the position of the status dot.                  |
+
+### FwbAvatar Slots
+
+| Name        | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| placeholder | Custom icon or element shown when no `img` or `initials` is set.   |
+
+### FwbAvatarStackCounter Props
+
+| Name  | Type     | Default | Description                                      |
+| ----- | -------- | ------- | ------------------------------------------------ |
+| total | `Number` | `1`     | Number displayed inside the counter badge.       |
+| href  | `String` | `'#'`   | URL the counter badge links to when clicked.     |

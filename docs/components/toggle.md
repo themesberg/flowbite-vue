@@ -10,21 +10,24 @@ import FwbToggleExampleStyling from './toggle/examples/FwbToggleExampleStyling.v
 import FwbToggleExampleValidation from './toggle/examples/FwbToggleExampleValidation.vue'
 </script>
 
-# Vue Toggle - Flowbite
+# Toggle - Flowbite Vue
 
 #### Use the toggle component to switch between a binary state of true or false using a single click available in multiple sizes, variants, and colors
 
 ---
 
-:::tip
+:::tip Toggle - Flowbite
 Original reference: [https://flowbite.com/docs/forms/toggle/](https://flowbite.com/docs/forms/toggle/)
 :::
 
 The toggle component can be used to receive a simple "yes" or "no" type of answer from the user by choosing a single option from two options available in multiple sizes, styles, and colors coded with the utility classes from Tailwind CSS and with dark mode support.
 
-## Default toggle
+## Default
+
+Use `FwbToggle` with `v-model` to bind a boolean value and `label` to display accessible text beside the switch.
 
 <fwb-toggle-example />
+
 ```vue
 <template>
   <fwb-toggle v-model="toggle" label="Toggle me" />
@@ -36,12 +39,14 @@ import { FwbToggle } from 'flowbite-vue'
 
 const toggle = ref(false)
 </script>
-
 ```
 
-## Checked toggle
+## Checked
+
+Initialize `v-model` with `true` to render the toggle in its checked (on) state by default.
 
 <fwb-toggle-example-checked />
+
 ```vue
 <template>
   <fwb-toggle v-model="toggle" label="Toggle me" />
@@ -55,9 +60,12 @@ const toggle = ref(true)
 </script>
 ```
 
-## Disabled toggle
+## Disabled
+
+Add the `disabled` prop to prevent the user from interacting with the toggle.
 
 <fwb-toggle-example-disabled />
+
 ```vue
 <template>
   <fwb-toggle v-model="toggle" disabled label="Can't Toggle me" />
@@ -69,12 +77,14 @@ import { FwbToggle } from 'flowbite-vue'
 
 const toggle = ref(false)
 </script>
-
 ```
 
 ## Colors
 
+Use the `color` prop to set the accent color of the track when the toggle is checked.
+
 <fwb-toggle-example-colors />
+
 ```vue
 <template>
   <fwb-toggle label="Red" color="red" />
@@ -88,7 +98,10 @@ const toggle = ref(false)
 
 ## Size
 
+Use the `size` prop to control the size of the toggle track and thumb.
+
 <fwb-toggle-example-size />
+
 ```vue
 <template>
   <fwb-toggle label="Small" size="sm" />
@@ -98,9 +111,12 @@ const toggle = ref(false)
 </template>
 ```
 
-## Label position
+## Label Position
+
+Add the `reverse` prop to place the label text to the left of the toggle instead of the right.
 
 <fwb-toggle-example-order />
+
 ```vue
 <template>
   <fwb-toggle label="Toggle me" />
@@ -113,6 +129,7 @@ const toggle = ref(false)
 Use `validationStatus` together with the `validationMessage` slot to show success or error feedback below the toggle.
 
 <fwb-toggle-example-validation />
+
 ```vue
 <template>
   <fwb-toggle v-model="toggle1" label="Notifications (success)" validation-status="success">
@@ -128,11 +145,12 @@ Use `validationStatus` together with the `validationMessage` slot to show succes
 </template>
 ```
 
-## Helper text
+## Helper Text
 
 Use the `helper` slot to show a hint below the toggle.
 
 <fwb-toggle-example-helper />
+
 ```vue
 <template>
   <fwb-toggle v-model="toggle" label="Dark mode">
@@ -148,6 +166,7 @@ Use the `helper` slot to show a hint below the toggle.
 Use dedicated props to pass classes to individual elements.
 
 <fwb-toggle-example-styling />
+
 ```vue
 <template>
   <fwb-toggle

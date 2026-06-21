@@ -6,21 +6,25 @@ import FwbToastExampleDivide from './toast/examples/FwbToastExampleDivide.vue'
 import FwbToastExampleMessage from './toast/examples/FwbToastExampleMessage.vue'
 import FwbToastExampleInteractive from './toast/examples/FwbToastExampleInteractive.vue'
 </script>
-# Vue Toast - Flowbite
+
+# Toast - Flowbite Vue
 
 #### Push notifications to your users using the toast component and choose from multiple sizes, colors, styles, and positions
 
 ---
 
-:::tip
+:::tip Toast - Flowbite
 Original reference: [https://flowbite.com/docs/components/toast/](https://flowbite.com/docs/components/toast/)
 :::
 
-The toast component can be used to enhance your website’s interactivity by pushing notifications to your visitors. You can choose from multiple styles, colors, sizes, and positions and even dismiss the component.
+The toast component can be used to enhance your website's interactivity by pushing notifications to your visitors. You can choose from multiple styles, colors, sizes, and positions and even dismiss the component.
 
-## Prop - type
+## Default
+
+Use `FwbToast` to display a notification badge. Set the `type` prop to `'success'`, `'warning'`, or `'danger'` to show a colored icon; omit it (or use `'empty'`) to render without an icon badge.
 
 <fwb-toast-example />
+
 ```vue
 <template>
   <fwb-toast>
@@ -42,9 +46,12 @@ import { FwbToast } from 'flowbite-vue'
 </script>
 ```
 
-## Prop - closable
+## Closable
+
+Add the `closable` prop to render a close button that dismisses the toast when clicked and emits a `close` event.
 
 <fwb-toast-example-closable />
+
 ```vue
 <template>
   <fwb-toast closable>
@@ -66,9 +73,12 @@ import { FwbToast } from 'flowbite-vue'
 </script>
 ```
 
-## Prop - divide
+## Divide
+
+Add the `divide` prop to render a vertical divider between the icon badge and the toast content.
 
 <fwb-toast-example-divide />
+
 ```vue
 <template>
   <fwb-toast divide>
@@ -92,7 +102,10 @@ import { FwbToast } from 'flowbite-vue'
 
 ## Message
 
+Set `alignment="start"` to left-align the content, then use the `icon` slot and interactive elements inside the default slot to build a rich message-style notification.
+
 <fwb-toast-example-message />
+
 ```vue
 <template>
   <fwb-toast alignment="start" closable>
@@ -117,7 +130,10 @@ import { FwbButton, FwbToast } from 'flowbite-vue'
 
 ## Interactive
 
+Wrap `FwbToast` in `FlowbiteThemable` to apply a custom theme color to the icon badge background.
+
 <fwb-toast-example-interactive />
+
 ```vue
 <template>
   <flowbite-themable theme="blue">
@@ -146,14 +162,14 @@ import { FwbButton, FwbToast } from 'flowbite-vue'
 <script setup>
 import { FlowbiteThemable, FwbButton, FwbToast } from 'flowbite-vue'
 </script>
-
 ```
 
-## Slot - icon
+## Slot - Icon
 
-You can use icon slot for rendering your own icons. Also you can change icon background color by using [FlowbiteThemable](/components/flowbiteThemable/flowbiteThemable.md)
+Use the `icon` slot to render a custom SVG inside the colored badge. Pair with [FlowbiteThemable](/components/flowbiteThemable/flowbiteThemable.md) to control the badge background color.
 
 <fwb-toast-example-icon />
+
 ```vue
 <template>
   <fwb-toast closable>
@@ -173,7 +189,7 @@ You can use icon slot for rendering your own icons. Also you can change icon bac
     </template>
     You have new friend request.
   </fwb-toast>
-  <fwb-toast closabletype="success">
+  <fwb-toast closable type="success">
     <template #icon>
       <svg class="bi bi-earbuds" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
         <path d="M6.825 4.138c.596 2.141-.36 3.593-2.389 4.117a4.432 4.432 0 0 1-2.018.054c-.048-.01.9 2.778 1.522 4.61l.41 1.205a.52.52 0 0 1-.346.659l-.593.19a.548.548 0 0 1-.69-.34L.184 6.99c-.696-2.137.662-4.309 2.564-4.8 2.029-.523 3.402 0 4.076 1.948zm-.868 2.221c.43-.112.561-.993.292-1.969-.269-.975-.836-1.675-1.266-1.563-.43.112-.561.994-.292 1.969.269.975.836 1.675 1.266 1.563zm3.218-2.221c-.596 2.141.36 3.593 2.389 4.117a4.434 4.434 0 0 0 2.018.054c.048-.01-.9 2.778-1.522 4.61l-.41 1.205a.52.52 0 0 0 .346.659l.593.19c.289.092.6-.06.69-.34l2.536-7.643c.696-2.137-.662-4.309-2.564-4.8-2.029-.523-3.402 0-4.076 1.948zm.868 2.221c-.43-.112-.561-.993-.292-1.969.269-.975.836-1.675 1.266-1.563.43.112.561.994.292 1.969-.269.975-.836 1.675-1.266 1.563z" fill-rule="evenodd" />
@@ -187,3 +203,27 @@ You can use icon slot for rendering your own icons. Also you can change icon bac
 import { FwbToast } from 'flowbite-vue'
 </script>
 ```
+
+## Toast component API
+
+### FwbToast Props
+
+| Name      | Type                                              | Default    | Description                                                                          |
+| --------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------ |
+| alignment | `'start' \| 'center' \| 'end'`                   | `'center'` | Horizontal alignment of the content inside the toast.                                |
+| closable  | `Boolean`                                         | `false`    | Renders a close button that dismisses the toast and emits `close`.                   |
+| divide    | `Boolean`                                         | `false`    | Renders a vertical divider between the icon badge and the content.                   |
+| type      | `'success' \| 'warning' \| 'danger' \| 'empty'`  | `'empty'`  | Sets the icon badge color. `'empty'` hides the badge unless the `icon` slot is used. |
+
+### FwbToast Events
+
+| Name  | Description                                |
+| ----- | ------------------------------------------ |
+| close | Emitted when the close button is clicked.  |
+
+### FwbToast Slots
+
+| Name    | Description                                                                       |
+| ------- | --------------------------------------------------------------------------------- |
+| default | The toast message content.                                                        |
+| icon    | Custom icon rendered inside the colored badge (overrides the built-in type icon). |

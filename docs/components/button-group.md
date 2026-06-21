@@ -9,21 +9,24 @@ const FwbButtonGroupExampleDropdown = defineClientComponent(() => {
 })
 </script>
 
-# Vue Button Group - Flowbite
+# Button Group - Flowbite Vue
 
 #### Button groups are a Tailwind CSS powered set of buttons sticked together in a horizontal line
 
 ---
 
-:::tip
+:::tip Button Group - Flowbite
 Original reference: [https://flowbite.com/docs/components/button-group/](https://flowbite.com/docs/components/button-group/)
 :::
 
-The button group component from Flowbite can be used to stack together multiple buttons and links inside a single element.
+The button group component can be used to stack multiple `FwbButton` elements and dropdowns together in a single inline group. Border-radius adjustments are handled automatically — the first child gets a left-rounded corner, the last gets a right-rounded corner, and everything in between is square.
 
-## Basic example
+## Default Button Group
+
+Wrap any number of `FwbButton` components inside `FwbButtonGroup` to join them into a single horizontal unit. Each button retains its own `color` and other props.
 
 <fwb-button-group-example />
+
 ```vue
 <template>
   <fwb-button-group>
@@ -39,9 +42,12 @@ import { FwbButtonGroup, FwbButton } from 'flowbite-vue'
 </script>
 ```
 
-## Buttons with icons
+## Buttons with Icons
+
+Use `FwbButton`'s `#suffix` or `#prefix` slots to add icons to individual buttons within the group. This is useful for toolbar-style controls where text and icon cues appear together.
 
 <fwb-button-group-example-icon />
+
 ```vue
 <template>
   <fwb-button-group>
@@ -64,10 +70,12 @@ import { FwbButtonGroup, FwbButton } from 'flowbite-vue'
 </script>
 ```
 
-## Grouping buttons and dropdowns
+## Grouping Buttons and Dropdowns
 
-You can also mix buttons with dropdowns inside the button group.
+Mix `FwbButton` and `FwbDropdown` components inside `FwbButtonGroup` to combine actions with contextual menus in a single control.
+
 <fwb-button-group-example-dropdown />
+
 ```vue
 <template>
   <fwb-button-group>
@@ -91,6 +99,14 @@ You can also mix buttons with dropdowns inside the button group.
 </template>
 
 <script setup>
-  import { FwbButtonGroup, FwbButton, FwbDropdown, FwbListGroupItem, FwbListGroup } from 'flowbite-vue'
+import { FwbButtonGroup, FwbButton, FwbDropdown, FwbListGroupItem, FwbListGroup } from 'flowbite-vue'
 </script>
 ```
+
+## Button Group component API
+
+### FwbButtonGroup Slots
+
+| Name    | Description                                                                      |
+| ------- | -------------------------------------------------------------------------------- |
+| default | One or more `FwbButton` or `FwbDropdown` elements to render as a joined group.   |
