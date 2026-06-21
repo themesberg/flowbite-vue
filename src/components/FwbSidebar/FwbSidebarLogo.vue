@@ -1,6 +1,6 @@
 <template>
   <component
-    :is="component"
+    :is="tag"
     :[linkAttr]="linkValue"
     class="mb-5 flex items-center pl-2.5"
   >
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, resolveComponent } from 'vue'
+import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -33,8 +33,6 @@ const props = withDefaults(
   },
 )
 
-const resolved = computed(() => props.tag === 'a' ? 'a' : resolveComponent(props.tag))
-const component = computed(() => typeof resolved.value === 'string' ? 'a' : resolved.value)
-const linkAttr = computed(() => component.value === 'a' ? 'href' : 'to')
-const linkValue = computed(() => component.value === 'a' && typeof props.link !== 'string' ? '/' : props.link)
+const linkAttr = computed(() => props.tag === 'a' ? 'href' : 'to')
+const linkValue = computed(() => props.tag === 'a' && typeof props.link !== 'string' ? '/' : props.link)
 </script>

@@ -564,14 +564,14 @@ Use `FwbSidebarCta` to add a call-to-action banner inside the sidebar. Set a `la
 
 ## Logo Branding
 
-Add `FwbSidebarLogo` at the top of the sidebar to display a brand logo and name. Use the `tag` prop to render it as a `router-link` when using Vue Router.
+Add `FwbSidebarLogo` at the top of the sidebar to display a brand logo and name. Pass a URL to the `link` prop to make it a clickable anchor, or set `tag="router-link"` (and a route object to `link`) when using Vue Router.
 
 <FwbSidebarLogoExample />
 
 ```vue
 <template>
   <fwb-sidebar>
-    <fwb-sidebar-logo name="Flowbite" logo="https://flowbite.com/docs/images/logo.svg" tag="router-link" />
+    <fwb-sidebar-logo name="Flowbite" logo="https://flowbite.com/docs/images/logo.svg" link="https://flowbite.com" />
     <fwb-sidebar-item>
       <template #icon>
         <svg
