@@ -19,7 +19,7 @@ import { resolveComponent } from 'vue'
 const props = withDefaults(
   defineProps<{
     name?: string
-    link?: string | { name: string }
+    link?: string | Record<string, unknown>
     logo?: string
     alt?: string
     tag?: string

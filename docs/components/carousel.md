@@ -139,3 +139,4 @@ const pictures = [
 | noIndicators  | `Boolean`                         | `false` | Hides the dot indicator buttons at the bottom of the carousel.    |
 | slide         | `Boolean`                         | `false` | Enables automatic slide advancement on mount.                     |
 | slideInterval | `Number`                          | `3000`  | Duration in milliseconds between auto-play slide transitions.     |
+| animation     | `Boolean`                         | `false` | Reserved for future slide transition animation (currently has no effect). |
