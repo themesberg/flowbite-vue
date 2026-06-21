@@ -4,7 +4,7 @@
       <fwb-sidebar-logo
         name="Flowbite"
         logo="https://flowbite.com/docs/images/logo.svg"
-        tag="router-link"
+        link="https://flowbite.com"
       />
       <fwb-sidebar-item>
         <template #icon>

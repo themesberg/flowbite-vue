@@ -28,11 +28,12 @@ const props = withDefaults(
     name: '',
     link: '/',
     logo: '',
-    tag: 'router-link',
+    tag: 'a',
     alt: '',
   },
 )
 
-const component = props.tag === 'a' ? 'a' : resolveComponent(props.tag)
-const linkAttr = props.tag === 'a' ? 'href' : 'to'
+const resolved = props.tag === 'a' ? 'a' : resolveComponent(props.tag)
+const component = typeof resolved === 'string' ? 'a' : resolved
+const linkAttr = component === 'a' ? 'href' : 'to'
 </script>
