@@ -16,13 +16,15 @@ import FwbSelectExampleValidation from './select/examples/FwbSelectExampleValida
 
 ---
 
-:::tip
+:::tip Select - Flowbite
 Original reference: [https://flowbite.com/docs/forms/select/](https://flowbite.com/docs/forms/select/)
 :::
 
 The select input component can be used to gather information from users based on multiple options in the form of a dropdown list and by browsing this page you will find multiple options, styles, sizes, and variants built with the utility classes from Tailwind CSS also available in dark mode.
 
 ## Default
+
+Use `FwbSelect` with `v-model`, an `options` array of `{ value, name }` objects, and a `label` to render a styled native select input.
 
 <fwb-select-example />
 
@@ -80,6 +82,8 @@ const countries = [
 
 ## Sizes
 
+Use the `size` prop to control the padding and font size of the select. Available sizes are `sm`, `md` (default), `lg`, and `xl`.
+
 <fwb-select-example-size />
 ```vue
 <template>
@@ -125,6 +129,8 @@ const countries = [
 
 ## Disabled
 
+Set the `disabled` prop to prevent the user from interacting with the select. A custom `placeholder` can be provided to communicate the restriction.
+
 <fwb-select-example-disabled />
 ```vue
 <template>
@@ -152,6 +158,8 @@ const countries = [
 ```
 
 ## Underlined
+
+Add the `underline` prop to switch to a borderless style with only a bottom border, following the Flowbite underline variant.
 
 <fwb-select-example-underlined />
 ```vue
@@ -224,6 +232,8 @@ const countries = [
 ```
 
 ## Slot - Helper
+
+Use the `helper` slot to render supplementary text below the select — such as a privacy notice or contextual hint.
 
 <fwb-select-example-helper />
 ```vue

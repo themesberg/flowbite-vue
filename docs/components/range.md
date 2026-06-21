@@ -15,11 +15,15 @@ import FwbRangeExampleValidation from './range/examples/FwbRangeExampleValidatio
 
 ---
 
-:::tip
+:::tip Range - Flowbite
 Original reference: [https://flowbite.com/docs/forms/range/](https://flowbite.com/docs/forms/range/)
 :::
 
+The range component can be used to let the user select a numeric value by dragging a slider handle. It supports custom min/max bounds, step increments, sizes, validation feedback, and helper text, all styled with Tailwind CSS utility classes.
+
 ## Default
+
+Use `FwbRange` with `v-model.number` to bind a numeric value to the slider.
 
 <fwb-range-example />
 ```vue
@@ -37,7 +41,9 @@ const value = ref(50)
 
 ```
 
-## Disabled state
+## Disabled State
+
+Set the `disabled` prop to prevent interaction with the slider.
 
 <fwb-range-example-disabled />
 ```vue
@@ -51,6 +57,8 @@ const value = ref(50)
 ```
 
 ## Min and Max
+
+Use the `min` and `max` props to constrain the range of values the slider can return.
 
 <fwb-range-example-min-max />
 ```vue
@@ -66,6 +74,8 @@ const value = ref(50)
 
 ## Steps
 
+Use the `steps` prop to set the increment between each selectable value on the slider track.
+
 <fwb-range-example-steps />
 ```vue
 <template>
@@ -78,6 +88,8 @@ const value = ref(50)
 ```
 
 ## Sizes
+
+Use the `size` prop to control the height of the slider track and thumb. Available sizes are `sm`, `md` (default), `lg`, and `xl`.
 
 <fwb-range-example-size />
 ```vue
@@ -109,7 +121,7 @@ Use `validationStatus` together with the `validationMessage` slot to show succes
 </template>
 ```
 
-## Helper text
+## Helper Text
 
 Use the `helper` slot to show a hint below the range input.
 

@@ -5,12 +5,22 @@ import FwbSidebarGroupExample from './sidebar/examples/FwbSidebarGroupExample.vu
 import FwbSidebarCtaExample from './sidebar/examples/FwbSidebarCtaExample.vue'
 import FwbSidebarLogoExample from './sidebar/examples/FwbSidebarLogoExample.vue'
 </script>
-# Sidebar - Flowbite Vue
-#### Use the sidebar component to show a list of menu items and multi-level menu items on either side of the page to navigate on your website
-The sidebar component can be used as a complementary element relative to the navbar shown on either the left or right side of the page used for the navigation on your web application, including menu items, multi-level menu items, call to actions elements, and more.
 
-## Default sidebar
-Use this example to show a responsive list of menu items inside the sidebar with icons and labels.
+# Sidebar - Flowbite Vue
+
+#### Use the sidebar component to show a list of menu items and multi-level menu items on either side of the page to navigate on your website
+
+---
+
+:::tip Sidebar - Flowbite
+Original reference: [https://flowbite.com/docs/components/sidebar/](https://flowbite.com/docs/components/sidebar/)
+:::
+
+The sidebar component can be used as a complementary element relative to the navbar shown on either the left or right side of the page used for the navigation on your web application, including menu items, multi-level menu items, call to action elements, and more.
+
+## Default Sidebar
+
+Use `FwbSidebar` as the outer shell and nest `FwbSidebarItem` components inside it. Each item supports an `icon` slot, a `suffix` slot for badges, and a `link` prop for navigation.
 
 <FwbSidebarExample />
 
@@ -144,8 +154,9 @@ import { FwbSidebar, FwbSidebarItem } from 'flowbite-vue'
 
 ```
 
-## Multi-level menu
-Use this sidebar example to create multi-level menu items by using the FwbSidebarDropdownItem component.
+## Multi-Level Menu
+
+Use `FwbSidebarDropdownItem` to create an expandable nested menu. The `trigger` slot sets the parent label and the default slot contains the child `FwbSidebarItem` entries.
 
 <FwbSidebarDropdownExample />
 
@@ -213,7 +224,9 @@ Use this sidebar example to create multi-level menu items by using the FwbSideba
 </script>
 ```
 
-## Content separator
+## Content Separator
+
+Wrap a set of `FwbSidebarItem` components in `FwbSidebarItemGroup` and add `border` to render a top border that visually separates groups of items.
 
 <FwbSidebarGroupExample />
 
@@ -409,7 +422,9 @@ Use this sidebar example to create multi-level menu items by using the FwbSideba
 </script>
 ```
 
-## CTA button
+## CTA Button
+
+Use `FwbSidebarCta` to add a call-to-action banner inside the sidebar. Set a `label` badge text and handle the `close` event to dismiss it.
 
 <FwbSidebarCtaExample />
 
@@ -547,7 +562,9 @@ Use this sidebar example to create multi-level menu items by using the FwbSideba
 </script>
 ```
 
-## Logo branding
+## Logo Branding
+
+Add `FwbSidebarLogo` at the top of the sidebar to display a brand logo and name. Use the `tag` prop to render it as a `router-link` when using Vue Router.
 
 <FwbSidebarLogoExample />
 
@@ -682,81 +699,75 @@ Use this sidebar example to create multi-level menu items by using the FwbSideba
 ```
 
 
-## API
+## Sidebar component API
 
-### Sidebar component 
+### FwbSidebar Slots
 
-#### Slots
-| Name    | Description     |
-|---------|-----------------|
-| default | Sidebar content |
+| Name    | Description                                              |
+| ------- | -------------------------------------------------------- |
+| default | Sidebar content — one or more `FwbSidebarItem` elements. |
 
+### FwbSidebarItem Props
 
-### SidebarCta component
+| Name | Type                    | Default | Description                                               |
+| ---- | ----------------------- | ------- | --------------------------------------------------------- |
+| link | `String \| Object`      | `'/'`   | The URL or route object passed to the link element.       |
+| tag  | `String`                | `'a'`   | Root element tag or component name (e.g. `'router-link'`). |
 
-#### Slots
-| Name    | Description     |
-|---------|-----------------|
-| default | Sidebar content |
+### FwbSidebarItem Slots
 
-#### Props
-| Name  | type     |
-|-------|----------|
-| label | `string` |
+| Name    | Description                                           |
+| ------- | ----------------------------------------------------- |
+| default | The item label text.                                  |
+| icon    | Icon rendered to the left of the item label.          |
+| suffix  | Content rendered to the right of the label (e.g. a badge). |
 
-#### Events
-| Name  | Description          |
-|-------|----------------------|
-| close | close button clicked |
+### FwbSidebarDropdownItem Slots
 
-### SidebarDropdownItem component
+| Name       | Description                                                      |
+| ---------- | ---------------------------------------------------------------- |
+| default    | Child `FwbSidebarItem` elements shown when the dropdown expands. |
+| icon       | Icon rendered to the left of the trigger label.                  |
+| trigger    | The parent item label text that toggles the dropdown.            |
+| arrow-icon | Replaces the default chevron arrow inside the trigger.           |
 
-#### Slots
-| Name       | Description              |
-|------------|--------------------------|
-| default    | Dropdown content         |
-| icon       | Dropdown item icon       |
-| trigger    | Dropdown text            |
-| arrow-icon | Dropdown item arrow icon |
+### FwbSidebarItemGroup Props
 
+| Name   | Type      | Default | Description                                               |
+| ------ | --------- | ------- | --------------------------------------------------------- |
+| border | `Boolean` | `false` | Adds a top border to visually separate this group.        |
 
-### SidebarItem
+### FwbSidebarItemGroup Slots
 
-#### Slots
-| Name    | Description     |
-|---------|-----------------|
-| default | Sidebar content |
-| icon    | Item icon       |
-| suffix  | suffix content  |
+| Name    | Description                                    |
+| ------- | ---------------------------------------------- |
+| default | One or more `FwbSidebarItem` elements to group. |
 
-#### Props
-| Name | type     | default     |
-|------|----------|-------------|
-| link | `string` | /           |
-| tag  | `string` | router-link |
+### FwbSidebarCta Props
 
+| Name  | Type     | Default     | Description                                          |
+| ----- | -------- | ----------- | ---------------------------------------------------- |
+| label | `String` | `undefined` | Badge text displayed in the top-right of the banner. |
 
-### SidebarItemGroup
+### FwbSidebarCta Events
 
-#### Slots
-| Name    | Description   |
-|---------|---------------|
-| default | Group content |
+| Name  | Description                               |
+| ----- | ----------------------------------------- |
+| close | Emitted when the dismiss button is clicked. |
 
+### FwbSidebarCta Slots
 
-#### Props
-| Name   | type      | default |
-|--------|-----------|---------|
-| border | `boolean` | `false` |
+| Name    | Description                           |
+| ------- | ------------------------------------- |
+| default | The CTA banner content.               |
 
+### FwbSidebarLogo Props
 
-### SidebarLogo
-
-#### Props
-| Name | type     | default       |
-|------|----------|---------------|
-| name | `string` |               |
-| link | `string` | `/`           |
-| logo | `string` |               |
-| tag  | `string` | `router-link` |
+| Name | Type     | Default     | Description                                                        |
+| ---- | -------- | ----------- | ------------------------------------------------------------------ |
+| alt  | `String` | `undefined` | Alt text for the logo image.                                       |
+| link | `String` | `'/'`       | The URL or route passed to the logo link.                          |
+| logo | `String` | `undefined` | URL of the logo image.                                             |
+| name | `String` | `undefined` | Brand name text displayed next to the logo image.                  |
+| tag  | `String` | `'a'`       | Root element tag or component name (e.g. `'router-link'`).         |
 
