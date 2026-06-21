@@ -1,7 +1,8 @@
-import classNames from 'classnames'
 import { computed, type Ref } from 'vue'
 
 import type { SpinnerColor, SpinnerSize } from '../types'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const sizes: Record<SpinnerSize, string> = {
   0: 'w-0 h-0',
@@ -46,12 +47,12 @@ export function useSpinnerClasses (props: UseSpinnerClassesProps): { spinnerClas
 
   const bgColorClasses = computed(() => 'text-gray-200 dark:text-gray-600')
   const animateClasses = computed(() => 'animate-spin')
-  const spinnerClasses = computed(() => classNames(
+  const spinnerClasses = computed(() => useMergeClasses([
     animateClasses.value,
     bgColorClasses.value,
     colorClasses.value,
     sizeClasses.value,
-  ))
+  ]))
 
   return { spinnerClasses, customColor }
 }

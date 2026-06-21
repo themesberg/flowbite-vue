@@ -1,7 +1,8 @@
-import classNames from 'classnames'
 import { computed, type Ref } from 'vue'
 
 import type { RatingSize } from '../types'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const ratingSizeClasses: Record<RatingSize, string> = {
   sm: 'w-5 h-5',
@@ -16,9 +17,7 @@ export type UseRatingClassesProps = {
 export function useRatingClasses (props: UseRatingClassesProps): {
   sizeClasses: Ref<string>
 } {
-  const sizeClasses = computed(() => classNames(
-    ratingSizeClasses[props.size.value] ?? '',
-  ))
+  const sizeClasses = computed(() => useMergeClasses(ratingSizeClasses[props.size.value] ?? ''))
 
   return { sizeClasses }
 }

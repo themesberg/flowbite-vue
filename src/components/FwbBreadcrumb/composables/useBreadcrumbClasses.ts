@@ -1,7 +1,8 @@
-import classNames from 'classnames'
 import { computed, type Ref } from 'vue'
 
 import type { BreadcrumbType } from '../types'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const breadcrumbDefaultClasses = 'inline-flex items-center space-x-1 md:space-x-3'
 const breadcrumbWrapperVariantClasses: Record<BreadcrumbType, string> = {
@@ -17,9 +18,9 @@ export function useBreadcrumbClasses (props: useBreadcrumbProps): {
   breadcrumbClasses: Ref<string>
   breadcrumbWrapperClasses: Ref<string>
 } {
-  const breadcrumbClasses = computed<string>(() => classNames(breadcrumbDefaultClasses))
-  const breadcrumbWrapperClasses = computed<string>(() => classNames(
-    breadcrumbWrapperVariantClasses[props.solid.value ? 'solid' : 'defauilt' as BreadcrumbType],
+  const breadcrumbClasses = computed<string>(() => useMergeClasses(breadcrumbDefaultClasses))
+  const breadcrumbWrapperClasses = computed<string>(() => useMergeClasses(
+    breadcrumbWrapperVariantClasses[props.solid.value ? 'solid' : 'default'],
   ))
 
   return {

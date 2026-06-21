@@ -8,8 +8,9 @@
 </template>
 
 <script lang="ts" setup>
-import classNames from 'classnames'
 import { computed, provide } from 'vue'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const props = defineProps({
   horizontal: {
@@ -24,10 +25,8 @@ const defaultClasses = 'relative border-gray-200 dark:border-gray-700'
 const verticalClasses = 'border-l'
 const horizontalClasses = 'flex'
 
-const timelineClasses = computed(() => classNames(
+const timelineClasses = computed(() => useMergeClasses([
   defaultClasses,
-  props.horizontal
-    ? horizontalClasses
-    : verticalClasses,
-))
+  props.horizontal ? horizontalClasses : verticalClasses,
+]))
 </script>
