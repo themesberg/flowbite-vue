@@ -25,10 +25,10 @@
         class="mb-4"
         @search="handleSearch"
       >
-        <template #suffix="{ loading, clear }">
+        <template #suffix="{ loading: isLoading, clear }">
           <div class="flex items-center space-x-2">
             <div
-              v-if="loading"
+              v-if="isLoading"
               class="w-4 h-4 border-2 border-purple-600 border-t-transparent rounded-full animate-spin"
             />
             <button
@@ -98,10 +98,10 @@
           display="name"
           placeholder="Search products..."
         >
-          <template #suffix="{ loading }">
+          <template #suffix="{ loading: isLoading }">
             <div class="flex items-center">
               <svg
-                v-if="loading"
+                v-if="isLoading"
                 class="w-5 h-5 text-purple-600 animate-spin"
                 fill="none"
                 viewBox="0 0 100 101"
@@ -176,12 +176,12 @@ import { FwbAutocomplete } from '../../../../src/index'
 // Custom input component example
 const CustomInput = defineComponent({
   props: {
-    modelValue: String,
-    placeholder: String,
+    modelValue: { type: String, default: undefined },
+    placeholder: { type: String, default: undefined },
     disabled: Boolean,
-    prefixIcon: String,
-    theme: String,
-    class: String,
+    prefixIcon: { type: String, default: undefined },
+    theme: { type: String, default: undefined },
+    class: { type: String, default: undefined },
   },
   emits: ['update:modelValue', 'input', 'focus', 'keydown'],
   setup (props, { emit, attrs }) {

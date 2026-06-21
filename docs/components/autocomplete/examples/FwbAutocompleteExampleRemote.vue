@@ -102,7 +102,7 @@ const searchCountries = async (query: string) => {
       population: country.population,
       flag: country.flag,
     }))
-  } catch (err) {
+  } catch {
     error.value = 'Failed to search countries. Please try again.'
     countries.value = []
   } finally {
