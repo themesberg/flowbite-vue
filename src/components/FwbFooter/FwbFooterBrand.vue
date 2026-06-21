@@ -22,10 +22,10 @@ import { twMerge } from 'tailwind-merge'
 import { useAttrs } from 'vue'
 
 interface IFooterProps {
-  href: string
-  src: string
+  href?: string
+  src?: string
   alt?: string
-  name: string
+  name?: string
   imageClass?: string
   nameClass?: string
   aClass?: string
