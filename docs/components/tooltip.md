@@ -5,7 +5,7 @@ import FwbTooltipExampleStyle from './tooltip/examples/FwbTooltipExampleStyle.vu
 import FwbTooltipExampleGroup from './tooltip/examples/FwbTooltipExampleGroup.vue'
 import FwbTooltipExampleTrigger from './tooltip/examples/FwbTooltipExampleTrigger.vue'
 </script>
-# Vue Tooltip - Flowbite
+# Tooltip - Flowbite Vue
 
 ## Demo
 

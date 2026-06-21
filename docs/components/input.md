@@ -13,7 +13,7 @@ import FwbInputExampleTypes from './input/examples/FwbInputExampleTypes.vue'
 import FwbInputExampleValidation from './input/examples/FwbInputExampleValidation.vue'
 </script>
 
-# Vue Input Field - Flowbite
+# Input Field - Flowbite Vue
 
 #### Get started with a collection of input fields built with Tailwind CSS to start accepting data from the user based on multiple sizes, variants, and input types
 

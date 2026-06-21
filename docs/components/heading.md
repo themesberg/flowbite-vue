@@ -9,7 +9,7 @@ import FwbHExampleColor from './typography/heading/FwbHExampleColor.vue'
 import FwbHExampleCustom from './typography/heading/FwbHExampleCustom.vue'
 </script>
 
-# Vue Heading - Flowbite
+# Heading - Flowbite Vue
 
 #### The heading component defines six levels of title elements from H1 to H6 that are used as titles and subtitles on a web page based on multiple styles and layouts
 

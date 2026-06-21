@@ -6,7 +6,7 @@ import FwbCarouselExampleSlideInterval from './carousel/examples/FwbCarouselExam
 import FwbCarouselExampleWithoutControls from './carousel/examples/FwbCarouselExampleWithoutControls.vue'
 import FwbCarouselExampleWithoutIndicators from './carousel/examples/FwbCarouselExampleWithoutIndicators.vue'
 </script>
-# Vue Carousel - Flowbite
+# Carousel - Flowbite Vue
 
 Use the carousel component to slide through multiple elements and images using custom controls, indicators, intervals, and options
 

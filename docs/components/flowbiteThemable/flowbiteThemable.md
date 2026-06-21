@@ -9,7 +9,7 @@ const FlowbiteThemableExampleDropdown = defineClientComponent(() => {
 })
 </script>
 
-# Vue Themable Configuration - Flowbite
+# Themable Configuration - Flowbite Vue
 
 You can use this wrapper for styling components with no color prop(like tabs, dropdown etc.)
 

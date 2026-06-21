@@ -6,7 +6,7 @@ import FwbJumbotronBackgroundImageExample from './jumbotron/examples/FwbJumbotro
 import FwbJumbotronVideoExample from './jumbotron/examples/FwbJumbotronVideoExample.vue';
 </script>
 
-# Vue Jumbotron - Flowbite
+# Jumbotron - Flowbite Vue
 
 #### Use the jumbotron component to show a marketing message to your users based on a headline and image inside of a card box based on Tailwind CSS
 

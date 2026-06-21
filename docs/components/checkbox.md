@@ -8,7 +8,7 @@ import FwbCheckboxExampleStyling from './checkbox/examples/FwbCheckboxExampleSty
 import FwbCheckboxExampleValidation from './checkbox/examples/FwbCheckboxExampleValidation.vue'
 </script>
 
-# Vue Checkbox - Flowbite
+# Checkbox - Flowbite Vue
 
 #### Use the checkbox component to allow users to select one or more options from a set, with support for validation, helper text, and accessible label linking
 

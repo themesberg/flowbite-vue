@@ -6,7 +6,7 @@ import FwbToastExampleDivide from './toast/examples/FwbToastExampleDivide.vue'
 import FwbToastExampleMessage from './toast/examples/FwbToastExampleMessage.vue'
 import FwbToastExampleInteractive from './toast/examples/FwbToastExampleInteractive.vue'
 </script>
-# Vue Toast - Flowbite
+# Toast - Flowbite Vue
 
 #### Push notifications to your users using the toast component and choose from multiple sizes, colors, styles, and positions
 

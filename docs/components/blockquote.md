@@ -5,7 +5,7 @@ import FwbBlockquoteAlignExample from './typography/blockquote/FwbBlockquoteAlig
 import FwbBlockquoteSizeExample from './typography/blockquote/FwbBlockquoteSizeExample.vue'
 </script>
 
-# Vue Blockquote - Flowbite
+# Blockquote - Flowbite Vue
 ---
 
 :::tip

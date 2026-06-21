@@ -11,7 +11,7 @@ import FwbAvatarExampleStatus from './avatar/examples/FwbAvatarExampleStatus.vue
 import FwbAvatarExampleStatusPosition from './avatar/examples/FwbAvatarExampleStatusPosition.vue'
 </script>
 
-# Vue Avatar - Flowbite
+# Avatar - Flowbite Vue
 Use the avatar component to show a visual representation of a user profile using an image element or SVG object based on multiple styles and sizes
 
 ## Default avatar

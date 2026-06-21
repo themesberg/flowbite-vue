@@ -4,7 +4,7 @@ import FwbRatingExampleWithText from './rating/examples/FwbRatingExampleWithText
 import FwbRatingExampleCount from './rating/examples/FwbRatingExampleCount.vue'
 import FwbRatingExampleStarSizes from './rating/examples/FwbRatingExampleStarSizes.vue'
 </script>
-# Vue Rating - Flowbite
+# Rating - Flowbite Vue
 
 ## Default rating
 Use this simple example of a star rating component for showing review results.

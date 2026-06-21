@@ -9,7 +9,7 @@ import FwbRangeExampleStyling from './range/examples/FwbRangeExampleStyling.vue'
 import FwbRangeExampleValidation from './range/examples/FwbRangeExampleValidation.vue'
 </script>
 
-# Vue Range - Flowbite
+# Range - Flowbite Vue
 
 #### Get started with the range component to receive a number from the user anywhere from 1 to 100 by sliding form control horizontally based on multiple options
 

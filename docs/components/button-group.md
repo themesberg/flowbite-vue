@@ -9,7 +9,7 @@ const FwbButtonGroupExampleDropdown = defineClientComponent(() => {
 })
 </script>
 
-# Vue Button Group - Flowbite
+# Button Group - Flowbite Vue
 
 #### Button groups are a Tailwind CSS powered set of buttons sticked together in a horizontal line
 

@@ -3,7 +3,7 @@ import FwbTimelineExample from './timeline/examples/FwbTimelineExample.vue'
 import FwbTimelineExampleWithIcons from './timeline/examples/FwbTimelineExampleWithIcons.vue'
 import FwbTimelineExampleHorizontal from './timeline/examples/FwbTimelineExampleHorizontal.vue'
 </script>
-# Vue Timeline - Flowbite
+# Timeline - Flowbite Vue
 
 ## Default timeline usage
 

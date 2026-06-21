@@ -5,7 +5,7 @@ import FwbListGroupExampleLink from './listGroup/examples/FwbListGroupExampleLin
 import FwbListGroupExampleIcon from './listGroup/examples/FwbListGroupExampleIcon.vue'
 </script>
 
-# Vue List Group - Flowbite
+# List Group - Flowbite Vue
 
 #### Use the list group component to display a series of items, buttons or links inside a single element
 

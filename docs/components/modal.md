@@ -7,7 +7,7 @@ import FwbModalExamplePosition from './modal/examples/FwbModalExamplePosition.vu
 import FwbModalExampleFocusTrap from './modal/examples/FwbModalExampleFocusTrap.vue'
 </script>
 
-# Vue Modal - Flowbite
+# Modal - Flowbite Vue
 
 #### Use the modal component to show interactive dialogs and notifications to your website users available in multiple sizes, colors, and styles
 

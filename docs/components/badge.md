@@ -5,7 +5,7 @@ import FwbBadgeExampleLink from './badge/examples/FwbBadgeExampleLink.vue'
 import FwbBadgeExampleIcon from './badge/examples/FwbBadgeExampleIcon.vue'
 import FwbBadgeExampleIconOnly from './badge/examples/FwbBadgeExampleIconOnly.vue'
 </script>
-# Vue Badge - Flowbite
+# Badge - Flowbite Vue
 
 #### Use Tailwind CSS badges as elements to show counts or labels separately or inside other components
 ---

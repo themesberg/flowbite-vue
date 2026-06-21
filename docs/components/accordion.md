@@ -6,7 +6,7 @@ import FwbAccordionExamplePersistent from './accordion/examples/FwbAccordionExam
 import FwbAccordionExampleStyling from './accordion/examples/FwbAccordionExampleStyling.vue'
 </script>
 
-# Vue Accordion - Flowbite
+# Accordion - Flowbite Vue
 
 #### Use Tailwind CSS accordion component to show expanding content
 ---

@@ -12,7 +12,7 @@ import FwbRadioExampleStyling from './radio/examples/FwbRadioExampleStyling.vue'
 import FwbRadioExampleValidation from './radio/examples/FwbRadioExampleValidation.vue'
 </script>
 
-# Vue Radio - Flowbite
+# Radio - Flowbite Vue
 
 #### Get started with the radio component to let the user choose a single option from multiple options in the form of a circle based on multiple styles and colors
 

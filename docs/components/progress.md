@@ -8,7 +8,7 @@ import FwbProgressExampleSize from './progress/examples/FwbProgressExampleSize.v
 
 
 </script>
-# Vue Progress Bar - Flowbite
+# Progress Bar - Flowbite Vue
 
 ## Default
 

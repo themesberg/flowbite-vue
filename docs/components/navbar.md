@@ -5,7 +5,7 @@ import FwbNavbarExampleActionButton from './navbar/examples/FwbNavbarExampleActi
 import FwbNavbarExampleCustomMobileIcon from './navbar/examples/FwbNavbarExampleCustomMobileIcon.vue'
 
 </script>
-# Vue Navbar – Flowbite
+# Navbar - Flowbite Vue
 The navbar component can be used to show a list of navigation links positioned on the top side of your page based on multiple layouts, sizes, and dropdowns
 
 ## Default navbar

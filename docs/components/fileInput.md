@@ -11,7 +11,7 @@ import FwbFileInputExampleDropZonePlaceholder from './fileInput/examples/FwbFile
 import FwbFileInputExampleDropZoneMultiple from './fileInput/examples/FwbFileInputExampleDropZoneMultiple.vue'
 </script>
 
-# Vue FileInput - Flowbite
+# File Input - Flowbite Vue
 
 #### Get started with the file input component to let users upload one or more files from their device storage based on multiple styles and sizes
 

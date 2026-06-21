@@ -10,7 +10,7 @@ import FwbToggleExampleStyling from './toggle/examples/FwbToggleExampleStyling.v
 import FwbToggleExampleValidation from './toggle/examples/FwbToggleExampleValidation.vue'
 </script>
 
-# Vue Toggle - Flowbite
+# Toggle - Flowbite Vue
 
 #### Use the toggle component to switch between a binary state of true or false using a single click available in multiple sizes, variants, and colors
 

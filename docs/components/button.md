@@ -16,7 +16,7 @@ import FwbButtonExampleSlotSuffix from './button/examples/FwbButtonExampleSlotSu
 import FwbButtonExampleSquare from './button/examples/FwbButtonExampleSquare.vue'
 </script>
 
-# Vue Button - Flowbite
+# Button - Flowbite Vue
 
 #### Use the button component inside forms, as links, social login, payment options with support for multiple styles, colors, sizes, gradients, and shadows
 

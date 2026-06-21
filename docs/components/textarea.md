@@ -8,7 +8,7 @@ import FwbTextareaExampleStyling from './textarea/examples/FwbTextareaExampleSty
 import FwbTextareaExampleValidation from './textarea/examples/FwbTextareaExampleValidation.vue'
 </script>
 
-# Vue Textarea - Flowbite
+# Textarea - Flowbite Vue
 
 #### Use the textarea component as a multi-line text field input and use it inside form elements available in multiple sizes, styles, and variants
 

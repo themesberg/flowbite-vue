@@ -5,7 +5,7 @@ import FwbSidebarGroupExample from './sidebar/examples/FwbSidebarGroupExample.vu
 import FwbSidebarCtaExample from './sidebar/examples/FwbSidebarCtaExample.vue'
 import FwbSidebarLogoExample from './sidebar/examples/FwbSidebarLogoExample.vue'
 </script>
-# Vue Sidebar - Flowbite
+# Sidebar - Flowbite Vue
 #### Use the sidebar component to show a list of menu items and multi-level menu items on either side of the page to navigate on your website
 The sidebar component can be used as a complementary element relative to the navbar shown on either the left or right side of the page used for the navigation on your web application, including menu items, multi-level menu items, call to actions elements, and more.
 

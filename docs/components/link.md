@@ -4,7 +4,7 @@ import FwbAExampleParagraph from './typography/link/FwbAExampleParagraph.vue'
 import FwbAExampleCustom from './typography/link/FwbAExampleCustom.vue'
 </script>
 
-# Vue Links - Flowbite
+# Links - Flowbite Vue
 
 #### The link component can be used to set hyperlinks from one page to another or to an external website when clicking on an inline text item, button, or card
 

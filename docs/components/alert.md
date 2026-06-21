@@ -8,7 +8,7 @@ import FwbAlertExampleList from './alert/examples/FwbAlertExampleList.vue'
 import FwbAlertExampleType from './alert/examples/FwbAlertExampleType.vue'
 </script>
 
-# Vue Alert - Flowbite
+# Alert - Flowbite Vue
 
 #### Show contextual information to your users using alert elements based on Tailwind CSS
 The alert component can be used to provide information to your users such as success or error messages, but also highlighted information complementing the normal flow of paragraphs and headers on a page.

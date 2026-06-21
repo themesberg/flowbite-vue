@@ -11,7 +11,7 @@ import FwbPaginationExampleCustomLabels from './pagination/examples/FwbPaginatio
 import FwbPaginationExampleFirstLast from './pagination/examples/FwbPaginationExampleFirstLast.vue';
 </script>
 
-# Vue Pagination - Flowbite
+# Pagination - Flowbite Vue
 #### Use the Tailwind CSS pagination element to indicate a series of content across various pages based on multiple styles and sizes.
 The pagination component can be used to navigate across a series of content and data sets for various pages such as blog posts, products, and more. You can use multiple variants of this component with or without icons and even for paginating table data entries.
 

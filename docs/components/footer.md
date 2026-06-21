@@ -5,7 +5,7 @@ import FwbFooterExampleSocialMediaIcons from './footer/examples/FwbFooterExample
 import FwbFooterExampleSticky from './footer/examples/FwbFooterExampleSticky.vue'
 import FwbFooterExampleWithLogo from './footer/examples/FwbFooterExampleWithLogo.vue'
 </script>
-# Vue Footer - Flowbite
+# Footer - Flowbite Vue
 #### Use the footer section at the bottom of every page to show valuable information to your users, such as sitemap links, a copyright notice, and a logo
 
 The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.

@@ -6,7 +6,7 @@ import FwbTabsExamplePills from './tabs/examples/FwbTabsExamplePills.vue'
 import FwbTabsExampleUnderline from './tabs/examples/FwbTabsExampleUnderline.vue'
 </script>
 
-# Vue Tabs - Flowbite
+# Tabs - Flowbite Vue
 
 #### Use these responsive tabs components to create a secondary navigational hierarchy for your website or toggle content inside a container
 

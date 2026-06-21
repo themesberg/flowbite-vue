@@ -3,7 +3,7 @@ import FwbPExample from './typography/p/FwbPExample.vue'
 import FwbPExampleCustom from './typography/p/FwbPExampleCustom.vue'
 </script>
 
-# Vue Paragraph - Flowbite
+# Paragraph - Flowbite Vue
 
 #### Use the paragraph component to create multiple blocks of text separated by blank lines and write content based on multiple layouts and styles
 

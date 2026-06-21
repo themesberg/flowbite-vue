@@ -7,7 +7,7 @@ import FwbImgExampleGrayscale from './typography/image/FwbImgExampleGrayscale.vu
 import FwbImgExampleCustom from './typography/image/FwbImgExampleCustom.vue'
 </script>
 
-# Vue Images - Flowbite
+# Images - Flowbite Vue
 
 #### The image component can be used to embed images inside the web page in articles and sections based on multiple styles, sizes, layouts and hover animations
 
