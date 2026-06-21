@@ -7,6 +7,9 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
+  esbuild: {
+    target: 'esnext',
+  },
   test: {
     globals: true,
     environment: 'jsdom',
