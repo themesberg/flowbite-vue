@@ -8,7 +8,7 @@
         <slot name="trigger">
           <fwb-button
             :aria-expanded="isContentVisible"
-            :class="[placement === 'left' ? ['flex-row-reverse', 'pl-2'] : '', triggerClass]"
+            :class="`${placement === 'left' ? 'flex-row-reverse pl-2 ' : ''}${triggerClass}`.trim()"
             :color="color"
             :disabled="disabled"
             aria-haspopup="true"

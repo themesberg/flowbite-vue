@@ -1,6 +1,9 @@
-import { computed, type Ref, useSlots } from 'vue'
+import { computed, type ComputedRef, type Ref, useSlots } from 'vue'
 
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
+import type { ClassInput } from '@/types/global'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>, default: Record<T, string> }
 
@@ -142,7 +145,7 @@ const buttonShadowClasses: Record<ButtonMonochromeGradient, string> = {
 }
 
 interface UseButtonClassesProps {
-  class: Ref<string | object>
+  class: Ref<ClassInput>
   color: Ref<ButtonVariant>
   disabled: Ref<boolean>
   gradient: Ref<ButtonGradient | null>
@@ -157,7 +160,7 @@ interface UseButtonClassesProps {
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
 const alternativeColors = ['alternative', 'light']
 
-export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasses: string, spanClasses: string } {
+export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasses: ComputedRef<string>, spanClasses: ComputedRef<string> } {
   const slots = useSlots()
 
   const sizeClasses = computed(() => {
@@ -208,7 +211,7 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
     }
 
     let shadowClass = ''
-    if (props.shadow.value === '') {
+    if (props.shadow.value === '' || props.shadow.value === true) {
       // if shadow prop passed without value - try to find color for shadow by gradient
       if (props.gradient.value && simpleGradients.includes(props.gradient.value)) {
         shadowClass = buttonShadowClasses[props.gradient.value as unknown as keyof typeof buttonShadowClasses]
@@ -220,17 +223,19 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
       }
     }
 
-    return [
+    const baseClasses = [
       buttonDefaultClasses,
       backgroundClass,
       hoverClass,
       shadowClass,
-      props.pill.value && 'rounded-full!',
-      props.disabled.value && 'cursor-not-allowed opacity-50',
+      props.pill.value ? 'rounded-full!' : '',
+      props.disabled.value ? 'cursor-not-allowed opacity-50' : '',
       isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
-      (slots.prefix || slots.suffix || props.loading.value) && 'inline-flex items-center',
-      props.class.value,
-    ].filter(str => (str)).join(' ')
+      (slots.prefix || slots.suffix || props.loading.value) ? 'inline-flex items-center' : '',
+    ].filter(Boolean).join(' ')
+
+    const userClass = useMergeClasses(props.class.value)
+    return useMergeClasses([baseClasses, userClass])
   })
 
   const spanClasses = computed(() => {
@@ -246,7 +251,7 @@ export function useButtonClasses (props: UseButtonClassesProps): { wrapperClasse
   })
 
   return {
-    wrapperClasses: bindClasses.value,
-    spanClasses: spanClasses.value,
+    wrapperClasses: bindClasses,
+    spanClasses,
   }
 }

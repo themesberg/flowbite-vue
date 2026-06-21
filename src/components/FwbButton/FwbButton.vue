@@ -1,15 +1,16 @@
 <template>
   <component
     :is="buttonComponent"
+    :aria-busy="loading || undefined"
     :class="wrapperClasses"
+    :disabled="(buttonComponent === 'button' && disabled) || undefined"
+    :type="buttonComponent === 'button' ? ((attrs.type as string) || 'button') : undefined"
     v-bind="linkAttr ? { [linkAttr]: linkValue } : {}"
-    :disabled="buttonComponent === 'button' && disabled"
   >
     <div
       v-if="!isOutlineGradient && ($slots.prefix || loadingPrefix)"
       class="mr-2"
     >
-      <!--automatically add mr class if slot provided or loading -->
       <fwb-spinner
         v-if="loadingPrefix"
         :color="spinnerColor"
@@ -26,7 +27,6 @@
         v-if="isOutlineGradient && ($slots.prefix || loadingPrefix)"
         class="mr-2"
       >
-        <!--if outline gradient - need to place slots inside span -->
         <fwb-spinner
           v-if="loadingPrefix"
           :color="spinnerColor"
@@ -44,7 +44,6 @@
         v-if="isOutlineGradient && ($slots.suffix || loadingSuffix)"
         class="ml-2"
       >
-        <!--if outline gradient - need to place slots inside span -->
         <fwb-spinner
           v-if="loadingSuffix"
           :color="spinnerColor"
@@ -61,7 +60,6 @@
       v-if="!isOutlineGradient && ($slots.suffix || loadingSuffix)"
       class="ml-2"
     >
-      <!--automatically add ml class if slot provided or loading -->
       <fwb-spinner
         v-if="loadingSuffix"
         :color="spinnerColor"
@@ -76,32 +74,16 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, resolveComponent, toRefs } from 'vue'
+import { computed, resolveComponent, toRefs, useAttrs } from 'vue'
 
 import { useButtonClasses } from './composables/useButtonClasses'
 import { useButtonSpinner } from './composables/useButtonSpinner'
-
-import type { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './types'
+import { type ButtonProps } from './types'
 
 import FwbSpinner from '@/components/FwbSpinner/FwbSpinner.vue'
-import { useMergeClasses } from '@/composables/useMergeClasses'
 
-interface ButtonProps {
-  class?: string | object
-  color?: ButtonVariant
-  disabled?: boolean
-  gradient?: ButtonGradient | null
-  href?: string
-  loading?: boolean
-  loadingPosition?: 'suffix' | 'prefix'
-  outline?: boolean
-  pill?: boolean
-  shadow?: ButtonMonochromeGradient | boolean
-  size?: ButtonSize
-  square?: boolean
-  tag?: string
-  to?: string | object
-}
+const attrs = useAttrs()
+
 const props = withDefaults(defineProps<ButtonProps>(), {
   class: '',
   color: 'default',
@@ -119,9 +101,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   to: undefined,
 })
 
-const buttonClasses = computed(() => useButtonClasses(toRefs(props)))
-const wrapperClasses = computed(() => useMergeClasses(buttonClasses.value.wrapperClasses))
-const spanClasses = computed(() => useMergeClasses(buttonClasses.value.spanClasses))
+const { wrapperClasses, spanClasses } = useButtonClasses(toRefs(props))
 
 const isOutlineGradient = computed(() => props.outline && props.gradient)
 
@@ -130,18 +110,19 @@ const loadingSuffix = computed(() => props.loading && props.loadingPosition === 
 
 const { color: spinnerColor, size: spinnerSize } = useButtonSpinner(toRefs(props))
 
-const linkComponent = props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
-
 const buttonComponent = computed(() => {
   if (props.to) {
-    try {
-      return resolveComponent('router-link')
-    } catch {
+    const resolved = resolveComponent('router-link')
+    if (typeof resolved === 'string') {
       console.warn('router-link component not found. Make sure vue-router is installed and properly configured.')
       return 'a'
     }
+    return resolved
   }
-  return props.href ? linkComponent : 'button'
+  if (props.href) {
+    return props.tag !== 'a' ? resolveComponent(props.tag) : 'a'
+  }
+  return 'button'
 })
 
 const linkAttr = computed(() => {

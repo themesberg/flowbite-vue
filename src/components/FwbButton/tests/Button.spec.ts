@@ -1,386 +1,265 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
+import { defineComponent, h } from 'vue'
 
 import FwbButton from '../FwbButton.vue'
 
-// Mock router-link component for testing
-const RouterLinkStub = {
+import type { ButtonSize } from '../types'
+
+const RouterLinkStub = defineComponent({
   name: 'RouterLink',
-  props: ['to'],
-  template: '<a><slot /></a>',
-}
+  props: { to: { type: [String, Object], required: true } },
+  render () { return h('a', this.$slots.default?.()) },
+})
 
 describe('FwbButton', () => {
-  describe('Basic Rendering', () => {
-    it('should render text content correctly', () => {
-      const wrapper = mount(FwbButton, { props: {}, slots: { default: 'test' } })
-      expect(wrapper.text()).toBe('test')
+  describe('structure', () => {
+    it('renders as a button element by default', () => {
+      const wrapper = mount(FwbButton, { slots: { default: 'Click' } })
+      expect(wrapper.element.tagName).toBe('BUTTON')
     })
 
-    it('should apply default color classes correctly', () => {
-      const defaultButtonClasses = [
-        'text-white',
-        'bg-blue-700',
-        'hover:bg-blue-800',
-        'focus:ring-4',
-        'focus:ring-blue-300',
-        'font-medium',
-        'rounded-lg',
-        'dark:bg-blue-600',
-        'dark:hover:bg-blue-700',
-        'focus:outline-none',
-        'dark:focus:ring-blue-800',
-        'text-sm',
-        'px-4',
-        'py-2',
-      ]
+    it('sets type="button" to prevent accidental form submission', () => {
+      const wrapper = mount(FwbButton, { slots: { default: 'Click' } })
+      expect(wrapper.attributes('type')).toBe('button')
+    })
 
+    it('renders slot content', () => {
+      const wrapper = mount(FwbButton, { slots: { default: 'Hello' } })
+      expect(wrapper.text()).toBe('Hello')
+    })
+
+    it('does not set href or to on a plain button', () => {
+      const wrapper = mount(FwbButton, { slots: { default: 'Click' } })
+      expect(wrapper.attributes('href')).toBeUndefined()
+      expect(wrapper.attributes('to')).toBeUndefined()
+    })
+  })
+
+  describe('colors', () => {
+    it('applies default (blue) color classes', () => {
       const wrapper = mount(FwbButton, { props: { color: 'default' } })
-      const classes = wrapper.classes()
-
-      defaultButtonClasses.forEach(cl => expect(classes).toContain(cl))
+      expect(wrapper.classes()).toContain('bg-blue-700')
+      expect(wrapper.classes()).toContain('text-white')
+      expect(wrapper.classes()).toContain('hover:bg-blue-800')
     })
 
-    it('should apply XL size classes correctly', () => {
-      const xlButtonSizeClasses = [
-        'text-base', 'px-6', 'py-3',
-      ]
-
-      const wrapper = mount(FwbButton, { props: { size: 'xl' } })
-      const classes = wrapper.classes()
-
-      xlButtonSizeClasses.forEach(cl => expect(classes).toContain(cl))
+    it('applies green color classes', () => {
+      const wrapper = mount(FwbButton, { props: { color: 'green' } })
+      expect(wrapper.classes()).toContain('bg-green-700')
+      expect(wrapper.classes()).toContain('text-white')
     })
 
-    it('should not emit empty link attributes when no navigation props are provided', () => {
-      const wrapper = mount(FwbButton, {
-        slots: { default: 'Button' },
-      })
-
-      expect(wrapper.find('button').attributes('href')).toBeUndefined()
-      expect(wrapper.find('button').attributes('to')).toBeUndefined()
+    it('applies red color classes', () => {
+      const wrapper = mount(FwbButton, { props: { color: 'red' } })
+      expect(wrapper.classes()).toContain('bg-red-700')
     })
   })
 
-  describe('Router Navigation', () => {
-    it('should render as router-link when to prop is provided', () => {
-      const wrapper = mount(FwbButton, {
-        props: { to: '/dashboard' },
-        slots: { default: 'Navigate' },
-        global: {
-          stubs: {
-            'router-link': RouterLinkStub,
-          },
-        },
+  describe('sizes', () => {
+    const sizeClassMap: Record<ButtonSize, string[]> = {
+      xs: ['text-xs', 'px-2', 'py-1'],
+      sm: ['text-sm', 'px-3', 'py-1.5'],
+      md: ['text-sm', 'px-4', 'py-2'],
+      lg: ['text-base', 'px-5', 'py-2.5'],
+      xl: ['text-base', 'px-6', 'py-3'],
+    }
+
+    for (const [size, expectedClasses] of Object.entries(sizeClassMap)) {
+      it(`applies ${size} size classes`, () => {
+        const wrapper = mount(FwbButton, { props: { size: size as ButtonSize } })
+        expectedClasses.forEach(cls => expect(wrapper.classes()).toContain(cls))
       })
-
-      expect(wrapper.findComponent(RouterLinkStub).exists()).toBe(true)
-      expect(wrapper.findComponent(RouterLinkStub).props('to')).toBe('/dashboard')
-    })
-
-    it('should handle route objects for to prop', () => {
-      const routeObject = { name: 'user', params: { id: 123 } }
-      const wrapper = mount(FwbButton, {
-        props: { to: routeObject },
-        slots: { default: 'Navigate' },
-        global: {
-          stubs: {
-            'router-link': RouterLinkStub,
-          },
-        },
-      })
-
-      expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual(routeObject)
-    })
-
-    it('should handle router-link availability gracefully', () => {
-      // This test is more about ensuring the code handles the try/catch properly
-      // In a real environment without vue-router, this would fallback to 'a'
-      // For now, let's test that the component renders successfully with the 'to' prop
-      const wrapper = mount(FwbButton, {
-        props: { to: '/dashboard' },
-        slots: { default: 'Navigate' },
-        global: {
-          stubs: {
-            'router-link': RouterLinkStub,
-          },
-        },
-      })
-
-      // The component should render successfully and have the 'to' attribute
-      expect(wrapper.exists()).toBe(true)
-      expect(wrapper.findComponent(RouterLinkStub).props('to')).toBe('/dashboard')
-    })
-
-    it('should prioritize to prop over href prop', () => {
-      const wrapper = mount(FwbButton, {
-        props: {
-          to: '/dashboard',
-          href: '/fallback',
-        },
-        slots: { default: 'Navigate' },
-        global: {
-          stubs: {
-            'router-link': RouterLinkStub,
-          },
-        },
-      })
-
-      expect(wrapper.findComponent(RouterLinkStub).props('to')).toBe('/dashboard')
-    })
+    }
   })
 
-  describe('Link Functionality', () => {
-    it('should render as anchor tag when href prop is provided', () => {
-      const wrapper = mount(FwbButton, {
-        props: { href: '/external' },
-        slots: { default: 'External Link' },
-      })
-
-      expect(wrapper.find('a').exists()).toBe(true)
-      expect(wrapper.find('a').attributes('href')).toBe('/external')
-    })
-
-    it('should render as button when no navigation props are provided', () => {
-      const wrapper = mount(FwbButton, {
-        slots: { default: 'Button' },
-      })
-
-      expect(wrapper.find('button').exists()).toBe(true)
-    })
-
-    it('should render with custom tag when specified', () => {
-      const wrapper = mount(FwbButton, {
-        props: {
-          tag: 'router-link',
-          href: '/custom',
-        },
-        slots: { default: 'Custom Tag' },
-        global: {
-          stubs: {
-            'router-link': RouterLinkStub,
-          },
-        },
-      })
-
-      expect(wrapper.findComponent(RouterLinkStub).exists()).toBe(true)
-    })
-  })
-
-  describe('Button States', () => {
-    it('should apply disabled attribute to button elements', () => {
-      const wrapper = mount(FwbButton, {
-        props: { disabled: true },
-        slots: { default: 'Disabled' },
-      })
-
-      expect(wrapper.find('button').attributes('disabled')).toBeDefined()
-    })
-
-    it('should handle disabled state for link elements correctly', () => {
-      const wrapper = mount(FwbButton, {
-        props: {
-          href: '/link',
-          disabled: true,
-        },
-        slots: { default: 'Disabled Link' },
-      })
-
-      // For links, disabled should not be an attribute, but the component might still render it as 'false'
-      const disabledAttr = wrapper.find('a').attributes('disabled')
-      expect(disabledAttr).toBe('false')
-    })
-  })
-
-  describe('Loading States', () => {
-    it('should show loading spinner in prefix position', () => {
-      const wrapper = mount(FwbButton, {
-        props: {
-          loading: true,
-          loadingPosition: 'prefix',
-        },
-        slots: { default: 'Loading' },
-      })
-
-      const spinners = wrapper.findAllComponents({ name: 'FwbSpinner' })
-      expect(spinners.length).toBe(1)
-
-      // Check if spinner is in the correct position (first child)
-      const firstChild = wrapper.find('div:first-child')
-      expect(firstChild.findComponent({ name: 'FwbSpinner' }).exists()).toBe(true)
-    })
-
-    it('should show loading spinner in suffix position', () => {
-      const wrapper = mount(FwbButton, {
-        props: {
-          loading: true,
-          loadingPosition: 'suffix',
-        },
-        slots: { default: 'Loading' },
-      })
-
-      const spinners = wrapper.findAllComponents({ name: 'FwbSpinner' })
-      expect(spinners.length).toBe(1)
-
-      // Check if spinner is in the correct position (last child)
-      const lastChild = wrapper.find('div:last-child')
-      expect(lastChild.findComponent({ name: 'FwbSpinner' }).exists()).toBe(true)
-    })
-  })
-
-  describe('Slots', () => {
-    it('should render prefix slot content correctly', () => {
-      const wrapper = mount(FwbButton, {
-        slots: {
-          default: 'Button',
-          prefix: 'Prefix Content',
-        },
-      })
-
-      expect(wrapper.text()).toContain('Prefix Content')
-      expect(wrapper.text()).toContain('Button')
-    })
-
-    it('should render suffix slot content correctly', () => {
-      const wrapper = mount(FwbButton, {
-        slots: {
-          default: 'Button',
-          suffix: 'Suffix Content',
-        },
-      })
-
-      expect(wrapper.text()).toContain('Button')
-      expect(wrapper.text()).toContain('Suffix Content')
-    })
-
-    it('should handle prefix and suffix slots with outline gradient correctly', () => {
-      const wrapper = mount(FwbButton, {
-        props: {
-          outline: true,
-          gradient: 'purple-blue',
-        },
-        slots: {
-          default: 'Button',
-          prefix: 'Prefix',
-          suffix: 'Suffix',
-        },
-      })
-
-      expect(wrapper.text()).toContain('Prefix')
-      expect(wrapper.text()).toContain('Button')
-      expect(wrapper.text()).toContain('Suffix')
-
-      // With outline gradient, slots should be inside spans
-      const spans = wrapper.findAll('span')
-      expect(spans.length).toBeGreaterThan(0)
-    })
-  })
-
-  describe('Button Variants', () => {
-    it('should apply correct classes for different color variants', () => {
-      const colors: Array<'default' | 'alternative' | 'dark' | 'light' | 'green' | 'red' | 'yellow' | 'purple' | 'pink' | 'blue'>
-        = ['default', 'alternative', 'dark', 'light', 'green', 'red', 'yellow', 'purple', 'pink', 'blue']
-
-      colors.forEach((color) => {
-        const wrapper = mount(FwbButton, {
-          props: { color },
-          slots: { default: `${color} button` },
-        })
-
-        // Each color should have specific classes
-        expect(wrapper.classes().length).toBeGreaterThan(0)
-      })
-    })
-
-    it('should apply correct classes for different size variants', () => {
-      const sizes: Array<'xs' | 'sm' | 'md' | 'lg' | 'xl'> = ['xs', 'sm', 'md', 'lg', 'xl']
-
-      sizes.forEach((size) => {
-        const wrapper = mount(FwbButton, {
-          props: { size },
-          slots: { default: `${size} button` },
-        })
-
-        expect(wrapper.classes().length).toBeGreaterThan(0)
-      })
-    })
-
-    it('should apply pill styling correctly', () => {
-      const wrapper = mount(FwbButton, {
-        props: { pill: true },
-        slots: { default: 'Pill Button' },
-      })
-
-      // The pill styling uses rounded-full! which might not appear in the classes array
-      // Let's check the actual class string instead
+  describe('pill', () => {
+    it('applies rounded-full when pill is true', () => {
+      const wrapper = mount(FwbButton, { props: { pill: true } })
       expect(wrapper.attributes('class')).toContain('rounded-full')
     })
+  })
 
-    it('should apply square styling correctly', () => {
-      const wrapper = mount(FwbButton, {
-        props: { square: true },
-        slots: { default: 'Square Button' },
-      })
-
-      // Square buttons should have equal width and height padding
-      const classes = wrapper.classes()
-      expect(classes.some(c => c.includes('p-'))).toBe(true)
-    })
-
-    it('should apply outline styling correctly', () => {
-      const wrapper = mount(FwbButton, {
-        props: { outline: true },
-        slots: { default: 'Outline Button' },
-      })
-
-      const classes = wrapper.classes()
-      expect(classes.some(c => c.includes('border'))).toBe(true)
-    })
-
-    it('should apply gradient styling correctly', () => {
-      const wrapper = mount(FwbButton, {
-        props: { gradient: 'blue' },
-        slots: { default: 'Gradient Button' },
-      })
-
-      const classes = wrapper.classes()
-      expect(classes.some(c => c.includes('bg-linear'))).toBe(true)
-    })
-
-    it('should apply shadow styling correctly', () => {
-      const wrapper = mount(FwbButton, {
-        props: { shadow: 'blue' },
-        slots: { default: 'Shadow Button' },
-      })
-
-      const classString = wrapper.attributes('class')
-      expect(classString).toContain('shadow')
+  describe('square', () => {
+    it('applies equal-padding size classes when square is true', () => {
+      const wrapper = mount(FwbButton, { props: { square: true } })
+      expect(wrapper.classes()).toContain('p-2')
+      expect(wrapper.classes()).not.toContain('px-4')
     })
   })
 
-  describe('Custom Classes', () => {
-    it('should apply custom string classes correctly', () => {
-      const wrapper = mount(FwbButton, {
-        props: { class: 'custom-class' },
-        slots: { default: 'Custom Button' },
-      })
+  describe('outline', () => {
+    it('applies border and text color when outline is true', () => {
+      const wrapper = mount(FwbButton, { props: { outline: true } })
+      expect(wrapper.classes()).toContain('border')
+      expect(wrapper.classes()).toContain('border-blue-700')
+      expect(wrapper.classes()).toContain('text-blue-700')
+    })
+  })
 
-      expect(wrapper.classes()).toContain('custom-class')
+  describe('gradient', () => {
+    it('applies monochrome gradient classes', () => {
+      const wrapper = mount(FwbButton, { props: { gradient: 'blue' } })
+      expect(wrapper.attributes('class')).toContain('bg-linear-to-r')
+      expect(wrapper.attributes('class')).toContain('from-blue-500')
     })
 
-    it('should apply custom object classes correctly', () => {
-      const wrapper = mount(FwbButton, {
-        props: {
-          class: {
-            'active-class': true,
-            'inactive-class': false,
-          },
-        },
-        slots: { default: 'Custom Button' },
-      })
+    it('applies duotone gradient classes', () => {
+      const wrapper = mount(FwbButton, { props: { gradient: 'purple-blue' } })
+      expect(wrapper.attributes('class')).toContain('from-purple-600')
+      expect(wrapper.attributes('class')).toContain('to-blue-500')
+    })
+  })
 
-      expect(wrapper.classes()).toContain('active-class')
-      expect(wrapper.classes()).not.toContain('inactive-class')
+  describe('shadow', () => {
+    it('applies shadow classes for named shadow color', () => {
+      const wrapper = mount(FwbButton, { props: { shadow: 'blue' } })
+      expect(wrapper.attributes('class')).toContain('shadow-blue-500/50')
+    })
+  })
+
+  describe('custom class', () => {
+    it('applies a custom string class and it wins over defaults via useMergeClasses', () => {
+      const wrapper = mount(FwbButton, { props: { class: 'bg-red-500' } })
+      expect(wrapper.classes()).toContain('bg-red-500')
+      expect(wrapper.classes()).not.toContain('bg-blue-700')
+    })
+
+    it('applies truthy keys from an object class', () => {
+      const wrapper = mount(FwbButton, {
+        props: { class: { 'custom-class': true, 'other-class': false } },
+      })
+      expect(wrapper.classes()).toContain('custom-class')
+      expect(wrapper.classes()).not.toContain('other-class')
+    })
+  })
+
+  describe('disabled', () => {
+    it('sets the disabled attribute on a button element', () => {
+      const wrapper = mount(FwbButton, { props: { disabled: true } })
+      expect(wrapper.attributes('disabled')).toBeDefined()
+    })
+
+    it('applies opacity and cursor classes when disabled', () => {
+      const wrapper = mount(FwbButton, { props: { disabled: true } })
+      expect(wrapper.classes()).toContain('opacity-50')
+      expect(wrapper.classes()).toContain('cursor-not-allowed')
+    })
+
+    it('does not set disabled attribute on an anchor element', () => {
+      const wrapper = mount(FwbButton, { props: { href: '/link', disabled: true } })
+      expect(wrapper.find('a').attributes('disabled')).toBeUndefined()
+    })
+  })
+
+  describe('loading', () => {
+    it('sets aria-busy="true" when loading', () => {
+      const wrapper = mount(FwbButton, { props: { loading: true } })
+      expect(wrapper.attributes('aria-busy')).toBe('true')
+    })
+
+    it('does not set aria-busy when not loading', () => {
+      const wrapper = mount(FwbButton, { slots: { default: 'Click' } })
+      expect(wrapper.attributes('aria-busy')).toBeUndefined()
+    })
+
+    it('shows spinner in prefix position by default', () => {
+      const wrapper = mount(FwbButton, { props: { loading: true } })
+      const firstDiv = wrapper.find('div:first-child')
+      expect(firstDiv.findComponent({ name: 'FwbSpinner' }).exists()).toBe(true)
+    })
+
+    it('shows spinner in suffix position when loadingPosition is suffix', () => {
+      const wrapper = mount(FwbButton, {
+        props: { loading: true, loadingPosition: 'suffix' },
+      })
+      const lastDiv = wrapper.find('div:last-child')
+      expect(lastDiv.findComponent({ name: 'FwbSpinner' }).exists()).toBe(true)
+    })
+  })
+
+  describe('link / navigation', () => {
+    it('renders as an anchor when href is provided', () => {
+      const wrapper = mount(FwbButton, { props: { href: '/page' } })
+      expect(wrapper.element.tagName).toBe('A')
+      expect(wrapper.attributes('href')).toBe('/page')
+    })
+
+    it('does not set type attribute on an anchor', () => {
+      const wrapper = mount(FwbButton, { props: { href: '/page' } })
+      expect(wrapper.attributes('type')).toBeUndefined()
+    })
+
+    it('passes extra attributes (e.g. target) through to the anchor', () => {
+      const wrapper = mount(FwbButton, {
+        props: { href: 'https://example.com' },
+        attrs: { target: '_blank', rel: 'noopener' },
+      })
+      expect(wrapper.attributes('target')).toBe('_blank')
+      expect(wrapper.attributes('rel')).toBe('noopener')
+    })
+
+    it('renders as router-link when to prop is provided', () => {
+      const wrapper = mount(FwbButton, {
+        props: { to: '/dashboard' },
+        global: { stubs: { 'router-link': RouterLinkStub } },
+      })
+      expect(wrapper.findComponent(RouterLinkStub).exists()).toBe(true)
+      expect(wrapper.findComponent(RouterLinkStub).props('to')).toBe('/dashboard')
+    })
+
+    it('accepts a route object for the to prop', () => {
+      const route = { name: 'user', params: { id: 42 } }
+      const wrapper = mount(FwbButton, {
+        props: { to: route },
+        global: { stubs: { 'router-link': RouterLinkStub } },
+      })
+      expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual(route)
+    })
+
+    it('prioritises to over href', () => {
+      const wrapper = mount(FwbButton, {
+        props: { to: '/primary', href: '/fallback' },
+        global: { stubs: { 'router-link': RouterLinkStub } },
+      })
+      expect(wrapper.findComponent(RouterLinkStub).props('to')).toBe('/primary')
+    })
+
+    it('uses a custom tag component when tag and href are both set', () => {
+      const wrapper = mount(FwbButton, {
+        props: { tag: 'router-link', href: '/custom' },
+        global: { stubs: { 'router-link': RouterLinkStub } },
+      })
+      expect(wrapper.findComponent(RouterLinkStub).exists()).toBe(true)
+    })
+  })
+
+  describe('slots', () => {
+    it('renders prefix slot content', () => {
+      const wrapper = mount(FwbButton, {
+        slots: { default: 'Label', prefix: 'Pre' },
+      })
+      expect(wrapper.text()).toContain('Pre')
+      expect(wrapper.text()).toContain('Label')
+    })
+
+    it('renders suffix slot content', () => {
+      const wrapper = mount(FwbButton, {
+        slots: { default: 'Label', suffix: 'Suf' },
+      })
+      expect(wrapper.text()).toContain('Label')
+      expect(wrapper.text()).toContain('Suf')
+    })
+
+    it('places prefix and suffix inside spans for outline gradient buttons', () => {
+      const wrapper = mount(FwbButton, {
+        props: { outline: true, gradient: 'purple-blue' },
+        slots: { default: 'Label', prefix: 'Pre', suffix: 'Suf' },
+      })
+      expect(wrapper.text()).toContain('Pre')
+      expect(wrapper.text()).toContain('Label')
+      expect(wrapper.text()).toContain('Suf')
+      expect(wrapper.findAll('span').length).toBeGreaterThan(0)
     })
   })
 })

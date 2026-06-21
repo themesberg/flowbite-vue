@@ -1,19 +1,19 @@
 <script setup>
-import FwbButtonExampleColor from './button/examples/FwbButtonExampleColor.vue';
-import FwbButtonExampleDisabled from './button/examples/FwbButtonExampleDisabled.vue';
-import FwbButtonExampleGradientDuotone from './button/examples/FwbButtonExampleGradientDuotone.vue';
-import FwbButtonExampleGradientMonochrome from './button/examples/FwbButtonExampleGradientMonochrome.vue';
-import FwbButtonExampleLink from './button/examples/FwbButtonExampleLink.vue';
-import FwbButtonExampleLoading from './button/examples/FwbButtonExampleLoading.vue';
-import FwbButtonExampleOutline from './button/examples/FwbButtonExampleOutline.vue';
-import FwbButtonExampleOutlineGradient from './button/examples/FwbButtonExampleOutlineGradient.vue';
-import FwbButtonExamplePill from './button/examples/FwbButtonExamplePill.vue';
-import FwbButtonExampleShadow from './button/examples/FwbButtonExampleShadow.vue';
-import FwbButtonExampleSize from './button/examples/FwbButtonExampleSize.vue';
-import FwbButtonExampleSlot from './button/examples/FwbButtonExampleSlot.vue';
-import FwbButtonExampleSlotPrefix from './button/examples/FwbButtonExampleSlotPrefix.vue';
-import FwbButtonExampleSlotSuffix from './button/examples/FwbButtonExampleSlotSuffix.vue';
-import FwbButtonExampleSquare from './button/examples/FwbButtonExampleSquare.vue';
+import FwbButtonExampleColor from './button/examples/FwbButtonExampleColor.vue'
+import FwbButtonExampleDisabled from './button/examples/FwbButtonExampleDisabled.vue'
+import FwbButtonExampleGradientDuotone from './button/examples/FwbButtonExampleGradientDuotone.vue'
+import FwbButtonExampleGradientMonochrome from './button/examples/FwbButtonExampleGradientMonochrome.vue'
+import FwbButtonExampleLink from './button/examples/FwbButtonExampleLink.vue'
+import FwbButtonExampleLoading from './button/examples/FwbButtonExampleLoading.vue'
+import FwbButtonExampleOutline from './button/examples/FwbButtonExampleOutline.vue'
+import FwbButtonExampleOutlineGradient from './button/examples/FwbButtonExampleOutlineGradient.vue'
+import FwbButtonExamplePill from './button/examples/FwbButtonExamplePill.vue'
+import FwbButtonExampleShadow from './button/examples/FwbButtonExampleShadow.vue'
+import FwbButtonExampleSize from './button/examples/FwbButtonExampleSize.vue'
+import FwbButtonExampleSlot from './button/examples/FwbButtonExampleSlot.vue'
+import FwbButtonExampleSlotPrefix from './button/examples/FwbButtonExampleSlotPrefix.vue'
+import FwbButtonExampleSlotSuffix from './button/examples/FwbButtonExampleSlotSuffix.vue'
+import FwbButtonExampleSquare from './button/examples/FwbButtonExampleSquare.vue'
 </script>
 
 # Vue Button - Flowbite
@@ -26,11 +26,11 @@ import FwbButtonExampleSquare from './button/examples/FwbButtonExampleSquare.vue
 Original reference: [https://flowbite.com/docs/components/buttons/](https://flowbite.com/docs/components/buttons/)
 :::
 
-The button component is probably the most widely used element in any user interface or website as it can be used to launch an action but also to link to other pages.
+The button component is one of the most widely used elements in any user interface. Use `FwbButton` to trigger actions or navigate to other pages — with support for colors, sizes, gradients, outlines, loading states, and router-link integration. The component defaults to `type="button"` to prevent accidental form submission; pass `type="submit"` or `type="reset"` explicitly when form interaction is needed.
 
-Flowbite provides a large variety of styles and sizes for the button component including outlined buttons, multiple colors, sizes, buttons with icons, and more.
+## Button colors
 
-## Prop - color
+Use the `color` prop to select a color variant. The default is blue (`color="default"` and `color="blue"` produce identical styling).
 
 <fwb-button-example-color />
 ```vue
@@ -49,28 +49,30 @@ Flowbite provides a large variety of styles and sizes for the button component i
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
+```
 
-````
+## Button sizes
 
-
-## Prop - size
+Use the `size` prop to control the button's padding and font size. Available sizes are `xs`, `sm`, `md` (default), `lg`, and `xl`.
 
 <fwb-button-example-size />
 ```vue
 <template>
-  <fwb-button size="xs">Extra Small - xs</fwb-button>
-  <fwb-button size="sm">Small - sm</fwb-button>
-  <fwb-button size="md">Medium - md</fwb-button>
-  <fwb-button size="lg">Large - lg</fwb-button>
-  <fwb-button size="xl">Extra Large - xl</fwb-button>
+  <fwb-button size="xs">Extra Small</fwb-button>
+  <fwb-button size="sm">Small</fwb-button>
+  <fwb-button size="md">Medium</fwb-button>
+  <fwb-button size="lg">Large</fwb-button>
+  <fwb-button size="xl">Extra Large</fwb-button>
 </template>
 
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-````
+```
 
-## Prop - pill
+## Pill buttons
+
+Add the `pill` prop to apply fully rounded corners to any button variant.
 
 <fwb-button-example-pill />
 ```vue
@@ -88,11 +90,31 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
+```
 
-````
+## Outline buttons
 
+Use the `outline` prop together with `color` to render a bordered button without a filled background.
 
-## Prop - gradient (monochrome)
+<fwb-button-example-outline />
+```vue
+<template>
+  <fwb-button color="default" outline>Default</fwb-button>
+  <fwb-button color="dark" outline>Dark</fwb-button>
+  <fwb-button color="green" outline>Green</fwb-button>
+  <fwb-button color="red" outline>Red</fwb-button>
+  <fwb-button color="yellow" outline>Yellow</fwb-button>
+  <fwb-button color="purple" outline>Purple</fwb-button>
+</template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
+```
+
+## Gradient monochrome
+
+Use the `gradient` prop with a single color name to apply a smooth gradient background.
 
 <fwb-button-example-gradient-monochrome />
 ```vue
@@ -110,9 +132,11 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-````
+```
 
-## Prop - gradient (duotone)
+## Gradient duotone
+
+Use a duotone gradient name (two colors joined with a hyphen) to blend between two colors.
 
 <fwb-button-example-gradient-duotone />
 ```vue
@@ -129,29 +153,11 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
+```
 
-````
+## Outline gradient
 
-
-## Prop - outline
-
-<fwb-button-example-outline />
-```vue
-<template>
-  <fwb-button color="default" outline>Default</fwb-button>
-  <fwb-button color="dark" outline>Dark</fwb-button>
-  <fwb-button color="green" outline>Green</fwb-button>
-  <fwb-button color="red" outline>Red</fwb-button>
-  <fwb-button color="yellow" outline>Yellow</fwb-button>
-  <fwb-button color="purple" outline>Purple</fwb-button>
-</template>
-
-<script setup>
-import { FwbButton } from 'flowbite-vue'
-</script>
-````
-
-## Prop - outline (gradient)
+Combine `outline` with a duotone `gradient` to get a bordered button with a gradient hover effect.
 
 <fwb-button-example-outline-gradient />
 ```vue
@@ -168,66 +174,36 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
+```
 
-````
+## Button shadows
 
-## Prop - shadow
+Use the `shadow` prop to add a colored drop shadow beneath the button. Pass a monochrome gradient color name to set an explicit shadow color, or pass `shadow` as a boolean to infer the color from the active `gradient`.
 
 <fwb-button-example-shadow />
 ```vue
 <template>
-  <fwb-button gradient="blue" shadow>Blue with blue</fwb-button>
-  <fwb-button gradient="cyan" shadow>Cyan with cyan</fwb-button>
-  <fwb-button gradient="green" shadow>Green with green</fwb-button>
-  <fwb-button gradient="lime" shadow>Lime with lime</fwb-button>
-  <fwb-button gradient="pink" shadow>Pink with pink</fwb-button>
-  <fwb-button gradient="purple" shadow>Purple with purple</fwb-button>
-  <fwb-button gradient="red" shadow>Red with red</fwb-button>
-  <fwb-button gradient="teal" shadow>Teal with teal</fwb-button>
-  <fwb-button gradient="blue" shadow="red">Blue with red</fwb-button>
-  <fwb-button gradient="cyan" shadow="teal">Cyan with teal</fwb-button>
-  <fwb-button gradient="teal" shadow="purple">Teal with purple</fwb-button>
+  <fwb-button gradient="blue" shadow>Blue with blue shadow</fwb-button>
+  <fwb-button gradient="cyan" shadow>Cyan with cyan shadow</fwb-button>
+  <fwb-button gradient="green" shadow>Green with green shadow</fwb-button>
+  <fwb-button gradient="lime" shadow>Lime with lime shadow</fwb-button>
+  <fwb-button gradient="pink" shadow>Pink with pink shadow</fwb-button>
+  <fwb-button gradient="purple" shadow>Purple with purple shadow</fwb-button>
+  <fwb-button gradient="red" shadow>Red with red shadow</fwb-button>
+  <fwb-button gradient="teal" shadow>Teal with teal shadow</fwb-button>
+  <fwb-button gradient="blue" shadow="red">Blue with red shadow</fwb-button>
+  <fwb-button gradient="cyan" shadow="teal">Cyan with teal shadow</fwb-button>
+  <fwb-button gradient="teal" shadow="purple">Teal with purple shadow</fwb-button>
 </template>
 
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-````
+```
 
-## Prop - square
+## Loading state
 
-<fwb-button-example-square />
-```vue
-<template>
-  <fwb-button gradient="red-yellow" square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
-    </svg>
-  </fwb-button>
-  <fwb-button color="default" pill square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
-    </svg>
-  </fwb-button>
-  <fwb-button color="dark" outline square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
-    </svg>
-  </fwb-button>
-  <fwb-button color="yellow" outline pill square>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-    </svg>
-  </fwb-button>
-</template>
-
-<script setup>
-import { FwbButton } from 'flowbite-vue'
-</script>
-
-````
-
-## Prop - loading
+Use the `loading` prop to show a spinner inside the button. The spinner position defaults to `prefix` but can be changed to `suffix` with `loading-position`. While loading, `aria-busy="true"` is set automatically.
 
 <fwb-button-example-loading />
 ```vue
@@ -260,9 +236,11 @@ import { FwbButton } from 'flowbite-vue'
 
 const loading = ref(false)
 </script>
-````
+```
 
-## Prop - disabled
+## Disabled state
+
+Use the `disabled` prop to prevent interaction. The `disabled` HTML attribute is set only when the button renders as a `<button>` element — link buttons use opacity styling only.
 
 <fwb-button-example-disabled />
 ```vue
@@ -277,31 +255,32 @@ const loading = ref(false)
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
+```
 
-````
+## Button as link
 
-## Prop - href
-You can add a link to a `Button` component.
-Additionally you can add `tag` prop to change button component to `router-link`
+Use the `href` prop to render the button as an `<a>` element. Extra attributes such as `target` and `rel` pass through to the anchor automatically. Use the `tag` prop with `router-link` or `nuxt-link` to integrate with your router.
 
 <fwb-button-example-link />
 ```vue
 <template>
-  <fwb-button href="https://google.com" target="_blank">Google.com</fwb-button>
-  <fwb-button href="/pages/getting-started" tag="router-link">Quickstart</fwb-button>
+  <fwb-button href="https://flowbite.com" target="_blank" rel="noopener">Flowbite</fwb-button>
+  <fwb-button href="/getting-started" tag="router-link">Quickstart</fwb-button>
 </template>
 
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-````
+```
 
-## Slot - default
+## Square (icon) buttons
 
-<fwb-button-example-slot />
+Use the `square` prop to apply equal padding on all sides — ideal for icon-only buttons. Combine with `pill` for circular icon buttons.
+
+<fwb-button-example-square />
 ```vue
 <template>
-  <fwb-button gradient="purple-blue" square>
+  <fwb-button gradient="red-yellow" square>
     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
       <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
     </svg>
@@ -311,26 +290,26 @@ import { FwbButton } from 'flowbite-vue'
       <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
     </svg>
   </fwb-button>
-  <fwb-button gradient="green-blue" square>
-    Close something
+  <fwb-button color="dark" outline square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
+    </svg>
   </fwb-button>
-  <fwb-button color="default" outline pill square>
-    Open something
-    <template #suffix>
-      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
-      </svg>
-    </template>
+  <fwb-button color="yellow" outline pill square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>
   </fwb-button>
 </template>
 
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
+```
 
-````
+## Prefix and suffix
 
-## Slot - prefix
+Use the `prefix` and `suffix` slots to add icons or other elements before or after the button label. The spinner replaces the slot content during loading.
 
 <fwb-button-example-slot-prefix />
 ```vue
@@ -348,9 +327,7 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-````
-
-## Slot - suffix
+```
 
 <fwb-button-example-slot-suffix />
 ```vue
@@ -368,24 +345,60 @@ import { FwbButton } from 'flowbite-vue'
 <script setup>
 import { FwbButton } from 'flowbite-vue'
 </script>
-
 ```
 
-## Button API
+<fwb-button-example-slot />
+```vue
+<template>
+  <fwb-button gradient="purple-blue" square>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
+    </svg>
+  </fwb-button>
+  <fwb-button color="default" outline pill square>
+    Open something
+    <template #suffix>
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd" />
+      </svg>
+    </template>
+  </fwb-button>
+</template>
 
-### Props
-| Name             | Type    | Values                                                                                         | Default   |
-|------------------|---------|------------------------------------------------------------------------------------------------|-----------|
-| color            | String  | `default`, `alternative`, `dark`, `light`, `green`, `red`, `yellow`, `purple`, `pink`, `blue`  | `default` |
-| disabled         | Boolean |                                                                                                | `false`   |
-| gradient         | String  | monochrome:<br>`blue`, `green`, `cyan`, `teal`, `lime`, `red`, `pink`, `purple`<br>duotone:<br>`purple-blue`, `cyan-blue`, `green-blue`, `purple-pink`, `pink-orange`, `teal-lime`, `red-yellow`                                      | `null`    |
-| href             | String  |                                                                                                | `''`      |
-| loading          | Boolean |                                                                                                | `false`   |
-| loading-position | String  |  `prefix`, `suffix`                                                                            | `prefix`  |
-| outline          | Boolean |                                                                                                | `false`   |
-| pill             | Boolean |                                                                                                | `false`   |
-| shadow           | String  | `blue`, `green`, `cyan`, `teal`, `lime`, `red`, `pink`, `purple`                               | `null`    |
-| size             | String  | `xs`, `sm`, `md`, `lg`, `xl`                                                                   | `md`      |
-| square           | Boolean |                                                                                                | `false`   |
-| tag              | String  |                                                                                                | `a`       |
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
 ```
+
+## FwbButton API
+
+:::tip Native attribute passthrough
+`FwbButton` renders as `<button>`, `<a>`, or a router component depending on `href` and `to`. Extra attributes (e.g. `target`, `rel`, `aria-label`, `form`) fall through to the root element automatically.
+:::
+
+### FwbButton Props
+
+| Name            | Type                                                                                                         | Default     | Description                                                                          |
+| --------------- | ------------------------------------------------------------------------------------------------------------ | ----------- | ------------------------------------------------------------------------------------ |
+| class           | `string \| Record<string, boolean> \| Array<string \| Record<string, boolean>>`                              | `''`        | Additional classes merged onto the button via `useMergeClasses` — overrides default styles. |
+| color           | `'default' \| 'alternative' \| 'dark' \| 'light' \| 'green' \| 'red' \| 'yellow' \| 'purple' \| 'pink' \| 'blue'` | `'default'` | Button color variant. Ignored when `gradient` is set.                         |
+| disabled        | `Boolean`                                                                                                    | `false`     | Disables the button. Sets the `disabled` attribute on `<button>`; applies opacity on links. |
+| gradient        | `String`                                                                                                     | `null`      | Monochrome (`'blue'`, `'green'`, …) or duotone (`'purple-blue'`, …) gradient.        |
+| href            | `String`                                                                                                     | `''`        | Renders the button as an `<a>` element with this `href`.                             |
+| loading         | `Boolean`                                                                                                    | `false`     | Shows a spinner and sets `aria-busy="true"`.                                         |
+| loadingPosition | `'prefix' \| 'suffix'`                                                                                       | `'prefix'`  | Position of the loading spinner.                                                     |
+| outline         | `Boolean`                                                                                                    | `false`     | Renders a bordered button. Works with `color` and duotone `gradient`.                |
+| pill            | `Boolean`                                                                                                    | `false`     | Applies fully rounded corners (`rounded-full`).                                      |
+| shadow          | `String \| Boolean`                                                                                          | `false`     | Adds a colored drop shadow. Pass a monochrome gradient color or `true` to infer from `gradient`. |
+| size            | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                                                                      | `'md'`      | Controls padding and font size.                                                      |
+| square          | `Boolean`                                                                                                    | `false`     | Equal padding on all sides — intended for icon-only buttons.                         |
+| tag             | `String`                                                                                                     | `'a'`       | Custom element/component used when `href` is set (e.g. `'router-link'`).             |
+| to              | `String \| Object`                                                                                           | `undefined` | Renders as `router-link` with this `to` value. Takes priority over `href`.           |
+
+### FwbButton Slots
+
+| Name    | Description                                                                               |
+| ------- | ----------------------------------------------------------------------------------------- |
+| default | Button label content.                                                                     |
+| prefix  | Content rendered before the label. Replaced by the spinner when `loading` is `true`.     |
+| suffix  | Content rendered after the label. Replaced by the spinner when `loading-position="suffix"`. |
