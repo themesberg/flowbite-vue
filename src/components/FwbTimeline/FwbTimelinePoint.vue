@@ -8,15 +8,16 @@
 </template>
 
 <script lang="ts" setup>
-import classNames from 'classnames'
 import { computed, inject, useSlots } from 'vue'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const slots = useSlots()
 const hasSlot = computed(() => !!slots.default)
-const isHorizontal = inject('horizontal')
-const wrapperClasses = computed(() => classNames(isHorizontal ? 'flex items-center' : ''))
+const isHorizontal = inject('horizontal', false)
+const wrapperClasses = computed(() => useMergeClasses(isHorizontal ? 'flex items-center' : ''))
 const defaultBorderClasses = 'h-0.5 w-full bg-gray-200 dark:bg-gray-700 sm:flex'
-const borderClasses = computed(() => classNames(defaultBorderClasses, { 'sm:hidden hidden': !isHorizontal }))
+const borderClasses = computed(() => useMergeClasses([defaultBorderClasses, { 'sm:hidden hidden': !isHorizontal }]))
 
 const pointClasses = computed(() => {
   const defaultClasses = 'absolute rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700'
@@ -31,7 +32,7 @@ const pointClasses = computed(() => {
   const isHorizontalWithNoIcon = isHorizontal && !hasSlot.value
   const isHorizontalWithIcon = isHorizontal && hasSlot.value
 
-  return classNames(
+  return useMergeClasses([
     defaultClasses,
     {
       [verticalWithNoIconClasses]: isVerticalWithNoIcon,
@@ -39,6 +40,6 @@ const pointClasses = computed(() => {
       [horizontalWithNoIconClasses]: isHorizontalWithNoIcon,
       [horizontalWithIconClasses]: isHorizontalWithIcon,
     },
-  )
+  ])
 })
 </script>
