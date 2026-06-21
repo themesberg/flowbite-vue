@@ -5,14 +5,26 @@ import FwbProgressExampleCustom from './progress/examples/FwbProgressExampleCust
 import FwbProgressExampleLabelInside from './progress/examples/FwbProgressExampleLabelInside.vue'
 import FwbProgressExampleLabelOutside from './progress/examples/FwbProgressExampleLabelOutside.vue'
 import FwbProgressExampleSize from './progress/examples/FwbProgressExampleSize.vue'
-
-
 </script>
+
 # Progress Bar - Flowbite Vue
 
-## Default
+#### Use the progress bar component to show the completion status of a task or process based on Tailwind CSS utility classes
+
+---
+
+:::tip Progress Bar - Flowbite
+Original reference: [https://flowbite.com/docs/components/progress/](https://flowbite.com/docs/components/progress/)
+:::
+
+The progress bar component can be used to show the completion percentage of a task or process, with support for custom colors, sizes, and both inside and outside label variants styled with Tailwind CSS utility classes.
+
+## Default Progress Bar
+
+Use `FwbProgress` with the `progress` prop (0–100) to render a basic horizontal progress bar.
 
 <fwb-progress-example />
+
 ```vue
 <template>
   <fwb-progress :progress="45" />
@@ -24,9 +36,11 @@ import { FwbProgress } from 'flowbite-vue'
 ```
 
 ## Sizes
-You can also use different sizes by using various sizing.
+
+Use the `size` prop to control the height of the progress bar track. Available sizes are `sm`, `md` (default), `lg`, and `xl`. Combine with `label` to show a description above the bar.
 
 <fwb-progress-example-size />
+
 ```vue
 <template>
   <div class="grid gap-2">
@@ -42,10 +56,12 @@ import { FwbProgress } from 'flowbite-vue'
 </script>
 ```
 
-## With label inside
-Here is an example of using a progress bar with the label inside the bar.
+## Label Inside
+
+Set `label-position="inside"` and `label-progress` to render the percentage value inside the progress bar. Use `size="lg"` or larger to ensure there is enough space for the label.
 
 <fwb-progress-example-label-inside />
+
 ```vue
 <template>
   <fwb-progress
@@ -61,10 +77,12 @@ import { FwbProgress } from 'flowbite-vue'
 </script>
 ```
 
-## With label outside
-And this is an example of using a progress bar outside the bar.
+## Label Outside
+
+Set `label-position="outside"` and `label-progress` to render the percentage value to the right of the label text above the bar. Use `label` to set the descriptive text on the left.
 
 <fwb-progress-example-label-outside />
+
 ```vue
 <template>
   <fwb-progress
@@ -81,20 +99,22 @@ import { FwbProgress } from 'flowbite-vue'
 ```
 
 ## Colors
-You can also apply color.
+
+Use the `color` prop to change the fill color of the progress bar. Available values are `default`, `dark`, `blue`, `red`, `green`, `yellow`, `indigo`, and `purple`.
 
 <fwb-progress-example-color />
+
 ```vue
 <template>
   <div class="grid gap-2">
-    <fwb-progress :progress="12.5" label="Default"  />
-    <fwb-progress :progress="25" color="dark" label="Dark"  />
-    <fwb-progress :progress="37.5" color="blue" label="Blue"  />
-    <fwb-progress :progress="50" color="red" label="Red"  />
-    <fwb-progress :progress="62.5" color="green" label="Green"  />
-    <fwb-progress :progress="75" color="yellow" label="Yellow"  />
-    <fwb-progress :progress="87.5" color="indigo" label="Indigo"  />
-    <fwb-progress :progress="100" color="purple" label="Purple"  />
+    <fwb-progress :progress="12.5" label="Default" />
+    <fwb-progress :progress="25" color="dark" label="Dark" />
+    <fwb-progress :progress="37.5" color="blue" label="Blue" />
+    <fwb-progress :progress="50" color="red" label="Red" />
+    <fwb-progress :progress="62.5" color="green" label="Green" />
+    <fwb-progress :progress="75" color="yellow" label="Yellow" />
+    <fwb-progress :progress="87.5" color="indigo" label="Indigo" />
+    <fwb-progress :progress="100" color="purple" label="Purple" />
   </div>
 </template>
 
@@ -103,18 +123,12 @@ import { FwbProgress } from 'flowbite-vue'
 </script>
 ```
 
-## Custom
-You can fully customize the appearance of the progress bar using TailwindCSS utility classes via the following props:
+## Custom Styling
 
-| Prop                  | Description                                                      |
-|-----------------------|------------------------------------------------------------------|
-| `inner-classes`       | Custom classes for the inner progress bar                        |
-| `outer-classes`       | Custom classes for the outer progress bar container              |
-| `outside-label-classes` | Custom classes for the label outside the progress bar        |
-
-These props allow you to override or extend the default styling for each part of the component, enabling advanced use cases such as gradients, custom colors, rounded corners, and more.
+Use `inner-classes`, `outer-classes`, and `outside-label-classes` to override any part of the progress bar's default styling with your own Tailwind utilities.
 
 <fwb-progress-example-custom />
+
 ```vue
 <template>
   <fwb-progress
@@ -130,3 +144,19 @@ These props allow you to override or extend the default styling for each part of
 import { FwbProgress } from 'flowbite-vue'
 </script>
 ```
+
+## Progress Bar component API
+
+### FwbProgress Props
+
+| Name               | Type                                                              | Default     | Description                                                                         |
+| ------------------ | ----------------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------- |
+| color              | `'default' \| 'dark' \| 'blue' \| 'red' \| 'green' \| 'yellow' \| 'indigo' \| 'purple'` | `'default'` | Fill color of the inner progress bar.     |
+| innerClasses       | `String \| Object`                                                | `''`        | Overrides or extends classes on the inner progress bar element.                     |
+| label              | `String`                                                          | `''`        | Descriptive text rendered above the bar on the left side.                           |
+| labelPosition      | `'none' \| 'inside' \| 'outside'`                                | `'none'`    | Controls where the percentage value is rendered relative to the bar.                |
+| labelProgress      | `Boolean`                                                         | `false`     | When `true`, renders the `progress` percentage next to or inside the bar.           |
+| outerClasses       | `String \| Object`                                                | `''`        | Overrides or extends classes on the outer progress track element.                   |
+| outsideLabelClasses | `String \| Object`                                               | `''`        | Overrides or extends classes on the label/percentage text rendered outside the bar. |
+| progress           | `Number`                                                          | `0`         | The current completion value (0–100).                                               |
+| size               | `'sm' \| 'md' \| 'lg' \| 'xl'`                                   | `'md'`      | Controls the height of the progress bar track.                                      |
