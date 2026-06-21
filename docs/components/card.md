@@ -24,7 +24,7 @@ Use the `FwbCard` component to wrap any content in a rounded, shadowed card. Set
 
 ```vue
 <template>
-  <fwb-card href="#" class="w-sm">
+  <fwb-card href="#" class="min-w-sm">
     <div class="p-5">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         Noteworthy technology acquisitions 2021
@@ -53,7 +53,7 @@ Set `variant="image"` and provide `img-src` to display a top image above the car
     img-alt="Desk"
     img-src="https://flowbite.com/docs/images/blog/image-1.jpg"
     variant="image"
-    class="w-md"
+    class="min-w-md"
   >
     <div class="p-5">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -83,7 +83,7 @@ Set `variant="horizontal"` to place the image on the left side and the content o
     img-alt="Desk"
     img-src="https://flowbite.com/docs/images/blog/image-4.jpg"
     variant="horizontal"
-    class="w-lg"
+    class="min-w-lg"
   >
     <div class="p-5">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

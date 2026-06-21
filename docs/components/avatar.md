@@ -214,7 +214,7 @@ import { FwbAvatar } from 'flowbite-vue'
 
 ## Custom Placeholder Icon
 
-Use the `#placeholder` slot to replace the default silhouette with any SVG or element. This has no effect when `initials` is set.
+Use the `#placeholder` slot to replace the default silhouette with any SVG or element. The slot has no effect when `img` or `initials` is set — both take precedence and prevent the placeholder from rendering.
 
 <fwb-avatar-example-icon />
 

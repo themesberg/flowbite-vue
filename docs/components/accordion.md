@@ -8,7 +8,7 @@ import FwbAccordionExampleStyling from './accordion/examples/FwbAccordionExample
 
 # Accordion - Flowbite Vue
 
-#### Use the accordion component to show hidden information based on the collapse and expand state of the child elements using data attribute options
+#### Use the accordion component to show and hide content panels using a set of composable Vue sub-components
 
 ---
 

@@ -149,7 +149,7 @@ Use `FwbListGroup` and `FwbListGroupItem` inside the dropdown for a styled menu 
 
 ```vue
 <template>
-  <fwb-dropdown text="Menu" content-class="rounded-lg">
+  <fwb-dropdown text="Menu" content-wrapper-class="rounded-lg">
     <fwb-list-group class="text-sm text-gray-700 dark:text-gray-200">
       <fwb-list-group-item to="#">
         Dashboard
@@ -169,6 +169,8 @@ Use `FwbListGroup` and `FwbListGroupItem` inside the dropdown for a styled menu 
 
 <script setup>
 import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
+
+const signOut = () => {}
 </script>
 ```
 

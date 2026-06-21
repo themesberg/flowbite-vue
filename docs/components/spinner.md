@@ -79,5 +79,5 @@ import { FwbSpinner } from 'flowbite-vue'
 
 | Name  | Type                                                                              | Default  | Description                                                                        |
 | ----- | --------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------- |
-| color | `'blue' \| 'gray' \| 'green' \| 'pink' \| 'purple' \| 'red' \| 'white' \| 'yellow' \| String` | `'blue'` | Fill color of the spinner. Accepts a named color or any hex string (e.g. `'#3fb984'`). |
+| color | `'blue' \| 'gray' \| 'green' \| 'pink' \| 'purple' \| 'red' \| 'white' \| 'yellow' \| \`#${string}\`` | `'blue'` | Fill color of the spinner. Accepts a named color or any hex string (e.g. `'#3fb984'`). |
 | size  | `'0' \| '0.5' \| '1' \| '1.5' \| '2' \| '2.5' \| '3' \| '4' \| '5' \| '6' \| '7' \| '8' \| '9' \| '10' \| '11' \| '12'` | `'4'` | Spinner size mapped to a Tailwind spacing unit. |

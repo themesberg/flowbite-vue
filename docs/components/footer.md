@@ -148,7 +148,7 @@ Use `footer-type="socialmedia"` with `FwbFooterIcon` to render social platform l
     <div class="sm:flex sm:items-center sm:justify-between">
       <fwb-footer-copyright by="Flowbite™" href="/" />
       <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-        <fwb-footer-icon href="/">...</fwb-footer-icon>
+        <fwb-footer-icon href="/" sr-text="Visit us">...</fwb-footer-icon>
       </div>
     </div>
   </fwb-footer>

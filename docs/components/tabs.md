@@ -189,7 +189,7 @@ const handlePaneClick = () => { console.log('Click!') }
 
 | Name               | Description                                                          |
 | ------------------ | -------------------------------------------------------------------- |
-| update:model-value | Emitted with the new tab name when the active tab changes.           |
+| update:modelValue  | Emitted with the new tab name when the active tab changes.           |
 | click:pane         | Emitted with the tab name when a tab button is clicked.              |
 
 ### FwbTabs Slots

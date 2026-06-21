@@ -19,7 +19,7 @@ import { resolveComponent } from 'vue'
 const props = withDefaults(
   defineProps<{
     name?: string
-    link?: string
+    link?: string | { name: string }
     logo?: string
     alt?: string
     tag?: string
@@ -29,7 +29,7 @@ const props = withDefaults(
     link: '/',
     logo: '',
     tag: 'a',
-    alt: '',
+    alt: undefined,
   },
 )
 

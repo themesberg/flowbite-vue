@@ -705,7 +705,7 @@ Add `FwbSidebarLogo` at the top of the sidebar to display a brand logo and name.
 
 | Name    | Description                                              |
 | ------- | -------------------------------------------------------- |
-| default | Sidebar content — one or more `FwbSidebarItem` elements. |
+| default | Sidebar content — accepts `FwbSidebarLogo`, `FwbSidebarItem`, `FwbSidebarDropdownItem`, `FwbSidebarItemGroup`, and `FwbSidebarCta` elements. |
 
 ### FwbSidebarItem Props
 
@@ -766,7 +766,7 @@ Add `FwbSidebarLogo` at the top of the sidebar to display a brand logo and name.
 | Name | Type     | Default     | Description                                                        |
 | ---- | -------- | ----------- | ------------------------------------------------------------------ |
 | alt  | `String` | `undefined` | Alt text for the logo image.                                       |
-| link | `String` | `'/'`       | The URL or route passed to the logo link.                          |
+| link | `String \| Object` | `'/'`  | The URL or route object passed to the logo link.                   |
 | logo | `String` | `undefined` | URL of the logo image.                                             |
 | name | `String` | `undefined` | Brand name text displayed next to the logo image.                  |
 | tag  | `String` | `'a'`       | Root element tag or component name (e.g. `'router-link'`).         |
