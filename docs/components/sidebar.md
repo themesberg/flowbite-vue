@@ -711,7 +711,7 @@ Add `FwbSidebarLogo` at the top of the sidebar to display a brand logo and name.
 
 | Name | Type                    | Default | Description                                               |
 | ---- | ----------------------- | ------- | --------------------------------------------------------- |
-| link | `String \| Object`      | `'/'`   | The URL or route object passed to the link element.       |
+| link | `String \| Record<string, unknown>` | `'/'` | The URL or route object passed to the link element. |
 | tag  | `String`                | `'a'`   | Root element tag or component name (e.g. `'router-link'`). |
 
 ### FwbSidebarItem Slots
