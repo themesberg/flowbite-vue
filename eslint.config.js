@@ -4,7 +4,7 @@ import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescri
 import importPlugin from 'eslint-plugin-import'
 import unusedImports from 'eslint-plugin-unused-imports'
 import pluginVue from 'eslint-plugin-vue'
-import * as pluginVueScopedCss from 'eslint-plugin-vue-scoped-css'
+import pluginVueScopedCss from 'eslint-plugin-vue-scoped-css'
 import globals from 'globals'
 import neostandard, { resolveIgnoresFromGitignore } from 'neostandard'
 import tseslint from 'typescript-eslint'
