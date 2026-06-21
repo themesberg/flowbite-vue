@@ -20,7 +20,7 @@ export function useBreadcrumbClasses (props: useBreadcrumbProps): {
 } {
   const breadcrumbClasses = computed<string>(() => useMergeClasses(breadcrumbDefaultClasses))
   const breadcrumbWrapperClasses = computed<string>(() => useMergeClasses(
-    breadcrumbWrapperVariantClasses[props.solid.value ? 'solid' : 'defauilt' as BreadcrumbType],
+    breadcrumbWrapperVariantClasses[props.solid.value ? 'solid' : 'default'],
   ))
 
   return {
