@@ -4,6 +4,9 @@ import FwbBadgeExampleSize from './badge/examples/FwbBadgeExampleSize.vue'
 import FwbBadgeExampleLink from './badge/examples/FwbBadgeExampleLink.vue'
 import FwbBadgeExampleIcon from './badge/examples/FwbBadgeExampleIcon.vue'
 import FwbBadgeExampleIconOnly from './badge/examples/FwbBadgeExampleIconOnly.vue'
+import FwbBadgeExamplePill from './badge/examples/FwbBadgeExamplePill.vue'
+import FwbBadgeExampleBorder from './badge/examples/FwbBadgeExampleBorder.vue'
+import FwbBadgeExampleDismissible from './badge/examples/FwbBadgeExampleDismissible.vue'
 </script>
 
 # Badge - Flowbite Vue
@@ -61,6 +64,71 @@ Use the `size` prop to control badge dimensions. `xs` is the default (smaller) s
 
 <script setup>
 import { FwbBadge } from 'flowbite-vue'
+</script>
+```
+
+## Pill Badges
+
+Set the `pill` prop to use fully rounded corners instead of the default slight rounding.
+
+<fwb-badge-example-pill />
+
+```vue
+<template>
+  <fwb-badge pill>Default</fwb-badge>
+  <fwb-badge pill type="dark">Dark</fwb-badge>
+  <fwb-badge pill type="red">Red</fwb-badge>
+  <fwb-badge pill type="green">Green</fwb-badge>
+  <fwb-badge pill type="yellow">Yellow</fwb-badge>
+  <fwb-badge pill type="indigo">Indigo</fwb-badge>
+  <fwb-badge pill type="purple">Purple</fwb-badge>
+  <fwb-badge pill type="pink">Pink</fwb-badge>
+</template>
+
+<script setup>
+import { FwbBadge } from 'flowbite-vue'
+</script>
+```
+
+## Border Badges
+
+Set the `border` prop to add a coloured outline to the badge. The dark mode background changes to neutral gray to keep the border visible.
+
+<fwb-badge-example-border />
+
+```vue
+<template>
+  <fwb-badge border>Default</fwb-badge>
+  <fwb-badge border type="dark">Dark</fwb-badge>
+  <fwb-badge border type="red">Red</fwb-badge>
+  <fwb-badge border type="green">Green</fwb-badge>
+  <fwb-badge border type="yellow">Yellow</fwb-badge>
+  <fwb-badge border type="indigo">Indigo</fwb-badge>
+  <fwb-badge border type="purple">Purple</fwb-badge>
+  <fwb-badge border type="pink">Pink</fwb-badge>
+</template>
+
+<script setup>
+import { FwbBadge } from 'flowbite-vue'
+</script>
+```
+
+## Dismissible Badges
+
+Set the `dismissible` prop to show a remove button inside the badge. Handle the `@dismiss` event to hide or remove the badge.
+
+<fwb-badge-example-dismissible />
+
+```vue
+<template>
+  <fwb-badge v-if="shown" dismissible @dismiss="shown = false">Default</fwb-badge>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbBadge } from 'flowbite-vue'
+
+const shown = ref(true)
 </script>
 ```
 
@@ -156,11 +224,20 @@ import { FwbBadge } from 'flowbite-vue'
 
 ### FwbBadge Props
 
-| Name | Type                                                                        | Default     | Description                                                    |
-| ---- | --------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------- |
-| type | `'default' \| 'dark' \| 'red' \| 'green' \| 'yellow' \| 'indigo' \| 'purple' \| 'pink'` | `'default'` | Sets the badge colour scheme. |
-| size | `'xs' \| 'sm'`                                                              | `'xs'`      | Controls badge padding and font size.                          |
-| href | `String`                                                                    | `null`      | When set, renders an `<a>` element instead of `<span>`.        |
+| Name        | Type                                                                        | Default     | Description                                                    |
+| ----------- | --------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------- |
+| type        | `'default' \| 'dark' \| 'red' \| 'green' \| 'yellow' \| 'indigo' \| 'purple' \| 'pink'` | `'default'` | Sets the badge colour scheme. |
+| size        | `'xs' \| 'sm'`                                                              | `'xs'`      | Controls badge padding and font size.                          |
+| href        | `String`                                                                    | `null`      | When set, renders an `<a>` element instead of `<span>`.        |
+| pill        | `Boolean`                                                                   | `false`     | Uses fully rounded corners (`rounded-full`).                   |
+| border      | `Boolean`                                                                   | `false`     | Adds a coloured border outline around the badge.               |
+| dismissible | `Boolean`                                                                   | `false`     | Shows a remove button inside the badge.                        |
+
+### FwbBadge Events
+
+| Name    | Payload | Description                                             |
+| ------- | ------- | ------------------------------------------------------- |
+| dismiss | -       | Emitted when the dismiss button is clicked.             |
 
 ### FwbBadge Slots
 
