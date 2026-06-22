@@ -95,10 +95,8 @@ export function useBadgeClasses (
     if (options.isContentEmpty.value) {
       return useMergeClasses([
         onlyIconClasses,
-        props.href
-          ? badgeLinkClasses
-          : props.border ? badgeBorderTypeClasses[props.type] : badgeTypeClasses[props.type],
-        props.href ? '' : (props.border ? badgeBorderTextClasses[props.type] : badgeTextClasses[props.type]),
+        props.border ? badgeBorderTypeClasses[props.type] : (props.href ? badgeLinkClasses : badgeTypeClasses[props.type]),
+        props.border ? badgeBorderTextClasses[props.type] : (props.href ? '' : badgeTextClasses[props.type]),
         attrs.class as string,
       ])
     }
@@ -109,7 +107,8 @@ export function useBadgeClasses (
         props.pill ? pillBadgeClasses : '',
         props.dismissible ? 'pr-1' : '',
         badgeSizeClasses[props.size],
-        badgeLinkClasses,
+        props.border ? badgeBorderTypeClasses[props.type] : badgeLinkClasses,
+        props.border ? badgeBorderTextClasses[props.type] : '',
         attrs.class as string,
       ])
     }

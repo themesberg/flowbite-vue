@@ -59,6 +59,22 @@ describe('FwbBadge', () => {
     })
   })
 
+  describe('prop combinations', () => {
+    it('applies border classes when both href and border are set', () => {
+      const wrapper = mount(FwbBadge, { props: { href: '/link', border: true, type: 'green' }, slots: { default: 'Bordered Link' } })
+      expect(wrapper.element.tagName).toBe('A')
+      expect(wrapper.classes()).toContain('border')
+      expect(wrapper.classes()).toContain('bg-green-100')
+    })
+
+    it('emits dismiss when href and dismissible are both set', async () => {
+      const wrapper = mount(FwbBadge, { props: { href: '/link', dismissible: true }, slots: { default: 'Tag' } })
+      expect(wrapper.find('button').exists()).toBe(true)
+      await wrapper.find('button').trigger('click')
+      expect(wrapper.emitted('dismiss')).toHaveLength(1)
+    })
+  })
+
   describe('icon-only mode', () => {
     it('applies rounded-full for icon-only badges', () => {
       const wrapper = mount(FwbBadge, { slots: { icon: '<svg />' } })

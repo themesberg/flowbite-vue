@@ -11,7 +11,7 @@
       type="button"
       :class="dismissButtonClass"
       aria-label="Remove badge"
-      @click="$emit('dismiss')"
+      @click.stop="$emit('dismiss')"
     >
       <svg
         aria-hidden="true"
