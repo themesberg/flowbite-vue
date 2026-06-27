@@ -5,7 +5,7 @@
     <fwb-jumbotron
       header-text="We invest in the world’s potential"
       sub-text="Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth."
-      class="relative bg-white bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-gray-900 dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]"
+      class="relative bg-white bg-[url('/assets/jumbotron/hero-pattern.svg')] dark:bg-gray-900 dark:bg-[url('/assets/jumbotron/hero-pattern-dark.svg')]"
     >
       <form class="mx-auto w-full max-w-md">
         <label

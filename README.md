@@ -90,17 +90,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/alert">
-            <img alt="Tailwind CSS Alerts" src="https://flowbite.s3.amazonaws.com/github/alerts.jpg">
+            <img alt="Tailwind CSS Alerts" src="./docs/assets/github/alerts.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/badge">
-            <img alt="Tailwind CSS Badge" src="https://flowbite.s3.amazonaws.com/github/badge.jpg">
+            <img alt="Tailwind CSS Badge" src="./docs/assets/github/badge.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/breadcrumb">
-            <img alt="Tailwind CSS Breadcrumbs" src="https://flowbite.s3.amazonaws.com/github/breadcrumbs.jpg">
+            <img alt="Tailwind CSS Breadcrumbs" src="./docs/assets/github/breadcrumbs.jpg">
         </a>
     </td>
   </tr>
@@ -112,17 +112,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/button">
-            <img alt="Tailwind CSS Buttons" src="https://flowbite.s3.amazonaws.com/github/buttons.jpg">
+            <img alt="Tailwind CSS Buttons" src="./docs/assets/github/buttons.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/button-group">
-            <img alt="Tailwind CSS Button Group" src="https://flowbite.s3.amazonaws.com/github/button-group.jpg">
+            <img alt="Tailwind CSS Button Group" src="./docs/assets/github/button-group.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/card">
-            <img alt="Tailwind CSS Cards" src="https://flowbite.s3.amazonaws.com/github/cards.jpg">
+            <img alt="Tailwind CSS Cards" src="./docs/assets/github/cards.jpg">
         </a>
     </td>
   </tr>
@@ -134,17 +134,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/dropdown">
-            <img alt="Tailwind CSS Dropdown" src="https://flowbite.s3.amazonaws.com/github/dropdown.jpg">
+            <img alt="Tailwind CSS Dropdown" src="./docs/assets/github/dropdown.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/input">
-            <img alt="Tailwind CSS Forms" src="https://flowbite.s3.amazonaws.com/github/forms.jpg">
+            <img alt="Tailwind CSS Forms" src="./docs/assets/github/forms.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/list-group">
-            <img alt="Tailwind CSS List group" src="https://flowbite.s3.amazonaws.com/github/list-group.jpg">
+            <img alt="Tailwind CSS List group" src="./docs/assets/github/list-group.jpg">
         </a>
     </td>
   </tr>
@@ -156,17 +156,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite.com/docs/components/typography/">
-            <img alt="Tailwind CSS Typography" src="https://flowbite.s3.amazonaws.com/github/typography.jpg">
+            <img alt="Tailwind CSS Typography" src="./docs/assets/github/typography.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/modal">
-            <img alt="Tailwind CSS Modal" src="https://flowbite.s3.amazonaws.com/github/modal.jpg">
+            <img alt="Tailwind CSS Modal" src="./docs/assets/github/modal.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/tabs">
-            <img alt="Tailwind CSS Tabs" src="https://flowbite.s3.amazonaws.com/github/tabs.jpg">
+            <img alt="Tailwind CSS Tabs" src="./docs/assets/github/tabs.jpg">
         </a>
     </td>
   </tr>
@@ -178,17 +178,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/navbar">
-            <img alt="Tailwind CSS Navbar" src="https://flowbite.s3.amazonaws.com/github/navbar.jpg">
+            <img alt="Tailwind CSS Navbar" src="./docs/assets/github/navbar.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/pagination">
-            <img alt="Tailwind CSS Pagination" src="https://flowbite.s3.amazonaws.com/github/pagination.jpg">
+            <img alt="Tailwind CSS Pagination" src="./docs/assets/github/pagination.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/timeline">
-            <img alt="Tailwind CSS Timeline" src="https://flowbite.s3.amazonaws.com/github/timeline.jpg">
+            <img alt="Tailwind CSS Timeline" src="./docs/assets/github/timeline.jpg">
         </a>
     </td>
   </tr>
@@ -200,17 +200,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/progress">
-            <img alt="Tailwind CSS Progress Bar" src="https://flowbite.s3.amazonaws.com/github/progress.jpg">
+            <img alt="Tailwind CSS Progress Bar" src="./docs/assets/github/progress.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/table">
-            <img alt="Tailwind CSS Tables" src="https://flowbite.s3.amazonaws.com/github/tables.jpg">
+            <img alt="Tailwind CSS Tables" src="./docs/assets/github/tables.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/alert">
-            <img alt="Tailwind CSS Toast" src="https://flowbite.s3.amazonaws.com/github/toast.jpg">
+            <img alt="Tailwind CSS Toast" src="./docs/assets/github/toast.jpg">
         </a>
     </td>
   </tr>
@@ -222,17 +222,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/tooltip">
-            <img alt="Tailwind CSS Tooltips" src="https://flowbite.s3.amazonaws.com/github/tooltips.jpg">
+            <img alt="Tailwind CSS Tooltips" src="./docs/assets/github/tooltips.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite.com/docs/plugins/datepicker">
-            <img alt="Tailwind CSS Datepicker" src="https://flowbite.s3.amazonaws.com/github/datepicker.jpg">
+            <img alt="Tailwind CSS Datepicker" src="./docs/assets/github/datepicker.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/spinner">
-            <img alt="Tailwind CSS Spinner" src="https://flowbite.s3.amazonaws.com/github/spinner.jpg">
+            <img alt="Tailwind CSS Spinner" src="./docs/assets/github/spinner.jpg">
         </a>
     </td>
   </tr>
@@ -244,17 +244,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/footer">
-            <img alt="Tailwind CSS Footer" src="https://flowbite.s3.amazonaws.com/github/footer.jpg">
+            <img alt="Tailwind CSS Footer" src="./docs/assets/github/footer.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/accordion">
-            <img alt="Tailwind CSS Accordion" src="https://flowbite.s3.amazonaws.com/github/accordion.jpg">
+            <img alt="Tailwind CSS Accordion" src="./docs/assets/github/accordion.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/sidebar">
-            <img alt="Tailwind CSS Sidebar" src="https://flowbite.s3.amazonaws.com/github/sidebar.jpg">
+            <img alt="Tailwind CSS Sidebar" src="./docs/assets/github/sidebar.jpg">
         </a>
     </td>
   </tr>
@@ -266,17 +266,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/carousel">
-            <img alt="Tailwind CSS Carousel" src="https://flowbite.s3.amazonaws.com/github/carousel.jpg">
+            <img alt="Tailwind CSS Carousel" src="./docs/assets/github/carousel.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/avatar">
-            <img alt="Tailwind CSS Avatar" src="https://flowbite.s3.amazonaws.com/github/avatar.jpg">
+            <img alt="Tailwind CSS Avatar" src="./docs/assets/github/avatar.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/rating">
-            <img alt="Tailwind CSS Rating" src="https://flowbite.s3.amazonaws.com/github/rating.jpg">
+            <img alt="Tailwind CSS Rating" src="./docs/assets/github/rating.jpg">
         </a>
     </td>
   </tr>
@@ -288,17 +288,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/input">
-            <img alt="Tailwind CSS Input Field" src="https://flowbite.s3.amazonaws.com/github/input-field.jpg">
+            <img alt="Tailwind CSS Input Field" src="./docs/assets/github/input-field.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/fileInput">
-            <img alt="Tailwind CSS File Input" src="https://flowbite.s3.amazonaws.com/github/file-input.jpg">
+            <img alt="Tailwind CSS File Input" src="./docs/assets/github/file-input.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite.com/docs/forms/search-input/">
-            <img alt="Tailwind CSS Search Input" src="https://flowbite.s3.amazonaws.com/github/search-input.jpg">
+            <img alt="Tailwind CSS Search Input" src="./docs/assets/github/search-input.jpg">
         </a>
     </td>
   </tr>
@@ -310,17 +310,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/select">
-            <img alt="Tailwind CSS Select" src="https://flowbite.s3.amazonaws.com/github/select.jpg">
+            <img alt="Tailwind CSS Select" src="./docs/assets/github/select.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/textarea">
-            <img alt="Tailwind CSS Textarea" src="https://flowbite.s3.amazonaws.com/github/textarea.jpg">
+            <img alt="Tailwind CSS Textarea" src="./docs/assets/github/textarea.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/checkbox">
-            <img alt="Tailwind CSS Checkbox" src="https://flowbite.s3.amazonaws.com/github/checkbox.jpg">
+            <img alt="Tailwind CSS Checkbox" src="./docs/assets/github/checkbox.jpg">
         </a>
     </td>
   </tr>
@@ -332,17 +332,17 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/radio">
-            <img alt="Tailwind CSS Radio" src="https://flowbite.s3.amazonaws.com/github/radio.jpg">
+            <img alt="Tailwind CSS Radio" src="./docs/assets/github/radio.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/toggle">
-            <img alt="Tailwind CSS Toggle" src="https://flowbite.s3.amazonaws.com/github/toggle.jpg">
+            <img alt="Tailwind CSS Toggle" src="./docs/assets/github/toggle.jpg">
         </a>
     </td>
     <td width="33.3333%">
         <a href="https://flowbite.com/docs/forms/range/">
-            <img alt="Tailwind CSS Range Slider" src="https://flowbite.s3.amazonaws.com/github/range-slider.jpg">
+            <img alt="Tailwind CSS Range Slider" src="./docs/assets/github/range-slider.jpg">
         </a>
     </td>
   </tr>
@@ -352,7 +352,7 @@ module.exports = {
   <tr>
     <td width="33.3333%">
         <a href="https://flowbite.com/docs/forms/floating-label/">
-            <img alt="Tailwind CSS Floating Label" src="https://flowbite.s3.amazonaws.com/github/floating-label.jpg">
+            <img alt="Tailwind CSS Floating Label" src="./docs/assets/github/floating-label.jpg">
         </a>
     </td>
   </tr>

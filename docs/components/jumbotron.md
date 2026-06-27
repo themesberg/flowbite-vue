@@ -61,7 +61,7 @@ Use the `class` prop and Tailwind's `bg-[url(...)]` utility to apply a darkened 
 ```vue
 <template>
   <fwb-jumbotron
-    class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] dark:bg-gray-700 bg-gray-700 bg-blend-multiply"
+    class="bg-center bg-no-repeat bg-[url('/assets/jumbotron/conference.jpg')] dark:bg-gray-700 bg-gray-700 bg-blend-multiply"
     header-classes="text-white"
     sub-text-classes="text-gray-300 dark:text-gray-300"
     header-text="We invest in the world's potential"
@@ -94,7 +94,7 @@ Use a patterned SVG background and a gradient overlay via an absolutely-position
   <fwb-jumbotron
     header-text="We invest in the world's potential"
     sub-text="Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth."
-    class="relative bg-white bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-gray-900 dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]"
+    class="relative bg-white bg-[url('/assets/jumbotron/hero-pattern.svg')] dark:bg-gray-900 dark:bg-[url('/assets/jumbotron/hero-pattern-dark.svg')]"
   >
     <form class="mx-auto w-full max-w-md">
       <input type="email" class="block w-full rounded-lg border border-gray-300 bg-white p-4 text-sm" placeholder="Enter your email here..." required>

@@ -3,7 +3,7 @@
     class="vp-raw"
   >
     <fwb-jumbotron
-      class="bg-gray-700 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-center bg-no-repeat bg-blend-multiply dark:bg-gray-700"
+      class="bg-gray-700 bg-[url('/assets/jumbotron/conference.jpg')] bg-center bg-no-repeat bg-blend-multiply dark:bg-gray-700"
       header-classes="text-white"
       sub-text-classes="text-gray-300 dark:text-gray-300"
       header-text="We invest in the world’s potential"
