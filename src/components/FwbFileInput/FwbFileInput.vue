@@ -84,6 +84,8 @@
       <input
         v-bind="inputAttributes"
         :accept="accept"
+        :aria-describedby="ariaDescribedby"
+        :aria-invalid="validationStatus === 'error' ? true : undefined"
         :aria-labelledby="label ? `${inputId}-label` : undefined"
         :disabled="disabled"
         :multiple="multiple"
@@ -92,6 +94,22 @@
         @change="handleChange"
       >
     </label>
+    <p
+      v-if="$slots.validationMessage || validationMessage"
+      :id="validationMessageId"
+      :class="validationMessageClass"
+    >
+      <slot name="validationMessage">
+        {{ validationMessage }}
+      </slot>
+    </p>
+    <p
+      v-if="$slots.helper"
+      :id="helperId"
+      :class="helperMessageClass"
+    >
+      <slot name="helper" />
+    </p>
   </div>
 </template>
 

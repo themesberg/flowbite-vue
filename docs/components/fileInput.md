@@ -7,6 +7,7 @@ import FwbFileInputExampleStyling from './fileInput/examples/FwbFileInputExample
 import FwbFileInputExampleDisabled from './fileInput/examples/FwbFileInputExampleDisabled.vue'
 import FwbFileInputExampleValidation from './fileInput/examples/FwbFileInputExampleValidation.vue'
 import FwbFileInputExampleDropZone from './fileInput/examples/FwbFileInputExampleDropZone.vue'
+import FwbFileInputExampleDropZoneValidation from './fileInput/examples/FwbFileInputExampleDropZoneValidation.vue'
 import FwbFileInputExampleDropZonePlaceholder from './fileInput/examples/FwbFileInputExampleDropZonePlaceholder.vue'
 import FwbFileInputExampleDropZoneMultiple from './fileInput/examples/FwbFileInputExampleDropZoneMultiple.vue'
 </script>
@@ -208,6 +209,41 @@ const file = ref(null)
 </script>
 ```
 
+## Dropzone Validation
+
+`validationStatus`, `validationMessage`, and the `helper`/`validationMessage` slots work the same way in dropzone mode as in the default layout — the dropzone border and background reflect the status, and feedback text renders below the dropzone box.
+
+<fwb-file-input-example-drop-zone-validation />
+
+```vue
+<template>
+  <div class="flex flex-col gap-4">
+    <fwb-file-input
+      v-model="file"
+      dropzone
+      validation-status="error"
+      validation-message="Please select a valid file."
+    />
+    <fwb-file-input
+      v-model="file"
+      dropzone
+      validation-status="success"
+    >
+      <template #validationMessage>
+        File looks good!
+      </template>
+    </fwb-file-input>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FwbFileInput } from 'flowbite-vue'
+
+const file = ref(null)
+</script>
+```
+
 ## Dropzone Multiple
 
 Use the `multiple` prop together with `dropzone` to allow uploading several files at once via drag-and-drop.
@@ -276,11 +312,11 @@ const file = ref(null)
 | wrapperClass     | `String \| Object`                    | `''`        | Added to the outermost wrapper `<div>`.                                                         |
 
 :::warning Dropzone mode limitations
-`class` and `size` have no effect in dropzone mode. `validationStatus` changes the label color only — input styling and validation messages are not rendered. `helper` slot, `validationMessage` slot, and `validationMessage` prop are not rendered in dropzone mode.
+`class` and `size` have no effect in dropzone mode — they only style the default (non-dropzone) `<input>`.
 :::
 
 :::tip Accessibility
-`aria-invalid="true"` is set automatically on the native input when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` (slot or prop) and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute. These apply to the default (non-dropzone) rendering only.
+`aria-invalid="true"` is set automatically on the native input when `validationStatus="error"`, in both default and dropzone modes. `aria-describedby` is wired to the IDs of any rendered `validationMessage` (slot or prop) and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute.
 :::
 
 ### FwbFileInput Slots

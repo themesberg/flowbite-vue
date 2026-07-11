@@ -26,6 +26,8 @@ const successTextClasses = 'text-emerald-900 dark:text-emerald-500'
 const dropzoneLabelBaseClasses = 'flex flex-col justify-center items-center bg-gray-50 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg w-full h-64'
 const dropzoneLabelInteractiveClasses = 'hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:border-gray-500 cursor-pointer'
 const dropzoneLabelDisabledClasses = 'cursor-not-allowed opacity-50'
+const dropzoneLabelErrorClasses = 'bg-rose-50 border-rose-300 dark:border-rose-500'
+const dropzoneLabelSuccessClasses = 'bg-emerald-50 border-emerald-300 dark:border-emerald-500'
 const dropzoneWrapDefaultClasses = 'flex flex-col justify-center items-center pt-5 pb-6'
 const dropzoneTextDefaultClasses = '!-mb-2 text-gray-500 dark:text-gray-400 text-sm'
 
@@ -76,6 +78,9 @@ export function useFileInputClasses (props: UseFileInputClassesProps) {
 
   const dropzoneLabelClass = computed(() => useMergeClasses([
     dropzoneLabelBaseClasses,
+    props.validationStatus.value === validationStatusMap.Success
+      ? dropzoneLabelSuccessClasses
+      : props.validationStatus.value === validationStatusMap.Error ? dropzoneLabelErrorClasses : '',
     props.disabled.value ? dropzoneLabelDisabledClasses : dropzoneLabelInteractiveClasses,
   ]))
   const dropzoneWrapClass = computed(() => dropzoneWrapDefaultClasses)

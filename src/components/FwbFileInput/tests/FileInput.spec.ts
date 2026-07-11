@@ -190,4 +190,52 @@ describe('FwbFileInput', () => {
       expect(wrapper.emitted('update:modelValue')).toBeUndefined()
     })
   })
+
+  describe('dropzone validation', () => {
+    it('sets aria-invalid on the hidden input when validationStatus is "error"', () => {
+      const wrapper = mount(FwbFileInput, { props: { dropzone: true, validationStatus: 'error' } })
+      expect(wrapper.find('input[type="file"]').attributes('aria-invalid')).toBe('true')
+    })
+
+    it('does not set aria-invalid when validationStatus is "success"', () => {
+      const wrapper = mount(FwbFileInput, { props: { dropzone: true, validationStatus: 'success' } })
+      expect(wrapper.find('input[type="file"]').attributes('aria-invalid')).toBeUndefined()
+    })
+
+    it('applies rose-colored classes to the dropzone label on error', () => {
+      const wrapper = mount(FwbFileInput, { props: { dropzone: true, validationStatus: 'error' } })
+      expect(wrapper.find('label').classes()).toContain('bg-rose-50')
+    })
+
+    it('applies emerald-colored classes to the dropzone label on success', () => {
+      const wrapper = mount(FwbFileInput, { props: { dropzone: true, validationStatus: 'success' } })
+      expect(wrapper.find('label').classes()).toContain('bg-emerald-50')
+    })
+
+    it('renders the validationMessage prop below the dropzone', () => {
+      const wrapper = mount(FwbFileInput, {
+        props: { dropzone: true, validationStatus: 'error', validationMessage: 'File is required' },
+      })
+      const paragraphs = wrapper.findAll('p')
+      expect(paragraphs[paragraphs.length - 1].text()).toBe('File is required')
+    })
+
+    it('renders the helper slot below the dropzone', () => {
+      const wrapper = mount(FwbFileInput, {
+        props: { dropzone: true },
+        slots: { helper: 'Max 5MB' },
+      })
+      const paragraphs = wrapper.findAll('p')
+      expect(paragraphs[paragraphs.length - 1].text()).toBe('Max 5MB')
+    })
+
+    it('wires aria-describedby on the hidden input to the validation message id', () => {
+      const wrapper = mount(FwbFileInput, {
+        props: { dropzone: true, validationStatus: 'error', validationMessage: 'File is required' },
+      })
+      const paragraphs = wrapper.findAll('p')
+      const msgP = paragraphs[paragraphs.length - 1]
+      expect(wrapper.find('input[type="file"]').attributes('aria-describedby')).toBe(msgP.attributes('id'))
+    })
+  })
 })
