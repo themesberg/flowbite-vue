@@ -2,7 +2,10 @@
   <div>
     <template v-if="label || (showValue && valuePosition === 'outside' && !indeterminate)">
       <div class="mb-1 flex justify-between">
-        <span :class="outsideLabelClasses">{{ label }}</span>
+        <span
+          :id="labelId"
+          :class="outsideLabelClasses"
+        >{{ label }}</span>
         <span
           v-if="showValue && valuePosition === 'outside' && !indeterminate"
           :class="outsideLabelClasses"
@@ -20,6 +23,8 @@
       aria-valuemin="0"
       aria-valuemax="100"
       :aria-valuenow="indeterminate ? undefined : progress"
+      :aria-labelledby="label ? labelId : undefined"
+      :aria-label="label ? undefined : 'Progress'"
     >
       <div
         v-if="indeterminate"
@@ -45,7 +50,7 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue'
+import { toRefs, useId } from 'vue'
 
 import { useProgressClasses } from './composables/useProgressClasses'
 
@@ -81,6 +86,8 @@ defineSlots<{
   value?: (props: { progress: number }) => unknown
 }>()
 
+const labelId = useId()
+
 const {
   innerClasses,
   outerClasses,
@@ -106,5 +113,12 @@ const {
 
 .fwb-progress-indeterminate {
   animation: fwb-progress-indeterminate-slide 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fwb-progress-indeterminate {
+    width: 40%;
+    animation: none;
+  }
 }
 </style>

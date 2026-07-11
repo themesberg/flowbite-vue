@@ -30,6 +30,24 @@ describe('FwbProgress', () => {
     })
   })
 
+  describe('accessible name', () => {
+    it('links the progressbar to the label text via aria-labelledby', () => {
+      const wrapper = mount(FwbProgress, { props: { label: 'Uploading' } })
+      const track = wrapper.find('[role="progressbar"]')
+      const labelledby = track.attributes('aria-labelledby')
+      expect(labelledby).toBeDefined()
+      expect(wrapper.find(`#${labelledby}`).text()).toBe('Uploading')
+      expect(track.attributes('aria-label')).toBeUndefined()
+    })
+
+    it('falls back to a generic aria-label when no label is set', () => {
+      const wrapper = mount(FwbProgress)
+      const track = wrapper.find('[role="progressbar"]')
+      expect(track.attributes('aria-label')).toBe('Progress')
+      expect(track.attributes('aria-labelledby')).toBeUndefined()
+    })
+  })
+
   describe('value display', () => {
     it('does not render a value when showValue is false', () => {
       const wrapper = mount(FwbProgress, { props: { progress: 50, valuePosition: 'inside' } })
