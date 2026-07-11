@@ -1,10 +1,10 @@
 <template>
-  <fwb-progress
-    :progress="50"
-    value-position="inside"
-    show-value
-    size="lg"
-  />
+  <div class="vp-raw">
+    <fwb-progress
+      indeterminate
+      label="Uploading file..."
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>

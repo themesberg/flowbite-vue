@@ -58,7 +58,7 @@ import { computed, ref, watch } from 'vue'
 import { useDropdownClasses } from './composables/useDropdownClasses'
 
 import type { DropdownPlacement } from './types'
-import type { ButtonVariant } from '@/components/FwbButton/types'
+import type { ColorVariant } from '@/types/colors'
 
 import FwbButton from '@/components/FwbButton/FwbButton.vue'
 import FwbSlotListener from '@/components/utils/FwbSlotListener/FwbSlotListener.vue'
@@ -67,7 +67,7 @@ export interface DropdownProps {
   alignToEnd?: boolean
   class?: string
   closeInside?: boolean
-  color?: ButtonVariant
+  color?: ColorVariant
   contentWrapperClass?: string
   disabled?: boolean
   placement?: DropdownPlacement

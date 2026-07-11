@@ -1,6 +1,7 @@
 import { computed, type ComputedRef, type Ref, useSlots } from 'vue'
 
-import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../types'
+import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize } from '../types'
+import type { ColorVariant } from '@/types/colors'
 import type { ClassInput } from '@/types/global'
 
 import { useMergeClasses } from '@/composables/useMergeClasses'
@@ -9,7 +10,7 @@ export type ButtonClassMap<T extends string> = { hover: Record<T, string>, defau
 
 const buttonDefaultClasses = 'inline-block'
 
-const buttonColorClasses: ButtonClassMap<ButtonVariant> = {
+const buttonColorClasses: ButtonClassMap<ColorVariant> = {
   default: {
     alternative: 'font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600',
     blue: 'text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800',
@@ -36,7 +37,7 @@ const buttonColorClasses: ButtonClassMap<ButtonVariant> = {
   },
 }
 
-const buttonOutlineColorClasses: ButtonClassMap<Exclude<ButtonVariant, 'light' | 'alternative'>> = {
+const buttonOutlineColorClasses: ButtonClassMap<Exclude<ColorVariant, 'light' | 'alternative'>> = {
   default: {
     blue: 'text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800',
     dark: 'text-gray-900 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm text-center dark:border-gray-600 dark:text-gray-400 dark:focus:ring-gray-800',
@@ -146,7 +147,7 @@ const buttonShadowClasses: Record<ButtonMonochromeGradient, string> = {
 
 interface UseButtonClassesProps {
   class: Ref<ClassInput>
-  color: Ref<ButtonVariant>
+  color: Ref<ColorVariant>
   disabled: Ref<boolean>
   gradient: Ref<ButtonGradient | null>
   loading: Ref<boolean>
