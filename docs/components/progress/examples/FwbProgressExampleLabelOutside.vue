@@ -1,8 +1,8 @@
 <template>
   <fwb-progress
     :progress="42"
-    label-position="outside"
-    label-progress
+    value-position="outside"
+    show-value
     label="Flowbite Vue 3"
   />
 </template>
