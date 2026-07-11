@@ -214,8 +214,8 @@ describe('FwbTabs', () => {
   })
 
   describe('keyboard navigation', () => {
-    const mountThreeTabs = (modelValue = 'first') => mount(FwbTabs, {
-      props: { modelValue },
+    const mountThreeTabs = (modelValue = 'first', extraProps = {}) => mount(FwbTabs, {
+      props: { modelValue, ...extraProps },
       slots: {
         default: '<fwb-tab name="first" title="First">content</fwb-tab><fwb-tab name="second" title="Second" disabled>content</fwb-tab><fwb-tab name="third" title="Third">content</fwb-tab>',
       },
@@ -231,6 +231,18 @@ describe('FwbTabs', () => {
     it('wraps around to the last tab on ArrowLeft from the first tab', async () => {
       const wrapper = mountThreeTabs('first')
       await wrapper.find('#tab-first').trigger('keydown', { key: 'ArrowLeft' })
+      expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['third'])
+    })
+
+    it('activates the next tab on ArrowDown, skipping disabled tabs, in vertical tabs', async () => {
+      const wrapper = mountThreeTabs('first', { vertical: true })
+      await wrapper.find('#tab-first').trigger('keydown', { key: 'ArrowDown' })
+      expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['third'])
+    })
+
+    it('wraps around to the last tab on ArrowUp from the first tab, in vertical tabs', async () => {
+      const wrapper = mountThreeTabs('first', { vertical: true })
+      await wrapper.find('#tab-first').trigger('keydown', { key: 'ArrowUp' })
       expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['third'])
     })
 
