@@ -30,6 +30,7 @@ versions predate this file and are not backfilled.
 - `FwbAutocomplete`: `inputClass` prop for direct `<input>` styling (#439)
 - `FwbSelect`: `clearable` prop and `chevron` slot (#438)
 - `FwbRange`: thumb color customizable via the `--fwb-range-thumb-color` CSS custom property (#440)
+- `FwbFileInput`: dropzone mode now supports `validationStatus` styling (rose/emerald dashed border), `aria-invalid`/`aria-describedby` on the hidden input, and renders the `validationMessage` (slot or prop) and `helper` slot below the dropzone (#455)
 
 ### Changed
 
@@ -45,5 +46,6 @@ versions predate this file and are not backfilled.
 - `FwbSidebar` tag/link handling bugs found during the docs review (#448)
 - `FwbFileInput`: error/success background colors corrected (were `bg-red-50`/`bg-green-50`, now `bg-rose-50`/`bg-emerald-50` to match the rest of the library) (#437)
 - Linter warnings reduced from 51 to 21 (#446)
+- `FwbFileInput`: the file selector button had `file:rounded-none` while the input wrapper has `rounded-lg` — the button's square corner was clipped by the input's rounded border box, cutting into the button text. Now rounds the button's left corners to match, and widens left padding accordingly (#455)
 
 [Unreleased]: https://github.com/themesberg/flowbite-vue/compare/v0.2.3...main
