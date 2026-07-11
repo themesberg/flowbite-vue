@@ -132,7 +132,7 @@ const file = ref(null)
 
 ## Validation
 
-Set `validation-status` to `'success'` or `'error'` and use the `validationMessage` slot to display contextual feedback.
+Set `validation-status` to `'success'` or `'error'` and use the `validationMessage` slot (rich content) or the `validationMessage` prop (plain string) to display contextual feedback. The slot takes priority when both are given.
 
 <fwb-file-input-example-validation />
 
@@ -142,12 +142,9 @@ Set `validation-status` to `'success'` or `'error'` and use the `validationMessa
     <fwb-file-input
       v-model="file"
       validation-status="error"
+      validation-message="Please select a valid file."
       label="Upload file"
-    >
-      <template #validationMessage>
-        Please select a valid file.
-      </template>
-    </fwb-file-input>
+    />
     <fwb-file-input
       v-model="file"
       validation-status="success"
@@ -274,15 +271,16 @@ const file = ref(null)
 | labelClass       | `String \| Object`                    | `''`        | Added to the label element (`<label>` in default mode, `<span>` in dropzone mode).              |
 | multiple         | `Boolean`                             | `false`     | Allows selecting multiple files.                                                                |
 | size             | `'sm' \| 'md' \| 'lg' \| 'xl'`        | `'md'`      | Controls the padding and font size of the file selector button.                                 |
+| validationMessage | `String`                             | `undefined` | Validation feedback text; fallback for the `validationMessage` slot.                            |
 | validationStatus | `'success' \| 'error'`                | `undefined` | Sets the validation state of the input.                                                         |
 | wrapperClass     | `String \| Object`                    | `''`        | Added to the outermost wrapper `<div>`.                                                         |
 
 :::warning Dropzone mode limitations
-`class` and `size` have no effect in dropzone mode. `validationStatus` changes the label color only — input styling and validation messages are not rendered. `helper` and `validationMessage` slots are not rendered in dropzone mode.
+`class` and `size` have no effect in dropzone mode. `validationStatus` changes the label color only — input styling and validation messages are not rendered. `helper` slot, `validationMessage` slot, and `validationMessage` prop are not rendered in dropzone mode.
 :::
 
 :::tip Accessibility
-`aria-invalid="true"` is set automatically on the native input when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute. These apply to the default (non-dropzone) rendering only.
+`aria-invalid="true"` is set automatically on the native input when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` (slot or prop) and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute. These apply to the default (non-dropzone) rendering only.
 :::
 
 ### FwbFileInput Slots
@@ -290,5 +288,5 @@ const file = ref(null)
 | Name                | Description                                                                         |
 | ------------------- | ----------------------------------------------------------------------------------- |
 | helper              | Helper text shown below the input. Linked via `aria-describedby`.                   |
-| validationMessage   | Validation feedback shown below the input. Linked via `aria-describedby`.           |
+| validationMessage   | Validation feedback shown below the input. Linked via `aria-describedby`. Takes priority over the `validationMessage` prop. |
 | dropzonePlaceholder | Custom content for the dropzone upload prompt (replaces default "Click to upload"). |

@@ -189,7 +189,7 @@ const countries = [
 ## Validation
 
 - Set validation status via `validationStatus` prop, which accepts `'success'` or `'error'`.
-- Add validation message via `validationMessage` slot.
+- Add a validation message via the `validationMessage` slot (rich content) or the `validationMessage` prop (plain string). The slot takes priority when both are given.
 
 <fwb-select-example-validation />
 ```vue
@@ -209,12 +209,9 @@ const countries = [
     v-model="selected"
     :options="countries"
     label="Select a country"
+    validation-message="Oh, snap! Please select a country."
     validation-status="error"
-  >
-    <template #validationMessage>
-      <span class="font-medium">Oh, snap!</span> Please select a country.
-    </template>
-  </fwb-select>
+  />
 </template>
 
 <script setup>
@@ -363,11 +360,12 @@ const countries = [
 | required         | `Boolean`                      | `false`               | Sets the `required` attribute.                   |
 | size             | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`                | Controls padding and font size.                  |
 | underline        | `Boolean`                      | `false`               | Uses the underline style variant.                |
+| validationMessage | `String`                      | `undefined`           | Validation feedback text; fallback for the `validationMessage` slot. |
 | validationStatus | `'success' \| 'error'`         | `undefined`           | Applies success or error colour styles.          |
 | wrapperClass     | `String \| Object`             | `''`                  | Added to the outer root `<div>`.                 |
 
 :::tip Accessibility
-`aria-invalid="true"` is set automatically on the native select when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute.
+`aria-invalid="true"` is set automatically on the native select when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` (slot or prop) and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute.
 :::
 
 ### FwbSelect Slots
@@ -376,4 +374,4 @@ const countries = [
 | ----------------- | ----------------------------------------------------------------------------- |
 | chevron           | Replaces the default chevron icon inside the select.                          |
 | helper            | Helper text rendered below the select.                                        |
-| validationMessage | Validation feedback rendered below the select (styled by `validationStatus`). |
+| validationMessage | Validation feedback rendered below the select (styled by `validationStatus`). Takes priority over the `validationMessage` prop. |

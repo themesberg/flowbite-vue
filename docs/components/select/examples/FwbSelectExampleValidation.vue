@@ -15,12 +15,9 @@
       v-model="selected"
       :options="countries"
       label="Select a country"
+      validation-message="Oh, snap! Please select a country."
       validation-status="error"
-    >
-      <template #validationMessage>
-        <span class="font-medium">Oh, snap!</span> Please select a country.
-      </template>
-    </fwb-select>
+    />
   </div>
 </template>
 

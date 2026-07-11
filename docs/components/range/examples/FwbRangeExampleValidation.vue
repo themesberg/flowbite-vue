@@ -12,12 +12,9 @@
     <fwb-range
       v-model.number="value"
       label="Volume (error)"
+      validation-message="Too loud! Please lower the volume."
       validation-status="error"
-    >
-      <template #validationMessage>
-        <span class="font-medium">Too loud!</span> Please lower the volume.
-      </template>
-    </fwb-range>
+    />
   </div>
 </template>
 

@@ -12,12 +12,9 @@
     <fwb-checkbox
       v-model="check2"
       label="Terms not accepted (error)"
+      validation-message="Required! You must accept the terms to continue."
       validation-status="error"
-    >
-      <template #validationMessage>
-        <span class="font-medium">Required!</span> You must accept the terms to continue.
-      </template>
-    </fwb-checkbox>
+    />
   </div>
 </template>
 

@@ -254,7 +254,7 @@ const picked = ref('one')
 
 ## Validation
 
-Use `validationStatus` on `FwbRadioGroup` together with the `validationMessage` slot to show success or error feedback below the group.
+Use `validationStatus` on `FwbRadioGroup` together with the `validationMessage` slot (rich content) or the `validationMessage` prop (plain string) to show success or error feedback below the group. The slot takes priority when both are given.
 
 <fwb-radio-example-validation />
 ```vue
@@ -268,12 +268,14 @@ Use `validationStatus` on `FwbRadioGroup` together with the `validationMessage` 
       </template>
     </fwb-radio-group>
 
-    <fwb-radio-group name="fruit-error" label="Pick a fruit (error)" validation-status="error">
+    <fwb-radio-group
+      name="fruit-error"
+      label="Pick a fruit (error)"
+      validation-message="Required! Please select a fruit to continue."
+      validation-status="error"
+    >
       <fwb-radio v-model="picked2" label="Apple" value="apple" />
       <fwb-radio v-model="picked2" label="Banana" value="banana" />
-      <template #validationMessage>
-        <span class="font-medium">Required!</span> Please select a fruit to continue.
-      </template>
     </fwb-radio-group>
   </div>
 </template>
@@ -386,7 +388,7 @@ When a `FwbRadio` is inside a `FwbRadioGroup` with `validationStatus="error"`, `
 ### FwbRadioGroup Props
 
 :::tip Accessibility
-`FwbRadioGroup` renders as a `<fieldset>` with a `<legend>`. `aria-invalid="true"` is set on every child `FwbRadio` when `validationStatus="error"`. `aria-describedby` on the fieldset is wired to the IDs of any rendered `validationMessage` and `helper` slots.
+`FwbRadioGroup` renders as a `<fieldset>` with a `<legend>`. `aria-invalid="true"` is set on every child `FwbRadio` when `validationStatus="error"`. `aria-describedby` on the fieldset is wired to the IDs of any rendered `validationMessage` (slot or prop) and `helper` slots.
 :::
 
 | Name             | Type                   | Default     | Description                                                                     |
@@ -394,6 +396,7 @@ When a `FwbRadio` is inside a `FwbRadioGroup` with `validationStatus="error"`, `
 | label            | `String`               | `''`        | Legend text for the group. Ignored when the `legend` slot is used.              |
 | legendClass      | `String \| Object`     | `''`        | Added to the `<legend>` element.                                                |
 | name             | `String`               | —           | **Required.** Shared `name` attribute provided to all child `FwbRadio` inputs.  |
+| validationMessage | `String`              | `undefined` | Validation feedback text; fallback for the `validationMessage` slot.            |
 | validationStatus | `'success' \| 'error'` | `undefined` | Applies success or error colour styles and sets `aria-invalid` on child radios. |
 | wrapperClass     | `String \| Object`     | `''`        | Added to the outer `<fieldset>` element.                                        |
 
@@ -404,4 +407,4 @@ When a `FwbRadio` is inside a `FwbRadioGroup` with `validationStatus="error"`, `
 | default           | Container for `FwbRadio` instances.                                          |
 | legend            | Rich legend content (takes priority over `label` prop).                      |
 | helper            | Helper text rendered below the group.                                        |
-| validationMessage | Validation feedback rendered below the group (styled by `validationStatus`). |
+| validationMessage | Validation feedback rendered below the group (styled by `validationStatus`). Takes priority over the `validationMessage` prop. |

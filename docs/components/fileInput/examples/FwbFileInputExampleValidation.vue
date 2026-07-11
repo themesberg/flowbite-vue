@@ -3,12 +3,9 @@
     <fwb-file-input
       v-model="file"
       validation-status="error"
+      validation-message="Please select a valid file."
       label="Upload file"
-    >
-      <template #validationMessage>
-        Please select a valid file.
-      </template>
-    </fwb-file-input>
+    />
     <fwb-file-input
       v-model="file"
       validation-status="success"

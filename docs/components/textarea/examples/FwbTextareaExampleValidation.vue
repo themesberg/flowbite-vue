@@ -3,13 +3,10 @@
     <fwb-textarea
       v-model="message"
       validation-status="error"
+      validation-message="This field is required."
       label="Your message"
       placeholder="Write your message..."
-    >
-      <template #validationMessage>
-        This field is required.
-      </template>
-    </fwb-textarea>
+    />
     <fwb-textarea
       v-model="message"
       validation-status="success"
