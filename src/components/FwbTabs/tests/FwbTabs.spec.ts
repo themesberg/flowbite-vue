@@ -152,5 +152,104 @@ describe('FwbTabs', () => {
       })
       expect(wrapper.find('#tab-profile').attributes('aria-label')).toBe('profile')
     })
+
+    it('sets aria-label from name when neither icon nor title is present', () => {
+      const wrapper = mount(FwbTabs, {
+        props: { modelValue: 'profile' },
+        slots: { default: '<fwb-tab name="profile" title="">content</fwb-tab>' },
+        global: { components: { FwbTab } },
+      })
+      expect(wrapper.find('#tab-profile').attributes('aria-label')).toBe('profile')
+    })
+
+    it('leaves aria-label undefined when title is present', () => {
+      const wrapper = mountTabs()
+      expect(wrapper.find('#tab-first').attributes('aria-label')).toBeUndefined()
+    })
+  })
+
+  describe('vertical orientation', () => {
+    it('sets aria-orientation="vertical" on the ul when vertical', () => {
+      const wrapper = mountTabs({ vertical: true })
+      expect(wrapper.find('ul').attributes('aria-orientation')).toBe('vertical')
+    })
+
+    it('does not set aria-orientation on the ul when horizontal', () => {
+      const wrapper = mountTabs()
+      expect(wrapper.find('ul').attributes('aria-orientation')).toBeUndefined()
+    })
+  })
+
+  describe('disabled tab', () => {
+    it('sets the disabled attribute on the button', () => {
+      const wrapper = mountTabs({}, 'disabled')
+      expect(wrapper.find('#tab-first').attributes('disabled')).toBeDefined()
+    })
+
+    it('does not activate a disabled tab on click', async () => {
+      const wrapper = mountTabs({ modelValue: 'second' }, 'disabled')
+      await wrapper.find('#tab-first').trigger('click')
+      expect(wrapper.emitted('update:modelValue')).toBeUndefined()
+    })
+  })
+
+  describe('directive prop', () => {
+    it('unmounts the inactive panel when directive is "if"', () => {
+      const wrapper = mountTabs({ modelValue: 'first', directive: 'if' })
+      expect(wrapper.find('#panel-second').exists()).toBe(false)
+    })
+
+    it('keeps the inactive panel in the DOM but hidden when directive is "show"', () => {
+      const wrapper = mountTabs({ modelValue: 'first', directive: 'show' })
+      expect(wrapper.find('#panel-second').exists()).toBe(true)
+      expect(wrapper.find('#panel-second').attributes('style')).toContain('display: none')
+      expect(wrapper.find('#panel-second').attributes('tabindex')).toBe('-1')
+    })
+
+    it('shows the active panel without display:none when directive is "show"', () => {
+      const wrapper = mountTabs({ modelValue: 'first', directive: 'show' })
+      expect(wrapper.find('#panel-first').attributes('style') ?? '').not.toContain('display: none')
+      expect(wrapper.find('#panel-first').attributes('tabindex')).toBe('0')
+    })
+  })
+
+  describe('keyboard navigation', () => {
+    const mountThreeTabs = (modelValue = 'first') => mount(FwbTabs, {
+      props: { modelValue },
+      slots: {
+        default: '<fwb-tab name="first" title="First">content</fwb-tab><fwb-tab name="second" title="Second" disabled>content</fwb-tab><fwb-tab name="third" title="Third">content</fwb-tab>',
+      },
+      global: { components: { FwbTab } },
+    })
+
+    it('activates the next tab on ArrowRight, skipping disabled tabs', async () => {
+      const wrapper = mountThreeTabs('first')
+      await wrapper.find('#tab-first').trigger('keydown', { key: 'ArrowRight' })
+      expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['third'])
+    })
+
+    it('wraps around to the last tab on ArrowLeft from the first tab', async () => {
+      const wrapper = mountThreeTabs('first')
+      await wrapper.find('#tab-first').trigger('keydown', { key: 'ArrowLeft' })
+      expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['third'])
+    })
+
+    it('activates the first tab on Home', async () => {
+      const wrapper = mountThreeTabs('third')
+      await wrapper.find('#tab-third').trigger('keydown', { key: 'Home' })
+      expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['first'])
+    })
+
+    it('activates the last enabled tab on End', async () => {
+      const wrapper = mountThreeTabs('first')
+      await wrapper.find('#tab-first').trigger('keydown', { key: 'End' })
+      expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['third'])
+    })
+
+    it('ignores unrelated keys', async () => {
+      const wrapper = mountThreeTabs('first')
+      await wrapper.find('#tab-first').trigger('keydown', { key: 'a' })
+      expect(wrapper.emitted('update:modelValue')).toBeUndefined()
+    })
   })
 })

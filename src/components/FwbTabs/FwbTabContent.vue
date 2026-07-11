@@ -10,7 +10,7 @@
       :data-name="name"
       :aria-controls="`panel-${name}`"
       :aria-selected="active"
-      :aria-label="hasIcon && !title ? name : undefined"
+      :aria-label="!title ? name : undefined"
       :tabindex="active ? 0 : -1"
       :disabled="disabled || undefined"
       :class="tabClasses"

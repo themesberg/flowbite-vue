@@ -22,6 +22,7 @@
     <div class="flex">
       <ul
         role="tablist"
+        aria-orientation="vertical"
         :class="tabClasses"
       >
         <fwb-tab-content
