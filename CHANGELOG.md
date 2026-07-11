@@ -19,6 +19,7 @@ versions predate this file and are not backfilled.
 - `FwbSelect`: the native browser dropdown arrow is now hidden (`appearance-none`) in favor of the Flowbite chevron icon, rendered via the new `chevron` slot (#438)
 - `FwbRange`: the `label` default changed from `'Range slider'` to `''` — pass `label="Range slider"` explicitly to restore the previous rendering (#440)
 - `FwbCheckbox`: `name` and `value` are no longer declared props; they now flow through attribute passthrough instead (same usage, no template changes needed) (#442)
+- `FwbProgress`: `labelPosition`/`labelProgress` renamed to `valuePosition`/`showValue` — the old names collided conceptually with the unrelated `label` prop (the bar's title text, not its value). The `color` prop now uses the shared `ColorVariant` type instead of the old `ProgressVariant`, and no longer accepts `alternative`, `light`, or `indigo` (#457)
 
 ### Added
 
@@ -31,6 +32,8 @@ versions predate this file and are not backfilled.
 - `FwbSelect`: `clearable` prop and `chevron` slot (#438)
 - `FwbRange`: thumb color customizable via the `--fwb-range-thumb-color` CSS custom property (#440)
 - `FwbFileInput`: dropzone mode now supports `validationStatus` styling (rose/emerald dashed border), `aria-invalid`/`aria-describedby` on the hidden input, and renders the `validationMessage` (slot or prop) and `helper` slot below the dropzone (#455)
+- `FwbProgress`: `indeterminate` prop for an animated, indefinite-length bar when completion isn't known yet; a scoped `value` slot (`{ progress }`) to render custom value text (file sizes, time remaining, step labels, ...) instead of the default `N%`; `role="progressbar"` and `aria-valuenow`/`aria-valuemin`/`aria-valuemax`, previously missing entirely (#457)
+- `src/types/colors.ts`: shared `ColorVariant` type, extracted from `FwbButton`'s color set and now also used by `FwbDropdown` and `FwbProgress` (#457)
 
 ### Changed
 
@@ -48,5 +51,6 @@ versions predate this file and are not backfilled.
 - `FwbFileInput`: error/success background colors corrected (were `bg-red-50`/`bg-green-50`, now `bg-rose-50`/`bg-emerald-50` to match the rest of the library) (#437)
 - Linter warnings reduced from 51 to 21 (#446)
 - `FwbFileInput`: the file selector button had `file:rounded-none` while the input wrapper has `rounded-lg` — the button's square corner was clipped by the input's rounded border box, cutting into the button text. Now rounds the button's left corners to match, and widens left padding accordingly (#455)
+- `FwbProgress`: the inner bar's left corner squared off (lost its `rounded-full`) at small `progress` values, and the inside value label was nearly invisible at small values, especially in light theme. The outer track now clips the inner bar with `overflow-hidden` so corners always stay rounded, and the inner bar clips its own value text instead of letting it spill onto the track; the value is also skipped entirely at `progress={0}` (#457)
 
 [Unreleased]: https://github.com/themesberg/flowbite-vue/compare/v0.2.3...main
