@@ -21,6 +21,7 @@ export interface SelectProps {
   required?: boolean
   size?: FormElementSize
   underline?: boolean
+  validationMessage?: string
   validationStatus?: ValidationStatus
   wrapperClass?: string | Record<string, boolean>
 }

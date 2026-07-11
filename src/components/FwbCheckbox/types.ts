@@ -5,6 +5,7 @@ export interface CheckboxProps {
   disabled?: boolean
   label?: string
   labelClass?: string | Record<string, boolean>
+  validationMessage?: string
   validationStatus?: ValidationStatus
   wrapperClass?: string | Record<string, boolean>
 }

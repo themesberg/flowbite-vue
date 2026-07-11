@@ -18,11 +18,13 @@
       type="range"
     >
     <p
-      v-if="$slots.validationMessage"
+      v-if="$slots.validationMessage || validationMessage"
       :id="validationMessageId"
       :class="validationMessageClass"
     >
-      <slot name="validationMessage" />
+      <slot name="validationMessage">
+        {{ validationMessage }}
+      </slot>
     </p>
     <p
       v-if="$slots.helper"
@@ -35,7 +37,7 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 
 import { useRangeClasses } from './composables/useRangeClasses'
 
@@ -55,6 +57,7 @@ const props = withDefaults(defineProps<RangeProps>(), {
   min: 0,
   size: 'md',
   steps: 1,
+  validationMessage: undefined,
   validationStatus: undefined,
   wrapperClass: '',
 })
@@ -62,7 +65,7 @@ const props = withDefaults(defineProps<RangeProps>(), {
 const model = defineModel<number>({ default: 50 })
 
 const { elementId: rangeId, elementAttributes: rangeAttributes } = useElementAttributes()
-const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(rangeId)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(rangeId, computed(() => props.validationMessage))
 
 const {
   helperMessageClass,

@@ -20,11 +20,13 @@
       @change="handleChange"
     >
     <p
-      v-if="$slots.validationMessage"
+      v-if="$slots.validationMessage || validationMessage"
       :id="validationMessageId"
       :class="validationMessageClass"
     >
-      <slot name="validationMessage" />
+      <slot name="validationMessage">
+        {{ validationMessage }}
+      </slot>
     </p>
     <p
       v-if="$slots.helper"
@@ -115,6 +117,7 @@ interface FileInputProps {
   labelClass?: string | Record<string, boolean>
   multiple?: boolean
   size?: FormElementSize
+  validationMessage?: string
   validationStatus?: ValidationStatus
   wrapperClass?: string | Record<string, boolean>
 }
@@ -128,6 +131,7 @@ const props = withDefaults(defineProps<FileInputProps>(), {
   labelClass: '',
   multiple: false,
   size: 'md',
+  validationMessage: undefined,
   validationStatus: undefined,
   wrapperClass: '',
 })
@@ -192,7 +196,7 @@ const dragOverHandler = (event: Event) => {
 }
 
 const { elementId: inputId, elementAttributes: inputAttributes } = useElementAttributes()
-const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(inputId)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(inputId, computed(() => props.validationMessage))
 
 const {
   dropzoneLabelClass,

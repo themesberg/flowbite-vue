@@ -136,12 +136,14 @@
     </div>
 
     <p
-      v-if="$slots.validationMessage"
+      v-if="$slots.validationMessage || validationMessage"
       :id="validationMessageId"
       :class="validationMessageClass"
       data-testid="fwb-autocomplete-validation-message"
     >
-      <slot name="validationMessage" />
+      <slot name="validationMessage">
+        {{ validationMessage }}
+      </slot>
     </p>
     <p
       v-if="$slots.helper"
@@ -193,6 +195,7 @@ const props = withDefaults(
     labelClass: '',
     dropdownClass: '',
     loading: false,
+    validationMessage: undefined,
     validationStatus: undefined,
     inputComponent: FwbInput,
     inputProps: () => ({}),
@@ -220,7 +223,7 @@ const {
 
 const _id = useId()
 const autocompleteId = computed(() => _id)
-const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(autocompleteId)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(autocompleteId, computed(() => props.validationMessage))
 
 const filteredOptions = computed(() => {
   if (props.remote || inputValue.value.length < props.minChars) {

@@ -10,6 +10,7 @@ export interface ToggleProps {
   labelClass?: string | Record<string, boolean>
   reverse?: boolean
   size?: FormElementSize
+  validationMessage?: string
   validationStatus?: ValidationStatus
   wrapperClass?: string | Record<string, boolean>
 }
