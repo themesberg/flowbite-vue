@@ -1,6 +1,9 @@
 import { computed, type ComputedRef, useAttrs, useSlots } from 'vue'
 
-export const useFormFieldIds = (elementId: ComputedRef<string>) => {
+export const useFormFieldIds = (
+  elementId: ComputedRef<string>,
+  validationMessage?: ComputedRef<string | undefined>,
+) => {
   const attrs = useAttrs()
   const slots = useSlots()
 
@@ -10,7 +13,7 @@ export const useFormFieldIds = (elementId: ComputedRef<string>) => {
   const ariaDescribedby = computed(() => {
     const ids: string[] = []
     if (attrs['aria-describedby']) ids.push(String(attrs['aria-describedby']))
-    if (slots.validationMessage) ids.push(validationMessageId.value)
+    if (slots.validationMessage || validationMessage?.value) ids.push(validationMessageId.value)
     if (slots.helper) ids.push(helperId.value)
     return ids.length ? ids.join(' ') : undefined
   })

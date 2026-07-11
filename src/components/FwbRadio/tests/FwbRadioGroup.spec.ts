@@ -131,6 +131,31 @@ describe('FwbRadioGroup', () => {
     })
   })
 
+  describe('validationMessage prop', () => {
+    it('renders the prop text when no validationMessage slot is provided', () => {
+      const wrapper = mount(FwbRadioGroup, {
+        props: { name: 'fruit', validationStatus: 'error', validationMessage: 'Required' },
+      })
+      expect(wrapper.find('p').text()).toBe('Required')
+    })
+
+    it('is overridden by the validationMessage slot when both are provided', () => {
+      const wrapper = mount(FwbRadioGroup, {
+        props: { name: 'fruit', validationStatus: 'error', validationMessage: 'Prop message' },
+        slots: { validationMessage: 'Slot message' },
+      })
+      expect(wrapper.find('p').text()).toBe('Slot message')
+    })
+
+    it('points aria-describedby to the validation paragraph when only the prop is set', () => {
+      const wrapper = mount(FwbRadioGroup, {
+        props: { name: 'fruit', validationStatus: 'error', validationMessage: 'Required' },
+      })
+      const msgP = wrapper.find('p')
+      expect(wrapper.element.getAttribute('aria-describedby')).toBe(msgP.attributes('id'))
+    })
+  })
+
   describe('validation styling', () => {
     it('applies error color to legend when validationStatus is "error"', () => {
       const wrapper = mount(FwbRadioGroup, {

@@ -9,6 +9,7 @@ export interface RangeProps {
   min?: number
   size?: FormElementSize
   steps?: number
+  validationMessage?: string
   validationStatus?: ValidationStatus
   wrapperClass?: string | Record<string, boolean>
 }

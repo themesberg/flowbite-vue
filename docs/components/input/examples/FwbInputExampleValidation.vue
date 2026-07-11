@@ -17,12 +17,9 @@
       label="Your name"
       placeholder="Error input"
       required
+      validation-message="Oh, snap! Some error message."
       validation-status="error"
-    >
-      <template #validationMessage>
-        <span class="font-medium">Oh, snap!</span> Some error message.
-      </template>
-    </fwb-input>
+    />
   </div>
 </template>
 

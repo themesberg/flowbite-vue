@@ -23,6 +23,7 @@
     <fwb-radio-group
       name="fruit-error"
       label="Pick a fruit (error)"
+      validation-message="Required! Please select a fruit to continue."
       validation-status="error"
     >
       <fwb-radio
@@ -35,9 +36,6 @@
         label="Banana"
         value="banana"
       />
-      <template #validationMessage>
-        <span class="font-medium">Required!</span> Please select a fruit to continue.
-      </template>
     </fwb-radio-group>
   </div>
 </template>

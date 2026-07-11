@@ -152,7 +152,7 @@ const countries = [
 
 ## Validation
 
-Set `validationStatus` to `'success'` or `'error'` to apply the corresponding colour scheme. Use the `validationMessage` slot to render feedback text below the input.
+Set `validationStatus` to `'success'` or `'error'` to apply the corresponding colour scheme. Use the `validationMessage` slot (rich content) or the `validationMessage` prop (plain string) to render feedback text below the input. The slot takes priority when both are given.
 
 <fwb-autocomplete-example-validation />
 
@@ -177,12 +177,9 @@ Set `validationStatus` to `'success'` or `'error'` to apply the corresponding co
     :search-fields="['name']"
     display="name"
     label="Select a country"
+    validation-message="Oh, snap! Please select a country."
     validation-status="error"
-  >
-    <template #validationMessage>
-      <span class="font-medium">Oh, snap!</span> Please select a country.
-    </template>
-  </fwb-autocomplete>
+  />
 </template>
 
 <script setup>
@@ -478,6 +475,7 @@ const countries = [
 | remote           | `boolean`                           | `false`              | Disables local filtering; relies on `@search` to populate `options`.   |
 | debounce         | `number`                            | `300`                | Delay in ms before emitting `search` when `remote` is `true`.          |
 | size             | `'sm' \| 'md' \| 'lg' \| 'xl'`      | `'md'`               | Controls padding and font size of the input.                           |
+| validationMessage | `string`                           | `undefined`          | Validation feedback text; fallback for the `validationMessage` slot.   |
 | validationStatus | `'success' \| 'error'`              | `undefined`          | Applies success or error colour styles.                                |
 | class            | `String \| Object`                  | `''`                 | Added to the input wrapper element.                                    |
 | inputClass       | `String \| Object`                  | `''`                 | Added to the `<input>` element (use for text and placeholder colours). |
@@ -489,7 +487,7 @@ const countries = [
 | zIndex           | `number`                            | `100`                | Z-index of the dropdown overlay.                                       |
 
 :::tip Accessibility
-`aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and merged with any `aria-describedby` value you pass as an attribute.
+`aria-describedby` is wired to the IDs of any rendered `validationMessage` (slot or prop) and `helper` slots, and merged with any `aria-describedby` value you pass as an attribute.
 :::
 
 ### FwbAutocomplete Events
@@ -506,5 +504,5 @@ const countries = [
 | ----------------- | ----------------------------------------- | ------------------------------------------------------------- |
 | option            | `{ option: T, index: number }`            | Custom template for rendering each dropdown option.           |
 | suffix            | `{ loading: boolean, clear: () => void }` | Replaces the default search/clear/loading icons in the input. |
-| validationMessage | —                                         | Validation feedback rendered below the input.                 |
+| validationMessage | —                                         | Validation feedback rendered below the input. Takes priority over the `validationMessage` prop. |
 | helper            | —                                         | Helper text rendered below the input.                         |

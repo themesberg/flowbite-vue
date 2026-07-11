@@ -25,6 +25,7 @@ export interface AutocompleteProps<T = Record<string, any>> {
   remote?: boolean
   searchFields?: string[]
   size?: AutocompleteSize
+  validationMessage?: string
   validationStatus?: ValidationStatus
   valueField?: string
   wrapperClass?: string | Record<string, boolean>

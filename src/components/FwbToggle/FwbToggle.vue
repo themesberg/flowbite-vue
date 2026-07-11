@@ -17,11 +17,13 @@
       >{{ label }}</span>
     </label>
     <p
-      v-if="$slots.validationMessage"
+      v-if="$slots.validationMessage || validationMessage"
       :id="validationMessageId"
       :class="validationMessageClass"
     >
-      <slot name="validationMessage" />
+      <slot name="validationMessage">
+        {{ validationMessage }}
+      </slot>
     </p>
     <p
       v-if="$slots.helper"
@@ -34,7 +36,7 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 
 import { useToggleClasses } from './composables/useToggleClasses'
 
@@ -53,6 +55,7 @@ const props = withDefaults(defineProps<ToggleProps>(), {
   labelClass: '',
   reverse: false,
   size: 'md',
+  validationMessage: undefined,
   validationStatus: undefined,
   wrapperClass: '',
 })
@@ -60,7 +63,7 @@ const props = withDefaults(defineProps<ToggleProps>(), {
 const model = defineModel<boolean>({ default: false })
 
 const { elementId: toggleId, elementAttributes: toggleAttributes } = useElementAttributes()
-const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(toggleId)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(toggleId, computed(() => props.validationMessage))
 
 const {
   helperMessageClass,

@@ -14,11 +14,13 @@
     </legend>
     <slot />
     <p
-      v-if="$slots.validationMessage"
+      v-if="$slots.validationMessage || validationMessage"
       :id="validationMessageId"
       :class="validationMessageClass"
     >
-      <slot name="validationMessage" />
+      <slot name="validationMessage">
+        {{ validationMessage }}
+      </slot>
     </p>
     <p
       v-if="$slots.helper"
@@ -31,7 +33,7 @@
 </template>
 
 <script lang="ts" setup>
-import { provide, toRef, toRefs } from 'vue'
+import { computed, provide, toRef, toRefs } from 'vue'
 
 import { useRadioGroupClasses } from './composables/useRadioGroupClasses'
 import { radioGroupNameKey, type RadioGroupProps, radioGroupValidationStatusKey } from './types'
@@ -44,12 +46,13 @@ defineOptions({ inheritAttrs: false })
 const props = withDefaults(defineProps<RadioGroupProps>(), {
   label: '',
   legendClass: '',
+  validationMessage: undefined,
   validationStatus: undefined,
   wrapperClass: '',
 })
 
 const { elementId: fieldsetId, elementAttributes: fieldsetAttributes } = useElementAttributes()
-const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(fieldsetId)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(fieldsetId, computed(() => props.validationMessage))
 
 provide(radioGroupNameKey, toRef(props, 'name'))
 provide(radioGroupValidationStatusKey, toRef(props, 'validationStatus'))

@@ -178,7 +178,7 @@ const value = ref('A pre-filled value')
 ## Validation
 
 - Set validation status via `validationStatus` prop, which accepts `'success'` or `'error'`.
-- Add validation message via `validationMessage` slot.
+- Add a validation message via the `validationMessage` slot (rich content) or the `validationMessage` prop (plain string). The slot takes priority when both are given.
 
 <fwb-input-example-validation />
 ```vue
@@ -200,12 +200,9 @@ const value = ref('A pre-filled value')
     label="Your name"
     placeholder="Error input"
     required
+    validation-message="Oh, snap! Some error message."
     validation-status="error"
-  >
-    <template #validationMessage>
-      <span class="font-medium">Oh, snap!</span> Some error message.
-    </template>
-  </fwb-input>
+  />
 </template>
 
 <script lang="ts" setup>
@@ -399,11 +396,12 @@ const name = ref('')
 | size             | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`      | Controls input padding and font size.                                                           |
 | suffixClass      | `String \| Object`             | `''`        | Added to the suffix slot container. Overrides addon default colors when used with text content. |
 | type             | `InputType`                    | `'text'`    | Native HTML input type (e.g. `email`, `password`, `number`).                                    |
+| validationMessage | `String`                      | `undefined` | Validation feedback text; fallback for the `validationMessage` slot.                            |
 | validationStatus | `'success' \| 'error'`         | `undefined` | Applies success or error color scheme.                                                          |
 | wrapperClass     | `String \| Object`             | `''`        | Added to the outermost wrapper element.                                                         |
 
 :::tip Accessibility
-`aria-invalid="true"` is set automatically on the native input when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute.
+`aria-invalid="true"` is set automatically on the native input when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` (slot or prop) and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute.
 :::
 
 ### FwbInput Slots
@@ -413,4 +411,4 @@ const name = ref('')
 | prefix            | Content rendered on the left side of the input (icon, text, or addon span).  |
 | suffix            | Content rendered on the right side of the input (button or icon).            |
 | helper            | Helper text rendered below the input.                                        |
-| validationMessage | Validation feedback rendered below the input (styled by `validationStatus`). |
+| validationMessage | Validation feedback rendered below the input (styled by `validationStatus`). Takes priority over the `validationMessage` prop. |

@@ -18,11 +18,13 @@
       </span>
     </label>
     <p
-      v-if="$slots.validationMessage"
+      v-if="$slots.validationMessage || validationMessage"
       :id="validationMessageId"
       :class="validationMessageClass"
     >
-      <slot name="validationMessage" />
+      <slot name="validationMessage">
+        {{ validationMessage }}
+      </slot>
     </p>
     <p
       v-if="$slots.helper"
@@ -51,6 +53,7 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
   disabled: false,
   label: '',
   labelClass: '',
+  validationMessage: undefined,
   validationStatus: undefined,
   wrapperClass: '',
 })
@@ -58,7 +61,7 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
 const model = defineModel<boolean | (string | number | boolean | object)[]>({ default: false })
 
 const { elementId: checkboxId, elementAttributes: checkboxAttributes } = useElementAttributes()
-const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(checkboxId)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(checkboxId, computed(() => props.validationMessage))
 
 const inputAttributes = computed(() => ({
   ...checkboxAttributes.value,

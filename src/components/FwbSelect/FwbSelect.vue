@@ -56,11 +56,13 @@
       </div>
     </div>
     <p
-      v-if="$slots.validationMessage"
+      v-if="$slots.validationMessage || validationMessage"
       :id="validationMessageId"
       :class="validationMessageClass"
     >
-      <slot name="validationMessage" />
+      <slot name="validationMessage">
+        {{ validationMessage }}
+      </slot>
     </p>
     <p
       v-if="$slots.helper"
@@ -73,7 +75,7 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 
 import { useSelectAttributes } from './composables/useSelectAttributes'
 import { useSelectClasses } from './composables/useSelectClasses'
@@ -98,13 +100,14 @@ const props = withDefaults(defineProps<SelectProps>(), {
   required: false,
   size: 'md',
   underline: false,
+  validationMessage: undefined,
   validationStatus: undefined,
   wrapperClass: '',
 })
 
 const model = defineModel<string>({ default: '' })
 const { selectId, selectAttributes } = useSelectAttributes()
-const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(selectId)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(selectId, computed(() => props.validationMessage))
 
 const {
   chevronClass,

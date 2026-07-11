@@ -126,7 +126,7 @@ Add the `reverse` prop to place the label text to the left of the toggle instead
 
 ## Validation
 
-Use `validationStatus` together with the `validationMessage` slot to show success or error feedback below the toggle.
+Use `validationStatus` together with the `validationMessage` slot (rich content) or the `validationMessage` prop (plain string) to show success or error feedback below the toggle. The slot takes priority when both are given.
 
 <fwb-toggle-example-validation />
 
@@ -137,11 +137,12 @@ Use `validationStatus` together with the `validationMessage` slot to show succes
       <span class="font-medium">Great!</span> Notifications are enabled.
     </template>
   </fwb-toggle>
-  <fwb-toggle v-model="toggle2" label="Location (error)" validation-status="error">
-    <template #validationMessage>
-      <span class="font-medium">Required!</span> Location access must be enabled.
-    </template>
-  </fwb-toggle>
+  <fwb-toggle
+    v-model="toggle2"
+    label="Location (error)"
+    validation-message="Required! Location access must be enabled."
+    validation-status="error"
+  />
 </template>
 ```
 
@@ -197,11 +198,12 @@ Use dedicated props to pass classes to individual elements.
 | modelValue       | `Boolean`                      | `false`     | The current value (use with `v-model`).                                          |
 | reverse          | `Boolean`                      | `false`     | Places the label text to the left of the toggle.                                 |
 | size             | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`      | Controls the size of the toggle track and thumb.                                 |
+| validationMessage | `String`                      | `undefined` | Validation feedback text; fallback for the `validationMessage` slot.             |
 | validationStatus | `'success' \| 'error'`         | `undefined` | Applies success or error colour styles to the label text.                        |
 | wrapperClass     | `String \| Object`             | `''`        | Added to the outer root `<div>`.                                                 |
 
 :::tip Accessibility
-`aria-invalid="true"` is set automatically on the native checkbox when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute. When no `label` prop is provided, pass `aria-label` as an attribute to maintain an accessible name — it is forwarded directly to the `<input>`.
+`aria-invalid="true"` is set automatically on the native checkbox when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` (slot or prop) and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute. When no `label` prop is provided, pass `aria-label` as an attribute to maintain an accessible name — it is forwarded directly to the `<input>`.
 :::
 
 ### FwbToggle Slots
@@ -209,4 +211,4 @@ Use dedicated props to pass classes to individual elements.
 | Name              | Description                                                                   |
 | ----------------- | ----------------------------------------------------------------------------- |
 | helper            | Helper text rendered below the toggle.                                        |
-| validationMessage | Validation feedback rendered below the toggle (styled by `validationStatus`). |
+| validationMessage | Validation feedback rendered below the toggle (styled by `validationStatus`). Takes priority over the `validationMessage` prop. |

@@ -21,12 +21,9 @@
       display="name"
       label="Select a country"
       placeholder="Search countries..."
+      validation-message="Oh, snap! Please select a country."
       validation-status="error"
-    >
-      <template #validationMessage>
-        <span class="font-medium">Oh, snap!</span> Please select a country.
-      </template>
-    </fwb-autocomplete>
+    />
   </div>
 </template>
 

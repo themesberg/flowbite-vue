@@ -127,6 +127,31 @@ describe('FwbToggle', () => {
     })
   })
 
+  describe('validationMessage prop', () => {
+    it('renders the prop text when no validationMessage slot is provided', () => {
+      const wrapper = mount(FwbToggle, {
+        props: { validationStatus: 'error', validationMessage: 'Required' },
+      })
+      expect(wrapper.find('p').text()).toBe('Required')
+    })
+
+    it('is overridden by the validationMessage slot when both are provided', () => {
+      const wrapper = mount(FwbToggle, {
+        props: { validationStatus: 'error', validationMessage: 'Prop message' },
+        slots: { validationMessage: 'Slot message' },
+      })
+      expect(wrapper.find('p').text()).toBe('Slot message')
+    })
+
+    it('points aria-describedby to the validation paragraph when only the prop is set', () => {
+      const wrapper = mount(FwbToggle, {
+        props: { validationStatus: 'error', validationMessage: 'Required' },
+      })
+      const msgP = wrapper.find('p')
+      expect(wrapper.find('input[type="checkbox"]').attributes('aria-describedby')).toBe(msgP.attributes('id'))
+    })
+  })
+
   describe('validation label text colors', () => {
     it('applies error color to label text when validationStatus is "error"', () => {
       const wrapper = mount(FwbToggle, { props: { label: 'Notifications', validationStatus: 'error' } })

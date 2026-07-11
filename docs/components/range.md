@@ -103,7 +103,7 @@ Use the `size` prop to control the height of the slider track and thumb. Availab
 
 ## Validation
 
-Use `validationStatus` together with the `validationMessage` slot to show success or error feedback below the range.
+Use `validationStatus` together with the `validationMessage` slot (rich content) or the `validationMessage` prop (plain string) to show success or error feedback below the range. The slot takes priority when both are given.
 
 <fwb-range-example-validation />
 ```vue
@@ -113,11 +113,12 @@ Use `validationStatus` together with the `validationMessage` slot to show succes
       <span class="font-medium">Looks good!</span> Volume is set correctly.
     </template>
   </fwb-range>
-  <fwb-range v-model.number="value" label="Volume (error)" validation-status="error">
-    <template #validationMessage>
-      <span class="font-medium">Too loud!</span> Please lower the volume.
-    </template>
-  </fwb-range>
+  <fwb-range
+    v-model.number="value"
+    label="Volume (error)"
+    validation-message="Too loud! Please lower the volume."
+    validation-status="error"
+  />
 </template>
 ```
 
@@ -172,6 +173,7 @@ Use dedicated props to pass classes to individual elements.
 | modelValue       | `Number`                       | `50`        | The current value (use with `v-model`).                                            |
 | size             | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`      | Controls track height and thumb size.                                              |
 | steps            | `Number`                       | `1`         | Step increment between values.                                                     |
+| validationMessage | `String`                      | `undefined` | Validation feedback text; fallback for the `validationMessage` slot.               |
 | validationStatus | `'success' \| 'error'`         | `undefined` | Applies success or error colour styles to the label.                               |
 | wrapperClass     | `String \| Object`             | `''`        | Added to the outer root `<div>`.                                                   |
 
@@ -181,7 +183,7 @@ The thumb colour defaults to blue-500 and can be overridden by setting the `--fw
 :::
 
 :::tip Accessibility
-`aria-invalid="true"` is set automatically on the native input when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute. When no `label` prop is provided, pass `aria-label` as an attribute to maintain an accessible name — it is forwarded directly to the `<input>`.
+`aria-invalid="true"` is set automatically on the native input when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` (slot or prop) and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute. When no `label` prop is provided, pass `aria-label` as an attribute to maintain an accessible name — it is forwarded directly to the `<input>`.
 :::
 
 ### FwbRange Slots
@@ -189,4 +191,4 @@ The thumb colour defaults to blue-500 and can be overridden by setting the `--fw
 | Name              | Description                                                                  |
 | ----------------- | ---------------------------------------------------------------------------- |
 | helper            | Helper text rendered below the range input.                                  |
-| validationMessage | Validation feedback rendered below the input (styled by `validationStatus`). |
+| validationMessage | Validation feedback rendered below the input (styled by `validationStatus`). Takes priority over the `validationMessage` prop. |

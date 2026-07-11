@@ -25,11 +25,13 @@
       </div>
     </div>
     <p
-      v-if="$slots.validationMessage"
+      v-if="$slots.validationMessage || validationMessage"
       :id="validationMessageId"
       :class="validationMessageClass"
     >
-      <slot name="validationMessage" />
+      <slot name="validationMessage">
+        {{ validationMessage }}
+      </slot>
     </p>
     <p
       v-if="$slots.helper"
@@ -42,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 
 import { useTextareaClasses } from './composables/useTextareaClasses'
 
@@ -62,6 +64,7 @@ interface TextareaProps {
   rows?: number
   size?: FormElementSize
   textareaClass?: string | Record<string, boolean>
+  validationMessage?: string
   validationStatus?: ValidationStatus
   wrapperClass?: string | Record<string, boolean>
 }
@@ -81,6 +84,7 @@ const props = withDefaults(defineProps<TextareaProps>(), {
   rows: 4,
   size: 'md',
   textareaClass: '',
+  validationMessage: undefined,
   validationStatus: undefined,
   wrapperClass: '',
 })
@@ -89,7 +93,7 @@ const model = defineModel<string>({ default: '' })
 
 const { elementId: textareaId, elementAttributes: textareaAttributes } = useElementAttributes()
 
-const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(textareaId)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(textareaId, computed(() => props.validationMessage))
 
 const {
   footerClass,

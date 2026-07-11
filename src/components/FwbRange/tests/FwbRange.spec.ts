@@ -116,6 +116,31 @@ describe('FwbRange', () => {
     })
   })
 
+  describe('validationMessage prop', () => {
+    it('renders the prop text when no validationMessage slot is provided', () => {
+      const wrapper = mount(FwbRange, {
+        props: { validationStatus: 'error', validationMessage: 'Value is out of range' },
+      })
+      expect(wrapper.find('p').text()).toBe('Value is out of range')
+    })
+
+    it('is overridden by the validationMessage slot when both are provided', () => {
+      const wrapper = mount(FwbRange, {
+        props: { validationStatus: 'error', validationMessage: 'Prop message' },
+        slots: { validationMessage: 'Slot message' },
+      })
+      expect(wrapper.find('p').text()).toBe('Slot message')
+    })
+
+    it('points aria-describedby to the validation paragraph when only the prop is set', () => {
+      const wrapper = mount(FwbRange, {
+        props: { validationStatus: 'error', validationMessage: 'Value is out of range' },
+      })
+      const msgP = wrapper.find('p')
+      expect(wrapper.find('input[type="range"]').attributes('aria-describedby')).toBe(msgP.attributes('id'))
+    })
+  })
+
   describe('styling props', () => {
     it('applies class prop classes to the input element', () => {
       const wrapper = mount(FwbRange, { props: { class: 'bg-amber-200' } })

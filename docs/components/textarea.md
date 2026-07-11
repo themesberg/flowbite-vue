@@ -101,7 +101,7 @@ const message = ref('Some content')
 
 ## Validation
 
-Set `validation-status` to `'success'` or `'error'` and use the `validationMessage` or `helper` slots to display contextual feedback.
+Set `validation-status` to `'success'` or `'error'` and use the `validationMessage` slot (rich content), the `validationMessage` prop (plain string), or the `helper` slot to display contextual feedback. The slot takes priority over the prop when both are given.
 
 <fwb-textarea-example-validation />
 
@@ -111,13 +111,10 @@ Set `validation-status` to `'success'` or `'error'` and use the `validationMessa
     <fwb-textarea
       v-model="message"
       validation-status="error"
+      validation-message="This field is required."
       label="Your message"
       placeholder="Write your message..."
-    >
-      <template #validationMessage>
-        This field is required.
-      </template>
-    </fwb-textarea>
+    />
     <fwb-textarea
       v-model="message"
       validation-status="success"
@@ -263,11 +260,12 @@ const message = ref('')
 | rows             | `Number`                              | `4`         | Number of visible text rows.                          |
 | size             | `'sm' \| 'md' \| 'lg' \| 'xl'`        | `'md'`      | Controls padding and font size.                       |
 | textareaClass    | `String \| Object`                    | `''`        | Added to the `<textarea>` element.                    |
+| validationMessage | `String`                             | `undefined` | Validation feedback text; fallback for the `validationMessage` slot. |
 | validationStatus | `'success' \| 'error'`                | `undefined` | Sets the validation state of the textarea.            |
 | wrapperClass     | `String \| Object`                    | `''`        | Added to the outermost wrapper `<div>`.               |
 
 :::tip Accessibility
-`aria-invalid="true"` is set automatically on the native textarea when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute.
+`aria-invalid="true"` is set automatically on the native textarea when `validationStatus="error"`. `aria-describedby` is wired to the IDs of any rendered `validationMessage` (slot or prop) and `helper` slots, and is merged with any `aria-describedby` value you pass as an attribute.
 :::
 
 ### FwbTextarea Slots
@@ -275,5 +273,5 @@ const message = ref('')
 | Name              | Description                                                                            |
 | ----------------- | -------------------------------------------------------------------------------------- |
 | footer            | Content rendered inside the textarea wrapper below the text area (e.g. submit button). |
-| validationMessage | Validation feedback shown below the wrapper. Linked via `aria-describedby`.            |
+| validationMessage | Validation feedback shown below the wrapper. Linked via `aria-describedby`. Takes priority over the `validationMessage` prop. |
 | helper            | Helper text shown below the wrapper. Linked via `aria-describedby`.                    |

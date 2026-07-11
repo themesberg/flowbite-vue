@@ -12,12 +12,9 @@
     <fwb-toggle
       v-model="toggle2"
       label="Location (error)"
+      validation-message="Required! Location access must be enabled."
       validation-status="error"
-    >
-      <template #validationMessage>
-        <span class="font-medium">Required!</span> Location access must be enabled.
-      </template>
-    </fwb-toggle>
+    />
   </div>
 </template>
 

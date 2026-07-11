@@ -15,6 +15,7 @@ export interface RadioGroupProps {
   label?: string
   legendClass?: string | Record<string, boolean>
   name: string
+  validationMessage?: string
   validationStatus?: ValidationStatus
   wrapperClass?: string | Record<string, boolean>
 }

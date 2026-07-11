@@ -31,11 +31,13 @@
       </div>
     </div>
     <p
-      v-if="$slots.validationMessage"
+      v-if="$slots.validationMessage || validationMessage"
       :id="validationMessageId"
       :class="validationMessageClass"
     >
-      <slot name="validationMessage" />
+      <slot name="validationMessage">
+        {{ validationMessage }}
+      </slot>
     </p>
     <p
       v-if="$slots.helper"
@@ -73,6 +75,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   size: 'md',
   suffixClass: '',
   type: 'text',
+  validationMessage: undefined,
   validationStatus: undefined,
   wrapperClass: '',
 })
@@ -82,7 +85,7 @@ const model = defineModel<string | number>({ default: '' })
 const { inputId, inputAttributes } = useInputAttributes()
 const slots = useSlots()
 
-const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(inputId)
+const { ariaDescribedby, helperId, validationMessageId } = useFormFieldIds(inputId, computed(() => props.validationMessage))
 
 const isTextSlot = (name: string) => {
   const vnodes = slots[name]?.()

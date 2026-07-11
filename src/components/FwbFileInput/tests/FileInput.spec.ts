@@ -110,6 +110,31 @@ describe('FwbFileInput', () => {
     })
   })
 
+  describe('validationMessage prop', () => {
+    it('renders the prop text when no validationMessage slot is provided', () => {
+      const wrapper = mount(FwbFileInput, {
+        props: { validationStatus: 'error', validationMessage: 'File is required' },
+      })
+      expect(wrapper.find('p').text()).toBe('File is required')
+    })
+
+    it('is overridden by the validationMessage slot when both are provided', () => {
+      const wrapper = mount(FwbFileInput, {
+        props: { validationStatus: 'error', validationMessage: 'Prop message' },
+        slots: { validationMessage: 'Slot message' },
+      })
+      expect(wrapper.find('p').text()).toBe('Slot message')
+    })
+
+    it('points aria-describedby to the validation paragraph when only the prop is set', () => {
+      const wrapper = mount(FwbFileInput, {
+        props: { validationStatus: 'error', validationMessage: 'File is required' },
+      })
+      const msgP = wrapper.find('p')
+      expect(wrapper.find('input[type="file"]').attributes('aria-describedby')).toBe(msgP.attributes('id'))
+    })
+  })
+
   describe('size classes', () => {
     it('sm and xl apply different padding to the input', () => {
       const sm = mount(FwbFileInput, { props: { size: 'sm' } })

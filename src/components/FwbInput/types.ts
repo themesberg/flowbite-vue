@@ -14,6 +14,7 @@ export interface InputProps {
   size?: FormElementSize
   suffixClass?: string | Record<string, boolean>
   type?: InputType
+  validationMessage?: string
   validationStatus?: ValidationStatus
   wrapperClass?: string | Record<string, boolean>
 }
