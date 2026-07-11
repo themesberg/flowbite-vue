@@ -139,8 +139,17 @@ describe('FwbFileInput', () => {
     it('sm and xl apply different padding to the input', () => {
       const sm = mount(FwbFileInput, { props: { size: 'sm' } })
       const xl = mount(FwbFileInput, { props: { size: 'xl' } })
-      expect(sm.find('input[type="file"]').classes()).toContain('file:px-2.5')
-      expect(xl.find('input[type="file"]').classes()).toContain('file:px-4')
+      expect(sm.find('input[type="file"]').classes()).toContain('file:pr-2.5')
+      expect(xl.find('input[type="file"]').classes()).toContain('file:pr-4')
+    })
+  })
+
+  describe('file selector button styling', () => {
+    it('rounds the left corners of the file selector button to match the input', () => {
+      const wrapper = mount(FwbFileInput)
+      const classes = wrapper.find('input[type="file"]').classes()
+      expect(classes).toContain('file:rounded-l-lg')
+      expect(classes).not.toContain('file:rounded-none')
     })
   })
 
