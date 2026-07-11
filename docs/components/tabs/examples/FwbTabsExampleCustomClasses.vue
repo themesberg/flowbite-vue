@@ -2,8 +2,10 @@
   <div class="vp-raw">
     <fwb-tabs
       v-model="activeTab"
-      class="p-5"
-      @click:tab="handleTabClick"
+      tab-class="bg-amber-100 dark:bg-green-900 border-b-2 border-amber-400 dark:border-green-700"
+      item-class="font-bold text-amber-800 dark:text-green-300 hover:bg-amber-300 hover:text-amber-900 dark:hover:bg-green-800 dark:hover:text-green-100"
+      item-active-class="bg-amber-400 dark:bg-green-700 text-amber-900 dark:text-green-100"
+      class="bg-amber-50 dark:bg-green-950 p-5 border-amber-400 border-x-2 dark:border-green-700 border-b-2"
     >
       <fwb-tab
         name="first"
@@ -23,13 +25,6 @@
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis facilis soluta consequuntur. Distinctio hic perspiciatis sunt dignissimos non nemo aspernatur eum velit sed accusantium, asperiores maiores laborum facere quibusdam placeat?
       </fwb-tab>
-      <fwb-tab
-        name="fourth"
-        title="Fourth"
-        disabled
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime natus tenetur officiis aspernatur, ipsam dolorem rerum doloribus? Maxime, aliquid accusamus ad eaque odit dolore doloremque blanditiis natus magnam possimus labore!
-      </fwb-tab>
     </fwb-tabs>
   </div>
 </template>
@@ -40,8 +35,4 @@ import { ref } from 'vue'
 import { FwbTab, FwbTabs } from '../../../../src/index'
 
 const activeTab = ref('first')
-
-const handleTabClick = () => {
-  console.log('Click!')
-}
 </script>

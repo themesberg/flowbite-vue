@@ -1,22 +1,34 @@
 <template>
   <template v-if="directive === 'if'">
-    <div v-if="activeTab === name">
+    <div
+      v-if="activeTab === name"
+      :id="`panel-${name}`"
+      role="tabpanel"
+      :aria-labelledby="`tab-${name}`"
+      tabindex="0"
+    >
       <slot />
     </div>
   </template>
   <template v-else-if="directive === 'show'">
-    <div v-show="activeTab === name">
+    <div
+      v-show="activeTab === name"
+      :id="`panel-${name}`"
+      role="tabpanel"
+      :aria-labelledby="`tab-${name}`"
+      :tabindex="activeTab === name ? 0 : -1"
+    >
       <slot />
     </div>
   </template>
 </template>
 
 <script lang="ts" setup>
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
 
 import {
-  TAB_ACTIVE_NAME_INJECTION_KEY,
-  TAB_VISIBILITY_DIRECTIVE_INJECTION_KEY,
+  TAB_ACTIVE_NAME_KEY,
+  TAB_DIRECTIVE_KEY,
 } from './injection/config'
 
 defineOptions({
@@ -38,6 +50,6 @@ defineProps({
   },
 })
 
-const activeTab = inject(TAB_ACTIVE_NAME_INJECTION_KEY, '')
-const directive = inject(TAB_VISIBILITY_DIRECTIVE_INJECTION_KEY, 'if')
+const activeTab = inject(TAB_ACTIVE_NAME_KEY, ref(''))
+const directive = inject(TAB_DIRECTIVE_KEY, ref<'if' | 'show'>('if'))
 </script>
