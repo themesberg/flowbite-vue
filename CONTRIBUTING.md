@@ -18,7 +18,7 @@ Never made an open source contribution before? Wondering how contributions work 
 2. Fork the repository associated with the issue to your local GitHub organization. This means that you will have a copy of the repository under `your-GitHub-username/repository-name`.
 3. Clone the repository to your local machine using `git clone https://github.com/github-username/repository-name.git`.
 4. Create a new branch for your fix using `git checkout -b branch-name-here`.
-5. Make the appropriate changes for the issue you are trying to address or the feature that you want to add.
+5. Make the appropriate changes for the issue you are trying to address or the feature that you want to add. If your change is user-facing, also add an entry to [`CHANGELOG.md`](CHANGELOG.md) — see [Updating the changelog](#updating-the-changelog) below.
 6. Use `git add insert-paths-of-changed-files-here` to add the file contents of the changed files to the "snapshot" git uses to manage the state of the project, also known as the index.
 7. Use `git commit -m "Insert a short message of the changes made here"` to store the contents of the index with a descriptive message. Use [conventional commits](https://www.conventionalcommits.org/) to create a nice message.
 8. Push the changes to the remote repository using `git push origin branch-name-here`.
@@ -28,6 +28,15 @@ Never made an open source contribution before? Wondering how contributions work 
 12. Wait for the pull request to be reviewed by a maintainer.
 13. Make changes to the pull request if the reviewing maintainer recommends them.
 14. Celebrate your success after your pull request is merged! 🎉 🎉
+
+## Updating the changelog
+
+This project keeps a [`CHANGELOG.md`](CHANGELOG.md) following [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). If your pull request changes behavior — a new feature, a bug fix, or a breaking change — add a bullet to the `[Unreleased]` section as part of the same PR, not after the fact. Batching changelog updates until release time makes them easy to lose and hard to reconstruct accurately.
+
+- Pick the right category: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, or `Security`.
+- If your change breaks existing usage — a removed or renamed prop/event, a changed default, a different attribute-forwarding target, etc. — add it under the `⚠ Breaking Changes` section instead, with enough detail for someone upgrading to know what to check or update.
+- End each bullet with a link to your PR number, e.g. `(#123)`.
+- Keep entries user-facing: describe what changed for someone consuming the library, not internal refactor details.
 
 ## Where can I go for help?
 

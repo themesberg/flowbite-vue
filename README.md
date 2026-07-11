@@ -40,6 +40,7 @@
 - [Components](#components)
 - [Community](#community)
 - [Contributing](#contributing)
+- [Changelog](#changelog)
 - [Figma](#figma)
 - [Copyright and license](#copyright-and-license)
 
@@ -128,7 +129,7 @@ module.exports = {
   </tr>
   <tr>
     <td width="33.3333%">Dropdown</td>
-    <td width="33.3333%">:construction: Forms</td>
+    <td width="33.3333%">Forms</td>
     <td width="33.3333%">List group</td>
   </tr>
   <tr>
@@ -149,13 +150,13 @@ module.exports = {
     </td>
   </tr>
   <tr>
-    <td width="33.3333%">:construction: Typography</td>
+    <td width="33.3333%">Typography</td>
     <td width="33.3333%">Modal</td>
     <td width="33.3333%">Tabs</td>
   </tr>
   <tr>
     <td width="33.3333%">
-        <a href="https://flowbite.com/docs/components/typography/">
+        <a href="https://flowbite-vue.com/components/heading">
             <img alt="Tailwind CSS Typography" src="./docs/assets/github/typography.jpg">
         </a>
     </td>
@@ -239,7 +240,7 @@ module.exports = {
   <tr>
     <td width="33.3333%">Footer</td>
     <td width="33.3333%">Accordion</td>
-    <td width="33.3333%">:construction: Sidebar</td>
+    <td width="33.3333%">Sidebar</td>
   </tr>
   <tr>
     <td width="33.3333%">
@@ -371,6 +372,10 @@ For casual chatting with others using the library:
 ## Contributing
 
 Thank you for your interest in helping! Visit our [guide on contributing](https://github.com/themesberg/flowbite-vue/blob/main/CONTRIBUTING.md) to get started.
+
+## Changelog
+
+Notable changes to this project are documented in [`CHANGELOG.md`](https://github.com/themesberg/flowbite-vue/blob/main/CHANGELOG.md), following the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
 
 ## Figma
 
