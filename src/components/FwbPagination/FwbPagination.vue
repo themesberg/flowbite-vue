@@ -94,23 +94,26 @@
           </template>
         </button>
       </slot>
-      <slot
+      <template
         v-for="index in pagesToDisplay"
         :key="index"
-        name="page-button"
-        :page="index"
-        :set-page="setPage"
-        :disabled="isSetPageDisabled(index)"
       >
-        <button
-          v-if="!$slots['page-button']"
+        <slot
+          name="page-button"
+          :page="index"
+          :set-page="setPage"
           :disabled="isSetPageDisabled(index)"
-          :class="getPageButtonClasses(index === modelValue)"
-          @click="setPage(index)"
         >
-          {{ index }}
-        </button>
-      </slot>
+          <button
+            v-if="!$slots['page-button']"
+            :disabled="isSetPageDisabled(index)"
+            :class="getPageButtonClasses(index === modelValue)"
+            @click="setPage(index)"
+          >
+            {{ index }}
+          </button>
+        </slot>
+      </template>
       <slot
         name="next-button"
         :disabled="isIncreaseDisabled"
@@ -239,17 +242,17 @@ const props = withDefaults(defineProps<IPaginationProps>(), {
   large: false,
 })
 defineSlots<{
-  'start': any
-  'first-icon': any
-  'first-button': any
-  'prev-icon': any
-  'prev-button': any
-  'page-button': any
-  'next-button': any
-  'next-icon': any
-  'last-button': any
-  'last-icon': any
-  'end': any
+  'start'?: (props: Record<string, never>) => unknown
+  'first-icon'?: (props: Record<string, never>) => unknown
+  'first-button'?: (props: { setPage: () => void, disabled: boolean }) => unknown
+  'prev-icon'?: (props: Record<string, never>) => unknown
+  'prev-button'?: (props: { decreasePage: () => void, disabled: boolean }) => unknown
+  'page-button'?: (props: { page: number, setPage: (page: number) => void, disabled: boolean }) => unknown
+  'next-button'?: (props: { increasePage: () => void, disabled: boolean }) => unknown
+  'next-icon'?: (props: Record<string, never>) => unknown
+  'last-button'?: (props: { page: number, setPage: () => void, disabled: boolean }) => unknown
+  'last-icon'?: (props: Record<string, never>) => unknown
+  'end'?: (props: Record<string, never>) => unknown
 }>()
 function setPage (index: number) {
   emit('update:model-value', index)

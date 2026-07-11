@@ -156,7 +156,7 @@
   </div>
 </template>
 
-<script setup lang="ts" generic="T extends Record<string, any>">
+<script setup lang="ts" generic="T extends Record<string, unknown>">
 import {
   computed,
   nextTick,

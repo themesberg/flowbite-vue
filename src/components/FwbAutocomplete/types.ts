@@ -4,7 +4,7 @@ import type { Component } from 'vue'
 export type AutocompleteSize = FormElementSize
 export type { ValidationStatus }
 
-export interface AutocompleteProps<T = Record<string, any>> {
+export interface AutocompleteProps<T = Record<string, unknown>> {
   class?: string | Record<string, boolean>
   debounce?: number
   inputClass?: string | Record<string, boolean>
@@ -12,7 +12,7 @@ export interface AutocompleteProps<T = Record<string, any>> {
   display?: string | ((option: T) => string)
   dropdownClass?: string | Record<string, boolean>
   inputComponent?: Component
-  inputProps?: Record<string, any>
+  inputProps?: Record<string, unknown>
   label?: string
   labelClass?: string | Record<string, boolean>
   loading?: boolean
@@ -32,7 +32,7 @@ export interface AutocompleteProps<T = Record<string, any>> {
   zIndex?: number
 }
 
-export interface AutocompleteEmits<T = Record<string, any>> {
+export interface AutocompleteEmits<T = Record<string, unknown>> {
   (e: 'search', query: string): void
   (e: 'select', option: T): void
   (e: 'update:modelValue', value: T | null): void
