@@ -1,25 +1,43 @@
 <template>
   <div>
-    <template v-if="label || (labelProgress && labelPosition === 'outside')">
+    <template v-if="label || (showValue && valuePosition === 'outside' && !indeterminate)">
       <div class="mb-1 flex justify-between">
+        <span :class="outsideLabelClasses">{{ label }}</span>
         <span
+          v-if="showValue && valuePosition === 'outside' && !indeterminate"
           :class="outsideLabelClasses"
-        >{{ label }}</span>
-        <span
-          v-if="labelProgress && labelPosition === 'outside'"
-          :class="outsideLabelClasses"
-        >{{ progress }}%</span>
+        >
+          <slot
+            name="value"
+            :progress="progress"
+          >{{ progress }}%</slot>
+        </span>
       </div>
     </template>
     <div
       :class="outerClasses"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      :aria-valuenow="indeterminate ? undefined : progress"
     >
       <div
+        v-if="indeterminate"
+        class="fwb-progress-indeterminate absolute inset-y-0 left-0"
+        :class="innerClasses"
+      />
+      <div
+        v-else
         :class="innerClasses"
         :style="{ width: progress + '%' }"
       >
-        <template v-if="labelProgress && labelPosition === 'inside'">
-          {{ progress }}%
+        <template v-if="showValue && valuePosition === 'inside' && progress > 0">
+          <slot
+            name="value"
+            :progress="progress"
+          >
+            {{ progress }}%
+          </slot>
         </template>
       </div>
     </div>
@@ -31,14 +49,15 @@ import { toRefs } from 'vue'
 
 import { useProgressClasses } from './composables/useProgressClasses'
 
-import type { ProgressLabelPosition, ProgressSize, ProgressVariant } from './types'
+import type { ProgressColorVariant, ProgressSize, ProgressValuePosition } from './types'
 
 interface IProgressProps {
-  color?: ProgressVariant
+  color?: ProgressColorVariant
   label?: string
-  labelPosition?: ProgressLabelPosition
-  labelProgress?: boolean
+  showValue?: boolean
+  valuePosition?: ProgressValuePosition
   progress?: number
+  indeterminate?: boolean
   size?: ProgressSize
   innerClasses?: string | Record<string, boolean>
   outerClasses?: string | Record<string, boolean>
@@ -48,14 +67,19 @@ interface IProgressProps {
 const props = withDefaults(defineProps<IProgressProps>(), {
   color: 'default',
   label: '',
-  labelPosition: 'none',
-  labelProgress: false,
+  showValue: false,
+  valuePosition: 'none',
   progress: 0,
+  indeterminate: false,
   size: 'md',
   innerClasses: '',
   outerClasses: '',
   outsideLabelClasses: '',
 })
+
+defineSlots<{
+  value?: (props: { progress: number }) => unknown
+}>()
 
 const {
   innerClasses,
@@ -63,3 +87,24 @@ const {
   outsideLabelClasses,
 } = useProgressClasses(toRefs(props))
 </script>
+
+<style scoped>
+@keyframes fwb-progress-indeterminate-slide {
+  0% {
+    left: -40%;
+    width: 40%;
+  }
+  50% {
+    left: 20%;
+    width: 60%;
+  }
+  100% {
+    left: 100%;
+    width: 40%;
+  }
+}
+
+.fwb-progress-indeterminate {
+  animation: fwb-progress-indeterminate-slide 1.5s ease-in-out infinite;
+}
+</style>
