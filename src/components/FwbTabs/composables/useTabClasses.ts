@@ -1,9 +1,8 @@
 import { computed, type Ref, unref } from 'vue'
 
-import { useFlowbiteThemable } from '../../utils/FlowbiteThemable/composables/useFlowbiteThemable'
-
 import type { TabsVariant } from './../types'
 
+import { useFlowbiteThemable } from '@/components/utils/FlowbiteThemable/composables/useFlowbiteThemable'
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 export type TabClassMap = {

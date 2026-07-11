@@ -13,10 +13,9 @@ import { nanoid } from 'nanoid'
 import { computed, onMounted, type Ref, ref, watch } from 'vue'
 
 import { useAccordionPanelClasses } from './composables/useAccordionPanelClasses'
+import { useAccordionState } from './composables/useAccordionState'
 
-import type { AccordionPanelProps, AccordionState } from '@/components/FwbAccordion/types'
-
-import { useAccordionState } from '@/components/FwbAccordion/composables/useAccordionState'
+import type { AccordionPanelProps, AccordionState } from './types'
 
 const props = withDefaults(
   defineProps<AccordionPanelProps>(), {

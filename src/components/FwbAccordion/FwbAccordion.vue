@@ -11,9 +11,10 @@
 import { nanoid } from 'nanoid'
 import { computed } from 'vue'
 
-import type { AccordionProps } from '@/components/FwbAccordion/types'
+import { useAccordionState } from './composables/useAccordionState'
 
-import { useAccordionState } from '@/components/FwbAccordion/composables/useAccordionState'
+import type { AccordionProps } from './types'
+
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const accordionId = nanoid()

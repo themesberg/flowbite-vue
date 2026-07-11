@@ -22,10 +22,10 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue'
 
-import type { AccordionHeaderProps, AccordionPanel } from './types'
+import { useAccordionHeaderClasses } from './composables/useAccordionHeaderClasses'
+import { useAccordionState } from './composables/useAccordionState'
 
-import { useAccordionHeaderClasses } from '@/components/FwbAccordion/composables/useAccordionHeaderClasses'
-import { useAccordionState } from '@/components/FwbAccordion/composables/useAccordionState'
+import type { AccordionHeaderProps, AccordionPanel } from './types'
 
 const props = withDefaults(
   defineProps<AccordionHeaderProps>(), {

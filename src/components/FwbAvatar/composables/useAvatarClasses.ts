@@ -6,7 +6,7 @@ import type {
   AvatarStatus,
   AvatarStatusPosition,
   AvatarType,
-} from '@/components/FwbAvatar/types'
+} from '../types'
 
 import { useMergeClasses } from '@/composables/useMergeClasses'
 

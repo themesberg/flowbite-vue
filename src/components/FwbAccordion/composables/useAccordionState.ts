@@ -6,7 +6,7 @@ import type {
   GetAccordionPanelState,
   GetAccordionState,
   UseAccordionState,
-} from '@/components/FwbAccordion/types'
+} from '../types'
 
 const accordionStates = reactive<AccordionStates>({})
 
