@@ -156,6 +156,31 @@ describe('FwbSelect', () => {
     })
   })
 
+  describe('validationMessage prop', () => {
+    it('renders the prop text when no validationMessage slot is provided', () => {
+      const wrapper = mount(FwbSelect, {
+        props: { validationStatus: 'error', validationMessage: 'Please select a country' },
+      })
+      expect(wrapper.find('p').text()).toBe('Please select a country')
+    })
+
+    it('is overridden by the validationMessage slot when both are provided', () => {
+      const wrapper = mount(FwbSelect, {
+        props: { validationStatus: 'error', validationMessage: 'Prop message' },
+        slots: { validationMessage: 'Slot message' },
+      })
+      expect(wrapper.find('p').text()).toBe('Slot message')
+    })
+
+    it('points aria-describedby to the validation paragraph when only the prop is set', () => {
+      const wrapper = mount(FwbSelect, {
+        props: { validationStatus: 'error', validationMessage: 'Please select a country' },
+      })
+      const msgP = wrapper.find('p')
+      expect(wrapper.find('select').attributes('aria-describedby')).toBe(msgP.attributes('id'))
+    })
+  })
+
   describe('size classes', () => {
     it('sm and xl apply different padding to the select', () => {
       const sm = mount(FwbSelect, { props: { size: 'sm' } })

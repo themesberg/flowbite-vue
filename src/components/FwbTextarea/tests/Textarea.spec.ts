@@ -131,6 +131,31 @@ describe('FwbTextarea', () => {
     })
   })
 
+  describe('validationMessage prop', () => {
+    it('renders the prop text when no validationMessage slot is provided', () => {
+      const wrapper = mount(FwbTextarea, {
+        props: { validationStatus: 'error', validationMessage: 'This field is required' },
+      })
+      expect(wrapper.find('p').text()).toBe('This field is required')
+    })
+
+    it('is overridden by the validationMessage slot when both are provided', () => {
+      const wrapper = mount(FwbTextarea, {
+        props: { validationStatus: 'error', validationMessage: 'Prop message' },
+        slots: { validationMessage: 'Slot message' },
+      })
+      expect(wrapper.find('p').text()).toBe('Slot message')
+    })
+
+    it('points aria-describedby to the validation paragraph when only the prop is set', () => {
+      const wrapper = mount(FwbTextarea, {
+        props: { validationStatus: 'error', validationMessage: 'This field is required' },
+      })
+      const msgP = wrapper.find('p')
+      expect(wrapper.find('textarea').attributes('aria-describedby')).toBe(msgP.attributes('id'))
+    })
+  })
+
   describe('size classes', () => {
     it('sm and xl apply different padding to the textarea', () => {
       const sm = mount(FwbTextarea, { props: { size: 'sm' } })

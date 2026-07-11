@@ -582,4 +582,29 @@ describe('FwbAutocomplete', () => {
       ids.filter(id => id !== 'external-id').forEach(id => expect(wrapper.find(`#${id}`).exists()).toBe(true))
     })
   })
+
+  describe('validationMessage prop', () => {
+    it('renders the prop text when no validationMessage slot is provided', () => {
+      const wrapper = mount(FwbAutocomplete, {
+        props: { options: mockOptions, searchFields: ['name'], validationStatus: 'error', validationMessage: 'Please select a country' },
+      })
+      expect(wrapper.find('[data-testid="fwb-autocomplete-validation-message"]').text()).toBe('Please select a country')
+    })
+
+    it('is overridden by the validationMessage slot when both are provided', () => {
+      const wrapper = mount(FwbAutocomplete, {
+        props: { options: mockOptions, searchFields: ['name'], validationStatus: 'error', validationMessage: 'Prop message' },
+        slots: { validationMessage: 'Slot message' },
+      })
+      expect(wrapper.find('[data-testid="fwb-autocomplete-validation-message"]').text()).toBe('Slot message')
+    })
+
+    it('points aria-describedby to the validation paragraph when only the prop is set', () => {
+      const wrapper = mount(FwbAutocomplete, {
+        props: { options: mockOptions, searchFields: ['name'], validationStatus: 'error', validationMessage: 'Please select a country' },
+      })
+      const msgP = wrapper.find('[data-testid="fwb-autocomplete-validation-message"]')
+      expect(wrapper.find('input').attributes('aria-describedby')).toBe(msgP.attributes('id'))
+    })
+  })
 })
