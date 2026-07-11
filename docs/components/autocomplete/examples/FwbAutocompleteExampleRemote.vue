@@ -67,6 +67,14 @@ interface Country {
   flag: string
 }
 
+interface RestCountryResponse {
+  name: { common: string }
+  capital?: string[]
+  region: string
+  population: number
+  flag: string
+}
+
 const selectedCountry = ref<Country | null>(null)
 const countries = ref<Country[]>([])
 const loading = ref(false)
@@ -93,9 +101,9 @@ const searchCountries = async (query: string) => {
       throw new Error('Failed to fetch countries')
     }
 
-    const data = await response.json()
+    const data = await response.json() as RestCountryResponse[]
 
-    countries.value = data.slice(0, 10).map((country: any) => ({
+    countries.value = data.slice(0, 10).map(country => ({
       name: country.name.common,
       capital: country.capital?.[0] || 'N/A',
       region: country.region,
