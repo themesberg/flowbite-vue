@@ -166,12 +166,11 @@ import {
   watch,
 } from 'vue'
 
-import FwbInput from '../FwbInput/FwbInput.vue'
-
 import { useAutocompleteClasses } from './composables/useAutocompleteClasses'
 
 import type { AutocompleteEmits, AutocompleteProps } from './types'
 
+import FwbInput from '@/components/FwbInput/FwbInput.vue'
 import { useFormFieldIds } from '@/composables/useFormFieldIds'
 
 defineOptions({ inheritAttrs: false })

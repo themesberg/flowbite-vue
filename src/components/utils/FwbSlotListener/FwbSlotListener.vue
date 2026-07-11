@@ -2,7 +2,7 @@
 import { pick } from 'lodash-es'
 import { defineComponent, type PropType, type VNode } from 'vue'
 
-import type { SlotListenerTrigger, TriggerEventHandlers } from '@/components/utils/FwbSlotListener/types'
+import type { SlotListenerTrigger, TriggerEventHandlers } from './types'
 
 import { getFirstSlotVNode } from '@/utils/getFirstSlotNode'
 
