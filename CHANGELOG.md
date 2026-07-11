@@ -39,6 +39,7 @@ versions predate this file and are not backfilled.
 - Unified import convention: relative imports (`./`, `../`) within a component's own directory, `@/` alias across component boundaries or for shared/top-level code (#452)
 - Systematic documentation review and rewrite for all 39 component pages (#448)
 - Updated all dependencies to latest versions (#445)
+- Replaced remaining `any` types with proper types: typed `defineSlots` payloads on `FwbAlert`, `FwbJumbotron`, and `FwbPagination`, and `Record<string, unknown>` in place of `Record<string, any>` on `FwbAutocomplete` and `FwbSlotListener` (#456)
 
 ### Fixed
 
