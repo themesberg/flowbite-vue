@@ -10,6 +10,8 @@ versions predate this file and are not backfilled.
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-07-12
+
 ### ⚠ Breaking Changes
 
 - **Native attribute passthrough target changed** on `FwbInput` (#433), `FwbTextarea` (#436), `FwbFileInput` (#437), `FwbSelect` (#438), `FwbAutocomplete` (#439), `FwbRange` (#440), `FwbToggle` (#441), `FwbCheckbox` (#442), and `FwbRadio` (#443). Each now sets `inheritAttrs: false` and forwards extra attributes to the underlying native element (`<input>`, `<select>`, `<textarea>`, etc.) instead of the root wrapper element. This is the correct behavior, but apps relying on attributes landing on the wrapper (e.g. for CSS targeting) are affected.
@@ -53,4 +55,5 @@ versions predate this file and are not backfilled.
 - `FwbFileInput`: the file selector button had `file:rounded-none` while the input wrapper has `rounded-lg` — the button's square corner was clipped by the input's rounded border box, cutting into the button text. Now rounds the button's left corners to match, and widens left padding accordingly (#455)
 - `FwbProgress`: the inner bar's left corner squared off (lost its `rounded-full`) at small `progress` values, and the inside value label was nearly invisible at small values, especially in light theme. The outer track now clips the inner bar with `overflow-hidden` so corners always stay rounded, and the inner bar clips its own value text instead of letting it spill onto the track; the value is also skipped entirely at `progress={0}` (#457)
 
-[Unreleased]: https://github.com/themesberg/flowbite-vue/compare/v0.2.3...main
+[Unreleased]: https://github.com/themesberg/flowbite-vue/compare/v0.3.0...main
+[0.3.0]: https://github.com/themesberg/flowbite-vue/compare/v0.2.3...v0.3.0
