@@ -47,6 +47,7 @@ function getComponents () {
     { text: 'Dropdown', link: '/components/dropdown' },
     { text: 'Footer', link: '/components/footer' },
     { text: 'Jumbotron', link: '/components/jumbotron' },
+    { text: 'KBD', link: '/components/kbd' },
     { text: 'List Group', link: '/components/list-group' },
     { text: 'Modal', link: '/components/modal' },
     { text: 'Navbar', link: '/components/navbar' },

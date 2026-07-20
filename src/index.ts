@@ -22,6 +22,7 @@ export { default as FwbFooterIcon } from '@/components/FwbFooter/FwbFooterIcon.v
 export { default as FwbFooterLink } from '@/components/FwbFooter/FwbFooterLink.vue'
 export { default as FwbFooterLinkGroup } from '@/components/FwbFooter/FwbFooterLinkGroup.vue'
 export { default as FwbJumbotron } from '@/components/FwbJumbotron/FwbJumbotron.vue'
+export { default as FwbKbd } from '@/components/FwbKbd/FwbKbd.vue'
 export { default as FwbListGroup } from '@/components/FwbListGroup/FwbListGroup.vue'
 export { default as FwbListGroupItem } from '@/components/FwbListGroup/FwbListGroupItem.vue'
 export { default as FwbModal } from '@/components/FwbModal/FwbModal.vue'
