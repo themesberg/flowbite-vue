@@ -10,6 +10,10 @@ versions predate this file and are not backfilled.
 
 ## [Unreleased]
 
+### Added
+
+- `FwbKbd` component for rendering keyboard key labels, standalone, composed inline with `+`, inside a table cell, or with an `icon` slot for directional keys
+
 ## [0.3.0] - 2026-07-12
 
 ### ⚠ Breaking Changes
