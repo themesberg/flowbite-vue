@@ -48,7 +48,7 @@ jobs:
       - uses: ./.github/actions/setup-node-env
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm run build
+      - run: npm run docs:build
   build-pkg:
     runs-on: ubuntu-latest
     strategy:
