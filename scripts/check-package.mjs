@@ -20,13 +20,10 @@ for (const field of ['main', 'module']) {
   assert.ok(existsSync(new URL(`../${pkg[field]}`, import.meta.url)), `package.json "${field}" points at a built file`)
 }
 
-// Vite's lib build inlines CSS for UMD/IIFE output as
-// document.createElement('style') + document.head.append*(…) (#473).
-const injectsCss = /document\.head\b|createElement\(\s*[`'"]style[`'"]\s*\)/
-const builtJs = readdirSync(new URL('../dist', import.meta.url)).filter(file => /\.c?js$/.test(file))
-for (const file of builtJs) {
-  const source = readFileSync(new URL(`../dist/${file}`, import.meta.url), 'utf8')
-  assert.ok(!injectsCss.test(source), `dist/${file} does not inject CSS`)
-}
+// Vite inlines CSS into document.head only for UMD/IIFE/CJS output (#473),
+// so the build must stay ESM-only; CSS ships as dist/index.css.
+const nonEsmBuilds = readdirSync(new URL('../dist', import.meta.url), { recursive: true })
+  .filter(file => /\.(cjs|umd\.js|iife\.js)$/.test(file))
+assert.deepEqual(nonEsmBuilds, [], 'dist contains only ESM builds')
 
 console.log(`flowbite-vue package check passed (${Object.keys(cjsExports).length} exports)`)
