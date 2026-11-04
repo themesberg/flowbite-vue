@@ -306,16 +306,16 @@ const handleKeydown = (event: KeyboardEvent) => {
     case 'ArrowDown':
       event.preventDefault()
       if (filteredOptions.value.length > 0) {
-        highlightedIndex.value
-          = (highlightedIndex.value + 1) % filteredOptions.value.length
+        highlightedIndex.value =
+          (highlightedIndex.value + 1) % filteredOptions.value.length
         scrollToHighlightedOption()
       }
       break
     case 'ArrowUp':
       event.preventDefault()
       if (filteredOptions.value.length > 0) {
-        highlightedIndex.value
-          = (highlightedIndex.value - 1 + filteredOptions.value.length)
+        highlightedIndex.value =
+          (highlightedIndex.value - 1 + filteredOptions.value.length)
           % filteredOptions.value.length
         scrollToHighlightedOption()
       }

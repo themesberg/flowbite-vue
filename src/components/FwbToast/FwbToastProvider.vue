@@ -94,24 +94,24 @@ export default defineComponent({
               ) =>
                 _toast.component
                   ? h(
-                    _toast.component,
-                    {
-                      key: _toast.id,
-                      onClose: () => removeToast(_toast.id),
-                      ...(_toast.componentProps ? _toast.componentProps : {}),
-                    },
-                    () => _toast.text,
-                  )
+                      _toast.component,
+                      {
+                        key: _toast.id,
+                        onClose: () => removeToast(_toast.id),
+                        ...(_toast.componentProps ? _toast.componentProps : {}),
+                      },
+                      () => _toast.text,
+                    )
                   : h(
-                    FwbToast,
-                    {
-                      closable: true,
-                      type: _toast.type,
-                      key: _toast.id,
-                      onClose: () => removeToast(_toast.id),
-                    },
-                    () => _toast.text,
-                  ),
+                      FwbToast,
+                      {
+                        closable: true,
+                        type: _toast.type,
+                        key: _toast.id,
+                        onClose: () => removeToast(_toast.id),
+                      },
+                      () => _toast.text,
+                    ),
             ),
         },
       ),

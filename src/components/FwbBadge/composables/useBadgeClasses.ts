@@ -86,9 +86,9 @@ export function useBadgeClasses (
   props: UseBadgeClassesProps,
   options: UseBadgeClassesOptions,
 ): {
-    badgeClasses: Ref<string>
-    dismissButtonClass: Ref<string>
-  } {
+  badgeClasses: Ref<string>
+  dismissButtonClass: Ref<string>
+} {
   const attrs = useAttrs()
 
   const badgeClasses = computed<string>(() => {
