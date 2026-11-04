@@ -47,6 +47,10 @@ import { FwbButton, FwbTooltip } from 'flowbite-vue'
 
 Use the `theme` prop to switch between `'dark'` (default) and `'light'` tooltip backgrounds.
 
+:::tip Dark mode
+The tooltip is attached to `<body>`, so its dark mode colors follow a `.dark` class on `<html>` or `<body>`, not on a wrapper element.
+:::
+
 <fwb-tooltip-example-style />
 
 ```vue
