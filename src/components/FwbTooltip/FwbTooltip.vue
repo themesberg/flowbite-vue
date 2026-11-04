@@ -56,14 +56,13 @@ const theme = computed(() => {
   border-color: #000c;
 }
 
-@media (prefers-color-scheme: dark) {
-  .v-popper--theme-tooltip-dark .v-popper__wrapper .v-popper__inner {
-    background: rgb(55 65 81);
-  }
+/* Class-based dark mode, matching the `dark` variant in src/style.css. */
+.v-popper--theme-tooltip-dark:where(.dark, .dark *) .v-popper__wrapper .v-popper__inner {
+  background: rgb(55 65 81);
+}
 
-  .v-popper--theme-tooltip-dark .v-popper__arrow-outer {
-    border-color: rgb(55 65 81);
-  }
+.v-popper--theme-tooltip-dark:where(.dark, .dark *) .v-popper__arrow-outer {
+  border-color: rgb(55 65 81);
 }
 
 .v-popper--theme-tooltip-light .v-popper__wrapper .v-popper__inner {
