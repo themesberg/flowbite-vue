@@ -10,6 +10,14 @@ versions predate this file and are not backfilled.
 
 ## [Unreleased]
 
+### ⚠ Breaking Changes
+
+- **Dark mode in the prebuilt `flowbite-vue/index.css` is now class-based.** Component `dark:` styles, including the `FwbTooltip` dark theme, now apply under a `.dark` ancestor (the Flowbite convention) instead of `@media (prefers-color-scheme: dark)`. Before, components went dark whenever the OS was dark, even in an app forced to light mode. If your app relied on the OS setting and never adds `.dark`, add the `.dark` class to `<html>` yourself (for example from `matchMedia('(prefers-color-scheme: dark)')`).
+
+### Fixed
+
+- `flowbite-vue/index.css` no longer ships about 150 utilities that only the docs site and component tests used (for example `mt-8`, `my-6`, `gap-4`, `grid-cols-2`, `size-full`, and a docs-only background image). These generic classes could collide with your own Tailwind utilities. If your own markup used any of them without your own Tailwind build, they now have to come from your build.
+
 ## [0.4.0] - 2026-07-26
 
 ### Fixed

@@ -1,3 +1,7 @@
-@import 'tailwindcss';
+/* source(none): only scan component sources, not the repo root (docs, tests). */
+@import 'tailwindcss' source(none);
+/* Class-based dark mode, matching the selectors flowbite/plugin emits. */
+@custom-variant dark (&:where(.dark, .dark *));
 @plugin "flowbite/plugin";
 @source './components';
+@source not './components/**/tests';
