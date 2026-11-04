@@ -10,20 +10,23 @@ const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url),
 
 assert.equal(typeof globalThis.document, 'undefined', 'run this without a DOM')
 
-const required = require('flowbite-vue')
-assert.ok(required.FwbButton, 'require("flowbite-vue") exposes FwbButton')
+const cjsExports = require('flowbite-vue')
+assert.ok(cjsExports.FwbButton, 'require("flowbite-vue") exposes FwbButton')
 
-const imported = await import('flowbite-vue')
-assert.equal(imported.FwbButton, required.FwbButton, 'require and import load the same module')
+const esmExports = await import('flowbite-vue')
+assert.equal(esmExports.FwbButton, cjsExports.FwbButton, 'require and import load the same module')
 
 for (const field of ['main', 'module']) {
   assert.ok(existsSync(new URL(`../${pkg[field]}`, import.meta.url)), `package.json "${field}" points at a built file`)
 }
 
+// Vite's lib build inlines CSS for UMD/IIFE output as
+// document.createElement('style') + document.head.append*(…) (#473).
+const injectsCss = /document\.head\b|createElement\(\s*[`'"]style[`'"]\s*\)/
 const builtJs = readdirSync(new URL('../dist', import.meta.url)).filter(file => /\.c?js$/.test(file))
 for (const file of builtJs) {
   const source = readFileSync(new URL(`../dist/${file}`, import.meta.url), 'utf8')
-  assert.ok(!source.includes('document.head.appendChild'), `dist/${file} does not inject CSS`)
+  assert.ok(!injectsCss.test(source), `dist/${file} does not inject CSS`)
 }
 
-console.log(`flowbite-vue package check passed (${Object.keys(required).length} exports)`)
+console.log(`flowbite-vue package check passed (${Object.keys(cjsExports).length} exports)`)

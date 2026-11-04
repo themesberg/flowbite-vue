@@ -66,7 +66,8 @@
     "typecheck": "vue-tsc --noEmit",
     "test": "vitest",
     "test:nuxt": "npm run build:package && vitest run --config vitest.nuxt.config.ts",
-    "test:package": "npm run build:package && node scripts/check-package.mjs",
+    "check:package": "node scripts/check-package.mjs",
+    "test:package": "npm run build:package && npm run check:package",
     "test:coverage": "vitest run --coverage"
   },
   "peerDependencies": {

@@ -8,7 +8,7 @@ import { nuxtComponents } from './src/nuxt/generated-components.ts'
 // Separate build for the Nuxt module + one lib entry per component: this all
 // runs in Node (module.ts) or is dynamically imported by the consumer's own
 // Vite build (the component chunks), so it needs `es` output only, like the
-// main `./vite.config.ts` build. No `cjs` output either:
+// main `./vite.config.ts` build. There's no `cjs` output because
 // `@nuxt/kit` ships ESM-only (no `require` condition in its own `exports`
 // map at all), so a `require()`'d `.cjs` build of this module would depend on
 // Node's native require(esm) interop rather than a real CJS build of its own
