@@ -1,16 +1,23 @@
 import pluginJs from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
-import importPlugin from 'eslint-plugin-import'
+import { globalIgnores } from 'eslint/config'
+import { flatConfigs as importFlatConfigs } from 'eslint-plugin-import-x'
 import unusedImports from 'eslint-plugin-unused-imports'
 import pluginVue from 'eslint-plugin-vue'
 import pluginVueScopedCss from 'eslint-plugin-vue-scoped-css'
 import globals from 'globals'
-import neostandard, { resolveIgnoresFromGitignore } from 'neostandard'
+import neostandardConfig, { resolveIgnoresFromGitignore } from 'neostandard'
 import tseslint from 'typescript-eslint'
 import vueParser from 'vue-eslint-parser'
 
+const gitignoreIgnores = resolveIgnoresFromGitignore()
+
 const baseConfig = [
+  // neostandard only applies `ignores` to its own config objects, so the
+  // .gitignore patterns must also be registered globally to keep build output
+  // (dist, docs/.vitepress/dist, ...) out of every other config block
+  globalIgnores(gitignoreIgnores),
   {
     files: ['**/*.{js,ts,vue}'],
   },
@@ -81,32 +88,32 @@ const standardConfig = [
   // Neostandard includes the @stylistic/eslint-plugin, but we need to import it
   // ourselves to add custom rules; this unfortunately seems to be an all or
   // nothing situation
-  ...neostandard({
-    ignores: resolveIgnoresFromGitignore(),
+  ...neostandardConfig({
+    ignores: gitignoreIgnores,
     noJsx: true,
     ts: true,
     vue: true,
   }),
-  importPlugin.flatConfigs.recommended,
+  importFlatConfigs.recommended,
   {
     plugins: {
       'unused-imports': unusedImports,
     },
     rules: {
       'unused-imports/no-unused-imports': 'error',
-      'import/no-duplicates': ['error', { 'prefer-inline': true }],
+      'import-x/no-duplicates': ['error', { 'prefer-inline': true }],
     },
   },
   {
     rules: {
       // Disable ESLint's import resolution in favor of TypeScript's more accurate
       // module resolution which handles aliases, types, and dynamic imports correctly
-      'import/no-unresolved': 0,
+      'import-x/no-unresolved': 0,
 
       // Enforce consistent import ordering by grouping imports into categories:
       // Node built-ins first, followed by external packages, internal modules,
       // relative imports, and finally type imports
-      'import/order': [
+      'import-x/order': [
         'error', {
           'alphabetize': {
             caseInsensitive: true,
@@ -153,6 +160,9 @@ const stylisticConfig = [
     rules: {
       '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
+      // Keep `=` at the end of the line so multi-line union types can use the
+      // leading-`|` style (`type A =\n  | 'a'\n  | 'b'`)
+      '@stylistic/operator-linebreak': ['error', 'before', { overrides: { '=': 'after' } }],
       '@stylistic/quote-props': ['error', 'consistent-as-needed'],
       '@stylistic/space-before-function-paren': ['error', 'always'],
     },

@@ -102,7 +102,7 @@ const handleKeydown = (event: KeyboardEvent) => {
   const currentIndex = tabs.indexOf(target)
   if (currentIndex === -1) return
 
-  let targetIndex: number | null = null
+  let targetIndex: number
   switch (event.key) {
     case 'ArrowRight':
     case 'ArrowDown':

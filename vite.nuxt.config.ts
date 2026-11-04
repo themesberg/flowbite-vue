@@ -3,7 +3,7 @@ import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 
-import { nuxtComponents } from './src/nuxt/generated-components'
+import { nuxtComponents } from './src/nuxt/generated-components.ts'
 
 // Separate build for the Nuxt module + one lib entry per component: this all
 // runs in Node (module.ts) or is dynamically imported by the consumer's own
@@ -23,7 +23,7 @@ import { nuxtComponents } from './src/nuxt/generated-components'
 // between components (composables, etc.) automatically split into its own
 // shared chunk(s) rather than duplicated per component.
 const componentEntries = Object.fromEntries(
-  nuxtComponents.map(({ name, filePath }) => [`components/${name}`, resolve(__dirname, `src/${filePath}`)]),
+  nuxtComponents.map(({ name, filePath }) => [`components/${name}`, resolve(import.meta.dirname, `src/${filePath}`)]),
 )
 
 // A few component .vue files have <style> blocks; this build has no
@@ -55,8 +55,8 @@ export default defineConfig({
     cssMinify: false,
     lib: {
       entry: {
-        nuxt: resolve(__dirname, './src/nuxt/module.ts'),
-        composables: resolve(__dirname, './src/composables.ts'),
+        nuxt: resolve(import.meta.dirname, './src/nuxt/module.ts'),
+        composables: resolve(import.meta.dirname, './src/composables.ts'),
         ...componentEntries,
       },
       formats: ['es'],

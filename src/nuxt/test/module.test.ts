@@ -1,7 +1,8 @@
 import { readFileSync } from 'fs'
+import { join } from 'path'
 import { fileURLToPath } from 'url'
 
-import { $fetch, setup } from '@nuxt/test-utils/e2e'
+import { $fetch, setup, useTestContext } from '@nuxt/test-utils/e2e'
 import { describe, expect, it } from 'vitest'
 
 describe('flowbite-vue/nuxt', async () => {
@@ -58,8 +59,12 @@ describe('flowbite-vue/nuxt', async () => {
     // as the *source* of the `useFwbToast` alias's type (`typeof
     // import(...).useToast`), so a plain substring/word-boundary check would
     // false-positive on that — this only matches an actual global declaration.
+    // @nuxt/test-utils builds each run into its own buildDir
+    // (`.nuxt/test/<randomId>`), so resolve it from the test context.
+    const buildDir = useTestContext().nuxt?.options.buildDir
+    expect(buildDir).toBeDefined()
     const imports = readFileSync(
-      fileURLToPath(new URL('./fixture/.nuxt/types/imports.d.ts', import.meta.url)),
+      join(buildDir as string, 'types/imports.d.ts'),
       'utf-8',
     )
 

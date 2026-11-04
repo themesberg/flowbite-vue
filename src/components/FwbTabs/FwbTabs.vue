@@ -112,8 +112,8 @@ const defaultSlot = slots.default
 const tabsChildren = computed(() => {
   return defaultSlot
     ? flatten(defaultSlot({})).filter((v) => {
-      return (v.type as { __FLOWBITE_TAB__?: true }).__FLOWBITE_TAB__
-    })
+        return (v.type as { __FLOWBITE_TAB__?: true }).__FLOWBITE_TAB__
+      })
     : []
 })
 

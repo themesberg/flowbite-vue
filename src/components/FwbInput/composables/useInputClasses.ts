@@ -120,25 +120,25 @@ export function useInputClasses (props: UseInputClassesProps): {
 
   const prefixContainerClass = computed(() => props.prefixIsText.value
     ? useMergeClasses([
-      affixBaseClasses,
-      affixSizeClasses[props.size.value],
-      affixBgClass.value,
-      'border-r rounded-l-lg',
-      affixBorderClass.value,
-      props.prefixClass.value,
-    ])
+        affixBaseClasses,
+        affixSizeClasses[props.size.value],
+        affixBgClass.value,
+        'border-r rounded-l-lg',
+        affixBorderClass.value,
+        props.prefixClass.value,
+      ])
     : useMergeClasses(['flex items-center ms-2 shrink-0', props.prefixClass.value]),
   )
 
   const suffixContainerClass = computed(() => props.suffixIsText.value
     ? useMergeClasses([
-      affixBaseClasses,
-      affixSizeClasses[props.size.value],
-      affixBgClass.value,
-      'border-l rounded-r-lg',
-      affixBorderClass.value,
-      props.suffixClass.value,
-    ])
+        affixBaseClasses,
+        affixSizeClasses[props.size.value],
+        affixBgClass.value,
+        'border-l rounded-r-lg',
+        affixBorderClass.value,
+        props.suffixClass.value,
+      ])
     : useMergeClasses(['flex items-center me-2 shrink-0', props.suffixClass.value]),
   )
 
