@@ -23,39 +23,57 @@ const workDir = mkdtempSync(join(tmpdir(), 'flowbite-vue-pack-'))
 try {
   const [{ filename }] = JSON.parse(npm(['pack', '--json', '--pack-destination', workDir], root))
 
-  // A consumer app with all peers, including optional ones like @nuxt/kit,
-  // so every entry (the Nuxt module too) can load.
+  // A consumer app with the required peers only: everything except the Nuxt
+  // module must load without optional peers such as @nuxt/kit.
+  const optionalPeers = Object.keys(pkg.peerDependenciesMeta ?? {})
+    .filter(name => pkg.peerDependenciesMeta[name].optional)
+  const requiredPeers = Object.fromEntries(Object.entries(pkg.peerDependencies)
+    .filter(([name]) => !optionalPeers.includes(name)))
   const appDir = join(workDir, 'app')
   mkdirSync(appDir)
   writeFileSync(join(appDir, 'package.json'), JSON.stringify({
     name: 'flowbite-vue-pack-check',
     private: true,
     type: 'module',
-    dependencies: {
-      ...pkg.peerDependencies,
-      'flowbite-vue': `file:${join(workDir, filename)}`,
-    },
+    dependencies: { ...requiredPeers, 'flowbite-vue': `file:${join(workDir, filename)}` },
   }, null, 2))
-  npm(['install', '--omit=dev', '--ignore-scripts', '--no-audit', '--no-fund', '--prefer-offline'], appDir)
+  const install = (...specs) => npm(['install', ...specs, '--omit=dev', '--ignore-scripts', '--no-audit', '--no-fund', '--prefer-offline'], appDir)
+  install()
 
+  // Public entries resolve from inside the app, through the exports map.
+  writeFileSync(join(appDir, 'load.mjs'), 'export const load = specifier => import(specifier)\n')
+  const { load } = await import(pathToFileURL(join(appDir, 'load.mjs')).href)
   const installed = join(appDir, 'node_modules', 'flowbite-vue')
-  const chunks = readdirSync(join(installed, 'dist'), { recursive: true })
-    .filter(file => file.endsWith('.js'))
-    .sort()
+  const nuxtEntry = pkg.exports['./nuxt'].import.replace(/^\.\//, '')
 
   const failures = []
-  for (const chunk of chunks) {
+  const check = async (label, importIt) => {
     try {
-      await import(pathToFileURL(join(installed, 'dist', chunk)).href)
+      await importIt()
     } catch (error) {
-      failures.push(`dist/${chunk}: ${error.message.split('\n')[0]}`)
+      failures.push(`${label}: ${error.message.split('\n')[0]}`)
     }
   }
+
+  await check('flowbite-vue', () => load('flowbite-vue'))
+  const chunks = readdirSync(join(installed, 'dist'), { recursive: true })
+    .map(file => `dist/${file}`)
+    .filter(file => file.endsWith('.js') && file !== nuxtEntry)
+    .sort()
+  for (const chunk of chunks) {
+    await check(chunk, () => import(pathToFileURL(join(installed, chunk)).href))
+  }
+
+  // Then the Nuxt module, with the optional peers a Nuxt app has.
+  install(...optionalPeers.map(name => `${name}@${pkg.peerDependencies[name]}`))
+  await check('flowbite-vue/nuxt', () => load('flowbite-vue/nuxt'))
+
+  const total = chunks.length + 2
   if (failures.length) {
-    console.error(`flowbite-vue pack check failed for ${failures.length} of ${chunks.length} chunks:\n  ${failures.join('\n  ')}`)
+    console.error(`flowbite-vue pack check failed for ${failures.length} of ${total} modules:\n  ${failures.join('\n  ')}`)
     process.exitCode = 1
   } else {
-    console.log(`flowbite-vue pack check passed (${chunks.length} chunks loaded from a production-only install)`)
+    console.log(`flowbite-vue pack check passed (${total} modules loaded from a production-only install)`)
   }
 } finally {
   rmSync(workDir, { recursive: true, force: true })
