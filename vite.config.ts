@@ -21,19 +21,15 @@ export default defineConfig({
     target: 'esnext',
     lib: {
       entry: resolve(import.meta.dirname, './src/index.ts'),
-      name: 'flowbite-vue',
+      // ESM only. Node >= 22.12 can require() it, and CSS ships as a separate
+      // dist/index.css instead of being injected at import time (#473).
+      formats: ['es'],
+      fileName: 'flowbite-vue',
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
       external: ['vue'],
-      output: {
-        // Provide global variables to use in the UMD build
-        // for externalized deps
-        globals: {
-          vue: 'Vue',
-        },
-      },
     },
   },
 })

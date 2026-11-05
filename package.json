@@ -22,14 +22,13 @@
   "license": "MIT",
   "author": "themesberg",
   "type": "module",
-  "main": "./dist/flowbite-vue.umd.cjs",
+  "main": "./dist/flowbite-vue.js",
   "module": "./dist/flowbite-vue.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/flowbite-vue.js",
-      "require": "./dist/flowbite-vue.umd.cjs"
+      "default": "./dist/flowbite-vue.js"
     },
     "./components/*/types": {
       "types": "./dist/components/*/types.d.ts"
@@ -67,6 +66,8 @@
     "typecheck": "vue-tsc --noEmit",
     "test": "vitest",
     "test:nuxt": "npm run build:package && vitest run --config vitest.nuxt.config.ts",
+    "check:package": "node scripts/check-package.mjs",
+    "test:package": "npm run build:package && npm run check:package",
     "test:coverage": "vitest run --coverage"
   },
   "peerDependencies": {

@@ -62,6 +62,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm run build:package
+      # Loads the built package with require() and import in plain Node (#473)
+      - run: npm run check:package
   build-types:
     runs-on: ubuntu-latest
     strategy:

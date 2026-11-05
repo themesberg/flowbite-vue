@@ -12,6 +12,7 @@ versions predate this file and are not backfilled.
 
 ### ⚠ Breaking Changes
 
+- **The UMD/CommonJS build (`dist/flowbite-vue.umd.cjs`) was removed.** It injected the whole stylesheet into `document.head` when loaded, so `require('flowbite-vue')` crashed in Node (SSR) with `document is not defined`. Apps that also imported `flowbite-vue/index.css` got the CSS twice, and the injected copy was unlayered, so it could override the app's own styles. `require('flowbite-vue')` now loads the ESM build, which works on the Node versions this package supports (22.12+). Tools with their own CommonJS loader, such as Jest without an ESM transform, need to transform `flowbite-vue` (for example via `transformIgnorePatterns`). Loading `flowbite-vue.umd.cjs` from a CDN with a `<script>` tag is no longer possible; use a bundler, or import the ES module from a CDN with an import map that provides `vue`.
 - **Dark mode in the prebuilt `flowbite-vue/index.css` is now class-based.** Component `dark:` styles, including the `FwbTooltip` dark theme, now apply under a `.dark` ancestor (the Flowbite convention) instead of `@media (prefers-color-scheme: dark)`. Before, components went dark whenever the OS was dark, even in an app forced to light mode. If your app relied on the OS setting and never adds `.dark`, add the `.dark` class to `<html>` yourself (for example from `matchMedia('(prefers-color-scheme: dark)')`).
 
 ### Fixed
