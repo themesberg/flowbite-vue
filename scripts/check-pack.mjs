@@ -23,8 +23,8 @@ const workDir = mkdtempSync(join(tmpdir(), 'flowbite-vue-pack-'))
 try {
   const [{ filename }] = JSON.parse(npm(['pack', '--json', '--pack-destination', workDir], root))
 
-  // A consumer app: the tarball plus its peers, including the optional
-  // @nuxt/kit that every Nuxt app has, so the Nuxt module loads too.
+  // A consumer app with all peers, including optional ones like @nuxt/kit,
+  // so every entry (the Nuxt module too) can load.
   const appDir = join(workDir, 'app')
   mkdirSync(appDir)
   writeFileSync(join(appDir, 'package.json'), JSON.stringify({
@@ -32,9 +32,8 @@ try {
     private: true,
     type: 'module',
     dependencies: {
+      ...pkg.peerDependencies,
       'flowbite-vue': `file:${join(workDir, filename)}`,
-      'vue': pkg.peerDependencies.vue,
-      '@nuxt/kit': pkg.peerDependencies['@nuxt/kit'],
     },
   }, null, 2))
   npm(['install', '--omit=dev', '--ignore-scripts', '--no-audit', '--no-fund', '--prefer-offline'], appDir)
