@@ -151,6 +151,31 @@ describe('FwbFileInput', () => {
       expect(classes).toContain('file:rounded-l-lg')
       expect(classes).not.toContain('file:rounded-none')
     })
+
+    it('applies a default hover color to the file selector button', () => {
+      const classes = mount(FwbFileInput).find('input[type="file"]').classes()
+      expect(classes).toContain('hover:file:bg-gray-100')
+      expect(classes).toContain('dark:hover:file:bg-gray-600')
+      expect(classes).toContain('dark:hover:file:border-gray-500')
+    })
+
+    it('lets a user hover class replace the default one', () => {
+      // A default with an extra modifier (e.g. `enabled:hover:file:`) survives
+      // tailwind-merge and wins on specificity, so the user color never shows.
+      const wrapper = mount(FwbFileInput, {
+        props: { class: 'hover:file:bg-amber-600 dark:hover:file:bg-green-500 dark:hover:file:border-green-400' },
+      })
+      const hoverClasses = wrapper.find('input[type="file"]').classes()
+        .filter(c => c.includes('hover:file:'))
+      expect(hoverClasses).toEqual(['hover:file:bg-amber-600', 'dark:hover:file:bg-green-500', 'dark:hover:file:border-green-400'])
+    })
+
+    it('has no default hover color when disabled', () => {
+      const wrapper = mount(FwbFileInput, { props: { disabled: true } })
+      const hoverClasses = wrapper.find('input[type="file"]').classes()
+        .filter(c => c.includes('hover:'))
+      expect(hoverClasses).toEqual([])
+    })
   })
 
   describe('validation status classes', () => {
