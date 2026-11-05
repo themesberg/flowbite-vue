@@ -156,6 +156,7 @@ describe('FwbFileInput', () => {
       const classes = mount(FwbFileInput).find('input[type="file"]').classes()
       expect(classes).toContain('hover:file:bg-gray-100')
       expect(classes).toContain('dark:hover:file:bg-gray-600')
+      expect(classes).toContain('dark:hover:file:border-gray-500')
     })
 
     it('lets a user hover class replace the default one', () => {

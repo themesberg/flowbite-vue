@@ -17,7 +17,7 @@ versions predate this file and are not backfilled.
 ### Fixed
 
 - `flowbite-vue/index.css` no longer ships about 150 utilities that only the docs site and component tests used (for example `mt-8`, `my-6`, `gap-4`, `grid-cols-2`, `size-full`, and a docs-only background image). These generic classes could collide with your own Tailwind utilities. If your own markup used any of them without your own Tailwind build, they now have to come from your build.
-- `FwbFileInput`: your own `hover:file:*` classes now replace the default hover color of the file selector button. Before, the default gray hover always won, so custom hover colors were ignored.
+- `FwbFileInput`: your own `hover:file:*` classes now replace the default hover color of the file selector button, and `dark:hover:file:*` classes replace it in dark mode. Before, the default gray hover always won, so custom hover colors were ignored.
 
 ## [0.4.0] - 2026-07-26
 
