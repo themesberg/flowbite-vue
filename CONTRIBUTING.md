@@ -38,6 +38,16 @@ This project keeps a [`CHANGELOG.md`](CHANGELOG.md) following [Keep a Changelog]
 - Each bullet ends with a link to its PR number, e.g. `(#123)` — but not immediately. GitHub only assigns that number once the PR is open, so don't hold up the changelog bullet waiting for it: add it without a number in your feature PR. The `(#123)` link is filled in later, in the version-bump/release PR that cuts the actual release — every bullet must have its link by the time that release PR is merged.
 - Keep entries user-facing: describe what changed for someone consuming the library, not internal refactor details.
 
+## Adding or updating dependencies
+
+`package.json` is published, so its dependency sections are part of what consumers install:
+
+- `dependencies`: only packages the built JS (`dist/`) imports at runtime, plus any optional peer those packages need for the subpaths we use (`focus-trap` for `@vueuse/integrations/useFocusTrap`, listed in `peersOfDependencies` in `scripts/check-package.mjs`). Use a caret range starting at the tested version (`^15.0.0`), never an exact version. An exact pin can't dedupe with the app's own copy, so every app upgrade nests a second copy under `flowbite-vue`.
+- `peerDependencies`: packages that must be a single instance shared with the app (`vue`), or that only an optional entry needs (`@nuxt/kit` for `flowbite-vue/nuxt`, marked optional in `peerDependenciesMeta`). Same caret rule.
+- `devDependencies`: everything used only to build, test, or document the library, including Tailwind CSS and `flowbite`. Exact versions are fine here.
+
+The lockfile pins exact versions for development. `npm run test:package` checks these rules, and `npm run test:pack` installs the packed tarball with production dependencies only and loads every built chunk.
+
 ## Where can I go for help?
 
 If you need help, you can ask questions please, [join us at our Discord Community](https://discord.gg/S6J9pUmj2t).

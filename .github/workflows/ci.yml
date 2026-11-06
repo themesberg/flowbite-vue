@@ -64,6 +64,9 @@ jobs:
       - run: npm run build:package
       # Loads the built package with require() and import in plain Node (#473)
       - run: npm run check:package
+      # Installs the packed tarball with production deps only and loads every chunk (#471)
+      - run: npm run check:pack
+        if: matrix.node-version == '22.x'
   build-types:
     runs-on: ubuntu-latest
     strategy:
