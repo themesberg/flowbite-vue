@@ -263,4 +263,25 @@ describe('FwbFileInput', () => {
       expect(wrapper.find('input[type="file"]').attributes('aria-describedby')).toBe(msgP.attributes('id'))
     })
   })
+  describe('dropzone file names', () => {
+    const file = (name: string) => new File(['content'], name)
+    const shownText = (modelValue: File | File[] | null) =>
+      mount(FwbFileInput, { props: { dropzone: true, multiple: Array.isArray(modelValue), modelValue } }).text()
+
+    it('shows the placeholder when no file is selected', () => {
+      expect(shownText(null)).toContain('Click to upload')
+    })
+
+    it('shows the name of a single selected file', () => {
+      expect(shownText(file('report.pdf'))).toContain('File: report.pdf')
+    })
+
+    it('lists every selected file name when several are selected', () => {
+      expect(shownText([file('a.png'), file('b.png')])).toContain('File: a.png, b.png')
+    })
+
+    it('shows the placeholder for an empty file list', () => {
+      expect(shownText([])).toContain('Click to upload')
+    })
+  })
 })
