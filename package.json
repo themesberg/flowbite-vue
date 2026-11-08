@@ -83,7 +83,6 @@
   },
   "dependencies": {
     "@vueuse/core": "^15.0.0",
-    "@vueuse/integrations": "^15.0.0",
     "floating-vue": "^5.4.0",
     "focus-trap": "^7.8.0",
     "tailwind-merge": "^3.7.0"

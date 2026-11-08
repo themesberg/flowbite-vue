@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
+import { createFocusTrap, type FocusTrap } from 'focus-trap'
 import { computed, nextTick, onBeforeUnmount, onMounted, type Ref, ref, toRefs, useSlots } from 'vue'
 
 import { useModalClasses } from './composables/useModalClasses'
@@ -124,26 +124,28 @@ function handleGlobalKeydown (event: KeyboardEvent) {
 }
 
 const modalRef: Ref<HTMLElement | null> = ref(null)
-const { activate, deactivate } = useFocusTrap(modalRef, {
-  immediate: false,
-  initialFocus: () => modalRef.value?.querySelector('button[aria-label="close"]') || modalRef.value,
-  escapeDeactivates: false,
-})
+let trap: FocusTrap | undefined
 
 onMounted(async () => {
   document.addEventListener('keydown', handleGlobalKeydown)
 
-  if (modalRef.value) {
-    if (props.focusTrap) {
-      await nextTick()
-      activate()
-    }
-  }
+  if (!props.focusTrap) return
+  await nextTick()
+  // The modal may have been closed while waiting.
+  const modal = modalRef.value
+  if (!modal) return
+
+  trap = createFocusTrap(modal, {
+    initialFocus: () => modal.querySelector<HTMLElement>('button[aria-label="close"]') ?? modal,
+    // Escape is handled by handleGlobalKeydown, which respects notEscapable and persistent.
+    escapeDeactivates: false,
+  })
+  trap.activate()
 })
 
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleGlobalKeydown)
 
-  deactivate()
+  trap?.deactivate()
 })
 </script>
