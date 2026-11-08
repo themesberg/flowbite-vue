@@ -1,5 +1,4 @@
 <script lang="ts">
-import { pick } from 'lodash-es'
 import { defineComponent, type PropType, type VNode } from 'vue'
 
 import type { SlotListenerTrigger, TriggerEventHandlers } from './types'
@@ -76,7 +75,7 @@ export default defineComponent({
       $slots,
     } = this
 
-    const handlers = {
+    const handlers: TriggerEventHandlers = {
       onClick: this.handleClick,
       onMouseenter: this.handleMouseEnter,
       onMouseleave: this.handleMouseLeave,
@@ -86,48 +85,9 @@ export default defineComponent({
 
     const triggerVNode = getFirstSlotVNode($slots, 'default')
 
-    const ascendantAndCurrentHandlers: TriggerEventHandlers[] = [
-      handlers,
-    ]
-    if (triggerVNode?.props) {
-      ascendantAndCurrentHandlers.push(
-        pick(triggerVNode.props, 'onClick', 'onMouseenter', 'onMouseleave', 'onFocus', 'onBlur'),
-      )
-    }
-
-    const mergedHandlers: TriggerEventHandlers = {
-      onBlur: (e: FocusEvent) => {
-        ascendantAndCurrentHandlers.forEach((_handlers) => {
-          _handlers?.onBlur?.(e)
-        })
-      },
-      onFocus: (e: FocusEvent) => {
-        ascendantAndCurrentHandlers.forEach((_handlers) => {
-          _handlers?.onFocus?.(e)
-        })
-      },
-      onClick: (e: MouseEvent) => {
-        ascendantAndCurrentHandlers.forEach((_handlers) => {
-          _handlers?.onClick?.(e)
-        })
-      },
-      onMouseenter: (e: MouseEvent) => {
-        ascendantAndCurrentHandlers.forEach((_handlers) => {
-          _handlers?.onMouseenter?.(e)
-        })
-      },
-      onMouseleave: (e: MouseEvent) => {
-        ascendantAndCurrentHandlers.forEach((_handlers) => {
-          _handlers?.onMouseleave?.(e)
-        })
-      },
-    }
-
+    // appendEvents chains these after the trigger's own handlers, so both run once.
     if (triggerVNode) {
-      appendEvents(
-        triggerVNode,
-        mergedHandlers,
-      )
+      appendEvents(triggerVNode, handlers)
     }
 
     return triggerVNode
