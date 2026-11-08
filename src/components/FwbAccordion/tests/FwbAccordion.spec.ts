@@ -8,16 +8,18 @@ import FwbAccordionContent from '../FwbAccordionContent.vue'
 import FwbAccordionHeader from '../FwbAccordionHeader.vue'
 import FwbAccordionPanel from '../FwbAccordionPanel.vue'
 
+import type { AccordionProps } from '../types'
+
 const panel = (title: string) => h(FwbAccordionPanel, null, () => [
   h(FwbAccordionHeader, null, () => title),
   h(FwbAccordionContent, null, () => `${title} body`),
 ])
 
-const accordion = (titles: string[], props: Record<string, unknown> = {}) => ({
+const accordion = (titles: string[], props: AccordionProps = {}) => ({
   render: () => h(FwbAccordion, props, () => titles.map(panel)),
 })
 
-const mountAccordion = async (props: Record<string, unknown> = {}) => {
+const mountAccordion = async (props: AccordionProps = {}) => {
   const wrapper = mount(accordion(['First', 'Second', 'Third'], props), { attachTo: document.body })
   // Headers and content render only once each panel has mounted.
   await flushPromises()
@@ -45,6 +47,22 @@ const accordionAndPanelIds = (root: ParentNode) => Array.from(
 )
 
 enableAutoUnmount(afterEach)
+
+// Apps created with createApp/createSSRApp, for tests that need more than one
+// app or need to hydrate server markup. Unmounted after each test.
+const apps: App[] = []
+afterEach(() => {
+  apps.splice(0).forEach(app => app.unmount())
+  document.body.innerHTML = ''
+})
+
+const mountApp = (app: App, serverHtml = '') => {
+  const root = document.body.appendChild(document.createElement('div'))
+  root.innerHTML = serverHtml
+  app.mount(root)
+  apps.push(app)
+  return root
+}
 
 describe('FwbAccordion', () => {
   describe('toggling panels', () => {
@@ -101,23 +119,9 @@ describe('FwbAccordion', () => {
   })
 
   describe('several Vue apps on one page', () => {
-    const apps: App[] = []
-    afterEach(() => {
-      apps.splice(0).forEach(app => app.unmount())
-      document.body.innerHTML = ''
-    })
-
-    const mountApp = (titles: string[]) => {
-      const root = document.body.appendChild(document.createElement('div'))
-      const app = createApp(accordion(titles))
-      app.mount(root)
-      apps.push(app)
-      return root
-    }
-
     it('keeps each app\'s accordion state separate', async () => {
-      const first = mountApp(['A1', 'A2'])
-      const second = mountApp(['B1', 'B2'])
+      const first = mountApp(createApp(accordion(['A1', 'A2'])))
+      const second = mountApp(createApp(accordion(['B1', 'B2'])))
       await flushPromises()
 
       await clickHeader(first, 'A2')
@@ -126,6 +130,20 @@ describe('FwbAccordion', () => {
       expect(openPanels(second)).toEqual(['B1'])
     })
   })
+
+  describe('outside an accordion', () => {
+    it('renders a header and its content without warnings', async () => {
+      const warnings: string[] = []
+      const wrapper = mount({
+        render: () => h('div', [h(FwbAccordionHeader, null, () => 'Lonely'), h(FwbAccordionContent, null, () => 'body')]),
+      }, { global: { config: { warnHandler: (msg) => { warnings.push(msg) } } } })
+      await flushPromises()
+      await clickHeader(wrapper.element, 'Lonely')
+
+      expect(warnings).toEqual([])
+    })
+  })
+
   describe('SSR', () => {
     it('generates the same accordion and panel IDs on the client as on the server', async () => {
       const page = accordion(['First', 'Second'])
@@ -133,16 +151,10 @@ describe('FwbAccordion', () => {
       const serverMarkup = document.createElement('div')
       serverMarkup.innerHTML = html
 
-      const container = document.body.appendChild(document.createElement('div'))
-      container.innerHTML = html
-      const app = createSSRApp(page)
-      app.mount(container)
+      const container = mountApp(createSSRApp(page), html)
 
       expect(accordionAndPanelIds(container)).toHaveLength(3)
       expect(accordionAndPanelIds(container)).toEqual(accordionAndPanelIds(serverMarkup))
-
-      app.unmount()
-      container.remove()
     })
   })
 })

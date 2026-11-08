@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, inject, onMounted, ref, shallowRef } from 'vue'
+import { computed, inject, onMounted, ref } from 'vue'
 
 import { useAccordionHeaderClasses } from './composables/useAccordionHeaderClasses'
 import { ACCORDION_PANEL_KEY, ACCORDION_STATE_KEY } from './injection/config'
@@ -36,10 +36,10 @@ const props = withDefaults(
 
 const isLoaded = ref(false)
 
-const accordionState = shallowRef(inject(ACCORDION_STATE_KEY))
-const panelState = shallowRef(inject(ACCORDION_PANEL_KEY) ?? null)
+const accordionState = inject(ACCORDION_STATE_KEY, null)
+const panelState = inject(ACCORDION_PANEL_KEY, null)
 
-const classes = computed(() => (accordionState.value && panelState.value)
+const classes = computed(() => (accordionState && panelState)
   ? useAccordionHeaderClasses(accordionState, panelState, props)
   : null)
 
@@ -51,18 +51,16 @@ onMounted(() => {
 })
 
 const togglePanel = () => {
-  const accordion = accordionState.value
-  const panel = panelState.value
-  if (!accordion || !panel) return
+  if (!accordionState || !panelState) return
 
-  if (accordion.persistent) {
-    panel.isVisible = !panel.isVisible
+  if (accordionState.persistent) {
+    panelState.isVisible = !panelState.isVisible
     return
   }
 
-  const wasVisible = panel.isVisible
-  accordion.panels.forEach((other) => {
-    other.isVisible = other === panel ? !wasVisible : false
+  const wasVisible = panelState.isVisible
+  accordionState.panels.forEach((panel) => {
+    panel.isVisible = panel === panelState ? !wasVisible : false
   })
 }
 </script>

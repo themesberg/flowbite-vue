@@ -19,8 +19,11 @@ versions predate this file and are not backfilled.
 
 - Build tools are no longer installed into your app. `tailwindcss`, `@tailwindcss/vite`, `@tailwindcss/postcss`, `postcss-prefix-selector` and `flowbite` moved to `devDependencies`. Together with the `@nuxt/kit` change below, this removes about 60 packages from consumer installs, including a second copy of Tailwind CSS. If your CSS uses `@import "tailwindcss"` or `@plugin "flowbite/plugin"` and you never installed those packages yourself, install them as the getting-started guide describes: `npm install -D tailwindcss @tailwindcss/vite` and `npm i flowbite`.
 - Runtime dependencies (`@vueuse/core`, `@vueuse/integrations`, `floating-vue`, `lodash-es`, `tailwind-merge`) use caret ranges instead of exact versions, so they dedupe with your app's own copies instead of nesting a second one.
-- `nanoid` is no longer a dependency. `FwbAccordion` generates its accordion and panel IDs with Vue's `useId()`, which needs no extra package.
 - `@nuxt/kit` is now an optional peer dependency (`^4.0.0`), needed only by the Nuxt module (`flowbite-vue/nuxt`). Nuxt apps already have it; other apps no longer install it.
+
+### Removed
+
+- `nanoid` is no longer a dependency, so it is no longer installed into your app.
 
 ### Fixed
 

@@ -1,4 +1,4 @@
-import { computed, type Ref } from 'vue'
+import { computed } from 'vue'
 
 import type { AccordionHeaderProps, AccordionPanel, AccordionState } from '../types'
 
@@ -16,25 +16,25 @@ interface AccordionHeaderClasses {
 }
 
 export const useAccordionHeaderClasses = (
-  accordionState: Ref<AccordionState | undefined>,
-  panelState: Ref<AccordionPanel | null>,
+  accordionState: AccordionState,
+  panelState: AccordionPanel,
   props: AccordionHeaderProps,
 ): AccordionHeaderClasses => {
   const arrowClasses = computed(() =>
     useMergeClasses([
       defaultArrowClasses,
-      (panelState.value?.isVisible) ? 'rotate-180' : '',
+      panelState.isVisible ? 'rotate-180' : '',
     ]),
   )
 
   const userClass = computed(() => props.class)
   const userActiveClass = computed(() => props.activeClass)
 
-  const panelsCount = computed(() => accordionState.value?.panels?.length ?? 0)
-  const isFirstPanel = computed(() => panelState.value?.order === 0)
-  const isLastPanel = computed(() => panelState.value?.order === panelsCount.value - 1)
-  const isPanelVisible = computed(() => panelState.value?.isVisible)
-  const isFlushed = computed(() => accordionState.value?.flushed)
+  const panelsCount = computed(() => accordionState.panels.length)
+  const isFirstPanel = computed(() => panelState.order === 0)
+  const isLastPanel = computed(() => panelState.order === panelsCount.value - 1)
+  const isPanelVisible = computed(() => panelState.isVisible)
+  const isFlushed = computed(() => accordionState.flushed)
 
   const headerClasses = computed(() =>
     useMergeClasses(

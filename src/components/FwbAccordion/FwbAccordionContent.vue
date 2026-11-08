@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, inject, onMounted, ref, shallowRef } from 'vue'
+import { computed, inject, onMounted, ref } from 'vue'
 
 import { useAccordionContentClasses } from './composables/useAccordionContentClasses'
 import { ACCORDION_PANEL_KEY, ACCORDION_STATE_KEY } from './injection/config'
@@ -25,10 +25,10 @@ const props = withDefaults(
 )
 
 const isLoaded = ref(false)
-const accordionState = shallowRef(inject(ACCORDION_STATE_KEY))
-const panelState = shallowRef(inject(ACCORDION_PANEL_KEY) ?? null)
+const accordionState = inject(ACCORDION_STATE_KEY, null)
+const panelState = inject(ACCORDION_PANEL_KEY, null)
 
-const contentClasses = computed(() => (accordionState.value && panelState.value)
+const contentClasses = computed(() => (accordionState && panelState)
   ? useAccordionContentClasses(accordionState, panelState, props)
   : null)
 

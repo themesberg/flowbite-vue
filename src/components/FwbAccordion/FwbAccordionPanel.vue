@@ -25,7 +25,7 @@ const props = withDefaults(
 const panelRef = ref<HTMLDivElement>()
 const panelId = useId()
 
-const accordionState = inject(ACCORDION_STATE_KEY)
+const accordionState = inject(ACCORDION_STATE_KEY, null)
 const panelState = reactive<AccordionPanel>({
   id: panelId,
   isVisible: false,
