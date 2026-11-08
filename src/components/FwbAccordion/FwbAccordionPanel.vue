@@ -9,8 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nanoid } from 'nanoid'
-import { computed, inject, onMounted, provide, reactive, ref, watch } from 'vue'
+import { computed, inject, onMounted, provide, reactive, ref, useId, watch } from 'vue'
 
 import { useAccordionPanelClasses } from './composables/useAccordionPanelClasses'
 import { ACCORDION_PANEL_KEY, ACCORDION_STATE_KEY } from './injection/config'
@@ -24,7 +23,7 @@ const props = withDefaults(
 )
 
 const panelRef = ref<HTMLDivElement>()
-const panelId = nanoid()
+const panelId = useId()
 
 const accordionState = inject(ACCORDION_STATE_KEY)
 const panelState = reactive<AccordionPanel>({

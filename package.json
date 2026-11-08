@@ -87,7 +87,6 @@
     "floating-vue": "^5.4.0",
     "focus-trap": "^7.8.0",
     "lodash-es": "^4.18.1",
-    "nanoid": "^6.0.2",
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {

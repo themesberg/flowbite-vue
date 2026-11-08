@@ -67,7 +67,6 @@ export default defineConfig({
         /^@vueuse\/integrations/,
         'floating-vue',
         'lodash-es',
-        'nanoid',
         'tailwind-merge',
       ],
     },

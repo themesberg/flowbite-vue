@@ -1,6 +1,7 @@
 import { enableAutoUnmount, flushPromises, mount, type VueWrapper } from '@vue/test-utils'
 import { afterEach, describe, expect, it } from 'vitest'
-import { type App, createApp, h } from 'vue'
+import { type App, createApp, createSSRApp, h } from 'vue'
+import { renderToString } from 'vue/server-renderer'
 
 import FwbAccordion from '../FwbAccordion.vue'
 import FwbAccordionContent from '../FwbAccordionContent.vue'
@@ -35,6 +36,13 @@ const clickHeader = async (root: Element, title: string) => {
   header.click()
   await flushPromises()
 }
+
+// Vue's hydration mismatch check ignores data-* attributes, so comparing the
+// IDs directly is the only way to tell that server and client agree.
+const accordionAndPanelIds = (root: ParentNode) => Array.from(
+  root.querySelectorAll('[data-accordion-id], [data-panel-id]'),
+  el => (el as HTMLElement).dataset.accordionId ?? (el as HTMLElement).dataset.panelId,
+)
 
 enableAutoUnmount(afterEach)
 
@@ -116,6 +124,25 @@ describe('FwbAccordion', () => {
 
       expect(openPanels(first)).toEqual(['A2'])
       expect(openPanels(second)).toEqual(['B1'])
+    })
+  })
+  describe('SSR', () => {
+    it('generates the same accordion and panel IDs on the client as on the server', async () => {
+      const page = accordion(['First', 'Second'])
+      const html = await renderToString(createSSRApp(page))
+      const serverMarkup = document.createElement('div')
+      serverMarkup.innerHTML = html
+
+      const container = document.body.appendChild(document.createElement('div'))
+      container.innerHTML = html
+      const app = createSSRApp(page)
+      app.mount(container)
+
+      expect(accordionAndPanelIds(container)).toHaveLength(3)
+      expect(accordionAndPanelIds(container)).toEqual(accordionAndPanelIds(serverMarkup))
+
+      app.unmount()
+      container.remove()
     })
   })
 })

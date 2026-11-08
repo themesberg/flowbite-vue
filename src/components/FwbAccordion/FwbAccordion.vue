@@ -8,8 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nanoid } from 'nanoid'
-import { computed, provide, reactive } from 'vue'
+import { computed, provide, reactive, useId } from 'vue'
 
 import { ACCORDION_STATE_KEY } from './injection/config'
 
@@ -17,7 +16,7 @@ import type { AccordionProps, AccordionState } from './types'
 
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
-const accordionId = nanoid()
+const accordionId = useId()
 
 const props = withDefaults(
   defineProps<AccordionProps>(), {
