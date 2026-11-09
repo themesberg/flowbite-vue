@@ -53,7 +53,7 @@
 
 <script lang="ts" setup>
 import { createFocusTrap, type FocusTrap } from 'focus-trap'
-import { computed, nextTick, onBeforeUnmount, onMounted, type Ref, ref, toRefs, useSlots } from 'vue'
+import { computed, onBeforeUnmount, onMounted, type Ref, ref, toRefs, useSlots } from 'vue'
 
 import { useModalClasses } from './composables/useModalClasses'
 
@@ -126,14 +126,11 @@ function handleGlobalKeydown (event: KeyboardEvent) {
 const modalRef: Ref<HTMLElement | null> = ref(null)
 let trap: FocusTrap | undefined
 
-onMounted(async () => {
+onMounted(() => {
   document.addEventListener('keydown', handleGlobalKeydown)
 
-  if (!props.focusTrap) return
-  await nextTick()
-  // The modal may have been closed while waiting.
   const modal = modalRef.value
-  if (!modal) return
+  if (!props.focusTrap || !modal) return
 
   trap = createFocusTrap(modal, {
     initialFocus: () => modal.querySelector<HTMLElement>('button[aria-label="close"]') ?? modal,

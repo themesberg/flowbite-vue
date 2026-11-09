@@ -14,7 +14,6 @@ interface AccordionPanelProps {
 }
 
 interface AccordionPanel {
-  id: string
   isVisible: boolean
   order: number
 }

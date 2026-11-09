@@ -1,5 +1,3 @@
-import { computed } from 'vue'
-
 import type { AccordionHeaderProps, AccordionPanel, AccordionState } from '../types'
 
 import { useMergeClasses } from '@/composables/useMergeClasses'
@@ -20,41 +18,29 @@ export const useAccordionHeaderClasses = (
   panelState: AccordionPanel,
   props: AccordionHeaderProps,
 ): AccordionHeaderClasses => {
-  const arrowClasses = computed(() =>
-    useMergeClasses([
+  const isVisible = panelState.isVisible
+  const isFlushed = accordionState.flushed
+  const isFirstPanel = panelState.order === 0
+  const isLastPanel = panelState.order === accordionState.panels.length - 1
+
+  return {
+    arrowClasses: useMergeClasses([
       defaultArrowClasses,
-      panelState.isVisible ? 'rotate-180' : '',
+      isVisible ? 'rotate-180' : '',
     ]),
-  )
-
-  const userClass = computed(() => props.class)
-  const userActiveClass = computed(() => props.activeClass)
-
-  const panelsCount = computed(() => accordionState.panels.length)
-  const isFirstPanel = computed(() => panelState.order === 0)
-  const isLastPanel = computed(() => panelState.order === panelsCount.value - 1)
-  const isPanelVisible = computed(() => panelState.isVisible)
-  const isFlushed = computed(() => accordionState.flushed)
-
-  const headerClasses = computed(() =>
-    useMergeClasses(
+    headerClasses: useMergeClasses(
       [
-        !isFlushed.value ? baseHeaderClasses : flushedHeaderClasses,
-        isPanelVisible.value ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400',
-        (isPanelVisible.value && !isFlushed.value) && 'bg-gray-100 dark:bg-gray-800',
-        (isFirstPanel.value && !isFlushed.value) && 'rounded-t-xl',
-        (isFirstPanel.value && isFlushed.value) && 'border-t-0',
-        !isLastPanel.value && 'border-b-0',
-        isFlushed.value && 'border-x-0 border-b',
-        userClass.value,
-        isPanelVisible.value ? userActiveClass.value : '',
+        !isFlushed ? baseHeaderClasses : flushedHeaderClasses,
+        isVisible ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400',
+        (isVisible && !isFlushed) && 'bg-gray-100 dark:bg-gray-800',
+        (isFirstPanel && !isFlushed) && 'rounded-t-xl',
+        (isFirstPanel && isFlushed) && 'border-t-0',
+        !isLastPanel && 'border-b-0',
+        isFlushed && 'border-x-0 border-b',
+        props.class,
+        isVisible ? props.activeClass : '',
       ].filter(str => (str))
         .join(' '),
     ),
-  )
-
-  return {
-    arrowClasses: arrowClasses.value,
-    headerClasses: headerClasses.value,
   }
 }
