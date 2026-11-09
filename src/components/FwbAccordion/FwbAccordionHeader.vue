@@ -22,7 +22,7 @@
 <script lang="ts" setup>
 import { computed, inject, onMounted, ref } from 'vue'
 
-import { useAccordionHeaderClasses } from './composables/useAccordionHeaderClasses'
+import { getAccordionHeaderClasses } from './composables/getAccordionHeaderClasses'
 import { ACCORDION_PANEL_KEY, ACCORDION_STATE_KEY } from './injection/config'
 
 import type { AccordionHeaderProps } from './types'
@@ -40,7 +40,7 @@ const accordionState = inject(ACCORDION_STATE_KEY, null)
 const panelState = inject(ACCORDION_PANEL_KEY, null)
 
 const classes = computed(() => (accordionState && panelState)
-  ? useAccordionHeaderClasses(accordionState, panelState, props)
+  ? getAccordionHeaderClasses(accordionState, panelState, props)
   : null)
 
 const arrowClasses = computed(() => classes.value?.arrowClasses)

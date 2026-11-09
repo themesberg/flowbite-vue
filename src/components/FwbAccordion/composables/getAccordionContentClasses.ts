@@ -4,7 +4,7 @@ import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const baseContentClasses = 'p-5 border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900'
 
-export const useAccordionContentClasses = (
+export const getAccordionContentClasses = (
   accordionState: AccordionState,
   panelState: AccordionPanel,
   props: AccordionContentProps,

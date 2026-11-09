@@ -18,7 +18,7 @@ versions predate this file and are not backfilled.
 ### Changed
 
 - Build tools are no longer installed into your app. `tailwindcss`, `@tailwindcss/vite`, `@tailwindcss/postcss`, `postcss-prefix-selector` and `flowbite` moved to `devDependencies`. Together with the `@nuxt/kit` change below, this removes about 60 packages from consumer installs, including a second copy of Tailwind CSS. If your CSS uses `@import "tailwindcss"` or `@plugin "flowbite/plugin"` and you never installed those packages yourself, install them as the getting-started guide describes: `npm install -D tailwindcss @tailwindcss/vite` and `npm i flowbite`.
-- Runtime dependencies (`@vueuse/core`, `floating-vue`, `tailwind-merge`) use caret ranges instead of exact versions, so they dedupe with your app's own copies instead of nesting a second one.
+- Runtime dependencies (`@vueuse/core`, `floating-vue`, `focus-trap`, `tailwind-merge`) use caret ranges instead of exact versions, so they dedupe with your app's own copies instead of nesting a second one.
 - `@nuxt/kit` is now an optional peer dependency (`^4.0.0`), needed only by the Nuxt module (`flowbite-vue/nuxt`). Nuxt apps already have it; other apps no longer install it.
 
 ### Removed

@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { computed, inject, onMounted, ref } from 'vue'
 
-import { useAccordionContentClasses } from './composables/useAccordionContentClasses'
+import { getAccordionContentClasses } from './composables/getAccordionContentClasses'
 import { ACCORDION_PANEL_KEY, ACCORDION_STATE_KEY } from './injection/config'
 
 import type { AccordionContentProps } from './types'
@@ -29,7 +29,7 @@ const accordionState = inject(ACCORDION_STATE_KEY, null)
 const panelState = inject(ACCORDION_PANEL_KEY, null)
 
 const contentClasses = computed(() => (accordionState && panelState)
-  ? useAccordionContentClasses(accordionState, panelState, props)
+  ? getAccordionContentClasses(accordionState, panelState, props)
   : null)
 
 onMounted(() => {

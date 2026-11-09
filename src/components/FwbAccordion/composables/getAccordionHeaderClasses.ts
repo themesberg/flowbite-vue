@@ -13,7 +13,7 @@ interface AccordionHeaderClasses {
   headerClasses: string
 }
 
-export const useAccordionHeaderClasses = (
+export const getAccordionHeaderClasses = (
   accordionState: AccordionState,
   panelState: AccordionPanel,
   props: AccordionHeaderProps,
