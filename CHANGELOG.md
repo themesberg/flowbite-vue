@@ -17,7 +17,7 @@ versions predate this file and are not backfilled.
 
 ### Added
 
-- Per-component entries: `import FwbButton from 'flowbite-vue/components/FwbButton'`. Component auto-import resolvers (for example `unplugin-vue-components`) can point at these. They are the same modules the main entry exports, so you can mix both import styles.
+- Per-component entries: `import FwbButton from 'flowbite-vue/components/FwbButton'`. Component auto-import resolvers (for example `unplugin-vue-components`) can point at these. They are the same modules the main entry exports, so you can mix both import styles. Styles still come from `flowbite-vue/index.css`.
 
 ### Changed
 
