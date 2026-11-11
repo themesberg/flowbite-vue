@@ -6,7 +6,8 @@ import { type FormElementSize, type ValidationStatus, validationStatusMap } from
 const defaultWrapperClasses = ''
 const defaultLabelClasses = 'block mb-2 font-medium text-gray-900 dark:text-white text-sm'
 const defaultInputClasses = 'bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg w-full text-gray-900 dark:text-white cursor-pointer shadow-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500'
-const defaultFileButtonClasses = 'file:cursor-pointer file:border-0 file:border-r file:border-gray-300 file:rounded-l-lg file:bg-gray-200 file:text-gray-900 file:transition-colors file:duration-150 dark:file:bg-gray-700 dark:file:border-gray-600 dark:file:text-white'
+// `file:ms-0` undoes the -1rem start margin flowbite/plugin gives the button when an app uses it.
+const defaultFileButtonClasses = 'file:ms-0 file:cursor-pointer file:border-0 file:border-r file:border-gray-300 file:rounded-l-lg file:bg-gray-200 file:text-gray-900 file:transition-colors file:duration-150 dark:file:bg-gray-700 dark:file:border-gray-600 dark:file:text-white'
 // Plain `hover:` (no `enabled:` guard) so a user's `hover:file:*` replaces it via
 // tailwind-merge; disabled inputs simply don't get these classes.
 const fileButtonHoverClasses = 'hover:file:bg-gray-100 dark:hover:file:bg-gray-600 dark:hover:file:border-gray-500'
@@ -14,12 +15,11 @@ const defaultHelperClasses = 'mt-2 text-gray-500 dark:text-gray-400 text-sm'
 
 const disabledInputClasses = 'cursor-not-allowed opacity-50'
 
-// `file:ms-0` undoes the -1rem start margin flowbite/plugin gives the button when an app uses it.
 const inputSizeClasses: Record<FormElementSize, string> = {
-  sm: 'p-0 text-sm file:ms-0 file:mr-2.5 file:px-2.5 file:py-2 file:text-sm',
-  md: 'p-0 text-sm file:ms-0 file:mr-3 file:px-3 file:py-2.5 file:text-sm',
-  lg: 'p-0 text-base file:ms-0 file:mr-3.5 file:px-3.5 file:py-3 file:text-base',
-  xl: 'p-0 text-base file:ms-0 file:mr-4 file:px-4 file:py-3.5 file:text-base',
+  sm: 'p-0 text-sm file:mr-2.5 file:px-2.5 file:py-2 file:text-sm',
+  md: 'p-0 text-sm file:mr-3 file:px-3 file:py-2.5 file:text-sm',
+  lg: 'p-0 text-base file:mr-3.5 file:px-3.5 file:py-3 file:text-base',
+  xl: 'p-0 text-base file:mr-4 file:px-4 file:py-3.5 file:text-base',
 }
 
 const errorInputClasses = 'bg-rose-50 border-rose-200 focus:ring-rose-500 focus:border-rose-500 dark:border-rose-500 dark:focus:ring-rose-500 text-rose-900 dark:text-rose-500'
