@@ -4,9 +4,9 @@ import { FwbAlert } from '../../src/index'
 
 # Flowbite Vue - Quickstart
 
-Get started with Flowbite by including it into your project using NPM
+Get started with Flowbite Vue by installing it into your Vue 3 project with npm.
 
-Flowbite is a library of components built on top of the utility-classes from Tailwind CSS and it also includes a JavaScript file that makes interactive elements works, such as modals, dropdowns, and more. Learn how to get started by following this quickstart guide.
+Flowbite Vue is a library of Vue 3 components built with Tailwind CSS utility classes, following the Flowbite design system. Interactive components such as modals, dropdowns and tooltips are Vue components too, so there is no separate JavaScript file to load. Learn how to get started by following this quickstart guide.
 
 <br>
 
@@ -15,7 +15,7 @@ Using Nuxt? Flowbite Vue ships a dedicated module with component/composable auto
 :::
 
 ::: info
-Make sure that you have [Node.js](https://nodejs.org/en/) installed. Flowbite Vue requires version 18 or newer.
+Make sure that you have [Node.js](https://nodejs.org/en/) installed. Flowbite Vue requires version 22.12 or newer.
 ```bash
 node -v
 ```
@@ -92,6 +92,8 @@ npm i flowbite-vue flowbite
 ```
 
 `flowbite-vue/index.css` contains only the components' own CSS (transitions, animations, tooltip themes). Your Tailwind build generates the utility classes; `flowbite-vue/tailwind.css` points it at Flowbite Vue's component sources.
+
+`flowbite-vue/index.css` puts its CSS in its own cascade layer, `components.flowbite-vue`, inside Tailwind's `components` layer. Your utility classes, including responsive ones such as `lg:mb-16`, always win over it, whichever file you import first, so you don't need to wrap the import in `layer(...)`.
 
 Flowbite Vue's components don't need the Flowbite theme or plugin (or the `flowbite` package): they use Tailwind's own color palette (`bg-blue-700`, `text-gray-900`, …), not Flowbite's theme variables. The theme and plugin style your own plain `<input>`, `<select>` and `<textarea>` elements the Flowbite way. The plugin reads its colors from theme variables such as `--color-brand`, `--color-body`, `--color-default`, `--color-heading` and `--color-neutral-*`, which only a Flowbite theme defines, so add both or neither. The theme also changes some Tailwind defaults, such as the sans font and `rounded-lg`.
 
