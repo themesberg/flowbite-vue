@@ -79,4 +79,6 @@ jobs:
       - uses: ./.github/actions/setup-node-env
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm run build:types
+      - run: npm run build
+      # Type-checks the per-component entries the way a consumer imports them (#470)
+      - run: npm run check:types

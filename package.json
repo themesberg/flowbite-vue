@@ -33,6 +33,10 @@
     "./components/*/types": {
       "types": "./dist/components/*/types.d.ts"
     },
+    "./components/*": {
+      "types": "./dist/components/*.d.ts",
+      "default": "./dist/components/*.js"
+    },
     "./index.css": "./dist/index.css",
     "./nuxt": {
       "types": "./dist/nuxt/module.d.ts",
@@ -43,7 +47,9 @@
     "dist",
     "src"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "dev": "npm run docs:dev",
     "start": "npm run docs:preview",
@@ -54,7 +60,7 @@
     "docs:preview": "vitepress serve docs ${PORT:+--port $PORT}",
     "generate:nuxt-components": "node scripts/generate-nuxt-components.mjs",
     "prebuild:package": "npm run generate:nuxt-components",
-    "build:package": "vite build && vite build --config vite.nuxt.config.ts",
+    "build:package": "vite build",
     "prebuild:types": "npm run generate:nuxt-components",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly && tsc-alias -p tsconfig.json",
     "clean": "rm -fr ./dist && rm -fr ./dist_types && rm -fr ./docs/.vitepress/dist && rm -fr ./docs/.vitepress/cache",
@@ -69,6 +75,7 @@
     "check:package": "node scripts/check-package.mjs",
     "test:package": "npm run build:package && npm run check:package",
     "check:pack": "node scripts/check-pack.mjs",
+    "check:types": "tsc -p scripts/check-types/tsconfig.json",
     "test:pack": "npm run build:package && npm run check:pack",
     "test:coverage": "vitest run --coverage"
   },
