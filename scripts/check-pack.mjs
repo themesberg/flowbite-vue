@@ -1,13 +1,17 @@
 // Installs the packed tarball into a fresh project with production
 // dependencies only, then loads every built entry and component chunk in
-// plain Node (run after `npm run build:package`). Catches runtime imports
-// that resolve in this repo only because a devDependency installed them,
-// such as an optional peer of a dependency (#471).
+// plain Node and compiles `flowbite-vue/tailwind.css` with Tailwind (run
+// after `npm run build:package`). Catches runtime imports that resolve in
+// this repo only because a devDependency installed them, such as an optional
+// peer of a dependency (#471), and CSS entries that don't ship (#469).
 import { execFileSync } from 'node:child_process'
 import { mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { pathToFileURL } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+
+import tailwindcss from '@tailwindcss/postcss'
+import postcss from 'postcss'
 
 const root = new URL('..', import.meta.url)
 const pkg = JSON.parse(readFileSync(new URL('package.json', root), 'utf8'))
@@ -47,7 +51,9 @@ try {
   const nuxtEntry = pkg.exports['./nuxt'].import.replace(/^\.\//, '')
 
   const failures = []
+  let total = 0
   const check = async (label, importIt) => {
+    total++
     try {
       await importIt()
     } catch (error) {
@@ -64,16 +70,29 @@ try {
     await check(chunk, () => import(pathToFileURL(join(installed, chunk)).href))
   }
 
+  // A Tailwind v4 app imports `flowbite-vue/tailwind.css` (#469): it must
+  // resolve through the exports map, and its @source paths must reach the
+  // installed components (src/ is published). Tailwind itself comes from this
+  // repo, by absolute path, so the app doesn't have to install it.
+  await check('flowbite-vue/tailwind.css', async () => {
+    const tailwindIndex = fileURLToPath(import.meta.resolve('tailwindcss/index.css'))
+    const { css } = await postcss([tailwindcss({ base: appDir })]).process(
+      `@import '${tailwindIndex}' source(none);\n@import 'flowbite-vue/tailwind.css';\n`,
+      { from: join(appDir, 'style.css') },
+    )
+    if (!/\.bg-blue-700\s*\{/.test(css)) throw new Error('did not generate the components\' utilities (.bg-blue-700)')
+    if (/\.bg-red-500\b/.test(css)) throw new Error('generated a utility only component tests use (.bg-red-500)')
+  })
+
   // Then the Nuxt module, with the optional peers a Nuxt app has.
   install(...optionalPeers.map(name => `${name}@${pkg.peerDependencies[name]}`))
   await check('flowbite-vue/nuxt', () => load('flowbite-vue/nuxt'))
 
-  const total = chunks.length + 2
   if (failures.length) {
-    console.error(`flowbite-vue pack check failed for ${failures.length} of ${total} modules:\n  ${failures.join('\n  ')}`)
+    console.error(`flowbite-vue pack check failed for ${failures.length} of ${total} entries:\n  ${failures.join('\n  ')}`)
     process.exitCode = 1
   } else {
-    console.log(`flowbite-vue pack check passed (${total} modules loaded from a production-only install)`)
+    console.log(`flowbite-vue pack check passed (${total} entries checked in a production-only install)`)
   }
 } finally {
   rmSync(workDir, { recursive: true, force: true })

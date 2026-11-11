@@ -4,9 +4,9 @@ import { FwbAlert } from '../../src/index'
 
 # Flowbite Vue - Quickstart
 
-Get started with Flowbite by including it into your project using NPM
+Get started with Flowbite Vue by installing it into your Vue 3 project with npm.
 
-Flowbite is a library of components built on top of the utility-classes from Tailwind CSS and it also includes a JavaScript file that makes interactive elements works, such as modals, dropdowns, and more. Learn how to get started by following this quickstart guide.
+Flowbite Vue is a library of Vue 3 components built with Tailwind CSS utility classes, following the Flowbite design system. Interactive components such as modals, dropdowns and tooltips are Vue components too, so there is no separate JavaScript file to load. Learn how to get started by following this quickstart guide.
 
 <br>
 
@@ -15,7 +15,7 @@ Using Nuxt? Flowbite Vue ships a dedicated module with component/composable auto
 :::
 
 ::: info
-Make sure that you have [Node.js](https://nodejs.org/en/) installed. Flowbite Vue requires version 18 or newer.
+Make sure that you have [Node.js](https://nodejs.org/en/) installed. Flowbite Vue requires version 22.12 or newer.
 ```bash
 node -v
 ```
@@ -23,7 +23,7 @@ node -v
 
 ### Install and configure TailwindCSS
 
-1. Install [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite) as part of `devDependencies`:
+1. Install [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite) v4.1 or newer as part of `devDependencies`:
 
 ```bash
 npm install -D tailwindcss @tailwindcss/vite
@@ -80,18 +80,29 @@ npm i flowbite-vue flowbite
 /* import Flowbite Vue styles */
 @import "flowbite-vue/index.css";
 
+/* generate the utility classes Flowbite Vue's components use */
+@import "flowbite-vue/tailwind.css";
+
 /* optional: Flowbite's theme and form styles for your own inputs */
 @import "flowbite/src/themes/default.css";
 @plugin "flowbite/plugin";
-
-/* generate the utility classes Flowbite Vue's components use */
-@source "../node_modules/flowbite-vue/dist";
 
 /* class-based dark mode, as Flowbite uses */
 @custom-variant dark (&:where(.dark, .dark *));
 ```
 
-`flowbite-vue/index.css` contains only the components' own CSS (transitions, animations, tooltip themes). Your Tailwind build generates the utility classes, so the `@source` path must point at `node_modules/flowbite-vue/dist`, relative to this CSS file.
+`flowbite-vue/index.css` contains only the components' own CSS (transitions, animations, tooltip themes). Your Tailwind build generates the utility classes; `flowbite-vue/tailwind.css` points it at Flowbite Vue's component sources.
+
+`flowbite-vue/index.css` puts its CSS in its own cascade layer, `components.flowbite-vue`, inside Tailwind's `components` layer. Your utility classes, including responsive ones such as `lg:mb-16`, always win over it, whichever file you import first, so you don't need to wrap the import in `layer(...)`.
+
+::: info
+`flowbite-vue/tailwind.css` needs Tailwind CSS v4.1 or newer. It doesn't work with a prefix (`@import "tailwindcss" prefix(tw);`): the components use unprefixed classes, and a prefixed build only generates prefixed ones. With a prefix, import `flowbite-vue/standalone.css` instead of `index.css` and `tailwind.css`. It brings the unprefixed utilities the components use, plus its own copy of Tailwind's preflight. Import it **before** Tailwind, so your utilities (for example `tw:rounded-none` on a component) and your base styles come after its copies in each layer and win over them:
+
+```css
+@import "flowbite-vue/standalone.css";
+@import "tailwindcss" prefix(tw);
+```
+:::
 
 Flowbite Vue's components don't need the Flowbite theme or plugin (or the `flowbite` package): they use Tailwind's own color palette (`bg-blue-700`, `text-gray-900`, …), not Flowbite's theme variables. The theme and plugin style your own plain `<input>`, `<select>` and `<textarea>` elements the Flowbite way. The plugin reads its colors from theme variables such as `--color-brand`, `--color-body`, `--color-default`, `--color-heading` and `--color-neutral-*`, which only a Flowbite theme defines, so add both or neither. The theme also changes some Tailwind defaults, such as the sans font and `rounded-lg`.
 
@@ -99,7 +110,7 @@ Flowbite Vue's components don't need the Flowbite theme or plugin (or the `flowb
 Not using Tailwind CSS? Import `flowbite-vue/standalone.css` instead: a prebuilt stylesheet with every utility class the components use. Before 0.5.0, `flowbite-vue/index.css` was that prebuilt stylesheet. If you imported it without running Tailwind over Flowbite Vue, switch to `standalone.css`.
 :::
 
-4. Now you can use **Flowbite Vue** anywhere in your project and build awesome interfaces:
+3. Now you can use **Flowbite Vue** anywhere in your project and build awesome interfaces:
 
 <div class="vp-raw">
   <fwb-alert type="success">

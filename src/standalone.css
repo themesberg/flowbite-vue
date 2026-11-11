@@ -3,5 +3,5 @@
 @import 'tailwindcss' source(none);
 /* Class-based dark mode, as Flowbite uses. */
 @custom-variant dark (&:where(.dark, .dark *));
-@source './components';
-@source not './components/**/tests';
+/* The same sources apps use via flowbite-vue/tailwind.css, so src/css.spec.ts covers both. */
+@import './tailwind.css';
