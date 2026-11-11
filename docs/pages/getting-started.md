@@ -68,10 +68,10 @@ Remember to `@reference` your main style in `<style>` blocks if you want to use 
 ```
 
 ### Install and configure Flowbite Vue
-1. Install **Flowbite** and **Flowbite Vue** as part of `dependencies`:
+1. Install **Flowbite Vue**, and optionally **Flowbite** for its theme and form styles (see below), as part of `dependencies`:
 
 ```bash
-npm i flowbite flowbite-vue
+npm i flowbite-vue flowbite
 ```
 
 2. Update `style.css` file

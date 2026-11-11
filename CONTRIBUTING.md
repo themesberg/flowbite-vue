@@ -43,8 +43,8 @@ This project keeps a [`CHANGELOG.md`](CHANGELOG.md) following [Keep a Changelog]
 `package.json` is published, so its dependency sections are part of what consumers install:
 
 - `dependencies`: only packages the built JS (`dist/`) imports at runtime. Use a caret range starting at the tested version (`^15.0.0`), never an exact version. An exact pin can't dedupe with the app's own copy, so every app upgrade nests a second copy under `flowbite-vue`.
-- `peerDependencies`: packages that must be a single instance shared with the app (`vue`), or that only an optional entry needs (`@nuxt/kit` for `flowbite-vue/nuxt`, marked optional in `peerDependenciesMeta`). Same caret rule.
-- `devDependencies`: everything used only to build, test, or document the library, including Tailwind CSS and `flowbite`. Exact versions are fine here.
+- `peerDependencies`: packages that must be a single instance shared with the app (`vue`), or that only an optional entry needs (`@nuxt/kit` for `flowbite-vue/nuxt`), or that apps may add next to the library and that it must stay compatible with (`flowbite`, whose plugin and themes the components are designed to work with). Mark the optional ones in `peerDependenciesMeta`. Same caret rule.
+- `devDependencies`: everything used only to build, test, or document the library, including Tailwind CSS. Exact versions are fine here.
 
 The lockfile pins exact versions for development. `npm run test:package` checks these rules, and `npm run test:pack` installs the packed tarball with production dependencies only and loads every built chunk.
 

@@ -90,6 +90,10 @@ const flatIndexCss = indexCss.replaceAll(/\s/g, '')
 for (const leak of ['border:0solid', ':root', '@layerbase', '@layerutilities', '@layertheme{']) {
   assert.ok(!flatIndexCss.includes(leak), `index.css has no Tailwind build output (${leak})`)
 }
+// #472: flowbite/plugin's form styles read theme tokens nothing defines.
+for (const leak of ['[type=radio]', '--color-brand', '.toggle-bg']) {
+  assert.ok(!flatIndexCss.includes(leak), `index.css has no flowbite/plugin output (${leak})`)
+}
 for (const marker of ['.to-bottom-enter-active', '.slide-left-enter-active', 'fwb-progress-indeterminate', '.fwb-range-input', '.fwb-checkbox:checked', '.fwb-radio:checked', '.v-popper--theme-tooltip', '.v-popper__popper']) {
   assert.ok(indexCss.includes(marker), `index.css contains component CSS (${marker})`)
 }
