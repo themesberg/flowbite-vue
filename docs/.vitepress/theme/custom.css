@@ -9,3 +9,4 @@
 @source '../../../';
 
 @import './clear.css';
+@import 'floating-vue/dist/style.css';

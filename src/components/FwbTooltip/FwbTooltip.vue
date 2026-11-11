@@ -19,7 +19,6 @@ import { Tooltip } from 'floating-vue'
 import { computed } from 'vue'
 
 import type { TooltipPlacement, TooltipStyle, TooltipTrigger } from './types'
-import 'floating-vue/dist/style.css'
 
 interface TooltipProps {
   placement?: TooltipPlacement
