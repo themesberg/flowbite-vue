@@ -46,7 +46,7 @@ That's it — components are ready to use anywhere in your app with no import st
 
 The module auto-injects Flowbite Vue's stylesheet into your Nuxt app, so no `@import "flowbite-vue/index.css"` is needed either. Pick the stylesheet with the `css` option:
 
-- `true` (default): `flowbite-vue/index.css`, the components' own CSS only, for apps running Tailwind CSS v4. Your Tailwind build generates the utility classes, so it has to scan Flowbite Vue's components.
+- `true` (default): `flowbite-vue/index.css`, the components' own CSS only, for apps running Tailwind CSS v4. Your Tailwind build generates the utility classes, so add `@import "flowbite-vue/tailwind.css";` after `@import "tailwindcss";` in your main CSS file.
 - `'standalone'`: `flowbite-vue/standalone.css`, a full Tailwind build plus the components' CSS, for apps without Tailwind CSS.
 - `false`: nothing, so you can import it yourself.
 
