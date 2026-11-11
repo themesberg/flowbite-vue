@@ -16,8 +16,10 @@ const src = (path: string) => resolve(srcDir, path)
 const runtimePackages = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)]
 const isExternal = (id: string) => runtimePackages.some(name => id === name || id.startsWith(`${name}/`))
 
-// Fails the build if any JS chunk still contains code from node_modules, for
-// example a new dependency that isn't in package.json yet.
+/**
+ * Fails the build if any JS chunk still contains code from node_modules, for
+ * example a new dependency that isn't in package.json yet.
+ */
 function noBundledDependencies (): Plugin {
   return {
     name: 'no-bundled-dependencies',
@@ -41,8 +43,10 @@ function noBundledDependencies (): Plugin {
 // Nuxt module registers these files too.
 const components = parseIndexExports(readFileSync(src('index.ts'), 'utf8'))
 
-// Types for `flowbite-vue/components/<Name>`: the main entry's declaration of
-// that component, at the path package.json "types" already points to.
+/**
+ * Emits the types for `flowbite-vue/components/<Name>`: the main entry's
+ * declaration of that component, at the path package.json "types" points to.
+ */
 function componentDeclarations (): Plugin {
   return {
     name: 'component-declarations',
@@ -58,9 +62,12 @@ function componentDeclarations (): Plugin {
   }
 }
 
-// Vite tags each chunk's CSS with a `/*$vite$:1*/` comment and removes only the
-// first one when `cssCodeSplit: false` merges several chunks into one file
-// (its cleanup regex has no `g` flag, Vite 8.3).
+/**
+ * Removes the `$vite$:1` marker comments Vite leaves in merged CSS. Vite tags
+ * each chunk's CSS with one and removes only the first when `cssCodeSplit:
+ * false` merges several chunks into one file (its cleanup regex has no `g`
+ * flag, Vite 8.3).
+ */
 function stripCssChunkMarkers (): Plugin {
   return {
     name: 'strip-css-chunk-markers',

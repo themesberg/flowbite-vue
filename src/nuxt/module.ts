@@ -14,6 +14,7 @@ export interface ModuleOptions {
   css?: boolean
 }
 
+/** Registers every public component for Nuxt auto-import, from its built entry. */
 function registerComponents (resolver: Resolver) {
   for (const { name, filePath: sourcePath } of nuxtComponents) {
     addComponent({
