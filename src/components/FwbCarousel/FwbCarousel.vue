@@ -1,7 +1,7 @@
 <template>
-  <div class="relative">
+  <div :class="wrapperClasses">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+    <div :class="slidesClasses">
       <!-- Item 1 -->
       <!-- duration-700 ease-in-out-->
       <div
@@ -84,9 +84,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, type PropType, ref } from 'vue'
+import { computed, onMounted, type PropType, ref, useAttrs } from 'vue'
 
 import type { PictureItem } from './types'
+import type { ClassInput } from '@/types/global'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const props = defineProps({
   pictures: {
@@ -115,7 +118,19 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  slidesClass: {
+    type: [String, Object, Array] as PropType<ClassInput>,
+    default: '',
+  },
 })
+
+const attrs = useAttrs()
+
+const wrapperClasses = computed(() => useMergeClasses(['relative', attrs.class as string]))
+const slidesClasses = computed(() => useMergeClasses([
+  'relative h-56 overflow-hidden rounded-lg sm:h-64 xl:h-80 2xl:h-96',
+  useMergeClasses(props.slidesClass),
+]))
 
 const currentPicture = ref(0)
 const direction = ref('')

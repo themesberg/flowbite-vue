@@ -211,6 +211,7 @@ import { FwbButton, FwbTooltip } from 'flowbite-vue'
 | placement | `'auto' \| 'auto-start' \| 'auto-end' \| 'top' \| 'top-start' \| 'top-end' \| 'bottom' \| 'bottom-start' \| 'bottom-end' \| 'right' \| 'right-start' \| 'right-end' \| 'left' \| 'left-start' \| 'left-end'` | `'top'` | Where the tooltip appears relative to its trigger element. |
 | theme     | `'dark' \| 'light'`                                                                                                                                                         | `'dark'` | Visual style of the tooltip bubble.                                          |
 | trigger   | `'hover' \| 'click'`                                                                                                                                                        | `'hover'` | Event that opens the tooltip.                                                |
+| class     | `String \| Object \| Array` | `''` | Merged onto the wrapper around the trigger, overriding conflicting defaults. |
 
 ### FwbTooltip Slots
 
