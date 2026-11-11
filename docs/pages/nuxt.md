@@ -50,7 +50,7 @@ The module auto-injects Flowbite Vue's stylesheet into your Nuxt app, so no `@im
 - `'standalone'`: `flowbite-vue/standalone.css`, a full Tailwind build plus the components' CSS, for apps without Tailwind CSS.
 - `false`: nothing, so you can import it yourself.
 
-If you need control over stylesheet load order (for example to resolve a Tailwind CSS cascade-layer conflict with your own app's styles), opt out via the `flowbiteVue` config key and import the stylesheet yourself through Nuxt's own `css` array — order it relative to your own styles as needed:
+To import the stylesheet yourself, for example to control where it loads relative to your own styles, set `css: false` and add it to Nuxt's own `css` array:
 
 ::: code-group
 
