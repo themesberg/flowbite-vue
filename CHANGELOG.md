@@ -22,7 +22,8 @@ versions predate this file and are not backfilled.
 - `flowbite-vue/tailwind.css`: a Tailwind CSS v4 source entry. Import it after `@import "tailwindcss";` (Tailwind CSS v4.1 or newer) so your Tailwind build generates the utilities Flowbite Vue's components use. It replaces the `@source "../node_modules/flowbite-vue/dist"` line, which scanned minified JavaScript and could miss classes.
 - `flowbite-vue/standalone.css`: the components' CSS together with a full Tailwind build (preflight, theme and every utility the components use), for apps that don't run Tailwind CSS. This is what `index.css` used to contain.
 - Nuxt module: `flowbiteVue: { css: 'standalone' }` injects `standalone.css`. The default (`css: true`) injects `index.css`.
-- `FwbButtonGroup`, `FwbCarousel` and `FwbTooltip` merge your `class` with their defaults, so a conflicting utility (for example `shadow-none` on a button group) replaces the default instead of competing with it. `FwbCard` accepts `class` as an object or array, and `FwbCard`'s `imgClass` and `FwbCarousel`'s `slidesClass` customize the card image and the slides container, including the carousel's fixed height (#244).
+- `FwbButtonGroup`, `FwbCarousel` and `FwbTooltip` merge your `class` with their defaults, so a conflicting utility (for example `shadow-none` on a button group) replaces the default instead of competing with it. `FwbCard` also accepts `class` as an object or array.
+- `FwbCard`: `imgClass` customizes the card image. `FwbCarousel`: `slidesClass` customizes the slides container, including its fixed height.
 - Per-component entries: `import FwbButton from 'flowbite-vue/components/FwbButton'`. Component auto-import resolvers (for example `unplugin-vue-components`) can point at these. They are the same modules the main entry exports, so you can mix both import styles. Styles still come from `flowbite-vue/index.css`.
 
 ### Changed
@@ -46,6 +47,7 @@ versions predate this file and are not backfilled.
 - `FwbAccordionPanel` no longer emits `hide` when it mounts closed. Before, every panel except the open one fired a `hide` event on first render even though it was never shown.
 - `FwbFileInput`: your own `hover:file:*` classes now replace the default hover color of the file selector button, and `dark:hover:file:*` classes replace it in dark mode. Before, the default gray hover always won, so custom hover colors were ignored.
 - `FwbCard`: your `class` now overrides conflicting defaults such as `shadow-md` or `rounded-lg`. A linked card (`href`) keeps its hover color when you pass an unrelated class. Before, any `class` removed the hover.
+- `FwbCard`: only a background color in your `class` (for example `bg-blue-50`) removes the default white and dark backgrounds. Before, any `bg-` class did, including `bg-cover` or `bg-gradient-to-r`, which left the card without a background color.
 - `FwbRadio`: a checked radio shows its dot again, in the color of its `text-*` class.
 - `FwbSelect`: with `underline`, the select now has only a bottom border when your app uses `flowbite/plugin`. Before, the plugin added a border on every side.
 
