@@ -4,18 +4,17 @@
     :data-panel-id="panelId"
     :class="accordionPanelClasses"
   >
-    <slot v-if="accordionId" />
+    <slot v-if="isRegistered" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { nanoid } from 'nanoid'
-import { computed, onMounted, type Ref, ref, watch } from 'vue'
+import { computed, inject, onMounted, provide, reactive, ref, useId, watch } from 'vue'
 
 import { useAccordionPanelClasses } from './composables/useAccordionPanelClasses'
-import { useAccordionState } from './composables/useAccordionState'
+import { ACCORDION_PANEL_KEY, ACCORDION_STATE_KEY } from './injection/config'
 
-import type { AccordionPanelProps, AccordionState } from './types'
+import type { AccordionPanel, AccordionPanelProps } from './types'
 
 const props = withDefaults(
   defineProps<AccordionPanelProps>(), {
@@ -23,37 +22,32 @@ const props = withDefaults(
   },
 )
 
-const {
-  getAccordionState,
-  getAccordionPanelState,
-} = useAccordionState()
-
 const panelRef = ref<HTMLDivElement>()
-const panelId = nanoid()
+const panelId = useId()
 
-const accordionId = ref()
-const accordionState = ref()
-const accordionPanelState = computed(() =>
-  (accordionState.value)
-    ? getAccordionPanelState({ accordionState: accordionState as Ref<AccordionState>, panelId })
-    : null,
-)
+const accordionState = inject(ACCORDION_STATE_KEY, null)
+const panelState = reactive<AccordionPanel>({
+  isVisible: false,
+  order: -1,
+})
+provide(ACCORDION_PANEL_KEY, panelState)
+
+const isRegistered = ref(false)
+
 const accordionPanelClasses = computed(() =>
   useAccordionPanelClasses({
-    isVisible: accordionPanelState.value?.isVisible ?? false,
+    isVisible: panelState.isVisible,
     props,
   }),
 )
-
-const isPanelVisible = computed(() => accordionPanelState.value?.isVisible)
 
 const emit = defineEmits<{
   show: []
   hide: []
 }>()
 
-watch(isPanelVisible, () => {
-  if (isPanelVisible.value) {
+watch(() => panelState.isVisible, (isVisible) => {
+  if (isVisible) {
     emit('show')
   } else {
     emit('hide')
@@ -61,18 +55,16 @@ watch(isPanelVisible, () => {
 })
 
 onMounted(() => {
-  accordionState.value = getAccordionState({ element: panelRef })
-
-  accordionId.value = accordionState.value.id
+  if (!accordionState) return
 
   const panelIndex = panelRef.value && panelRef.value.parentElement
     ? Array.from(panelRef.value.parentElement.children).indexOf(panelRef.value)
     : -1
 
-  accordionState.value.panels.push({
-    id: panelId,
-    isVisible: (!accordionState.value.collapsed && panelIndex === 0) ?? false,
-    order: panelIndex,
-  })
+  panelState.order = panelIndex
+  panelState.isVisible = !accordionState.collapsed && panelIndex === 0
+  accordionState.panels.push(panelState)
+
+  isRegistered.value = true
 })
 </script>

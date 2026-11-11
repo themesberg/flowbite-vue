@@ -18,13 +18,20 @@ versions predate this file and are not backfilled.
 ### Changed
 
 - Build tools are no longer installed into your app. `tailwindcss`, `@tailwindcss/vite`, `@tailwindcss/postcss`, `postcss-prefix-selector` and `flowbite` moved to `devDependencies`. Together with the `@nuxt/kit` change below, this removes about 60 packages from consumer installs, including a second copy of Tailwind CSS. If your CSS uses `@import "tailwindcss"` or `@plugin "flowbite/plugin"` and you never installed those packages yourself, install them as the getting-started guide describes: `npm install -D tailwindcss @tailwindcss/vite` and `npm i flowbite`.
-- Runtime dependencies (`@vueuse/core`, `@vueuse/integrations`, `floating-vue`, `lodash-es`, `nanoid`, `tailwind-merge`) use caret ranges instead of exact versions, so they dedupe with your app's own copies instead of nesting a second one.
+- Runtime dependencies (`@vueuse/core`, `floating-vue`, `focus-trap`, `tailwind-merge`) use caret ranges instead of exact versions, so they dedupe with your app's own copies instead of nesting a second one.
 - `@nuxt/kit` is now an optional peer dependency (`^4.0.0`), needed only by the Nuxt module (`flowbite-vue/nuxt`). Nuxt apps already have it; other apps no longer install it.
+
+### Removed
+
+- `@vueuse/integrations`, `nanoid` and `lodash-es` are no longer dependencies, so they are no longer installed into your app.
 
 ### Fixed
 
 - The Nuxt module's `FwbModal` failed to load with `Cannot find package 'focus-trap'` unless the app happened to install `focus-trap`. It is now a dependency of `flowbite-vue`.
 - `flowbite-vue/index.css` no longer ships about 150 utilities that only the docs site and component tests used (for example `mt-8`, `my-6`, `gap-4`, `grid-cols-2`, `size-full`, and a docs-only background image). These generic classes could collide with your own Tailwind utilities. If your own markup used any of them without your own Tailwind build, they now have to come from your build.
+- `FwbDropdown`: an `@click`, `@mouseenter`, `@mouseleave`, `@focus` or `@blur` handler on the trigger, or on a single root element in the dropdown content, ran twice per event. It now runs once. The same applies to `FwbSlotListener` used directly.
+- `FwbAccordion` server-rendered markup (Nuxt, Vite SSR) now has the same accordion and panel IDs as the client, so hydration no longer rewrites them.
+- `FwbAccordionPanel` no longer emits `hide` when it mounts closed. Before, every panel except the open one fired a `hide` event on first render even though it was never shown.
 - `FwbFileInput`: your own `hover:file:*` classes now replace the default hover color of the file selector button, and `dark:hover:file:*` classes replace it in dark mode. Before, the default gray hover always won, so custom hover colors were ignored.
 
 ## [0.4.0] - 2026-07-26

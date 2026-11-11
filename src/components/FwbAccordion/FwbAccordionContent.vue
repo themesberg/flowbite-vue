@@ -1,5 +1,5 @@
 <template>
-  <div ref="contentRef">
+  <div>
     <div
       v-if="isLoaded"
       :class="contentClasses"
@@ -10,12 +10,12 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, inject, onMounted, ref } from 'vue'
 
-import { useAccordionContentClasses } from './composables/useAccordionContentClasses'
-import { useAccordionState } from './composables/useAccordionState'
+import { getAccordionContentClasses } from './composables/getAccordionContentClasses'
+import { ACCORDION_PANEL_KEY, ACCORDION_STATE_KEY } from './injection/config'
 
-import type { AccordionContentProps, AccordionPanel } from './types'
+import type { AccordionContentProps } from './types'
 
 const props = withDefaults(
   defineProps<AccordionContentProps>(), {
@@ -24,22 +24,15 @@ const props = withDefaults(
   },
 )
 
-const { getAccordionState } = useAccordionState()
-
 const isLoaded = ref(false)
-const contentRef = ref<HTMLDivElement>()
-const accordionState = ref()
+const accordionState = inject(ACCORDION_STATE_KEY, null)
+const panelState = inject(ACCORDION_PANEL_KEY, null)
 
-const panelId = computed(() => (contentRef.value && contentRef.value.closest('[data-panel-id]') as HTMLElement)?.dataset.panelId)
-const panelState = computed(() => accordionState.value?.panels.find((panel: AccordionPanel) => panel.id === panelId.value))
-
-const contentClasses = computed(() => (accordionState.value && panelState.value)
-  ? useAccordionContentClasses(accordionState, panelState, props)
+const contentClasses = computed(() => (accordionState && panelState)
+  ? getAccordionContentClasses(accordionState, panelState, props)
   : null)
 
 onMounted(() => {
-  accordionState.value = getAccordionState({ element: contentRef })
-
   isLoaded.value = true
 })
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div ref="headerRef">
+  <div>
     <button
       v-if="isLoaded"
       :class="headerClasses"
@@ -20,12 +20,12 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, inject, onMounted, ref } from 'vue'
 
-import { useAccordionHeaderClasses } from './composables/useAccordionHeaderClasses'
-import { useAccordionState } from './composables/useAccordionState'
+import { getAccordionHeaderClasses } from './composables/getAccordionHeaderClasses'
+import { ACCORDION_PANEL_KEY, ACCORDION_STATE_KEY } from './injection/config'
 
-import type { AccordionHeaderProps, AccordionPanel } from './types'
+import type { AccordionHeaderProps } from './types'
 
 const props = withDefaults(
   defineProps<AccordionHeaderProps>(), {
@@ -34,41 +34,33 @@ const props = withDefaults(
   },
 )
 
-const { getAccordionState } = useAccordionState()
-
 const isLoaded = ref(false)
 
-const headerRef = ref<HTMLDivElement>()
+const accordionState = inject(ACCORDION_STATE_KEY, null)
+const panelState = inject(ACCORDION_PANEL_KEY, null)
 
-const accordionState = ref()
-
-const panelId = computed(() => (headerRef.value && headerRef.value.closest('[data-panel-id]') as HTMLElement)?.dataset.panelId)
-const panelState = computed(() => accordionState.value?.panels.find((panel: AccordionPanel) => panel.id === panelId.value))
-
-const classes = computed(() => (accordionState.value && panelState.value)
-  ? useAccordionHeaderClasses(accordionState, panelState, props)
+const classes = computed(() => (accordionState && panelState)
+  ? getAccordionHeaderClasses(accordionState, panelState, props)
   : null)
 
 const arrowClasses = computed(() => classes.value?.arrowClasses)
 const headerClasses = computed(() => classes.value?.headerClasses)
 
 onMounted(() => {
-  accordionState.value = getAccordionState({ element: headerRef })
-
   isLoaded.value = true
 })
 
 const togglePanel = () => {
-  if (accordionState.value.persistent) {
-    panelState.value.isVisible = !panelState.value?.isVisible
+  if (!accordionState || !panelState) return
+
+  if (accordionState.persistent) {
+    panelState.isVisible = !panelState.isVisible
     return
   }
 
-  const currentPanelVisibility = panelState.value.isVisible
-
-  accordionState.value.panels.forEach((panel: AccordionPanel) => {
-    if (panel.id !== panelId.value) panel.isVisible = false
-    else panel.isVisible = !currentPanelVisibility
+  const wasVisible = panelState.isVisible
+  accordionState.panels.forEach((panel) => {
+    panel.isVisible = panel === panelState ? !wasVisible : false
   })
 }
 </script>

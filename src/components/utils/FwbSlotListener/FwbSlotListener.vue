@@ -1,5 +1,4 @@
 <script lang="ts">
-import { pick } from 'lodash-es'
 import { defineComponent, type PropType, type VNode } from 'vue'
 
 import type { SlotListenerTrigger, TriggerEventHandlers } from './types'
@@ -14,27 +13,26 @@ const triggerEventMap: Record<SlotListenerTrigger, string[]> = {
   hover: ['onMouseenter', 'onMouseleave'],
 }
 
+const triggerEventNames = Object.values(triggerEventMap).flat() as (keyof TriggerEventHandlers)[]
+
+// Adds the listener's handlers to the trigger vnode, after any handlers the
+// trigger already has, so both run once per event.
 function appendEvents (
   vNode: VNode,
   events: TriggerEventHandlers,
 ): void {
-  Object.entries(triggerEventMap).forEach(([, eventNames]) => {
-    eventNames.forEach((eventName) => {
-      if (!vNode.props) vNode.props = {}
-      else {
-        vNode.props = Object.assign({}, vNode.props)
-      }
-      const originalHandler = vNode.props[eventName]
-      const handler = events[eventName as keyof typeof events]
-      if (!originalHandler) vNode.props[eventName] = handler
-      else {
-        vNode.props[eventName] = (...args: unknown[]) => {
+  const props: Record<string, unknown> = { ...vNode.props }
+  triggerEventNames.forEach((eventName) => {
+    const originalHandler = props[eventName] as ((...args: unknown[]) => void) | undefined
+    const handler = events[eventName] as (...args: unknown[]) => void
+    props[eventName] = originalHandler
+      ? (...args: unknown[]) => {
           originalHandler(...args)
-          if (handler) (handler as (...args: unknown[]) => void)(...args)
+          handler(...args)
         }
-      }
-    })
+      : handler
   })
+  vNode.props = props
 }
 
 export default defineComponent({
@@ -46,91 +44,20 @@ export default defineComponent({
     },
   },
   emits: ['click', 'focus', 'blur', 'mouseenter', 'mouseleave'],
-  setup (props, { emit }) {
-    const handleFocus = (e: FocusEvent) => {
-      emit('focus', e)
-    }
-    const handleBlur = (e: FocusEvent) => {
-      emit('blur', e)
-    }
-    const handleClick = (e: MouseEvent) => {
-      emit('click', e)
-    }
-    const handleMouseEnter = (e: MouseEvent) => {
-      emit('mouseenter', e)
-    }
-    const handleMouseLeave = (e: MouseEvent) => {
-      emit('mouseleave', e)
+  setup (_props, { emit, slots }) {
+    const handlers: TriggerEventHandlers = {
+      onClick: e => emit('click', e),
+      onMouseenter: e => emit('mouseenter', e),
+      onMouseleave: e => emit('mouseleave', e),
+      onFocus: e => emit('focus', e),
+      onBlur: e => emit('blur', e),
     }
 
-    return {
-      handleClick,
-      handleBlur,
-      handleFocus,
-      handleMouseLeave,
-      handleMouseEnter,
+    return () => {
+      const triggerVNode = getFirstSlotVNode(slots, 'default')
+      if (triggerVNode) appendEvents(triggerVNode, handlers)
+      return triggerVNode
     }
-  },
-  render () {
-    const {
-      $slots,
-    } = this
-
-    const handlers = {
-      onClick: this.handleClick,
-      onMouseenter: this.handleMouseEnter,
-      onMouseleave: this.handleMouseLeave,
-      onFocus: this.handleFocus,
-      onBlur: this.handleBlur,
-    }
-
-    const triggerVNode = getFirstSlotVNode($slots, 'default')
-
-    const ascendantAndCurrentHandlers: TriggerEventHandlers[] = [
-      handlers,
-    ]
-    if (triggerVNode?.props) {
-      ascendantAndCurrentHandlers.push(
-        pick(triggerVNode.props, 'onClick', 'onMouseenter', 'onMouseleave', 'onFocus', 'onBlur'),
-      )
-    }
-
-    const mergedHandlers: TriggerEventHandlers = {
-      onBlur: (e: FocusEvent) => {
-        ascendantAndCurrentHandlers.forEach((_handlers) => {
-          _handlers?.onBlur?.(e)
-        })
-      },
-      onFocus: (e: FocusEvent) => {
-        ascendantAndCurrentHandlers.forEach((_handlers) => {
-          _handlers?.onFocus?.(e)
-        })
-      },
-      onClick: (e: MouseEvent) => {
-        ascendantAndCurrentHandlers.forEach((_handlers) => {
-          _handlers?.onClick?.(e)
-        })
-      },
-      onMouseenter: (e: MouseEvent) => {
-        ascendantAndCurrentHandlers.forEach((_handlers) => {
-          _handlers?.onMouseenter?.(e)
-        })
-      },
-      onMouseleave: (e: MouseEvent) => {
-        ascendantAndCurrentHandlers.forEach((_handlers) => {
-          _handlers?.onMouseleave?.(e)
-        })
-      },
-    }
-
-    if (triggerVNode) {
-      appendEvents(
-        triggerVNode,
-        mergedHandlers,
-      )
-    }
-
-    return triggerVNode
   },
 })
 </script>

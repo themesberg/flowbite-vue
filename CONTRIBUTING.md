@@ -42,7 +42,7 @@ This project keeps a [`CHANGELOG.md`](CHANGELOG.md) following [Keep a Changelog]
 
 `package.json` is published, so its dependency sections are part of what consumers install:
 
-- `dependencies`: only packages the built JS (`dist/`) imports at runtime, plus any optional peer those packages need for the subpaths we use (`focus-trap` for `@vueuse/integrations/useFocusTrap`, listed in `peersOfDependencies` in `scripts/check-package.mjs`). Use a caret range starting at the tested version (`^15.0.0`), never an exact version. An exact pin can't dedupe with the app's own copy, so every app upgrade nests a second copy under `flowbite-vue`.
+- `dependencies`: only packages the built JS (`dist/`) imports at runtime. Use a caret range starting at the tested version (`^15.0.0`), never an exact version. An exact pin can't dedupe with the app's own copy, so every app upgrade nests a second copy under `flowbite-vue`.
 - `peerDependencies`: packages that must be a single instance shared with the app (`vue`), or that only an optional entry needs (`@nuxt/kit` for `flowbite-vue/nuxt`, marked optional in `peerDependenciesMeta`). Same caret rule.
 - `devDependencies`: everything used only to build, test, or document the library, including Tailwind CSS and `flowbite`. Exact versions are fine here.
 

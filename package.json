@@ -83,11 +83,8 @@
   },
   "dependencies": {
     "@vueuse/core": "^15.0.0",
-    "@vueuse/integrations": "^15.0.0",
     "floating-vue": "^5.4.0",
     "focus-trap": "^7.8.0",
-    "lodash-es": "^4.18.1",
-    "nanoid": "^6.0.2",
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
@@ -97,7 +94,6 @@
     "@stylistic/eslint-plugin": "5.10.0",
     "@tailwindcss/postcss": "4.3.4",
     "@tailwindcss/vite": "4.3.4",
-    "@types/lodash-es": "4.17.12",
     "@types/node": "26.6.6",
     "@vitejs/plugin-vue": "6.0.10",
     "@vitest/coverage-v8": "5.1.0",

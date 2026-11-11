@@ -8,16 +8,15 @@
 </template>
 
 <script lang="ts" setup>
-import { nanoid } from 'nanoid'
-import { computed } from 'vue'
+import { computed, provide, reactive, useId } from 'vue'
 
-import { useAccordionState } from './composables/useAccordionState'
+import { ACCORDION_STATE_KEY } from './injection/config'
 
-import type { AccordionProps } from './types'
+import type { AccordionProps, AccordionState } from './types'
 
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
-const accordionId = nanoid()
+const accordionId = useId()
 
 const props = withDefaults(
   defineProps<AccordionProps>(), {
@@ -36,5 +35,10 @@ const accordionClasses = computed(() => useMergeClasses([
   userClasses.value as string,
 ]))
 
-useAccordionState(accordionId, { ...props })
+provide(ACCORDION_STATE_KEY, reactive<AccordionState>({
+  collapsed: props.collapsed,
+  flushed: props.flushed,
+  persistent: props.persistent,
+  panels: [],
+}))
 </script>

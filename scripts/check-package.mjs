@@ -49,11 +49,8 @@ const exactPins = Object.entries(runtimeRanges)
 assert.deepEqual(exactPins, [], 'dependencies and peerDependencies use ranges, not exact versions')
 
 // The reverse: every dependency must be imported by dist, so build tools and
-// leftovers can't ship to consumers. The only exceptions are optional peers
-// of a dependency that a subpath we import needs.
-const peersOfDependencies = new Set(['focus-trap']) // @vueuse/integrations/useFocusTrap
-const unused = Object.keys(pkg.dependencies)
-  .filter(name => !importedPackages.has(name) && !peersOfDependencies.has(name))
+// leftovers can't ship to consumers.
+const unused = Object.keys(pkg.dependencies).filter(name => !importedPackages.has(name))
 assert.deepEqual(unused, [], 'every dependency is imported by dist')
 
 // Only the Nuxt module needs @nuxt/kit, so apps without Nuxt don't install it.

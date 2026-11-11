@@ -114,7 +114,6 @@
 </template>
 
 <script setup lang="ts">
-import { isArray } from 'lodash-es'
 import { computed, toRefs } from 'vue'
 
 import { useFileInputClasses } from './composables/useFileInputClasses'
@@ -157,7 +156,7 @@ const props = withDefaults(defineProps<FileInputProps>(), {
 const model = defineModel<File | File[] | null>({ default: null })
 
 const dropZoneText = computed(() => {
-  if (isArray(model.value)) {
+  if (Array.isArray(model.value)) {
     return model.value.map(el => el.name).join(', ')
   } else if (model.value instanceof File) {
     return model.value.name || ''
