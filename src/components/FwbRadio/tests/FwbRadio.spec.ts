@@ -82,6 +82,21 @@ describe('FwbRadio', () => {
     })
   })
 
+  // #472: no global form base styles to rely on.
+  describe('self-styled control', () => {
+    it('draws its own circle and fills the checked state with the text color', () => {
+      const classes = mount(FwbRadio).find('input[type="radio"]').classes()
+      expect(classes).toEqual(expect.arrayContaining([
+        'fwb-radio', 'appearance-none', 'border', 'rounded-full', 'checked:bg-current', 'checked:border-current', 'text-blue-600',
+      ]))
+    })
+
+    it('hides the dot flowbite/plugin draws in ::before and ::after, which ignores the text color', () => {
+      const classes = mount(FwbRadio).find('input[type="radio"]').classes()
+      expect(classes).toEqual(expect.arrayContaining(['before:content-none', 'after:content-none']))
+    })
+  })
+
   describe('styling props', () => {
     it('applies class prop to the radio input', () => {
       const wrapper = mount(FwbRadio, { props: { class: 'text-red-500' } })

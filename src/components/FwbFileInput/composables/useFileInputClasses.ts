@@ -14,11 +14,12 @@ const defaultHelperClasses = 'mt-2 text-gray-500 dark:text-gray-400 text-sm'
 
 const disabledInputClasses = 'cursor-not-allowed opacity-50'
 
+// `file:ms-0` undoes the -1rem start margin flowbite/plugin gives the button when an app uses it.
 const inputSizeClasses: Record<FormElementSize, string> = {
-  sm: 'p-0 text-sm file:mr-2.5 file:pl-6.5 file:pr-2.5 file:py-2 file:text-sm',
-  md: 'p-0 text-sm file:mr-3 file:pl-7 file:pr-3 file:py-2.5 file:text-sm',
-  lg: 'p-0 text-base file:mr-3.5 file:pl-7.5 file:pr-3.5 file:py-3 file:text-base',
-  xl: 'p-0 text-base file:mr-4 file:pl-8 file:pr-4 file:py-3.5 file:text-base',
+  sm: 'p-0 text-sm file:ms-0 file:mr-2.5 file:px-2.5 file:py-2 file:text-sm',
+  md: 'p-0 text-sm file:ms-0 file:mr-3 file:px-3 file:py-2.5 file:text-sm',
+  lg: 'p-0 text-base file:ms-0 file:mr-3.5 file:px-3.5 file:py-3 file:text-base',
+  xl: 'p-0 text-base file:ms-0 file:mr-4 file:px-4 file:py-3.5 file:text-base',
 }
 
 const errorInputClasses = 'bg-rose-50 border-rose-200 focus:ring-rose-500 focus:border-rose-500 dark:border-rose-500 dark:focus:ring-rose-500 text-rose-900 dark:text-rose-500'

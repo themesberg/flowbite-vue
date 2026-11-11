@@ -58,3 +58,14 @@ const { labelClass, radioClass, wrapperClass } = useRadioClasses({
   validationStatus: groupValidationStatus,
 })
 </script>
+
+<style>
+/* The dot as an image: an SVG data-URI is too long for a utility. */
+.fwb-radio:checked {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  print-color-adjust: exact;
+}
+</style>

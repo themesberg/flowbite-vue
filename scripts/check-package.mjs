@@ -90,7 +90,7 @@ const flatIndexCss = indexCss.replaceAll(/\s/g, '')
 for (const leak of ['border:0solid', ':root', '@layerbase', '@layerutilities', '@layertheme{']) {
   assert.ok(!flatIndexCss.includes(leak), `index.css has no Tailwind build output (${leak})`)
 }
-for (const marker of ['.to-bottom-enter-active', '.slide-left-enter-active', 'fwb-progress-indeterminate', '.fwb-range-input', '.v-popper--theme-tooltip', '.v-popper__popper']) {
+for (const marker of ['.to-bottom-enter-active', '.slide-left-enter-active', 'fwb-progress-indeterminate', '.fwb-range-input', '.fwb-checkbox:checked', '.fwb-radio:checked', '.v-popper--theme-tooltip', '.v-popper__popper']) {
   assert.ok(indexCss.includes(marker), `index.css contains component CSS (${marker})`)
 }
 

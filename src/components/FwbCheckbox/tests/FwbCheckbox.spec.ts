@@ -171,6 +171,16 @@ describe('FwbCheckbox', () => {
     })
   })
 
+  // #472: no global form base styles to rely on.
+  describe('self-styled control', () => {
+    it('draws its own box and fills the checked state with the text color', () => {
+      const classes = mount(FwbCheckbox).find('input[type="checkbox"]').classes()
+      expect(classes).toEqual(expect.arrayContaining([
+        'fwb-checkbox', 'appearance-none', 'border', 'checked:bg-current', 'checked:border-current', 'text-blue-600',
+      ]))
+    })
+  })
+
   describe('styling props', () => {
     it('applies class prop to the checkbox input', () => {
       const wrapper = mount(FwbCheckbox, { props: { class: 'border-2' } })

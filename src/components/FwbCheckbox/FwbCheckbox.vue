@@ -76,3 +76,20 @@ const {
   wrapperClass,
 } = useCheckboxClasses(toRefs(props))
 </script>
+
+<style>
+/* The checkmark and dash as images: an SVG data-URI is too long for a utility. */
+.fwb-checkbox:checked,
+.fwb-checkbox:indeterminate {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 0.75em 0.75em;
+  print-color-adjust: exact;
+}
+.fwb-checkbox:checked {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M5 11.917 9.724 16.5 19 7.5'/%3e%3c/svg%3e");
+}
+.fwb-checkbox:indeterminate {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-width='3' d='M3 8h10'/%3e%3c/svg%3e");
+}
+</style>
