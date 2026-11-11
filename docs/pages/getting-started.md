@@ -82,9 +82,19 @@ npm i flowbite flowbite-vue
 
 /* import Flowbite plugin */
 @plugin "flowbite/plugin";
+
+/* generate the utility classes Flowbite Vue's components use */
+@source "../node_modules/flowbite-vue/dist";
+
+/* class-based dark mode, as Flowbite uses */
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
-`flowbite-vue/index.css` is a prebuilt, self-contained stylesheet — it already includes every utility class Flowbite Vue's components use, so there's no need to add a `@source` directive pointing at `node_modules/flowbite-vue`.
+`flowbite-vue/index.css` contains only the components' own CSS (transitions, animations, tooltip themes). Your Tailwind build generates the utility classes, so the `@source` path must point at `node_modules/flowbite-vue/dist`, relative to this CSS file.
+
+::: info
+Not using Tailwind CSS? Import `flowbite-vue/standalone.css` instead: a prebuilt stylesheet with every utility class the components use. Before 0.5.0, `flowbite-vue/index.css` was that prebuilt stylesheet. If you imported it without running Tailwind over Flowbite Vue, switch to `standalone.css`.
+:::
 
 4. Now you can use **Flowbite Vue** anywhere in your project and build awesome interfaces:
 

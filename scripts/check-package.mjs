@@ -71,6 +71,33 @@ for (const name of componentNames) {
   assert.equal(component, esmExports[name], `flowbite-vue/components/${name} is the component flowbite-vue exports`)
 }
 
+// The two stylesheets (#467), see `cssEntries` in vite.config.ts.
+/** Reads the CSS file a package.json export points at, without comments. */
+const readCss = (exportPath) => {
+  const target = pkg.exports[exportPath]
+  assert.ok(target, `package.json exports "${exportPath}"`)
+  return readFileSync(new URL(`../${target}`, import.meta.url), 'utf8').replaceAll(/\/\*[\s\S]*?\*\//g, '').trim()
+}
+const indexCss = readCss('./index.css')
+const standaloneCss = readCss('./standalone.css')
+
+const layerOrder = /^@layer theme,\s*base,\s*components,\s*utilities;/
+assert.match(indexCss, layerOrder, 'index.css starts with Tailwind\'s layer order')
+const componentLayer = indexCss.replace(layerOrder, '').trim()
+assert.ok(componentLayer.startsWith('@layer components.flowbite-vue'), 'index.css puts everything else in @layer components.flowbite-vue')
+assert.equal(componentLayer.match(/@layer components\.flowbite-vue/g).length, 1, 'index.css has a single components.flowbite-vue block')
+const flatIndexCss = indexCss.replaceAll(/\s/g, '')
+for (const leak of ['border:0solid', ':root', '@layerbase', '@layerutilities', '@layertheme{']) {
+  assert.ok(!flatIndexCss.includes(leak), `index.css has no Tailwind build output (${leak})`)
+}
+for (const marker of ['.to-bottom-enter-active', '.slide-left-enter-active', 'fwb-progress-indeterminate', '.fwb-range-input', '.v-popper--theme-tooltip', '.v-popper__popper']) {
+  assert.ok(indexCss.includes(marker), `index.css contains component CSS (${marker})`)
+}
+
+assert.ok(standaloneCss.includes('border:0 solid'), 'standalone.css includes preflight')
+assert.match(standaloneCss, /\.bg-blue-700\s*\{/, 'standalone.css includes the components\' utilities')
+assert.ok(standaloneCss.includes(componentLayer), 'standalone.css includes the component CSS from index.css')
+
 // Only the Nuxt module needs @nuxt/kit, so apps without Nuxt don't install it.
 assert.equal(pkg.peerDependenciesMeta?.['@nuxt/kit']?.optional, true, '@nuxt/kit is an optional peer')
 assert.ok(!('@nuxt/kit' in pkg.dependencies), '@nuxt/kit is not a dependency')

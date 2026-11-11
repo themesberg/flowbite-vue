@@ -6,12 +6,15 @@ import type { Nuxt } from '@nuxt/schema'
 
 export interface ModuleOptions {
   /**
-   * Auto-inject flowbite-vue's prebuilt stylesheet into the Nuxt app.
-   * Set to `false` if you need control over stylesheet load order (e.g. to
-   * resolve a Tailwind CSS cascade-layer conflict with your own app's styles).
+   * Which flowbite-vue stylesheet to auto-inject into the Nuxt app:
+   * - `true`: `index.css`, the components' own CSS, for apps running
+   *   Tailwind v4 (their Tailwind generates the utilities).
+   * - `'standalone'`: `standalone.css`, a full Tailwind build plus the
+   *   components' CSS, for apps without Tailwind.
+   * - `false`: none, to import it yourself and control the load order.
    * @default true
    */
-  css?: boolean
+  css?: boolean | 'standalone'
 }
 
 /** Registers every public component for Nuxt auto-import, from its built entry. */
@@ -45,16 +48,15 @@ function registerToastImport (resolver: Resolver) {
   })
 }
 
-function injectCss (resolver: Resolver, nuxt: Nuxt) {
-  // No Tailwind Vite-plugin composition here: flowbite-vue's own build
-  // already ran `@tailwindcss/vite` at publish time (see `vite.config.ts`),
-  // producing a fully compiled `dist/index.css` with nothing left for a
-  // second Tailwind pass to (re)process. `resolver.resolve` (rather than a
-  // bare `'flowbite-vue/index.css'` specifier) resolves relative to this
-  // module's own file location at runtime, so it finds the sibling
-  // `dist/index.css` correctly whether loaded from a published
-  // node_modules install or a local/linked dev checkout.
-  nuxt.options.css.push(resolver.resolve('./index.css'))
+/**
+ * Adds flowbite-vue's stylesheet to the app: `index.css`, or `standalone.css`
+ * for `css: 'standalone'`. `resolver.resolve` (rather than a bare
+ * `'flowbite-vue/index.css'` specifier) finds the sibling file in `dist`
+ * whether loaded from a published node_modules install or a local/linked
+ * dev checkout.
+ */
+function injectCss (resolver: Resolver, nuxt: Nuxt, css: true | 'standalone') {
+  nuxt.options.css.push(resolver.resolve(css === 'standalone' ? './standalone.css' : './index.css'))
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -72,7 +74,7 @@ export default defineNuxtModule<ModuleOptions>({
     registerToastImport(resolver)
 
     if (options.css) {
-      injectCss(resolver, nuxt)
+      injectCss(resolver, nuxt, options.css)
     }
   },
 })

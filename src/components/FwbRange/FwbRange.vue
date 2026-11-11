@@ -77,11 +77,12 @@ const {
 </script>
 
 <style lang="css">
+/* Literal fallback: an app's Tailwind only defines --color-blue-500 if it uses it. */
 .fwb-range-input::-moz-range-thumb {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: var(--fwb-range-thumb-color, var(--color-blue-500));
+  background-color: var(--fwb-range-thumb-color, var(--color-blue-500, oklch(62.3% 0.214 259.815)));
   border: none;
   border-radius: 9999px;
 }
@@ -89,7 +90,7 @@ const {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: var(--fwb-range-thumb-color, var(--color-blue-500));
+  background-color: var(--fwb-range-thumb-color, var(--color-blue-500, oklch(62.3% 0.214 259.815)));
   border: none;
   border-radius: 9999px;
 }

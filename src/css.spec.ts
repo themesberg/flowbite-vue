@@ -2,24 +2,19 @@
 import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 
-import tailwindcss from '@tailwindcss/postcss'
-import postcss from 'postcss'
 import { beforeAll, describe, expect, it } from 'vitest'
 
-// Compiles src/style.css with Tailwind (via its PostCSS plugin; the package
-// build uses the Vite plugin, which runs the same compiler), so these
-// assertions describe the utilities that ship in dist/index.css.
+import { compileStandaloneCss } from '../scripts/compile-standalone-css.mjs'
+
+// The same compile the build uses for dist/standalone.css, so these
+// assertions describe the utilities that ship.
 const srcDir = import.meta.dirname
 const rootDir = path.resolve(srcDir, '..')
-const stylePath = path.join(srcDir, 'style.css')
 
 let compiledCss = ''
 
 beforeAll(async () => {
-  const source = await readFile(stylePath, 'utf8')
-  const result = await postcss([tailwindcss({ base: rootDir })])
-    .process(source, { from: stylePath })
-  compiledCss = result.css
+  compiledCss = await compileStandaloneCss()
 }, 60_000)
 
 // Guards against a fixture disappearing, which would make a `not.toContain`
@@ -28,10 +23,17 @@ async function expectFixture (file: string, candidate: string) {
   expect(await readFile(path.join(rootDir, file), 'utf8')).toContain(candidate)
 }
 
-describe('style.css', () => {
+describe('standalone.css', () => {
   it('compiles dark: utilities as a class-based variant, not a media query', () => {
     expect(compiledCss).not.toContain('prefers-color-scheme')
     expect(compiledCss).toMatch(/\.dark\\:bg-gray-700:where\(\.dark,\s*\.dark \*\)/)
+  })
+
+  // Why these are utilities: see FwbButtonGroup.vue.
+  it('generates FwbButtonGroup\'s child radius utilities', () => {
+    expect(compiledCss).toContain('.\\[\\&\\>button\\]\\:rounded-none>button{')
+    expect(compiledCss).toContain('.\\[\\&\\>button\\:first-child\\]\\:rounded-l-lg>button:first-child{')
+    expect(compiledCss).toContain('.\\[\\&\\>\\.fwb-dropdown\\:last-child_button\\]\\:rounded-r-lg>.fwb-dropdown:last-child button{')
   })
 
   it('does not pick up utilities that only the docs use', async () => {

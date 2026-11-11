@@ -1,11 +1,11 @@
 import { readFileSync } from 'fs'
 import { resolve } from 'path'
 
-import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig, type Plugin } from 'vite'
 
 import pkg from './package.json' with { type: 'json' }
+import { compileStandaloneCss } from './scripts/compile-standalone-css.mjs'
 import { parseIndexExports } from './src/nuxt/codegen/parse-index-exports.mjs'
 
 const srcDir = resolve(import.meta.dirname, 'src')
@@ -82,14 +82,37 @@ function stripCssChunkMarkers (): Plugin {
   }
 }
 
+/**
+ * Builds the two published stylesheets (#467) from the merged component CSS:
+ * - index.css, for apps running Tailwind v4: the component CSS in
+ *   `@layer components.flowbite-vue`, after Tailwind's own layer order, so it
+ *   sits above preflight and below utilities whichever file is imported first.
+ * - standalone.css, for apps without Tailwind: a full Tailwind build of
+ *   src/standalone.css followed by index.css.
+ */
+function cssEntries (): Plugin {
+  return {
+    name: 'css-entries',
+    enforce: 'post',
+    async generateBundle (_options, bundle) {
+      const index = bundle['index.css']
+      if (index?.type !== 'asset' || typeof index.source !== 'string') this.error('index.css missing from the bundle')
+      if (/@(import|charset)\b/.test(index.source)) this.error('index.css has an @import or @charset that cannot go inside @layer')
+      index.source = `@layer theme, base, components, utilities;\n@layer components.flowbite-vue {\n${index.source}}\n`
+
+      this.emitFile({ type: 'asset', fileName: 'standalone.css', source: `${await compileStandaloneCss()}\n${index.source}` })
+    },
+  }
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    tailwindcss(),
     componentDeclarations(),
     noBundledDependencies(),
     stripCssChunkMarkers(),
+    cssEntries(),
   ],
   resolve: {
     alias: {

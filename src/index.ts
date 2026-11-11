@@ -1,4 +1,4 @@
-import './style.css'
+import './index.css'
 
 export { default as FwbAccordion } from '@/components/FwbAccordion/FwbAccordion.vue'
 export { default as FwbAccordionContent } from '@/components/FwbAccordion/FwbAccordionContent.vue'
