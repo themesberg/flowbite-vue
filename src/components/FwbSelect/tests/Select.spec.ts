@@ -181,6 +181,15 @@ describe('FwbSelect', () => {
     })
   })
 
+  // #472: no global form base styles to hide the native arrow.
+  it('hides the native arrow, so only its own chevron shows', () => {
+    expect(mount(FwbSelect).find('select').classes()).toContain('appearance-none')
+  })
+
+  it('underline draws only the bottom border, even when flowbite/plugin borders every select', () => {
+    expect(mount(FwbSelect, { props: { underline: true } }).find('select').classes()).toEqual(expect.arrayContaining(['border-0', 'border-b-2']))
+  })
+
   describe('size classes', () => {
     it('sm and xl apply different padding to the select', () => {
       const sm = mount(FwbSelect, { props: { size: 'sm' } })

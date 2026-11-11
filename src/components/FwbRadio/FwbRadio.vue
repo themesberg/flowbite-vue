@@ -58,3 +58,19 @@ const { labelClass, radioClass, wrapperClass } = useRadioClasses({
   validationStatus: groupValidationStatus,
 })
 </script>
+
+<style>
+/* The dot as a gradient, not a data-URI image, so a strict img-src CSP can't block it. */
+.fwb-radio:checked {
+  background-image: radial-gradient(circle closest-side, white 37.5%, transparent 40%);
+  print-color-adjust: exact;
+}
+/* Forced colors replace the fill with the system background, so checked and
+   unchecked would look the same. The native control (`forced-colors:appearance-auto`)
+   draws in system colors; drop the image it would otherwise sit under. */
+@media (forced-colors: active) {
+  .fwb-radio:checked {
+    background-image: none;
+  }
+}
+</style>

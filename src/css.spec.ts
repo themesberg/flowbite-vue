@@ -36,6 +36,14 @@ describe('standalone.css', () => {
     expect(compiledCss).toContain('.\\[\\&\\>\\.fwb-dropdown\\:last-child_button\\]\\:rounded-r-lg>.fwb-dropdown:last-child button{')
   })
 
+  // #472: form controls style themselves; the plugin's base styles read
+  // Flowbite theme tokens that nothing defines.
+  it('ships no flowbite/plugin base styles', () => {
+    expect(compiledCss).not.toContain('[type=radio]:checked')
+    expect(compiledCss).not.toContain('var(--color-brand)')
+    expect(compiledCss).not.toContain('.toggle-bg')
+  })
+
   it('does not pick up utilities that only the docs use', async () => {
     await expectFixture(
       'docs/components/jumbotron/examples/FwbJumbotronBackgroundImageExample.vue',

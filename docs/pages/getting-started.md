@@ -68,10 +68,10 @@ Remember to `@reference` your main style in `<style>` blocks if you want to use 
 ```
 
 ### Install and configure Flowbite Vue
-1. Install **Flowbite** and **Flowbite Vue** as part of `dependencies`:
+1. Install **Flowbite Vue**, and optionally **Flowbite** for its theme and form styles (see below), as part of `dependencies`:
 
 ```bash
-npm i flowbite flowbite-vue
+npm i flowbite-vue flowbite
 ```
 
 2. Update `style.css` file
@@ -80,7 +80,8 @@ npm i flowbite flowbite-vue
 /* import Flowbite Vue styles */
 @import "flowbite-vue/index.css";
 
-/* import Flowbite plugin */
+/* optional: Flowbite's theme and form styles for your own inputs */
+@import "flowbite/src/themes/default.css";
 @plugin "flowbite/plugin";
 
 /* generate the utility classes Flowbite Vue's components use */
@@ -91,6 +92,8 @@ npm i flowbite flowbite-vue
 ```
 
 `flowbite-vue/index.css` contains only the components' own CSS (transitions, animations, tooltip themes). Your Tailwind build generates the utility classes, so the `@source` path must point at `node_modules/flowbite-vue/dist`, relative to this CSS file.
+
+Flowbite Vue's components don't need the Flowbite theme or plugin (or the `flowbite` package): they use Tailwind's own color palette (`bg-blue-700`, `text-gray-900`, …), not Flowbite's theme variables. The theme and plugin style your own plain `<input>`, `<select>` and `<textarea>` elements the Flowbite way. The plugin reads its colors from theme variables such as `--color-brand`, `--color-body`, `--color-default`, `--color-heading` and `--color-neutral-*`, which only a Flowbite theme defines, so add both or neither. The theme also changes some Tailwind defaults, such as the sans font and `rounded-lg`.
 
 ::: info
 Not using Tailwind CSS? Import `flowbite-vue/standalone.css` instead: a prebuilt stylesheet with every utility class the components use. Before 0.5.0, `flowbite-vue/index.css` was that prebuilt stylesheet. If you imported it without running Tailwind over Flowbite Vue, switch to `standalone.css`.

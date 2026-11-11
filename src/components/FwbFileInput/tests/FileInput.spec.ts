@@ -136,11 +136,12 @@ describe('FwbFileInput', () => {
   })
 
   describe('size classes', () => {
-    it('sm and xl apply different padding to the input', () => {
-      const sm = mount(FwbFileInput, { props: { size: 'sm' } })
-      const xl = mount(FwbFileInput, { props: { size: 'xl' } })
-      expect(sm.find('input[type="file"]').classes()).toContain('file:pr-2.5')
-      expect(xl.find('input[type="file"]').classes()).toContain('file:pr-4')
+    // The extra start padding used to make up for flowbite/plugin's -1rem
+    // start margin on the button, which is gone (#472).
+    it.each([['sm', '2.5'], ['md', '3'], ['lg', '3.5'], ['xl', '4']] as const)('%s gives the file button equal start and end padding', (size, padding) => {
+      const classes = mount(FwbFileInput, { props: { size } }).find('input[type="file"]').classes()
+      expect(classes).toEqual(expect.arrayContaining(['file:ms-0', `file:px-${padding}`]))
+      expect(classes.filter(c => /^file:p[lr]-/.test(c))).toEqual([])
     })
   })
 

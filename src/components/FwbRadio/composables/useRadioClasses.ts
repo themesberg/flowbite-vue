@@ -3,7 +3,10 @@ import { computed, type Ref } from 'vue'
 import { useMergeClasses } from '@/composables/useMergeClasses'
 import { type ValidationStatus, validationStatusMap } from '@/types/form'
 
-const defaultRadioClasses = 'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed'
+// The checked fill is the text color, so a `text-*` class recolors it. The
+// dot image is in FwbRadio.vue's <style> (`fwb-radio`). `before:`/`after:`
+// hide the dot flowbite/plugin draws when an app uses it.
+const defaultRadioClasses = 'fwb-radio appearance-none forced-colors:appearance-auto before:content-none after:content-none w-4 h-4 text-blue-600 bg-gray-100 border border-gray-300 rounded-full checked:bg-current checked:border-current focus:outline-hidden focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed'
 const defaultLabelClasses = 'ms-2 text-sm font-medium'
 
 const defaultWrapperClasses = 'flex items-center'
