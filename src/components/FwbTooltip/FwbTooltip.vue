@@ -19,6 +19,7 @@ import { Tooltip } from 'floating-vue'
 import { computed, useAttrs } from 'vue'
 
 import type { TooltipPlacement, TooltipStyle, TooltipTrigger } from './types'
+import type { ClassInput } from '@/types/global'
 
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
@@ -35,7 +36,7 @@ const props = withDefaults(defineProps<TooltipProps>(), {
 const attrs = useAttrs()
 
 // `fwb-tooltip` is the hook FwbButtonGroup uses to round a grouped tooltip's button.
-const wrapperClasses = computed(() => useMergeClasses(['fwb-tooltip flex items-start', attrs.class as string]))
+const wrapperClasses = computed(() => useMergeClasses(['fwb-tooltip flex items-start', attrs.class as ClassInput]))
 
 const theme = computed(() => {
   const themes = {

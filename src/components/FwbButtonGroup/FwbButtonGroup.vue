@@ -10,6 +10,8 @@
 <script lang="ts" setup>
 import { computed, useAttrs } from 'vue'
 
+import type { ClassInput } from '@/types/global'
+
 import { useMergeClasses } from '@/composables/useMergeClasses'
 
 // The child selectors reset each button's own `rounded-lg`, so they must be
@@ -21,5 +23,5 @@ const defaultButtonGroupClasses = `fwb-button-group inline-flex rounded-md shado
 
 const attrs = useAttrs()
 
-const wrapperClasses = computed(() => useMergeClasses([defaultButtonGroupClasses, attrs.class as string]))
+const wrapperClasses = computed(() => useMergeClasses([defaultButtonGroupClasses, attrs.class as ClassInput]))
 </script>

@@ -111,7 +111,7 @@ import { FwbCard } from 'flowbite-vue'
 | imgAlt  | `String`                               | `''`        | Alt text for the card image. Used with `variant="image"` or `"horizontal"`. |
 | imgSrc  | `String`                               | `''`        | URL of the image displayed on the card.                             |
 | variant | `'default' \| 'image' \| 'horizontal'` | `'default'` | Controls card layout. `image` adds a top image; `horizontal` places the image on the left. |
-| class   | `String \| Object \| Array` | `''`        | Merged onto the card wrapper, overriding conflicting defaults. A custom `bg-*` drops the default light and dark backgrounds and the link hover. |
+| class   | `String \| Object \| Array` | `''`        | Merged onto the card wrapper, overriding conflicting defaults. A custom background color drops the default light and dark backgrounds and the link hover. |
 | imgClass | `String \| Object \| Array` | `''`        | Merged onto the card image, overriding conflicting defaults.        |
 
 ### FwbCard Slots

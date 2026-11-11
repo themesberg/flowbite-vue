@@ -126,10 +126,10 @@ const props = defineProps({
 
 const attrs = useAttrs()
 
-const wrapperClasses = computed(() => useMergeClasses(['relative', attrs.class as string]))
+const wrapperClasses = computed(() => useMergeClasses(['relative', attrs.class as ClassInput]))
 const slidesClasses = computed(() => useMergeClasses([
   'relative h-56 overflow-hidden rounded-lg sm:h-64 xl:h-80 2xl:h-96',
-  useMergeClasses(props.slidesClass),
+  props.slidesClass,
 ]))
 
 const currentPicture = ref(0)

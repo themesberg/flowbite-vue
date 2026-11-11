@@ -31,6 +31,11 @@ describe('FwbCard', () => {
     expect(wrapper.classes()).not.toContain('hover:bg-gray-100')
   })
 
+  it('keeps the default background with a non-color bg utility', () => {
+    const wrapper = mount(FwbCard, { props: { class: 'bg-cover', href: '#' } })
+    expect(wrapper.classes()).toEqual(expect.arrayContaining(['bg-cover', 'bg-white', 'dark:bg-gray-800', 'hover:bg-gray-100']))
+  })
+
   it('keeps the link hover alongside an unrelated custom class', () => {
     const wrapper = mount(FwbCard, { props: { class: 'min-w-md', href: '#' } })
     expect(wrapper.element.tagName).toBe('A')

@@ -28,10 +28,10 @@ export function useCardsClasses (props: UseCardsClassesProps): {
   imageClasses: Ref<string>
 } {
   const cardClasses = computed(() => {
-    const customClasses = useMergeClasses(props.class?.value ?? '')
-    // A custom background drops the light and dark defaults together, so a
-    // light-only custom background is not replaced by the default in dark mode.
-    const hasCustomBackground = /(^|\s|:)bg-/.test(customClasses)
+    const customClasses = props.class?.value ?? ''
+    // A custom background color drops the light and dark defaults together, so
+    // a light-only custom color is not replaced by the default in dark mode.
+    const hasCustomBackground = !useMergeClasses(['bg-white', customClasses]).split(' ').includes('bg-white')
 
     return useMergeClasses([
       variantClasses[props.variant.value],
@@ -43,7 +43,7 @@ export function useCardsClasses (props: UseCardsClassesProps): {
 
   const imageClasses = computed(() => useMergeClasses([
     props.variant.value === 'horizontal' ? horizontalImageClasses : defaultImageClasses,
-    useMergeClasses(props.imgClass?.value ?? ''),
+    props.imgClass?.value ?? '',
   ]))
 
   return {
