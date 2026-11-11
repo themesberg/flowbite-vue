@@ -5,6 +5,8 @@ import assert from 'node:assert/strict'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 
+import { parseIndexExports } from '../src/nuxt/codegen/parse-index-exports.mjs'
+
 const require = createRequire(import.meta.url)
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'))
 
@@ -53,12 +55,17 @@ assert.deepEqual(exactPins, [], 'dependencies and peerDependencies use ranges, n
 const unused = Object.keys(pkg.dependencies).filter(name => !importedPackages.has(name))
 assert.deepEqual(unused, [], 'every dependency is imported by dist')
 
-// Each component has its own entry, and it is the same module the main entry
-// exports, so mixing both import paths shares provide/inject keys and state.
+// Every public component in src/index.ts has its own entry, and it is the
+// same module the main entry exports, so mixing both import paths shares
+// provide/inject keys and state.
 const componentNames = distFiles
   .filter(file => /^components[/\\]\w+\.js$/.test(file))
   .map(file => file.slice('components/'.length, -'.js'.length))
-assert.ok(componentNames.length > 0, 'dist has per-component entries')
+  .sort()
+const publicComponents = parseIndexExports(readFileSync(new URL('../src/index.ts', import.meta.url), 'utf8'))
+  .map(({ name }) => name)
+  .sort()
+assert.deepEqual(componentNames, publicComponents, 'flowbite-vue/components/* covers every public component')
 for (const name of componentNames) {
   const { default: component } = await import(`flowbite-vue/components/${name}`)
   assert.equal(component, esmExports[name], `flowbite-vue/components/${name} is the component flowbite-vue exports`)

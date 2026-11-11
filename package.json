@@ -60,7 +60,7 @@
     "docs:preview": "vitepress serve docs ${PORT:+--port $PORT}",
     "generate:nuxt-components": "node scripts/generate-nuxt-components.mjs",
     "prebuild:package": "npm run generate:nuxt-components",
-    "build:package": "vite build && vite build --config vite.nuxt.config.ts",
+    "build:package": "vite build",
     "prebuild:types": "npm run generate:nuxt-components",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly && tsc-alias -p tsconfig.json",
     "clean": "rm -fr ./dist && rm -fr ./dist_types && rm -fr ./docs/.vitepress/dist && rm -fr ./docs/.vitepress/cache",

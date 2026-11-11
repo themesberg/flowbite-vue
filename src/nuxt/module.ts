@@ -18,14 +18,13 @@ function registerComponents (resolver: Resolver) {
   for (const { name, filePath: sourcePath } of nuxtComponents) {
     addComponent({
       name,
-      // Each component's own built entry (`vite.config.ts` gives every
-      // component one, shared with `flowbite-vue/components/*` and the main
-      // entry), not raw `src/*.vue`: raw source uses
-      // flowbite-vue's own internal `@/...` path alias, which has no
-      // meaning in a consumer's Vite config and would collide with Nuxt's
-      // own `@` (srcDir) alias if injected globally. The built chunk
-      // already has that alias resolved, and gives Nuxt a genuinely
-      // separate lazy-loaded module per component.
+      // Each component's own built entry (the `flowbite-vue/components/*`
+      // files from `vite.config.ts`), not raw `src/*.vue`: raw source uses
+      // flowbite-vue's own internal `@/...` path alias, which has no meaning
+      // in a consumer's Vite config and would collide with Nuxt's own `@`
+      // (srcDir) alias if injected globally. The built entry already has
+      // that alias resolved, and gives Nuxt a separate lazy-loaded module
+      // per component.
       filePath: resolver.resolve(`./components/${name}.js`),
       declarationPath: resolver.resolve(`../src/${sourcePath}`),
     })
