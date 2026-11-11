@@ -47,7 +47,9 @@
     "dist",
     "src"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "dev": "npm run docs:dev",
     "start": "npm run docs:preview",
