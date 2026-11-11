@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-node-env
         with:
-          node-version: 26.x # current Active LTS
+          node-version: 26.x # Active LTS since 2026-10-28; test-nuxt uses the same
       - run: npm run lint
   test:
     runs-on: ubuntu-latest
