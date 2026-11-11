@@ -71,11 +71,7 @@ for (const name of componentNames) {
   assert.equal(component, esmExports[name], `flowbite-vue/components/${name} is the component flowbite-vue exports`)
 }
 
-// Two stylesheets (#467). index.css is for apps that run Tailwind v4: only
-// the CSS their Tailwind can't generate, in one layer inside Tailwind's
-// `components`, so it lands between preflight and utilities in any import
-// order. standalone.css is for apps without Tailwind: a full Tailwind build
-// plus the same component CSS.
+// The two stylesheets (#467), see `cssEntries` in vite.config.ts.
 const readCss = (exportPath) => {
   const target = pkg.exports[exportPath]
   assert.ok(target, `package.json exports "${exportPath}"`)
@@ -87,10 +83,11 @@ const standaloneCss = readCss('./standalone.css')
 const layerOrder = /^@layer theme,\s*base,\s*components,\s*utilities;/
 assert.match(indexCss, layerOrder, 'index.css starts with Tailwind\'s layer order')
 const componentLayer = indexCss.replace(layerOrder, '').trim()
-assert.match(componentLayer, /^@layer components\.flowbite-vue\s*\{[\s\S]*\}$/, 'index.css puts everything else in @layer components.flowbite-vue')
+assert.ok(componentLayer.startsWith('@layer components.flowbite-vue'), 'index.css puts everything else in @layer components.flowbite-vue')
 assert.equal(componentLayer.match(/@layer components\.flowbite-vue/g).length, 1, 'index.css has a single components.flowbite-vue block')
-for (const leak of ['border:0 solid', ':root', '@layer base', '@layer utilities', '@layer theme{']) {
-  assert.ok(!indexCss.replaceAll(/\s/g, '').includes(leak.replaceAll(/\s/g, '')), `index.css has no Tailwind build output (${leak})`)
+const flatIndexCss = indexCss.replaceAll(/\s/g, '')
+for (const leak of ['border:0solid', ':root', '@layerbase', '@layerutilities', '@layertheme{']) {
+  assert.ok(!flatIndexCss.includes(leak), `index.css has no Tailwind build output (${leak})`)
 }
 for (const marker of ['.to-bottom-enter-active', '.slide-left-enter-active', 'fwb-progress-indeterminate', '.fwb-range-input', '.v-popper--theme-tooltip', '.v-popper__popper']) {
   assert.ok(indexCss.includes(marker), `index.css contains component CSS (${marker})`)

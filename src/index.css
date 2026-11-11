@@ -1,0 +1,3 @@
+/* Entry for dist/index.css; the build adds the components' <style> blocks and the layer (see `cssEntries` in vite.config.ts). */
+/* FwbTooltip is built on floating-vue. */
+@import 'floating-vue/dist/style.css';

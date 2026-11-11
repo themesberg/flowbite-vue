@@ -55,7 +55,7 @@ const theme = computed(() => {
   border-color: #000c;
 }
 
-/* Class-based dark mode, matching the `dark` variant in src/style.css. */
+/* Class-based dark mode, matching the `dark` variant in src/standalone.css. */
 .v-popper--theme-tooltip-dark:where(.dark, .dark *) .v-popper__wrapper .v-popper__inner {
   background: rgb(55 65 81);
 }

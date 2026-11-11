@@ -1,8 +1,0 @@
-/*
- * Entry for dist/index.css: CSS the consumer's Tailwind can't generate. The
- * components' <style> blocks join it in the build, which then wraps it all in
- * `@layer components.flowbite-vue` (see `cssEntries` in vite.config.ts).
- * No Tailwind output here: utilities come from the consumer's own build.
- */
-/* FwbTooltip is built on floating-vue. */
-@import 'floating-vue/dist/style.css';

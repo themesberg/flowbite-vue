@@ -48,14 +48,11 @@ function registerToastImport (resolver: Resolver) {
   })
 }
 
-function injectCss (resolver: Resolver, nuxt: Nuxt, stylesheet: 'index.css' | 'standalone.css') {
-  // Both files are already compiled at publish time (see `cssEntries` in
-  // `vite.config.ts`). `resolver.resolve` (rather than a bare
-  // `'flowbite-vue/index.css'` specifier) resolves relative to this module's
-  // own file location at runtime, so it finds the sibling file in `dist`
-  // whether loaded from a published node_modules install or a local/linked
-  // dev checkout.
-  nuxt.options.css.push(resolver.resolve(`./${stylesheet}`))
+function injectCss (resolver: Resolver, nuxt: Nuxt, css: true | 'standalone') {
+  // `resolver.resolve` (rather than a bare `'flowbite-vue/index.css'`
+  // specifier) finds the sibling file in `dist` whether loaded from a
+  // published node_modules install or a local/linked dev checkout.
+  nuxt.options.css.push(resolver.resolve(css === 'standalone' ? './standalone.css' : './index.css'))
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -73,7 +70,7 @@ export default defineNuxtModule<ModuleOptions>({
     registerToastImport(resolver)
 
     if (options.css) {
-      injectCss(resolver, nuxt, options.css === 'standalone' ? 'standalone.css' : 'index.css')
+      injectCss(resolver, nuxt, options.css)
     }
   },
 })
