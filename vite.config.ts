@@ -1,8 +1,10 @@
 import { readFileSync } from 'fs'
 import { resolve } from 'path'
 
+import tailwindcssPostcss from '@tailwindcss/postcss'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
+import postcss from 'postcss'
 import { defineConfig, type Plugin } from 'vite'
 
 import pkg from './package.json' with { type: 'json' }
@@ -82,6 +84,32 @@ function stripCssChunkMarkers (): Plugin {
   }
 }
 
+/**
+ * Builds the two published stylesheets (#467) from the merged component CSS:
+ * - index.css, for apps running Tailwind v4: the component CSS in
+ *   `@layer components.flowbite-vue`, after Tailwind's own layer order, so it
+ *   sits above preflight and below utilities whichever file is imported first.
+ * - standalone.css, for apps without Tailwind: a full Tailwind build of
+ *   src/style.css followed by index.css.
+ */
+function cssEntries (): Plugin {
+  return {
+    name: 'css-entries',
+    enforce: 'post',
+    async generateBundle (_options, bundle) {
+      const index = bundle['index.css']
+      if (index?.type !== 'asset' || typeof index.source !== 'string') this.error('index.css missing from the bundle')
+      if (/@(import|charset)\b/.test(index.source)) this.error('index.css has an @import or @charset that cannot go inside @layer')
+      index.source = `@layer theme, base, components, utilities;\n@layer components.flowbite-vue {\n${index.source}}\n`
+
+      const stylePath = src('style.css')
+      const { css: tailwindCss } = await postcss([tailwindcssPostcss({ base: import.meta.dirname, optimize: { minify: true } })])
+        .process(readFileSync(stylePath, 'utf8'), { from: stylePath })
+      this.emitFile({ type: 'asset', fileName: 'standalone.css', source: `${tailwindCss}\n${index.source}` })
+    },
+  }
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -90,6 +118,7 @@ export default defineConfig({
     componentDeclarations(),
     noBundledDependencies(),
     stripCssChunkMarkers(),
+    cssEntries(),
   ],
   resolve: {
     alias: {
@@ -98,7 +127,7 @@ export default defineConfig({
     dedupe: ['vue'],
   },
   build: {
-    // All component styles go into the one dist/index.css.
+    // All component styles go into dist/index.css (and standalone.css, see cssEntries).
     cssCodeSplit: false,
     target: 'esnext',
     lib: {

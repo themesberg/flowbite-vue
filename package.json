@@ -38,6 +38,7 @@
       "default": "./dist/components/*.js"
     },
     "./index.css": "./dist/index.css",
+    "./standalone.css": "./dist/standalone.css",
     "./nuxt": {
       "types": "./dist/nuxt/module.d.ts",
       "import": "./dist/nuxt.js"

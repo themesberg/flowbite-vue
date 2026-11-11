@@ -1,28 +1,15 @@
 <template>
+  <!--
+    The child selectors reset each button's own `rounded-lg`, so they must be
+    utilities: component CSS sits below utilities in the cascade (#467).
+  -->
   <div
-    class="fwb-button-group inline-flex rounded-md shadow-xs"
+    class="fwb-button-group inline-flex rounded-md shadow-xs
+      [&>button]:rounded-none [&>.fwb-dropdown_button]:rounded-none [&>.fwb-tooltip_button]:rounded-none
+      [&>button:first-child]:rounded-l-lg [&>.fwb-dropdown:first-child_button]:rounded-l-lg [&>.fwb-tooltip:first-child_button]:rounded-l-lg
+      [&>button:last-child]:rounded-r-lg [&>.fwb-dropdown:last-child_button]:rounded-r-lg [&>.fwb-tooltip:last-child_button]:rounded-r-lg"
     role="group"
   >
     <slot />
   </div>
 </template>
-
-<style>
-@reference "../../style.css";
-
-.fwb-button-group > button,
-.fwb-button-group > .fwb-dropdown button,
-.fwb-button-group > .fwb-tooltip button {
-  @apply rounded-none;
-}
-.fwb-button-group > button:first-child,
-.fwb-button-group > .fwb-dropdown:first-child button,
-.fwb-button-group > .fwb-tooltip:first-child button {
-  @apply rounded-l-lg;
-}
-.fwb-button-group > button:last-child,
-.fwb-button-group > .fwb-dropdown:last-child button,
-.fwb-button-group > .fwb-tooltip:last-child button {
-  @apply rounded-r-lg;
-}
-</style>

@@ -1,7 +1,10 @@
+/*
+ * The Tailwind half of dist/standalone.css (for apps without Tailwind):
+ * preflight, theme and every utility the components use. The build appends
+ * dist/index.css (the components' own CSS, src/components.css) to it.
+ */
 /* source(none): only scan component sources, not the repo root (docs, tests). */
 @import 'tailwindcss' source(none);
-/* FwbTooltip is built on floating-vue. */
-@import 'floating-vue/dist/style.css';
 /* Class-based dark mode, matching the selectors flowbite/plugin emits. */
 @custom-variant dark (&:where(.dark, .dark *));
 @plugin "flowbite/plugin";

@@ -76,5 +76,6 @@ describe('flowbite-vue/nuxt', async () => {
     const html = await $fetch('/')
 
     expect(html).toMatch(/<link rel="stylesheet"[^>]*dist\/index\.css/)
+    expect(html).not.toMatch(/dist\/standalone\.css/)
   })
 })

@@ -34,6 +34,16 @@ describe('style.css', () => {
     expect(compiledCss).toMatch(/\.dark\\:bg-gray-700:where\(\.dark,\s*\.dark \*\)/)
   })
 
+  // The group's corner overrides must beat each button's own `rounded-lg`.
+  // Component CSS sits in `@layer components.flowbite-vue`, below utilities
+  // (#467), so they are utilities with a child selector, not a <style> block.
+  it('generates FwbButtonGroup\'s child radius utilities', () => {
+    const selectors = compiledCss.replaceAll(/\s*>\s*/g, '>')
+    expect(selectors).toContain('.\\[\\&\\>button\\]\\:rounded-none>button {')
+    expect(selectors).toContain('.\\[\\&\\>button\\:first-child\\]\\:rounded-l-lg>button:first-child {')
+    expect(selectors).toContain('.\\[\\&\\>\\.fwb-dropdown\\:last-child_button\\]\\:rounded-r-lg>.fwb-dropdown:last-child button {')
+  })
+
   it('does not pick up utilities that only the docs use', async () => {
     await expectFixture(
       'docs/components/jumbotron/examples/FwbJumbotronBackgroundImageExample.vue',
