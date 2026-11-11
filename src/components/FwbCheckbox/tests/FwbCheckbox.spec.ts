@@ -177,6 +177,8 @@ describe('FwbCheckbox', () => {
       const classes = mount(FwbCheckbox).find('input[type="checkbox"]').classes()
       expect(classes).toEqual(expect.arrayContaining([
         'fwb-checkbox', 'appearance-none', 'border', 'checked:bg-current', 'checked:border-current', 'text-blue-600',
+        // Forced colors drop the fill, so the native control takes over.
+        'forced-colors:appearance-auto',
       ]))
     })
   })

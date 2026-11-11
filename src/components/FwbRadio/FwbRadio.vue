@@ -60,12 +60,17 @@ const { labelClass, radioClass, wrapperClass } = useRadioClasses({
 </script>
 
 <style>
-/* The dot as an image: an SVG data-URI is too long for a utility. */
+/* The dot as a gradient, not a data-URI image, so a strict img-src CSP can't block it. */
 .fwb-radio:checked {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-image: radial-gradient(circle closest-side, white 37.5%, transparent 40%);
   print-color-adjust: exact;
+}
+/* Forced colors replace the fill with the system background, so checked and
+   unchecked would look the same. The native control (`forced-colors:appearance-auto`)
+   draws in system colors; drop the image it would otherwise sit under. */
+@media (forced-colors: active) {
+  .fwb-radio:checked {
+    background-image: none;
+  }
 }
 </style>

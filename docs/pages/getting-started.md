@@ -93,7 +93,7 @@ npm i flowbite-vue flowbite
 
 `flowbite-vue/index.css` contains only the components' own CSS (transitions, animations, tooltip themes). Your Tailwind build generates the utility classes, so the `@source` path must point at `node_modules/flowbite-vue/dist`, relative to this CSS file.
 
-Flowbite Vue's components don't need the Flowbite theme or plugin (or the `flowbite` package). The theme and plugin style your own plain `<input>`, `<select>` and `<textarea>` elements the Flowbite way. The plugin reads its colors from the theme, so add both or neither. The theme also changes some Tailwind defaults, such as the sans font and `rounded-lg`.
+Flowbite Vue's components don't need the Flowbite theme or plugin (or the `flowbite` package): they use Tailwind's own color palette (`bg-blue-700`, `text-gray-900`, …), not Flowbite's theme variables. The theme and plugin style your own plain `<input>`, `<select>` and `<textarea>` elements the Flowbite way. The plugin reads its colors from theme variables such as `--color-brand`, `--color-body`, `--color-default`, `--color-heading` and `--color-neutral-*`, which only a Flowbite theme defines, so add both or neither. The theme also changes some Tailwind defaults, such as the sans font and `rounded-lg`.
 
 ::: info
 Not using Tailwind CSS? Import `flowbite-vue/standalone.css` instead: a prebuilt stylesheet with every utility class the components use. Before 0.5.0, `flowbite-vue/index.css` was that prebuilt stylesheet. If you imported it without running Tailwind over Flowbite Vue, switch to `standalone.css`.

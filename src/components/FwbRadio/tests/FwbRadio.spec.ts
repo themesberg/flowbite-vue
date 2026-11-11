@@ -90,6 +90,8 @@ describe('FwbRadio', () => {
       expect(classes).toEqual(expect.arrayContaining([
         'fwb-radio', 'appearance-none', 'border', 'rounded-full', 'checked:bg-current', 'checked:border-current', 'text-blue-600',
         'before:content-none', 'after:content-none',
+        // Forced colors drop the fill, so the native control takes over.
+        'forced-colors:appearance-auto',
       ]))
     })
   })
