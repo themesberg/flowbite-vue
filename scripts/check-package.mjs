@@ -53,6 +53,17 @@ assert.deepEqual(exactPins, [], 'dependencies and peerDependencies use ranges, n
 const unused = Object.keys(pkg.dependencies).filter(name => !importedPackages.has(name))
 assert.deepEqual(unused, [], 'every dependency is imported by dist')
 
+// Each component has its own entry, and it is the same module the main entry
+// exports, so mixing both import paths shares provide/inject keys and state.
+const componentNames = distFiles
+  .filter(file => /^components[/\\]\w+\.js$/.test(file))
+  .map(file => file.slice('components/'.length, -'.js'.length))
+assert.ok(componentNames.length > 0, 'dist has per-component entries')
+for (const name of componentNames) {
+  const { default: component } = await import(`flowbite-vue/components/${name}`)
+  assert.equal(component, esmExports[name], `flowbite-vue/components/${name} is the component flowbite-vue exports`)
+}
+
 // Only the Nuxt module needs @nuxt/kit, so apps without Nuxt don't install it.
 assert.equal(pkg.peerDependenciesMeta?.['@nuxt/kit']?.optional, true, '@nuxt/kit is an optional peer')
 assert.ok(!('@nuxt/kit' in pkg.dependencies), '@nuxt/kit is not a dependency')

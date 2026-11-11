@@ -33,6 +33,10 @@
     "./components/*/types": {
       "types": "./dist/components/*/types.d.ts"
     },
+    "./components/*": {
+      "types": "./dist/components/*.d.ts",
+      "default": "./dist/components/*.js"
+    },
     "./index.css": "./dist/index.css",
     "./nuxt": {
       "types": "./dist/nuxt/module.d.ts",

@@ -18,8 +18,9 @@ function registerComponents (resolver: Resolver) {
   for (const { name, filePath: sourcePath } of nuxtComponents) {
     addComponent({
       name,
-      // Each component's own built chunk (`vite.nuxt.config.ts` gives every
-      // component its own lib entry), not raw `src/*.vue`: raw source uses
+      // Each component's own built entry (`vite.config.ts` gives every
+      // component one, shared with `flowbite-vue/components/*` and the main
+      // entry), not raw `src/*.vue`: raw source uses
       // flowbite-vue's own internal `@/...` path alias, which has no
       // meaning in a consumer's Vite config and would collide with Nuxt's
       // own `@` (srcDir) alias if injected globally. The built chunk
