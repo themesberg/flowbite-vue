@@ -75,6 +75,7 @@
     "check:package": "node scripts/check-package.mjs",
     "test:package": "npm run build:package && npm run check:package",
     "check:pack": "node scripts/check-pack.mjs",
+    "check:types": "tsc -p scripts/check-types/tsconfig.json",
     "test:pack": "npm run build:package && npm run check:pack",
     "test:coverage": "vitest run --coverage"
   },

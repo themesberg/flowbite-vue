@@ -8,7 +8,8 @@ import { defineConfig, type Plugin } from 'vite'
 import pkg from './package.json' with { type: 'json' }
 import { parseIndexExports } from './src/nuxt/codegen/parse-index-exports.mjs'
 
-const src = (path: string) => resolve(import.meta.dirname, 'src', path)
+const srcDir = resolve(import.meta.dirname, 'src')
+const src = (path: string) => resolve(srcDir, path)
 
 // Runtime dependencies and peers stay imports in dist, so consumers dedupe
 // them and their `overrides` apply (#470).
@@ -50,7 +51,7 @@ function componentDeclarations (): Plugin {
         this.emitFile({
           type: 'asset',
           fileName: `components/${name}.d.ts`,
-          source: `export { ${name} as default } from '../index'\n`,
+          source: `export { ${name} as default } from '../index.js'\n`,
         })
       }
     },
@@ -85,7 +86,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': src(''),
+      '@': srcDir,
     },
     dedupe: ['vue'],
   },
