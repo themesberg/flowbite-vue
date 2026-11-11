@@ -19,7 +19,7 @@ versions predate this file and are not backfilled.
 
 ### Added
 
-- `flowbite-vue/tailwind.css`: a Tailwind CSS v4 source entry. Import it after `@import "tailwindcss";` so your Tailwind build generates the utilities Flowbite Vue's components use. It replaces the `@source "../node_modules/flowbite-vue/dist"` line, which scanned minified JavaScript and could miss classes.
+- `flowbite-vue/tailwind.css`: a Tailwind CSS v4 source entry. Import it after `@import "tailwindcss";` (Tailwind CSS v4.1 or newer) so your Tailwind build generates the utilities Flowbite Vue's components use. It replaces the `@source "../node_modules/flowbite-vue/dist"` line, which scanned minified JavaScript and could miss classes.
 - `flowbite-vue/standalone.css`: the components' CSS together with a full Tailwind build (preflight, theme and every utility the components use), for apps that don't run Tailwind CSS. This is what `index.css` used to contain.
 - Nuxt module: `flowbiteVue: { css: 'standalone' }` injects `standalone.css`. The default (`css: true`) injects `index.css`.
 - Per-component entries: `import FwbButton from 'flowbite-vue/components/FwbButton'`. Component auto-import resolvers (for example `unplugin-vue-components`) can point at these. They are the same modules the main entry exports, so you can mix both import styles. Styles still come from `flowbite-vue/index.css`.

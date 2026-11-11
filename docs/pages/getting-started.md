@@ -23,7 +23,7 @@ node -v
 
 ### Install and configure TailwindCSS
 
-1. Install [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite) as part of `devDependencies`:
+1. Install [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite) v4.1 or newer as part of `devDependencies`:
 
 ```bash
 npm install -D tailwindcss @tailwindcss/vite
@@ -94,6 +94,10 @@ npm i flowbite-vue flowbite
 `flowbite-vue/index.css` contains only the components' own CSS (transitions, animations, tooltip themes). Your Tailwind build generates the utility classes; `flowbite-vue/tailwind.css` points it at Flowbite Vue's component sources.
 
 `flowbite-vue/index.css` puts its CSS in its own cascade layer, `components.flowbite-vue`, inside Tailwind's `components` layer. Your utility classes, including responsive ones such as `lg:mb-16`, always win over it, whichever file you import first, so you don't need to wrap the import in `layer(...)`.
+
+::: info
+`flowbite-vue/tailwind.css` needs Tailwind CSS v4.1 or newer. It doesn't work with a prefix (`@import "tailwindcss" prefix(tw);`): the components use unprefixed classes, and a prefixed build only generates prefixed ones. With a prefix, import `flowbite-vue/standalone.css` instead of `index.css` and `tailwind.css`, right after `@import "tailwindcss" prefix(tw);`. It brings the unprefixed utilities the components use, plus its own copy of Tailwind's preflight in the `base` layer, so put your own base styles after it.
+:::
 
 Flowbite Vue's components don't need the Flowbite theme or plugin (or the `flowbite` package): they use Tailwind's own color palette (`bg-blue-700`, `text-gray-900`, …), not Flowbite's theme variables. The theme and plugin style your own plain `<input>`, `<select>` and `<textarea>` elements the Flowbite way. The plugin reads its colors from theme variables such as `--color-brand`, `--color-body`, `--color-default`, `--color-heading` and `--color-neutral-*`, which only a Flowbite theme defines, so add both or neither. The theme also changes some Tailwind defaults, such as the sans font and `rounded-lg`.
 

@@ -1,7 +1,8 @@
 /*
  * Tailwind source entry, published as `flowbite-vue/tailwind.css` (#469).
  * Import it after `@import 'tailwindcss'` so your Tailwind build generates the
- * utilities Flowbite Vue's components use, and nothing else.
+ * utilities Flowbite Vue's components use, and nothing else. `@source not`
+ * needs Tailwind CSS v4.1 or newer.
  */
 @source './components';
 @source not './components/**/tests';
