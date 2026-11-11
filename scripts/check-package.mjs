@@ -72,6 +72,7 @@ for (const name of componentNames) {
 }
 
 // The two stylesheets (#467), see `cssEntries` in vite.config.ts.
+/** Reads the CSS file a package.json export points at, without comments. */
 const readCss = (exportPath) => {
   const target = pkg.exports[exportPath]
   assert.ok(target, `package.json exports "${exportPath}"`)

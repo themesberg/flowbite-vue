@@ -48,10 +48,14 @@ function registerToastImport (resolver: Resolver) {
   })
 }
 
+/**
+ * Adds flowbite-vue's stylesheet to the app: `index.css`, or `standalone.css`
+ * for `css: 'standalone'`. `resolver.resolve` (rather than a bare
+ * `'flowbite-vue/index.css'` specifier) finds the sibling file in `dist`
+ * whether loaded from a published node_modules install or a local/linked
+ * dev checkout.
+ */
 function injectCss (resolver: Resolver, nuxt: Nuxt, css: true | 'standalone') {
-  // `resolver.resolve` (rather than a bare `'flowbite-vue/index.css'`
-  // specifier) finds the sibling file in `dist` whether loaded from a
-  // published node_modules install or a local/linked dev checkout.
   nuxt.options.css.push(resolver.resolve(css === 'standalone' ? './standalone.css' : './index.css'))
 }
 
