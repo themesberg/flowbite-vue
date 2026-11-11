@@ -21,15 +21,15 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-node-env
         with:
-          node-version: 24.x
+          node-version: 26.x # Active LTS since 2026-10-28; test-nuxt uses the same
       - run: npm run lint
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x, 24.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        # Vite 7 requires Node 20.19+ or 22.12+
+        # 22.x is the oldest line package.json "engines" allows (>=22.12).
+        # See the Node.js release schedule: https://nodejs.org/en/about/previous-releases
+        node-version: [22.x, 24.x, 26.x]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-node-env
@@ -40,9 +40,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x, 24.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        # Vite 7 requires Node 20.19+ or 22.12+
+        # 22.x is the oldest line package.json "engines" allows (>=22.12).
+        # See the Node.js release schedule: https://nodejs.org/en/about/previous-releases
+        node-version: [22.x, 24.x, 26.x]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-node-env
@@ -53,9 +53,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x, 24.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        # Vite 7 requires Node 20.19+ or 22.12+
+        # 22.x is the oldest line package.json "engines" allows (>=22.12).
+        # See the Node.js release schedule: https://nodejs.org/en/about/previous-releases
+        node-version: [22.x, 24.x, 26.x]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-node-env
@@ -71,9 +71,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x, 24.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        # Vite 7 requires Node 20.19+ or 22.12+
+        # 22.x is the oldest line package.json "engines" allows (>=22.12).
+        # See the Node.js release schedule: https://nodejs.org/en/about/previous-releases
+        node-version: [22.x, 24.x, 26.x]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-node-env
