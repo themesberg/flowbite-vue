@@ -35,7 +35,9 @@
 
 - [Documentation](#documentation)
 - [Getting started](#getting-started)
-    - [Require via `npm`](#require-via--npm-)
+  - [With Tailwind CSS](#with-tailwind-css)
+  - [Without Tailwind CSS](#without-tailwind-css)
+  - [Nuxt](#nuxt)
 - [Components](#components)
 - [Community](#community)
 - [Contributing](#contributing)
@@ -45,41 +47,60 @@
 
 ## Documentation
 
-Documentation for `flowbite-vue` is not yet finished.
-
-If you want to browse the components, visit [flowbite.com](https://flowbite.com/).
-
-If you want to learn more about Flowbite, visit [Flowbite docs](https://flowbite.com/docs/getting-started/introduction/).
+Find the guides and every component's documentation at [flowbite-vue.com](https://flowbite-vue.com/).
 
 ## Getting started
 
-To use `flowbite-vue`, you just need to setup `flowbite` normally and install `flowbite-vue` from `npm`.
-
-`flowbite` can be included as a plugin into an existing Tailwind CSS project.
-
-### Require via `npm`
-
-Make sure that you have <a href="https://nodejs.org/en/" rel="nofollow" >Node.js</a> and <a href="https://tailwindcss.com/" rel="nofollow" >Tailwind CSS</a> installed.
-
-1. Install `flowbite` as a dependency using `npm` by running the following command:
+Flowbite Vue needs Vue 3 and [Node.js](https://nodejs.org/en/) 22.12 or newer. The [quickstart guide](https://flowbite-vue.com/pages/getting-started) has the full setup.
 
 ```bash
-npm i flowbite flowbite-vue
+npm i flowbite-vue
 ```
 
-2. Require `flowbite` as a plugin inside the `tailwind.config.js` file:
+### With Tailwind CSS
 
-```javascript
-module.exports = {
-  content: [
-    ...,
-    'node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx}'
-  ],
-  plugins: [..., require('flowbite/plugin')],
-};
+For apps running [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite) v4.1 or newer. Add these lines to your main CSS file, after `@import "tailwindcss";`:
+
+```css
+@import "tailwindcss";
+
+/* the components' own CSS */
+@import "flowbite-vue/index.css";
+
+/* generate the utility classes the components use */
+@import "flowbite-vue/tailwind.css";
+
+/* class-based dark mode, as Flowbite uses */
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
-Using Nuxt? See the [Nuxt guide](docs/pages/nuxt.md) for auto-import setup.
+Your Tailwind build generates the utility classes the components use, alongside your own, so your app has one copy of each. There is no `tailwind.config.js` to edit. Using a prefix (`prefix(tw)`)? See the quickstart guide.
+
+The components don't need the `flowbite` package. To style your own plain form elements the Flowbite way, also install `flowbite` and add `@import "flowbite/src/themes/default.css";` and `@plugin "flowbite/plugin";`.
+
+### Without Tailwind CSS
+
+Import the prebuilt stylesheet, which has every utility class the components use:
+
+```js
+import 'flowbite-vue/standalone.css'
+```
+
+### Nuxt
+
+Flowbite Vue ships a Nuxt module that auto-imports the components and injects the styles. See the [Nuxt guide](https://flowbite-vue.com/pages/nuxt).
+
+### Use a component
+
+```vue
+<template>
+  <fwb-button>Hello</fwb-button>
+</template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
+```
 
 ## Components
 
