@@ -140,3 +140,5 @@ const pictures = [
 | slide         | `Boolean`                         | `false` | Enables automatic slide advancement on mount.                     |
 | slideInterval | `Number`                          | `3000`  | Duration in milliseconds between auto-play slide transitions.     |
 | animation     | `Boolean`                         | `false` | Reserved for future slide transition animation (currently has no effect). |
+| class         | `String \| Object \| Array` | `''`    | Merged onto the carousel root element, overriding conflicting defaults. |
+| slidesClass   | `String \| Object \| Array` | `''`    | Merged onto the slides container (default height `h-56 sm:h-64 xl:h-80 2xl:h-96`), overriding conflicting defaults. |

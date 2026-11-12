@@ -1,15 +1,14 @@
 <template>
   <component
     :is="wrapperType"
-    :class="[cardClasses, props.class]"
+    :class="cardClasses"
     :href="href"
   >
     <img
       v-if="imgSrc"
       :alt="imgAlt"
-      :class="horizontalImageClasses"
+      :class="imageClasses"
       :src="imgSrc"
-      class="rounded-t-lg"
     >
     <div>
       <slot />
@@ -23,6 +22,7 @@ import { computed, type PropType, toRefs } from 'vue'
 import { useCardsClasses } from './composables/useCardClasses'
 
 import type { CardsVariant } from './types'
+import type { ClassInput } from '@/types/global'
 
 const props = defineProps({
   href: {
@@ -42,11 +42,15 @@ const props = defineProps({
     default: 'default',
   },
   class: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassInput>,
+    default: '',
+  },
+  imgClass: {
+    type: [String, Object, Array] as PropType<ClassInput>,
     default: '',
   },
 })
 
-const { cardClasses, horizontalImageClasses } = useCardsClasses(toRefs(props))
+const { cardClasses, imageClasses } = useCardsClasses(toRefs(props))
 const wrapperType = computed(() => props.href ? 'a' : 'div')
 </script>

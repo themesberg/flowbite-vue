@@ -1,7 +1,10 @@
 <template>
-  <div class="relative">
+  <div
+    v-bind="rootAttrs()"
+    :class="wrapperClasses"
+  >
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+    <div :class="slidesClasses">
       <!-- Item 1 -->
       <!-- duration-700 ease-in-out-->
       <div
@@ -84,9 +87,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, type PropType, ref } from 'vue'
+import { computed, onMounted, type PropType, ref, useAttrs } from 'vue'
 
 import type { PictureItem } from './types'
+import type { ClassInput } from '@/types/global'
+
+import { useMergeClasses } from '@/composables/useMergeClasses'
 
 const props = defineProps({
   pictures: {
@@ -115,7 +121,26 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  slidesClass: {
+    type: [String, Object, Array] as PropType<ClassInput>,
+    default: '',
+  },
 })
+
+// The root gets the merged class only. With inheritance on, Vue would also add
+// the raw `class`, putting back classes the merge dropped.
+defineOptions({ inheritAttrs: false })
+
+const attrs = useAttrs()
+// Called on every render, not cached in `computed`: listing the attrs isn't
+// tracked, so a cached copy would miss attributes added after the first render.
+const rootAttrs = () => Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'))
+
+const wrapperClasses = computed(() => useMergeClasses(['relative', attrs.class as ClassInput]))
+const slidesClasses = computed(() => useMergeClasses([
+  'relative h-56 overflow-hidden rounded-lg sm:h-64 xl:h-80 2xl:h-96',
+  props.slidesClass,
+]))
 
 const currentPicture = ref(0)
 const direction = ref('')

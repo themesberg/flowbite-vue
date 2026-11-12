@@ -105,6 +105,12 @@ import { FwbButtonGroup, FwbButton, FwbDropdown, FwbListGroupItem, FwbListGroup 
 
 ## Button Group component API
 
+### FwbButtonGroup Props
+
+| Name  | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| class | `String \| Object \| Array` | `''` | Merged onto the group wrapper, overriding conflicting defaults. |
+
 ### FwbButtonGroup Slots
 
 | Name    | Description                                                                      |
