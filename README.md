@@ -51,7 +51,7 @@ Find the guides and every component's documentation at [flowbite-vue.com](https:
 
 ## Getting started
 
-Flowbite Vue needs Vue 3 and [Node.js](https://nodejs.org/en/) 22.12 or newer. The [quickstart guide](https://flowbite-vue.com/pages/getting-started) has the full setup.
+Flowbite Vue needs Vue 3.5 and [Node.js](https://nodejs.org/en/) 22.12 or newer. The [quickstart guide](https://flowbite-vue.com/pages/getting-started) has the full setup.
 
 ```bash
 npm i flowbite-vue
