@@ -129,3 +129,9 @@ Not using Tailwind CSS? Import `flowbite-vue/standalone.css` instead: a prebuilt
 import { FwbAlert } from 'flowbite-vue'
 </script>
 ```
+
+Each component also has its own entry point, which you can import directly or point a component auto-import resolver (for example `unplugin-vue-components`) at. It is the same module the main entry exports, so you can mix both import styles. Styles still come from `flowbite-vue/index.css` (or `standalone.css`).
+
+```js
+import FwbButton from 'flowbite-vue/components/FwbButton'
+```

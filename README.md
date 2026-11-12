@@ -232,15 +232,15 @@ import { FwbButton } from 'flowbite-vue'
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-vue.com/components/alert">
+        <a href="https://flowbite-vue.com/components/toast">
             <img alt="Tailwind CSS Toast" src="./docs/assets/github/toast.jpg">
         </a>
     </td>
   </tr>
   <tr>
     <td width="33.3333%">Tooltips</td>
-    <td width="33.3333%">:construction: Datepicker</td>
     <td width="33.3333%">Spinner</td>
+    <td width="33.3333%">Footer</td>
   </tr>
   <tr>
     <td width="33.3333%">
@@ -249,27 +249,22 @@ import { FwbButton } from 'flowbite-vue'
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite.com/docs/plugins/datepicker">
-            <img alt="Tailwind CSS Datepicker" src="./docs/assets/github/datepicker.jpg">
-        </a>
-    </td>
-    <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/spinner">
             <img alt="Tailwind CSS Spinner" src="./docs/assets/github/spinner.jpg">
         </a>
     </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">Footer</td>
-    <td width="33.3333%">Accordion</td>
-    <td width="33.3333%">Sidebar</td>
-  </tr>
-  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/footer">
             <img alt="Tailwind CSS Footer" src="./docs/assets/github/footer.jpg">
         </a>
     </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">Accordion</td>
+    <td width="33.3333%">Sidebar</td>
+    <td width="33.3333%">Carousel</td>
+  </tr>
+  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/accordion">
             <img alt="Tailwind CSS Accordion" src="./docs/assets/github/accordion.jpg">
@@ -280,18 +275,18 @@ import { FwbButton } from 'flowbite-vue'
             <img alt="Tailwind CSS Sidebar" src="./docs/assets/github/sidebar.jpg">
         </a>
     </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">Carousel</td>
-    <td width="33.3333%">Avatar</td>
-    <td width="33.3333%">Rating</td>
-  </tr>
-  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/carousel">
             <img alt="Tailwind CSS Carousel" src="./docs/assets/github/carousel.jpg">
         </a>
     </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">Avatar</td>
+    <td width="33.3333%">Rating</td>
+    <td width="33.3333%">Input Field</td>
+  </tr>
+  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/avatar">
             <img alt="Tailwind CSS Avatar" src="./docs/assets/github/avatar.jpg">
@@ -302,35 +297,23 @@ import { FwbButton } from 'flowbite-vue'
             <img alt="Tailwind CSS Rating" src="./docs/assets/github/rating.jpg">
         </a>
     </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">Input Field</td>
-    <td width="33.3333%">File Input</td>
-    <td width="33.3333%">:construction: Search Input</td>
-  </tr>
-  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/input">
             <img alt="Tailwind CSS Input Field" src="./docs/assets/github/input-field.jpg">
         </a>
     </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">File Input</td>
+    <td width="33.3333%">Select</td>
+    <td width="33.3333%">Textarea</td>
+  </tr>
+  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/fileInput">
             <img alt="Tailwind CSS File Input" src="./docs/assets/github/file-input.jpg">
         </a>
     </td>
-    <td width="33.3333%">
-        <a href="https://flowbite.com/docs/forms/search-input/">
-            <img alt="Tailwind CSS Search Input" src="./docs/assets/github/search-input.jpg">
-        </a>
-    </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">Select</td>
-    <td width="33.3333%">Textarea</td>
-    <td width="33.3333%">Checkbox</td>
-  </tr>
-  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/select">
             <img alt="Tailwind CSS Select" src="./docs/assets/github/select.jpg">
@@ -341,18 +324,18 @@ import { FwbButton } from 'flowbite-vue'
             <img alt="Tailwind CSS Textarea" src="./docs/assets/github/textarea.jpg">
         </a>
     </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">Checkbox</td>
+    <td width="33.3333%">Radio</td>
+    <td width="33.3333%">Toggle</td>
+  </tr>
+  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/checkbox">
             <img alt="Tailwind CSS Checkbox" src="./docs/assets/github/checkbox.jpg">
         </a>
     </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">Radio</td>
-    <td width="33.3333%">Toggle</td>
-    <td width="33.3333%">Range Slider</td>
-  </tr>
-  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/radio">
             <img alt="Tailwind CSS Radio" src="./docs/assets/github/radio.jpg">
@@ -363,19 +346,14 @@ import { FwbButton } from 'flowbite-vue'
             <img alt="Tailwind CSS Toggle" src="./docs/assets/github/toggle.jpg">
         </a>
     </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">Range Slider</td>
+  </tr>
+  <tr>
     <td width="33.3333%">
-        <a href="https://flowbite.com/docs/forms/range/">
+        <a href="https://flowbite-vue.com/components/range">
             <img alt="Tailwind CSS Range Slider" src="./docs/assets/github/range-slider.jpg">
-        </a>
-    </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">:construction: Floating Label</td>
-  </tr>
-  <tr>
-    <td width="33.3333%">
-        <a href="https://flowbite.com/docs/forms/floating-label/">
-            <img alt="Tailwind CSS Floating Label" src="./docs/assets/github/floating-label.jpg">
         </a>
     </td>
   </tr>
