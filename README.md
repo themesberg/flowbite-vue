@@ -35,7 +35,9 @@
 
 - [Documentation](#documentation)
 - [Getting started](#getting-started)
-    - [Require via `npm`](#require-via--npm-)
+  - [With Tailwind CSS](#with-tailwind-css)
+  - [Without Tailwind CSS](#without-tailwind-css)
+  - [Nuxt](#nuxt)
 - [Components](#components)
 - [Community](#community)
 - [Contributing](#contributing)
@@ -45,41 +47,60 @@
 
 ## Documentation
 
-Documentation for `flowbite-vue` is not yet finished.
-
-If you want to browse the components, visit [flowbite.com](https://flowbite.com/).
-
-If you want to learn more about Flowbite, visit [Flowbite docs](https://flowbite.com/docs/getting-started/introduction/).
+Find the guides and every component's documentation at [flowbite-vue.com](https://flowbite-vue.com/).
 
 ## Getting started
 
-To use `flowbite-vue`, you just need to setup `flowbite` normally and install `flowbite-vue` from `npm`.
-
-`flowbite` can be included as a plugin into an existing Tailwind CSS project.
-
-### Require via `npm`
-
-Make sure that you have <a href="https://nodejs.org/en/" rel="nofollow" >Node.js</a> and <a href="https://tailwindcss.com/" rel="nofollow" >Tailwind CSS</a> installed.
-
-1. Install `flowbite` as a dependency using `npm` by running the following command:
+Flowbite Vue needs Vue 3.5 and [Node.js](https://nodejs.org/en/) 22.12 or newer. The [quickstart guide](https://flowbite-vue.com/pages/getting-started) has the full setup.
 
 ```bash
-npm i flowbite flowbite-vue
+npm i flowbite-vue
 ```
 
-2. Require `flowbite` as a plugin inside the `tailwind.config.js` file:
+### With Tailwind CSS
 
-```javascript
-module.exports = {
-  content: [
-    ...,
-    'node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx}'
-  ],
-  plugins: [..., require('flowbite/plugin')],
-};
+For apps running [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite) v4.1 or newer. Add these lines to your main CSS file, after `@import "tailwindcss";`:
+
+```css
+@import "tailwindcss";
+
+/* the components' own CSS */
+@import "flowbite-vue/index.css";
+
+/* generate the utility classes the components use */
+@import "flowbite-vue/tailwind.css";
+
+/* class-based dark mode, as Flowbite uses */
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
-Using Nuxt? See the [Nuxt guide](docs/pages/nuxt.md) for auto-import setup.
+Your Tailwind build generates the utility classes the components use, alongside your own, so your app has one copy of each. There is no `tailwind.config.js` to edit. Using a prefix (`prefix(tw)`)? See the quickstart guide.
+
+The components don't need the `flowbite` package. To style your own plain form elements the Flowbite way, also install `flowbite` and add `@import "flowbite/src/themes/default.css";` and `@plugin "flowbite/plugin";`.
+
+### Without Tailwind CSS
+
+Import the prebuilt stylesheet, which has every utility class the components use:
+
+```js
+import 'flowbite-vue/standalone.css'
+```
+
+### Nuxt
+
+Flowbite Vue ships a Nuxt module that auto-imports the components and injects the styles. See the [Nuxt guide](https://flowbite-vue.com/pages/nuxt).
+
+### Use a component
+
+```vue
+<template>
+  <fwb-button>Hello</fwb-button>
+</template>
+
+<script setup>
+import { FwbButton } from 'flowbite-vue'
+</script>
+```
 
 ## Components
 
@@ -211,15 +232,15 @@ Using Nuxt? See the [Nuxt guide](docs/pages/nuxt.md) for auto-import setup.
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-vue.com/components/alert">
+        <a href="https://flowbite-vue.com/components/toast">
             <img alt="Tailwind CSS Toast" src="./docs/assets/github/toast.jpg">
         </a>
     </td>
   </tr>
   <tr>
     <td width="33.3333%">Tooltips</td>
-    <td width="33.3333%">:construction: Datepicker</td>
     <td width="33.3333%">Spinner</td>
+    <td width="33.3333%">Footer</td>
   </tr>
   <tr>
     <td width="33.3333%">
@@ -228,27 +249,22 @@ Using Nuxt? See the [Nuxt guide](docs/pages/nuxt.md) for auto-import setup.
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite.com/docs/plugins/datepicker">
-            <img alt="Tailwind CSS Datepicker" src="./docs/assets/github/datepicker.jpg">
-        </a>
-    </td>
-    <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/spinner">
             <img alt="Tailwind CSS Spinner" src="./docs/assets/github/spinner.jpg">
         </a>
     </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">Footer</td>
-    <td width="33.3333%">Accordion</td>
-    <td width="33.3333%">Sidebar</td>
-  </tr>
-  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/footer">
             <img alt="Tailwind CSS Footer" src="./docs/assets/github/footer.jpg">
         </a>
     </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">Accordion</td>
+    <td width="33.3333%">Sidebar</td>
+    <td width="33.3333%">Carousel</td>
+  </tr>
+  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/accordion">
             <img alt="Tailwind CSS Accordion" src="./docs/assets/github/accordion.jpg">
@@ -259,18 +275,18 @@ Using Nuxt? See the [Nuxt guide](docs/pages/nuxt.md) for auto-import setup.
             <img alt="Tailwind CSS Sidebar" src="./docs/assets/github/sidebar.jpg">
         </a>
     </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">Carousel</td>
-    <td width="33.3333%">Avatar</td>
-    <td width="33.3333%">Rating</td>
-  </tr>
-  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/carousel">
             <img alt="Tailwind CSS Carousel" src="./docs/assets/github/carousel.jpg">
         </a>
     </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">Avatar</td>
+    <td width="33.3333%">Rating</td>
+    <td width="33.3333%">Input Field</td>
+  </tr>
+  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/avatar">
             <img alt="Tailwind CSS Avatar" src="./docs/assets/github/avatar.jpg">
@@ -281,35 +297,23 @@ Using Nuxt? See the [Nuxt guide](docs/pages/nuxt.md) for auto-import setup.
             <img alt="Tailwind CSS Rating" src="./docs/assets/github/rating.jpg">
         </a>
     </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">Input Field</td>
-    <td width="33.3333%">File Input</td>
-    <td width="33.3333%">:construction: Search Input</td>
-  </tr>
-  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/input">
             <img alt="Tailwind CSS Input Field" src="./docs/assets/github/input-field.jpg">
         </a>
     </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">File Input</td>
+    <td width="33.3333%">Select</td>
+    <td width="33.3333%">Textarea</td>
+  </tr>
+  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/fileInput">
             <img alt="Tailwind CSS File Input" src="./docs/assets/github/file-input.jpg">
         </a>
     </td>
-    <td width="33.3333%">
-        <a href="https://flowbite.com/docs/forms/search-input/">
-            <img alt="Tailwind CSS Search Input" src="./docs/assets/github/search-input.jpg">
-        </a>
-    </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">Select</td>
-    <td width="33.3333%">Textarea</td>
-    <td width="33.3333%">Checkbox</td>
-  </tr>
-  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/select">
             <img alt="Tailwind CSS Select" src="./docs/assets/github/select.jpg">
@@ -320,18 +324,18 @@ Using Nuxt? See the [Nuxt guide](docs/pages/nuxt.md) for auto-import setup.
             <img alt="Tailwind CSS Textarea" src="./docs/assets/github/textarea.jpg">
         </a>
     </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">Checkbox</td>
+    <td width="33.3333%">Radio</td>
+    <td width="33.3333%">Toggle</td>
+  </tr>
+  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/checkbox">
             <img alt="Tailwind CSS Checkbox" src="./docs/assets/github/checkbox.jpg">
         </a>
     </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">Radio</td>
-    <td width="33.3333%">Toggle</td>
-    <td width="33.3333%">Range Slider</td>
-  </tr>
-  <tr>
     <td width="33.3333%">
         <a href="https://flowbite-vue.com/components/radio">
             <img alt="Tailwind CSS Radio" src="./docs/assets/github/radio.jpg">
@@ -342,19 +346,14 @@ Using Nuxt? See the [Nuxt guide](docs/pages/nuxt.md) for auto-import setup.
             <img alt="Tailwind CSS Toggle" src="./docs/assets/github/toggle.jpg">
         </a>
     </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">Range Slider</td>
+  </tr>
+  <tr>
     <td width="33.3333%">
-        <a href="https://flowbite.com/docs/forms/range/">
+        <a href="https://flowbite-vue.com/components/range">
             <img alt="Tailwind CSS Range Slider" src="./docs/assets/github/range-slider.jpg">
-        </a>
-    </td>
-  </tr>
-  <tr>
-    <td width="33.3333%">:construction: Floating Label</td>
-  </tr>
-  <tr>
-    <td width="33.3333%">
-        <a href="https://flowbite.com/docs/forms/floating-label/">
-            <img alt="Tailwind CSS Floating Label" src="./docs/assets/github/floating-label.jpg">
         </a>
     </td>
   </tr>
