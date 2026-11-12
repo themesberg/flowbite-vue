@@ -1,5 +1,6 @@
 <template>
   <div
+    v-bind="rootAttrs"
     :class="wrapperClasses"
     role="group"
   >
@@ -21,7 +22,12 @@ const defaultButtonGroupClasses = `fwb-button-group inline-flex rounded-md shado
   [&>button:first-child]:rounded-l-lg [&>.fwb-dropdown:first-child_button]:rounded-l-lg [&>.fwb-tooltip:first-child_button]:rounded-l-lg
   [&>button:last-child]:rounded-r-lg [&>.fwb-dropdown:last-child_button]:rounded-r-lg [&>.fwb-tooltip:last-child_button]:rounded-r-lg`
 
+// The root gets the merged class only. With inheritance on, Vue would also add
+// the raw `class`, putting back classes the merge dropped.
+defineOptions({ inheritAttrs: false })
+
 const attrs = useAttrs()
+const rootAttrs = computed(() => Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class')))
 
 const wrapperClasses = computed(() => useMergeClasses([defaultButtonGroupClasses, attrs.class as ClassInput]))
 </script>

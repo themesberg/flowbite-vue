@@ -15,4 +15,16 @@ describe('FwbTooltip', () => {
     expect(wrapper.classes()).not.toContain('flex')
     expect(wrapper.classes()).not.toContain('items-start')
   })
+
+  it('does not put back a custom class that the merge dropped', () => {
+    const wrapper = mount(FwbTooltip, { attrs: { class: 'items-start items-center' } })
+    expect(wrapper.classes()).toContain('items-center')
+    expect(wrapper.classes()).not.toContain('items-start')
+  })
+
+  it('passes other attributes through to the root', () => {
+    const wrapper = mount(FwbTooltip, { attrs: { 'id': 'tip', 'data-test': 'x' } })
+    expect(wrapper.attributes('id')).toBe('tip')
+    expect(wrapper.attributes('data-test')).toBe('x')
+  })
 })

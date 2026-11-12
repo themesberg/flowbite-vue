@@ -1,5 +1,8 @@
 <template>
-  <div :class="wrapperClasses">
+  <div
+    v-bind="rootAttrs"
+    :class="wrapperClasses"
+  >
     <tooltip
       :placement="placement"
       :triggers="[trigger]"
@@ -33,7 +36,12 @@ const props = withDefaults(defineProps<TooltipProps>(), {
   theme: 'dark',
   trigger: 'hover',
 })
+// The root gets the merged class only. With inheritance on, Vue would also add
+// the raw `class`, putting back classes the merge dropped.
+defineOptions({ inheritAttrs: false })
+
 const attrs = useAttrs()
+const rootAttrs = computed(() => Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class')))
 
 // `fwb-tooltip` is the hook FwbButtonGroup uses to round a grouped tooltip's button.
 const wrapperClasses = computed(() => useMergeClasses(['fwb-tooltip flex items-start', attrs.class as ClassInput]))

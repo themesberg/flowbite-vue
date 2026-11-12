@@ -12,6 +12,18 @@ describe('FwbCarousel', () => {
     expect(wrapper.classes()).not.toContain('relative')
   })
 
+  it('does not put back a custom class that the merge dropped', () => {
+    const wrapper = mount(FwbCarousel, { props: { pictures }, attrs: { class: 'relative static' } })
+    expect(wrapper.classes()).toContain('static')
+    expect(wrapper.classes()).not.toContain('relative')
+  })
+
+  it('passes other attributes through to the root', () => {
+    const wrapper = mount(FwbCarousel, { props: { pictures }, attrs: { 'id': 'gallery', 'aria-label': 'Gallery' } })
+    expect(wrapper.attributes('id')).toBe('gallery')
+    expect(wrapper.attributes('aria-label')).toBe('Gallery')
+  })
+
   it('merges slidesClass over the default slide height', () => {
     const wrapper = mount(FwbCarousel, { props: { pictures, slidesClass: 'h-40 rounded-none' } })
     const slides = wrapper.findAll(':scope > div')[0]

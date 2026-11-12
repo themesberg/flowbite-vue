@@ -1,5 +1,8 @@
 <template>
-  <div :class="wrapperClasses">
+  <div
+    v-bind="rootAttrs"
+    :class="wrapperClasses"
+  >
     <!-- Carousel wrapper -->
     <div :class="slidesClasses">
       <!-- Item 1 -->
@@ -124,7 +127,12 @@ const props = defineProps({
   },
 })
 
+// The root gets the merged class only. With inheritance on, Vue would also add
+// the raw `class`, putting back classes the merge dropped.
+defineOptions({ inheritAttrs: false })
+
 const attrs = useAttrs()
+const rootAttrs = computed(() => Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class')))
 
 const wrapperClasses = computed(() => useMergeClasses(['relative', attrs.class as ClassInput]))
 const slidesClasses = computed(() => useMergeClasses([

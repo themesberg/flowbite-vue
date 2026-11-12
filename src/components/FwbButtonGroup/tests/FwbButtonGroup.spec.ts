@@ -16,4 +16,16 @@ describe('FwbButtonGroup', () => {
     expect(wrapper.classes()).not.toContain('shadow-xs')
     expect(wrapper.classes()).not.toContain('inline-flex')
   })
+
+  it('does not put back a custom class that the merge dropped', () => {
+    const wrapper = mount(FwbButtonGroup, { attrs: { class: 'shadow-xs shadow-none' } })
+    expect(wrapper.classes()).toContain('shadow-none')
+    expect(wrapper.classes()).not.toContain('shadow-xs')
+  })
+
+  it('passes other attributes through to the root', () => {
+    const wrapper = mount(FwbButtonGroup, { attrs: { 'id': 'group', 'aria-label': 'Actions' } })
+    expect(wrapper.attributes('id')).toBe('group')
+    expect(wrapper.attributes('aria-label')).toBe('Actions')
+  })
 })
