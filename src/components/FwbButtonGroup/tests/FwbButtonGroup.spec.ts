@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
+import { defineComponent, h, nextTick, ref } from 'vue'
 
 import FwbButtonGroup from '../FwbButtonGroup.vue'
 
@@ -27,5 +28,16 @@ describe('FwbButtonGroup', () => {
     const wrapper = mount(FwbButtonGroup, { attrs: { 'id': 'group', 'aria-label': 'Actions' } })
     expect(wrapper.attributes('id')).toBe('group')
     expect(wrapper.attributes('aria-label')).toBe('Actions')
+  })
+
+  it('forwards attributes added after the first render', async () => {
+    const extraAttrs = ref<Record<string, unknown>>({})
+    const wrapper = mount(defineComponent(() => () => h(FwbButtonGroup, { ...extraAttrs.value })))
+    const onClick = vi.fn()
+    extraAttrs.value = { id: 'later', onClick }
+    await nextTick()
+    expect(wrapper.attributes('id')).toBe('later')
+    await wrapper.trigger('click')
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 })

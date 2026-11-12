@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
+import { defineComponent, h, nextTick, ref } from 'vue'
 
 import FwbCarousel from '../FwbCarousel.vue'
 
@@ -30,5 +31,16 @@ describe('FwbCarousel', () => {
     expect(slides.classes()).toEqual(expect.arrayContaining(['h-40', 'rounded-none', 'overflow-hidden', 'sm:h-64']))
     expect(slides.classes()).not.toContain('h-56')
     expect(slides.classes()).not.toContain('rounded-lg')
+  })
+
+  it('forwards attributes added after the first render', async () => {
+    const extraAttrs = ref<Record<string, unknown>>({})
+    const wrapper = mount(defineComponent(() => () => h(FwbCarousel, { pictures, ...extraAttrs.value })))
+    const onClick = vi.fn()
+    extraAttrs.value = { id: 'later', onClick }
+    await nextTick()
+    expect(wrapper.attributes('id')).toBe('later')
+    await wrapper.trigger('click')
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 })

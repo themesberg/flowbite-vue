@@ -1,6 +1,6 @@
 <template>
   <div
-    v-bind="rootAttrs"
+    v-bind="rootAttrs()"
     :class="wrapperClasses"
     role="group"
   >
@@ -27,7 +27,9 @@ const defaultButtonGroupClasses = `fwb-button-group inline-flex rounded-md shado
 defineOptions({ inheritAttrs: false })
 
 const attrs = useAttrs()
-const rootAttrs = computed(() => Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class')))
+// Called on every render, not cached in `computed`: listing the attrs isn't
+// tracked, so a cached copy would miss attributes added after the first render.
+const rootAttrs = () => Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'))
 
 const wrapperClasses = computed(() => useMergeClasses([defaultButtonGroupClasses, attrs.class as ClassInput]))
 </script>
