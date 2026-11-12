@@ -1,9 +1,10 @@
-// Installs the packed tarball into a fresh project with production
-// dependencies only, then loads every built entry and component chunk in
-// plain Node and compiles `flowbite-vue/tailwind.css` with Tailwind (run
-// after `npm run build:package`). Catches runtime imports that resolve in
-// this repo only because a devDependency installed them, such as an optional
-// peer of a dependency (#471), and CSS entries that don't ship (#469).
+// Packs the package and fails if test files are packed. Then installs the
+// tarball into a fresh project with production dependencies only, loads every
+// built entry and component chunk in plain Node and compiles
+// `flowbite-vue/tailwind.css` with Tailwind. Run it after `npm run build`,
+// which also emits the type declarations. Catches runtime imports that resolve
+// in this repo only because a devDependency installed them, such as an
+// optional peer of a dependency (#471), and CSS entries that don't ship (#469).
 import { execFileSync } from 'node:child_process'
 import { mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
@@ -25,7 +26,17 @@ const npm = (args, cwd) => execFileSync('npm', args, {
 
 const workDir = mkdtempSync(join(tmpdir(), 'flowbite-vue-pack-'))
 try {
-  const [{ filename }] = JSON.parse(npm(['pack', '--json', '--pack-destination', workDir], root))
+  const [{ filename, files }] = JSON.parse(npm(['pack', '--json', '--pack-destination', workDir], root))
+
+  // `files` publishes dist/ and src/ whole, and npm doesn't apply .gitignore
+  // inside them, so tests, their emitted types and the Nuxt fixtures (with
+  // their local .nuxt and node_modules caches) would ship unless excluded.
+  const testFiles = files.map(file => file.path)
+    .filter(path => /\.(spec|test)\.|(^|\/)tests?\//.test(path))
+  if (testFiles.length) {
+    console.error(`flowbite-vue pack check failed: ${testFiles.length} test files are packed, for example:\n  ${testFiles.slice(0, 10).join('\n  ')}`)
+    process.exit(1)
+  }
 
   // A consumer app with the required peers only: everything except the Nuxt
   // module must load without optional peers such as @nuxt/kit.

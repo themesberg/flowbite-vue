@@ -46,7 +46,7 @@ This project keeps a [`CHANGELOG.md`](CHANGELOG.md) following [Keep a Changelog]
 - `peerDependencies`: packages that must be a single instance shared with the app (`vue`), or that only an optional entry needs (`@nuxt/kit` for `flowbite-vue/nuxt`), or that apps may add next to the library and that it must stay compatible with (`flowbite`, whose plugin and themes the components are designed to work with). Mark the optional ones in `peerDependenciesMeta`. Same caret rule.
 - `devDependencies`: everything used only to build, test, or document the library, including Tailwind CSS. Exact versions are fine here.
 
-The lockfile pins exact versions for development. `npm run test:package` checks these rules, and `npm run test:pack` installs the packed tarball with production dependencies only, loads every built chunk, and compiles `flowbite-vue/tailwind.css` with Tailwind.
+The lockfile pins exact versions for development. `npm run test:package` checks these rules, and `npm run test:pack` checks that the packed tarball has no test files, installs it with production dependencies only, loads every built chunk, and compiles `flowbite-vue/tailwind.css` with Tailwind.
 
 ## Where can I go for help?
 
