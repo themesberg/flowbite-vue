@@ -16,6 +16,15 @@ const hoverClasses = 'hover:bg-gray-100 dark:hover:bg-gray-700'
 const defaultImageClasses = 'rounded-t-lg'
 const horizontalImageClasses = 'object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg'
 
+// tailwind-merge drops a probe color when the custom classes set a background
+// color. Two different probes, because a custom class equal to the probe merges
+// into it instead of dropping it (`bg-white bg-white` → `bg-white`).
+function hasBackgroundColor (customClasses: ClassInput): boolean {
+  return ['bg-white', 'bg-black'].some(probe =>
+    !useMergeClasses([probe, customClasses]).split(' ').includes(probe),
+  )
+}
+
 export type UseCardsClassesProps = {
   variant: Ref<CardsVariant>
   href?: Ref<string>
@@ -31,7 +40,7 @@ export function useCardsClasses (props: UseCardsClassesProps): {
     const customClasses = props.class?.value ?? ''
     // A custom background color drops the light and dark defaults together, so
     // a light-only custom color is not replaced by the default in dark mode.
-    const hasCustomBackground = !useMergeClasses(['bg-white', customClasses]).split(' ').includes('bg-white')
+    const hasCustomBackground = hasBackgroundColor(customClasses)
 
     return useMergeClasses([
       variantClasses[props.variant.value],
