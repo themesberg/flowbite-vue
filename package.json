@@ -1,6 +1,6 @@
 {
   "name": "flowbite-vue",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Vue 3 UI component library built on top of Tailwind CSS and Flowbite.",
   "keywords": [
     "vue",
